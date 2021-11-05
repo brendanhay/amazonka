@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.Mobile.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.Mobile.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.Mobile" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.Mobile" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,27 +45,27 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.Mobile
-    Network.AWS.Mobile.CreateProject
-    Network.AWS.Mobile.DeleteProject
-    Network.AWS.Mobile.DescribeBundle
-    Network.AWS.Mobile.DescribeProject
-    Network.AWS.Mobile.ExportBundle
-    Network.AWS.Mobile.ExportProject
-    Network.AWS.Mobile.Lens
-    Network.AWS.Mobile.ListBundles
-    Network.AWS.Mobile.ListProjects
-    Network.AWS.Mobile.Types
-    Network.AWS.Mobile.Types.BundleDetails
-    Network.AWS.Mobile.Types.Platform
-    Network.AWS.Mobile.Types.ProjectDetails
-    Network.AWS.Mobile.Types.ProjectState
-    Network.AWS.Mobile.Types.ProjectSummary
-    Network.AWS.Mobile.Types.Resource
-    Network.AWS.Mobile.UpdateProject
-    Network.AWS.Mobile.Waiters
+    Amazonka.Mobile
+    Amazonka.Mobile.CreateProject
+    Amazonka.Mobile.DeleteProject
+    Amazonka.Mobile.DescribeBundle
+    Amazonka.Mobile.DescribeProject
+    Amazonka.Mobile.ExportBundle
+    Amazonka.Mobile.ExportProject
+    Amazonka.Mobile.Lens
+    Amazonka.Mobile.ListBundles
+    Amazonka.Mobile.ListProjects
+    Amazonka.Mobile.Types
+    Amazonka.Mobile.Types.BundleDetails
+    Amazonka.Mobile.Types.Platform
+    Amazonka.Mobile.Types.ProjectDetails
+    Amazonka.Mobile.Types.ProjectState
+    Amazonka.Mobile.Types.ProjectSummary
+    Amazonka.Mobile.Types.Resource
+    Amazonka.Mobile.UpdateProject
+    Amazonka.Mobile.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

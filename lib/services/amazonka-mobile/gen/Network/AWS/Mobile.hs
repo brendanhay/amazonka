@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Mobile
+-- Module      : Amazonka.Mobile
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -15,7 +15,7 @@
 -- capabilities required to configure AWS resources and bootstrap their
 -- developer desktop projects with the necessary SDKs, constants, tools and
 -- samples to make use of those resources.
-module Network.AWS.Mobile
+module Amazonka.Mobile
   ( -- * Service Configuration
     defaultService,
 
@@ -132,18 +132,18 @@ module Network.AWS.Mobile
   )
 where
 
-import Network.AWS.Mobile.CreateProject
-import Network.AWS.Mobile.DeleteProject
-import Network.AWS.Mobile.DescribeBundle
-import Network.AWS.Mobile.DescribeProject
-import Network.AWS.Mobile.ExportBundle
-import Network.AWS.Mobile.ExportProject
-import Network.AWS.Mobile.Lens
-import Network.AWS.Mobile.ListBundles
-import Network.AWS.Mobile.ListProjects
-import Network.AWS.Mobile.Types
-import Network.AWS.Mobile.UpdateProject
-import Network.AWS.Mobile.Waiters
+import Amazonka.Mobile.CreateProject
+import Amazonka.Mobile.DeleteProject
+import Amazonka.Mobile.DescribeBundle
+import Amazonka.Mobile.DescribeProject
+import Amazonka.Mobile.ExportBundle
+import Amazonka.Mobile.ExportProject
+import Amazonka.Mobile.Lens
+import Amazonka.Mobile.ListBundles
+import Amazonka.Mobile.ListProjects
+import Amazonka.Mobile.Types
+import Amazonka.Mobile.UpdateProject
+import Amazonka.Mobile.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

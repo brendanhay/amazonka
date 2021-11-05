@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Mobile.Types
+-- Module      : Amazonka.Mobile.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Mobile.Types
+module Amazonka.Mobile.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -71,16 +71,16 @@ module Network.AWS.Mobile.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Mobile.Types.BundleDetails
-import Network.AWS.Mobile.Types.Platform
-import Network.AWS.Mobile.Types.ProjectDetails
-import Network.AWS.Mobile.Types.ProjectState
-import Network.AWS.Mobile.Types.ProjectSummary
-import Network.AWS.Mobile.Types.Resource
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Mobile.Types.BundleDetails
+import Amazonka.Mobile.Types.Platform
+import Amazonka.Mobile.Types.ProjectDetails
+import Amazonka.Mobile.Types.ProjectState
+import Amazonka.Mobile.Types.ProjectSummary
+import Amazonka.Mobile.Types.Resource
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2017-07-01@ of the Amazon Mobile SDK configuration.
 defaultService :: Core.Service

@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Mobile where
 
+import Amazonka.Mobile
 import qualified Data.Proxy as Proxy
-import Network.AWS.Mobile
 import Test.AWS.Fixture
 import Test.AWS.Mobile.Internal
 import Test.AWS.Prelude

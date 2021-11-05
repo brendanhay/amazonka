@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Mobile.Lens
+-- Module      : Amazonka.Mobile.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Mobile.Lens
+module Amazonka.Mobile.Lens
   ( -- * Operations
 
     -- ** ListProjects
@@ -106,16 +106,16 @@ module Network.AWS.Mobile.Lens
   )
 where
 
-import Network.AWS.Mobile.CreateProject
-import Network.AWS.Mobile.DeleteProject
-import Network.AWS.Mobile.DescribeBundle
-import Network.AWS.Mobile.DescribeProject
-import Network.AWS.Mobile.ExportBundle
-import Network.AWS.Mobile.ExportProject
-import Network.AWS.Mobile.ListBundles
-import Network.AWS.Mobile.ListProjects
-import Network.AWS.Mobile.Types.BundleDetails
-import Network.AWS.Mobile.Types.ProjectDetails
-import Network.AWS.Mobile.Types.ProjectSummary
-import Network.AWS.Mobile.Types.Resource
-import Network.AWS.Mobile.UpdateProject
+import Amazonka.Mobile.CreateProject
+import Amazonka.Mobile.DeleteProject
+import Amazonka.Mobile.DescribeBundle
+import Amazonka.Mobile.DescribeProject
+import Amazonka.Mobile.ExportBundle
+import Amazonka.Mobile.ExportProject
+import Amazonka.Mobile.ListBundles
+import Amazonka.Mobile.ListProjects
+import Amazonka.Mobile.Types.BundleDetails
+import Amazonka.Mobile.Types.ProjectDetails
+import Amazonka.Mobile.Types.ProjectSummary
+import Amazonka.Mobile.Types.Resource
+import Amazonka.Mobile.UpdateProject

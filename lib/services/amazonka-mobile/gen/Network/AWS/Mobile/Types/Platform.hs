@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Mobile.Types.Platform
+-- Module      : Amazonka.Mobile.Types.Platform
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Mobile.Types.Platform
+module Amazonka.Mobile.Types.Platform
   ( Platform
       ( ..,
         Platform_ANDROID,
@@ -31,8 +31,8 @@ module Network.AWS.Mobile.Types.Platform
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Developer desktop or target mobile app or website platform.
 newtype Platform = Platform'

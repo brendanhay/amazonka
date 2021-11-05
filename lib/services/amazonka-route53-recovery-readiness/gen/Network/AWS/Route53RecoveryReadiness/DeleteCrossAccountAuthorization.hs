@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53RecoveryReadiness.DeleteCrossAccountAuthorization
+-- Module      : Amazonka.Route53RecoveryReadiness.DeleteCrossAccountAuthorization
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Delete cross account readiness authorization
-module Network.AWS.Route53RecoveryReadiness.DeleteCrossAccountAuthorization
+module Amazonka.Route53RecoveryReadiness.DeleteCrossAccountAuthorization
   ( -- * Creating a Request
     DeleteCrossAccountAuthorization (..),
     newDeleteCrossAccountAuthorization,
@@ -38,12 +38,12 @@ module Network.AWS.Route53RecoveryReadiness.DeleteCrossAccountAuthorization
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Route53RecoveryReadiness.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Route53RecoveryReadiness.Types
 
 -- | /See:/ 'newDeleteCrossAccountAuthorization' smart constructor.
 data DeleteCrossAccountAuthorization = DeleteCrossAccountAuthorization'

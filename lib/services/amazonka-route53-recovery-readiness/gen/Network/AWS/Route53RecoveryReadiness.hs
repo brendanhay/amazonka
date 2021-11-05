@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Route53RecoveryReadiness
+-- Module      : Amazonka.Route53RecoveryReadiness
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -12,7 +12,7 @@
 -- Derived from API version @2019-12-02@ of the AWS service descriptions, licensed under Apache 2.0.
 --
 -- AWS Route53 Recovery Readiness
-module Network.AWS.Route53RecoveryReadiness
+module Amazonka.Route53RecoveryReadiness
   ( -- * Service Configuration
     defaultService,
 
@@ -302,41 +302,41 @@ module Network.AWS.Route53RecoveryReadiness
   )
 where
 
-import Network.AWS.Route53RecoveryReadiness.CreateCell
-import Network.AWS.Route53RecoveryReadiness.CreateCrossAccountAuthorization
-import Network.AWS.Route53RecoveryReadiness.CreateReadinessCheck
-import Network.AWS.Route53RecoveryReadiness.CreateRecoveryGroup
-import Network.AWS.Route53RecoveryReadiness.CreateResourceSet
-import Network.AWS.Route53RecoveryReadiness.DeleteCell
-import Network.AWS.Route53RecoveryReadiness.DeleteCrossAccountAuthorization
-import Network.AWS.Route53RecoveryReadiness.DeleteReadinessCheck
-import Network.AWS.Route53RecoveryReadiness.DeleteRecoveryGroup
-import Network.AWS.Route53RecoveryReadiness.DeleteResourceSet
-import Network.AWS.Route53RecoveryReadiness.GetArchitectureRecommendations
-import Network.AWS.Route53RecoveryReadiness.GetCell
-import Network.AWS.Route53RecoveryReadiness.GetCellReadinessSummary
-import Network.AWS.Route53RecoveryReadiness.GetReadinessCheck
-import Network.AWS.Route53RecoveryReadiness.GetReadinessCheckResourceStatus
-import Network.AWS.Route53RecoveryReadiness.GetReadinessCheckStatus
-import Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup
-import Network.AWS.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary
-import Network.AWS.Route53RecoveryReadiness.GetResourceSet
-import Network.AWS.Route53RecoveryReadiness.Lens
-import Network.AWS.Route53RecoveryReadiness.ListCells
-import Network.AWS.Route53RecoveryReadiness.ListCrossAccountAuthorizations
-import Network.AWS.Route53RecoveryReadiness.ListReadinessChecks
-import Network.AWS.Route53RecoveryReadiness.ListRecoveryGroups
-import Network.AWS.Route53RecoveryReadiness.ListResourceSets
-import Network.AWS.Route53RecoveryReadiness.ListRules
-import Network.AWS.Route53RecoveryReadiness.ListTagsForResources
-import Network.AWS.Route53RecoveryReadiness.TagResource
-import Network.AWS.Route53RecoveryReadiness.Types
-import Network.AWS.Route53RecoveryReadiness.UntagResource
-import Network.AWS.Route53RecoveryReadiness.UpdateCell
-import Network.AWS.Route53RecoveryReadiness.UpdateReadinessCheck
-import Network.AWS.Route53RecoveryReadiness.UpdateRecoveryGroup
-import Network.AWS.Route53RecoveryReadiness.UpdateResourceSet
-import Network.AWS.Route53RecoveryReadiness.Waiters
+import Amazonka.Route53RecoveryReadiness.CreateCell
+import Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization
+import Amazonka.Route53RecoveryReadiness.CreateReadinessCheck
+import Amazonka.Route53RecoveryReadiness.CreateRecoveryGroup
+import Amazonka.Route53RecoveryReadiness.CreateResourceSet
+import Amazonka.Route53RecoveryReadiness.DeleteCell
+import Amazonka.Route53RecoveryReadiness.DeleteCrossAccountAuthorization
+import Amazonka.Route53RecoveryReadiness.DeleteReadinessCheck
+import Amazonka.Route53RecoveryReadiness.DeleteRecoveryGroup
+import Amazonka.Route53RecoveryReadiness.DeleteResourceSet
+import Amazonka.Route53RecoveryReadiness.GetArchitectureRecommendations
+import Amazonka.Route53RecoveryReadiness.GetCell
+import Amazonka.Route53RecoveryReadiness.GetCellReadinessSummary
+import Amazonka.Route53RecoveryReadiness.GetReadinessCheck
+import Amazonka.Route53RecoveryReadiness.GetReadinessCheckResourceStatus
+import Amazonka.Route53RecoveryReadiness.GetReadinessCheckStatus
+import Amazonka.Route53RecoveryReadiness.GetRecoveryGroup
+import Amazonka.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary
+import Amazonka.Route53RecoveryReadiness.GetResourceSet
+import Amazonka.Route53RecoveryReadiness.Lens
+import Amazonka.Route53RecoveryReadiness.ListCells
+import Amazonka.Route53RecoveryReadiness.ListCrossAccountAuthorizations
+import Amazonka.Route53RecoveryReadiness.ListReadinessChecks
+import Amazonka.Route53RecoveryReadiness.ListRecoveryGroups
+import Amazonka.Route53RecoveryReadiness.ListResourceSets
+import Amazonka.Route53RecoveryReadiness.ListRules
+import Amazonka.Route53RecoveryReadiness.ListTagsForResources
+import Amazonka.Route53RecoveryReadiness.TagResource
+import Amazonka.Route53RecoveryReadiness.Types
+import Amazonka.Route53RecoveryReadiness.UntagResource
+import Amazonka.Route53RecoveryReadiness.UpdateCell
+import Amazonka.Route53RecoveryReadiness.UpdateReadinessCheck
+import Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup
+import Amazonka.Route53RecoveryReadiness.UpdateResourceSet
+import Amazonka.Route53RecoveryReadiness.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

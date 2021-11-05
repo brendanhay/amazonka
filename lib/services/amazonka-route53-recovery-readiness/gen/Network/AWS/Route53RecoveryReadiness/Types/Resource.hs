@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53RecoveryReadiness.Types.Resource
+-- Module      : Amazonka.Route53RecoveryReadiness.Types.Resource
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53RecoveryReadiness.Types.Resource where
+module Amazonka.Route53RecoveryReadiness.Types.Resource where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Route53RecoveryReadiness.Types.DNSTargetResource
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Route53RecoveryReadiness.Types.DNSTargetResource
 
 -- | The resource element of a ResourceSet
 --

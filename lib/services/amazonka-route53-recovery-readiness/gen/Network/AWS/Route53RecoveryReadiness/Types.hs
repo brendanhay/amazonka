@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53RecoveryReadiness.Types
+-- Module      : Amazonka.Route53RecoveryReadiness.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53RecoveryReadiness.Types
+module Amazonka.Route53RecoveryReadiness.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -136,26 +136,26 @@ module Network.AWS.Route53RecoveryReadiness.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Route53RecoveryReadiness.Types.CellOutput
-import Network.AWS.Route53RecoveryReadiness.Types.DNSTargetResource
-import Network.AWS.Route53RecoveryReadiness.Types.ListRulesOutput
-import Network.AWS.Route53RecoveryReadiness.Types.Message
-import Network.AWS.Route53RecoveryReadiness.Types.NLBResource
-import Network.AWS.Route53RecoveryReadiness.Types.R53ResourceRecord
-import Network.AWS.Route53RecoveryReadiness.Types.Readiness
-import Network.AWS.Route53RecoveryReadiness.Types.ReadinessCheckOutput
-import Network.AWS.Route53RecoveryReadiness.Types.ReadinessCheckSummary
-import Network.AWS.Route53RecoveryReadiness.Types.Recommendation
-import Network.AWS.Route53RecoveryReadiness.Types.RecoveryGroupOutput
-import Network.AWS.Route53RecoveryReadiness.Types.Resource
-import Network.AWS.Route53RecoveryReadiness.Types.ResourceResult
-import Network.AWS.Route53RecoveryReadiness.Types.ResourceSetOutput
-import Network.AWS.Route53RecoveryReadiness.Types.RuleResult
-import Network.AWS.Route53RecoveryReadiness.Types.TargetResource
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Route53RecoveryReadiness.Types.CellOutput
+import Amazonka.Route53RecoveryReadiness.Types.DNSTargetResource
+import Amazonka.Route53RecoveryReadiness.Types.ListRulesOutput
+import Amazonka.Route53RecoveryReadiness.Types.Message
+import Amazonka.Route53RecoveryReadiness.Types.NLBResource
+import Amazonka.Route53RecoveryReadiness.Types.R53ResourceRecord
+import Amazonka.Route53RecoveryReadiness.Types.Readiness
+import Amazonka.Route53RecoveryReadiness.Types.ReadinessCheckOutput
+import Amazonka.Route53RecoveryReadiness.Types.ReadinessCheckSummary
+import Amazonka.Route53RecoveryReadiness.Types.Recommendation
+import Amazonka.Route53RecoveryReadiness.Types.RecoveryGroupOutput
+import Amazonka.Route53RecoveryReadiness.Types.Resource
+import Amazonka.Route53RecoveryReadiness.Types.ResourceResult
+import Amazonka.Route53RecoveryReadiness.Types.ResourceSetOutput
+import Amazonka.Route53RecoveryReadiness.Types.RuleResult
+import Amazonka.Route53RecoveryReadiness.Types.TargetResource
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2019-12-02@ of the Amazon Route53 Recovery Readiness SDK configuration.
 defaultService :: Core.Service

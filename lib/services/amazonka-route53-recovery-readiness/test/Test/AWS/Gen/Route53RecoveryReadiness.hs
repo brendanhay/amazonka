@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Route53RecoveryReadiness where
 
+import Amazonka.Route53RecoveryReadiness
 import qualified Data.Proxy as Proxy
-import Network.AWS.Route53RecoveryReadiness
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.Route53RecoveryReadiness.Internal

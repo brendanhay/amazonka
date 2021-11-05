@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Shield.Lens
+-- Module      : Amazonka.Shield.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Shield.Lens
+module Amazonka.Shield.Lens
   ( -- * Operations
 
     -- ** AssociateDRTLogBucket
@@ -304,59 +304,59 @@ module Network.AWS.Shield.Lens
   )
 where
 
-import Network.AWS.Shield.AssociateDRTLogBucket
-import Network.AWS.Shield.AssociateDRTRole
-import Network.AWS.Shield.AssociateHealthCheck
-import Network.AWS.Shield.AssociateProactiveEngagementDetails
-import Network.AWS.Shield.CreateProtection
-import Network.AWS.Shield.CreateProtectionGroup
-import Network.AWS.Shield.CreateSubscription
-import Network.AWS.Shield.DeleteProtection
-import Network.AWS.Shield.DeleteProtectionGroup
-import Network.AWS.Shield.DescribeAttack
-import Network.AWS.Shield.DescribeAttackStatistics
-import Network.AWS.Shield.DescribeDRTAccess
-import Network.AWS.Shield.DescribeEmergencyContactSettings
-import Network.AWS.Shield.DescribeProtection
-import Network.AWS.Shield.DescribeProtectionGroup
-import Network.AWS.Shield.DescribeSubscription
-import Network.AWS.Shield.DisableProactiveEngagement
-import Network.AWS.Shield.DisassociateDRTLogBucket
-import Network.AWS.Shield.DisassociateDRTRole
-import Network.AWS.Shield.DisassociateHealthCheck
-import Network.AWS.Shield.EnableProactiveEngagement
-import Network.AWS.Shield.GetSubscriptionState
-import Network.AWS.Shield.ListAttacks
-import Network.AWS.Shield.ListProtectionGroups
-import Network.AWS.Shield.ListProtections
-import Network.AWS.Shield.ListResourcesInProtectionGroup
-import Network.AWS.Shield.ListTagsForResource
-import Network.AWS.Shield.TagResource
-import Network.AWS.Shield.Types.AttackDetail
-import Network.AWS.Shield.Types.AttackProperty
-import Network.AWS.Shield.Types.AttackStatisticsDataItem
-import Network.AWS.Shield.Types.AttackSummary
-import Network.AWS.Shield.Types.AttackVectorDescription
-import Network.AWS.Shield.Types.AttackVolume
-import Network.AWS.Shield.Types.AttackVolumeStatistics
-import Network.AWS.Shield.Types.Contributor
-import Network.AWS.Shield.Types.EmergencyContact
-import Network.AWS.Shield.Types.Limit
-import Network.AWS.Shield.Types.Mitigation
-import Network.AWS.Shield.Types.Protection
-import Network.AWS.Shield.Types.ProtectionGroup
-import Network.AWS.Shield.Types.ProtectionGroupArbitraryPatternLimits
-import Network.AWS.Shield.Types.ProtectionGroupLimits
-import Network.AWS.Shield.Types.ProtectionGroupPatternTypeLimits
-import Network.AWS.Shield.Types.ProtectionLimits
-import Network.AWS.Shield.Types.SubResourceSummary
-import Network.AWS.Shield.Types.Subscription
-import Network.AWS.Shield.Types.SubscriptionLimits
-import Network.AWS.Shield.Types.SummarizedAttackVector
-import Network.AWS.Shield.Types.SummarizedCounter
-import Network.AWS.Shield.Types.Tag
-import Network.AWS.Shield.Types.TimeRange
-import Network.AWS.Shield.UntagResource
-import Network.AWS.Shield.UpdateEmergencyContactSettings
-import Network.AWS.Shield.UpdateProtectionGroup
-import Network.AWS.Shield.UpdateSubscription
+import Amazonka.Shield.AssociateDRTLogBucket
+import Amazonka.Shield.AssociateDRTRole
+import Amazonka.Shield.AssociateHealthCheck
+import Amazonka.Shield.AssociateProactiveEngagementDetails
+import Amazonka.Shield.CreateProtection
+import Amazonka.Shield.CreateProtectionGroup
+import Amazonka.Shield.CreateSubscription
+import Amazonka.Shield.DeleteProtection
+import Amazonka.Shield.DeleteProtectionGroup
+import Amazonka.Shield.DescribeAttack
+import Amazonka.Shield.DescribeAttackStatistics
+import Amazonka.Shield.DescribeDRTAccess
+import Amazonka.Shield.DescribeEmergencyContactSettings
+import Amazonka.Shield.DescribeProtection
+import Amazonka.Shield.DescribeProtectionGroup
+import Amazonka.Shield.DescribeSubscription
+import Amazonka.Shield.DisableProactiveEngagement
+import Amazonka.Shield.DisassociateDRTLogBucket
+import Amazonka.Shield.DisassociateDRTRole
+import Amazonka.Shield.DisassociateHealthCheck
+import Amazonka.Shield.EnableProactiveEngagement
+import Amazonka.Shield.GetSubscriptionState
+import Amazonka.Shield.ListAttacks
+import Amazonka.Shield.ListProtectionGroups
+import Amazonka.Shield.ListProtections
+import Amazonka.Shield.ListResourcesInProtectionGroup
+import Amazonka.Shield.ListTagsForResource
+import Amazonka.Shield.TagResource
+import Amazonka.Shield.Types.AttackDetail
+import Amazonka.Shield.Types.AttackProperty
+import Amazonka.Shield.Types.AttackStatisticsDataItem
+import Amazonka.Shield.Types.AttackSummary
+import Amazonka.Shield.Types.AttackVectorDescription
+import Amazonka.Shield.Types.AttackVolume
+import Amazonka.Shield.Types.AttackVolumeStatistics
+import Amazonka.Shield.Types.Contributor
+import Amazonka.Shield.Types.EmergencyContact
+import Amazonka.Shield.Types.Limit
+import Amazonka.Shield.Types.Mitigation
+import Amazonka.Shield.Types.Protection
+import Amazonka.Shield.Types.ProtectionGroup
+import Amazonka.Shield.Types.ProtectionGroupArbitraryPatternLimits
+import Amazonka.Shield.Types.ProtectionGroupLimits
+import Amazonka.Shield.Types.ProtectionGroupPatternTypeLimits
+import Amazonka.Shield.Types.ProtectionLimits
+import Amazonka.Shield.Types.SubResourceSummary
+import Amazonka.Shield.Types.Subscription
+import Amazonka.Shield.Types.SubscriptionLimits
+import Amazonka.Shield.Types.SummarizedAttackVector
+import Amazonka.Shield.Types.SummarizedCounter
+import Amazonka.Shield.Types.Tag
+import Amazonka.Shield.Types.TimeRange
+import Amazonka.Shield.UntagResource
+import Amazonka.Shield.UpdateEmergencyContactSettings
+import Amazonka.Shield.UpdateProtectionGroup
+import Amazonka.Shield.UpdateSubscription

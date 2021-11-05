@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Shield.AssociateProactiveEngagementDetails
+-- Module      : Amazonka.Shield.AssociateProactiveEngagementDetails
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -36,7 +36,7 @@
 -- were already defined. If you already have contacts defined and want to
 -- use them, retrieve the list using @DescribeEmergencyContactSettings@ and
 -- then provide it to this call.
-module Network.AWS.Shield.AssociateProactiveEngagementDetails
+module Amazonka.Shield.AssociateProactiveEngagementDetails
   ( -- * Creating a Request
     AssociateProactiveEngagementDetails (..),
     newAssociateProactiveEngagementDetails,
@@ -53,12 +53,12 @@ module Network.AWS.Shield.AssociateProactiveEngagementDetails
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Shield.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Shield.Types
 
 -- | /See:/ 'newAssociateProactiveEngagementDetails' smart constructor.
 data AssociateProactiveEngagementDetails = AssociateProactiveEngagementDetails'

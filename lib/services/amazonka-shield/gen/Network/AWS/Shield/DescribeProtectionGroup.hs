@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Shield.DescribeProtectionGroup
+-- Module      : Amazonka.Shield.DescribeProtectionGroup
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the specification for the specified protection group.
-module Network.AWS.Shield.DescribeProtectionGroup
+module Amazonka.Shield.DescribeProtectionGroup
   ( -- * Creating a Request
     DescribeProtectionGroup (..),
     newDescribeProtectionGroup,
@@ -39,12 +39,12 @@ module Network.AWS.Shield.DescribeProtectionGroup
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Shield.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Shield.Types
 
 -- | /See:/ 'newDescribeProtectionGroup' smart constructor.
 data DescribeProtectionGroup = DescribeProtectionGroup'

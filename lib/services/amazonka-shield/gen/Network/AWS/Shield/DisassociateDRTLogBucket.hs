@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Shield.DisassociateDRTLogBucket
+-- Module      : Amazonka.Shield.DisassociateDRTLogBucket
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -31,7 +31,7 @@
 -- However, if you are not subscribed to one of these support plans, but
 -- had been previously and had granted the SRT access to your account, you
 -- can submit a @DisassociateDRTLogBucket@ request to remove this access.
-module Network.AWS.Shield.DisassociateDRTLogBucket
+module Amazonka.Shield.DisassociateDRTLogBucket
   ( -- * Creating a Request
     DisassociateDRTLogBucket (..),
     newDisassociateDRTLogBucket,
@@ -48,12 +48,12 @@ module Network.AWS.Shield.DisassociateDRTLogBucket
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Shield.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Shield.Types
 
 -- | /See:/ 'newDisassociateDRTLogBucket' smart constructor.
 data DisassociateDRTLogBucket = DisassociateDRTLogBucket'

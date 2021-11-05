@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Shield.Types.AttackStatisticsDataItem
+-- Module      : Amazonka.Shield.Types.AttackStatisticsDataItem
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Shield.Types.AttackStatisticsDataItem where
+module Amazonka.Shield.Types.AttackStatisticsDataItem where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Shield.Types.AttackVolume
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Shield.Types.AttackVolume
 
 -- | A single attack statistics data record. This is returned by
 -- DescribeAttackStatistics along with a time range indicating the time

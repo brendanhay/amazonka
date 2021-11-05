@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Shield.Types.Unit
+-- Module      : Amazonka.Shield.Types.Unit
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Shield.Types.Unit
+module Amazonka.Shield.Types.Unit
   ( Unit
       ( ..,
         Unit_BITS,
@@ -28,8 +28,8 @@ module Network.AWS.Shield.Types.Unit
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 newtype Unit = Unit' {fromUnit :: Core.Text}
   deriving stock

@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.Shield.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.Shield.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.Shield" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.Shield" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,78 +45,78 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.Shield
-    Network.AWS.Shield.AssociateDRTLogBucket
-    Network.AWS.Shield.AssociateDRTRole
-    Network.AWS.Shield.AssociateHealthCheck
-    Network.AWS.Shield.AssociateProactiveEngagementDetails
-    Network.AWS.Shield.CreateProtection
-    Network.AWS.Shield.CreateProtectionGroup
-    Network.AWS.Shield.CreateSubscription
-    Network.AWS.Shield.DeleteProtection
-    Network.AWS.Shield.DeleteProtectionGroup
-    Network.AWS.Shield.DescribeAttack
-    Network.AWS.Shield.DescribeAttackStatistics
-    Network.AWS.Shield.DescribeDRTAccess
-    Network.AWS.Shield.DescribeEmergencyContactSettings
-    Network.AWS.Shield.DescribeProtection
-    Network.AWS.Shield.DescribeProtectionGroup
-    Network.AWS.Shield.DescribeSubscription
-    Network.AWS.Shield.DisableProactiveEngagement
-    Network.AWS.Shield.DisassociateDRTLogBucket
-    Network.AWS.Shield.DisassociateDRTRole
-    Network.AWS.Shield.DisassociateHealthCheck
-    Network.AWS.Shield.EnableProactiveEngagement
-    Network.AWS.Shield.GetSubscriptionState
-    Network.AWS.Shield.Lens
-    Network.AWS.Shield.ListAttacks
-    Network.AWS.Shield.ListProtectionGroups
-    Network.AWS.Shield.ListProtections
-    Network.AWS.Shield.ListResourcesInProtectionGroup
-    Network.AWS.Shield.ListTagsForResource
-    Network.AWS.Shield.TagResource
-    Network.AWS.Shield.Types
-    Network.AWS.Shield.Types.AttackDetail
-    Network.AWS.Shield.Types.AttackLayer
-    Network.AWS.Shield.Types.AttackProperty
-    Network.AWS.Shield.Types.AttackPropertyIdentifier
-    Network.AWS.Shield.Types.AttackStatisticsDataItem
-    Network.AWS.Shield.Types.AttackSummary
-    Network.AWS.Shield.Types.AttackVectorDescription
-    Network.AWS.Shield.Types.AttackVolume
-    Network.AWS.Shield.Types.AttackVolumeStatistics
-    Network.AWS.Shield.Types.AutoRenew
-    Network.AWS.Shield.Types.Contributor
-    Network.AWS.Shield.Types.EmergencyContact
-    Network.AWS.Shield.Types.Limit
-    Network.AWS.Shield.Types.Mitigation
-    Network.AWS.Shield.Types.ProactiveEngagementStatus
-    Network.AWS.Shield.Types.ProtectedResourceType
-    Network.AWS.Shield.Types.Protection
-    Network.AWS.Shield.Types.ProtectionGroup
-    Network.AWS.Shield.Types.ProtectionGroupAggregation
-    Network.AWS.Shield.Types.ProtectionGroupArbitraryPatternLimits
-    Network.AWS.Shield.Types.ProtectionGroupLimits
-    Network.AWS.Shield.Types.ProtectionGroupPattern
-    Network.AWS.Shield.Types.ProtectionGroupPatternTypeLimits
-    Network.AWS.Shield.Types.ProtectionLimits
-    Network.AWS.Shield.Types.SubResourceSummary
-    Network.AWS.Shield.Types.SubResourceType
-    Network.AWS.Shield.Types.Subscription
-    Network.AWS.Shield.Types.SubscriptionLimits
-    Network.AWS.Shield.Types.SubscriptionState
-    Network.AWS.Shield.Types.SummarizedAttackVector
-    Network.AWS.Shield.Types.SummarizedCounter
-    Network.AWS.Shield.Types.Tag
-    Network.AWS.Shield.Types.TimeRange
-    Network.AWS.Shield.Types.Unit
-    Network.AWS.Shield.UntagResource
-    Network.AWS.Shield.UpdateEmergencyContactSettings
-    Network.AWS.Shield.UpdateProtectionGroup
-    Network.AWS.Shield.UpdateSubscription
-    Network.AWS.Shield.Waiters
+    Amazonka.Shield
+    Amazonka.Shield.AssociateDRTLogBucket
+    Amazonka.Shield.AssociateDRTRole
+    Amazonka.Shield.AssociateHealthCheck
+    Amazonka.Shield.AssociateProactiveEngagementDetails
+    Amazonka.Shield.CreateProtection
+    Amazonka.Shield.CreateProtectionGroup
+    Amazonka.Shield.CreateSubscription
+    Amazonka.Shield.DeleteProtection
+    Amazonka.Shield.DeleteProtectionGroup
+    Amazonka.Shield.DescribeAttack
+    Amazonka.Shield.DescribeAttackStatistics
+    Amazonka.Shield.DescribeDRTAccess
+    Amazonka.Shield.DescribeEmergencyContactSettings
+    Amazonka.Shield.DescribeProtection
+    Amazonka.Shield.DescribeProtectionGroup
+    Amazonka.Shield.DescribeSubscription
+    Amazonka.Shield.DisableProactiveEngagement
+    Amazonka.Shield.DisassociateDRTLogBucket
+    Amazonka.Shield.DisassociateDRTRole
+    Amazonka.Shield.DisassociateHealthCheck
+    Amazonka.Shield.EnableProactiveEngagement
+    Amazonka.Shield.GetSubscriptionState
+    Amazonka.Shield.Lens
+    Amazonka.Shield.ListAttacks
+    Amazonka.Shield.ListProtectionGroups
+    Amazonka.Shield.ListProtections
+    Amazonka.Shield.ListResourcesInProtectionGroup
+    Amazonka.Shield.ListTagsForResource
+    Amazonka.Shield.TagResource
+    Amazonka.Shield.Types
+    Amazonka.Shield.Types.AttackDetail
+    Amazonka.Shield.Types.AttackLayer
+    Amazonka.Shield.Types.AttackProperty
+    Amazonka.Shield.Types.AttackPropertyIdentifier
+    Amazonka.Shield.Types.AttackStatisticsDataItem
+    Amazonka.Shield.Types.AttackSummary
+    Amazonka.Shield.Types.AttackVectorDescription
+    Amazonka.Shield.Types.AttackVolume
+    Amazonka.Shield.Types.AttackVolumeStatistics
+    Amazonka.Shield.Types.AutoRenew
+    Amazonka.Shield.Types.Contributor
+    Amazonka.Shield.Types.EmergencyContact
+    Amazonka.Shield.Types.Limit
+    Amazonka.Shield.Types.Mitigation
+    Amazonka.Shield.Types.ProactiveEngagementStatus
+    Amazonka.Shield.Types.ProtectedResourceType
+    Amazonka.Shield.Types.Protection
+    Amazonka.Shield.Types.ProtectionGroup
+    Amazonka.Shield.Types.ProtectionGroupAggregation
+    Amazonka.Shield.Types.ProtectionGroupArbitraryPatternLimits
+    Amazonka.Shield.Types.ProtectionGroupLimits
+    Amazonka.Shield.Types.ProtectionGroupPattern
+    Amazonka.Shield.Types.ProtectionGroupPatternTypeLimits
+    Amazonka.Shield.Types.ProtectionLimits
+    Amazonka.Shield.Types.SubResourceSummary
+    Amazonka.Shield.Types.SubResourceType
+    Amazonka.Shield.Types.Subscription
+    Amazonka.Shield.Types.SubscriptionLimits
+    Amazonka.Shield.Types.SubscriptionState
+    Amazonka.Shield.Types.SummarizedAttackVector
+    Amazonka.Shield.Types.SummarizedCounter
+    Amazonka.Shield.Types.Tag
+    Amazonka.Shield.Types.TimeRange
+    Amazonka.Shield.Types.Unit
+    Amazonka.Shield.UntagResource
+    Amazonka.Shield.UpdateEmergencyContactSettings
+    Amazonka.Shield.UpdateProtectionGroup
+    Amazonka.Shield.UpdateSubscription
+    Amazonka.Shield.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

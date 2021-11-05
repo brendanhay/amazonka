@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Shield
+-- Module      : Amazonka.Shield
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -19,7 +19,7 @@
 -- Shield Advanced features and an overview of how to use the WAF and
 -- Shield Advanced APIs, see the
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/ WAF and Shield Developer Guide>.
-module Network.AWS.Shield
+module Amazonka.Shield
   ( -- * Service Configuration
     defaultService,
 
@@ -393,41 +393,41 @@ module Network.AWS.Shield
   )
 where
 
-import Network.AWS.Shield.AssociateDRTLogBucket
-import Network.AWS.Shield.AssociateDRTRole
-import Network.AWS.Shield.AssociateHealthCheck
-import Network.AWS.Shield.AssociateProactiveEngagementDetails
-import Network.AWS.Shield.CreateProtection
-import Network.AWS.Shield.CreateProtectionGroup
-import Network.AWS.Shield.CreateSubscription
-import Network.AWS.Shield.DeleteProtection
-import Network.AWS.Shield.DeleteProtectionGroup
-import Network.AWS.Shield.DescribeAttack
-import Network.AWS.Shield.DescribeAttackStatistics
-import Network.AWS.Shield.DescribeDRTAccess
-import Network.AWS.Shield.DescribeEmergencyContactSettings
-import Network.AWS.Shield.DescribeProtection
-import Network.AWS.Shield.DescribeProtectionGroup
-import Network.AWS.Shield.DescribeSubscription
-import Network.AWS.Shield.DisableProactiveEngagement
-import Network.AWS.Shield.DisassociateDRTLogBucket
-import Network.AWS.Shield.DisassociateDRTRole
-import Network.AWS.Shield.DisassociateHealthCheck
-import Network.AWS.Shield.EnableProactiveEngagement
-import Network.AWS.Shield.GetSubscriptionState
-import Network.AWS.Shield.Lens
-import Network.AWS.Shield.ListAttacks
-import Network.AWS.Shield.ListProtectionGroups
-import Network.AWS.Shield.ListProtections
-import Network.AWS.Shield.ListResourcesInProtectionGroup
-import Network.AWS.Shield.ListTagsForResource
-import Network.AWS.Shield.TagResource
-import Network.AWS.Shield.Types
-import Network.AWS.Shield.UntagResource
-import Network.AWS.Shield.UpdateEmergencyContactSettings
-import Network.AWS.Shield.UpdateProtectionGroup
-import Network.AWS.Shield.UpdateSubscription
-import Network.AWS.Shield.Waiters
+import Amazonka.Shield.AssociateDRTLogBucket
+import Amazonka.Shield.AssociateDRTRole
+import Amazonka.Shield.AssociateHealthCheck
+import Amazonka.Shield.AssociateProactiveEngagementDetails
+import Amazonka.Shield.CreateProtection
+import Amazonka.Shield.CreateProtectionGroup
+import Amazonka.Shield.CreateSubscription
+import Amazonka.Shield.DeleteProtection
+import Amazonka.Shield.DeleteProtectionGroup
+import Amazonka.Shield.DescribeAttack
+import Amazonka.Shield.DescribeAttackStatistics
+import Amazonka.Shield.DescribeDRTAccess
+import Amazonka.Shield.DescribeEmergencyContactSettings
+import Amazonka.Shield.DescribeProtection
+import Amazonka.Shield.DescribeProtectionGroup
+import Amazonka.Shield.DescribeSubscription
+import Amazonka.Shield.DisableProactiveEngagement
+import Amazonka.Shield.DisassociateDRTLogBucket
+import Amazonka.Shield.DisassociateDRTRole
+import Amazonka.Shield.DisassociateHealthCheck
+import Amazonka.Shield.EnableProactiveEngagement
+import Amazonka.Shield.GetSubscriptionState
+import Amazonka.Shield.Lens
+import Amazonka.Shield.ListAttacks
+import Amazonka.Shield.ListProtectionGroups
+import Amazonka.Shield.ListProtections
+import Amazonka.Shield.ListResourcesInProtectionGroup
+import Amazonka.Shield.ListTagsForResource
+import Amazonka.Shield.TagResource
+import Amazonka.Shield.Types
+import Amazonka.Shield.UntagResource
+import Amazonka.Shield.UpdateEmergencyContactSettings
+import Amazonka.Shield.UpdateProtectionGroup
+import Amazonka.Shield.UpdateSubscription
+import Amazonka.Shield.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

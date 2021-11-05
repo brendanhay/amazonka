@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Shield.Types.Subscription
+-- Module      : Amazonka.Shield.Types.Subscription
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Shield.Types.Subscription where
+module Amazonka.Shield.Types.Subscription where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Shield.Types.AutoRenew
-import Network.AWS.Shield.Types.Limit
-import Network.AWS.Shield.Types.ProactiveEngagementStatus
-import Network.AWS.Shield.Types.SubscriptionLimits
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Shield.Types.AutoRenew
+import Amazonka.Shield.Types.Limit
+import Amazonka.Shield.Types.ProactiveEngagementStatus
+import Amazonka.Shield.Types.SubscriptionLimits
 
 -- | Information about the Shield Advanced subscription for an account.
 --

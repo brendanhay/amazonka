@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Shield.Types.ProtectionGroup
+-- Module      : Amazonka.Shield.Types.ProtectionGroup
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Shield.Types.ProtectionGroup where
+module Amazonka.Shield.Types.ProtectionGroup where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Shield.Types.ProtectedResourceType
-import Network.AWS.Shield.Types.ProtectionGroupAggregation
-import Network.AWS.Shield.Types.ProtectionGroupPattern
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Shield.Types.ProtectedResourceType
+import Amazonka.Shield.Types.ProtectionGroupAggregation
+import Amazonka.Shield.Types.ProtectionGroupPattern
 
 -- | A grouping of protected resources that you and Shield Advanced can
 -- monitor as a collective. This resource grouping improves the accuracy of

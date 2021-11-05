@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SSM where
 
+import Amazonka.SSM
 import qualified Data.Proxy as Proxy
-import Network.AWS.SSM
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.SSM.Internal

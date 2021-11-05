@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSM.Types.Command
+-- Module      : Amazonka.SSM.Types.Command
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.Command where
+module Amazonka.SSM.Types.Command where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SSM.Types.CloudWatchOutputConfig
-import Network.AWS.SSM.Types.CommandStatus
-import Network.AWS.SSM.Types.NotificationConfig
-import Network.AWS.SSM.Types.Target
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SSM.Types.CloudWatchOutputConfig
+import Amazonka.SSM.Types.CommandStatus
+import Amazonka.SSM.Types.NotificationConfig
+import Amazonka.SSM.Types.Target
 
 -- | Describes a command request.
 --

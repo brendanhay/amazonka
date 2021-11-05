@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSM.DisassociateOpsItemRelatedItem
+-- Module      : Amazonka.SSM.DisassociateOpsItemRelatedItem
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- example, this API operation can delete an Incident Manager incident from
 -- an OpsItem. Incident Manager is a capability of Amazon Web Services
 -- Systems Manager.
-module Network.AWS.SSM.DisassociateOpsItemRelatedItem
+module Amazonka.SSM.DisassociateOpsItemRelatedItem
   ( -- * Creating a Request
     DisassociateOpsItemRelatedItem (..),
     newDisassociateOpsItemRelatedItem,
@@ -42,12 +42,12 @@ module Network.AWS.SSM.DisassociateOpsItemRelatedItem
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SSM.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SSM.Types
 
 -- | /See:/ 'newDisassociateOpsItemRelatedItem' smart constructor.
 data DisassociateOpsItemRelatedItem = DisassociateOpsItemRelatedItem'

@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSM.Types.CommandInvocation
+-- Module      : Amazonka.SSM.Types.CommandInvocation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.CommandInvocation where
+module Amazonka.SSM.Types.CommandInvocation where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SSM.Types.CloudWatchOutputConfig
-import Network.AWS.SSM.Types.CommandInvocationStatus
-import Network.AWS.SSM.Types.CommandPlugin
-import Network.AWS.SSM.Types.NotificationConfig
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SSM.Types.CloudWatchOutputConfig
+import Amazonka.SSM.Types.CommandInvocationStatus
+import Amazonka.SSM.Types.CommandPlugin
+import Amazonka.SSM.Types.NotificationConfig
 
 -- | An invocation is copy of a command sent to a specific instance. A
 -- command can apply to one or more instances. A command invocation applies

@@ -11,26 +11,26 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSM.Types.AutomationExecution
+-- Module      : Amazonka.SSM.Types.AutomationExecution
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.AutomationExecution where
+module Amazonka.SSM.Types.AutomationExecution where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SSM.Types.AutomationExecutionStatus
-import Network.AWS.SSM.Types.AutomationSubtype
-import Network.AWS.SSM.Types.ExecutionMode
-import Network.AWS.SSM.Types.ProgressCounters
-import Network.AWS.SSM.Types.ResolvedTargets
-import Network.AWS.SSM.Types.Runbook
-import Network.AWS.SSM.Types.StepExecution
-import Network.AWS.SSM.Types.Target
-import Network.AWS.SSM.Types.TargetLocation
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SSM.Types.AutomationExecutionStatus
+import Amazonka.SSM.Types.AutomationSubtype
+import Amazonka.SSM.Types.ExecutionMode
+import Amazonka.SSM.Types.ProgressCounters
+import Amazonka.SSM.Types.ResolvedTargets
+import Amazonka.SSM.Types.Runbook
+import Amazonka.SSM.Types.StepExecution
+import Amazonka.SSM.Types.Target
+import Amazonka.SSM.Types.TargetLocation
 
 -- | Detailed information about the current state of an individual Automation
 -- execution.

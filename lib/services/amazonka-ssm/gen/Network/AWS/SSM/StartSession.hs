@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSM.StartSession
+-- Module      : Amazonka.SSM.StartSession
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -33,7 +33,7 @@
 -- Amazon Web Services Tools for PowerShell usage: Start-SSMSession isn\'t
 -- currently supported by Amazon Web Services Tools for PowerShell on
 -- Windows local machines.
-module Network.AWS.SSM.StartSession
+module Amazonka.SSM.StartSession
   ( -- * Creating a Request
     StartSession (..),
     newStartSession,
@@ -55,12 +55,12 @@ module Network.AWS.SSM.StartSession
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SSM.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SSM.Types
 
 -- | /See:/ 'newStartSession' smart constructor.
 data StartSession = StartSession'

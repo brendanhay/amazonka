@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSM.UpdateManagedInstanceRole
+-- Module      : Amazonka.SSM.UpdateManagedInstanceRole
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- to the on-premises instance or virtual machines (VM). IAM roles are
 -- first assigned to these hybrid instances during the activation process.
 -- For more information, see CreateActivation.
-module Network.AWS.SSM.UpdateManagedInstanceRole
+module Amazonka.SSM.UpdateManagedInstanceRole
   ( -- * Creating a Request
     UpdateManagedInstanceRole (..),
     newUpdateManagedInstanceRole,
@@ -42,12 +42,12 @@ module Network.AWS.SSM.UpdateManagedInstanceRole
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SSM.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SSM.Types
 
 -- | /See:/ 'newUpdateManagedInstanceRole' smart constructor.
 data UpdateManagedInstanceRole = UpdateManagedInstanceRole'

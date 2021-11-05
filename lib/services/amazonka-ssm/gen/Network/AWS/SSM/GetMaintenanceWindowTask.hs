@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSM.GetMaintenanceWindowTask
+-- Module      : Amazonka.SSM.GetMaintenanceWindowTask
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 -- system inserts a placeholder value of @1@, which may be reported in the
 -- response to this command. These values don\'t affect the running of your
 -- task and can be ignored.
-module Network.AWS.SSM.GetMaintenanceWindowTask
+module Amazonka.SSM.GetMaintenanceWindowTask
   ( -- * Creating a Request
     GetMaintenanceWindowTask (..),
     newGetMaintenanceWindowTask,
@@ -60,12 +60,12 @@ module Network.AWS.SSM.GetMaintenanceWindowTask
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SSM.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SSM.Types
 
 -- | /See:/ 'newGetMaintenanceWindowTask' smart constructor.
 data GetMaintenanceWindowTask = GetMaintenanceWindowTask'

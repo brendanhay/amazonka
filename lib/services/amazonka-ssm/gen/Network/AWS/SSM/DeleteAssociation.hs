@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSM.DeleteAssociation
+-- Module      : Amazonka.SSM.DeleteAssociation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -30,7 +30,7 @@
 -- an instance after you disassociate a document, you must create a new
 -- document with the desired configuration and associate it with the
 -- instance.
-module Network.AWS.SSM.DeleteAssociation
+module Amazonka.SSM.DeleteAssociation
   ( -- * Creating a Request
     DeleteAssociation (..),
     newDeleteAssociation,
@@ -49,12 +49,12 @@ module Network.AWS.SSM.DeleteAssociation
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SSM.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SSM.Types
 
 -- | /See:/ 'newDeleteAssociation' smart constructor.
 data DeleteAssociation = DeleteAssociation'

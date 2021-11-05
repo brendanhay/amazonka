@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSM.Types.Association
+-- Module      : Amazonka.SSM.Types.Association
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.Association where
+module Amazonka.SSM.Types.Association where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SSM.Types.AssociationOverview
-import Network.AWS.SSM.Types.Target
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SSM.Types.AssociationOverview
+import Amazonka.SSM.Types.Target
 
 -- | Describes an association of a Amazon Web Services Systems Manager
 -- document (SSM document) and an instance.

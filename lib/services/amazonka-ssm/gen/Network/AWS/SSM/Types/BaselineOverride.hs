@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSM.Types.BaselineOverride
+-- Module      : Amazonka.SSM.Types.BaselineOverride
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.BaselineOverride where
+module Amazonka.SSM.Types.BaselineOverride where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SSM.Types.OperatingSystem
-import Network.AWS.SSM.Types.PatchAction
-import Network.AWS.SSM.Types.PatchComplianceLevel
-import Network.AWS.SSM.Types.PatchFilterGroup
-import Network.AWS.SSM.Types.PatchRuleGroup
-import Network.AWS.SSM.Types.PatchSource
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SSM.Types.OperatingSystem
+import Amazonka.SSM.Types.PatchAction
+import Amazonka.SSM.Types.PatchComplianceLevel
+import Amazonka.SSM.Types.PatchFilterGroup
+import Amazonka.SSM.Types.PatchRuleGroup
+import Amazonka.SSM.Types.PatchSource
 
 -- | Defines the basic information about a patch baseline override.
 --

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSM.CreateResourceDataSync
+-- Module      : Amazonka.SSM.CreateResourceDataSync
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -49,7 +49,7 @@
 -- that you enable encryption in Amazon S3 to ensure secure data storage.
 -- We also recommend that you secure access to the Amazon S3 bucket by
 -- creating a restrictive bucket policy.
-module Network.AWS.SSM.CreateResourceDataSync
+module Amazonka.SSM.CreateResourceDataSync
   ( -- * Creating a Request
     CreateResourceDataSync (..),
     newCreateResourceDataSync,
@@ -69,12 +69,12 @@ module Network.AWS.SSM.CreateResourceDataSync
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SSM.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SSM.Types
 
 -- | /See:/ 'newCreateResourceDataSync' smart constructor.
 data CreateResourceDataSync = CreateResourceDataSync'

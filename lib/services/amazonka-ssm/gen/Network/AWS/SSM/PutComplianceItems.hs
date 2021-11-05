@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSM.PutComplianceItems
+-- Module      : Amazonka.SSM.PutComplianceItems
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -65,7 +65,7 @@
 -- -   InstalledTime: The time the association, patch, or custom compliance
 --     item was applied to the resource. Specify the time by using the
 --     following format: yyyy-MM-dd\'T\'HH:mm:ss\'Z\'
-module Network.AWS.SSM.PutComplianceItems
+module Amazonka.SSM.PutComplianceItems
   ( -- * Creating a Request
     PutComplianceItems (..),
     newPutComplianceItems,
@@ -88,12 +88,12 @@ module Network.AWS.SSM.PutComplianceItems
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SSM.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SSM.Types
 
 -- | /See:/ 'newPutComplianceItems' smart constructor.
 data PutComplianceItems = PutComplianceItems'

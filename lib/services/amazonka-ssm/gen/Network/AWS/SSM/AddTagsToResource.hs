@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSM.AddTagsToResource
+-- Module      : Amazonka.SSM.AddTagsToResource
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -53,7 +53,7 @@
 -- (Amazon EC2) instances, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging your Amazon EC2 resources>
 -- in the /Amazon EC2 User Guide/.
-module Network.AWS.SSM.AddTagsToResource
+module Amazonka.SSM.AddTagsToResource
   ( -- * Creating a Request
     AddTagsToResource (..),
     newAddTagsToResource,
@@ -72,12 +72,12 @@ module Network.AWS.SSM.AddTagsToResource
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SSM.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SSM.Types
 
 -- | /See:/ 'newAddTagsToResource' smart constructor.
 data AddTagsToResource = AddTagsToResource'

@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSM.Types.MaintenanceWindowExecutionTaskInvocationIdentity
+-- Module      : Amazonka.SSM.Types.MaintenanceWindowExecutionTaskInvocationIdentity
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.MaintenanceWindowExecutionTaskInvocationIdentity where
+module Amazonka.SSM.Types.MaintenanceWindowExecutionTaskInvocationIdentity where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SSM.Types.MaintenanceWindowExecutionStatus
-import Network.AWS.SSM.Types.MaintenanceWindowTaskType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SSM.Types.MaintenanceWindowExecutionStatus
+import Amazonka.SSM.Types.MaintenanceWindowTaskType
 
 -- | Describes the information about a task invocation for a particular
 -- target as part of a task execution performed as part of a maintenance

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSM.AssociateOpsItemRelatedItem
+-- Module      : Amazonka.SSM.AssociateOpsItemRelatedItem
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- example, you can associate an Incident Manager incident or analysis with
 -- an OpsItem. Incident Manager and OpsCenter are capabilities of Amazon
 -- Web Services Systems Manager.
-module Network.AWS.SSM.AssociateOpsItemRelatedItem
+module Amazonka.SSM.AssociateOpsItemRelatedItem
   ( -- * Creating a Request
     AssociateOpsItemRelatedItem (..),
     newAssociateOpsItemRelatedItem,
@@ -45,12 +45,12 @@ module Network.AWS.SSM.AssociateOpsItemRelatedItem
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SSM.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SSM.Types
 
 -- | /See:/ 'newAssociateOpsItemRelatedItem' smart constructor.
 data AssociateOpsItemRelatedItem = AssociateOpsItemRelatedItem'

@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSM.Types.MaintenanceWindowRunCommandParameters
+-- Module      : Amazonka.SSM.Types.MaintenanceWindowRunCommandParameters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.MaintenanceWindowRunCommandParameters where
+module Amazonka.SSM.Types.MaintenanceWindowRunCommandParameters where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SSM.Types.CloudWatchOutputConfig
-import Network.AWS.SSM.Types.DocumentHashType
-import Network.AWS.SSM.Types.NotificationConfig
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SSM.Types.CloudWatchOutputConfig
+import Amazonka.SSM.Types.DocumentHashType
+import Amazonka.SSM.Types.NotificationConfig
 
 -- | The parameters for a @RUN_COMMAND@ task type.
 --

@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSM.Types.MaintenanceWindowTaskInvocationParameters
+-- Module      : Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.MaintenanceWindowTaskInvocationParameters where
+module Amazonka.SSM.Types.MaintenanceWindowTaskInvocationParameters where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SSM.Types.MaintenanceWindowAutomationParameters
-import Network.AWS.SSM.Types.MaintenanceWindowLambdaParameters
-import Network.AWS.SSM.Types.MaintenanceWindowRunCommandParameters
-import Network.AWS.SSM.Types.MaintenanceWindowStepFunctionsParameters
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SSM.Types.MaintenanceWindowAutomationParameters
+import Amazonka.SSM.Types.MaintenanceWindowLambdaParameters
+import Amazonka.SSM.Types.MaintenanceWindowRunCommandParameters
+import Amazonka.SSM.Types.MaintenanceWindowStepFunctionsParameters
 
 -- | The parameters for task execution.
 --

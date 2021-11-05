@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSM.CancelMaintenanceWindowExecution
+-- Module      : Amazonka.SSM.CancelMaintenanceWindowExecution
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Stops a maintenance window execution that is already in progress and
 -- cancels any tasks in the window that haven\'t already starting running.
 -- Tasks already in progress will continue to completion.
-module Network.AWS.SSM.CancelMaintenanceWindowExecution
+module Amazonka.SSM.CancelMaintenanceWindowExecution
   ( -- * Creating a Request
     CancelMaintenanceWindowExecution (..),
     newCancelMaintenanceWindowExecution,
@@ -41,12 +41,12 @@ module Network.AWS.SSM.CancelMaintenanceWindowExecution
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SSM.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SSM.Types
 
 -- | /See:/ 'newCancelMaintenanceWindowExecution' smart constructor.
 data CancelMaintenanceWindowExecution = CancelMaintenanceWindowExecution'

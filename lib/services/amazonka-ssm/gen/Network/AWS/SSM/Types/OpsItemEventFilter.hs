@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSM.Types.OpsItemEventFilter
+-- Module      : Amazonka.SSM.Types.OpsItemEventFilter
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.OpsItemEventFilter where
+module Amazonka.SSM.Types.OpsItemEventFilter where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SSM.Types.OpsItemEventFilterKey
-import Network.AWS.SSM.Types.OpsItemEventFilterOperator
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SSM.Types.OpsItemEventFilterKey
+import Amazonka.SSM.Types.OpsItemEventFilterOperator
 
 -- | Describes a filter for a specific list of OpsItem events. You can filter
 -- event information by using tags. You specify tags by using a key-value

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSM.RegisterDefaultPatchBaseline
+-- Module      : Amazonka.SSM.RegisterDefaultPatchBaseline
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 -- the baseline ID value. For example, for CentOS, specify
 -- @arn:aws:ssm:us-east-2:733109147000:patchbaseline\/pb-0574b43a65ea646ed@
 -- instead of @pb-0574b43a65ea646ed@.
-module Network.AWS.SSM.RegisterDefaultPatchBaseline
+module Amazonka.SSM.RegisterDefaultPatchBaseline
   ( -- * Creating a Request
     RegisterDefaultPatchBaseline (..),
     newRegisterDefaultPatchBaseline,
@@ -45,12 +45,12 @@ module Network.AWS.SSM.RegisterDefaultPatchBaseline
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SSM.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SSM.Types
 
 -- | /See:/ 'newRegisterDefaultPatchBaseline' smart constructor.
 data RegisterDefaultPatchBaseline = RegisterDefaultPatchBaseline'

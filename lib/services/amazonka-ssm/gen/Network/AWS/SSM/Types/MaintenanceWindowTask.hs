@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSM.Types.MaintenanceWindowTask
+-- Module      : Amazonka.SSM.Types.MaintenanceWindowTask
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.MaintenanceWindowTask where
+module Amazonka.SSM.Types.MaintenanceWindowTask where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SSM.Types.LoggingInfo
-import Network.AWS.SSM.Types.MaintenanceWindowTaskCutoffBehavior
-import Network.AWS.SSM.Types.MaintenanceWindowTaskParameterValueExpression
-import Network.AWS.SSM.Types.MaintenanceWindowTaskType
-import Network.AWS.SSM.Types.Target
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SSM.Types.LoggingInfo
+import Amazonka.SSM.Types.MaintenanceWindowTaskCutoffBehavior
+import Amazonka.SSM.Types.MaintenanceWindowTaskParameterValueExpression
+import Amazonka.SSM.Types.MaintenanceWindowTaskType
+import Amazonka.SSM.Types.Target
 
 -- | Information about a task defined for a maintenance window.
 --

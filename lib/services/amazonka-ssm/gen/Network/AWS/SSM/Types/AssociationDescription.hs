@@ -11,24 +11,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSM.Types.AssociationDescription
+-- Module      : Amazonka.SSM.Types.AssociationDescription
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.AssociationDescription where
+module Amazonka.SSM.Types.AssociationDescription where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SSM.Types.AssociationComplianceSeverity
-import Network.AWS.SSM.Types.AssociationOverview
-import Network.AWS.SSM.Types.AssociationStatus
-import Network.AWS.SSM.Types.AssociationSyncCompliance
-import Network.AWS.SSM.Types.InstanceAssociationOutputLocation
-import Network.AWS.SSM.Types.Target
-import Network.AWS.SSM.Types.TargetLocation
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SSM.Types.AssociationComplianceSeverity
+import Amazonka.SSM.Types.AssociationOverview
+import Amazonka.SSM.Types.AssociationStatus
+import Amazonka.SSM.Types.AssociationSyncCompliance
+import Amazonka.SSM.Types.InstanceAssociationOutputLocation
+import Amazonka.SSM.Types.Target
+import Amazonka.SSM.Types.TargetLocation
 
 -- | Describes the parameters for a document.
 --

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SSM.CreateActivation
+-- Module      : Amazonka.SSM.CreateActivation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -33,7 +33,7 @@
 -- On-premises servers or VMs that are registered with Systems Manager and
 -- Amazon Elastic Compute Cloud (Amazon EC2) instances that you manage with
 -- Systems Manager are all called /managed instances/.
-module Network.AWS.SSM.CreateActivation
+module Amazonka.SSM.CreateActivation
   ( -- * Creating a Request
     CreateActivation (..),
     newCreateActivation,
@@ -57,12 +57,12 @@ module Network.AWS.SSM.CreateActivation
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SSM.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SSM.Types
 
 -- | /See:/ 'newCreateActivation' smart constructor.
 data CreateActivation = CreateActivation'

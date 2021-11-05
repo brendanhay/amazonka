@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CognitoIdentityProvider.Types
+-- Module      : Amazonka.CognitoIdentityProvider.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types
+module Amazonka.CognitoIdentityProvider.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -706,110 +706,110 @@ module Network.AWS.CognitoIdentityProvider.Types
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types.AccountRecoverySettingType
-import Network.AWS.CognitoIdentityProvider.Types.AccountTakeoverActionType
-import Network.AWS.CognitoIdentityProvider.Types.AccountTakeoverActionsType
-import Network.AWS.CognitoIdentityProvider.Types.AccountTakeoverEventActionType
-import Network.AWS.CognitoIdentityProvider.Types.AccountTakeoverRiskConfigurationType
-import Network.AWS.CognitoIdentityProvider.Types.AdminCreateUserConfigType
-import Network.AWS.CognitoIdentityProvider.Types.AdvancedSecurityModeType
-import Network.AWS.CognitoIdentityProvider.Types.AliasAttributeType
-import Network.AWS.CognitoIdentityProvider.Types.AnalyticsConfigurationType
-import Network.AWS.CognitoIdentityProvider.Types.AnalyticsMetadataType
-import Network.AWS.CognitoIdentityProvider.Types.AttributeDataType
-import Network.AWS.CognitoIdentityProvider.Types.AttributeType
-import Network.AWS.CognitoIdentityProvider.Types.AuthEventType
-import Network.AWS.CognitoIdentityProvider.Types.AuthFlowType
-import Network.AWS.CognitoIdentityProvider.Types.AuthenticationResultType
-import Network.AWS.CognitoIdentityProvider.Types.ChallengeName
-import Network.AWS.CognitoIdentityProvider.Types.ChallengeNameType
-import Network.AWS.CognitoIdentityProvider.Types.ChallengeResponse
-import Network.AWS.CognitoIdentityProvider.Types.ChallengeResponseType
-import Network.AWS.CognitoIdentityProvider.Types.CodeDeliveryDetailsType
-import Network.AWS.CognitoIdentityProvider.Types.CompromisedCredentialsActionsType
-import Network.AWS.CognitoIdentityProvider.Types.CompromisedCredentialsEventActionType
-import Network.AWS.CognitoIdentityProvider.Types.CompromisedCredentialsRiskConfigurationType
-import Network.AWS.CognitoIdentityProvider.Types.ContextDataType
-import Network.AWS.CognitoIdentityProvider.Types.CustomDomainConfigType
-import Network.AWS.CognitoIdentityProvider.Types.CustomEmailLambdaVersionConfigType
-import Network.AWS.CognitoIdentityProvider.Types.CustomEmailSenderLambdaVersionType
-import Network.AWS.CognitoIdentityProvider.Types.CustomSMSLambdaVersionConfigType
-import Network.AWS.CognitoIdentityProvider.Types.CustomSMSSenderLambdaVersionType
-import Network.AWS.CognitoIdentityProvider.Types.DefaultEmailOptionType
-import Network.AWS.CognitoIdentityProvider.Types.DeliveryMediumType
-import Network.AWS.CognitoIdentityProvider.Types.DeviceConfigurationType
-import Network.AWS.CognitoIdentityProvider.Types.DeviceRememberedStatusType
-import Network.AWS.CognitoIdentityProvider.Types.DeviceSecretVerifierConfigType
-import Network.AWS.CognitoIdentityProvider.Types.DeviceType
-import Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType
-import Network.AWS.CognitoIdentityProvider.Types.DomainStatusType
-import Network.AWS.CognitoIdentityProvider.Types.EmailConfigurationType
-import Network.AWS.CognitoIdentityProvider.Types.EmailSendingAccountType
-import Network.AWS.CognitoIdentityProvider.Types.EventContextDataType
-import Network.AWS.CognitoIdentityProvider.Types.EventFeedbackType
-import Network.AWS.CognitoIdentityProvider.Types.EventFilterType
-import Network.AWS.CognitoIdentityProvider.Types.EventResponseType
-import Network.AWS.CognitoIdentityProvider.Types.EventRiskType
-import Network.AWS.CognitoIdentityProvider.Types.EventType
-import Network.AWS.CognitoIdentityProvider.Types.ExplicitAuthFlowsType
-import Network.AWS.CognitoIdentityProvider.Types.FeedbackValueType
-import Network.AWS.CognitoIdentityProvider.Types.GroupType
-import Network.AWS.CognitoIdentityProvider.Types.HttpHeader
-import Network.AWS.CognitoIdentityProvider.Types.IdentityProviderType
-import Network.AWS.CognitoIdentityProvider.Types.IdentityProviderTypeType
-import Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType
-import Network.AWS.CognitoIdentityProvider.Types.MFAOptionType
-import Network.AWS.CognitoIdentityProvider.Types.MessageActionType
-import Network.AWS.CognitoIdentityProvider.Types.MessageTemplateType
-import Network.AWS.CognitoIdentityProvider.Types.NewDeviceMetadataType
-import Network.AWS.CognitoIdentityProvider.Types.NotifyConfigurationType
-import Network.AWS.CognitoIdentityProvider.Types.NotifyEmailType
-import Network.AWS.CognitoIdentityProvider.Types.NumberAttributeConstraintsType
-import Network.AWS.CognitoIdentityProvider.Types.OAuthFlowType
-import Network.AWS.CognitoIdentityProvider.Types.PasswordPolicyType
-import Network.AWS.CognitoIdentityProvider.Types.PreventUserExistenceErrorTypes
-import Network.AWS.CognitoIdentityProvider.Types.ProviderDescription
-import Network.AWS.CognitoIdentityProvider.Types.ProviderUserIdentifierType
-import Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionNameType
-import Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionType
-import Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType
-import Network.AWS.CognitoIdentityProvider.Types.ResourceServerType
-import Network.AWS.CognitoIdentityProvider.Types.RiskConfigurationType
-import Network.AWS.CognitoIdentityProvider.Types.RiskDecisionType
-import Network.AWS.CognitoIdentityProvider.Types.RiskExceptionConfigurationType
-import Network.AWS.CognitoIdentityProvider.Types.RiskLevelType
-import Network.AWS.CognitoIdentityProvider.Types.SMSMfaSettingsType
-import Network.AWS.CognitoIdentityProvider.Types.SchemaAttributeType
-import Network.AWS.CognitoIdentityProvider.Types.SmsConfigurationType
-import Network.AWS.CognitoIdentityProvider.Types.SmsMfaConfigType
-import Network.AWS.CognitoIdentityProvider.Types.SoftwareTokenMfaConfigType
-import Network.AWS.CognitoIdentityProvider.Types.SoftwareTokenMfaSettingsType
-import Network.AWS.CognitoIdentityProvider.Types.StatusType
-import Network.AWS.CognitoIdentityProvider.Types.StringAttributeConstraintsType
-import Network.AWS.CognitoIdentityProvider.Types.TimeUnitsType
-import Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType
-import Network.AWS.CognitoIdentityProvider.Types.UICustomizationType
-import Network.AWS.CognitoIdentityProvider.Types.UserContextDataType
-import Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType
-import Network.AWS.CognitoIdentityProvider.Types.UserImportJobType
-import Network.AWS.CognitoIdentityProvider.Types.UserPoolAddOnsType
-import Network.AWS.CognitoIdentityProvider.Types.UserPoolClientDescription
-import Network.AWS.CognitoIdentityProvider.Types.UserPoolClientType
-import Network.AWS.CognitoIdentityProvider.Types.UserPoolDescriptionType
-import Network.AWS.CognitoIdentityProvider.Types.UserPoolMfaType
-import Network.AWS.CognitoIdentityProvider.Types.UserPoolPolicyType
-import Network.AWS.CognitoIdentityProvider.Types.UserPoolType
-import Network.AWS.CognitoIdentityProvider.Types.UserStatusType
-import Network.AWS.CognitoIdentityProvider.Types.UserType
-import Network.AWS.CognitoIdentityProvider.Types.UsernameAttributeType
-import Network.AWS.CognitoIdentityProvider.Types.UsernameConfigurationType
-import Network.AWS.CognitoIdentityProvider.Types.VerificationMessageTemplateType
-import Network.AWS.CognitoIdentityProvider.Types.VerifiedAttributeType
-import Network.AWS.CognitoIdentityProvider.Types.VerifySoftwareTokenResponseType
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.CognitoIdentityProvider.Types.AccountRecoverySettingType
+import Amazonka.CognitoIdentityProvider.Types.AccountTakeoverActionType
+import Amazonka.CognitoIdentityProvider.Types.AccountTakeoverActionsType
+import Amazonka.CognitoIdentityProvider.Types.AccountTakeoverEventActionType
+import Amazonka.CognitoIdentityProvider.Types.AccountTakeoverRiskConfigurationType
+import Amazonka.CognitoIdentityProvider.Types.AdminCreateUserConfigType
+import Amazonka.CognitoIdentityProvider.Types.AdvancedSecurityModeType
+import Amazonka.CognitoIdentityProvider.Types.AliasAttributeType
+import Amazonka.CognitoIdentityProvider.Types.AnalyticsConfigurationType
+import Amazonka.CognitoIdentityProvider.Types.AnalyticsMetadataType
+import Amazonka.CognitoIdentityProvider.Types.AttributeDataType
+import Amazonka.CognitoIdentityProvider.Types.AttributeType
+import Amazonka.CognitoIdentityProvider.Types.AuthEventType
+import Amazonka.CognitoIdentityProvider.Types.AuthFlowType
+import Amazonka.CognitoIdentityProvider.Types.AuthenticationResultType
+import Amazonka.CognitoIdentityProvider.Types.ChallengeName
+import Amazonka.CognitoIdentityProvider.Types.ChallengeNameType
+import Amazonka.CognitoIdentityProvider.Types.ChallengeResponse
+import Amazonka.CognitoIdentityProvider.Types.ChallengeResponseType
+import Amazonka.CognitoIdentityProvider.Types.CodeDeliveryDetailsType
+import Amazonka.CognitoIdentityProvider.Types.CompromisedCredentialsActionsType
+import Amazonka.CognitoIdentityProvider.Types.CompromisedCredentialsEventActionType
+import Amazonka.CognitoIdentityProvider.Types.CompromisedCredentialsRiskConfigurationType
+import Amazonka.CognitoIdentityProvider.Types.ContextDataType
+import Amazonka.CognitoIdentityProvider.Types.CustomDomainConfigType
+import Amazonka.CognitoIdentityProvider.Types.CustomEmailLambdaVersionConfigType
+import Amazonka.CognitoIdentityProvider.Types.CustomEmailSenderLambdaVersionType
+import Amazonka.CognitoIdentityProvider.Types.CustomSMSLambdaVersionConfigType
+import Amazonka.CognitoIdentityProvider.Types.CustomSMSSenderLambdaVersionType
+import Amazonka.CognitoIdentityProvider.Types.DefaultEmailOptionType
+import Amazonka.CognitoIdentityProvider.Types.DeliveryMediumType
+import Amazonka.CognitoIdentityProvider.Types.DeviceConfigurationType
+import Amazonka.CognitoIdentityProvider.Types.DeviceRememberedStatusType
+import Amazonka.CognitoIdentityProvider.Types.DeviceSecretVerifierConfigType
+import Amazonka.CognitoIdentityProvider.Types.DeviceType
+import Amazonka.CognitoIdentityProvider.Types.DomainDescriptionType
+import Amazonka.CognitoIdentityProvider.Types.DomainStatusType
+import Amazonka.CognitoIdentityProvider.Types.EmailConfigurationType
+import Amazonka.CognitoIdentityProvider.Types.EmailSendingAccountType
+import Amazonka.CognitoIdentityProvider.Types.EventContextDataType
+import Amazonka.CognitoIdentityProvider.Types.EventFeedbackType
+import Amazonka.CognitoIdentityProvider.Types.EventFilterType
+import Amazonka.CognitoIdentityProvider.Types.EventResponseType
+import Amazonka.CognitoIdentityProvider.Types.EventRiskType
+import Amazonka.CognitoIdentityProvider.Types.EventType
+import Amazonka.CognitoIdentityProvider.Types.ExplicitAuthFlowsType
+import Amazonka.CognitoIdentityProvider.Types.FeedbackValueType
+import Amazonka.CognitoIdentityProvider.Types.GroupType
+import Amazonka.CognitoIdentityProvider.Types.HttpHeader
+import Amazonka.CognitoIdentityProvider.Types.IdentityProviderType
+import Amazonka.CognitoIdentityProvider.Types.IdentityProviderTypeType
+import Amazonka.CognitoIdentityProvider.Types.LambdaConfigType
+import Amazonka.CognitoIdentityProvider.Types.MFAOptionType
+import Amazonka.CognitoIdentityProvider.Types.MessageActionType
+import Amazonka.CognitoIdentityProvider.Types.MessageTemplateType
+import Amazonka.CognitoIdentityProvider.Types.NewDeviceMetadataType
+import Amazonka.CognitoIdentityProvider.Types.NotifyConfigurationType
+import Amazonka.CognitoIdentityProvider.Types.NotifyEmailType
+import Amazonka.CognitoIdentityProvider.Types.NumberAttributeConstraintsType
+import Amazonka.CognitoIdentityProvider.Types.OAuthFlowType
+import Amazonka.CognitoIdentityProvider.Types.PasswordPolicyType
+import Amazonka.CognitoIdentityProvider.Types.PreventUserExistenceErrorTypes
+import Amazonka.CognitoIdentityProvider.Types.ProviderDescription
+import Amazonka.CognitoIdentityProvider.Types.ProviderUserIdentifierType
+import Amazonka.CognitoIdentityProvider.Types.RecoveryOptionNameType
+import Amazonka.CognitoIdentityProvider.Types.RecoveryOptionType
+import Amazonka.CognitoIdentityProvider.Types.ResourceServerScopeType
+import Amazonka.CognitoIdentityProvider.Types.ResourceServerType
+import Amazonka.CognitoIdentityProvider.Types.RiskConfigurationType
+import Amazonka.CognitoIdentityProvider.Types.RiskDecisionType
+import Amazonka.CognitoIdentityProvider.Types.RiskExceptionConfigurationType
+import Amazonka.CognitoIdentityProvider.Types.RiskLevelType
+import Amazonka.CognitoIdentityProvider.Types.SMSMfaSettingsType
+import Amazonka.CognitoIdentityProvider.Types.SchemaAttributeType
+import Amazonka.CognitoIdentityProvider.Types.SmsConfigurationType
+import Amazonka.CognitoIdentityProvider.Types.SmsMfaConfigType
+import Amazonka.CognitoIdentityProvider.Types.SoftwareTokenMfaConfigType
+import Amazonka.CognitoIdentityProvider.Types.SoftwareTokenMfaSettingsType
+import Amazonka.CognitoIdentityProvider.Types.StatusType
+import Amazonka.CognitoIdentityProvider.Types.StringAttributeConstraintsType
+import Amazonka.CognitoIdentityProvider.Types.TimeUnitsType
+import Amazonka.CognitoIdentityProvider.Types.TokenValidityUnitsType
+import Amazonka.CognitoIdentityProvider.Types.UICustomizationType
+import Amazonka.CognitoIdentityProvider.Types.UserContextDataType
+import Amazonka.CognitoIdentityProvider.Types.UserImportJobStatusType
+import Amazonka.CognitoIdentityProvider.Types.UserImportJobType
+import Amazonka.CognitoIdentityProvider.Types.UserPoolAddOnsType
+import Amazonka.CognitoIdentityProvider.Types.UserPoolClientDescription
+import Amazonka.CognitoIdentityProvider.Types.UserPoolClientType
+import Amazonka.CognitoIdentityProvider.Types.UserPoolDescriptionType
+import Amazonka.CognitoIdentityProvider.Types.UserPoolMfaType
+import Amazonka.CognitoIdentityProvider.Types.UserPoolPolicyType
+import Amazonka.CognitoIdentityProvider.Types.UserPoolType
+import Amazonka.CognitoIdentityProvider.Types.UserStatusType
+import Amazonka.CognitoIdentityProvider.Types.UserType
+import Amazonka.CognitoIdentityProvider.Types.UsernameAttributeType
+import Amazonka.CognitoIdentityProvider.Types.UsernameConfigurationType
+import Amazonka.CognitoIdentityProvider.Types.VerificationMessageTemplateType
+import Amazonka.CognitoIdentityProvider.Types.VerifiedAttributeType
+import Amazonka.CognitoIdentityProvider.Types.VerifySoftwareTokenResponseType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2016-04-18@ of the Amazon Cognito Identity Provider SDK configuration.
 defaultService :: Core.Service

@@ -11,33 +11,33 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CognitoIdentityProvider.Types.UserPoolType
+-- Module      : Amazonka.CognitoIdentityProvider.Types.UserPoolType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.UserPoolType where
+module Amazonka.CognitoIdentityProvider.Types.UserPoolType where
 
-import Network.AWS.CognitoIdentityProvider.Types.AccountRecoverySettingType
-import Network.AWS.CognitoIdentityProvider.Types.AdminCreateUserConfigType
-import Network.AWS.CognitoIdentityProvider.Types.AliasAttributeType
-import Network.AWS.CognitoIdentityProvider.Types.DeviceConfigurationType
-import Network.AWS.CognitoIdentityProvider.Types.EmailConfigurationType
-import Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType
-import Network.AWS.CognitoIdentityProvider.Types.SchemaAttributeType
-import Network.AWS.CognitoIdentityProvider.Types.SmsConfigurationType
-import Network.AWS.CognitoIdentityProvider.Types.StatusType
-import Network.AWS.CognitoIdentityProvider.Types.UserPoolAddOnsType
-import Network.AWS.CognitoIdentityProvider.Types.UserPoolMfaType
-import Network.AWS.CognitoIdentityProvider.Types.UserPoolPolicyType
-import Network.AWS.CognitoIdentityProvider.Types.UsernameAttributeType
-import Network.AWS.CognitoIdentityProvider.Types.UsernameConfigurationType
-import Network.AWS.CognitoIdentityProvider.Types.VerificationMessageTemplateType
-import Network.AWS.CognitoIdentityProvider.Types.VerifiedAttributeType
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CognitoIdentityProvider.Types.AccountRecoverySettingType
+import Amazonka.CognitoIdentityProvider.Types.AdminCreateUserConfigType
+import Amazonka.CognitoIdentityProvider.Types.AliasAttributeType
+import Amazonka.CognitoIdentityProvider.Types.DeviceConfigurationType
+import Amazonka.CognitoIdentityProvider.Types.EmailConfigurationType
+import Amazonka.CognitoIdentityProvider.Types.LambdaConfigType
+import Amazonka.CognitoIdentityProvider.Types.SchemaAttributeType
+import Amazonka.CognitoIdentityProvider.Types.SmsConfigurationType
+import Amazonka.CognitoIdentityProvider.Types.StatusType
+import Amazonka.CognitoIdentityProvider.Types.UserPoolAddOnsType
+import Amazonka.CognitoIdentityProvider.Types.UserPoolMfaType
+import Amazonka.CognitoIdentityProvider.Types.UserPoolPolicyType
+import Amazonka.CognitoIdentityProvider.Types.UsernameAttributeType
+import Amazonka.CognitoIdentityProvider.Types.UsernameConfigurationType
+import Amazonka.CognitoIdentityProvider.Types.VerificationMessageTemplateType
+import Amazonka.CognitoIdentityProvider.Types.VerifiedAttributeType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A container for information about the user pool.
 --

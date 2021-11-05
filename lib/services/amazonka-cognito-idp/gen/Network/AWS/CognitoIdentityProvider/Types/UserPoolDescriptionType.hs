@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CognitoIdentityProvider.Types.UserPoolDescriptionType
+-- Module      : Amazonka.CognitoIdentityProvider.Types.UserPoolDescriptionType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.UserPoolDescriptionType where
+module Amazonka.CognitoIdentityProvider.Types.UserPoolDescriptionType where
 
-import Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType
-import Network.AWS.CognitoIdentityProvider.Types.StatusType
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CognitoIdentityProvider.Types.LambdaConfigType
+import Amazonka.CognitoIdentityProvider.Types.StatusType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A user pool description.
 --

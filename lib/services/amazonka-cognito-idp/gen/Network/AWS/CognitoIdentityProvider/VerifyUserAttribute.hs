@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CognitoIdentityProvider.VerifyUserAttribute
+-- Module      : Amazonka.CognitoIdentityProvider.VerifyUserAttribute
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Verifies the specified user attributes in the user pool.
-module Network.AWS.CognitoIdentityProvider.VerifyUserAttribute
+module Amazonka.CognitoIdentityProvider.VerifyUserAttribute
   ( -- * Creating a Request
     VerifyUserAttribute (..),
     newVerifyUserAttribute,
@@ -40,12 +40,12 @@ module Network.AWS.CognitoIdentityProvider.VerifyUserAttribute
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CognitoIdentityProvider.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Represents the request to verify user attributes.
 --

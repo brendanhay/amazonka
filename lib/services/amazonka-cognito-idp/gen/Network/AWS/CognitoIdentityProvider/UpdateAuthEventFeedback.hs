@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CognitoIdentityProvider.UpdateAuthEventFeedback
+-- Module      : Amazonka.CognitoIdentityProvider.UpdateAuthEventFeedback
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- valid user or not. This feedback is used for improving the risk
 -- evaluation decision for the user pool as part of Amazon Cognito advanced
 -- security.
-module Network.AWS.CognitoIdentityProvider.UpdateAuthEventFeedback
+module Amazonka.CognitoIdentityProvider.UpdateAuthEventFeedback
   ( -- * Creating a Request
     UpdateAuthEventFeedback (..),
     newUpdateAuthEventFeedback,
@@ -45,12 +45,12 @@ module Network.AWS.CognitoIdentityProvider.UpdateAuthEventFeedback
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CognitoIdentityProvider.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateAuthEventFeedback' smart constructor.
 data UpdateAuthEventFeedback = UpdateAuthEventFeedback'

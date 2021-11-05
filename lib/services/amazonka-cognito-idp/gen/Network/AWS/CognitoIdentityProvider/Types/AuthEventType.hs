@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CognitoIdentityProvider.Types.AuthEventType
+-- Module      : Amazonka.CognitoIdentityProvider.Types.AuthEventType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.AuthEventType where
+module Amazonka.CognitoIdentityProvider.Types.AuthEventType where
 
-import Network.AWS.CognitoIdentityProvider.Types.ChallengeResponseType
-import Network.AWS.CognitoIdentityProvider.Types.EventContextDataType
-import Network.AWS.CognitoIdentityProvider.Types.EventFeedbackType
-import Network.AWS.CognitoIdentityProvider.Types.EventResponseType
-import Network.AWS.CognitoIdentityProvider.Types.EventRiskType
-import Network.AWS.CognitoIdentityProvider.Types.EventType
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CognitoIdentityProvider.Types.ChallengeResponseType
+import Amazonka.CognitoIdentityProvider.Types.EventContextDataType
+import Amazonka.CognitoIdentityProvider.Types.EventFeedbackType
+import Amazonka.CognitoIdentityProvider.Types.EventResponseType
+import Amazonka.CognitoIdentityProvider.Types.EventRiskType
+import Amazonka.CognitoIdentityProvider.Types.EventType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The authentication event type.
 --

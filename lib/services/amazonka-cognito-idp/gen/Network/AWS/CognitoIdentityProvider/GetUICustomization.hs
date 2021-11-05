@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CognitoIdentityProvider.GetUICustomization
+-- Module      : Amazonka.CognitoIdentityProvider.GetUICustomization
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- client, but there is an existing pool level customization (app
 -- @clientId@ will be @ALL@), then that is returned. If nothing is present,
 -- then an empty shape is returned.
-module Network.AWS.CognitoIdentityProvider.GetUICustomization
+module Amazonka.CognitoIdentityProvider.GetUICustomization
   ( -- * Creating a Request
     GetUICustomization (..),
     newGetUICustomization,
@@ -44,12 +44,12 @@ module Network.AWS.CognitoIdentityProvider.GetUICustomization
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CognitoIdentityProvider.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetUICustomization' smart constructor.
 data GetUICustomization = GetUICustomization'

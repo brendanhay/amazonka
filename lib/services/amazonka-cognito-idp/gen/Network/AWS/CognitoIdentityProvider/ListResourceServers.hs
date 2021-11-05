@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CognitoIdentityProvider.ListResourceServers
+-- Module      : Amazonka.CognitoIdentityProvider.ListResourceServers
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Lists the resource servers for a user pool.
 --
 -- This operation returns paginated results.
-module Network.AWS.CognitoIdentityProvider.ListResourceServers
+module Amazonka.CognitoIdentityProvider.ListResourceServers
   ( -- * Creating a Request
     ListResourceServers (..),
     newListResourceServers,
@@ -44,12 +44,12 @@ module Network.AWS.CognitoIdentityProvider.ListResourceServers
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CognitoIdentityProvider.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListResourceServers' smart constructor.
 data ListResourceServers = ListResourceServers'

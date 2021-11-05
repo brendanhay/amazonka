@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CognitoIdentityProvider.SetUserSettings
+-- Module      : Amazonka.CognitoIdentityProvider.SetUserSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- configure either type of MFA, use
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserMFAPreference.html SetUserMFAPreference>
 -- instead.
-module Network.AWS.CognitoIdentityProvider.SetUserSettings
+module Amazonka.CognitoIdentityProvider.SetUserSettings
   ( -- * Creating a Request
     SetUserSettings (..),
     newSetUserSettings,
@@ -43,12 +43,12 @@ module Network.AWS.CognitoIdentityProvider.SetUserSettings
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CognitoIdentityProvider.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Represents the request to set user settings.
 --

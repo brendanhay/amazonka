@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CognitoIdentityProvider.Types.MFAOptionType
+-- Module      : Amazonka.CognitoIdentityProvider.Types.MFAOptionType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.MFAOptionType where
+module Amazonka.CognitoIdentityProvider.Types.MFAOptionType where
 
-import Network.AWS.CognitoIdentityProvider.Types.DeliveryMediumType
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CognitoIdentityProvider.Types.DeliveryMediumType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | /This data type is no longer supported./ You can use it only for SMS MFA
 -- configurations. You can\'t use it for TOTP software token MFA

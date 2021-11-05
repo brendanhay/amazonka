@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CognitoIdentityProvider.GlobalSignOut
+-- Module      : Amazonka.CognitoIdentityProvider.GlobalSignOut
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- issued to a user. The user\'s current access and Id tokens remain valid
 -- until their expiry. Access and Id tokens expire one hour after they are
 -- issued.
-module Network.AWS.CognitoIdentityProvider.GlobalSignOut
+module Amazonka.CognitoIdentityProvider.GlobalSignOut
   ( -- * Creating a Request
     GlobalSignOut (..),
     newGlobalSignOut,
@@ -41,12 +41,12 @@ module Network.AWS.CognitoIdentityProvider.GlobalSignOut
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CognitoIdentityProvider.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Represents the request to sign out all devices.
 --

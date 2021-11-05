@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.DeviceFarm where
 
+import Amazonka.DeviceFarm
 import qualified Data.Proxy as Proxy
-import Network.AWS.DeviceFarm
 import Test.AWS.DeviceFarm.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DeviceFarm.UpdateDevicePool
+-- Module      : Amazonka.DeviceFarm.UpdateDevicePool
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Modifies the name, description, and rules in a device pool given the
 -- attributes and the pool ARN. Rule updates are all-or-nothing, meaning
 -- they can only be updated as a whole (or not at all).
-module Network.AWS.DeviceFarm.UpdateDevicePool
+module Amazonka.DeviceFarm.UpdateDevicePool
   ( -- * Creating a Request
     UpdateDevicePool (..),
     newUpdateDevicePool,
@@ -46,12 +46,12 @@ module Network.AWS.DeviceFarm.UpdateDevicePool
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DeviceFarm.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DeviceFarm.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Represents a request to the update device pool operation.
 --

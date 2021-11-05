@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DeviceFarm.Types.Upload
+-- Module      : Amazonka.DeviceFarm.Types.Upload
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.Upload where
+module Amazonka.DeviceFarm.Types.Upload where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DeviceFarm.Types.UploadCategory
-import Network.AWS.DeviceFarm.Types.UploadStatus
-import Network.AWS.DeviceFarm.Types.UploadType
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DeviceFarm.Types.UploadCategory
+import Amazonka.DeviceFarm.Types.UploadStatus
+import Amazonka.DeviceFarm.Types.UploadType
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | An app or a set of one or more tests to upload or that have been
 -- uploaded.

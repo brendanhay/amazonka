@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DeviceFarm.DeleteRemoteAccessSession
+-- Module      : Amazonka.DeviceFarm.DeleteRemoteAccessSession
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a completed remote access session and its results.
-module Network.AWS.DeviceFarm.DeleteRemoteAccessSession
+module Amazonka.DeviceFarm.DeleteRemoteAccessSession
   ( -- * Creating a Request
     DeleteRemoteAccessSession (..),
     newDeleteRemoteAccessSession,
@@ -38,12 +38,12 @@ module Network.AWS.DeviceFarm.DeleteRemoteAccessSession
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DeviceFarm.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DeviceFarm.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Represents the request to delete the specified remote access session.
 --

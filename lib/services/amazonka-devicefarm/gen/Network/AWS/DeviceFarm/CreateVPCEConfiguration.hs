@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DeviceFarm.CreateVPCEConfiguration
+-- Module      : Amazonka.DeviceFarm.CreateVPCEConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Creates a configuration record in Device Farm for your Amazon Virtual
 -- Private Cloud (VPC) endpoint.
-module Network.AWS.DeviceFarm.CreateVPCEConfiguration
+module Amazonka.DeviceFarm.CreateVPCEConfiguration
   ( -- * Creating a Request
     CreateVPCEConfiguration (..),
     newCreateVPCEConfiguration,
@@ -43,12 +43,12 @@ module Network.AWS.DeviceFarm.CreateVPCEConfiguration
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DeviceFarm.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DeviceFarm.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateVPCEConfiguration' smart constructor.
 data CreateVPCEConfiguration = CreateVPCEConfiguration'

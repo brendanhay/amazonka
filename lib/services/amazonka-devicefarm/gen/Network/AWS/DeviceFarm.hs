@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.DeviceFarm
+-- Module      : Amazonka.DeviceFarm
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 --     phones, tablets, and other devices in the cloud. For more
 --     information, see the
 --     <https://docs.aws.amazon.com/devicefarm/latest/developerguide/ Device Farm Developer Guide>.
-module Network.AWS.DeviceFarm
+module Amazonka.DeviceFarm
   ( -- * Service Configuration
     defaultService,
 
@@ -822,86 +822,86 @@ module Network.AWS.DeviceFarm
   )
 where
 
-import Network.AWS.DeviceFarm.CreateDevicePool
-import Network.AWS.DeviceFarm.CreateInstanceProfile
-import Network.AWS.DeviceFarm.CreateNetworkProfile
-import Network.AWS.DeviceFarm.CreateProject
-import Network.AWS.DeviceFarm.CreateRemoteAccessSession
-import Network.AWS.DeviceFarm.CreateTestGridProject
-import Network.AWS.DeviceFarm.CreateTestGridUrl
-import Network.AWS.DeviceFarm.CreateUpload
-import Network.AWS.DeviceFarm.CreateVPCEConfiguration
-import Network.AWS.DeviceFarm.DeleteDevicePool
-import Network.AWS.DeviceFarm.DeleteInstanceProfile
-import Network.AWS.DeviceFarm.DeleteNetworkProfile
-import Network.AWS.DeviceFarm.DeleteProject
-import Network.AWS.DeviceFarm.DeleteRemoteAccessSession
-import Network.AWS.DeviceFarm.DeleteRun
-import Network.AWS.DeviceFarm.DeleteTestGridProject
-import Network.AWS.DeviceFarm.DeleteUpload
-import Network.AWS.DeviceFarm.DeleteVPCEConfiguration
-import Network.AWS.DeviceFarm.GetAccountSettings
-import Network.AWS.DeviceFarm.GetDevice
-import Network.AWS.DeviceFarm.GetDeviceInstance
-import Network.AWS.DeviceFarm.GetDevicePool
-import Network.AWS.DeviceFarm.GetDevicePoolCompatibility
-import Network.AWS.DeviceFarm.GetInstanceProfile
-import Network.AWS.DeviceFarm.GetJob
-import Network.AWS.DeviceFarm.GetNetworkProfile
-import Network.AWS.DeviceFarm.GetOfferingStatus
-import Network.AWS.DeviceFarm.GetProject
-import Network.AWS.DeviceFarm.GetRemoteAccessSession
-import Network.AWS.DeviceFarm.GetRun
-import Network.AWS.DeviceFarm.GetSuite
-import Network.AWS.DeviceFarm.GetTest
-import Network.AWS.DeviceFarm.GetTestGridProject
-import Network.AWS.DeviceFarm.GetTestGridSession
-import Network.AWS.DeviceFarm.GetUpload
-import Network.AWS.DeviceFarm.GetVPCEConfiguration
-import Network.AWS.DeviceFarm.InstallToRemoteAccessSession
-import Network.AWS.DeviceFarm.Lens
-import Network.AWS.DeviceFarm.ListArtifacts
-import Network.AWS.DeviceFarm.ListDeviceInstances
-import Network.AWS.DeviceFarm.ListDevicePools
-import Network.AWS.DeviceFarm.ListDevices
-import Network.AWS.DeviceFarm.ListInstanceProfiles
-import Network.AWS.DeviceFarm.ListJobs
-import Network.AWS.DeviceFarm.ListNetworkProfiles
-import Network.AWS.DeviceFarm.ListOfferingPromotions
-import Network.AWS.DeviceFarm.ListOfferingTransactions
-import Network.AWS.DeviceFarm.ListOfferings
-import Network.AWS.DeviceFarm.ListProjects
-import Network.AWS.DeviceFarm.ListRemoteAccessSessions
-import Network.AWS.DeviceFarm.ListRuns
-import Network.AWS.DeviceFarm.ListSamples
-import Network.AWS.DeviceFarm.ListSuites
-import Network.AWS.DeviceFarm.ListTagsForResource
-import Network.AWS.DeviceFarm.ListTestGridProjects
-import Network.AWS.DeviceFarm.ListTestGridSessionActions
-import Network.AWS.DeviceFarm.ListTestGridSessionArtifacts
-import Network.AWS.DeviceFarm.ListTestGridSessions
-import Network.AWS.DeviceFarm.ListTests
-import Network.AWS.DeviceFarm.ListUniqueProblems
-import Network.AWS.DeviceFarm.ListUploads
-import Network.AWS.DeviceFarm.ListVPCEConfigurations
-import Network.AWS.DeviceFarm.PurchaseOffering
-import Network.AWS.DeviceFarm.RenewOffering
-import Network.AWS.DeviceFarm.ScheduleRun
-import Network.AWS.DeviceFarm.StopJob
-import Network.AWS.DeviceFarm.StopRemoteAccessSession
-import Network.AWS.DeviceFarm.StopRun
-import Network.AWS.DeviceFarm.TagResource
-import Network.AWS.DeviceFarm.Types
-import Network.AWS.DeviceFarm.UntagResource
-import Network.AWS.DeviceFarm.UpdateDeviceInstance
-import Network.AWS.DeviceFarm.UpdateDevicePool
-import Network.AWS.DeviceFarm.UpdateInstanceProfile
-import Network.AWS.DeviceFarm.UpdateNetworkProfile
-import Network.AWS.DeviceFarm.UpdateProject
-import Network.AWS.DeviceFarm.UpdateTestGridProject
-import Network.AWS.DeviceFarm.UpdateUpload
-import Network.AWS.DeviceFarm.UpdateVPCEConfiguration
-import Network.AWS.DeviceFarm.Waiters
+import Amazonka.DeviceFarm.CreateDevicePool
+import Amazonka.DeviceFarm.CreateInstanceProfile
+import Amazonka.DeviceFarm.CreateNetworkProfile
+import Amazonka.DeviceFarm.CreateProject
+import Amazonka.DeviceFarm.CreateRemoteAccessSession
+import Amazonka.DeviceFarm.CreateTestGridProject
+import Amazonka.DeviceFarm.CreateTestGridUrl
+import Amazonka.DeviceFarm.CreateUpload
+import Amazonka.DeviceFarm.CreateVPCEConfiguration
+import Amazonka.DeviceFarm.DeleteDevicePool
+import Amazonka.DeviceFarm.DeleteInstanceProfile
+import Amazonka.DeviceFarm.DeleteNetworkProfile
+import Amazonka.DeviceFarm.DeleteProject
+import Amazonka.DeviceFarm.DeleteRemoteAccessSession
+import Amazonka.DeviceFarm.DeleteRun
+import Amazonka.DeviceFarm.DeleteTestGridProject
+import Amazonka.DeviceFarm.DeleteUpload
+import Amazonka.DeviceFarm.DeleteVPCEConfiguration
+import Amazonka.DeviceFarm.GetAccountSettings
+import Amazonka.DeviceFarm.GetDevice
+import Amazonka.DeviceFarm.GetDeviceInstance
+import Amazonka.DeviceFarm.GetDevicePool
+import Amazonka.DeviceFarm.GetDevicePoolCompatibility
+import Amazonka.DeviceFarm.GetInstanceProfile
+import Amazonka.DeviceFarm.GetJob
+import Amazonka.DeviceFarm.GetNetworkProfile
+import Amazonka.DeviceFarm.GetOfferingStatus
+import Amazonka.DeviceFarm.GetProject
+import Amazonka.DeviceFarm.GetRemoteAccessSession
+import Amazonka.DeviceFarm.GetRun
+import Amazonka.DeviceFarm.GetSuite
+import Amazonka.DeviceFarm.GetTest
+import Amazonka.DeviceFarm.GetTestGridProject
+import Amazonka.DeviceFarm.GetTestGridSession
+import Amazonka.DeviceFarm.GetUpload
+import Amazonka.DeviceFarm.GetVPCEConfiguration
+import Amazonka.DeviceFarm.InstallToRemoteAccessSession
+import Amazonka.DeviceFarm.Lens
+import Amazonka.DeviceFarm.ListArtifacts
+import Amazonka.DeviceFarm.ListDeviceInstances
+import Amazonka.DeviceFarm.ListDevicePools
+import Amazonka.DeviceFarm.ListDevices
+import Amazonka.DeviceFarm.ListInstanceProfiles
+import Amazonka.DeviceFarm.ListJobs
+import Amazonka.DeviceFarm.ListNetworkProfiles
+import Amazonka.DeviceFarm.ListOfferingPromotions
+import Amazonka.DeviceFarm.ListOfferingTransactions
+import Amazonka.DeviceFarm.ListOfferings
+import Amazonka.DeviceFarm.ListProjects
+import Amazonka.DeviceFarm.ListRemoteAccessSessions
+import Amazonka.DeviceFarm.ListRuns
+import Amazonka.DeviceFarm.ListSamples
+import Amazonka.DeviceFarm.ListSuites
+import Amazonka.DeviceFarm.ListTagsForResource
+import Amazonka.DeviceFarm.ListTestGridProjects
+import Amazonka.DeviceFarm.ListTestGridSessionActions
+import Amazonka.DeviceFarm.ListTestGridSessionArtifacts
+import Amazonka.DeviceFarm.ListTestGridSessions
+import Amazonka.DeviceFarm.ListTests
+import Amazonka.DeviceFarm.ListUniqueProblems
+import Amazonka.DeviceFarm.ListUploads
+import Amazonka.DeviceFarm.ListVPCEConfigurations
+import Amazonka.DeviceFarm.PurchaseOffering
+import Amazonka.DeviceFarm.RenewOffering
+import Amazonka.DeviceFarm.ScheduleRun
+import Amazonka.DeviceFarm.StopJob
+import Amazonka.DeviceFarm.StopRemoteAccessSession
+import Amazonka.DeviceFarm.StopRun
+import Amazonka.DeviceFarm.TagResource
+import Amazonka.DeviceFarm.Types
+import Amazonka.DeviceFarm.UntagResource
+import Amazonka.DeviceFarm.UpdateDeviceInstance
+import Amazonka.DeviceFarm.UpdateDevicePool
+import Amazonka.DeviceFarm.UpdateInstanceProfile
+import Amazonka.DeviceFarm.UpdateNetworkProfile
+import Amazonka.DeviceFarm.UpdateProject
+import Amazonka.DeviceFarm.UpdateTestGridProject
+import Amazonka.DeviceFarm.UpdateUpload
+import Amazonka.DeviceFarm.UpdateVPCEConfiguration
+import Amazonka.DeviceFarm.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

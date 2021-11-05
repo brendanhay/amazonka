@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DeviceFarm.Types.DevicePool
+-- Module      : Amazonka.DeviceFarm.Types.DevicePool
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.DevicePool where
+module Amazonka.DeviceFarm.Types.DevicePool where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DeviceFarm.Types.DevicePoolType
-import Network.AWS.DeviceFarm.Types.Rule
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DeviceFarm.Types.DevicePoolType
+import Amazonka.DeviceFarm.Types.Rule
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a collection of device types.
 --

@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DeviceFarm.Types
+-- Module      : Amazonka.DeviceFarm.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types
+module Amazonka.DeviceFarm.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -605,87 +605,87 @@ module Network.AWS.DeviceFarm.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DeviceFarm.Types.AccountSettings
-import Network.AWS.DeviceFarm.Types.Artifact
-import Network.AWS.DeviceFarm.Types.ArtifactCategory
-import Network.AWS.DeviceFarm.Types.ArtifactType
-import Network.AWS.DeviceFarm.Types.BillingMethod
-import Network.AWS.DeviceFarm.Types.CPU
-import Network.AWS.DeviceFarm.Types.Counters
-import Network.AWS.DeviceFarm.Types.CreateRemoteAccessSessionConfiguration
-import Network.AWS.DeviceFarm.Types.CurrencyCode
-import Network.AWS.DeviceFarm.Types.CustomerArtifactPaths
-import Network.AWS.DeviceFarm.Types.Device
-import Network.AWS.DeviceFarm.Types.DeviceAttribute
-import Network.AWS.DeviceFarm.Types.DeviceAvailability
-import Network.AWS.DeviceFarm.Types.DeviceFilter
-import Network.AWS.DeviceFarm.Types.DeviceFilterAttribute
-import Network.AWS.DeviceFarm.Types.DeviceFormFactor
-import Network.AWS.DeviceFarm.Types.DeviceInstance
-import Network.AWS.DeviceFarm.Types.DeviceMinutes
-import Network.AWS.DeviceFarm.Types.DevicePlatform
-import Network.AWS.DeviceFarm.Types.DevicePool
-import Network.AWS.DeviceFarm.Types.DevicePoolCompatibilityResult
-import Network.AWS.DeviceFarm.Types.DevicePoolType
-import Network.AWS.DeviceFarm.Types.DeviceSelectionConfiguration
-import Network.AWS.DeviceFarm.Types.DeviceSelectionResult
-import Network.AWS.DeviceFarm.Types.ExecutionConfiguration
-import Network.AWS.DeviceFarm.Types.ExecutionResult
-import Network.AWS.DeviceFarm.Types.ExecutionResultCode
-import Network.AWS.DeviceFarm.Types.ExecutionStatus
-import Network.AWS.DeviceFarm.Types.IncompatibilityMessage
-import Network.AWS.DeviceFarm.Types.InstanceProfile
-import Network.AWS.DeviceFarm.Types.InstanceStatus
-import Network.AWS.DeviceFarm.Types.InteractionMode
-import Network.AWS.DeviceFarm.Types.Job
-import Network.AWS.DeviceFarm.Types.Location
-import Network.AWS.DeviceFarm.Types.MonetaryAmount
-import Network.AWS.DeviceFarm.Types.NetworkProfile
-import Network.AWS.DeviceFarm.Types.NetworkProfileType
-import Network.AWS.DeviceFarm.Types.Offering
-import Network.AWS.DeviceFarm.Types.OfferingPromotion
-import Network.AWS.DeviceFarm.Types.OfferingStatus
-import Network.AWS.DeviceFarm.Types.OfferingTransaction
-import Network.AWS.DeviceFarm.Types.OfferingTransactionType
-import Network.AWS.DeviceFarm.Types.OfferingType
-import Network.AWS.DeviceFarm.Types.Problem
-import Network.AWS.DeviceFarm.Types.ProblemDetail
-import Network.AWS.DeviceFarm.Types.Project
-import Network.AWS.DeviceFarm.Types.Radios
-import Network.AWS.DeviceFarm.Types.RecurringCharge
-import Network.AWS.DeviceFarm.Types.RecurringChargeFrequency
-import Network.AWS.DeviceFarm.Types.RemoteAccessSession
-import Network.AWS.DeviceFarm.Types.Resolution
-import Network.AWS.DeviceFarm.Types.Rule
-import Network.AWS.DeviceFarm.Types.RuleOperator
-import Network.AWS.DeviceFarm.Types.Run
-import Network.AWS.DeviceFarm.Types.Sample
-import Network.AWS.DeviceFarm.Types.SampleType
-import Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration
-import Network.AWS.DeviceFarm.Types.ScheduleRunTest
-import Network.AWS.DeviceFarm.Types.Suite
-import Network.AWS.DeviceFarm.Types.Tag
-import Network.AWS.DeviceFarm.Types.Test
-import Network.AWS.DeviceFarm.Types.TestGridProject
-import Network.AWS.DeviceFarm.Types.TestGridSession
-import Network.AWS.DeviceFarm.Types.TestGridSessionAction
-import Network.AWS.DeviceFarm.Types.TestGridSessionArtifact
-import Network.AWS.DeviceFarm.Types.TestGridSessionArtifactCategory
-import Network.AWS.DeviceFarm.Types.TestGridSessionArtifactType
-import Network.AWS.DeviceFarm.Types.TestGridSessionStatus
-import Network.AWS.DeviceFarm.Types.TestGridVpcConfig
-import Network.AWS.DeviceFarm.Types.TestType
-import Network.AWS.DeviceFarm.Types.TrialMinutes
-import Network.AWS.DeviceFarm.Types.UniqueProblem
-import Network.AWS.DeviceFarm.Types.Upload
-import Network.AWS.DeviceFarm.Types.UploadCategory
-import Network.AWS.DeviceFarm.Types.UploadStatus
-import Network.AWS.DeviceFarm.Types.UploadType
-import Network.AWS.DeviceFarm.Types.VPCEConfiguration
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.DeviceFarm.Types.AccountSettings
+import Amazonka.DeviceFarm.Types.Artifact
+import Amazonka.DeviceFarm.Types.ArtifactCategory
+import Amazonka.DeviceFarm.Types.ArtifactType
+import Amazonka.DeviceFarm.Types.BillingMethod
+import Amazonka.DeviceFarm.Types.CPU
+import Amazonka.DeviceFarm.Types.Counters
+import Amazonka.DeviceFarm.Types.CreateRemoteAccessSessionConfiguration
+import Amazonka.DeviceFarm.Types.CurrencyCode
+import Amazonka.DeviceFarm.Types.CustomerArtifactPaths
+import Amazonka.DeviceFarm.Types.Device
+import Amazonka.DeviceFarm.Types.DeviceAttribute
+import Amazonka.DeviceFarm.Types.DeviceAvailability
+import Amazonka.DeviceFarm.Types.DeviceFilter
+import Amazonka.DeviceFarm.Types.DeviceFilterAttribute
+import Amazonka.DeviceFarm.Types.DeviceFormFactor
+import Amazonka.DeviceFarm.Types.DeviceInstance
+import Amazonka.DeviceFarm.Types.DeviceMinutes
+import Amazonka.DeviceFarm.Types.DevicePlatform
+import Amazonka.DeviceFarm.Types.DevicePool
+import Amazonka.DeviceFarm.Types.DevicePoolCompatibilityResult
+import Amazonka.DeviceFarm.Types.DevicePoolType
+import Amazonka.DeviceFarm.Types.DeviceSelectionConfiguration
+import Amazonka.DeviceFarm.Types.DeviceSelectionResult
+import Amazonka.DeviceFarm.Types.ExecutionConfiguration
+import Amazonka.DeviceFarm.Types.ExecutionResult
+import Amazonka.DeviceFarm.Types.ExecutionResultCode
+import Amazonka.DeviceFarm.Types.ExecutionStatus
+import Amazonka.DeviceFarm.Types.IncompatibilityMessage
+import Amazonka.DeviceFarm.Types.InstanceProfile
+import Amazonka.DeviceFarm.Types.InstanceStatus
+import Amazonka.DeviceFarm.Types.InteractionMode
+import Amazonka.DeviceFarm.Types.Job
+import Amazonka.DeviceFarm.Types.Location
+import Amazonka.DeviceFarm.Types.MonetaryAmount
+import Amazonka.DeviceFarm.Types.NetworkProfile
+import Amazonka.DeviceFarm.Types.NetworkProfileType
+import Amazonka.DeviceFarm.Types.Offering
+import Amazonka.DeviceFarm.Types.OfferingPromotion
+import Amazonka.DeviceFarm.Types.OfferingStatus
+import Amazonka.DeviceFarm.Types.OfferingTransaction
+import Amazonka.DeviceFarm.Types.OfferingTransactionType
+import Amazonka.DeviceFarm.Types.OfferingType
+import Amazonka.DeviceFarm.Types.Problem
+import Amazonka.DeviceFarm.Types.ProblemDetail
+import Amazonka.DeviceFarm.Types.Project
+import Amazonka.DeviceFarm.Types.Radios
+import Amazonka.DeviceFarm.Types.RecurringCharge
+import Amazonka.DeviceFarm.Types.RecurringChargeFrequency
+import Amazonka.DeviceFarm.Types.RemoteAccessSession
+import Amazonka.DeviceFarm.Types.Resolution
+import Amazonka.DeviceFarm.Types.Rule
+import Amazonka.DeviceFarm.Types.RuleOperator
+import Amazonka.DeviceFarm.Types.Run
+import Amazonka.DeviceFarm.Types.Sample
+import Amazonka.DeviceFarm.Types.SampleType
+import Amazonka.DeviceFarm.Types.ScheduleRunConfiguration
+import Amazonka.DeviceFarm.Types.ScheduleRunTest
+import Amazonka.DeviceFarm.Types.Suite
+import Amazonka.DeviceFarm.Types.Tag
+import Amazonka.DeviceFarm.Types.Test
+import Amazonka.DeviceFarm.Types.TestGridProject
+import Amazonka.DeviceFarm.Types.TestGridSession
+import Amazonka.DeviceFarm.Types.TestGridSessionAction
+import Amazonka.DeviceFarm.Types.TestGridSessionArtifact
+import Amazonka.DeviceFarm.Types.TestGridSessionArtifactCategory
+import Amazonka.DeviceFarm.Types.TestGridSessionArtifactType
+import Amazonka.DeviceFarm.Types.TestGridSessionStatus
+import Amazonka.DeviceFarm.Types.TestGridVpcConfig
+import Amazonka.DeviceFarm.Types.TestType
+import Amazonka.DeviceFarm.Types.TrialMinutes
+import Amazonka.DeviceFarm.Types.UniqueProblem
+import Amazonka.DeviceFarm.Types.Upload
+import Amazonka.DeviceFarm.Types.UploadCategory
+import Amazonka.DeviceFarm.Types.UploadStatus
+import Amazonka.DeviceFarm.Types.UploadType
+import Amazonka.DeviceFarm.Types.VPCEConfiguration
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2015-06-23@ of the Amazon Device Farm SDK configuration.
 defaultService :: Core.Service

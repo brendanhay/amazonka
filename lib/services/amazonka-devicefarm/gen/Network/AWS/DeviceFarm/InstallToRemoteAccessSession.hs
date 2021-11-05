@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DeviceFarm.InstallToRemoteAccessSession
+-- Module      : Amazonka.DeviceFarm.InstallToRemoteAccessSession
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Installs an application to the device in a remote access session. For
 -- Android applications, the file must be in .apk format. For iOS
 -- applications, the file must be in .ipa format.
-module Network.AWS.DeviceFarm.InstallToRemoteAccessSession
+module Amazonka.DeviceFarm.InstallToRemoteAccessSession
   ( -- * Creating a Request
     InstallToRemoteAccessSession (..),
     newInstallToRemoteAccessSession,
@@ -42,12 +42,12 @@ module Network.AWS.DeviceFarm.InstallToRemoteAccessSession
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DeviceFarm.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DeviceFarm.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Represents the request to install an Android application (in .apk
 -- format) or an iOS application (in .ipa format) as part of a remote

@@ -11,30 +11,30 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DeviceFarm.Types.Run
+-- Module      : Amazonka.DeviceFarm.Types.Run
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.Run where
+module Amazonka.DeviceFarm.Types.Run where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DeviceFarm.Types.BillingMethod
-import Network.AWS.DeviceFarm.Types.Counters
-import Network.AWS.DeviceFarm.Types.CustomerArtifactPaths
-import Network.AWS.DeviceFarm.Types.DeviceMinutes
-import Network.AWS.DeviceFarm.Types.DevicePlatform
-import Network.AWS.DeviceFarm.Types.DeviceSelectionResult
-import Network.AWS.DeviceFarm.Types.ExecutionResult
-import Network.AWS.DeviceFarm.Types.ExecutionResultCode
-import Network.AWS.DeviceFarm.Types.ExecutionStatus
-import Network.AWS.DeviceFarm.Types.Location
-import Network.AWS.DeviceFarm.Types.NetworkProfile
-import Network.AWS.DeviceFarm.Types.Radios
-import Network.AWS.DeviceFarm.Types.TestType
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DeviceFarm.Types.BillingMethod
+import Amazonka.DeviceFarm.Types.Counters
+import Amazonka.DeviceFarm.Types.CustomerArtifactPaths
+import Amazonka.DeviceFarm.Types.DeviceMinutes
+import Amazonka.DeviceFarm.Types.DevicePlatform
+import Amazonka.DeviceFarm.Types.DeviceSelectionResult
+import Amazonka.DeviceFarm.Types.ExecutionResult
+import Amazonka.DeviceFarm.Types.ExecutionResultCode
+import Amazonka.DeviceFarm.Types.ExecutionStatus
+import Amazonka.DeviceFarm.Types.Location
+import Amazonka.DeviceFarm.Types.NetworkProfile
+import Amazonka.DeviceFarm.Types.Radios
+import Amazonka.DeviceFarm.Types.TestType
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a test run on a set of devices with a given app package, test
 -- parameters, and so on.

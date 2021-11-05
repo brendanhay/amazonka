@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DeviceFarm.Types.RemoteAccessSession
+-- Module      : Amazonka.DeviceFarm.Types.RemoteAccessSession
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.RemoteAccessSession where
+module Amazonka.DeviceFarm.Types.RemoteAccessSession where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DeviceFarm.Types.BillingMethod
-import Network.AWS.DeviceFarm.Types.Device
-import Network.AWS.DeviceFarm.Types.DeviceMinutes
-import Network.AWS.DeviceFarm.Types.ExecutionResult
-import Network.AWS.DeviceFarm.Types.ExecutionStatus
-import Network.AWS.DeviceFarm.Types.InteractionMode
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DeviceFarm.Types.BillingMethod
+import Amazonka.DeviceFarm.Types.Device
+import Amazonka.DeviceFarm.Types.DeviceMinutes
+import Amazonka.DeviceFarm.Types.ExecutionResult
+import Amazonka.DeviceFarm.Types.ExecutionStatus
+import Amazonka.DeviceFarm.Types.InteractionMode
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about the remote access session.
 --

@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DeviceFarm.Types.DeviceFilter
+-- Module      : Amazonka.DeviceFarm.Types.DeviceFilter
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.DeviceFilter where
+module Amazonka.DeviceFarm.Types.DeviceFilter where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DeviceFarm.Types.DeviceFilterAttribute
-import Network.AWS.DeviceFarm.Types.RuleOperator
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DeviceFarm.Types.DeviceFilterAttribute
+import Amazonka.DeviceFarm.Types.RuleOperator
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a device filter used to select a set of devices to be
 -- included in a test run. This data structure is passed in as the

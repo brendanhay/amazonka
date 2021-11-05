@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DeviceFarm.DeleteRun
+-- Module      : Amazonka.DeviceFarm.DeleteRun
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Deletes the run, given the run ARN.
 --
 -- Deleting this resource does not stop an in-progress run.
-module Network.AWS.DeviceFarm.DeleteRun
+module Amazonka.DeviceFarm.DeleteRun
   ( -- * Creating a Request
     DeleteRun (..),
     newDeleteRun,
@@ -40,12 +40,12 @@ module Network.AWS.DeviceFarm.DeleteRun
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DeviceFarm.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DeviceFarm.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Represents a request to the delete run operation.
 --

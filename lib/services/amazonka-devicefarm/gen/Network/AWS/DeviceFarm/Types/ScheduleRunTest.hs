@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DeviceFarm.Types.ScheduleRunTest
+-- Module      : Amazonka.DeviceFarm.Types.ScheduleRunTest
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.ScheduleRunTest where
+module Amazonka.DeviceFarm.Types.ScheduleRunTest where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DeviceFarm.Types.TestType
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DeviceFarm.Types.TestType
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents test settings. This data structure is passed in as the test
 -- parameter to ScheduleRun. For an example of the JSON request syntax, see

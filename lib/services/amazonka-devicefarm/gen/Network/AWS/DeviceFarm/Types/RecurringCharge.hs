@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DeviceFarm.Types.RecurringCharge
+-- Module      : Amazonka.DeviceFarm.Types.RecurringCharge
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.RecurringCharge where
+module Amazonka.DeviceFarm.Types.RecurringCharge where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DeviceFarm.Types.MonetaryAmount
-import Network.AWS.DeviceFarm.Types.RecurringChargeFrequency
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DeviceFarm.Types.MonetaryAmount
+import Amazonka.DeviceFarm.Types.RecurringChargeFrequency
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies whether charges for devices are recurring.
 --

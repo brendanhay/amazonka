@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DeviceFarm.TagResource
+-- Module      : Amazonka.DeviceFarm.TagResource
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- @resourceArn@. If existing tags on a resource are not specified in the
 -- request parameters, they are not changed. When a resource is deleted,
 -- the tags associated with that resource are also deleted.
-module Network.AWS.DeviceFarm.TagResource
+module Amazonka.DeviceFarm.TagResource
   ( -- * Creating a Request
     TagResource (..),
     newTagResource,
@@ -42,12 +42,12 @@ module Network.AWS.DeviceFarm.TagResource
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DeviceFarm.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DeviceFarm.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'

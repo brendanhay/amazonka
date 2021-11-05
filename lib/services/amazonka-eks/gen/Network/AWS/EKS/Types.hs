@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EKS.Types
+-- Module      : Amazonka.EKS.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EKS.Types
+module Amazonka.EKS.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -408,68 +408,68 @@ module Network.AWS.EKS.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EKS.Types.AMITypes
-import Network.AWS.EKS.Types.Addon
-import Network.AWS.EKS.Types.AddonHealth
-import Network.AWS.EKS.Types.AddonInfo
-import Network.AWS.EKS.Types.AddonIssue
-import Network.AWS.EKS.Types.AddonIssueCode
-import Network.AWS.EKS.Types.AddonStatus
-import Network.AWS.EKS.Types.AddonVersionInfo
-import Network.AWS.EKS.Types.AutoScalingGroup
-import Network.AWS.EKS.Types.CapacityTypes
-import Network.AWS.EKS.Types.Certificate
-import Network.AWS.EKS.Types.Cluster
-import Network.AWS.EKS.Types.ClusterStatus
-import Network.AWS.EKS.Types.Compatibility
-import Network.AWS.EKS.Types.ConfigStatus
-import Network.AWS.EKS.Types.ConnectorConfigProvider
-import Network.AWS.EKS.Types.ConnectorConfigRequest
-import Network.AWS.EKS.Types.ConnectorConfigResponse
-import Network.AWS.EKS.Types.EKSErrorCode
-import Network.AWS.EKS.Types.EncryptionConfig
-import Network.AWS.EKS.Types.ErrorDetail
-import Network.AWS.EKS.Types.FargateProfile
-import Network.AWS.EKS.Types.FargateProfileSelector
-import Network.AWS.EKS.Types.FargateProfileStatus
-import Network.AWS.EKS.Types.Identity
-import Network.AWS.EKS.Types.IdentityProviderConfig
-import Network.AWS.EKS.Types.IdentityProviderConfigResponse
-import Network.AWS.EKS.Types.Issue
-import Network.AWS.EKS.Types.KubernetesNetworkConfigRequest
-import Network.AWS.EKS.Types.KubernetesNetworkConfigResponse
-import Network.AWS.EKS.Types.LaunchTemplateSpecification
-import Network.AWS.EKS.Types.LogSetup
-import Network.AWS.EKS.Types.LogType
-import Network.AWS.EKS.Types.Logging
-import Network.AWS.EKS.Types.Nodegroup
-import Network.AWS.EKS.Types.NodegroupHealth
-import Network.AWS.EKS.Types.NodegroupIssueCode
-import Network.AWS.EKS.Types.NodegroupResources
-import Network.AWS.EKS.Types.NodegroupScalingConfig
-import Network.AWS.EKS.Types.NodegroupStatus
-import Network.AWS.EKS.Types.NodegroupUpdateConfig
-import Network.AWS.EKS.Types.OIDC
-import Network.AWS.EKS.Types.OidcIdentityProviderConfig
-import Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest
-import Network.AWS.EKS.Types.Provider
-import Network.AWS.EKS.Types.RemoteAccessConfig
-import Network.AWS.EKS.Types.ResolveConflicts
-import Network.AWS.EKS.Types.Taint
-import Network.AWS.EKS.Types.TaintEffect
-import Network.AWS.EKS.Types.Update
-import Network.AWS.EKS.Types.UpdateLabelsPayload
-import Network.AWS.EKS.Types.UpdateParam
-import Network.AWS.EKS.Types.UpdateParamType
-import Network.AWS.EKS.Types.UpdateStatus
-import Network.AWS.EKS.Types.UpdateTaintsPayload
-import Network.AWS.EKS.Types.UpdateType
-import Network.AWS.EKS.Types.VpcConfigRequest
-import Network.AWS.EKS.Types.VpcConfigResponse
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.EKS.Types.AMITypes
+import Amazonka.EKS.Types.Addon
+import Amazonka.EKS.Types.AddonHealth
+import Amazonka.EKS.Types.AddonInfo
+import Amazonka.EKS.Types.AddonIssue
+import Amazonka.EKS.Types.AddonIssueCode
+import Amazonka.EKS.Types.AddonStatus
+import Amazonka.EKS.Types.AddonVersionInfo
+import Amazonka.EKS.Types.AutoScalingGroup
+import Amazonka.EKS.Types.CapacityTypes
+import Amazonka.EKS.Types.Certificate
+import Amazonka.EKS.Types.Cluster
+import Amazonka.EKS.Types.ClusterStatus
+import Amazonka.EKS.Types.Compatibility
+import Amazonka.EKS.Types.ConfigStatus
+import Amazonka.EKS.Types.ConnectorConfigProvider
+import Amazonka.EKS.Types.ConnectorConfigRequest
+import Amazonka.EKS.Types.ConnectorConfigResponse
+import Amazonka.EKS.Types.EKSErrorCode
+import Amazonka.EKS.Types.EncryptionConfig
+import Amazonka.EKS.Types.ErrorDetail
+import Amazonka.EKS.Types.FargateProfile
+import Amazonka.EKS.Types.FargateProfileSelector
+import Amazonka.EKS.Types.FargateProfileStatus
+import Amazonka.EKS.Types.Identity
+import Amazonka.EKS.Types.IdentityProviderConfig
+import Amazonka.EKS.Types.IdentityProviderConfigResponse
+import Amazonka.EKS.Types.Issue
+import Amazonka.EKS.Types.KubernetesNetworkConfigRequest
+import Amazonka.EKS.Types.KubernetesNetworkConfigResponse
+import Amazonka.EKS.Types.LaunchTemplateSpecification
+import Amazonka.EKS.Types.LogSetup
+import Amazonka.EKS.Types.LogType
+import Amazonka.EKS.Types.Logging
+import Amazonka.EKS.Types.Nodegroup
+import Amazonka.EKS.Types.NodegroupHealth
+import Amazonka.EKS.Types.NodegroupIssueCode
+import Amazonka.EKS.Types.NodegroupResources
+import Amazonka.EKS.Types.NodegroupScalingConfig
+import Amazonka.EKS.Types.NodegroupStatus
+import Amazonka.EKS.Types.NodegroupUpdateConfig
+import Amazonka.EKS.Types.OIDC
+import Amazonka.EKS.Types.OidcIdentityProviderConfig
+import Amazonka.EKS.Types.OidcIdentityProviderConfigRequest
+import Amazonka.EKS.Types.Provider
+import Amazonka.EKS.Types.RemoteAccessConfig
+import Amazonka.EKS.Types.ResolveConflicts
+import Amazonka.EKS.Types.Taint
+import Amazonka.EKS.Types.TaintEffect
+import Amazonka.EKS.Types.Update
+import Amazonka.EKS.Types.UpdateLabelsPayload
+import Amazonka.EKS.Types.UpdateParam
+import Amazonka.EKS.Types.UpdateParamType
+import Amazonka.EKS.Types.UpdateStatus
+import Amazonka.EKS.Types.UpdateTaintsPayload
+import Amazonka.EKS.Types.UpdateType
+import Amazonka.EKS.Types.VpcConfigRequest
+import Amazonka.EKS.Types.VpcConfigResponse
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2017-11-01@ of the Amazon Elastic Kubernetes Service SDK configuration.
 defaultService :: Core.Service

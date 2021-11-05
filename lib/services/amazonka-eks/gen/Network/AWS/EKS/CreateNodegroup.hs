@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EKS.CreateNodegroup
+-- Module      : Amazonka.EKS.CreateNodegroup
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -34,7 +34,7 @@
 -- EKS optimized Amazon Linux 2 AMI. For more information, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html Managed Node Groups>
 -- in the /Amazon EKS User Guide/.
-module Network.AWS.EKS.CreateNodegroup
+module Amazonka.EKS.CreateNodegroup
   ( -- * Creating a Request
     CreateNodegroup (..),
     newCreateNodegroup,
@@ -69,12 +69,12 @@ module Network.AWS.EKS.CreateNodegroup
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EKS.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.EKS.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateNodegroup' smart constructor.
 data CreateNodegroup = CreateNodegroup'

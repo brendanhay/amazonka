@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EKS.ListAddons
+-- Module      : Amazonka.EKS.ListAddons
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Lists the available add-ons.
 --
 -- This operation returns paginated results.
-module Network.AWS.EKS.ListAddons
+module Amazonka.EKS.ListAddons
   ( -- * Creating a Request
     ListAddons (..),
     newListAddons,
@@ -44,12 +44,12 @@ module Network.AWS.EKS.ListAddons
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EKS.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.EKS.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAddons' smart constructor.
 data ListAddons = ListAddons'

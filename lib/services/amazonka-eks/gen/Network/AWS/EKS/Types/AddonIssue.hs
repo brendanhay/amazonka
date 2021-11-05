@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EKS.Types.AddonIssue
+-- Module      : Amazonka.EKS.Types.AddonIssue
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EKS.Types.AddonIssue where
+module Amazonka.EKS.Types.AddonIssue where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EKS.Types.AddonIssueCode
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.EKS.Types.AddonIssueCode
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | An issue related to an add-on.
 --

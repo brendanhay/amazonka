@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EKS.Types.TaintEffect
+-- Module      : Amazonka.EKS.Types.TaintEffect
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EKS.Types.TaintEffect
+module Amazonka.EKS.Types.TaintEffect
   ( TaintEffect
       ( ..,
         TaintEffect_NO_EXECUTE,
@@ -27,8 +27,8 @@ module Network.AWS.EKS.Types.TaintEffect
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 newtype TaintEffect = TaintEffect'
   { fromTaintEffect ::

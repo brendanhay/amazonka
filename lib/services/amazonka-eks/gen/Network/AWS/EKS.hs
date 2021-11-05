@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.EKS
+-- Module      : Amazonka.EKS
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- environment, whether running in on-premises data centers or public
 -- clouds. This means that you can easily migrate any standard Kubernetes
 -- application to Amazon EKS without any code modification required.
-module Network.AWS.EKS
+module Amazonka.EKS
   ( -- * Service Configuration
     defaultService,
 
@@ -517,43 +517,43 @@ module Network.AWS.EKS
   )
 where
 
-import Network.AWS.EKS.AssociateEncryptionConfig
-import Network.AWS.EKS.AssociateIdentityProviderConfig
-import Network.AWS.EKS.CreateAddon
-import Network.AWS.EKS.CreateCluster
-import Network.AWS.EKS.CreateFargateProfile
-import Network.AWS.EKS.CreateNodegroup
-import Network.AWS.EKS.DeleteAddon
-import Network.AWS.EKS.DeleteCluster
-import Network.AWS.EKS.DeleteFargateProfile
-import Network.AWS.EKS.DeleteNodegroup
-import Network.AWS.EKS.DeregisterCluster
-import Network.AWS.EKS.DescribeAddon
-import Network.AWS.EKS.DescribeAddonVersions
-import Network.AWS.EKS.DescribeCluster
-import Network.AWS.EKS.DescribeFargateProfile
-import Network.AWS.EKS.DescribeIdentityProviderConfig
-import Network.AWS.EKS.DescribeNodegroup
-import Network.AWS.EKS.DescribeUpdate
-import Network.AWS.EKS.DisassociateIdentityProviderConfig
-import Network.AWS.EKS.Lens
-import Network.AWS.EKS.ListAddons
-import Network.AWS.EKS.ListClusters
-import Network.AWS.EKS.ListFargateProfiles
-import Network.AWS.EKS.ListIdentityProviderConfigs
-import Network.AWS.EKS.ListNodegroups
-import Network.AWS.EKS.ListTagsForResource
-import Network.AWS.EKS.ListUpdates
-import Network.AWS.EKS.RegisterCluster
-import Network.AWS.EKS.TagResource
-import Network.AWS.EKS.Types
-import Network.AWS.EKS.UntagResource
-import Network.AWS.EKS.UpdateAddon
-import Network.AWS.EKS.UpdateClusterConfig
-import Network.AWS.EKS.UpdateClusterVersion
-import Network.AWS.EKS.UpdateNodegroupConfig
-import Network.AWS.EKS.UpdateNodegroupVersion
-import Network.AWS.EKS.Waiters
+import Amazonka.EKS.AssociateEncryptionConfig
+import Amazonka.EKS.AssociateIdentityProviderConfig
+import Amazonka.EKS.CreateAddon
+import Amazonka.EKS.CreateCluster
+import Amazonka.EKS.CreateFargateProfile
+import Amazonka.EKS.CreateNodegroup
+import Amazonka.EKS.DeleteAddon
+import Amazonka.EKS.DeleteCluster
+import Amazonka.EKS.DeleteFargateProfile
+import Amazonka.EKS.DeleteNodegroup
+import Amazonka.EKS.DeregisterCluster
+import Amazonka.EKS.DescribeAddon
+import Amazonka.EKS.DescribeAddonVersions
+import Amazonka.EKS.DescribeCluster
+import Amazonka.EKS.DescribeFargateProfile
+import Amazonka.EKS.DescribeIdentityProviderConfig
+import Amazonka.EKS.DescribeNodegroup
+import Amazonka.EKS.DescribeUpdate
+import Amazonka.EKS.DisassociateIdentityProviderConfig
+import Amazonka.EKS.Lens
+import Amazonka.EKS.ListAddons
+import Amazonka.EKS.ListClusters
+import Amazonka.EKS.ListFargateProfiles
+import Amazonka.EKS.ListIdentityProviderConfigs
+import Amazonka.EKS.ListNodegroups
+import Amazonka.EKS.ListTagsForResource
+import Amazonka.EKS.ListUpdates
+import Amazonka.EKS.RegisterCluster
+import Amazonka.EKS.TagResource
+import Amazonka.EKS.Types
+import Amazonka.EKS.UntagResource
+import Amazonka.EKS.UpdateAddon
+import Amazonka.EKS.UpdateClusterConfig
+import Amazonka.EKS.UpdateClusterVersion
+import Amazonka.EKS.UpdateNodegroupConfig
+import Amazonka.EKS.UpdateNodegroupVersion
+import Amazonka.EKS.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

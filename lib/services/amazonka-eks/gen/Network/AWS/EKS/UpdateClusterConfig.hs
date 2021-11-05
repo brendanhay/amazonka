@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EKS.UpdateClusterConfig
+-- Module      : Amazonka.EKS.UpdateClusterConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -50,7 +50,7 @@
 -- minutes. During an update, the cluster status moves to @UPDATING@ (this
 -- status transition is eventually consistent). When the update is complete
 -- (either @Failed@ or @Successful@), the cluster status moves to @Active@.
-module Network.AWS.EKS.UpdateClusterConfig
+module Amazonka.EKS.UpdateClusterConfig
   ( -- * Creating a Request
     UpdateClusterConfig (..),
     newUpdateClusterConfig,
@@ -71,12 +71,12 @@ module Network.AWS.EKS.UpdateClusterConfig
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EKS.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.EKS.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateClusterConfig' smart constructor.
 data UpdateClusterConfig = UpdateClusterConfig'

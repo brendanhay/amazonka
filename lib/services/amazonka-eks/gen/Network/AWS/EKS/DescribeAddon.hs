@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EKS.DescribeAddon
+-- Module      : Amazonka.EKS.DescribeAddon
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes an Amazon EKS add-on.
-module Network.AWS.EKS.DescribeAddon
+module Amazonka.EKS.DescribeAddon
   ( -- * Creating a Request
     DescribeAddon (..),
     newDescribeAddon,
@@ -40,12 +40,12 @@ module Network.AWS.EKS.DescribeAddon
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EKS.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.EKS.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeAddon' smart constructor.
 data DescribeAddon = DescribeAddon'

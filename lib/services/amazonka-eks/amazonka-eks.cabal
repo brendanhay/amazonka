@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.EKS.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.EKS.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.EKS" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.EKS" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,104 +45,104 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.EKS
-    Network.AWS.EKS.AssociateEncryptionConfig
-    Network.AWS.EKS.AssociateIdentityProviderConfig
-    Network.AWS.EKS.CreateAddon
-    Network.AWS.EKS.CreateCluster
-    Network.AWS.EKS.CreateFargateProfile
-    Network.AWS.EKS.CreateNodegroup
-    Network.AWS.EKS.DeleteAddon
-    Network.AWS.EKS.DeleteCluster
-    Network.AWS.EKS.DeleteFargateProfile
-    Network.AWS.EKS.DeleteNodegroup
-    Network.AWS.EKS.DeregisterCluster
-    Network.AWS.EKS.DescribeAddon
-    Network.AWS.EKS.DescribeAddonVersions
-    Network.AWS.EKS.DescribeCluster
-    Network.AWS.EKS.DescribeFargateProfile
-    Network.AWS.EKS.DescribeIdentityProviderConfig
-    Network.AWS.EKS.DescribeNodegroup
-    Network.AWS.EKS.DescribeUpdate
-    Network.AWS.EKS.DisassociateIdentityProviderConfig
-    Network.AWS.EKS.Lens
-    Network.AWS.EKS.ListAddons
-    Network.AWS.EKS.ListClusters
-    Network.AWS.EKS.ListFargateProfiles
-    Network.AWS.EKS.ListIdentityProviderConfigs
-    Network.AWS.EKS.ListNodegroups
-    Network.AWS.EKS.ListTagsForResource
-    Network.AWS.EKS.ListUpdates
-    Network.AWS.EKS.RegisterCluster
-    Network.AWS.EKS.TagResource
-    Network.AWS.EKS.Types
-    Network.AWS.EKS.Types.Addon
-    Network.AWS.EKS.Types.AddonHealth
-    Network.AWS.EKS.Types.AddonInfo
-    Network.AWS.EKS.Types.AddonIssue
-    Network.AWS.EKS.Types.AddonIssueCode
-    Network.AWS.EKS.Types.AddonStatus
-    Network.AWS.EKS.Types.AddonVersionInfo
-    Network.AWS.EKS.Types.AMITypes
-    Network.AWS.EKS.Types.AutoScalingGroup
-    Network.AWS.EKS.Types.CapacityTypes
-    Network.AWS.EKS.Types.Certificate
-    Network.AWS.EKS.Types.Cluster
-    Network.AWS.EKS.Types.ClusterStatus
-    Network.AWS.EKS.Types.Compatibility
-    Network.AWS.EKS.Types.ConfigStatus
-    Network.AWS.EKS.Types.ConnectorConfigProvider
-    Network.AWS.EKS.Types.ConnectorConfigRequest
-    Network.AWS.EKS.Types.ConnectorConfigResponse
-    Network.AWS.EKS.Types.EKSErrorCode
-    Network.AWS.EKS.Types.EncryptionConfig
-    Network.AWS.EKS.Types.ErrorDetail
-    Network.AWS.EKS.Types.FargateProfile
-    Network.AWS.EKS.Types.FargateProfileSelector
-    Network.AWS.EKS.Types.FargateProfileStatus
-    Network.AWS.EKS.Types.Identity
-    Network.AWS.EKS.Types.IdentityProviderConfig
-    Network.AWS.EKS.Types.IdentityProviderConfigResponse
-    Network.AWS.EKS.Types.Issue
-    Network.AWS.EKS.Types.KubernetesNetworkConfigRequest
-    Network.AWS.EKS.Types.KubernetesNetworkConfigResponse
-    Network.AWS.EKS.Types.LaunchTemplateSpecification
-    Network.AWS.EKS.Types.Logging
-    Network.AWS.EKS.Types.LogSetup
-    Network.AWS.EKS.Types.LogType
-    Network.AWS.EKS.Types.Nodegroup
-    Network.AWS.EKS.Types.NodegroupHealth
-    Network.AWS.EKS.Types.NodegroupIssueCode
-    Network.AWS.EKS.Types.NodegroupResources
-    Network.AWS.EKS.Types.NodegroupScalingConfig
-    Network.AWS.EKS.Types.NodegroupStatus
-    Network.AWS.EKS.Types.NodegroupUpdateConfig
-    Network.AWS.EKS.Types.OIDC
-    Network.AWS.EKS.Types.OidcIdentityProviderConfig
-    Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest
-    Network.AWS.EKS.Types.Provider
-    Network.AWS.EKS.Types.RemoteAccessConfig
-    Network.AWS.EKS.Types.ResolveConflicts
-    Network.AWS.EKS.Types.Taint
-    Network.AWS.EKS.Types.TaintEffect
-    Network.AWS.EKS.Types.Update
-    Network.AWS.EKS.Types.UpdateLabelsPayload
-    Network.AWS.EKS.Types.UpdateParam
-    Network.AWS.EKS.Types.UpdateParamType
-    Network.AWS.EKS.Types.UpdateStatus
-    Network.AWS.EKS.Types.UpdateTaintsPayload
-    Network.AWS.EKS.Types.UpdateType
-    Network.AWS.EKS.Types.VpcConfigRequest
-    Network.AWS.EKS.Types.VpcConfigResponse
-    Network.AWS.EKS.UntagResource
-    Network.AWS.EKS.UpdateAddon
-    Network.AWS.EKS.UpdateClusterConfig
-    Network.AWS.EKS.UpdateClusterVersion
-    Network.AWS.EKS.UpdateNodegroupConfig
-    Network.AWS.EKS.UpdateNodegroupVersion
-    Network.AWS.EKS.Waiters
+    Amazonka.EKS
+    Amazonka.EKS.AssociateEncryptionConfig
+    Amazonka.EKS.AssociateIdentityProviderConfig
+    Amazonka.EKS.CreateAddon
+    Amazonka.EKS.CreateCluster
+    Amazonka.EKS.CreateFargateProfile
+    Amazonka.EKS.CreateNodegroup
+    Amazonka.EKS.DeleteAddon
+    Amazonka.EKS.DeleteCluster
+    Amazonka.EKS.DeleteFargateProfile
+    Amazonka.EKS.DeleteNodegroup
+    Amazonka.EKS.DeregisterCluster
+    Amazonka.EKS.DescribeAddon
+    Amazonka.EKS.DescribeAddonVersions
+    Amazonka.EKS.DescribeCluster
+    Amazonka.EKS.DescribeFargateProfile
+    Amazonka.EKS.DescribeIdentityProviderConfig
+    Amazonka.EKS.DescribeNodegroup
+    Amazonka.EKS.DescribeUpdate
+    Amazonka.EKS.DisassociateIdentityProviderConfig
+    Amazonka.EKS.Lens
+    Amazonka.EKS.ListAddons
+    Amazonka.EKS.ListClusters
+    Amazonka.EKS.ListFargateProfiles
+    Amazonka.EKS.ListIdentityProviderConfigs
+    Amazonka.EKS.ListNodegroups
+    Amazonka.EKS.ListTagsForResource
+    Amazonka.EKS.ListUpdates
+    Amazonka.EKS.RegisterCluster
+    Amazonka.EKS.TagResource
+    Amazonka.EKS.Types
+    Amazonka.EKS.Types.Addon
+    Amazonka.EKS.Types.AddonHealth
+    Amazonka.EKS.Types.AddonInfo
+    Amazonka.EKS.Types.AddonIssue
+    Amazonka.EKS.Types.AddonIssueCode
+    Amazonka.EKS.Types.AddonStatus
+    Amazonka.EKS.Types.AddonVersionInfo
+    Amazonka.EKS.Types.AMITypes
+    Amazonka.EKS.Types.AutoScalingGroup
+    Amazonka.EKS.Types.CapacityTypes
+    Amazonka.EKS.Types.Certificate
+    Amazonka.EKS.Types.Cluster
+    Amazonka.EKS.Types.ClusterStatus
+    Amazonka.EKS.Types.Compatibility
+    Amazonka.EKS.Types.ConfigStatus
+    Amazonka.EKS.Types.ConnectorConfigProvider
+    Amazonka.EKS.Types.ConnectorConfigRequest
+    Amazonka.EKS.Types.ConnectorConfigResponse
+    Amazonka.EKS.Types.EKSErrorCode
+    Amazonka.EKS.Types.EncryptionConfig
+    Amazonka.EKS.Types.ErrorDetail
+    Amazonka.EKS.Types.FargateProfile
+    Amazonka.EKS.Types.FargateProfileSelector
+    Amazonka.EKS.Types.FargateProfileStatus
+    Amazonka.EKS.Types.Identity
+    Amazonka.EKS.Types.IdentityProviderConfig
+    Amazonka.EKS.Types.IdentityProviderConfigResponse
+    Amazonka.EKS.Types.Issue
+    Amazonka.EKS.Types.KubernetesNetworkConfigRequest
+    Amazonka.EKS.Types.KubernetesNetworkConfigResponse
+    Amazonka.EKS.Types.LaunchTemplateSpecification
+    Amazonka.EKS.Types.Logging
+    Amazonka.EKS.Types.LogSetup
+    Amazonka.EKS.Types.LogType
+    Amazonka.EKS.Types.Nodegroup
+    Amazonka.EKS.Types.NodegroupHealth
+    Amazonka.EKS.Types.NodegroupIssueCode
+    Amazonka.EKS.Types.NodegroupResources
+    Amazonka.EKS.Types.NodegroupScalingConfig
+    Amazonka.EKS.Types.NodegroupStatus
+    Amazonka.EKS.Types.NodegroupUpdateConfig
+    Amazonka.EKS.Types.OIDC
+    Amazonka.EKS.Types.OidcIdentityProviderConfig
+    Amazonka.EKS.Types.OidcIdentityProviderConfigRequest
+    Amazonka.EKS.Types.Provider
+    Amazonka.EKS.Types.RemoteAccessConfig
+    Amazonka.EKS.Types.ResolveConflicts
+    Amazonka.EKS.Types.Taint
+    Amazonka.EKS.Types.TaintEffect
+    Amazonka.EKS.Types.Update
+    Amazonka.EKS.Types.UpdateLabelsPayload
+    Amazonka.EKS.Types.UpdateParam
+    Amazonka.EKS.Types.UpdateParamType
+    Amazonka.EKS.Types.UpdateStatus
+    Amazonka.EKS.Types.UpdateTaintsPayload
+    Amazonka.EKS.Types.UpdateType
+    Amazonka.EKS.Types.VpcConfigRequest
+    Amazonka.EKS.Types.VpcConfigResponse
+    Amazonka.EKS.UntagResource
+    Amazonka.EKS.UpdateAddon
+    Amazonka.EKS.UpdateClusterConfig
+    Amazonka.EKS.UpdateClusterVersion
+    Amazonka.EKS.UpdateNodegroupConfig
+    Amazonka.EKS.UpdateNodegroupVersion
+    Amazonka.EKS.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

@@ -7,25 +7,25 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EKS.Waiters
+-- Module      : Amazonka.EKS.Waiters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EKS.Waiters where
+module Amazonka.EKS.Waiters where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EKS.DescribeAddon
-import Network.AWS.EKS.DescribeCluster
-import Network.AWS.EKS.DescribeFargateProfile
-import Network.AWS.EKS.DescribeNodegroup
-import Network.AWS.EKS.Lens
-import Network.AWS.EKS.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.EKS.DescribeAddon
+import Amazonka.EKS.DescribeCluster
+import Amazonka.EKS.DescribeFargateProfile
+import Amazonka.EKS.DescribeNodegroup
+import Amazonka.EKS.Lens
+import Amazonka.EKS.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
--- | Polls 'Network.AWS.EKS.DescribeAddon' every 10 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.EKS.DescribeAddon' every 10 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newAddonActive :: Core.Wait DescribeAddon
 newAddonActive =
   Core.Wait
@@ -60,7 +60,7 @@ newAddonActive =
         ]
     }
 
--- | Polls 'Network.AWS.EKS.DescribeNodegroup' every 30 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.EKS.DescribeNodegroup' every 30 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newNodegroupDeleted :: Core.Wait DescribeNodegroup
 newNodegroupDeleted =
   Core.Wait
@@ -83,7 +83,7 @@ newNodegroupDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.EKS.DescribeFargateProfile' every 10 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.EKS.DescribeFargateProfile' every 10 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newFargateProfileActive :: Core.Wait DescribeFargateProfile
 newFargateProfileActive =
   Core.Wait
@@ -112,7 +112,7 @@ newFargateProfileActive =
         ]
     }
 
--- | Polls 'Network.AWS.EKS.DescribeAddon' every 10 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.EKS.DescribeAddon' every 10 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newAddonDeleted :: Core.Wait DescribeAddon
 newAddonDeleted =
   Core.Wait
@@ -134,7 +134,7 @@ newAddonDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.EKS.DescribeCluster' every 30 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.EKS.DescribeCluster' every 30 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newClusterActive :: Core.Wait DescribeCluster
 newClusterActive =
   Core.Wait
@@ -169,7 +169,7 @@ newClusterActive =
         ]
     }
 
--- | Polls 'Network.AWS.EKS.DescribeFargateProfile' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.EKS.DescribeFargateProfile' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newFargateProfileDeleted :: Core.Wait DescribeFargateProfile
 newFargateProfileDeleted =
   Core.Wait
@@ -192,7 +192,7 @@ newFargateProfileDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.EKS.DescribeCluster' every 30 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Amazonka.EKS.DescribeCluster' every 30 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newClusterDeleted :: Core.Wait DescribeCluster
 newClusterDeleted =
   Core.Wait
@@ -230,7 +230,7 @@ newClusterDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.EKS.DescribeNodegroup' every 30 seconds until a successful state is reached. An error is returned after 80 failed checks.
+-- | Polls 'Amazonka.EKS.DescribeNodegroup' every 30 seconds until a successful state is reached. An error is returned after 80 failed checks.
 newNodegroupActive :: Core.Wait DescribeNodegroup
 newNodegroupActive =
   Core.Wait

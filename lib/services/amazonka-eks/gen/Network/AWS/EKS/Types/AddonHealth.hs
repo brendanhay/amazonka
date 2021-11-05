@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EKS.Types.AddonHealth
+-- Module      : Amazonka.EKS.Types.AddonHealth
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EKS.Types.AddonHealth where
+module Amazonka.EKS.Types.AddonHealth where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EKS.Types.AddonIssue
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.EKS.Types.AddonIssue
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The health of the add-on.
 --

@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EKS.Lens
+-- Module      : Amazonka.EKS.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EKS.Lens
+module Amazonka.EKS.Lens
   ( -- * Operations
 
     -- ** CreateAddon
@@ -536,78 +536,78 @@ module Network.AWS.EKS.Lens
   )
 where
 
-import Network.AWS.EKS.AssociateEncryptionConfig
-import Network.AWS.EKS.AssociateIdentityProviderConfig
-import Network.AWS.EKS.CreateAddon
-import Network.AWS.EKS.CreateCluster
-import Network.AWS.EKS.CreateFargateProfile
-import Network.AWS.EKS.CreateNodegroup
-import Network.AWS.EKS.DeleteAddon
-import Network.AWS.EKS.DeleteCluster
-import Network.AWS.EKS.DeleteFargateProfile
-import Network.AWS.EKS.DeleteNodegroup
-import Network.AWS.EKS.DeregisterCluster
-import Network.AWS.EKS.DescribeAddon
-import Network.AWS.EKS.DescribeAddonVersions
-import Network.AWS.EKS.DescribeCluster
-import Network.AWS.EKS.DescribeFargateProfile
-import Network.AWS.EKS.DescribeIdentityProviderConfig
-import Network.AWS.EKS.DescribeNodegroup
-import Network.AWS.EKS.DescribeUpdate
-import Network.AWS.EKS.DisassociateIdentityProviderConfig
-import Network.AWS.EKS.ListAddons
-import Network.AWS.EKS.ListClusters
-import Network.AWS.EKS.ListFargateProfiles
-import Network.AWS.EKS.ListIdentityProviderConfigs
-import Network.AWS.EKS.ListNodegroups
-import Network.AWS.EKS.ListTagsForResource
-import Network.AWS.EKS.ListUpdates
-import Network.AWS.EKS.RegisterCluster
-import Network.AWS.EKS.TagResource
-import Network.AWS.EKS.Types.Addon
-import Network.AWS.EKS.Types.AddonHealth
-import Network.AWS.EKS.Types.AddonInfo
-import Network.AWS.EKS.Types.AddonIssue
-import Network.AWS.EKS.Types.AddonVersionInfo
-import Network.AWS.EKS.Types.AutoScalingGroup
-import Network.AWS.EKS.Types.Certificate
-import Network.AWS.EKS.Types.Cluster
-import Network.AWS.EKS.Types.Compatibility
-import Network.AWS.EKS.Types.ConnectorConfigRequest
-import Network.AWS.EKS.Types.ConnectorConfigResponse
-import Network.AWS.EKS.Types.EncryptionConfig
-import Network.AWS.EKS.Types.ErrorDetail
-import Network.AWS.EKS.Types.FargateProfile
-import Network.AWS.EKS.Types.FargateProfileSelector
-import Network.AWS.EKS.Types.Identity
-import Network.AWS.EKS.Types.IdentityProviderConfig
-import Network.AWS.EKS.Types.IdentityProviderConfigResponse
-import Network.AWS.EKS.Types.Issue
-import Network.AWS.EKS.Types.KubernetesNetworkConfigRequest
-import Network.AWS.EKS.Types.KubernetesNetworkConfigResponse
-import Network.AWS.EKS.Types.LaunchTemplateSpecification
-import Network.AWS.EKS.Types.LogSetup
-import Network.AWS.EKS.Types.Logging
-import Network.AWS.EKS.Types.Nodegroup
-import Network.AWS.EKS.Types.NodegroupHealth
-import Network.AWS.EKS.Types.NodegroupResources
-import Network.AWS.EKS.Types.NodegroupScalingConfig
-import Network.AWS.EKS.Types.NodegroupUpdateConfig
-import Network.AWS.EKS.Types.OIDC
-import Network.AWS.EKS.Types.OidcIdentityProviderConfig
-import Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest
-import Network.AWS.EKS.Types.Provider
-import Network.AWS.EKS.Types.RemoteAccessConfig
-import Network.AWS.EKS.Types.Taint
-import Network.AWS.EKS.Types.Update
-import Network.AWS.EKS.Types.UpdateLabelsPayload
-import Network.AWS.EKS.Types.UpdateParam
-import Network.AWS.EKS.Types.UpdateTaintsPayload
-import Network.AWS.EKS.Types.VpcConfigRequest
-import Network.AWS.EKS.Types.VpcConfigResponse
-import Network.AWS.EKS.UntagResource
-import Network.AWS.EKS.UpdateAddon
-import Network.AWS.EKS.UpdateClusterConfig
-import Network.AWS.EKS.UpdateClusterVersion
-import Network.AWS.EKS.UpdateNodegroupConfig
-import Network.AWS.EKS.UpdateNodegroupVersion
+import Amazonka.EKS.AssociateEncryptionConfig
+import Amazonka.EKS.AssociateIdentityProviderConfig
+import Amazonka.EKS.CreateAddon
+import Amazonka.EKS.CreateCluster
+import Amazonka.EKS.CreateFargateProfile
+import Amazonka.EKS.CreateNodegroup
+import Amazonka.EKS.DeleteAddon
+import Amazonka.EKS.DeleteCluster
+import Amazonka.EKS.DeleteFargateProfile
+import Amazonka.EKS.DeleteNodegroup
+import Amazonka.EKS.DeregisterCluster
+import Amazonka.EKS.DescribeAddon
+import Amazonka.EKS.DescribeAddonVersions
+import Amazonka.EKS.DescribeCluster
+import Amazonka.EKS.DescribeFargateProfile
+import Amazonka.EKS.DescribeIdentityProviderConfig
+import Amazonka.EKS.DescribeNodegroup
+import Amazonka.EKS.DescribeUpdate
+import Amazonka.EKS.DisassociateIdentityProviderConfig
+import Amazonka.EKS.ListAddons
+import Amazonka.EKS.ListClusters
+import Amazonka.EKS.ListFargateProfiles
+import Amazonka.EKS.ListIdentityProviderConfigs
+import Amazonka.EKS.ListNodegroups
+import Amazonka.EKS.ListTagsForResource
+import Amazonka.EKS.ListUpdates
+import Amazonka.EKS.RegisterCluster
+import Amazonka.EKS.TagResource
+import Amazonka.EKS.Types.Addon
+import Amazonka.EKS.Types.AddonHealth
+import Amazonka.EKS.Types.AddonInfo
+import Amazonka.EKS.Types.AddonIssue
+import Amazonka.EKS.Types.AddonVersionInfo
+import Amazonka.EKS.Types.AutoScalingGroup
+import Amazonka.EKS.Types.Certificate
+import Amazonka.EKS.Types.Cluster
+import Amazonka.EKS.Types.Compatibility
+import Amazonka.EKS.Types.ConnectorConfigRequest
+import Amazonka.EKS.Types.ConnectorConfigResponse
+import Amazonka.EKS.Types.EncryptionConfig
+import Amazonka.EKS.Types.ErrorDetail
+import Amazonka.EKS.Types.FargateProfile
+import Amazonka.EKS.Types.FargateProfileSelector
+import Amazonka.EKS.Types.Identity
+import Amazonka.EKS.Types.IdentityProviderConfig
+import Amazonka.EKS.Types.IdentityProviderConfigResponse
+import Amazonka.EKS.Types.Issue
+import Amazonka.EKS.Types.KubernetesNetworkConfigRequest
+import Amazonka.EKS.Types.KubernetesNetworkConfigResponse
+import Amazonka.EKS.Types.LaunchTemplateSpecification
+import Amazonka.EKS.Types.LogSetup
+import Amazonka.EKS.Types.Logging
+import Amazonka.EKS.Types.Nodegroup
+import Amazonka.EKS.Types.NodegroupHealth
+import Amazonka.EKS.Types.NodegroupResources
+import Amazonka.EKS.Types.NodegroupScalingConfig
+import Amazonka.EKS.Types.NodegroupUpdateConfig
+import Amazonka.EKS.Types.OIDC
+import Amazonka.EKS.Types.OidcIdentityProviderConfig
+import Amazonka.EKS.Types.OidcIdentityProviderConfigRequest
+import Amazonka.EKS.Types.Provider
+import Amazonka.EKS.Types.RemoteAccessConfig
+import Amazonka.EKS.Types.Taint
+import Amazonka.EKS.Types.Update
+import Amazonka.EKS.Types.UpdateLabelsPayload
+import Amazonka.EKS.Types.UpdateParam
+import Amazonka.EKS.Types.UpdateTaintsPayload
+import Amazonka.EKS.Types.VpcConfigRequest
+import Amazonka.EKS.Types.VpcConfigResponse
+import Amazonka.EKS.UntagResource
+import Amazonka.EKS.UpdateAddon
+import Amazonka.EKS.UpdateClusterConfig
+import Amazonka.EKS.UpdateClusterVersion
+import Amazonka.EKS.UpdateNodegroupConfig
+import Amazonka.EKS.UpdateNodegroupVersion

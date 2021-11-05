@@ -11,27 +11,27 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EKS.Types.Nodegroup
+-- Module      : Amazonka.EKS.Types.Nodegroup
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EKS.Types.Nodegroup where
+module Amazonka.EKS.Types.Nodegroup where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EKS.Types.AMITypes
-import Network.AWS.EKS.Types.CapacityTypes
-import Network.AWS.EKS.Types.LaunchTemplateSpecification
-import Network.AWS.EKS.Types.NodegroupHealth
-import Network.AWS.EKS.Types.NodegroupResources
-import Network.AWS.EKS.Types.NodegroupScalingConfig
-import Network.AWS.EKS.Types.NodegroupStatus
-import Network.AWS.EKS.Types.NodegroupUpdateConfig
-import Network.AWS.EKS.Types.RemoteAccessConfig
-import Network.AWS.EKS.Types.Taint
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.EKS.Types.AMITypes
+import Amazonka.EKS.Types.CapacityTypes
+import Amazonka.EKS.Types.LaunchTemplateSpecification
+import Amazonka.EKS.Types.NodegroupHealth
+import Amazonka.EKS.Types.NodegroupResources
+import Amazonka.EKS.Types.NodegroupScalingConfig
+import Amazonka.EKS.Types.NodegroupStatus
+import Amazonka.EKS.Types.NodegroupUpdateConfig
+import Amazonka.EKS.Types.RemoteAccessConfig
+import Amazonka.EKS.Types.Taint
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing an Amazon EKS managed node group.
 --

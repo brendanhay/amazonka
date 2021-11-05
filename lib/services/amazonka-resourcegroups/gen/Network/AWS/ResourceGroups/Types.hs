@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ResourceGroups.Types
+-- Module      : Amazonka.ResourceGroups.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ResourceGroups.Types
+module Amazonka.ResourceGroups.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -137,31 +137,31 @@ module Network.AWS.ResourceGroups.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.ResourceGroups.Types.FailedResource
-import Network.AWS.ResourceGroups.Types.Group
-import Network.AWS.ResourceGroups.Types.GroupConfiguration
-import Network.AWS.ResourceGroups.Types.GroupConfigurationItem
-import Network.AWS.ResourceGroups.Types.GroupConfigurationParameter
-import Network.AWS.ResourceGroups.Types.GroupConfigurationStatus
-import Network.AWS.ResourceGroups.Types.GroupFilter
-import Network.AWS.ResourceGroups.Types.GroupFilterName
-import Network.AWS.ResourceGroups.Types.GroupIdentifier
-import Network.AWS.ResourceGroups.Types.GroupQuery
-import Network.AWS.ResourceGroups.Types.ListGroupResourcesItem
-import Network.AWS.ResourceGroups.Types.PendingResource
-import Network.AWS.ResourceGroups.Types.QueryError
-import Network.AWS.ResourceGroups.Types.QueryErrorCode
-import Network.AWS.ResourceGroups.Types.QueryType
-import Network.AWS.ResourceGroups.Types.ResourceFilter
-import Network.AWS.ResourceGroups.Types.ResourceFilterName
-import Network.AWS.ResourceGroups.Types.ResourceIdentifier
-import Network.AWS.ResourceGroups.Types.ResourceQuery
-import Network.AWS.ResourceGroups.Types.ResourceStatus
-import Network.AWS.ResourceGroups.Types.ResourceStatusValue
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.ResourceGroups.Types.FailedResource
+import Amazonka.ResourceGroups.Types.Group
+import Amazonka.ResourceGroups.Types.GroupConfiguration
+import Amazonka.ResourceGroups.Types.GroupConfigurationItem
+import Amazonka.ResourceGroups.Types.GroupConfigurationParameter
+import Amazonka.ResourceGroups.Types.GroupConfigurationStatus
+import Amazonka.ResourceGroups.Types.GroupFilter
+import Amazonka.ResourceGroups.Types.GroupFilterName
+import Amazonka.ResourceGroups.Types.GroupIdentifier
+import Amazonka.ResourceGroups.Types.GroupQuery
+import Amazonka.ResourceGroups.Types.ListGroupResourcesItem
+import Amazonka.ResourceGroups.Types.PendingResource
+import Amazonka.ResourceGroups.Types.QueryError
+import Amazonka.ResourceGroups.Types.QueryErrorCode
+import Amazonka.ResourceGroups.Types.QueryType
+import Amazonka.ResourceGroups.Types.ResourceFilter
+import Amazonka.ResourceGroups.Types.ResourceFilterName
+import Amazonka.ResourceGroups.Types.ResourceIdentifier
+import Amazonka.ResourceGroups.Types.ResourceQuery
+import Amazonka.ResourceGroups.Types.ResourceStatus
+import Amazonka.ResourceGroups.Types.ResourceStatusValue
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2017-11-27@ of the Amazon Resource Groups SDK configuration.
 defaultService :: Core.Service

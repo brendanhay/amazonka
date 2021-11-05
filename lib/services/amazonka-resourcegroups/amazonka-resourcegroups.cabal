@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.ResourceGroups.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.ResourceGroups.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.ResourceGroups" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.ResourceGroups" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,49 +45,49 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.ResourceGroups
-    Network.AWS.ResourceGroups.CreateGroup
-    Network.AWS.ResourceGroups.DeleteGroup
-    Network.AWS.ResourceGroups.GetGroup
-    Network.AWS.ResourceGroups.GetGroupConfiguration
-    Network.AWS.ResourceGroups.GetGroupQuery
-    Network.AWS.ResourceGroups.GetTags
-    Network.AWS.ResourceGroups.GroupResources
-    Network.AWS.ResourceGroups.Lens
-    Network.AWS.ResourceGroups.ListGroupResources
-    Network.AWS.ResourceGroups.ListGroups
-    Network.AWS.ResourceGroups.PutGroupConfiguration
-    Network.AWS.ResourceGroups.SearchResources
-    Network.AWS.ResourceGroups.Tag
-    Network.AWS.ResourceGroups.Types
-    Network.AWS.ResourceGroups.Types.FailedResource
-    Network.AWS.ResourceGroups.Types.Group
-    Network.AWS.ResourceGroups.Types.GroupConfiguration
-    Network.AWS.ResourceGroups.Types.GroupConfigurationItem
-    Network.AWS.ResourceGroups.Types.GroupConfigurationParameter
-    Network.AWS.ResourceGroups.Types.GroupConfigurationStatus
-    Network.AWS.ResourceGroups.Types.GroupFilter
-    Network.AWS.ResourceGroups.Types.GroupFilterName
-    Network.AWS.ResourceGroups.Types.GroupIdentifier
-    Network.AWS.ResourceGroups.Types.GroupQuery
-    Network.AWS.ResourceGroups.Types.ListGroupResourcesItem
-    Network.AWS.ResourceGroups.Types.PendingResource
-    Network.AWS.ResourceGroups.Types.QueryError
-    Network.AWS.ResourceGroups.Types.QueryErrorCode
-    Network.AWS.ResourceGroups.Types.QueryType
-    Network.AWS.ResourceGroups.Types.ResourceFilter
-    Network.AWS.ResourceGroups.Types.ResourceFilterName
-    Network.AWS.ResourceGroups.Types.ResourceIdentifier
-    Network.AWS.ResourceGroups.Types.ResourceQuery
-    Network.AWS.ResourceGroups.Types.ResourceStatus
-    Network.AWS.ResourceGroups.Types.ResourceStatusValue
-    Network.AWS.ResourceGroups.UngroupResources
-    Network.AWS.ResourceGroups.Untag
-    Network.AWS.ResourceGroups.UpdateGroup
-    Network.AWS.ResourceGroups.UpdateGroupQuery
-    Network.AWS.ResourceGroups.Waiters
+    Amazonka.ResourceGroups
+    Amazonka.ResourceGroups.CreateGroup
+    Amazonka.ResourceGroups.DeleteGroup
+    Amazonka.ResourceGroups.GetGroup
+    Amazonka.ResourceGroups.GetGroupConfiguration
+    Amazonka.ResourceGroups.GetGroupQuery
+    Amazonka.ResourceGroups.GetTags
+    Amazonka.ResourceGroups.GroupResources
+    Amazonka.ResourceGroups.Lens
+    Amazonka.ResourceGroups.ListGroupResources
+    Amazonka.ResourceGroups.ListGroups
+    Amazonka.ResourceGroups.PutGroupConfiguration
+    Amazonka.ResourceGroups.SearchResources
+    Amazonka.ResourceGroups.Tag
+    Amazonka.ResourceGroups.Types
+    Amazonka.ResourceGroups.Types.FailedResource
+    Amazonka.ResourceGroups.Types.Group
+    Amazonka.ResourceGroups.Types.GroupConfiguration
+    Amazonka.ResourceGroups.Types.GroupConfigurationItem
+    Amazonka.ResourceGroups.Types.GroupConfigurationParameter
+    Amazonka.ResourceGroups.Types.GroupConfigurationStatus
+    Amazonka.ResourceGroups.Types.GroupFilter
+    Amazonka.ResourceGroups.Types.GroupFilterName
+    Amazonka.ResourceGroups.Types.GroupIdentifier
+    Amazonka.ResourceGroups.Types.GroupQuery
+    Amazonka.ResourceGroups.Types.ListGroupResourcesItem
+    Amazonka.ResourceGroups.Types.PendingResource
+    Amazonka.ResourceGroups.Types.QueryError
+    Amazonka.ResourceGroups.Types.QueryErrorCode
+    Amazonka.ResourceGroups.Types.QueryType
+    Amazonka.ResourceGroups.Types.ResourceFilter
+    Amazonka.ResourceGroups.Types.ResourceFilterName
+    Amazonka.ResourceGroups.Types.ResourceIdentifier
+    Amazonka.ResourceGroups.Types.ResourceQuery
+    Amazonka.ResourceGroups.Types.ResourceStatus
+    Amazonka.ResourceGroups.Types.ResourceStatusValue
+    Amazonka.ResourceGroups.UngroupResources
+    Amazonka.ResourceGroups.Untag
+    Amazonka.ResourceGroups.UpdateGroup
+    Amazonka.ResourceGroups.UpdateGroupQuery
+    Amazonka.ResourceGroups.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

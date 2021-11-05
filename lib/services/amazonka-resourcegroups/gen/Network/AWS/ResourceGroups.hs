@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.ResourceGroups
+-- Module      : Amazonka.ResourceGroups
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -48,7 +48,7 @@
 -- -   Getting data about resources that are members of a group
 --
 -- -   Searching AWS resources based on a resource query
-module Network.AWS.ResourceGroups
+module Amazonka.ResourceGroups
   ( -- * Service Configuration
     defaultService,
 
@@ -260,25 +260,25 @@ module Network.AWS.ResourceGroups
   )
 where
 
-import Network.AWS.ResourceGroups.CreateGroup
-import Network.AWS.ResourceGroups.DeleteGroup
-import Network.AWS.ResourceGroups.GetGroup
-import Network.AWS.ResourceGroups.GetGroupConfiguration
-import Network.AWS.ResourceGroups.GetGroupQuery
-import Network.AWS.ResourceGroups.GetTags
-import Network.AWS.ResourceGroups.GroupResources
-import Network.AWS.ResourceGroups.Lens
-import Network.AWS.ResourceGroups.ListGroupResources
-import Network.AWS.ResourceGroups.ListGroups
-import Network.AWS.ResourceGroups.PutGroupConfiguration
-import Network.AWS.ResourceGroups.SearchResources
-import Network.AWS.ResourceGroups.Tag
-import Network.AWS.ResourceGroups.Types
-import Network.AWS.ResourceGroups.UngroupResources
-import Network.AWS.ResourceGroups.Untag
-import Network.AWS.ResourceGroups.UpdateGroup
-import Network.AWS.ResourceGroups.UpdateGroupQuery
-import Network.AWS.ResourceGroups.Waiters
+import Amazonka.ResourceGroups.CreateGroup
+import Amazonka.ResourceGroups.DeleteGroup
+import Amazonka.ResourceGroups.GetGroup
+import Amazonka.ResourceGroups.GetGroupConfiguration
+import Amazonka.ResourceGroups.GetGroupQuery
+import Amazonka.ResourceGroups.GetTags
+import Amazonka.ResourceGroups.GroupResources
+import Amazonka.ResourceGroups.Lens
+import Amazonka.ResourceGroups.ListGroupResources
+import Amazonka.ResourceGroups.ListGroups
+import Amazonka.ResourceGroups.PutGroupConfiguration
+import Amazonka.ResourceGroups.SearchResources
+import Amazonka.ResourceGroups.Tag
+import Amazonka.ResourceGroups.Types
+import Amazonka.ResourceGroups.UngroupResources
+import Amazonka.ResourceGroups.Untag
+import Amazonka.ResourceGroups.UpdateGroup
+import Amazonka.ResourceGroups.UpdateGroupQuery
+import Amazonka.ResourceGroups.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

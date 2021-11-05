@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LicenseManager.Types.ReportFrequency
+-- Module      : Amazonka.LicenseManager.Types.ReportFrequency
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LicenseManager.Types.ReportFrequency where
+module Amazonka.LicenseManager.Types.ReportFrequency where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.LicenseManager.Types.ReportFrequencyType
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.LicenseManager.Types.ReportFrequencyType
+import qualified Amazonka.Prelude as Prelude
 
 -- | Details about how frequently reports are generated.
 --

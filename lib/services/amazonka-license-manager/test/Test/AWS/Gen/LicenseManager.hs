@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.LicenseManager where
 
+import Amazonka.LicenseManager
 import qualified Data.Proxy as Proxy
-import Network.AWS.LicenseManager
 import Test.AWS.Fixture
 import Test.AWS.LicenseManager.Internal
 import Test.AWS.Prelude

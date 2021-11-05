@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.LicenseManager
+-- Module      : Amazonka.LicenseManager
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -13,7 +13,7 @@
 --
 -- License Manager makes it easier to manage licenses from software vendors
 -- across multiple Amazon Web Services accounts and on-premises servers.
-module Network.AWS.LicenseManager
+module Amazonka.LicenseManager
   ( -- * Service Configuration
     defaultService,
 
@@ -571,57 +571,57 @@ module Network.AWS.LicenseManager
   )
 where
 
-import Network.AWS.LicenseManager.AcceptGrant
-import Network.AWS.LicenseManager.CheckInLicense
-import Network.AWS.LicenseManager.CheckoutBorrowLicense
-import Network.AWS.LicenseManager.CheckoutLicense
-import Network.AWS.LicenseManager.CreateGrant
-import Network.AWS.LicenseManager.CreateGrantVersion
-import Network.AWS.LicenseManager.CreateLicense
-import Network.AWS.LicenseManager.CreateLicenseConfiguration
-import Network.AWS.LicenseManager.CreateLicenseConversionTaskForResource
-import Network.AWS.LicenseManager.CreateLicenseManagerReportGenerator
-import Network.AWS.LicenseManager.CreateLicenseVersion
-import Network.AWS.LicenseManager.CreateToken
-import Network.AWS.LicenseManager.DeleteGrant
-import Network.AWS.LicenseManager.DeleteLicense
-import Network.AWS.LicenseManager.DeleteLicenseConfiguration
-import Network.AWS.LicenseManager.DeleteLicenseManagerReportGenerator
-import Network.AWS.LicenseManager.DeleteToken
-import Network.AWS.LicenseManager.ExtendLicenseConsumption
-import Network.AWS.LicenseManager.GetAccessToken
-import Network.AWS.LicenseManager.GetGrant
-import Network.AWS.LicenseManager.GetLicense
-import Network.AWS.LicenseManager.GetLicenseConfiguration
-import Network.AWS.LicenseManager.GetLicenseConversionTask
-import Network.AWS.LicenseManager.GetLicenseManagerReportGenerator
-import Network.AWS.LicenseManager.GetLicenseUsage
-import Network.AWS.LicenseManager.GetServiceSettings
-import Network.AWS.LicenseManager.Lens
-import Network.AWS.LicenseManager.ListAssociationsForLicenseConfiguration
-import Network.AWS.LicenseManager.ListDistributedGrants
-import Network.AWS.LicenseManager.ListFailuresForLicenseConfigurationOperations
-import Network.AWS.LicenseManager.ListLicenseConfigurations
-import Network.AWS.LicenseManager.ListLicenseConversionTasks
-import Network.AWS.LicenseManager.ListLicenseManagerReportGenerators
-import Network.AWS.LicenseManager.ListLicenseSpecificationsForResource
-import Network.AWS.LicenseManager.ListLicenseVersions
-import Network.AWS.LicenseManager.ListLicenses
-import Network.AWS.LicenseManager.ListReceivedGrants
-import Network.AWS.LicenseManager.ListReceivedLicenses
-import Network.AWS.LicenseManager.ListResourceInventory
-import Network.AWS.LicenseManager.ListTagsForResource
-import Network.AWS.LicenseManager.ListTokens
-import Network.AWS.LicenseManager.ListUsageForLicenseConfiguration
-import Network.AWS.LicenseManager.RejectGrant
-import Network.AWS.LicenseManager.TagResource
-import Network.AWS.LicenseManager.Types
-import Network.AWS.LicenseManager.UntagResource
-import Network.AWS.LicenseManager.UpdateLicenseConfiguration
-import Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator
-import Network.AWS.LicenseManager.UpdateLicenseSpecificationsForResource
-import Network.AWS.LicenseManager.UpdateServiceSettings
-import Network.AWS.LicenseManager.Waiters
+import Amazonka.LicenseManager.AcceptGrant
+import Amazonka.LicenseManager.CheckInLicense
+import Amazonka.LicenseManager.CheckoutBorrowLicense
+import Amazonka.LicenseManager.CheckoutLicense
+import Amazonka.LicenseManager.CreateGrant
+import Amazonka.LicenseManager.CreateGrantVersion
+import Amazonka.LicenseManager.CreateLicense
+import Amazonka.LicenseManager.CreateLicenseConfiguration
+import Amazonka.LicenseManager.CreateLicenseConversionTaskForResource
+import Amazonka.LicenseManager.CreateLicenseManagerReportGenerator
+import Amazonka.LicenseManager.CreateLicenseVersion
+import Amazonka.LicenseManager.CreateToken
+import Amazonka.LicenseManager.DeleteGrant
+import Amazonka.LicenseManager.DeleteLicense
+import Amazonka.LicenseManager.DeleteLicenseConfiguration
+import Amazonka.LicenseManager.DeleteLicenseManagerReportGenerator
+import Amazonka.LicenseManager.DeleteToken
+import Amazonka.LicenseManager.ExtendLicenseConsumption
+import Amazonka.LicenseManager.GetAccessToken
+import Amazonka.LicenseManager.GetGrant
+import Amazonka.LicenseManager.GetLicense
+import Amazonka.LicenseManager.GetLicenseConfiguration
+import Amazonka.LicenseManager.GetLicenseConversionTask
+import Amazonka.LicenseManager.GetLicenseManagerReportGenerator
+import Amazonka.LicenseManager.GetLicenseUsage
+import Amazonka.LicenseManager.GetServiceSettings
+import Amazonka.LicenseManager.Lens
+import Amazonka.LicenseManager.ListAssociationsForLicenseConfiguration
+import Amazonka.LicenseManager.ListDistributedGrants
+import Amazonka.LicenseManager.ListFailuresForLicenseConfigurationOperations
+import Amazonka.LicenseManager.ListLicenseConfigurations
+import Amazonka.LicenseManager.ListLicenseConversionTasks
+import Amazonka.LicenseManager.ListLicenseManagerReportGenerators
+import Amazonka.LicenseManager.ListLicenseSpecificationsForResource
+import Amazonka.LicenseManager.ListLicenseVersions
+import Amazonka.LicenseManager.ListLicenses
+import Amazonka.LicenseManager.ListReceivedGrants
+import Amazonka.LicenseManager.ListReceivedLicenses
+import Amazonka.LicenseManager.ListResourceInventory
+import Amazonka.LicenseManager.ListTagsForResource
+import Amazonka.LicenseManager.ListTokens
+import Amazonka.LicenseManager.ListUsageForLicenseConfiguration
+import Amazonka.LicenseManager.RejectGrant
+import Amazonka.LicenseManager.TagResource
+import Amazonka.LicenseManager.Types
+import Amazonka.LicenseManager.UntagResource
+import Amazonka.LicenseManager.UpdateLicenseConfiguration
+import Amazonka.LicenseManager.UpdateLicenseManagerReportGenerator
+import Amazonka.LicenseManager.UpdateLicenseSpecificationsForResource
+import Amazonka.LicenseManager.UpdateServiceSettings
+import Amazonka.LicenseManager.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

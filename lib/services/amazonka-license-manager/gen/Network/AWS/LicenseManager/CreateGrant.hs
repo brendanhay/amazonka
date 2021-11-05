@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LicenseManager.CreateGrant
+-- Module      : Amazonka.LicenseManager.CreateGrant
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Creates a grant for the specified license. A grant shares the use of
 -- license entitlements with specific Amazon Web Services accounts.
-module Network.AWS.LicenseManager.CreateGrant
+module Amazonka.LicenseManager.CreateGrant
   ( -- * Creating a Request
     CreateGrant (..),
     newCreateGrant,
@@ -47,12 +47,12 @@ module Network.AWS.LicenseManager.CreateGrant
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.LicenseManager.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.LicenseManager.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateGrant' smart constructor.
 data CreateGrant = CreateGrant'

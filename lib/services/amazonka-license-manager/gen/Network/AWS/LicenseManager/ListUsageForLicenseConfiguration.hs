@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LicenseManager.ListUsageForLicenseConfiguration
+-- Module      : Amazonka.LicenseManager.ListUsageForLicenseConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- inventory and configuration.
 --
 -- This operation returns paginated results.
-module Network.AWS.LicenseManager.ListUsageForLicenseConfiguration
+module Amazonka.LicenseManager.ListUsageForLicenseConfiguration
   ( -- * Creating a Request
     ListUsageForLicenseConfiguration (..),
     newListUsageForLicenseConfiguration,
@@ -48,12 +48,12 @@ module Network.AWS.LicenseManager.ListUsageForLicenseConfiguration
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.LicenseManager.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.LicenseManager.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListUsageForLicenseConfiguration' smart constructor.
 data ListUsageForLicenseConfiguration = ListUsageForLicenseConfiguration'

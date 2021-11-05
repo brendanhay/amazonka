@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LicenseManager.UpdateLicenseSpecificationsForResource
+-- Module      : Amazonka.LicenseManager.UpdateLicenseSpecificationsForResource
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 -- You cannot update the license specifications for launch templates and
 -- CloudFormation templates, as they send license configurations to the
 -- operation that creates the resource.
-module Network.AWS.LicenseManager.UpdateLicenseSpecificationsForResource
+module Amazonka.LicenseManager.UpdateLicenseSpecificationsForResource
   ( -- * Creating a Request
     UpdateLicenseSpecificationsForResource (..),
     newUpdateLicenseSpecificationsForResource,
@@ -46,12 +46,12 @@ module Network.AWS.LicenseManager.UpdateLicenseSpecificationsForResource
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.LicenseManager.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.LicenseManager.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateLicenseSpecificationsForResource' smart constructor.
 data UpdateLicenseSpecificationsForResource = UpdateLicenseSpecificationsForResource'

@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LicenseManager.Types.LicenseConfiguration
+-- Module      : Amazonka.LicenseManager.Types.LicenseConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LicenseManager.Types.LicenseConfiguration where
+module Amazonka.LicenseManager.Types.LicenseConfiguration where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.LicenseManager.Types.AutomatedDiscoveryInformation
-import Network.AWS.LicenseManager.Types.ConsumedLicenseSummary
-import Network.AWS.LicenseManager.Types.LicenseCountingType
-import Network.AWS.LicenseManager.Types.ManagedResourceSummary
-import Network.AWS.LicenseManager.Types.ProductInformation
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.LicenseManager.Types.AutomatedDiscoveryInformation
+import Amazonka.LicenseManager.Types.ConsumedLicenseSummary
+import Amazonka.LicenseManager.Types.LicenseCountingType
+import Amazonka.LicenseManager.Types.ManagedResourceSummary
+import Amazonka.LicenseManager.Types.ProductInformation
+import qualified Amazonka.Prelude as Prelude
 
 -- | A license configuration is an abstraction of a customer license
 -- agreement that can be consumed and enforced by License Manager.

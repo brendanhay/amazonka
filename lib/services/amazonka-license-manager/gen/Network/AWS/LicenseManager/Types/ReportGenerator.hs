@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LicenseManager.Types.ReportGenerator
+-- Module      : Amazonka.LicenseManager.Types.ReportGenerator
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LicenseManager.Types.ReportGenerator where
+module Amazonka.LicenseManager.Types.ReportGenerator where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.LicenseManager.Types.ReportContext
-import Network.AWS.LicenseManager.Types.ReportFrequency
-import Network.AWS.LicenseManager.Types.ReportType
-import Network.AWS.LicenseManager.Types.S3Location
-import Network.AWS.LicenseManager.Types.Tag
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.LicenseManager.Types.ReportContext
+import Amazonka.LicenseManager.Types.ReportFrequency
+import Amazonka.LicenseManager.Types.ReportType
+import Amazonka.LicenseManager.Types.S3Location
+import Amazonka.LicenseManager.Types.Tag
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describe the details of a report generator.
 --

@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LicenseManager.Types
+-- Module      : Amazonka.LicenseManager.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LicenseManager.Types
+module Amazonka.LicenseManager.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -406,65 +406,65 @@ module Network.AWS.LicenseManager.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.LicenseManager.Types.AllowedOperation
-import Network.AWS.LicenseManager.Types.AutomatedDiscoveryInformation
-import Network.AWS.LicenseManager.Types.BorrowConfiguration
-import Network.AWS.LicenseManager.Types.CheckoutType
-import Network.AWS.LicenseManager.Types.ConsumedLicenseSummary
-import Network.AWS.LicenseManager.Types.ConsumptionConfiguration
-import Network.AWS.LicenseManager.Types.DatetimeRange
-import Network.AWS.LicenseManager.Types.DigitalSignatureMethod
-import Network.AWS.LicenseManager.Types.Entitlement
-import Network.AWS.LicenseManager.Types.EntitlementData
-import Network.AWS.LicenseManager.Types.EntitlementDataUnit
-import Network.AWS.LicenseManager.Types.EntitlementUnit
-import Network.AWS.LicenseManager.Types.EntitlementUsage
-import Network.AWS.LicenseManager.Types.Filter
-import Network.AWS.LicenseManager.Types.Grant
-import Network.AWS.LicenseManager.Types.GrantStatus
-import Network.AWS.LicenseManager.Types.GrantedLicense
-import Network.AWS.LicenseManager.Types.InventoryFilter
-import Network.AWS.LicenseManager.Types.InventoryFilterCondition
-import Network.AWS.LicenseManager.Types.Issuer
-import Network.AWS.LicenseManager.Types.IssuerDetails
-import Network.AWS.LicenseManager.Types.License
-import Network.AWS.LicenseManager.Types.LicenseConfiguration
-import Network.AWS.LicenseManager.Types.LicenseConfigurationAssociation
-import Network.AWS.LicenseManager.Types.LicenseConfigurationStatus
-import Network.AWS.LicenseManager.Types.LicenseConfigurationUsage
-import Network.AWS.LicenseManager.Types.LicenseConversionContext
-import Network.AWS.LicenseManager.Types.LicenseConversionTask
-import Network.AWS.LicenseManager.Types.LicenseConversionTaskStatus
-import Network.AWS.LicenseManager.Types.LicenseCountingType
-import Network.AWS.LicenseManager.Types.LicenseDeletionStatus
-import Network.AWS.LicenseManager.Types.LicenseOperationFailure
-import Network.AWS.LicenseManager.Types.LicenseSpecification
-import Network.AWS.LicenseManager.Types.LicenseStatus
-import Network.AWS.LicenseManager.Types.LicenseUsage
-import Network.AWS.LicenseManager.Types.ManagedResourceSummary
-import Network.AWS.LicenseManager.Types.Metadata
-import Network.AWS.LicenseManager.Types.OrganizationConfiguration
-import Network.AWS.LicenseManager.Types.ProductInformation
-import Network.AWS.LicenseManager.Types.ProductInformationFilter
-import Network.AWS.LicenseManager.Types.ProvisionalConfiguration
-import Network.AWS.LicenseManager.Types.ReceivedMetadata
-import Network.AWS.LicenseManager.Types.ReceivedStatus
-import Network.AWS.LicenseManager.Types.RenewType
-import Network.AWS.LicenseManager.Types.ReportContext
-import Network.AWS.LicenseManager.Types.ReportFrequency
-import Network.AWS.LicenseManager.Types.ReportFrequencyType
-import Network.AWS.LicenseManager.Types.ReportGenerator
-import Network.AWS.LicenseManager.Types.ReportType
-import Network.AWS.LicenseManager.Types.ResourceInventory
-import Network.AWS.LicenseManager.Types.ResourceType
-import Network.AWS.LicenseManager.Types.S3Location
-import Network.AWS.LicenseManager.Types.Tag
-import Network.AWS.LicenseManager.Types.TokenData
-import Network.AWS.LicenseManager.Types.TokenType
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.LicenseManager.Types.AllowedOperation
+import Amazonka.LicenseManager.Types.AutomatedDiscoveryInformation
+import Amazonka.LicenseManager.Types.BorrowConfiguration
+import Amazonka.LicenseManager.Types.CheckoutType
+import Amazonka.LicenseManager.Types.ConsumedLicenseSummary
+import Amazonka.LicenseManager.Types.ConsumptionConfiguration
+import Amazonka.LicenseManager.Types.DatetimeRange
+import Amazonka.LicenseManager.Types.DigitalSignatureMethod
+import Amazonka.LicenseManager.Types.Entitlement
+import Amazonka.LicenseManager.Types.EntitlementData
+import Amazonka.LicenseManager.Types.EntitlementDataUnit
+import Amazonka.LicenseManager.Types.EntitlementUnit
+import Amazonka.LicenseManager.Types.EntitlementUsage
+import Amazonka.LicenseManager.Types.Filter
+import Amazonka.LicenseManager.Types.Grant
+import Amazonka.LicenseManager.Types.GrantStatus
+import Amazonka.LicenseManager.Types.GrantedLicense
+import Amazonka.LicenseManager.Types.InventoryFilter
+import Amazonka.LicenseManager.Types.InventoryFilterCondition
+import Amazonka.LicenseManager.Types.Issuer
+import Amazonka.LicenseManager.Types.IssuerDetails
+import Amazonka.LicenseManager.Types.License
+import Amazonka.LicenseManager.Types.LicenseConfiguration
+import Amazonka.LicenseManager.Types.LicenseConfigurationAssociation
+import Amazonka.LicenseManager.Types.LicenseConfigurationStatus
+import Amazonka.LicenseManager.Types.LicenseConfigurationUsage
+import Amazonka.LicenseManager.Types.LicenseConversionContext
+import Amazonka.LicenseManager.Types.LicenseConversionTask
+import Amazonka.LicenseManager.Types.LicenseConversionTaskStatus
+import Amazonka.LicenseManager.Types.LicenseCountingType
+import Amazonka.LicenseManager.Types.LicenseDeletionStatus
+import Amazonka.LicenseManager.Types.LicenseOperationFailure
+import Amazonka.LicenseManager.Types.LicenseSpecification
+import Amazonka.LicenseManager.Types.LicenseStatus
+import Amazonka.LicenseManager.Types.LicenseUsage
+import Amazonka.LicenseManager.Types.ManagedResourceSummary
+import Amazonka.LicenseManager.Types.Metadata
+import Amazonka.LicenseManager.Types.OrganizationConfiguration
+import Amazonka.LicenseManager.Types.ProductInformation
+import Amazonka.LicenseManager.Types.ProductInformationFilter
+import Amazonka.LicenseManager.Types.ProvisionalConfiguration
+import Amazonka.LicenseManager.Types.ReceivedMetadata
+import Amazonka.LicenseManager.Types.ReceivedStatus
+import Amazonka.LicenseManager.Types.RenewType
+import Amazonka.LicenseManager.Types.ReportContext
+import Amazonka.LicenseManager.Types.ReportFrequency
+import Amazonka.LicenseManager.Types.ReportFrequencyType
+import Amazonka.LicenseManager.Types.ReportGenerator
+import Amazonka.LicenseManager.Types.ReportType
+import Amazonka.LicenseManager.Types.ResourceInventory
+import Amazonka.LicenseManager.Types.ResourceType
+import Amazonka.LicenseManager.Types.S3Location
+import Amazonka.LicenseManager.Types.Tag
+import Amazonka.LicenseManager.Types.TokenData
+import Amazonka.LicenseManager.Types.TokenType
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2018-08-01@ of the Amazon License Manager SDK configuration.
 defaultService :: Core.Service

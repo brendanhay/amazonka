@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LicenseManager.DeleteLicenseManagerReportGenerator
+-- Module      : Amazonka.LicenseManager.DeleteLicenseManagerReportGenerator
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- This action deletes the report generator, which stops it from generating
 -- future reports. The action cannot be reversed. It has no effect on the
 -- previous reports from this generator.
-module Network.AWS.LicenseManager.DeleteLicenseManagerReportGenerator
+module Amazonka.LicenseManager.DeleteLicenseManagerReportGenerator
   ( -- * Creating a Request
     DeleteLicenseManagerReportGenerator (..),
     newDeleteLicenseManagerReportGenerator,
@@ -42,12 +42,12 @@ module Network.AWS.LicenseManager.DeleteLicenseManagerReportGenerator
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.LicenseManager.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.LicenseManager.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteLicenseManagerReportGenerator' smart constructor.
 data DeleteLicenseManagerReportGenerator = DeleteLicenseManagerReportGenerator'

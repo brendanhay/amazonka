@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LicenseManager.Types.License
+-- Module      : Amazonka.LicenseManager.Types.License
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LicenseManager.Types.License where
+module Amazonka.LicenseManager.Types.License where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.LicenseManager.Types.ConsumptionConfiguration
-import Network.AWS.LicenseManager.Types.DatetimeRange
-import Network.AWS.LicenseManager.Types.Entitlement
-import Network.AWS.LicenseManager.Types.IssuerDetails
-import Network.AWS.LicenseManager.Types.LicenseStatus
-import Network.AWS.LicenseManager.Types.Metadata
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.LicenseManager.Types.ConsumptionConfiguration
+import Amazonka.LicenseManager.Types.DatetimeRange
+import Amazonka.LicenseManager.Types.Entitlement
+import Amazonka.LicenseManager.Types.IssuerDetails
+import Amazonka.LicenseManager.Types.LicenseStatus
+import Amazonka.LicenseManager.Types.Metadata
+import qualified Amazonka.Prelude as Prelude
 
 -- | Software license that is managed in License Manager.
 --

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Glue.GetMLTransform
+-- Module      : Amazonka.Glue.GetMLTransform
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- transformation to be performed by learning from examples provided by
 -- humans. These transformations are then saved by Glue. You can retrieve
 -- their metadata by calling @GetMLTransform@.
-module Network.AWS.Glue.GetMLTransform
+module Amazonka.Glue.GetMLTransform
   ( -- * Creating a Request
     GetMLTransform (..),
     newGetMLTransform,
@@ -62,12 +62,12 @@ module Network.AWS.Glue.GetMLTransform
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Glue.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Glue.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetMLTransform' smart constructor.
 data GetMLTransform = GetMLTransform'

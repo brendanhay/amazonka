@@ -11,25 +11,25 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Glue.Types.ColumnStatisticsData
+-- Module      : Amazonka.Glue.Types.ColumnStatisticsData
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.ColumnStatisticsData where
+module Amazonka.Glue.Types.ColumnStatisticsData where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Glue.Types.BinaryColumnStatisticsData
-import Network.AWS.Glue.Types.BooleanColumnStatisticsData
-import Network.AWS.Glue.Types.ColumnStatisticsType
-import Network.AWS.Glue.Types.DateColumnStatisticsData
-import Network.AWS.Glue.Types.DecimalColumnStatisticsData
-import Network.AWS.Glue.Types.DoubleColumnStatisticsData
-import Network.AWS.Glue.Types.LongColumnStatisticsData
-import Network.AWS.Glue.Types.StringColumnStatisticsData
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Glue.Types.BinaryColumnStatisticsData
+import Amazonka.Glue.Types.BooleanColumnStatisticsData
+import Amazonka.Glue.Types.ColumnStatisticsType
+import Amazonka.Glue.Types.DateColumnStatisticsData
+import Amazonka.Glue.Types.DecimalColumnStatisticsData
+import Amazonka.Glue.Types.DoubleColumnStatisticsData
+import Amazonka.Glue.Types.LongColumnStatisticsData
+import Amazonka.Glue.Types.StringColumnStatisticsData
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the individual types of column statistics data. Only one data
 -- object should be set and indicated by the @Type@ attribute.

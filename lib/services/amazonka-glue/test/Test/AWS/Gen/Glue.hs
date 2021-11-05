@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Glue where
 
+import Amazonka.Glue
 import qualified Data.Proxy as Proxy
-import Network.AWS.Glue
 import Test.AWS.Fixture
 import Test.AWS.Glue.Internal
 import Test.AWS.Prelude

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Glue.GetPartition
+-- Module      : Amazonka.Glue.GetPartition
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves information about a specified partition.
-module Network.AWS.Glue.GetPartition
+module Amazonka.Glue.GetPartition
   ( -- * Creating a Request
     GetPartition (..),
     newGetPartition,
@@ -42,12 +42,12 @@ module Network.AWS.Glue.GetPartition
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Glue.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Glue.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetPartition' smart constructor.
 data GetPartition = GetPartition'

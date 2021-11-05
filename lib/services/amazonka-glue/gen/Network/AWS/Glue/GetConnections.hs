@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Glue.GetConnections
+-- Module      : Amazonka.Glue.GetConnections
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Retrieves a list of connection definitions from the Data Catalog.
 --
 -- This operation returns paginated results.
-module Network.AWS.Glue.GetConnections
+module Amazonka.Glue.GetConnections
   ( -- * Creating a Request
     GetConnections (..),
     newGetConnections,
@@ -46,12 +46,12 @@ module Network.AWS.Glue.GetConnections
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Glue.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Glue.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetConnections' smart constructor.
 data GetConnections = GetConnections'

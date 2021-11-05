@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Glue.Types.Database
+-- Module      : Amazonka.Glue.Types.Database
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.Database where
+module Amazonka.Glue.Types.Database where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Glue.Types.DatabaseIdentifier
-import Network.AWS.Glue.Types.PrincipalPermissions
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Glue.Types.DatabaseIdentifier
+import Amazonka.Glue.Types.PrincipalPermissions
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The @Database@ object represents a logical grouping of tables that might
 -- reside in a Hive metastore or an RDBMS.

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Glue.DeleteColumnStatisticsForTable
+-- Module      : Amazonka.Glue.DeleteColumnStatisticsForTable
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 --
 -- The Identity and Access Management (IAM) permission required for this
 -- operation is @DeleteTable@.
-module Network.AWS.Glue.DeleteColumnStatisticsForTable
+module Amazonka.Glue.DeleteColumnStatisticsForTable
   ( -- * Creating a Request
     DeleteColumnStatisticsForTable (..),
     newDeleteColumnStatisticsForTable,
@@ -44,12 +44,12 @@ module Network.AWS.Glue.DeleteColumnStatisticsForTable
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Glue.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Glue.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteColumnStatisticsForTable' smart constructor.
 data DeleteColumnStatisticsForTable = DeleteColumnStatisticsForTable'

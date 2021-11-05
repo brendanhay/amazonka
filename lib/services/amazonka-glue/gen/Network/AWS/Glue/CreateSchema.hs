@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Glue.CreateSchema
+-- Module      : Amazonka.Glue.CreateSchema
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -34,7 +34,7 @@
 -- When this API is called without a @RegistryId@, this will create an
 -- entry for a \"default-registry\" in the registry database tables, if it
 -- is not already present.
-module Network.AWS.Glue.CreateSchema
+module Amazonka.Glue.CreateSchema
   ( -- * Creating a Request
     CreateSchema (..),
     newCreateSchema,
@@ -71,12 +71,12 @@ module Network.AWS.Glue.CreateSchema
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Glue.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Glue.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateSchema' smart constructor.
 data CreateSchema = CreateSchema'

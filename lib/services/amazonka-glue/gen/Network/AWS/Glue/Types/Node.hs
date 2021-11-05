@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Glue.Types.Node
+-- Module      : Amazonka.Glue.Types.Node
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.Node where
+module Amazonka.Glue.Types.Node where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Glue.Types.CrawlerNodeDetails
-import Network.AWS.Glue.Types.JobNodeDetails
-import Network.AWS.Glue.Types.NodeType
-import Network.AWS.Glue.Types.TriggerNodeDetails
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Glue.Types.CrawlerNodeDetails
+import Amazonka.Glue.Types.JobNodeDetails
+import Amazonka.Glue.Types.NodeType
+import Amazonka.Glue.Types.TriggerNodeDetails
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A node represents an Glue component (trigger, crawler, or job) on a
 -- workflow graph.

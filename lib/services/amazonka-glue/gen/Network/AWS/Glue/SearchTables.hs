@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Glue.SearchTables
+-- Module      : Amazonka.Glue.SearchTables
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -31,7 +31,7 @@
 -- returning the list of tables back to you. If you have access to the
 -- columns but not the data in the columns, those columns and the
 -- associated metadata for those columns will be included in the search.
-module Network.AWS.Glue.SearchTables
+module Amazonka.Glue.SearchTables
   ( -- * Creating a Request
     SearchTables (..),
     newSearchTables,
@@ -56,12 +56,12 @@ module Network.AWS.Glue.SearchTables
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Glue.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Glue.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearchTables' smart constructor.
 data SearchTables = SearchTables'

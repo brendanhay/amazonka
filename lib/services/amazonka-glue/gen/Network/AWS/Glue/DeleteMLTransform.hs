@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Glue.DeleteMLTransform
+-- Module      : Amazonka.Glue.DeleteMLTransform
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 -- no longer need a transform, you can delete it by calling
 -- @DeleteMLTransforms@. However, any Glue jobs that still reference the
 -- deleted transform will no longer succeed.
-module Network.AWS.Glue.DeleteMLTransform
+module Amazonka.Glue.DeleteMLTransform
   ( -- * Creating a Request
     DeleteMLTransform (..),
     newDeleteMLTransform,
@@ -45,12 +45,12 @@ module Network.AWS.Glue.DeleteMLTransform
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Glue.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Glue.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteMLTransform' smart constructor.
 data DeleteMLTransform = DeleteMLTransform'

@@ -11,24 +11,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Glue.Types.Crawler
+-- Module      : Amazonka.Glue.Types.Crawler
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.Crawler where
+module Amazonka.Glue.Types.Crawler where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Glue.Types.CrawlerState
-import Network.AWS.Glue.Types.CrawlerTargets
-import Network.AWS.Glue.Types.LastCrawlInfo
-import Network.AWS.Glue.Types.LineageConfiguration
-import Network.AWS.Glue.Types.RecrawlPolicy
-import Network.AWS.Glue.Types.Schedule
-import Network.AWS.Glue.Types.SchemaChangePolicy
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Glue.Types.CrawlerState
+import Amazonka.Glue.Types.CrawlerTargets
+import Amazonka.Glue.Types.LastCrawlInfo
+import Amazonka.Glue.Types.LineageConfiguration
+import Amazonka.Glue.Types.RecrawlPolicy
+import Amazonka.Glue.Types.Schedule
+import Amazonka.Glue.Types.SchemaChangePolicy
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a crawler program that examines a data source and uses
 -- classifiers to try to determine its schema. If successful, the crawler

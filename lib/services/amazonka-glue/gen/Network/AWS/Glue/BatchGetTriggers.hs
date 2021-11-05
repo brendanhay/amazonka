@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Glue.BatchGetTriggers
+-- Module      : Amazonka.Glue.BatchGetTriggers
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- to access the data to which you have been granted permissions. This
 -- operation supports all IAM permissions, including permission conditions
 -- that uses tags.
-module Network.AWS.Glue.BatchGetTriggers
+module Amazonka.Glue.BatchGetTriggers
   ( -- * Creating a Request
     BatchGetTriggers (..),
     newBatchGetTriggers,
@@ -44,12 +44,12 @@ module Network.AWS.Glue.BatchGetTriggers
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Glue.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Glue.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newBatchGetTriggers' smart constructor.
 data BatchGetTriggers = BatchGetTriggers'

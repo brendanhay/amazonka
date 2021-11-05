@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Glue.Types.TaskRunProperties
+-- Module      : Amazonka.Glue.Types.TaskRunProperties
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.TaskRunProperties where
+module Amazonka.Glue.Types.TaskRunProperties where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Glue.Types.ExportLabelsTaskRunProperties
-import Network.AWS.Glue.Types.FindMatchesTaskRunProperties
-import Network.AWS.Glue.Types.ImportLabelsTaskRunProperties
-import Network.AWS.Glue.Types.LabelingSetGenerationTaskRunProperties
-import Network.AWS.Glue.Types.TaskType
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Glue.Types.ExportLabelsTaskRunProperties
+import Amazonka.Glue.Types.FindMatchesTaskRunProperties
+import Amazonka.Glue.Types.ImportLabelsTaskRunProperties
+import Amazonka.Glue.Types.LabelingSetGenerationTaskRunProperties
+import Amazonka.Glue.Types.TaskType
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration properties for the task run.
 --

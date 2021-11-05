@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Glue.Types.Workflow
+-- Module      : Amazonka.Glue.Types.Workflow
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.Workflow where
+module Amazonka.Glue.Types.Workflow where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Glue.Types.BlueprintDetails
-import Network.AWS.Glue.Types.WorkflowGraph
-import Network.AWS.Glue.Types.WorkflowRun
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Glue.Types.BlueprintDetails
+import Amazonka.Glue.Types.WorkflowGraph
+import Amazonka.Glue.Types.WorkflowRun
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A workflow is a collection of multiple dependent Glue jobs and crawlers
 -- that are run to complete a complex ETL task. A workflow manages the

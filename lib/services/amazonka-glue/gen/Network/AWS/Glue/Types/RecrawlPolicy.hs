@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Glue.Types.RecrawlPolicy
+-- Module      : Amazonka.Glue.Types.RecrawlPolicy
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.RecrawlPolicy where
+module Amazonka.Glue.Types.RecrawlPolicy where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Glue.Types.RecrawlBehavior
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Glue.Types.RecrawlBehavior
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | When crawling an Amazon S3 data source after the first crawl is
 -- complete, specifies whether to crawl the entire dataset again or to

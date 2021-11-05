@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Glue.UpdateDatabase
+-- Module      : Amazonka.Glue.UpdateDatabase
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates an existing database definition in a Data Catalog.
-module Network.AWS.Glue.UpdateDatabase
+module Amazonka.Glue.UpdateDatabase
   ( -- * Creating a Request
     UpdateDatabase (..),
     newUpdateDatabase,
@@ -40,12 +40,12 @@ module Network.AWS.Glue.UpdateDatabase
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Glue.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Glue.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateDatabase' smart constructor.
 data UpdateDatabase = UpdateDatabase'

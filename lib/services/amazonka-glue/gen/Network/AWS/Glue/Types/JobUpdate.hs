@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Glue.Types.JobUpdate
+-- Module      : Amazonka.Glue.Types.JobUpdate
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.JobUpdate where
+module Amazonka.Glue.Types.JobUpdate where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Glue.Types.ConnectionsList
-import Network.AWS.Glue.Types.ExecutionProperty
-import Network.AWS.Glue.Types.JobCommand
-import Network.AWS.Glue.Types.NotificationProperty
-import Network.AWS.Glue.Types.WorkerType
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Glue.Types.ConnectionsList
+import Amazonka.Glue.Types.ExecutionProperty
+import Amazonka.Glue.Types.JobCommand
+import Amazonka.Glue.Types.NotificationProperty
+import Amazonka.Glue.Types.WorkerType
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies information used to update an existing job definition. The
 -- previous job definition is completely overwritten by this information.

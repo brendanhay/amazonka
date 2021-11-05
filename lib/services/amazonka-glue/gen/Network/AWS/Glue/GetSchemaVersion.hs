@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Glue.GetSchemaVersion
+-- Module      : Amazonka.Glue.GetSchemaVersion
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Get the specified schema by its unique ID assigned when a version of the
 -- schema is created or registered. Schema versions in Deleted status will
 -- not be included in the results.
-module Network.AWS.Glue.GetSchemaVersion
+module Amazonka.Glue.GetSchemaVersion
   ( -- * Creating a Request
     GetSchemaVersion (..),
     newGetSchemaVersion,
@@ -49,12 +49,12 @@ module Network.AWS.Glue.GetSchemaVersion
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Glue.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Glue.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetSchemaVersion' smart constructor.
 data GetSchemaVersion = GetSchemaVersion'

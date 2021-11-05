@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Glue.Types.WorkflowRun
+-- Module      : Amazonka.Glue.Types.WorkflowRun
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.WorkflowRun where
+module Amazonka.Glue.Types.WorkflowRun where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Glue.Types.StartingEventBatchCondition
-import Network.AWS.Glue.Types.WorkflowGraph
-import Network.AWS.Glue.Types.WorkflowRunStatistics
-import Network.AWS.Glue.Types.WorkflowRunStatus
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Glue.Types.StartingEventBatchCondition
+import Amazonka.Glue.Types.WorkflowGraph
+import Amazonka.Glue.Types.WorkflowRunStatistics
+import Amazonka.Glue.Types.WorkflowRunStatus
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A workflow run is an execution of a workflow providing all the runtime
 -- information.

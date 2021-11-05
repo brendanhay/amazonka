@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Glue.StopCrawlerSchedule
+-- Module      : Amazonka.Glue.StopCrawlerSchedule
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Sets the schedule state of the specified crawler to @NOT_SCHEDULED@, but
 -- does not stop the crawler if it is already running.
-module Network.AWS.Glue.StopCrawlerSchedule
+module Amazonka.Glue.StopCrawlerSchedule
   ( -- * Creating a Request
     StopCrawlerSchedule (..),
     newStopCrawlerSchedule,
@@ -39,12 +39,12 @@ module Network.AWS.Glue.StopCrawlerSchedule
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Glue.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Glue.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStopCrawlerSchedule' smart constructor.
 data StopCrawlerSchedule = StopCrawlerSchedule'

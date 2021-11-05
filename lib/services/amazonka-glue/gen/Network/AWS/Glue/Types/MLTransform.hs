@@ -11,24 +11,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Glue.Types.MLTransform
+-- Module      : Amazonka.Glue.Types.MLTransform
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.MLTransform where
+module Amazonka.Glue.Types.MLTransform where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Glue.Types.EvaluationMetrics
-import Network.AWS.Glue.Types.GlueTable
-import Network.AWS.Glue.Types.SchemaColumn
-import Network.AWS.Glue.Types.TransformEncryption
-import Network.AWS.Glue.Types.TransformParameters
-import Network.AWS.Glue.Types.TransformStatusType
-import Network.AWS.Glue.Types.WorkerType
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Glue.Types.EvaluationMetrics
+import Amazonka.Glue.Types.GlueTable
+import Amazonka.Glue.Types.SchemaColumn
+import Amazonka.Glue.Types.TransformEncryption
+import Amazonka.Glue.Types.TransformParameters
+import Amazonka.Glue.Types.TransformStatusType
+import Amazonka.Glue.Types.WorkerType
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A structure for a machine learning transform.
 --

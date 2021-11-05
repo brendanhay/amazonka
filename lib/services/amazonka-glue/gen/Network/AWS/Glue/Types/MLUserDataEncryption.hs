@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Glue.Types.MLUserDataEncryption
+-- Module      : Amazonka.Glue.Types.MLUserDataEncryption
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.MLUserDataEncryption where
+module Amazonka.Glue.Types.MLUserDataEncryption where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Glue.Types.MLUserDataEncryptionModeString
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Glue.Types.MLUserDataEncryptionModeString
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The encryption-at-rest settings of the transform that apply to accessing
 -- user data.

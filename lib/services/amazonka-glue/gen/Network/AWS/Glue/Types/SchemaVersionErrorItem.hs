@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Glue.Types.SchemaVersionErrorItem
+-- Module      : Amazonka.Glue.Types.SchemaVersionErrorItem
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.SchemaVersionErrorItem where
+module Amazonka.Glue.Types.SchemaVersionErrorItem where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Glue.Types.ErrorDetails
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Glue.Types.ErrorDetails
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains the error details for an operation on a schema
 -- version.

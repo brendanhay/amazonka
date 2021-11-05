@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Glue.StartTrigger
+-- Module      : Amazonka.Glue.StartTrigger
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Starts an existing trigger. See
 -- <https://docs.aws.amazon.com/glue/latest/dg/trigger-job.html Triggering Jobs>
 -- for information about how different types of trigger are started.
-module Network.AWS.Glue.StartTrigger
+module Amazonka.Glue.StartTrigger
   ( -- * Creating a Request
     StartTrigger (..),
     newStartTrigger,
@@ -41,12 +41,12 @@ module Network.AWS.Glue.StartTrigger
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Glue.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Glue.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartTrigger' smart constructor.
 data StartTrigger = StartTrigger'

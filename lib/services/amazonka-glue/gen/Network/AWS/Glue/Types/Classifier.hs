@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Glue.Types.Classifier
+-- Module      : Amazonka.Glue.Types.Classifier
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.Classifier where
+module Amazonka.Glue.Types.Classifier where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Glue.Types.CsvClassifier
-import Network.AWS.Glue.Types.GrokClassifier
-import Network.AWS.Glue.Types.JsonClassifier
-import Network.AWS.Glue.Types.XMLClassifier
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Glue.Types.CsvClassifier
+import Amazonka.Glue.Types.GrokClassifier
+import Amazonka.Glue.Types.JsonClassifier
+import Amazonka.Glue.Types.XMLClassifier
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Classifiers are triggered during a crawl task. A classifier checks
 -- whether a given file is in a format it can handle. If it is, the

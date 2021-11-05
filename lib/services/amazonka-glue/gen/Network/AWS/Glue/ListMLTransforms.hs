@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Glue.ListMLTransforms
+-- Module      : Amazonka.Glue.ListMLTransforms
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- you can use as a filter of the responses so that tagged resources can be
 -- retrieved as a group. If you choose to use tag filtering, only resources
 -- with the tags are retrieved.
-module Network.AWS.Glue.ListMLTransforms
+module Amazonka.Glue.ListMLTransforms
   ( -- * Creating a Request
     ListMLTransforms (..),
     newListMLTransforms,
@@ -49,12 +49,12 @@ module Network.AWS.Glue.ListMLTransforms
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Glue.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Glue.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListMLTransforms' smart constructor.
 data ListMLTransforms = ListMLTransforms'

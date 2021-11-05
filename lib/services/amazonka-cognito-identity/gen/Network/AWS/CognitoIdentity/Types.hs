@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CognitoIdentity.Types
+-- Module      : Amazonka.CognitoIdentity.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentity.Types
+module Amazonka.CognitoIdentity.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -112,23 +112,23 @@ module Network.AWS.CognitoIdentity.Types
   )
 where
 
-import Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType
-import Network.AWS.CognitoIdentity.Types.CognitoErrorCode
-import Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider
-import Network.AWS.CognitoIdentity.Types.Credentials
-import Network.AWS.CognitoIdentity.Types.IdentityDescription
-import Network.AWS.CognitoIdentity.Types.IdentityPool
-import Network.AWS.CognitoIdentity.Types.IdentityPoolShortDescription
-import Network.AWS.CognitoIdentity.Types.MappingRule
-import Network.AWS.CognitoIdentity.Types.MappingRuleMatchType
-import Network.AWS.CognitoIdentity.Types.RoleMapping
-import Network.AWS.CognitoIdentity.Types.RoleMappingType
-import Network.AWS.CognitoIdentity.Types.RulesConfigurationType
-import Network.AWS.CognitoIdentity.Types.UnprocessedIdentityId
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.CognitoIdentity.Types.AmbiguousRoleResolutionType
+import Amazonka.CognitoIdentity.Types.CognitoErrorCode
+import Amazonka.CognitoIdentity.Types.CognitoIdentityProvider
+import Amazonka.CognitoIdentity.Types.Credentials
+import Amazonka.CognitoIdentity.Types.IdentityDescription
+import Amazonka.CognitoIdentity.Types.IdentityPool
+import Amazonka.CognitoIdentity.Types.IdentityPoolShortDescription
+import Amazonka.CognitoIdentity.Types.MappingRule
+import Amazonka.CognitoIdentity.Types.MappingRuleMatchType
+import Amazonka.CognitoIdentity.Types.RoleMapping
+import Amazonka.CognitoIdentity.Types.RoleMappingType
+import Amazonka.CognitoIdentity.Types.RulesConfigurationType
+import Amazonka.CognitoIdentity.Types.UnprocessedIdentityId
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2014-06-30@ of the Amazon Cognito Identity SDK configuration.
 defaultService :: Core.Service

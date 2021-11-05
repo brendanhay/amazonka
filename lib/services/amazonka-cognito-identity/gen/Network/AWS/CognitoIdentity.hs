@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.CognitoIdentity
+-- Module      : Amazonka.CognitoIdentity
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -32,7 +32,7 @@
 --
 -- For more information see
 -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-identity.html Amazon Cognito Federated Identities>.
-module Network.AWS.CognitoIdentity
+module Amazonka.CognitoIdentity
   ( -- * Service Configuration
     defaultService,
 
@@ -268,32 +268,32 @@ module Network.AWS.CognitoIdentity
   )
 where
 
-import Network.AWS.CognitoIdentity.CreateIdentityPool
-import Network.AWS.CognitoIdentity.DeleteIdentities
-import Network.AWS.CognitoIdentity.DeleteIdentityPool
-import Network.AWS.CognitoIdentity.DescribeIdentity
-import Network.AWS.CognitoIdentity.DescribeIdentityPool
-import Network.AWS.CognitoIdentity.GetCredentialsForIdentity
-import Network.AWS.CognitoIdentity.GetId
-import Network.AWS.CognitoIdentity.GetIdentityPoolRoles
-import Network.AWS.CognitoIdentity.GetOpenIdToken
-import Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
-import Network.AWS.CognitoIdentity.GetPrincipalTagAttributeMap
-import Network.AWS.CognitoIdentity.Lens
-import Network.AWS.CognitoIdentity.ListIdentities
-import Network.AWS.CognitoIdentity.ListIdentityPools
-import Network.AWS.CognitoIdentity.ListTagsForResource
-import Network.AWS.CognitoIdentity.LookupDeveloperIdentity
-import Network.AWS.CognitoIdentity.MergeDeveloperIdentities
-import Network.AWS.CognitoIdentity.SetIdentityPoolRoles
-import Network.AWS.CognitoIdentity.SetPrincipalTagAttributeMap
-import Network.AWS.CognitoIdentity.TagResource
-import Network.AWS.CognitoIdentity.Types
-import Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
-import Network.AWS.CognitoIdentity.UnlinkIdentity
-import Network.AWS.CognitoIdentity.UntagResource
-import Network.AWS.CognitoIdentity.UpdateIdentityPool
-import Network.AWS.CognitoIdentity.Waiters
+import Amazonka.CognitoIdentity.CreateIdentityPool
+import Amazonka.CognitoIdentity.DeleteIdentities
+import Amazonka.CognitoIdentity.DeleteIdentityPool
+import Amazonka.CognitoIdentity.DescribeIdentity
+import Amazonka.CognitoIdentity.DescribeIdentityPool
+import Amazonka.CognitoIdentity.GetCredentialsForIdentity
+import Amazonka.CognitoIdentity.GetId
+import Amazonka.CognitoIdentity.GetIdentityPoolRoles
+import Amazonka.CognitoIdentity.GetOpenIdToken
+import Amazonka.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
+import Amazonka.CognitoIdentity.GetPrincipalTagAttributeMap
+import Amazonka.CognitoIdentity.Lens
+import Amazonka.CognitoIdentity.ListIdentities
+import Amazonka.CognitoIdentity.ListIdentityPools
+import Amazonka.CognitoIdentity.ListTagsForResource
+import Amazonka.CognitoIdentity.LookupDeveloperIdentity
+import Amazonka.CognitoIdentity.MergeDeveloperIdentities
+import Amazonka.CognitoIdentity.SetIdentityPoolRoles
+import Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap
+import Amazonka.CognitoIdentity.TagResource
+import Amazonka.CognitoIdentity.Types
+import Amazonka.CognitoIdentity.UnlinkDeveloperIdentity
+import Amazonka.CognitoIdentity.UnlinkIdentity
+import Amazonka.CognitoIdentity.UntagResource
+import Amazonka.CognitoIdentity.UpdateIdentityPool
+import Amazonka.CognitoIdentity.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

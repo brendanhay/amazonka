@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CognitoIdentity where
 
+import Amazonka.CognitoIdentity
 import qualified Data.Proxy as Proxy
-import Network.AWS.CognitoIdentity
 import Test.AWS.CognitoIdentity.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

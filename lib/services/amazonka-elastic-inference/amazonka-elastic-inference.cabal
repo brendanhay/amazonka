@@ -80,9 +80,9 @@ test-suite amazonka-elastic-inference-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.ElasticInference
-    Test.AWS.ElasticInference.Internal
-    Test.AWS.Gen.ElasticInference
+    Test.Amazonka.ElasticInference
+    Test.Amazonka.ElasticInference.Internal
+    Test.Amazonka.Gen.ElasticInference
 
   build-depends:
     , amazonka                    ^>=2.0

@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.QLDB
-import Test.AWS.QLDB.Internal
+import Test.Amazonka.QLDB
+import Test.Amazonka.QLDB.Internal
 import Test.Tasty
 
 main :: IO ()

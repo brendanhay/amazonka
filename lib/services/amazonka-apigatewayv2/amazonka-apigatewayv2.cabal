@@ -174,9 +174,9 @@ test-suite amazonka-apigatewayv2-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.ApiGatewayV2
-    Test.AWS.ApiGatewayV2.Internal
-    Test.AWS.Gen.ApiGatewayV2
+    Test.Amazonka.ApiGatewayV2
+    Test.Amazonka.ApiGatewayV2.Internal
+    Test.Amazonka.Gen.ApiGatewayV2
 
   build-depends:
     , amazonka               ^>=2.0

@@ -4,14 +4,14 @@ load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 haskell_library(
     name = "amazonka-marketplace-entitlement",
     srcs = [
-        "gen/Network/AWS/MarketplaceEntitlement.hs",
-        "gen/Network/AWS/MarketplaceEntitlement/GetEntitlements.hs",
-        "gen/Network/AWS/MarketplaceEntitlement/Lens.hs",
-        "gen/Network/AWS/MarketplaceEntitlement/Types.hs",
-        "gen/Network/AWS/MarketplaceEntitlement/Types/Entitlement.hs",
-        "gen/Network/AWS/MarketplaceEntitlement/Types/EntitlementValue.hs",
-        "gen/Network/AWS/MarketplaceEntitlement/Types/GetEntitlementFilterName.hs",
-        "gen/Network/AWS/MarketplaceEntitlement/Waiters.hs",
+        "gen/Amazonka/MarketplaceEntitlement.hs",
+        "gen/Amazonka/MarketplaceEntitlement/GetEntitlements.hs",
+        "gen/Amazonka/MarketplaceEntitlement/Lens.hs",
+        "gen/Amazonka/MarketplaceEntitlement/Types.hs",
+        "gen/Amazonka/MarketplaceEntitlement/Types/Entitlement.hs",
+        "gen/Amazonka/MarketplaceEntitlement/Types/EntitlementValue.hs",
+        "gen/Amazonka/MarketplaceEntitlement/Types/GetEntitlementFilterName.hs",
+        "gen/Amazonka/MarketplaceEntitlement/Waiters.hs",
     ],
     compiler_flags = [
         "-Wall",
@@ -34,9 +34,9 @@ haskell_test(
     name = "amazonka-marketplace-entitlement-test",
     srcs = [
         "test/Main.hs",
-        "test/Test/AWS/Gen/MarketplaceEntitlement.hs",
-        "test/Test/AWS/MarketplaceEntitlement.hs",
-        "test/Test/AWS/MarketplaceEntitlement/Internal.hs",
+        "test/Test/Amazonka/Gen/MarketplaceEntitlement.hs",
+        "test/Test/Amazonka/MarketplaceEntitlement.hs",
+        "test/Test/Amazonka/MarketplaceEntitlement/Internal.hs",
     ],
     compiler_flags = [
         "-Wall",

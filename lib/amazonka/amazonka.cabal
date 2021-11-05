@@ -154,19 +154,19 @@ test-suite tests
   main-is:        Main.hs
   ghc-options:    -Wall -threaded
   other-modules:
-    Test.AWS.Arbitrary
-    Test.AWS.Data.Base64
-    Test.AWS.Data.List
-    Test.AWS.Data.Maybe
-    Test.AWS.Data.Numeric
-    Test.AWS.Data.Path
-    Test.AWS.Data.Query
-    Test.AWS.Data.Time
-    Test.AWS.Error
-    Test.AWS.Sign.V2Header.BaseSpec
-    Test.AWS.Sign.V4
-    Test.AWS.Sign.V4.Chunked
-    Test.AWS.Util
+    Test.Amazonka.Arbitrary
+    Test.Amazonka.Data.Base64
+    Test.Amazonka.Data.List
+    Test.Amazonka.Data.Maybe
+    Test.Amazonka.Data.Numeric
+    Test.Amazonka.Data.Path
+    Test.Amazonka.Data.Query
+    Test.Amazonka.Data.Time
+    Test.Amazonka.Error
+    Test.Amazonka.Sign.V2Header.BaseSpec
+    Test.Amazonka.Sign.V4
+    Test.Amazonka.Sign.V4.Chunked
+    Test.Amazonka.Util
 
   build-depends:
     , aeson

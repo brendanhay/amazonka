@@ -122,9 +122,9 @@ test-suite amazonka-apprunner-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.AppRunner
-    Test.AWS.AppRunner.Internal
-    Test.AWS.Gen.AppRunner
+    Test.Amazonka.AppRunner
+    Test.Amazonka.AppRunner.Internal
+    Test.Amazonka.Gen.AppRunner
 
   build-depends:
     , amazonka              ^>=2.0

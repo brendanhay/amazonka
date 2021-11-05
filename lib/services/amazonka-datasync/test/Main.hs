@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.DataSync
-import Test.AWS.DataSync.Internal
+import Test.Amazonka.DataSync
+import Test.Amazonka.DataSync.Internal
 import Test.Tasty
 
 main :: IO ()

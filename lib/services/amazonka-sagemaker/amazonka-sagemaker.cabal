@@ -809,9 +809,9 @@ test-suite amazonka-sagemaker-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.SageMaker
-    Test.AWS.SageMaker
-    Test.AWS.SageMaker.Internal
+    Test.Amazonka.Gen.SageMaker
+    Test.Amazonka.SageMaker
+    Test.Amazonka.SageMaker.Internal
 
   build-depends:
     , amazonka              ^>=2.0

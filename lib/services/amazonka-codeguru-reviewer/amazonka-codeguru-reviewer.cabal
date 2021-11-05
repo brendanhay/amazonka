@@ -116,9 +116,9 @@ test-suite amazonka-codeguru-reviewer-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.CodeGuruReviewer
-    Test.AWS.CodeGuruReviewer.Internal
-    Test.AWS.Gen.CodeGuruReviewer
+    Test.Amazonka.CodeGuruReviewer
+    Test.Amazonka.CodeGuruReviewer.Internal
+    Test.Amazonka.Gen.CodeGuruReviewer
 
   build-depends:
     , amazonka                    ^>=2.0

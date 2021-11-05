@@ -75,9 +75,9 @@ test-suite amazonka-mediastore-dataplane-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.MediaStoreData
-    Test.AWS.MediaStoreData
-    Test.AWS.MediaStoreData.Internal
+    Test.Amazonka.Gen.MediaStoreData
+    Test.Amazonka.MediaStoreData
+    Test.Amazonka.MediaStoreData.Internal
 
   build-depends:
     , amazonka                       ^>=2.0

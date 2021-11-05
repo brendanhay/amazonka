@@ -89,9 +89,9 @@ test-suite amazonka-iotdeviceadvisor-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.IoTDeviceAdvisor
-    Test.AWS.IoTDeviceAdvisor
-    Test.AWS.IoTDeviceAdvisor.Internal
+    Test.Amazonka.Gen.IoTDeviceAdvisor
+    Test.Amazonka.IoTDeviceAdvisor
+    Test.Amazonka.IoTDeviceAdvisor.Internal
 
   build-depends:
     , amazonka                   ^>=2.0

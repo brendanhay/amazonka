@@ -4,13 +4,13 @@ load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 haskell_library(
     name = "amazonka-kinesis-video-media",
     srcs = [
-        "gen/Network/AWS/KinesisVideoMedia.hs",
-        "gen/Network/AWS/KinesisVideoMedia/GetMedia.hs",
-        "gen/Network/AWS/KinesisVideoMedia/Lens.hs",
-        "gen/Network/AWS/KinesisVideoMedia/Types.hs",
-        "gen/Network/AWS/KinesisVideoMedia/Types/StartSelector.hs",
-        "gen/Network/AWS/KinesisVideoMedia/Types/StartSelectorType.hs",
-        "gen/Network/AWS/KinesisVideoMedia/Waiters.hs",
+        "gen/Amazonka/KinesisVideoMedia.hs",
+        "gen/Amazonka/KinesisVideoMedia/GetMedia.hs",
+        "gen/Amazonka/KinesisVideoMedia/Lens.hs",
+        "gen/Amazonka/KinesisVideoMedia/Types.hs",
+        "gen/Amazonka/KinesisVideoMedia/Types/StartSelector.hs",
+        "gen/Amazonka/KinesisVideoMedia/Types/StartSelectorType.hs",
+        "gen/Amazonka/KinesisVideoMedia/Waiters.hs",
     ],
     compiler_flags = [
         "-Wall",
@@ -33,9 +33,9 @@ haskell_test(
     name = "amazonka-kinesis-video-media-test",
     srcs = [
         "test/Main.hs",
-        "test/Test/AWS/Gen/KinesisVideoMedia.hs",
-        "test/Test/AWS/KinesisVideoMedia.hs",
-        "test/Test/AWS/KinesisVideoMedia/Internal.hs",
+        "test/Test/Amazonka/Gen/KinesisVideoMedia.hs",
+        "test/Test/Amazonka/KinesisVideoMedia.hs",
+        "test/Test/Amazonka/KinesisVideoMedia/Internal.hs",
     ],
     compiler_flags = [
         "-Wall",

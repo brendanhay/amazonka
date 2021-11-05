@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.Route53AutoNaming
-import Test.AWS.Route53AutoNaming.Internal
+import Test.Amazonka.Route53AutoNaming
+import Test.Amazonka.Route53AutoNaming.Internal
 import Test.Tasty
 
 main :: IO ()

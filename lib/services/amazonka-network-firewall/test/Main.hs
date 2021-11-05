@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.NetworkFirewall
-import Test.AWS.NetworkFirewall.Internal
+import Test.Amazonka.NetworkFirewall
+import Test.Amazonka.NetworkFirewall.Internal
 import Test.Tasty
 
 main :: IO ()

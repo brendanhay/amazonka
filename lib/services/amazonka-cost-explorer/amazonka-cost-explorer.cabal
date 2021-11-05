@@ -205,9 +205,9 @@ test-suite amazonka-cost-explorer-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.CostExplorer
-    Test.AWS.CostExplorer.Internal
-    Test.AWS.Gen.CostExplorer
+    Test.Amazonka.CostExplorer
+    Test.Amazonka.CostExplorer.Internal
+    Test.Amazonka.Gen.CostExplorer
 
   build-depends:
     , amazonka                ^>=2.0

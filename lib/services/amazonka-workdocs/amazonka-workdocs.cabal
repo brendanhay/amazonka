@@ -155,9 +155,9 @@ test-suite amazonka-workdocs-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.WorkDocs
-    Test.AWS.WorkDocs
-    Test.AWS.WorkDocs.Internal
+    Test.Amazonka.Gen.WorkDocs
+    Test.Amazonka.WorkDocs
+    Test.Amazonka.WorkDocs.Internal
 
   build-depends:
     , amazonka              ^>=2.0

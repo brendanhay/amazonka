@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.Cloud9
-import Test.AWS.Cloud9.Internal
+import Test.Amazonka.Cloud9
+import Test.Amazonka.Cloud9.Internal
 import Test.Tasty
 
 main :: IO ()

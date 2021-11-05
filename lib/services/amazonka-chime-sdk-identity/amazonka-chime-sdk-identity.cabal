@@ -92,9 +92,9 @@ test-suite amazonka-chime-sdk-identity-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.ChimeSDKIdentity
-    Test.AWS.ChimeSDKIdentity.Internal
-    Test.AWS.Gen.ChimeSDKIdentity
+    Test.Amazonka.ChimeSDKIdentity
+    Test.Amazonka.ChimeSDKIdentity.Internal
+    Test.Amazonka.Gen.ChimeSDKIdentity
 
   build-depends:
     , amazonka                     ^>=2.0

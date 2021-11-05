@@ -140,9 +140,9 @@ test-suite amazonka-cloudwatch-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.CloudWatch
-    Test.AWS.CloudWatch.Internal
-    Test.AWS.Gen.CloudWatch
+    Test.Amazonka.CloudWatch
+    Test.Amazonka.CloudWatch.Internal
+    Test.Amazonka.Gen.CloudWatch
 
   build-depends:
     , amazonka              ^>=2.0

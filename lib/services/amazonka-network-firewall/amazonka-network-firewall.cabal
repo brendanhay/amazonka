@@ -149,9 +149,9 @@ test-suite amazonka-network-firewall-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.NetworkFirewall
-    Test.AWS.NetworkFirewall
-    Test.AWS.NetworkFirewall.Internal
+    Test.Amazonka.Gen.NetworkFirewall
+    Test.Amazonka.NetworkFirewall
+    Test.Amazonka.NetworkFirewall.Internal
 
   build-depends:
     , amazonka                   ^>=2.0

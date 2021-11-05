@@ -142,9 +142,9 @@ test-suite amazonka-kms-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.KMS
-    Test.AWS.KMS
-    Test.AWS.KMS.Internal
+    Test.Amazonka.Gen.KMS
+    Test.Amazonka.KMS
+    Test.Amazonka.KMS.Internal
 
   build-depends:
     , amazonka              ^>=2.0

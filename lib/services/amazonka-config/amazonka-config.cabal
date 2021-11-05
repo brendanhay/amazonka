@@ -267,9 +267,9 @@ test-suite amazonka-config-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Config
-    Test.AWS.Config.Internal
-    Test.AWS.Gen.Config
+    Test.Amazonka.Config
+    Test.Amazonka.Config.Internal
+    Test.Amazonka.Gen.Config
 
   build-depends:
     , amazonka              ^>=2.0

@@ -400,9 +400,9 @@ test-suite amazonka-chime-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Chime
-    Test.AWS.Chime.Internal
-    Test.AWS.Gen.Chime
+    Test.Amazonka.Chime
+    Test.Amazonka.Chime.Internal
+    Test.Amazonka.Gen.Chime
 
   build-depends:
     , amazonka              ^>=2.0

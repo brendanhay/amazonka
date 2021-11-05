@@ -101,9 +101,9 @@ test-suite amazonka-cloudtrail-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.CloudTrail
-    Test.AWS.CloudTrail.Internal
-    Test.AWS.Gen.CloudTrail
+    Test.Amazonka.CloudTrail
+    Test.Amazonka.CloudTrail.Internal
+    Test.Amazonka.Gen.CloudTrail
 
   build-depends:
     , amazonka              ^>=2.0

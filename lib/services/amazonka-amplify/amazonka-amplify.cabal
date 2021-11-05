@@ -122,9 +122,9 @@ test-suite amazonka-amplify-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Amplify
-    Test.AWS.Amplify.Internal
-    Test.AWS.Gen.Amplify
+    Test.Amazonka.Amplify
+    Test.Amazonka.Amplify.Internal
+    Test.Amazonka.Gen.Amplify
 
   build-depends:
     , amazonka              ^>=2.0

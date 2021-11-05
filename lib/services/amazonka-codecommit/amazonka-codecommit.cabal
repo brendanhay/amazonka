@@ -214,9 +214,9 @@ test-suite amazonka-codecommit-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.CodeCommit
-    Test.AWS.CodeCommit.Internal
-    Test.AWS.Gen.CodeCommit
+    Test.Amazonka.CodeCommit
+    Test.Amazonka.CodeCommit.Internal
+    Test.Amazonka.Gen.CodeCommit
 
   build-depends:
     , amazonka              ^>=2.0

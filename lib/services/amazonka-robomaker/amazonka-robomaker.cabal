@@ -196,9 +196,9 @@ test-suite amazonka-robomaker-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.RobOMaker
-    Test.AWS.RobOMaker
-    Test.AWS.RobOMaker.Internal
+    Test.Amazonka.Gen.RobOMaker
+    Test.Amazonka.RobOMaker
+    Test.Amazonka.RobOMaker.Internal
 
   build-depends:
     , amazonka              ^>=2.0

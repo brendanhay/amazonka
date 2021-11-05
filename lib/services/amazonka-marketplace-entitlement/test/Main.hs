@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.MarketplaceEntitlement
-import Test.AWS.MarketplaceEntitlement.Internal
+import Test.Amazonka.MarketplaceEntitlement
+import Test.Amazonka.MarketplaceEntitlement.Internal
 import Test.Tasty
 
 main :: IO ()

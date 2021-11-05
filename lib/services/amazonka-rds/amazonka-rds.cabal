@@ -313,9 +313,9 @@ test-suite amazonka-rds-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.RDS
-    Test.AWS.RDS
-    Test.AWS.RDS.Internal
+    Test.Amazonka.Gen.RDS
+    Test.Amazonka.RDS
+    Test.Amazonka.RDS.Internal
 
   build-depends:
     , amazonka              ^>=2.0

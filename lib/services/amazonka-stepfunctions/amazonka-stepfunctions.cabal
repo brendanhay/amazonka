@@ -136,9 +136,9 @@ test-suite amazonka-stepfunctions-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.StepFunctions
-    Test.AWS.StepFunctions
-    Test.AWS.StepFunctions.Internal
+    Test.Amazonka.Gen.StepFunctions
+    Test.Amazonka.StepFunctions
+    Test.Amazonka.StepFunctions.Internal
 
   build-depends:
     , amazonka                ^>=2.0

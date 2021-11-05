@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.PersonalizeRuntime
-import Test.AWS.PersonalizeRuntime.Internal
+import Test.Amazonka.PersonalizeRuntime
+import Test.Amazonka.PersonalizeRuntime.Internal
 import Test.Tasty
 
 main :: IO ()

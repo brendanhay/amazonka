@@ -141,9 +141,9 @@ test-suite amazonka-compute-optimizer-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.ComputeOptimizer
-    Test.AWS.ComputeOptimizer.Internal
-    Test.AWS.Gen.ComputeOptimizer
+    Test.Amazonka.ComputeOptimizer
+    Test.Amazonka.ComputeOptimizer.Internal
+    Test.Amazonka.Gen.ComputeOptimizer
 
   build-depends:
     , amazonka                    ^>=2.0

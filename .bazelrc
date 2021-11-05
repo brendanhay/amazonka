@@ -31,22 +31,11 @@ build --disk_cache=~/.cache/bazel/amazonka/disk
 
 run --remote_download_outputs=all
 
-# build:linux --remote_instance_name=amazonka-linux
-# build:darwin --remote_instance_name=amazonka-darwin
-
-build:linux --remote_cache=https://storage.googleapis.com/tlon-opensource-cache/linux
-build:darwin --remote_cache=https://storage.googleapis.com/tlon-opensource-cache/darwin
-
-# build --remote_cache=grpcs://remote.buildbuddy.io
 build --remote_timeout=3600s
 build --remote_upload_local_results=false
 
-# Upload build telemetry to buildbuddy.io.
-# build:remote --bes_backend=grpcs://remote.buildbuddy.io
-# build:remote --bes_results_url=https://app.buildbuddy.io/invocation/
-# build:remote --bes_timeout=900s
-build:remote --keep_backend_build_event_connections_alive=false
-build:remote --remote_download_toplevel
+build:linux --remote_cache=https://storage.googleapis.com/tlon-opensource-cache/linux
+build:darwin --remote_cache=https://storage.googleapis.com/tlon-opensource-cache/darwin
 
 #
 # Continuous Integration
@@ -54,10 +43,10 @@ build:remote --remote_download_toplevel
 
 common:ci --color=no
 
-build:ci --config=remote
 build:ci --disk_cache=
 build:ci --loading_phase_threads=1
 build:ci --remote_upload_local_results=true
+build:ci --remote_download_toplevel
 
 test:ci --test_output=errors
 

@@ -240,9 +240,9 @@ test-suite amazonka-servicecatalog-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.ServiceCatalog
-    Test.AWS.ServiceCatalog
-    Test.AWS.ServiceCatalog.Internal
+    Test.Amazonka.Gen.ServiceCatalog
+    Test.Amazonka.ServiceCatalog
+    Test.Amazonka.ServiceCatalog.Internal
 
   build-depends:
     , amazonka                 ^>=2.0

@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.CognitoIdentity
-import Test.AWS.CognitoIdentity.Internal
+import Test.Amazonka.CognitoIdentity
+import Test.Amazonka.CognitoIdentity.Internal
 import Test.Tasty
 
 main :: IO ()

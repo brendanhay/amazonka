@@ -153,9 +153,9 @@ test-suite amazonka-fms-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.FMS
-    Test.AWS.FMS.Internal
-    Test.AWS.Gen.FMS
+    Test.Amazonka.FMS
+    Test.Amazonka.FMS.Internal
+    Test.Amazonka.Gen.FMS
 
   build-depends:
     , amazonka              ^>=2.0

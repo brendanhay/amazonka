@@ -191,9 +191,9 @@ test-suite amazonka-codepipeline-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.CodePipeline
-    Test.AWS.CodePipeline.Internal
-    Test.AWS.Gen.CodePipeline
+    Test.Amazonka.CodePipeline
+    Test.Amazonka.CodePipeline.Internal
+    Test.Amazonka.Gen.CodePipeline
 
   build-depends:
     , amazonka               ^>=2.0

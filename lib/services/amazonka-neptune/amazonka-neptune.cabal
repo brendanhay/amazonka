@@ -175,9 +175,9 @@ test-suite amazonka-neptune-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.Neptune
-    Test.AWS.Neptune
-    Test.AWS.Neptune.Internal
+    Test.Amazonka.Gen.Neptune
+    Test.Amazonka.Neptune
+    Test.Amazonka.Neptune.Internal
 
   build-depends:
     , amazonka              ^>=2.0

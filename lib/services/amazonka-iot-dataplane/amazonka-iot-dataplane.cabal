@@ -74,9 +74,9 @@ test-suite amazonka-iot-dataplane-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.IoTData
-    Test.AWS.IoTData
-    Test.AWS.IoTData.Internal
+    Test.Amazonka.Gen.IoTData
+    Test.Amazonka.IoTData
+    Test.Amazonka.IoTData.Internal
 
   build-depends:
     , amazonka                ^>=2.0

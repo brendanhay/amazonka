@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.MediaPackageVOD
-import Test.AWS.MediaPackageVOD.Internal
+import Test.Amazonka.MediaPackageVOD
+import Test.Amazonka.MediaPackageVOD.Internal
 import Test.Tasty
 
 main :: IO ()

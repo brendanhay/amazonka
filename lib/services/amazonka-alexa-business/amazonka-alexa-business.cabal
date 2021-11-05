@@ -248,9 +248,9 @@ test-suite amazonka-alexa-business-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.AlexaBusiness
-    Test.AWS.AlexaBusiness.Internal
-    Test.AWS.Gen.AlexaBusiness
+    Test.Amazonka.AlexaBusiness
+    Test.Amazonka.AlexaBusiness.Internal
+    Test.Amazonka.Gen.AlexaBusiness
 
   build-depends:
     , amazonka                 ^>=2.0

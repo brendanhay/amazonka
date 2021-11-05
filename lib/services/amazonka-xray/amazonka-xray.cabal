@@ -153,9 +153,9 @@ test-suite amazonka-xray-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.XRay
-    Test.AWS.XRay
-    Test.AWS.XRay.Internal
+    Test.Amazonka.Gen.XRay
+    Test.Amazonka.XRay
+    Test.Amazonka.XRay.Internal
 
   build-depends:
     , amazonka              ^>=2.0

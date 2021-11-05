@@ -168,9 +168,9 @@ test-suite amazonka-directconnect-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.DirectConnect
-    Test.AWS.DirectConnect.Internal
-    Test.AWS.Gen.DirectConnect
+    Test.Amazonka.DirectConnect
+    Test.Amazonka.DirectConnect.Internal
+    Test.Amazonka.Gen.DirectConnect
 
   build-depends:
     , amazonka                ^>=2.0

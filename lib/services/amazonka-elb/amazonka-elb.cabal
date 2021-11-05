@@ -122,9 +122,9 @@ test-suite amazonka-elb-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.ELB
-    Test.AWS.ELB.Internal
-    Test.AWS.Gen.ELB
+    Test.Amazonka.ELB
+    Test.Amazonka.ELB.Internal
+    Test.Amazonka.Gen.ELB
 
   build-depends:
     , amazonka              ^>=2.0

@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.CognitoSync
-import Test.AWS.CognitoSync.Internal
+import Test.Amazonka.CognitoSync
+import Test.Amazonka.CognitoSync.Internal
 import Test.Tasty
 
 main :: IO ()

@@ -136,9 +136,9 @@ test-suite amazonka-groundstation-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.GroundStation
-    Test.AWS.GroundStation
-    Test.AWS.GroundStation.Internal
+    Test.Amazonka.Gen.GroundStation
+    Test.Amazonka.GroundStation
+    Test.Amazonka.GroundStation.Internal
 
   build-depends:
     , amazonka                ^>=2.0

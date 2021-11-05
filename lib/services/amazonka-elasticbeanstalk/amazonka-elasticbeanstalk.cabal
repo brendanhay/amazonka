@@ -190,9 +190,9 @@ test-suite amazonka-elasticbeanstalk-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.ElasticBeanstalk
-    Test.AWS.ElasticBeanstalk.Internal
-    Test.AWS.Gen.ElasticBeanstalk
+    Test.Amazonka.ElasticBeanstalk
+    Test.Amazonka.ElasticBeanstalk.Internal
+    Test.Amazonka.Gen.ElasticBeanstalk
 
   build-depends:
     , amazonka                   ^>=2.0

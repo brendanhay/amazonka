@@ -70,9 +70,9 @@ test-suite amazonka-apigatewaymanagementapi-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.APIGatewayManagementAPI
-    Test.AWS.APIGatewayManagementAPI.Internal
-    Test.AWS.Gen.APIGatewayManagementAPI
+    Test.Amazonka.APIGatewayManagementAPI
+    Test.Amazonka.APIGatewayManagementAPI.Internal
+    Test.Amazonka.Gen.APIGatewayManagementAPI
 
   build-depends:
     , amazonka                          ^>=2.0

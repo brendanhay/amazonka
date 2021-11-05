@@ -197,9 +197,9 @@ test-suite amazonka-storagegateway-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.StorageGateway
-    Test.AWS.StorageGateway
-    Test.AWS.StorageGateway.Internal
+    Test.Amazonka.Gen.StorageGateway
+    Test.Amazonka.StorageGateway
+    Test.Amazonka.StorageGateway.Internal
 
   build-depends:
     , amazonka                 ^>=2.0

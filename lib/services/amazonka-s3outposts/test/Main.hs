@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.S3Outposts
-import Test.AWS.S3Outposts.Internal
+import Test.Amazonka.S3Outposts
+import Test.Amazonka.S3Outposts.Internal
 import Test.Tasty
 
 main :: IO ()

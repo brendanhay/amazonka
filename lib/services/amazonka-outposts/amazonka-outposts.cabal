@@ -86,9 +86,9 @@ test-suite amazonka-outposts-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.Outposts
-    Test.AWS.Outposts
-    Test.AWS.Outposts.Internal
+    Test.Amazonka.Gen.Outposts
+    Test.Amazonka.Outposts
+    Test.Amazonka.Outposts.Internal
 
   build-depends:
     , amazonka              ^>=2.0

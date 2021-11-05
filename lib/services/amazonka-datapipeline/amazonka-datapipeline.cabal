@@ -102,9 +102,9 @@ test-suite amazonka-datapipeline-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.DataPipeline
-    Test.AWS.DataPipeline.Internal
-    Test.AWS.Gen.DataPipeline
+    Test.Amazonka.DataPipeline
+    Test.Amazonka.DataPipeline.Internal
+    Test.Amazonka.Gen.DataPipeline
 
   build-depends:
     , amazonka               ^>=2.0

@@ -150,9 +150,9 @@ test-suite amazonka-elbv2-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.ELBV2
-    Test.AWS.ELBV2.Internal
-    Test.AWS.Gen.ELBV2
+    Test.Amazonka.ELBV2
+    Test.Amazonka.ELBV2.Internal
+    Test.Amazonka.Gen.ELBV2
 
   build-depends:
     , amazonka              ^>=2.0

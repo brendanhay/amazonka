@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.Nimble
-import Test.AWS.Nimble.Internal
+import Test.Amazonka.Nimble
+import Test.Amazonka.Nimble.Internal
 import Test.Tasty
 
 main :: IO ()

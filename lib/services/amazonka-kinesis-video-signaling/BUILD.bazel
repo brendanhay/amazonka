@@ -4,14 +4,14 @@ load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 haskell_library(
     name = "amazonka-kinesis-video-signaling",
     srcs = [
-        "gen/Network/AWS/KinesisVideoSignaling.hs",
-        "gen/Network/AWS/KinesisVideoSignaling/GetIceServerConfig.hs",
-        "gen/Network/AWS/KinesisVideoSignaling/Lens.hs",
-        "gen/Network/AWS/KinesisVideoSignaling/SendAlexaOfferToMaster.hs",
-        "gen/Network/AWS/KinesisVideoSignaling/Types.hs",
-        "gen/Network/AWS/KinesisVideoSignaling/Types/IceServer.hs",
-        "gen/Network/AWS/KinesisVideoSignaling/Types/Service.hs",
-        "gen/Network/AWS/KinesisVideoSignaling/Waiters.hs",
+        "gen/Amazonka/KinesisVideoSignaling.hs",
+        "gen/Amazonka/KinesisVideoSignaling/GetIceServerConfig.hs",
+        "gen/Amazonka/KinesisVideoSignaling/Lens.hs",
+        "gen/Amazonka/KinesisVideoSignaling/SendAlexaOfferToMaster.hs",
+        "gen/Amazonka/KinesisVideoSignaling/Types.hs",
+        "gen/Amazonka/KinesisVideoSignaling/Types/IceServer.hs",
+        "gen/Amazonka/KinesisVideoSignaling/Types/Service.hs",
+        "gen/Amazonka/KinesisVideoSignaling/Waiters.hs",
     ],
     compiler_flags = [
         "-DVERSION_amazonka_kinesis_video_signaling=\"2.0\"",
@@ -34,9 +34,9 @@ haskell_test(
     name = "amazonka-kinesis-video-signaling-test",
     srcs = [
         "test/Main.hs",
-        "test/Test/AWS/Gen/KinesisVideoSignaling.hs",
-        "test/Test/AWS/KinesisVideoSignaling.hs",
-        "test/Test/AWS/KinesisVideoSignaling/Internal.hs",
+        "test/Test/Amazonka/Gen/KinesisVideoSignaling.hs",
+        "test/Test/Amazonka/KinesisVideoSignaling.hs",
+        "test/Test/Amazonka/KinesisVideoSignaling/Internal.hs",
     ],
     compiler_flags = [
         "-DVERSION_amazonka_kinesis_video_signaling=\"2.0\"",

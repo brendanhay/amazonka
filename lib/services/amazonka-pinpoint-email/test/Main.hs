@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.PinpointEmail
-import Test.AWS.PinpointEmail.Internal
+import Test.Amazonka.PinpointEmail
+import Test.Amazonka.PinpointEmail.Internal
 import Test.Tasty
 
 main :: IO ()

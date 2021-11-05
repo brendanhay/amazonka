@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.MemoryDb
-import Test.AWS.MemoryDb.Internal
+import Test.Amazonka.MemoryDb
+import Test.Amazonka.MemoryDb.Internal
 import Test.Tasty
 
 main :: IO ()

@@ -92,9 +92,9 @@ test-suite amazonka-codestar-notifications-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.CodeStarNotifications
-    Test.AWS.CodeStarNotifications.Internal
-    Test.AWS.Gen.CodeStarNotifications
+    Test.Amazonka.CodeStarNotifications
+    Test.Amazonka.CodeStarNotifications.Internal
+    Test.Amazonka.Gen.CodeStarNotifications
 
   build-depends:
     , amazonka                         ^>=2.0

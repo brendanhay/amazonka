@@ -113,9 +113,9 @@ test-suite amazonka-elastictranscoder-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.ElasticTranscoder
-    Test.AWS.ElasticTranscoder.Internal
-    Test.AWS.Gen.ElasticTranscoder
+    Test.Amazonka.ElasticTranscoder
+    Test.Amazonka.ElasticTranscoder.Internal
+    Test.Amazonka.Gen.ElasticTranscoder
 
   build-depends:
     , amazonka                    ^>=2.0

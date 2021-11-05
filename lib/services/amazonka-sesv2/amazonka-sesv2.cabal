@@ -235,9 +235,9 @@ test-suite amazonka-sesv2-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.SESV2
-    Test.AWS.SESV2
-    Test.AWS.SESV2.Internal
+    Test.Amazonka.Gen.SESV2
+    Test.Amazonka.SESV2
+    Test.Amazonka.SESV2.Internal
 
   build-depends:
     , amazonka              ^>=2.0

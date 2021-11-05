@@ -84,9 +84,9 @@ test-suite amazonka-dynamodb-streams-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.DynamoDBStreams
-    Test.AWS.DynamoDBStreams.Internal
-    Test.AWS.Gen.DynamoDBStreams
+    Test.Amazonka.DynamoDBStreams
+    Test.Amazonka.DynamoDBStreams.Internal
+    Test.Amazonka.Gen.DynamoDBStreams
 
   build-depends:
     , amazonka                   ^>=2.0

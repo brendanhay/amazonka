@@ -230,9 +230,9 @@ test-suite amazonka-cloudformation-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.CloudFormation
-    Test.AWS.CloudFormation.Internal
-    Test.AWS.Gen.CloudFormation
+    Test.Amazonka.CloudFormation
+    Test.Amazonka.CloudFormation.Internal
+    Test.Amazonka.Gen.CloudFormation
 
   build-depends:
     , amazonka                 ^>=2.0

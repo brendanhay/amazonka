@@ -131,9 +131,9 @@ test-suite amazonka-amplifybackend-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.AmplifyBackend
-    Test.AWS.AmplifyBackend.Internal
-    Test.AWS.Gen.AmplifyBackend
+    Test.Amazonka.AmplifyBackend
+    Test.Amazonka.AmplifyBackend.Internal
+    Test.Amazonka.Gen.AmplifyBackend
 
   build-depends:
     , amazonka                 ^>=2.0

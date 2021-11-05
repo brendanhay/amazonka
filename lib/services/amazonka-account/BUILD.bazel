@@ -4,15 +4,15 @@ load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 haskell_library(
     name = "amazonka-account",
     srcs = [
-        "gen/Network/AWS/Account.hs",
-        "gen/Network/AWS/Account/DeleteAlternateContact.hs",
-        "gen/Network/AWS/Account/GetAlternateContact.hs",
-        "gen/Network/AWS/Account/Lens.hs",
-        "gen/Network/AWS/Account/PutAlternateContact.hs",
-        "gen/Network/AWS/Account/Types.hs",
-        "gen/Network/AWS/Account/Types/AlternateContact.hs",
-        "gen/Network/AWS/Account/Types/AlternateContactType.hs",
-        "gen/Network/AWS/Account/Waiters.hs",
+        "gen/Amazonka/Account.hs",
+        "gen/Amazonka/Account/DeleteAlternateContact.hs",
+        "gen/Amazonka/Account/GetAlternateContact.hs",
+        "gen/Amazonka/Account/Lens.hs",
+        "gen/Amazonka/Account/PutAlternateContact.hs",
+        "gen/Amazonka/Account/Types.hs",
+        "gen/Amazonka/Account/Types/AlternateContact.hs",
+        "gen/Amazonka/Account/Types/AlternateContactType.hs",
+        "gen/Amazonka/Account/Waiters.hs",
     ],
     compiler_flags = [
         "-DVERSION_amazonka_account=\"2.0\"",
@@ -35,9 +35,9 @@ haskell_test(
     name = "amazonka-account-test",
     srcs = [
         "test/Main.hs",
-        "test/Test/AWS/Account.hs",
-        "test/Test/AWS/Account/Internal.hs",
-        "test/Test/AWS/Gen/Account.hs",
+        "test/Test/Amazonka/Account.hs",
+        "test/Test/Amazonka/Account/Internal.hs",
+        "test/Test/Amazonka/Gen/Account.hs",
     ],
     compiler_flags = [
         "-DVERSION_amazonka_account=\"2.0\"",

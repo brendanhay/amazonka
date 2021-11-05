@@ -189,9 +189,9 @@ test-suite amazonka-cloudwatch-events-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.CloudWatchEvents
-    Test.AWS.CloudWatchEvents.Internal
-    Test.AWS.Gen.CloudWatchEvents
+    Test.Amazonka.CloudWatchEvents
+    Test.Amazonka.CloudWatchEvents.Internal
+    Test.Amazonka.Gen.CloudWatchEvents
 
   build-depends:
     , amazonka                    ^>=2.0

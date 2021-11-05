@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.AppSync
-import Test.AWS.AppSync.Internal
+import Test.Amazonka.AppSync
+import Test.Amazonka.AppSync.Internal
 import Test.Tasty
 
 main :: IO ()

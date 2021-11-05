@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.CodeGuruReviewer
-import Test.AWS.CodeGuruReviewer.Internal
+import Test.Amazonka.CodeGuruReviewer
+import Test.Amazonka.CodeGuruReviewer.Internal
 import Test.Tasty
 
 main :: IO ()

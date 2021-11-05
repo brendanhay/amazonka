@@ -217,9 +217,9 @@ test-suite amazonka-waf-regional-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.WAFRegional
-    Test.AWS.WAFRegional
-    Test.AWS.WAFRegional.Internal
+    Test.Amazonka.Gen.WAFRegional
+    Test.Amazonka.WAFRegional
+    Test.Amazonka.WAFRegional.Internal
 
   build-depends:
     , amazonka               ^>=2.0

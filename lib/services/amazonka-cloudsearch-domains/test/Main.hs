@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.CloudSearchDomains
-import Test.AWS.CloudSearchDomains.Internal
+import Test.Amazonka.CloudSearchDomains
+import Test.Amazonka.CloudSearchDomains.Internal
 import Test.Tasty
 
 main :: IO ()

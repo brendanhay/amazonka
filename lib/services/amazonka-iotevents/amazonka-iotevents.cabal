@@ -163,9 +163,9 @@ test-suite amazonka-iotevents-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.IoTEvents
-    Test.AWS.IoTEvents
-    Test.AWS.IoTEvents.Internal
+    Test.Amazonka.Gen.IoTEvents
+    Test.Amazonka.IoTEvents
+    Test.Amazonka.IoTEvents.Internal
 
   build-depends:
     , amazonka              ^>=2.0

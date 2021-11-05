@@ -238,9 +238,9 @@ test-suite amazonka-emr-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.EMR
-    Test.AWS.EMR.Internal
-    Test.AWS.Gen.EMR
+    Test.Amazonka.EMR
+    Test.Amazonka.EMR.Internal
+    Test.Amazonka.Gen.EMR
 
   build-depends:
     , amazonka              ^>=2.0

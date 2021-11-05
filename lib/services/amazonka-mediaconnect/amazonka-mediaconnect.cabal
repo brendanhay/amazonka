@@ -156,9 +156,9 @@ test-suite amazonka-mediaconnect-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.MediaConnect
-    Test.AWS.MediaConnect
-    Test.AWS.MediaConnect.Internal
+    Test.Amazonka.Gen.MediaConnect
+    Test.Amazonka.MediaConnect
+    Test.Amazonka.MediaConnect.Internal
 
   build-depends:
     , amazonka               ^>=2.0

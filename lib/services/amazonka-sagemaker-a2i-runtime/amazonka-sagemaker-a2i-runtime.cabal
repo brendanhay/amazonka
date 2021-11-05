@@ -78,9 +78,9 @@ test-suite amazonka-sagemaker-a2i-runtime-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.SageMakerA2IRuntime
-    Test.AWS.SageMakerA2IRuntime
-    Test.AWS.SageMakerA2IRuntime.Internal
+    Test.Amazonka.Gen.SageMakerA2IRuntime
+    Test.Amazonka.SageMakerA2IRuntime
+    Test.Amazonka.SageMakerA2IRuntime.Internal
 
   build-depends:
     , amazonka                        ^>=2.0

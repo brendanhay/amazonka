@@ -95,9 +95,9 @@ test-suite amazonka-mediastore-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.MediaStore
-    Test.AWS.MediaStore
-    Test.AWS.MediaStore.Internal
+    Test.Amazonka.Gen.MediaStore
+    Test.Amazonka.MediaStore
+    Test.Amazonka.MediaStore.Internal
 
   build-depends:
     , amazonka              ^>=2.0

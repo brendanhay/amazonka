@@ -79,9 +79,9 @@ test-suite amazonka-rds-data-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.RDSData
-    Test.AWS.RDSData
-    Test.AWS.RDSData.Internal
+    Test.Amazonka.Gen.RDSData
+    Test.Amazonka.RDSData
+    Test.Amazonka.RDSData.Internal
 
   build-depends:
     , amazonka              ^>=2.0

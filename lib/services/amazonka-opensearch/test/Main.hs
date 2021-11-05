@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.OpenSearch
-import Test.AWS.OpenSearch.Internal
+import Test.Amazonka.OpenSearch
+import Test.Amazonka.OpenSearch.Internal
 import Test.Tasty
 
 main :: IO ()

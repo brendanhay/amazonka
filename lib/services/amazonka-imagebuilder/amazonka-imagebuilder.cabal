@@ -168,9 +168,9 @@ test-suite amazonka-imagebuilder-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.ImageBuilder
-    Test.AWS.ImageBuilder
-    Test.AWS.ImageBuilder.Internal
+    Test.Amazonka.Gen.ImageBuilder
+    Test.Amazonka.ImageBuilder
+    Test.Amazonka.ImageBuilder.Internal
 
   build-depends:
     , amazonka               ^>=2.0

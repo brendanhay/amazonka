@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.ComputeOptimizer
-import Test.AWS.ComputeOptimizer.Internal
+import Test.Amazonka.ComputeOptimizer
+import Test.Amazonka.ComputeOptimizer.Internal
 import Test.Tasty
 
 main :: IO ()

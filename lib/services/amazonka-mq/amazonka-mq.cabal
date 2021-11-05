@@ -117,9 +117,9 @@ test-suite amazonka-mq-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.MQ
-    Test.AWS.MQ
-    Test.AWS.MQ.Internal
+    Test.Amazonka.Gen.MQ
+    Test.Amazonka.MQ
+    Test.Amazonka.MQ.Internal
 
   build-depends:
     , amazonka              ^>=2.0

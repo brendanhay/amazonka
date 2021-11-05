@@ -111,9 +111,9 @@ test-suite amazonka-application-insights-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.ApplicationInsights
-    Test.AWS.ApplicationInsights.Internal
-    Test.AWS.Gen.ApplicationInsights
+    Test.Amazonka.ApplicationInsights
+    Test.Amazonka.ApplicationInsights.Internal
+    Test.Amazonka.Gen.ApplicationInsights
 
   build-depends:
     , amazonka                       ^>=2.0

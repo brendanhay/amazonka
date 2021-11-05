@@ -79,9 +79,9 @@ test-suite amazonka-pi-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.Pi
-    Test.AWS.Pi
-    Test.AWS.Pi.Internal
+    Test.Amazonka.Gen.Pi
+    Test.Amazonka.Pi
+    Test.Amazonka.Pi.Internal
 
   build-depends:
     , amazonka              ^>=2.0

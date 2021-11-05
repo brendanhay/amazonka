@@ -248,9 +248,9 @@ test-suite amazonka-ecs-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.ECS
-    Test.AWS.ECS.Internal
-    Test.AWS.Gen.ECS
+    Test.Amazonka.ECS
+    Test.Amazonka.ECS.Internal
+    Test.Amazonka.Gen.ECS
 
   build-depends:
     , amazonka              ^>=2.0

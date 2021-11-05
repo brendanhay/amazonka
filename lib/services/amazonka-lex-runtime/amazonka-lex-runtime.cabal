@@ -87,9 +87,9 @@ test-suite amazonka-lex-runtime-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.LexRuntime
-    Test.AWS.LexRuntime
-    Test.AWS.LexRuntime.Internal
+    Test.Amazonka.Gen.LexRuntime
+    Test.Amazonka.LexRuntime
+    Test.Amazonka.LexRuntime.Internal
 
   build-depends:
     , amazonka              ^>=2.0

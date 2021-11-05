@@ -75,9 +75,9 @@ test-suite amazonka-connect-contact-lens-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.ConnectContactLens
-    Test.AWS.ConnectContactLens.Internal
-    Test.AWS.Gen.ConnectContactLens
+    Test.Amazonka.ConnectContactLens
+    Test.Amazonka.ConnectContactLens.Internal
+    Test.Amazonka.Gen.ConnectContactLens
 
   build-depends:
     , amazonka                       ^>=2.0

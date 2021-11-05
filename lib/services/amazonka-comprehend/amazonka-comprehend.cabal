@@ -210,9 +210,9 @@ test-suite amazonka-comprehend-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Comprehend
-    Test.AWS.Comprehend.Internal
-    Test.AWS.Gen.Comprehend
+    Test.Amazonka.Comprehend
+    Test.Amazonka.Comprehend.Internal
+    Test.Amazonka.Gen.Comprehend
 
   build-depends:
     , amazonka              ^>=2.0

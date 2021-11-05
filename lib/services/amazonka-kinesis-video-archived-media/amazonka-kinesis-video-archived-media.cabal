@@ -91,9 +91,9 @@ test-suite amazonka-kinesis-video-archived-media-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.KinesisVideoArchivedMedia
-    Test.AWS.KinesisVideoArchivedMedia
-    Test.AWS.KinesisVideoArchivedMedia.Internal
+    Test.Amazonka.Gen.KinesisVideoArchivedMedia
+    Test.Amazonka.KinesisVideoArchivedMedia
+    Test.Amazonka.KinesisVideoArchivedMedia.Internal
 
   build-depends:
     , amazonka                               ^>=2.0

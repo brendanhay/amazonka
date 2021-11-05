@@ -202,9 +202,9 @@ test-suite amazonka-codebuild-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.CodeBuild
-    Test.AWS.CodeBuild.Internal
-    Test.AWS.Gen.CodeBuild
+    Test.Amazonka.CodeBuild
+    Test.Amazonka.CodeBuild.Internal
+    Test.Amazonka.Gen.CodeBuild
 
   build-depends:
     , amazonka              ^>=2.0

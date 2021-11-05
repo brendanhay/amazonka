@@ -147,9 +147,9 @@ test-suite amazonka-globalaccelerator-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.GlobalAccelerator
-    Test.AWS.GlobalAccelerator
-    Test.AWS.GlobalAccelerator.Internal
+    Test.Amazonka.Gen.GlobalAccelerator
+    Test.Amazonka.GlobalAccelerator
+    Test.Amazonka.GlobalAccelerator.Internal
 
   build-depends:
     , amazonka                    ^>=2.0

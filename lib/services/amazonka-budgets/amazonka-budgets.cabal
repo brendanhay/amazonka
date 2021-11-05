@@ -119,9 +119,9 @@ test-suite amazonka-budgets-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Budgets
-    Test.AWS.Budgets.Internal
-    Test.AWS.Gen.Budgets
+    Test.Amazonka.Budgets
+    Test.Amazonka.Budgets.Internal
+    Test.Amazonka.Gen.Budgets
 
   build-depends:
     , amazonka              ^>=2.0

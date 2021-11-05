@@ -100,9 +100,9 @@ test-suite amazonka-route53-recovery-control-config-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.Route53RecoveryControlConfig
-    Test.AWS.Route53RecoveryControlConfig
-    Test.AWS.Route53RecoveryControlConfig.Internal
+    Test.Amazonka.Gen.Route53RecoveryControlConfig
+    Test.Amazonka.Route53RecoveryControlConfig
+    Test.Amazonka.Route53RecoveryControlConfig.Internal
 
   build-depends:
     , amazonka                                  ^>=2.0

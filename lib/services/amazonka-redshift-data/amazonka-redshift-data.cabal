@@ -84,9 +84,9 @@ test-suite amazonka-redshift-data-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.RedshiftData
-    Test.AWS.RedshiftData
-    Test.AWS.RedshiftData.Internal
+    Test.Amazonka.Gen.RedshiftData
+    Test.Amazonka.RedshiftData
+    Test.Amazonka.RedshiftData.Internal
 
   build-depends:
     , amazonka                ^>=2.0

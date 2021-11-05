@@ -297,9 +297,9 @@ test-suite amazonka-iam-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.IAM
-    Test.AWS.IAM
-    Test.AWS.IAM.Internal
+    Test.Amazonka.Gen.IAM
+    Test.Amazonka.IAM
+    Test.Amazonka.IAM.Internal
 
   build-depends:
     , amazonka              ^>=2.0

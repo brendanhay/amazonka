@@ -106,9 +106,9 @@ test-suite amazonka-synthetics-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.Synthetics
-    Test.AWS.Synthetics
-    Test.AWS.Synthetics.Internal
+    Test.Amazonka.Gen.Synthetics
+    Test.Amazonka.Synthetics
+    Test.Amazonka.Synthetics.Internal
 
   build-depends:
     , amazonka              ^>=2.0

@@ -81,9 +81,9 @@ test-suite amazonka-cloudsearch-domains-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.CloudSearchDomains
-    Test.AWS.CloudSearchDomains.Internal
-    Test.AWS.Gen.CloudSearchDomains
+    Test.Amazonka.CloudSearchDomains
+    Test.Amazonka.CloudSearchDomains.Internal
+    Test.Amazonka.Gen.CloudSearchDomains
 
   build-depends:
     , amazonka                      ^>=2.0

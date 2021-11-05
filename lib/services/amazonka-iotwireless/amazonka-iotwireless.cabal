@@ -182,9 +182,9 @@ test-suite amazonka-iotwireless-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.IoTWireless
-    Test.AWS.IoTWireless
-    Test.AWS.IoTWireless.Internal
+    Test.Amazonka.Gen.IoTWireless
+    Test.Amazonka.IoTWireless
+    Test.Amazonka.IoTWireless.Internal
 
   build-depends:
     , amazonka              ^>=2.0

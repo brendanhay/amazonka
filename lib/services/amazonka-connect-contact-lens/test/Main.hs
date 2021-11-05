@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.ConnectContactLens
-import Test.AWS.ConnectContactLens.Internal
+import Test.Amazonka.ConnectContactLens
+import Test.Amazonka.ConnectContactLens.Internal
 import Test.Tasty
 
 main :: IO ()

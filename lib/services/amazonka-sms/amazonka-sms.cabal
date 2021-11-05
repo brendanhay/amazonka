@@ -149,9 +149,9 @@ test-suite amazonka-sms-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.SMS
-    Test.AWS.SMS
-    Test.AWS.SMS.Internal
+    Test.Amazonka.Gen.SMS
+    Test.Amazonka.SMS
+    Test.Amazonka.SMS.Internal
 
   build-depends:
     , amazonka              ^>=2.0

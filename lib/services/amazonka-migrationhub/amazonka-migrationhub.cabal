@@ -94,9 +94,9 @@ test-suite amazonka-migrationhub-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.MigrationHub
-    Test.AWS.MigrationHub
-    Test.AWS.MigrationHub.Internal
+    Test.Amazonka.Gen.MigrationHub
+    Test.Amazonka.MigrationHub
+    Test.Amazonka.MigrationHub.Internal
 
   build-depends:
     , amazonka               ^>=2.0

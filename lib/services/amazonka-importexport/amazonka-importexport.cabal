@@ -75,9 +75,9 @@ test-suite amazonka-importexport-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.ImportExport
-    Test.AWS.ImportExport
-    Test.AWS.ImportExport.Internal
+    Test.Amazonka.Gen.ImportExport
+    Test.Amazonka.ImportExport
+    Test.Amazonka.ImportExport.Internal
 
   build-depends:
     , amazonka               ^>=2.0

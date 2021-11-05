@@ -88,9 +88,9 @@ test-suite amazonka-polly-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.Polly
-    Test.AWS.Polly
-    Test.AWS.Polly.Internal
+    Test.Amazonka.Gen.Polly
+    Test.Amazonka.Polly
+    Test.Amazonka.Polly.Internal
 
   build-depends:
     , amazonka              ^>=2.0

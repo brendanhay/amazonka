@@ -121,9 +121,9 @@ test-suite amazonka-lakeformation-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.LakeFormation
-    Test.AWS.LakeFormation
-    Test.AWS.LakeFormation.Internal
+    Test.Amazonka.Gen.LakeFormation
+    Test.Amazonka.LakeFormation
+    Test.Amazonka.LakeFormation.Internal
 
   build-depends:
     , amazonka                ^>=2.0

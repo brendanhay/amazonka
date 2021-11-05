@@ -106,9 +106,9 @@ test-suite amazonka-schemas-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.Schemas
-    Test.AWS.Schemas
-    Test.AWS.Schemas.Internal
+    Test.Amazonka.Gen.Schemas
+    Test.Amazonka.Schemas
+    Test.Amazonka.Schemas.Internal
 
   build-depends:
     , amazonka              ^>=2.0

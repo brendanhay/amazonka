@@ -74,9 +74,9 @@ test-suite amazonka-iot-jobs-dataplane-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.IoTJobsData
-    Test.AWS.IoTJobsData
-    Test.AWS.IoTJobsData.Internal
+    Test.Amazonka.Gen.IoTJobsData
+    Test.Amazonka.IoTJobsData
+    Test.Amazonka.IoTJobsData.Internal
 
   build-depends:
     , amazonka                     ^>=2.0

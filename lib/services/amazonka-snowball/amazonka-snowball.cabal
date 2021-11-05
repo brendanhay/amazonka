@@ -130,9 +130,9 @@ test-suite amazonka-snowball-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.Snowball
-    Test.AWS.Snowball
-    Test.AWS.Snowball.Internal
+    Test.Amazonka.Gen.Snowball
+    Test.Amazonka.Snowball
+    Test.Amazonka.Snowball.Internal
 
   build-depends:
     , amazonka              ^>=2.0

@@ -146,9 +146,9 @@ test-suite amazonka-transfer-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.Transfer
-    Test.AWS.Transfer
-    Test.AWS.Transfer.Internal
+    Test.Amazonka.Gen.Transfer
+    Test.Amazonka.Transfer
+    Test.Amazonka.Transfer.Internal
 
   build-depends:
     , amazonka              ^>=2.0

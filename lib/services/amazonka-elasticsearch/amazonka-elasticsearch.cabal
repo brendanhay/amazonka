@@ -201,9 +201,9 @@ test-suite amazonka-elasticsearch-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.ElasticSearch
-    Test.AWS.ElasticSearch.Internal
-    Test.AWS.Gen.ElasticSearch
+    Test.Amazonka.ElasticSearch
+    Test.Amazonka.ElasticSearch.Internal
+    Test.Amazonka.Gen.ElasticSearch
 
   build-depends:
     , amazonka                ^>=2.0

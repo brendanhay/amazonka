@@ -106,9 +106,9 @@ test-suite amazonka-certificatemanager-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.CertificateManager
-    Test.AWS.CertificateManager.Internal
-    Test.AWS.Gen.CertificateManager
+    Test.Amazonka.CertificateManager
+    Test.Amazonka.CertificateManager.Internal
+    Test.Amazonka.Gen.CertificateManager
 
   build-depends:
     , amazonka                     ^>=2.0

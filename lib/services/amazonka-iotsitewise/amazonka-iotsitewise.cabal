@@ -227,9 +227,9 @@ test-suite amazonka-iotsitewise-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.IoTSiteWise
-    Test.AWS.IoTSiteWise
-    Test.AWS.IoTSiteWise.Internal
+    Test.Amazonka.Gen.IoTSiteWise
+    Test.Amazonka.IoTSiteWise
+    Test.Amazonka.IoTSiteWise.Internal
 
   build-depends:
     , amazonka              ^>=2.0

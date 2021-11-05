@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.ElasticTranscoder
-import Test.AWS.ElasticTranscoder.Internal
+import Test.Amazonka.ElasticTranscoder
+import Test.Amazonka.ElasticTranscoder.Internal
 import Test.Tasty
 
 main :: IO ()

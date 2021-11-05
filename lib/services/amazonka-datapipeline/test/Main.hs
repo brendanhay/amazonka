@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.DataPipeline
-import Test.AWS.DataPipeline.Internal
+import Test.Amazonka.DataPipeline
+import Test.Amazonka.DataPipeline.Internal
 import Test.Tasty
 
 main :: IO ()

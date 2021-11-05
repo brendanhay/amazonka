@@ -160,9 +160,9 @@ test-suite amazonka-workmail-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.WorkMail
-    Test.AWS.WorkMail
-    Test.AWS.WorkMail.Internal
+    Test.Amazonka.Gen.WorkMail
+    Test.Amazonka.WorkMail
+    Test.Amazonka.WorkMail.Internal
 
   build-depends:
     , amazonka              ^>=2.0

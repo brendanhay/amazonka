@@ -69,9 +69,9 @@ test-suite amazonka-sso-oidc-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.SSOOIDC
-    Test.AWS.SSOOIDC
-    Test.AWS.SSOOIDC.Internal
+    Test.Amazonka.Gen.SSOOIDC
+    Test.Amazonka.SSOOIDC
+    Test.Amazonka.SSOOIDC.Internal
 
   build-depends:
     , amazonka              ^>=2.0

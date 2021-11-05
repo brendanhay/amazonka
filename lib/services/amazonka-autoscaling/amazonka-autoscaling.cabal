@@ -195,9 +195,9 @@ test-suite amazonka-autoscaling-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.AutoScaling
-    Test.AWS.AutoScaling.Internal
-    Test.AWS.Gen.AutoScaling
+    Test.Amazonka.AutoScaling
+    Test.Amazonka.AutoScaling.Internal
+    Test.Amazonka.Gen.AutoScaling
 
   build-depends:
     , amazonka              ^>=2.0

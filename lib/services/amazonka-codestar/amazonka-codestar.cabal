@@ -97,9 +97,9 @@ test-suite amazonka-codestar-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.CodeStar
-    Test.AWS.CodeStar.Internal
-    Test.AWS.Gen.CodeStar
+    Test.Amazonka.CodeStar
+    Test.Amazonka.CodeStar.Internal
+    Test.Amazonka.Gen.CodeStar
 
   build-depends:
     , amazonka              ^>=2.0

@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.ChimeSDKMessaging
-import Test.AWS.ChimeSDKMessaging.Internal
+import Test.Amazonka.ChimeSDKMessaging
+import Test.Amazonka.ChimeSDKMessaging.Internal
 import Test.Tasty
 
 main :: IO ()

@@ -158,9 +158,9 @@ test-suite amazonka-eks-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.EKS
-    Test.AWS.EKS.Internal
-    Test.AWS.Gen.EKS
+    Test.Amazonka.EKS
+    Test.Amazonka.EKS.Internal
+    Test.Amazonka.Gen.EKS
 
   build-depends:
     , amazonka              ^>=2.0

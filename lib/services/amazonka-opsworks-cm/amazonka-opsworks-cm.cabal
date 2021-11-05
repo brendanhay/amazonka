@@ -96,9 +96,9 @@ test-suite amazonka-opsworks-cm-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.OpsWorksCM
-    Test.AWS.OpsWorksCM
-    Test.AWS.OpsWorksCM.Internal
+    Test.Amazonka.Gen.OpsWorksCM
+    Test.Amazonka.OpsWorksCM
+    Test.Amazonka.OpsWorksCM.Internal
 
   build-depends:
     , amazonka              ^>=2.0

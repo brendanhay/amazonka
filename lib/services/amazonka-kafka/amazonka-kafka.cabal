@@ -147,9 +147,9 @@ test-suite amazonka-kafka-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.Kafka
-    Test.AWS.Kafka
-    Test.AWS.Kafka.Internal
+    Test.Amazonka.Gen.Kafka
+    Test.Amazonka.Kafka
+    Test.Amazonka.Kafka.Internal
 
   build-depends:
     , amazonka              ^>=2.0

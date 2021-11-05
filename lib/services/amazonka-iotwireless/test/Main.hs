@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.IoTWireless
-import Test.AWS.IoTWireless.Internal
+import Test.Amazonka.IoTWireless
+import Test.Amazonka.IoTWireless.Internal
 import Test.Tasty
 
 main :: IO ()

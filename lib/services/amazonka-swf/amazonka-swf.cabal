@@ -220,9 +220,9 @@ test-suite amazonka-swf-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.SWF
-    Test.AWS.SWF
-    Test.AWS.SWF.Internal
+    Test.Amazonka.Gen.SWF
+    Test.Amazonka.SWF
+    Test.Amazonka.SWF.Internal
 
   build-depends:
     , amazonka              ^>=2.0

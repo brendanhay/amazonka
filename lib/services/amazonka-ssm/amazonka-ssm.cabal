@@ -432,9 +432,9 @@ test-suite amazonka-ssm-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.SSM
-    Test.AWS.SSM
-    Test.AWS.SSM.Internal
+    Test.Amazonka.Gen.SSM
+    Test.Amazonka.SSM
+    Test.Amazonka.SSM.Internal
 
   build-depends:
     , amazonka              ^>=2.0

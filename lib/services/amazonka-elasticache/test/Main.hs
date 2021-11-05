@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.ElastiCache
-import Test.AWS.ElastiCache.Internal
+import Test.Amazonka.ElastiCache
+import Test.Amazonka.ElastiCache.Internal
 import Test.Tasty
 
 main :: IO ()

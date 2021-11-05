@@ -149,9 +149,9 @@ test-suite amazonka-panorama-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.Panorama
-    Test.AWS.Panorama
-    Test.AWS.Panorama.Internal
+    Test.Amazonka.Gen.Panorama
+    Test.Amazonka.Panorama
+    Test.Amazonka.Panorama.Internal
 
   build-depends:
     , amazonka              ^>=2.0

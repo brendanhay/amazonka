@@ -74,9 +74,9 @@ test-suite amazonka-sagemaker-featurestore-runtime-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.SageMakerFeatureStoreRuntime
-    Test.AWS.SageMakerFeatureStoreRuntime
-    Test.AWS.SageMakerFeatureStoreRuntime.Internal
+    Test.Amazonka.Gen.SageMakerFeatureStoreRuntime
+    Test.Amazonka.SageMakerFeatureStoreRuntime
+    Test.Amazonka.SageMakerFeatureStoreRuntime.Internal
 
   build-depends:
     , amazonka                                 ^>=2.0

@@ -155,9 +155,9 @@ test-suite amazonka-transcribe-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.Transcribe
-    Test.AWS.Transcribe
-    Test.AWS.Transcribe.Internal
+    Test.Amazonka.Gen.Transcribe
+    Test.Amazonka.Transcribe
+    Test.Amazonka.Transcribe.Internal
 
   build-depends:
     , amazonka              ^>=2.0

@@ -109,9 +109,9 @@ test-suite amazonka-worklink-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.WorkLink
-    Test.AWS.WorkLink
-    Test.AWS.WorkLink.Internal
+    Test.Amazonka.Gen.WorkLink
+    Test.Amazonka.WorkLink
+    Test.Amazonka.WorkLink.Internal
 
   build-depends:
     , amazonka              ^>=2.0

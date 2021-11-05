@@ -78,9 +78,9 @@ test-suite amazonka-ebs-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.EBS
-    Test.AWS.EBS.Internal
-    Test.AWS.Gen.EBS
+    Test.Amazonka.EBS
+    Test.Amazonka.EBS.Internal
+    Test.Amazonka.Gen.EBS
 
   build-depends:
     , amazonka              ^>=2.0

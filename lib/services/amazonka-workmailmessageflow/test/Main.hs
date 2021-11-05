@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.WorkMailMessageFlow
-import Test.AWS.WorkMailMessageFlow.Internal
+import Test.Amazonka.WorkMailMessageFlow
+import Test.Amazonka.WorkMailMessageFlow.Internal
 import Test.Tasty
 
 main :: IO ()

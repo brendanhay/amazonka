@@ -4,13 +4,13 @@ load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 haskell_library(
     name = "amazonka-forecastquery",
     srcs = [
-        "gen/Network/AWS/ForecastQuery.hs",
-        "gen/Network/AWS/ForecastQuery/Lens.hs",
-        "gen/Network/AWS/ForecastQuery/QueryForecast.hs",
-        "gen/Network/AWS/ForecastQuery/Types.hs",
-        "gen/Network/AWS/ForecastQuery/Types/DataPoint.hs",
-        "gen/Network/AWS/ForecastQuery/Types/Forecast.hs",
-        "gen/Network/AWS/ForecastQuery/Waiters.hs",
+        "gen/Amazonka/ForecastQuery.hs",
+        "gen/Amazonka/ForecastQuery/Lens.hs",
+        "gen/Amazonka/ForecastQuery/QueryForecast.hs",
+        "gen/Amazonka/ForecastQuery/Types.hs",
+        "gen/Amazonka/ForecastQuery/Types/DataPoint.hs",
+        "gen/Amazonka/ForecastQuery/Types/Forecast.hs",
+        "gen/Amazonka/ForecastQuery/Waiters.hs",
     ],
     compiler_flags = [
         "-DVERSION_amazonka_forecastquery=\"2.0\"",
@@ -33,9 +33,9 @@ haskell_test(
     name = "amazonka-forecastquery-test",
     srcs = [
         "test/Main.hs",
-        "test/Test/AWS/ForecastQuery.hs",
-        "test/Test/AWS/ForecastQuery/Internal.hs",
-        "test/Test/AWS/Gen/ForecastQuery.hs",
+        "test/Test/Amazonka/ForecastQuery.hs",
+        "test/Test/Amazonka/ForecastQuery/Internal.hs",
+        "test/Test/Amazonka/Gen/ForecastQuery.hs",
     ],
     compiler_flags = [
         "-DVERSION_amazonka_forecastquery=\"2.0\"",

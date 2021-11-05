@@ -118,9 +118,9 @@ test-suite amazonka-appconfig-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.AppConfig
-    Test.AWS.AppConfig.Internal
-    Test.AWS.Gen.AppConfig
+    Test.Amazonka.AppConfig
+    Test.Amazonka.AppConfig.Internal
+    Test.Amazonka.Gen.AppConfig
 
   build-depends:
     , amazonka              ^>=2.0

@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.WAFRegional
-import Test.AWS.WAFRegional.Internal
+import Test.Amazonka.WAFRegional
+import Test.Amazonka.WAFRegional.Internal
 import Test.Tasty
 
 main :: IO ()

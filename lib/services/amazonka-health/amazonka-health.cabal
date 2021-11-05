@@ -102,9 +102,9 @@ test-suite amazonka-health-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.AWSHealth
-    Test.AWS.AWSHealth.Internal
-    Test.AWS.Gen.AWSHealth
+    Test.Amazonka.AWSHealth
+    Test.Amazonka.AWSHealth.Internal
+    Test.Amazonka.Gen.AWSHealth
 
   build-depends:
     , amazonka              ^>=2.0

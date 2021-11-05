@@ -68,9 +68,9 @@ test-suite amazonka-ec2-instance-connect-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.EC2InstanceConnect
-    Test.AWS.EC2InstanceConnect.Internal
-    Test.AWS.Gen.EC2InstanceConnect
+    Test.Amazonka.EC2InstanceConnect
+    Test.Amazonka.EC2InstanceConnect.Internal
+    Test.Amazonka.Gen.EC2InstanceConnect
 
   build-depends:
     , amazonka                       ^>=2.0

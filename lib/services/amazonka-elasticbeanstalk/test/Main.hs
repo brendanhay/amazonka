@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.ElasticBeanstalk
-import Test.AWS.ElasticBeanstalk.Internal
+import Test.Amazonka.ElasticBeanstalk
+import Test.Amazonka.ElasticBeanstalk.Internal
 import Test.Tasty
 
 main :: IO ()

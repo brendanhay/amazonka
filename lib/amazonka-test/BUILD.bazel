@@ -4,12 +4,12 @@ load("@rules_haskell//haskell:defs.bzl", "haskell_library")
 haskell_library(
     name = "amazonka-test",
     srcs = [
-        "src/Test/AWS/Assert.hs",
-        "src/Test/AWS/Diff.hs",
-        "src/Test/AWS/Fixture.hs",
-        "src/Test/AWS/Orphans.hs",
-        "src/Test/AWS/Prelude.hs",
-        "src/Test/AWS/TH.hs",
+        "src/Test/Amazonka/Assert.hs",
+        "src/Test/Amazonka/Diff.hs",
+        "src/Test/Amazonka/Fixture.hs",
+        "src/Test/Amazonka/Orphans.hs",
+        "src/Test/Amazonka/Prelude.hs",
+        "src/Test/Amazonka/TH.hs",
     ],
     compiler_flags = [
         "-Wall",

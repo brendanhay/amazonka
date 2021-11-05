@@ -96,9 +96,9 @@ test-suite amazonka-support-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.Support
-    Test.AWS.Support
-    Test.AWS.Support.Internal
+    Test.Amazonka.Gen.Support
+    Test.Amazonka.Support
+    Test.Amazonka.Support.Internal
 
   build-depends:
     , amazonka              ^>=2.0

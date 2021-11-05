@@ -105,9 +105,9 @@ test-suite amazonka-lookoutvision-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.LookoutVision
-    Test.AWS.LookoutVision
-    Test.AWS.LookoutVision.Internal
+    Test.Amazonka.Gen.LookoutVision
+    Test.Amazonka.LookoutVision
+    Test.Amazonka.LookoutVision.Internal
 
   build-depends:
     , amazonka                ^>=2.0

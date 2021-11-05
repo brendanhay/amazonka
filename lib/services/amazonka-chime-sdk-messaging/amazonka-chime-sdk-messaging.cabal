@@ -145,9 +145,9 @@ test-suite amazonka-chime-sdk-messaging-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.ChimeSDKMessaging
-    Test.AWS.ChimeSDKMessaging.Internal
-    Test.AWS.Gen.ChimeSDKMessaging
+    Test.Amazonka.ChimeSDKMessaging
+    Test.Amazonka.ChimeSDKMessaging.Internal
+    Test.Amazonka.Gen.ChimeSDKMessaging
 
   build-depends:
     , amazonka                      ^>=2.0

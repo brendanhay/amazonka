@@ -72,9 +72,9 @@ test-suite amazonka-personalize-events-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.PersonalizeEvents
-    Test.AWS.PersonalizeEvents
-    Test.AWS.PersonalizeEvents.Internal
+    Test.Amazonka.Gen.PersonalizeEvents
+    Test.Amazonka.PersonalizeEvents
+    Test.Amazonka.PersonalizeEvents.Internal
 
   build-depends:
     , amazonka                     ^>=2.0

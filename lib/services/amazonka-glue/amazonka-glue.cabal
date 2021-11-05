@@ -441,9 +441,9 @@ test-suite amazonka-glue-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.Glue
-    Test.AWS.Glue
-    Test.AWS.Glue.Internal
+    Test.Amazonka.Gen.Glue
+    Test.Amazonka.Glue
+    Test.Amazonka.Glue.Internal
 
   build-depends:
     , amazonka              ^>=2.0

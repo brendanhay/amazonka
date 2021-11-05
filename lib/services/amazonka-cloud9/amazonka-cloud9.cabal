@@ -91,9 +91,9 @@ test-suite amazonka-cloud9-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Cloud9
-    Test.AWS.Cloud9.Internal
-    Test.AWS.Gen.Cloud9
+    Test.Amazonka.Cloud9
+    Test.Amazonka.Cloud9.Internal
+    Test.Amazonka.Gen.Cloud9
 
   build-depends:
     , amazonka              ^>=2.0

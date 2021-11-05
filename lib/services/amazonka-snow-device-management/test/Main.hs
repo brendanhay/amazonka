@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.SnowDeviceManagement
-import Test.AWS.SnowDeviceManagement.Internal
+import Test.Amazonka.SnowDeviceManagement
+import Test.Amazonka.SnowDeviceManagement.Internal
 import Test.Tasty
 
 main :: IO ()

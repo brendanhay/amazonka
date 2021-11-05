@@ -164,9 +164,9 @@ test-suite amazonka-lex-models-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.LexModels
-    Test.AWS.LexModels
-    Test.AWS.LexModels.Internal
+    Test.Amazonka.Gen.LexModels
+    Test.Amazonka.LexModels
+    Test.Amazonka.LexModels.Internal
 
   build-depends:
     , amazonka              ^>=2.0

@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.SWF
-import Test.AWS.SWF.Internal
+import Test.Amazonka.SWF
+import Test.Amazonka.SWF.Internal
 import Test.Tasty
 
 main :: IO ()

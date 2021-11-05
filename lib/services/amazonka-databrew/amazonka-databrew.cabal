@@ -159,9 +159,9 @@ test-suite amazonka-databrew-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.DataBrew
-    Test.AWS.DataBrew.Internal
-    Test.AWS.Gen.DataBrew
+    Test.Amazonka.DataBrew
+    Test.Amazonka.DataBrew.Internal
+    Test.Amazonka.Gen.DataBrew
 
   build-depends:
     , amazonka              ^>=2.0

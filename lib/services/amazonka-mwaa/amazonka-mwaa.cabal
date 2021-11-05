@@ -94,9 +94,9 @@ test-suite amazonka-mwaa-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.MwAA
-    Test.AWS.MwAA
-    Test.AWS.MwAA.Internal
+    Test.Amazonka.Gen.MwAA
+    Test.Amazonka.MwAA
+    Test.Amazonka.MwAA.Internal
 
   build-depends:
     , amazonka              ^>=2.0

@@ -634,9 +634,9 @@ test-suite amazonka-mediaconvert-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.MediaConvert
-    Test.AWS.MediaConvert
-    Test.AWS.MediaConvert.Internal
+    Test.Amazonka.Gen.MediaConvert
+    Test.Amazonka.MediaConvert
+    Test.Amazonka.MediaConvert.Internal
 
   build-depends:
     , amazonka               ^>=2.0

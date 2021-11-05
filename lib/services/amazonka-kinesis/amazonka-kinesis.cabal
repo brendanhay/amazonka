@@ -118,9 +118,9 @@ test-suite amazonka-kinesis-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.Kinesis
-    Test.AWS.Kinesis
-    Test.AWS.Kinesis.Internal
+    Test.Amazonka.Gen.Kinesis
+    Test.Amazonka.Kinesis
+    Test.Amazonka.Kinesis.Internal
 
   build-depends:
     , amazonka              ^>=2.0

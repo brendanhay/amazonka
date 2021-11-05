@@ -122,9 +122,9 @@ test-suite amazonka-ml-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.MachineLearning
-    Test.AWS.MachineLearning
-    Test.AWS.MachineLearning.Internal
+    Test.Amazonka.Gen.MachineLearning
+    Test.Amazonka.MachineLearning
+    Test.Amazonka.MachineLearning.Internal
 
   build-depends:
     , amazonka              ^>=2.0

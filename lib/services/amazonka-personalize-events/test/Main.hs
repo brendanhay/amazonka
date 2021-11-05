@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.PersonalizeEvents
-import Test.AWS.PersonalizeEvents.Internal
+import Test.Amazonka.PersonalizeEvents
+import Test.Amazonka.PersonalizeEvents.Internal
 import Test.Tasty
 
 main :: IO ()

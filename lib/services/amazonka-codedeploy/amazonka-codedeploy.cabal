@@ -193,9 +193,9 @@ test-suite amazonka-codedeploy-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.CodeDeploy
-    Test.AWS.CodeDeploy.Internal
-    Test.AWS.Gen.CodeDeploy
+    Test.Amazonka.CodeDeploy
+    Test.Amazonka.CodeDeploy.Internal
+    Test.Amazonka.Gen.CodeDeploy
 
   build-depends:
     , amazonka              ^>=2.0

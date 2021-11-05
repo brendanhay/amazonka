@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.DynamoDB
-import Test.AWS.DynamoDB.Internal
+import Test.Amazonka.DynamoDB
+import Test.Amazonka.DynamoDB.Internal
 import Test.Tasty
 
 main :: IO ()

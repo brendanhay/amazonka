@@ -212,9 +212,9 @@ test-suite amazonka-waf-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.WAF
-    Test.AWS.WAF
-    Test.AWS.WAF.Internal
+    Test.Amazonka.Gen.WAF
+    Test.Amazonka.WAF
+    Test.Amazonka.WAF.Internal
 
   build-depends:
     , amazonka              ^>=2.0

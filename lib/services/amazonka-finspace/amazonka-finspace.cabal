@@ -78,9 +78,9 @@ test-suite amazonka-finspace-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.FinSpace
-    Test.AWS.FinSpace.Internal
-    Test.AWS.Gen.FinSpace
+    Test.Amazonka.FinSpace
+    Test.Amazonka.FinSpace.Internal
+    Test.Amazonka.Gen.FinSpace
 
   build-depends:
     , amazonka              ^>=2.0

@@ -1336,9 +1336,9 @@ test-suite amazonka-ec2-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.EC2
-    Test.AWS.EC2.Internal
-    Test.AWS.Gen.EC2
+    Test.Amazonka.EC2
+    Test.Amazonka.EC2.Internal
+    Test.Amazonka.Gen.EC2
 
   build-depends:
     , amazonka              ^>=2.0

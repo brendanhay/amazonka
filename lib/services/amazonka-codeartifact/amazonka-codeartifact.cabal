@@ -124,9 +124,9 @@ test-suite amazonka-codeartifact-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.CodeArtifact
-    Test.AWS.CodeArtifact.Internal
-    Test.AWS.Gen.CodeArtifact
+    Test.Amazonka.CodeArtifact
+    Test.Amazonka.CodeArtifact.Internal
+    Test.Amazonka.Gen.CodeArtifact
 
   build-depends:
     , amazonka               ^>=2.0

@@ -149,9 +149,9 @@ test-suite amazonka-appsync-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.AppSync
-    Test.AWS.AppSync.Internal
-    Test.AWS.Gen.AppSync
+    Test.Amazonka.AppSync
+    Test.Amazonka.AppSync.Internal
+    Test.Amazonka.Gen.AppSync
 
   build-depends:
     , amazonka              ^>=2.0

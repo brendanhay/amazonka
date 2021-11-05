@@ -132,9 +132,9 @@ test-suite amazonka-shield-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.Shield
-    Test.AWS.Shield
-    Test.AWS.Shield.Internal
+    Test.Amazonka.Gen.Shield
+    Test.Amazonka.Shield
+    Test.Amazonka.Shield.Internal
 
   build-depends:
     , amazonka              ^>=2.0

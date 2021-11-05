@@ -194,9 +194,9 @@ test-suite amazonka-ses-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.SES
-    Test.AWS.SES
-    Test.AWS.SES.Internal
+    Test.Amazonka.Gen.SES
+    Test.Amazonka.SES
+    Test.Amazonka.SES.Internal
 
   build-depends:
     , amazonka              ^>=2.0

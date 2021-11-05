@@ -114,9 +114,9 @@ test-suite amazonka-route53-recovery-readiness-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.Route53RecoveryReadiness
-    Test.AWS.Route53RecoveryReadiness
-    Test.AWS.Route53RecoveryReadiness.Internal
+    Test.Amazonka.Gen.Route53RecoveryReadiness
+    Test.Amazonka.Route53RecoveryReadiness
+    Test.Amazonka.Route53RecoveryReadiness.Internal
 
   build-depends:
     , amazonka                             ^>=2.0

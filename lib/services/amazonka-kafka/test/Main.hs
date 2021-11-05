@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.Kafka
-import Test.AWS.Kafka.Internal
+import Test.Amazonka.Kafka
+import Test.Amazonka.Kafka.Internal
 import Test.Tasty
 
 main :: IO ()

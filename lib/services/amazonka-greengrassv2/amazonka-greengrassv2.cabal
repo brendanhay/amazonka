@@ -144,9 +144,9 @@ test-suite amazonka-greengrassv2-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.GreengrassV2
-    Test.AWS.GreengrassV2
-    Test.AWS.GreengrassV2.Internal
+    Test.Amazonka.Gen.GreengrassV2
+    Test.Amazonka.GreengrassV2
+    Test.Amazonka.GreengrassV2.Internal
 
   build-depends:
     , amazonka               ^>=2.0

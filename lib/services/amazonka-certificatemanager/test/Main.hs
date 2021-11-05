@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.CertificateManager
-import Test.AWS.CertificateManager.Internal
+import Test.Amazonka.CertificateManager
+import Test.Amazonka.CertificateManager.Internal
 import Test.Tasty
 
 main :: IO ()

@@ -136,9 +136,9 @@ test-suite amazonka-mechanicalturk-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.MechanicalTurk
-    Test.AWS.MechanicalTurk
-    Test.AWS.MechanicalTurk.Internal
+    Test.Amazonka.Gen.MechanicalTurk
+    Test.Amazonka.MechanicalTurk
+    Test.Amazonka.MechanicalTurk.Internal
 
   build-depends:
     , amazonka                 ^>=2.0

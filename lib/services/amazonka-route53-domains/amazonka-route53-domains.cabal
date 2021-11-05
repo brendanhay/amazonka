@@ -111,9 +111,9 @@ test-suite amazonka-route53-domains-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.Route53Domains
-    Test.AWS.Route53Domains
-    Test.AWS.Route53Domains.Internal
+    Test.Amazonka.Gen.Route53Domains
+    Test.Amazonka.Route53Domains
+    Test.Amazonka.Route53Domains.Internal
 
   build-depends:
     , amazonka                  ^>=2.0

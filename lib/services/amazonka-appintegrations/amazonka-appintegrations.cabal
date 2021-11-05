@@ -87,9 +87,9 @@ test-suite amazonka-appintegrations-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.AppIntegrationS
-    Test.AWS.AppIntegrationS.Internal
-    Test.AWS.Gen.AppIntegrationS
+    Test.Amazonka.AppIntegrationS
+    Test.Amazonka.AppIntegrationS.Internal
+    Test.Amazonka.Gen.AppIntegrationS
 
   build-depends:
     , amazonka                  ^>=2.0

@@ -103,9 +103,9 @@ test-suite amazonka-resourcegroups-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.ResourceGroups
-    Test.AWS.ResourceGroups
-    Test.AWS.ResourceGroups.Internal
+    Test.Amazonka.Gen.ResourceGroups
+    Test.Amazonka.ResourceGroups
+    Test.Amazonka.ResourceGroups.Internal
 
   build-depends:
     , amazonka                 ^>=2.0

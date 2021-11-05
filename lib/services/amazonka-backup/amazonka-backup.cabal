@@ -169,9 +169,9 @@ test-suite amazonka-backup-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Backup
-    Test.AWS.Backup.Internal
-    Test.AWS.Gen.Backup
+    Test.Amazonka.Backup
+    Test.Amazonka.Backup.Internal
+    Test.Amazonka.Gen.Backup
 
   build-depends:
     , amazonka              ^>=2.0

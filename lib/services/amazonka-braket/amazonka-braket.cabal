@@ -84,9 +84,9 @@ test-suite amazonka-braket-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Braket
-    Test.AWS.Braket.Internal
-    Test.AWS.Gen.Braket
+    Test.Amazonka.Braket
+    Test.Amazonka.Braket.Internal
+    Test.Amazonka.Gen.Braket
 
   build-depends:
     , amazonka              ^>=2.0

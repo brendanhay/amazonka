@@ -112,9 +112,9 @@ test-suite amazonka-efs-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.EFS
-    Test.AWS.EFS.Internal
-    Test.AWS.Gen.EFS
+    Test.Amazonka.EFS
+    Test.Amazonka.EFS.Internal
+    Test.Amazonka.Gen.EFS
 
   build-depends:
     , amazonka              ^>=2.0

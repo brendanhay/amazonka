@@ -159,9 +159,9 @@ test-suite amazonka-location-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.Location
-    Test.AWS.Location
-    Test.AWS.Location.Internal
+    Test.Amazonka.Gen.Location
+    Test.Amazonka.Location
+    Test.Amazonka.Location.Internal
 
   build-depends:
     , amazonka              ^>=2.0

@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.SecretsManager
-import Test.AWS.SecretsManager.Internal
+import Test.Amazonka.SecretsManager
+import Test.Amazonka.SecretsManager.Internal
 import Test.Tasty
 
 main :: IO ()

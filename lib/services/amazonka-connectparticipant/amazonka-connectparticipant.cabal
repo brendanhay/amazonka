@@ -86,9 +86,9 @@ test-suite amazonka-connectparticipant-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.ConnectParticipant
-    Test.AWS.ConnectParticipant.Internal
-    Test.AWS.Gen.ConnectParticipant
+    Test.Amazonka.ConnectParticipant
+    Test.Amazonka.ConnectParticipant.Internal
+    Test.Amazonka.Gen.ConnectParticipant
 
   build-depends:
     , amazonka                     ^>=2.0

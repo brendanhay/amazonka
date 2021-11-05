@@ -73,9 +73,9 @@ test-suite amazonka-sso-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.SSO
-    Test.AWS.SSO
-    Test.AWS.SSO.Internal
+    Test.Amazonka.Gen.SSO
+    Test.Amazonka.SSO
+    Test.Amazonka.SSO.Internal
 
   build-depends:
     , amazonka              ^>=2.0

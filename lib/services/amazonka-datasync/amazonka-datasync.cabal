@@ -144,9 +144,9 @@ test-suite amazonka-datasync-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.DataSync
-    Test.AWS.DataSync.Internal
-    Test.AWS.Gen.DataSync
+    Test.Amazonka.DataSync
+    Test.Amazonka.DataSync.Internal
+    Test.Amazonka.Gen.DataSync
 
   build-depends:
     , amazonka              ^>=2.0

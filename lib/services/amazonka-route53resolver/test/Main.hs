@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.Route53Resolver
-import Test.AWS.Route53Resolver.Internal
+import Test.Amazonka.Route53Resolver
+import Test.Amazonka.Route53Resolver.Internal
 import Test.Tasty
 
 main :: IO ()

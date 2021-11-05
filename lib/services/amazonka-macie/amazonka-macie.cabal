@@ -82,9 +82,9 @@ test-suite amazonka-macie-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.Macie
-    Test.AWS.Macie
-    Test.AWS.Macie.Internal
+    Test.Amazonka.Gen.Macie
+    Test.Amazonka.Macie
+    Test.Amazonka.Macie.Internal
 
   build-depends:
     , amazonka              ^>=2.0

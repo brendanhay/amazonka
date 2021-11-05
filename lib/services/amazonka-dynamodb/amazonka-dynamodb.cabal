@@ -243,9 +243,9 @@ test-suite amazonka-dynamodb-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.DynamoDB
-    Test.AWS.DynamoDB.Internal
-    Test.AWS.Gen.DynamoDB
+    Test.Amazonka.DynamoDB
+    Test.Amazonka.DynamoDB.Internal
+    Test.Amazonka.Gen.DynamoDB
 
   build-depends:
     , amazonka              ^>=2.0

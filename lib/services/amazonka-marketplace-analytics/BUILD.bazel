@@ -4,14 +4,14 @@ load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 haskell_library(
     name = "amazonka-marketplace-analytics",
     srcs = [
-        "gen/Network/AWS/MarketplaceAnalytics.hs",
-        "gen/Network/AWS/MarketplaceAnalytics/GenerateDataSet.hs",
-        "gen/Network/AWS/MarketplaceAnalytics/Lens.hs",
-        "gen/Network/AWS/MarketplaceAnalytics/StartSupportDataExport.hs",
-        "gen/Network/AWS/MarketplaceAnalytics/Types.hs",
-        "gen/Network/AWS/MarketplaceAnalytics/Types/DataSetType.hs",
-        "gen/Network/AWS/MarketplaceAnalytics/Types/SupportDataSetType.hs",
-        "gen/Network/AWS/MarketplaceAnalytics/Waiters.hs",
+        "gen/Amazonka/MarketplaceAnalytics.hs",
+        "gen/Amazonka/MarketplaceAnalytics/GenerateDataSet.hs",
+        "gen/Amazonka/MarketplaceAnalytics/Lens.hs",
+        "gen/Amazonka/MarketplaceAnalytics/StartSupportDataExport.hs",
+        "gen/Amazonka/MarketplaceAnalytics/Types.hs",
+        "gen/Amazonka/MarketplaceAnalytics/Types/DataSetType.hs",
+        "gen/Amazonka/MarketplaceAnalytics/Types/SupportDataSetType.hs",
+        "gen/Amazonka/MarketplaceAnalytics/Waiters.hs",
     ],
     compiler_flags = [
         "-Wall",
@@ -34,9 +34,9 @@ haskell_test(
     name = "amazonka-marketplace-analytics-test",
     srcs = [
         "test/Main.hs",
-        "test/Test/AWS/Gen/MarketplaceAnalytics.hs",
-        "test/Test/AWS/MarketplaceAnalytics.hs",
-        "test/Test/AWS/MarketplaceAnalytics/Internal.hs",
+        "test/Test/Amazonka/Gen/MarketplaceAnalytics.hs",
+        "test/Test/Amazonka/MarketplaceAnalytics.hs",
+        "test/Test/Amazonka/MarketplaceAnalytics/Internal.hs",
     ],
     compiler_flags = [
         "-Wall",

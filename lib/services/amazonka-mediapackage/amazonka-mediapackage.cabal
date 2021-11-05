@@ -122,9 +122,9 @@ test-suite amazonka-mediapackage-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.MediaPackage
-    Test.AWS.MediaPackage
-    Test.AWS.MediaPackage.Internal
+    Test.Amazonka.Gen.MediaPackage
+    Test.Amazonka.MediaPackage
+    Test.Amazonka.MediaPackage.Internal
 
   build-depends:
     , amazonka               ^>=2.0

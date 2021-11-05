@@ -109,9 +109,9 @@ test-suite amazonka-dynamodb-dax-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.DAX
-    Test.AWS.DAX.Internal
-    Test.AWS.Gen.DAX
+    Test.Amazonka.DAX
+    Test.Amazonka.DAX.Internal
+    Test.Amazonka.Gen.DAX
 
   build-depends:
     , amazonka               ^>=2.0

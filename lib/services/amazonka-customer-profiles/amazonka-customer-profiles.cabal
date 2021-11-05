@@ -140,9 +140,9 @@ test-suite amazonka-customer-profiles-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.CustomerProfiles
-    Test.AWS.CustomerProfiles.Internal
-    Test.AWS.Gen.CustomerProfiles
+    Test.Amazonka.CustomerProfiles
+    Test.Amazonka.CustomerProfiles.Internal
+    Test.Amazonka.Gen.CustomerProfiles
 
   build-depends:
     , amazonka                    ^>=2.0

@@ -218,9 +218,9 @@ test-suite amazonka-elasticache-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.ElastiCache
-    Test.AWS.ElastiCache.Internal
-    Test.AWS.Gen.ElastiCache
+    Test.Amazonka.ElastiCache
+    Test.Amazonka.ElastiCache.Internal
+    Test.Amazonka.Gen.ElastiCache
 
   build-depends:
     , amazonka              ^>=2.0

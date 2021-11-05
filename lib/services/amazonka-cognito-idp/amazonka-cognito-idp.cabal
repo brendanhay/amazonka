@@ -267,9 +267,9 @@ test-suite amazonka-cognito-idp-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.CognitoIdentityProvider
-    Test.AWS.CognitoIdentityProvider.Internal
-    Test.AWS.Gen.CognitoIdentityProvider
+    Test.Amazonka.CognitoIdentityProvider
+    Test.Amazonka.CognitoIdentityProvider.Internal
+    Test.Amazonka.Gen.CognitoIdentityProvider
 
   build-depends:
     , amazonka              ^>=2.0

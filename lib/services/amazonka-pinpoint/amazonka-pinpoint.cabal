@@ -403,9 +403,9 @@ test-suite amazonka-pinpoint-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.Pinpoint
-    Test.AWS.Pinpoint
-    Test.AWS.Pinpoint.Internal
+    Test.Amazonka.Gen.Pinpoint
+    Test.Amazonka.Pinpoint
+    Test.Amazonka.Pinpoint.Internal
 
   build-depends:
     , amazonka              ^>=2.0

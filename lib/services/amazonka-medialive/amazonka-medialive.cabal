@@ -599,9 +599,9 @@ test-suite amazonka-medialive-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.MediaLive
-    Test.AWS.MediaLive
-    Test.AWS.MediaLive.Internal
+    Test.Amazonka.Gen.MediaLive
+    Test.Amazonka.MediaLive
+    Test.Amazonka.MediaLive.Internal
 
   build-depends:
     , amazonka              ^>=2.0

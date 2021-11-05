@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.AppStream
-import Test.AWS.AppStream.Internal
+import Test.Amazonka.AppStream
+import Test.Amazonka.AppStream.Internal
 import Test.Tasty
 
 main :: IO ()

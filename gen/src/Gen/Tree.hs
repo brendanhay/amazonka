@@ -74,9 +74,7 @@ populate d Templates {..} l = (d :/) . dir lib <$> layout
           dir
             "gen"
             [ dir
-                "Network"
-                [ dir
-                    "AWS"
+                "Amazonka"
                     [ dir svc $
                         [ dir "Types" $
                             mapMaybe shape (l ^.. shapes . each),
@@ -87,7 +85,6 @@ populate d Templates {..} l = (d :/) . dir lib <$> layout
                           ++ map op (l ^.. operations . each),
                       mod (l ^. libraryNS) mempty tocTemplate
                     ]
-                ]
             ],
           dir
             "test"
@@ -95,18 +92,18 @@ populate d Templates {..} l = (d :/) . dir lib <$> layout
               dir
                 "Test"
                 [ dir
-                    "AWS"
+                    "Amazonka"
                     [ touch (l ^. serviceAbbrev <> ".hs") testNamespaceTemplate $
                         fromPairs
                           [ "moduleName"
-                              .= ("Test.AWS." <> l ^. serviceAbbrev)
+                              .= ("Test.Amazonka." <> l ^. serviceAbbrev)
                           ],
                       dir
                         svc
                         [ touch "Internal.hs" testInternalTemplate $
                             fromPairs
                               [ "moduleName"
-                                  .= ("Test.AWS." <> l ^. serviceAbbrev <> ".Internal")
+                                  .= ("Test.Amazonka." <> l ^. serviceAbbrev <> ".Internal")
                               ]
                         ],
                       dir

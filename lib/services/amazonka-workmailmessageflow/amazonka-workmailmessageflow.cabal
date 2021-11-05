@@ -70,9 +70,9 @@ test-suite amazonka-workmailmessageflow-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.WorkMailMessageFlow
-    Test.AWS.WorkMailMessageFlow
-    Test.AWS.WorkMailMessageFlow.Internal
+    Test.Amazonka.Gen.WorkMailMessageFlow
+    Test.Amazonka.WorkMailMessageFlow
+    Test.Amazonka.WorkMailMessageFlow.Internal
 
   build-depends:
     , amazonka                      ^>=2.0

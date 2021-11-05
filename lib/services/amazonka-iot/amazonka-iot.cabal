@@ -549,9 +549,9 @@ test-suite amazonka-iot-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.IoT
-    Test.AWS.IoT
-    Test.AWS.IoT.Internal
+    Test.Amazonka.Gen.IoT
+    Test.Amazonka.IoT
+    Test.Amazonka.IoT.Internal
 
   build-depends:
     , amazonka              ^>=2.0

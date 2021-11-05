@@ -187,9 +187,9 @@ test-suite amazonka-ds-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.DirectoryService
-    Test.AWS.DirectoryService.Internal
-    Test.AWS.Gen.DirectoryService
+    Test.Amazonka.DirectoryService
+    Test.Amazonka.DirectoryService.Internal
+    Test.Amazonka.Gen.DirectoryService
 
   build-depends:
     , amazonka              ^>=2.0

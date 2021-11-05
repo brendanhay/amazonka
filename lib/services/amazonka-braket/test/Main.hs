@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.Braket
-import Test.AWS.Braket.Internal
+import Test.Amazonka.Braket
+import Test.Amazonka.Braket.Internal
 import Test.Tasty
 
 main :: IO ()

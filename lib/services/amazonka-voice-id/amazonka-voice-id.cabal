@@ -122,9 +122,9 @@ test-suite amazonka-voice-id-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.VoiceId
-    Test.AWS.VoiceId
-    Test.AWS.VoiceId.Internal
+    Test.Amazonka.Gen.VoiceId
+    Test.Amazonka.VoiceId
+    Test.Amazonka.VoiceId.Internal
 
   build-depends:
     , amazonka              ^>=2.0

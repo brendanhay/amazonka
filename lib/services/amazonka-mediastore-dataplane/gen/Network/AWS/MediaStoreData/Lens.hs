@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaStoreData.Lens
+-- Module      : Amazonka.MediaStoreData.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaStoreData.Lens
+module Amazonka.MediaStoreData.Lens
   ( -- * Operations
 
     -- ** PutObject
@@ -71,9 +71,9 @@ module Network.AWS.MediaStoreData.Lens
   )
 where
 
-import Network.AWS.MediaStoreData.DeleteObject
-import Network.AWS.MediaStoreData.DescribeObject
-import Network.AWS.MediaStoreData.GetObject
-import Network.AWS.MediaStoreData.ListItems
-import Network.AWS.MediaStoreData.PutObject
-import Network.AWS.MediaStoreData.Types.Item
+import Amazonka.MediaStoreData.DeleteObject
+import Amazonka.MediaStoreData.DescribeObject
+import Amazonka.MediaStoreData.GetObject
+import Amazonka.MediaStoreData.ListItems
+import Amazonka.MediaStoreData.PutObject
+import Amazonka.MediaStoreData.Types.Item

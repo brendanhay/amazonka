@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaStoreData.PutObject
+-- Module      : Amazonka.MediaStoreData.PutObject
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Uploads an object to the specified path. Object sizes are limited to 25
 -- MB for standard upload availability and 10 MB for streaming upload
 -- availability.
-module Network.AWS.MediaStoreData.PutObject
+module Amazonka.MediaStoreData.PutObject
   ( -- * Creating a Request
     PutObject (..),
     newPutObject,
@@ -48,12 +48,12 @@ module Network.AWS.MediaStoreData.PutObject
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaStoreData.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaStoreData.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutObject' smart constructor.
 data PutObject = PutObject'

@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.MediaStoreData
+-- Module      : Amazonka.MediaStoreData
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -14,7 +14,7 @@
 -- An AWS Elemental MediaStore asset is an object, similar to an object in
 -- the Amazon S3 service. Objects are the fundamental entities that are
 -- stored in AWS Elemental MediaStore.
-module Network.AWS.MediaStoreData
+module Amazonka.MediaStoreData
   ( -- * Service Configuration
     defaultService,
 
@@ -86,14 +86,14 @@ module Network.AWS.MediaStoreData
   )
 where
 
-import Network.AWS.MediaStoreData.DeleteObject
-import Network.AWS.MediaStoreData.DescribeObject
-import Network.AWS.MediaStoreData.GetObject
-import Network.AWS.MediaStoreData.Lens
-import Network.AWS.MediaStoreData.ListItems
-import Network.AWS.MediaStoreData.PutObject
-import Network.AWS.MediaStoreData.Types
-import Network.AWS.MediaStoreData.Waiters
+import Amazonka.MediaStoreData.DeleteObject
+import Amazonka.MediaStoreData.DescribeObject
+import Amazonka.MediaStoreData.GetObject
+import Amazonka.MediaStoreData.Lens
+import Amazonka.MediaStoreData.ListItems
+import Amazonka.MediaStoreData.PutObject
+import Amazonka.MediaStoreData.Types
+import Amazonka.MediaStoreData.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

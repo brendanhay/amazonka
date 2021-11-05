@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.MediaStoreData.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.MediaStoreData.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.MediaStoreData" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.MediaStoreData" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,21 +45,21 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.MediaStoreData
-    Network.AWS.MediaStoreData.DeleteObject
-    Network.AWS.MediaStoreData.DescribeObject
-    Network.AWS.MediaStoreData.GetObject
-    Network.AWS.MediaStoreData.Lens
-    Network.AWS.MediaStoreData.ListItems
-    Network.AWS.MediaStoreData.PutObject
-    Network.AWS.MediaStoreData.Types
-    Network.AWS.MediaStoreData.Types.Item
-    Network.AWS.MediaStoreData.Types.ItemType
-    Network.AWS.MediaStoreData.Types.StorageClass
-    Network.AWS.MediaStoreData.Types.UploadAvailability
-    Network.AWS.MediaStoreData.Waiters
+    Amazonka.MediaStoreData
+    Amazonka.MediaStoreData.DeleteObject
+    Amazonka.MediaStoreData.DescribeObject
+    Amazonka.MediaStoreData.GetObject
+    Amazonka.MediaStoreData.Lens
+    Amazonka.MediaStoreData.ListItems
+    Amazonka.MediaStoreData.PutObject
+    Amazonka.MediaStoreData.Types
+    Amazonka.MediaStoreData.Types.Item
+    Amazonka.MediaStoreData.Types.ItemType
+    Amazonka.MediaStoreData.Types.StorageClass
+    Amazonka.MediaStoreData.Types.UploadAvailability
+    Amazonka.MediaStoreData.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

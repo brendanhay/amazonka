@@ -11,25 +11,25 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AutoScalingPlans.Types.ScalingInstruction
+-- Module      : Amazonka.AutoScalingPlans.Types.ScalingInstruction
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AutoScalingPlans.Types.ScalingInstruction where
+module Amazonka.AutoScalingPlans.Types.ScalingInstruction where
 
-import Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification
-import Network.AWS.AutoScalingPlans.Types.PredefinedLoadMetricSpecification
-import Network.AWS.AutoScalingPlans.Types.PredictiveScalingMaxCapacityBehavior
-import Network.AWS.AutoScalingPlans.Types.PredictiveScalingMode
-import Network.AWS.AutoScalingPlans.Types.ScalableDimension
-import Network.AWS.AutoScalingPlans.Types.ScalingPolicyUpdateBehavior
-import Network.AWS.AutoScalingPlans.Types.ServiceNamespace
-import Network.AWS.AutoScalingPlans.Types.TargetTrackingConfiguration
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AutoScalingPlans.Types.CustomizedLoadMetricSpecification
+import Amazonka.AutoScalingPlans.Types.PredefinedLoadMetricSpecification
+import Amazonka.AutoScalingPlans.Types.PredictiveScalingMaxCapacityBehavior
+import Amazonka.AutoScalingPlans.Types.PredictiveScalingMode
+import Amazonka.AutoScalingPlans.Types.ScalableDimension
+import Amazonka.AutoScalingPlans.Types.ScalingPolicyUpdateBehavior
+import Amazonka.AutoScalingPlans.Types.ServiceNamespace
+import Amazonka.AutoScalingPlans.Types.TargetTrackingConfiguration
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a scaling instruction for a scalable resource in a scaling
 -- plan. Each scaling instruction applies to one resource.

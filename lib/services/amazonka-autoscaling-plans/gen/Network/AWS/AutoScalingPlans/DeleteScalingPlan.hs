@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AutoScalingPlans.DeleteScalingPlan
+-- Module      : Amazonka.AutoScalingPlans.DeleteScalingPlan
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 --
 -- If the plan has launched resources or has scaling activities in
 -- progress, you must delete those resources separately.
-module Network.AWS.AutoScalingPlans.DeleteScalingPlan
+module Amazonka.AutoScalingPlans.DeleteScalingPlan
   ( -- * Creating a Request
     DeleteScalingPlan (..),
     newDeleteScalingPlan,
@@ -45,12 +45,12 @@ module Network.AWS.AutoScalingPlans.DeleteScalingPlan
   )
 where
 
-import Network.AWS.AutoScalingPlans.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AutoScalingPlans.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteScalingPlan' smart constructor.
 data DeleteScalingPlan = DeleteScalingPlan'

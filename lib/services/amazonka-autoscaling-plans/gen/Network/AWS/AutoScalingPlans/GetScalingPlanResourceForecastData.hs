@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AutoScalingPlans.GetScalingPlanResourceForecastData
+-- Module      : Amazonka.AutoScalingPlans.GetScalingPlanResourceForecastData
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- Capacity forecasts are represented as predicted values, or data points,
 -- that are calculated using historical data points from a specified
 -- CloudWatch load metric. Data points are available for up to 56 days.
-module Network.AWS.AutoScalingPlans.GetScalingPlanResourceForecastData
+module Amazonka.AutoScalingPlans.GetScalingPlanResourceForecastData
   ( -- * Creating a Request
     GetScalingPlanResourceForecastData (..),
     newGetScalingPlanResourceForecastData,
@@ -50,12 +50,12 @@ module Network.AWS.AutoScalingPlans.GetScalingPlanResourceForecastData
   )
 where
 
-import Network.AWS.AutoScalingPlans.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AutoScalingPlans.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetScalingPlanResourceForecastData' smart constructor.
 data GetScalingPlanResourceForecastData = GetScalingPlanResourceForecastData'

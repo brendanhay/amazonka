@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AutoScalingPlans.Lens
+-- Module      : Amazonka.AutoScalingPlans.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AutoScalingPlans.Lens
+module Amazonka.AutoScalingPlans.Lens
   ( -- * Operations
 
     -- ** DescribeScalingPlanResources
@@ -156,22 +156,22 @@ module Network.AWS.AutoScalingPlans.Lens
   )
 where
 
-import Network.AWS.AutoScalingPlans.CreateScalingPlan
-import Network.AWS.AutoScalingPlans.DeleteScalingPlan
-import Network.AWS.AutoScalingPlans.DescribeScalingPlanResources
-import Network.AWS.AutoScalingPlans.DescribeScalingPlans
-import Network.AWS.AutoScalingPlans.GetScalingPlanResourceForecastData
-import Network.AWS.AutoScalingPlans.Types.ApplicationSource
-import Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification
-import Network.AWS.AutoScalingPlans.Types.CustomizedScalingMetricSpecification
-import Network.AWS.AutoScalingPlans.Types.Datapoint
-import Network.AWS.AutoScalingPlans.Types.MetricDimension
-import Network.AWS.AutoScalingPlans.Types.PredefinedLoadMetricSpecification
-import Network.AWS.AutoScalingPlans.Types.PredefinedScalingMetricSpecification
-import Network.AWS.AutoScalingPlans.Types.ScalingInstruction
-import Network.AWS.AutoScalingPlans.Types.ScalingPlan
-import Network.AWS.AutoScalingPlans.Types.ScalingPlanResource
-import Network.AWS.AutoScalingPlans.Types.ScalingPolicy
-import Network.AWS.AutoScalingPlans.Types.TagFilter
-import Network.AWS.AutoScalingPlans.Types.TargetTrackingConfiguration
-import Network.AWS.AutoScalingPlans.UpdateScalingPlan
+import Amazonka.AutoScalingPlans.CreateScalingPlan
+import Amazonka.AutoScalingPlans.DeleteScalingPlan
+import Amazonka.AutoScalingPlans.DescribeScalingPlanResources
+import Amazonka.AutoScalingPlans.DescribeScalingPlans
+import Amazonka.AutoScalingPlans.GetScalingPlanResourceForecastData
+import Amazonka.AutoScalingPlans.Types.ApplicationSource
+import Amazonka.AutoScalingPlans.Types.CustomizedLoadMetricSpecification
+import Amazonka.AutoScalingPlans.Types.CustomizedScalingMetricSpecification
+import Amazonka.AutoScalingPlans.Types.Datapoint
+import Amazonka.AutoScalingPlans.Types.MetricDimension
+import Amazonka.AutoScalingPlans.Types.PredefinedLoadMetricSpecification
+import Amazonka.AutoScalingPlans.Types.PredefinedScalingMetricSpecification
+import Amazonka.AutoScalingPlans.Types.ScalingInstruction
+import Amazonka.AutoScalingPlans.Types.ScalingPlan
+import Amazonka.AutoScalingPlans.Types.ScalingPlanResource
+import Amazonka.AutoScalingPlans.Types.ScalingPolicy
+import Amazonka.AutoScalingPlans.Types.TagFilter
+import Amazonka.AutoScalingPlans.Types.TargetTrackingConfiguration
+import Amazonka.AutoScalingPlans.UpdateScalingPlan

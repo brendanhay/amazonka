@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AutoScalingPlans.Types.ScalingPlanResource
+-- Module      : Amazonka.AutoScalingPlans.Types.ScalingPlanResource
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AutoScalingPlans.Types.ScalingPlanResource where
+module Amazonka.AutoScalingPlans.Types.ScalingPlanResource where
 
-import Network.AWS.AutoScalingPlans.Types.ScalableDimension
-import Network.AWS.AutoScalingPlans.Types.ScalingPolicy
-import Network.AWS.AutoScalingPlans.Types.ScalingStatusCode
-import Network.AWS.AutoScalingPlans.Types.ServiceNamespace
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AutoScalingPlans.Types.ScalableDimension
+import Amazonka.AutoScalingPlans.Types.ScalingPolicy
+import Amazonka.AutoScalingPlans.Types.ScalingStatusCode
+import Amazonka.AutoScalingPlans.Types.ServiceNamespace
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a scalable resource.
 --

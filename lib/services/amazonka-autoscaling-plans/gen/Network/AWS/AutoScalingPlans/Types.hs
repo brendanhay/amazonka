@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AutoScalingPlans.Types
+-- Module      : Amazonka.AutoScalingPlans.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AutoScalingPlans.Types
+module Amazonka.AutoScalingPlans.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -176,35 +176,35 @@ module Network.AWS.AutoScalingPlans.Types
   )
 where
 
-import Network.AWS.AutoScalingPlans.Types.ApplicationSource
-import Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification
-import Network.AWS.AutoScalingPlans.Types.CustomizedScalingMetricSpecification
-import Network.AWS.AutoScalingPlans.Types.Datapoint
-import Network.AWS.AutoScalingPlans.Types.ForecastDataType
-import Network.AWS.AutoScalingPlans.Types.LoadMetricType
-import Network.AWS.AutoScalingPlans.Types.MetricDimension
-import Network.AWS.AutoScalingPlans.Types.MetricStatistic
-import Network.AWS.AutoScalingPlans.Types.PolicyType
-import Network.AWS.AutoScalingPlans.Types.PredefinedLoadMetricSpecification
-import Network.AWS.AutoScalingPlans.Types.PredefinedScalingMetricSpecification
-import Network.AWS.AutoScalingPlans.Types.PredictiveScalingMaxCapacityBehavior
-import Network.AWS.AutoScalingPlans.Types.PredictiveScalingMode
-import Network.AWS.AutoScalingPlans.Types.ScalableDimension
-import Network.AWS.AutoScalingPlans.Types.ScalingInstruction
-import Network.AWS.AutoScalingPlans.Types.ScalingMetricType
-import Network.AWS.AutoScalingPlans.Types.ScalingPlan
-import Network.AWS.AutoScalingPlans.Types.ScalingPlanResource
-import Network.AWS.AutoScalingPlans.Types.ScalingPlanStatusCode
-import Network.AWS.AutoScalingPlans.Types.ScalingPolicy
-import Network.AWS.AutoScalingPlans.Types.ScalingPolicyUpdateBehavior
-import Network.AWS.AutoScalingPlans.Types.ScalingStatusCode
-import Network.AWS.AutoScalingPlans.Types.ServiceNamespace
-import Network.AWS.AutoScalingPlans.Types.TagFilter
-import Network.AWS.AutoScalingPlans.Types.TargetTrackingConfiguration
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.AutoScalingPlans.Types.ApplicationSource
+import Amazonka.AutoScalingPlans.Types.CustomizedLoadMetricSpecification
+import Amazonka.AutoScalingPlans.Types.CustomizedScalingMetricSpecification
+import Amazonka.AutoScalingPlans.Types.Datapoint
+import Amazonka.AutoScalingPlans.Types.ForecastDataType
+import Amazonka.AutoScalingPlans.Types.LoadMetricType
+import Amazonka.AutoScalingPlans.Types.MetricDimension
+import Amazonka.AutoScalingPlans.Types.MetricStatistic
+import Amazonka.AutoScalingPlans.Types.PolicyType
+import Amazonka.AutoScalingPlans.Types.PredefinedLoadMetricSpecification
+import Amazonka.AutoScalingPlans.Types.PredefinedScalingMetricSpecification
+import Amazonka.AutoScalingPlans.Types.PredictiveScalingMaxCapacityBehavior
+import Amazonka.AutoScalingPlans.Types.PredictiveScalingMode
+import Amazonka.AutoScalingPlans.Types.ScalableDimension
+import Amazonka.AutoScalingPlans.Types.ScalingInstruction
+import Amazonka.AutoScalingPlans.Types.ScalingMetricType
+import Amazonka.AutoScalingPlans.Types.ScalingPlan
+import Amazonka.AutoScalingPlans.Types.ScalingPlanResource
+import Amazonka.AutoScalingPlans.Types.ScalingPlanStatusCode
+import Amazonka.AutoScalingPlans.Types.ScalingPolicy
+import Amazonka.AutoScalingPlans.Types.ScalingPolicyUpdateBehavior
+import Amazonka.AutoScalingPlans.Types.ScalingStatusCode
+import Amazonka.AutoScalingPlans.Types.ServiceNamespace
+import Amazonka.AutoScalingPlans.Types.TagFilter
+import Amazonka.AutoScalingPlans.Types.TargetTrackingConfiguration
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2018-01-06@ of the Amazon Auto Scaling Plans SDK configuration.
 defaultService :: Core.Service

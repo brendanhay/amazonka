@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.AutoScalingPlans
+-- Module      : Amazonka.AutoScalingPlans
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -40,7 +40,7 @@
 -- granting IAM users required permissions for AWS Auto Scaling actions,
 -- see the
 -- <https://docs.aws.amazon.com/autoscaling/plans/userguide/what-is-aws-auto-scaling.html AWS Auto Scaling User Guide>.
-module Network.AWS.AutoScalingPlans
+module Amazonka.AutoScalingPlans
   ( -- * Service Configuration
     defaultService,
 
@@ -199,15 +199,15 @@ module Network.AWS.AutoScalingPlans
   )
 where
 
-import Network.AWS.AutoScalingPlans.CreateScalingPlan
-import Network.AWS.AutoScalingPlans.DeleteScalingPlan
-import Network.AWS.AutoScalingPlans.DescribeScalingPlanResources
-import Network.AWS.AutoScalingPlans.DescribeScalingPlans
-import Network.AWS.AutoScalingPlans.GetScalingPlanResourceForecastData
-import Network.AWS.AutoScalingPlans.Lens
-import Network.AWS.AutoScalingPlans.Types
-import Network.AWS.AutoScalingPlans.UpdateScalingPlan
-import Network.AWS.AutoScalingPlans.Waiters
+import Amazonka.AutoScalingPlans.CreateScalingPlan
+import Amazonka.AutoScalingPlans.DeleteScalingPlan
+import Amazonka.AutoScalingPlans.DescribeScalingPlanResources
+import Amazonka.AutoScalingPlans.DescribeScalingPlans
+import Amazonka.AutoScalingPlans.GetScalingPlanResourceForecastData
+import Amazonka.AutoScalingPlans.Lens
+import Amazonka.AutoScalingPlans.Types
+import Amazonka.AutoScalingPlans.UpdateScalingPlan
+import Amazonka.AutoScalingPlans.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

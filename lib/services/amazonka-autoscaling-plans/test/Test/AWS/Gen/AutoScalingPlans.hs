@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.AutoScalingPlans where
 
+import Amazonka.AutoScalingPlans
 import qualified Data.Proxy as Proxy
-import Network.AWS.AutoScalingPlans
 import Test.AWS.AutoScalingPlans.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.CertificateManagerPCA
+-- Module      : Amazonka.CertificateManagerPCA
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -36,7 +36,7 @@
 -- To see an up-to-date list of your ACM Private CA quotas, or to request a
 -- quota increase, log into your AWS account and visit the
 -- <https://console.aws.amazon.com/servicequotas/ Service Quotas> console.
-module Network.AWS.CertificateManagerPCA
+module Amazonka.CertificateManagerPCA
   ( -- * Service Configuration
     defaultService,
 
@@ -393,32 +393,32 @@ module Network.AWS.CertificateManagerPCA
   )
 where
 
-import Network.AWS.CertificateManagerPCA.CreateCertificateAuthority
-import Network.AWS.CertificateManagerPCA.CreateCertificateAuthorityAuditReport
-import Network.AWS.CertificateManagerPCA.CreatePermission
-import Network.AWS.CertificateManagerPCA.DeleteCertificateAuthority
-import Network.AWS.CertificateManagerPCA.DeletePermission
-import Network.AWS.CertificateManagerPCA.DeletePolicy
-import Network.AWS.CertificateManagerPCA.DescribeCertificateAuthority
-import Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport
-import Network.AWS.CertificateManagerPCA.GetCertificate
-import Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCertificate
-import Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr
-import Network.AWS.CertificateManagerPCA.GetPolicy
-import Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate
-import Network.AWS.CertificateManagerPCA.IssueCertificate
-import Network.AWS.CertificateManagerPCA.Lens
-import Network.AWS.CertificateManagerPCA.ListCertificateAuthorities
-import Network.AWS.CertificateManagerPCA.ListPermissions
-import Network.AWS.CertificateManagerPCA.ListTags
-import Network.AWS.CertificateManagerPCA.PutPolicy
-import Network.AWS.CertificateManagerPCA.RestoreCertificateAuthority
-import Network.AWS.CertificateManagerPCA.RevokeCertificate
-import Network.AWS.CertificateManagerPCA.TagCertificateAuthority
-import Network.AWS.CertificateManagerPCA.Types
-import Network.AWS.CertificateManagerPCA.UntagCertificateAuthority
-import Network.AWS.CertificateManagerPCA.UpdateCertificateAuthority
-import Network.AWS.CertificateManagerPCA.Waiters
+import Amazonka.CertificateManagerPCA.CreateCertificateAuthority
+import Amazonka.CertificateManagerPCA.CreateCertificateAuthorityAuditReport
+import Amazonka.CertificateManagerPCA.CreatePermission
+import Amazonka.CertificateManagerPCA.DeleteCertificateAuthority
+import Amazonka.CertificateManagerPCA.DeletePermission
+import Amazonka.CertificateManagerPCA.DeletePolicy
+import Amazonka.CertificateManagerPCA.DescribeCertificateAuthority
+import Amazonka.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport
+import Amazonka.CertificateManagerPCA.GetCertificate
+import Amazonka.CertificateManagerPCA.GetCertificateAuthorityCertificate
+import Amazonka.CertificateManagerPCA.GetCertificateAuthorityCsr
+import Amazonka.CertificateManagerPCA.GetPolicy
+import Amazonka.CertificateManagerPCA.ImportCertificateAuthorityCertificate
+import Amazonka.CertificateManagerPCA.IssueCertificate
+import Amazonka.CertificateManagerPCA.Lens
+import Amazonka.CertificateManagerPCA.ListCertificateAuthorities
+import Amazonka.CertificateManagerPCA.ListPermissions
+import Amazonka.CertificateManagerPCA.ListTags
+import Amazonka.CertificateManagerPCA.PutPolicy
+import Amazonka.CertificateManagerPCA.RestoreCertificateAuthority
+import Amazonka.CertificateManagerPCA.RevokeCertificate
+import Amazonka.CertificateManagerPCA.TagCertificateAuthority
+import Amazonka.CertificateManagerPCA.Types
+import Amazonka.CertificateManagerPCA.UntagCertificateAuthority
+import Amazonka.CertificateManagerPCA.UpdateCertificateAuthority
+import Amazonka.CertificateManagerPCA.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

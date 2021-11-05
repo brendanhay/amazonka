@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CertificateManagerPCA.Types
+-- Module      : Amazonka.CertificateManagerPCA.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CertificateManagerPCA.Types
+module Amazonka.CertificateManagerPCA.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -266,48 +266,48 @@ module Network.AWS.CertificateManagerPCA.Types
   )
 where
 
-import Network.AWS.CertificateManagerPCA.Types.ASN1Subject
-import Network.AWS.CertificateManagerPCA.Types.AccessDescription
-import Network.AWS.CertificateManagerPCA.Types.AccessMethod
-import Network.AWS.CertificateManagerPCA.Types.AccessMethodType
-import Network.AWS.CertificateManagerPCA.Types.ActionType
-import Network.AWS.CertificateManagerPCA.Types.ApiPassthrough
-import Network.AWS.CertificateManagerPCA.Types.AuditReportResponseFormat
-import Network.AWS.CertificateManagerPCA.Types.AuditReportStatus
-import Network.AWS.CertificateManagerPCA.Types.CertificateAuthority
-import Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration
-import Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityStatus
-import Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityType
-import Network.AWS.CertificateManagerPCA.Types.CrlConfiguration
-import Network.AWS.CertificateManagerPCA.Types.CsrExtensions
-import Network.AWS.CertificateManagerPCA.Types.EdiPartyName
-import Network.AWS.CertificateManagerPCA.Types.ExtendedKeyUsage
-import Network.AWS.CertificateManagerPCA.Types.ExtendedKeyUsageType
-import Network.AWS.CertificateManagerPCA.Types.Extensions
-import Network.AWS.CertificateManagerPCA.Types.FailureReason
-import Network.AWS.CertificateManagerPCA.Types.GeneralName
-import Network.AWS.CertificateManagerPCA.Types.KeyAlgorithm
-import Network.AWS.CertificateManagerPCA.Types.KeyStorageSecurityStandard
-import Network.AWS.CertificateManagerPCA.Types.KeyUsage
-import Network.AWS.CertificateManagerPCA.Types.OcspConfiguration
-import Network.AWS.CertificateManagerPCA.Types.OtherName
-import Network.AWS.CertificateManagerPCA.Types.Permission
-import Network.AWS.CertificateManagerPCA.Types.PolicyInformation
-import Network.AWS.CertificateManagerPCA.Types.PolicyQualifierId
-import Network.AWS.CertificateManagerPCA.Types.PolicyQualifierInfo
-import Network.AWS.CertificateManagerPCA.Types.Qualifier
-import Network.AWS.CertificateManagerPCA.Types.ResourceOwner
-import Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration
-import Network.AWS.CertificateManagerPCA.Types.RevocationReason
-import Network.AWS.CertificateManagerPCA.Types.S3ObjectAcl
-import Network.AWS.CertificateManagerPCA.Types.SigningAlgorithm
-import Network.AWS.CertificateManagerPCA.Types.Tag
-import Network.AWS.CertificateManagerPCA.Types.Validity
-import Network.AWS.CertificateManagerPCA.Types.ValidityPeriodType
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.CertificateManagerPCA.Types.ASN1Subject
+import Amazonka.CertificateManagerPCA.Types.AccessDescription
+import Amazonka.CertificateManagerPCA.Types.AccessMethod
+import Amazonka.CertificateManagerPCA.Types.AccessMethodType
+import Amazonka.CertificateManagerPCA.Types.ActionType
+import Amazonka.CertificateManagerPCA.Types.ApiPassthrough
+import Amazonka.CertificateManagerPCA.Types.AuditReportResponseFormat
+import Amazonka.CertificateManagerPCA.Types.AuditReportStatus
+import Amazonka.CertificateManagerPCA.Types.CertificateAuthority
+import Amazonka.CertificateManagerPCA.Types.CertificateAuthorityConfiguration
+import Amazonka.CertificateManagerPCA.Types.CertificateAuthorityStatus
+import Amazonka.CertificateManagerPCA.Types.CertificateAuthorityType
+import Amazonka.CertificateManagerPCA.Types.CrlConfiguration
+import Amazonka.CertificateManagerPCA.Types.CsrExtensions
+import Amazonka.CertificateManagerPCA.Types.EdiPartyName
+import Amazonka.CertificateManagerPCA.Types.ExtendedKeyUsage
+import Amazonka.CertificateManagerPCA.Types.ExtendedKeyUsageType
+import Amazonka.CertificateManagerPCA.Types.Extensions
+import Amazonka.CertificateManagerPCA.Types.FailureReason
+import Amazonka.CertificateManagerPCA.Types.GeneralName
+import Amazonka.CertificateManagerPCA.Types.KeyAlgorithm
+import Amazonka.CertificateManagerPCA.Types.KeyStorageSecurityStandard
+import Amazonka.CertificateManagerPCA.Types.KeyUsage
+import Amazonka.CertificateManagerPCA.Types.OcspConfiguration
+import Amazonka.CertificateManagerPCA.Types.OtherName
+import Amazonka.CertificateManagerPCA.Types.Permission
+import Amazonka.CertificateManagerPCA.Types.PolicyInformation
+import Amazonka.CertificateManagerPCA.Types.PolicyQualifierId
+import Amazonka.CertificateManagerPCA.Types.PolicyQualifierInfo
+import Amazonka.CertificateManagerPCA.Types.Qualifier
+import Amazonka.CertificateManagerPCA.Types.ResourceOwner
+import Amazonka.CertificateManagerPCA.Types.RevocationConfiguration
+import Amazonka.CertificateManagerPCA.Types.RevocationReason
+import Amazonka.CertificateManagerPCA.Types.S3ObjectAcl
+import Amazonka.CertificateManagerPCA.Types.SigningAlgorithm
+import Amazonka.CertificateManagerPCA.Types.Tag
+import Amazonka.CertificateManagerPCA.Types.Validity
+import Amazonka.CertificateManagerPCA.Types.ValidityPeriodType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2017-08-22@ of the Amazon Certificate Manager Private Certificate Authority SDK configuration.
 defaultService :: Core.Service

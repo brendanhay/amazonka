@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CertificateManagerPCA.Lens
+-- Module      : Amazonka.CertificateManagerPCA.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CertificateManagerPCA.Lens
+module Amazonka.CertificateManagerPCA.Lens
   ( -- * Operations
 
     -- ** ImportCertificateAuthorityCertificate
@@ -292,48 +292,48 @@ module Network.AWS.CertificateManagerPCA.Lens
   )
 where
 
-import Network.AWS.CertificateManagerPCA.CreateCertificateAuthority
-import Network.AWS.CertificateManagerPCA.CreateCertificateAuthorityAuditReport
-import Network.AWS.CertificateManagerPCA.CreatePermission
-import Network.AWS.CertificateManagerPCA.DeleteCertificateAuthority
-import Network.AWS.CertificateManagerPCA.DeletePermission
-import Network.AWS.CertificateManagerPCA.DeletePolicy
-import Network.AWS.CertificateManagerPCA.DescribeCertificateAuthority
-import Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport
-import Network.AWS.CertificateManagerPCA.GetCertificate
-import Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCertificate
-import Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr
-import Network.AWS.CertificateManagerPCA.GetPolicy
-import Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate
-import Network.AWS.CertificateManagerPCA.IssueCertificate
-import Network.AWS.CertificateManagerPCA.ListCertificateAuthorities
-import Network.AWS.CertificateManagerPCA.ListPermissions
-import Network.AWS.CertificateManagerPCA.ListTags
-import Network.AWS.CertificateManagerPCA.PutPolicy
-import Network.AWS.CertificateManagerPCA.RestoreCertificateAuthority
-import Network.AWS.CertificateManagerPCA.RevokeCertificate
-import Network.AWS.CertificateManagerPCA.TagCertificateAuthority
-import Network.AWS.CertificateManagerPCA.Types.ASN1Subject
-import Network.AWS.CertificateManagerPCA.Types.AccessDescription
-import Network.AWS.CertificateManagerPCA.Types.AccessMethod
-import Network.AWS.CertificateManagerPCA.Types.ApiPassthrough
-import Network.AWS.CertificateManagerPCA.Types.CertificateAuthority
-import Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration
-import Network.AWS.CertificateManagerPCA.Types.CrlConfiguration
-import Network.AWS.CertificateManagerPCA.Types.CsrExtensions
-import Network.AWS.CertificateManagerPCA.Types.EdiPartyName
-import Network.AWS.CertificateManagerPCA.Types.ExtendedKeyUsage
-import Network.AWS.CertificateManagerPCA.Types.Extensions
-import Network.AWS.CertificateManagerPCA.Types.GeneralName
-import Network.AWS.CertificateManagerPCA.Types.KeyUsage
-import Network.AWS.CertificateManagerPCA.Types.OcspConfiguration
-import Network.AWS.CertificateManagerPCA.Types.OtherName
-import Network.AWS.CertificateManagerPCA.Types.Permission
-import Network.AWS.CertificateManagerPCA.Types.PolicyInformation
-import Network.AWS.CertificateManagerPCA.Types.PolicyQualifierInfo
-import Network.AWS.CertificateManagerPCA.Types.Qualifier
-import Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration
-import Network.AWS.CertificateManagerPCA.Types.Tag
-import Network.AWS.CertificateManagerPCA.Types.Validity
-import Network.AWS.CertificateManagerPCA.UntagCertificateAuthority
-import Network.AWS.CertificateManagerPCA.UpdateCertificateAuthority
+import Amazonka.CertificateManagerPCA.CreateCertificateAuthority
+import Amazonka.CertificateManagerPCA.CreateCertificateAuthorityAuditReport
+import Amazonka.CertificateManagerPCA.CreatePermission
+import Amazonka.CertificateManagerPCA.DeleteCertificateAuthority
+import Amazonka.CertificateManagerPCA.DeletePermission
+import Amazonka.CertificateManagerPCA.DeletePolicy
+import Amazonka.CertificateManagerPCA.DescribeCertificateAuthority
+import Amazonka.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport
+import Amazonka.CertificateManagerPCA.GetCertificate
+import Amazonka.CertificateManagerPCA.GetCertificateAuthorityCertificate
+import Amazonka.CertificateManagerPCA.GetCertificateAuthorityCsr
+import Amazonka.CertificateManagerPCA.GetPolicy
+import Amazonka.CertificateManagerPCA.ImportCertificateAuthorityCertificate
+import Amazonka.CertificateManagerPCA.IssueCertificate
+import Amazonka.CertificateManagerPCA.ListCertificateAuthorities
+import Amazonka.CertificateManagerPCA.ListPermissions
+import Amazonka.CertificateManagerPCA.ListTags
+import Amazonka.CertificateManagerPCA.PutPolicy
+import Amazonka.CertificateManagerPCA.RestoreCertificateAuthority
+import Amazonka.CertificateManagerPCA.RevokeCertificate
+import Amazonka.CertificateManagerPCA.TagCertificateAuthority
+import Amazonka.CertificateManagerPCA.Types.ASN1Subject
+import Amazonka.CertificateManagerPCA.Types.AccessDescription
+import Amazonka.CertificateManagerPCA.Types.AccessMethod
+import Amazonka.CertificateManagerPCA.Types.ApiPassthrough
+import Amazonka.CertificateManagerPCA.Types.CertificateAuthority
+import Amazonka.CertificateManagerPCA.Types.CertificateAuthorityConfiguration
+import Amazonka.CertificateManagerPCA.Types.CrlConfiguration
+import Amazonka.CertificateManagerPCA.Types.CsrExtensions
+import Amazonka.CertificateManagerPCA.Types.EdiPartyName
+import Amazonka.CertificateManagerPCA.Types.ExtendedKeyUsage
+import Amazonka.CertificateManagerPCA.Types.Extensions
+import Amazonka.CertificateManagerPCA.Types.GeneralName
+import Amazonka.CertificateManagerPCA.Types.KeyUsage
+import Amazonka.CertificateManagerPCA.Types.OcspConfiguration
+import Amazonka.CertificateManagerPCA.Types.OtherName
+import Amazonka.CertificateManagerPCA.Types.Permission
+import Amazonka.CertificateManagerPCA.Types.PolicyInformation
+import Amazonka.CertificateManagerPCA.Types.PolicyQualifierInfo
+import Amazonka.CertificateManagerPCA.Types.Qualifier
+import Amazonka.CertificateManagerPCA.Types.RevocationConfiguration
+import Amazonka.CertificateManagerPCA.Types.Tag
+import Amazonka.CertificateManagerPCA.Types.Validity
+import Amazonka.CertificateManagerPCA.UntagCertificateAuthority
+import Amazonka.CertificateManagerPCA.UpdateCertificateAuthority

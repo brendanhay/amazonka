@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CertificateManagerPCA.Types.ExtendedKeyUsage
+-- Module      : Amazonka.CertificateManagerPCA.Types.ExtendedKeyUsage
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CertificateManagerPCA.Types.ExtendedKeyUsage where
+module Amazonka.CertificateManagerPCA.Types.ExtendedKeyUsage where
 
-import Network.AWS.CertificateManagerPCA.Types.ExtendedKeyUsageType
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CertificateManagerPCA.Types.ExtendedKeyUsageType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies additional purposes for which the certified public key may be
 -- used other than basic purposes indicated in the @KeyUsage@ extension.

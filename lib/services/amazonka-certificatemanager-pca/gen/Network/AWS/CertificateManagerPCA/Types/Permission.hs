@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CertificateManagerPCA.Types.Permission
+-- Module      : Amazonka.CertificateManagerPCA.Types.Permission
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CertificateManagerPCA.Types.Permission where
+module Amazonka.CertificateManagerPCA.Types.Permission where
 
-import Network.AWS.CertificateManagerPCA.Types.ActionType
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CertificateManagerPCA.Types.ActionType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Permissions designate which private CA actions can be performed by an
 -- AWS service or entity. In order for ACM to automatically renew private

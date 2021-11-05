@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CertificateManagerPCA.UntagCertificateAuthority
+-- Module      : Amazonka.CertificateManagerPCA.UntagCertificateAuthority
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -29,7 +29,7 @@
 -- Call the
 -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListTags.html ListTags>
 -- action to see what tags are associated with your CA.
-module Network.AWS.CertificateManagerPCA.UntagCertificateAuthority
+module Amazonka.CertificateManagerPCA.UntagCertificateAuthority
   ( -- * Creating a Request
     UntagCertificateAuthority (..),
     newUntagCertificateAuthority,
@@ -44,12 +44,12 @@ module Network.AWS.CertificateManagerPCA.UntagCertificateAuthority
   )
 where
 
-import Network.AWS.CertificateManagerPCA.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CertificateManagerPCA.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUntagCertificateAuthority' smart constructor.
 data UntagCertificateAuthority = UntagCertificateAuthority'

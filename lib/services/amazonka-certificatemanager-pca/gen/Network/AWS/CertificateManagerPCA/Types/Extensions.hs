@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CertificateManagerPCA.Types.Extensions
+-- Module      : Amazonka.CertificateManagerPCA.Types.Extensions
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CertificateManagerPCA.Types.Extensions where
+module Amazonka.CertificateManagerPCA.Types.Extensions where
 
-import Network.AWS.CertificateManagerPCA.Types.ExtendedKeyUsage
-import Network.AWS.CertificateManagerPCA.Types.GeneralName
-import Network.AWS.CertificateManagerPCA.Types.KeyUsage
-import Network.AWS.CertificateManagerPCA.Types.PolicyInformation
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CertificateManagerPCA.Types.ExtendedKeyUsage
+import Amazonka.CertificateManagerPCA.Types.GeneralName
+import Amazonka.CertificateManagerPCA.Types.KeyUsage
+import Amazonka.CertificateManagerPCA.Types.PolicyInformation
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains X.509 extension information for a certificate.
 --

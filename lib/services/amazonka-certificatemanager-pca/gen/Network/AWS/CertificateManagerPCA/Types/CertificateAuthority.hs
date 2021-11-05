@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CertificateManagerPCA.Types.CertificateAuthority
+-- Module      : Amazonka.CertificateManagerPCA.Types.CertificateAuthority
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CertificateManagerPCA.Types.CertificateAuthority where
+module Amazonka.CertificateManagerPCA.Types.CertificateAuthority where
 
-import Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration
-import Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityStatus
-import Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityType
-import Network.AWS.CertificateManagerPCA.Types.FailureReason
-import Network.AWS.CertificateManagerPCA.Types.KeyStorageSecurityStandard
-import Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CertificateManagerPCA.Types.CertificateAuthorityConfiguration
+import Amazonka.CertificateManagerPCA.Types.CertificateAuthorityStatus
+import Amazonka.CertificateManagerPCA.Types.CertificateAuthorityType
+import Amazonka.CertificateManagerPCA.Types.FailureReason
+import Amazonka.CertificateManagerPCA.Types.KeyStorageSecurityStandard
+import Amazonka.CertificateManagerPCA.Types.RevocationConfiguration
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about your private certificate authority (CA). Your
 -- private CA can issue and revoke X.509 digital certificates. Digital

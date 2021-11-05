@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration
+-- Module      : Amazonka.CertificateManagerPCA.Types.CertificateAuthorityConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration where
+module Amazonka.CertificateManagerPCA.Types.CertificateAuthorityConfiguration where
 
-import Network.AWS.CertificateManagerPCA.Types.ASN1Subject
-import Network.AWS.CertificateManagerPCA.Types.CsrExtensions
-import Network.AWS.CertificateManagerPCA.Types.KeyAlgorithm
-import Network.AWS.CertificateManagerPCA.Types.SigningAlgorithm
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CertificateManagerPCA.Types.ASN1Subject
+import Amazonka.CertificateManagerPCA.Types.CsrExtensions
+import Amazonka.CertificateManagerPCA.Types.KeyAlgorithm
+import Amazonka.CertificateManagerPCA.Types.SigningAlgorithm
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains configuration information for your private certificate
 -- authority (CA). This includes information about the class of public key

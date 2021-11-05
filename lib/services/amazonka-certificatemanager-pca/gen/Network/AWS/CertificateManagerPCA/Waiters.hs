@@ -7,24 +7,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CertificateManagerPCA.Waiters
+-- Module      : Amazonka.CertificateManagerPCA.Waiters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CertificateManagerPCA.Waiters where
+module Amazonka.CertificateManagerPCA.Waiters where
 
-import Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport
-import Network.AWS.CertificateManagerPCA.GetCertificate
-import Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr
-import Network.AWS.CertificateManagerPCA.Lens
-import Network.AWS.CertificateManagerPCA.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport
+import Amazonka.CertificateManagerPCA.GetCertificate
+import Amazonka.CertificateManagerPCA.GetCertificateAuthorityCsr
+import Amazonka.CertificateManagerPCA.Lens
+import Amazonka.CertificateManagerPCA.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
--- | Polls 'Network.AWS.CertificateManagerPCA.GetCertificate' every 3 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.CertificateManagerPCA.GetCertificate' every 3 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newCertificateIssued :: Core.Wait GetCertificate
 newCertificateIssued =
   Core.Wait
@@ -39,7 +39,7 @@ newCertificateIssued =
         ]
     }
 
--- | Polls 'Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport' every 3 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport' every 3 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newAuditReportCreated :: Core.Wait DescribeCertificateAuthorityAuditReport
 newAuditReportCreated =
   Core.Wait
@@ -64,7 +64,7 @@ newAuditReportCreated =
         ]
     }
 
--- | Polls 'Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr' every 3 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.CertificateManagerPCA.GetCertificateAuthorityCsr' every 3 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newCertificateAuthorityCSRCreated :: Core.Wait GetCertificateAuthorityCsr
 newCertificateAuthorityCSRCreated =
   Core.Wait

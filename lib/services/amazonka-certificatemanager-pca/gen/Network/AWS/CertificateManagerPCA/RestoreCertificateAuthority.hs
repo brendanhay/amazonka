@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CertificateManagerPCA.RestoreCertificateAuthority
+-- Module      : Amazonka.CertificateManagerPCA.RestoreCertificateAuthority
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -42,7 +42,7 @@
 -- action to import a certificate authority into the private CA before it
 -- can be activated. You cannot restore a CA after the restoration period
 -- has ended.
-module Network.AWS.CertificateManagerPCA.RestoreCertificateAuthority
+module Amazonka.CertificateManagerPCA.RestoreCertificateAuthority
   ( -- * Creating a Request
     RestoreCertificateAuthority (..),
     newRestoreCertificateAuthority,
@@ -56,12 +56,12 @@ module Network.AWS.CertificateManagerPCA.RestoreCertificateAuthority
   )
 where
 
-import Network.AWS.CertificateManagerPCA.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CertificateManagerPCA.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRestoreCertificateAuthority' smart constructor.
 data RestoreCertificateAuthority = RestoreCertificateAuthority'

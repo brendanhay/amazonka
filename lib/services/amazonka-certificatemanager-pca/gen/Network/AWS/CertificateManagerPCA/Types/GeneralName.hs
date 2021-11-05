@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CertificateManagerPCA.Types.GeneralName
+-- Module      : Amazonka.CertificateManagerPCA.Types.GeneralName
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CertificateManagerPCA.Types.GeneralName where
+module Amazonka.CertificateManagerPCA.Types.GeneralName where
 
-import Network.AWS.CertificateManagerPCA.Types.ASN1Subject
-import Network.AWS.CertificateManagerPCA.Types.EdiPartyName
-import Network.AWS.CertificateManagerPCA.Types.OtherName
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CertificateManagerPCA.Types.ASN1Subject
+import Amazonka.CertificateManagerPCA.Types.EdiPartyName
+import Amazonka.CertificateManagerPCA.Types.OtherName
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an ASN.1 X.400 @GeneralName@ as defined in
 -- <https://tools.ietf.org/html/rfc5280 RFC 5280>. Only one of the

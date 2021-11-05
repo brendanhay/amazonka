@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CertificateManagerPCA where
 
+import Amazonka.CertificateManagerPCA
 import qualified Data.Proxy as Proxy
-import Network.AWS.CertificateManagerPCA
 import Test.AWS.CertificateManagerPCA.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

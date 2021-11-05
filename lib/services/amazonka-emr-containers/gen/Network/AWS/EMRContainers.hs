@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.EMRContainers
+-- Module      : Amazonka.EMRContainers
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -34,7 +34,7 @@
 --     example, @emr-containers.us-east-2.amazonaws.com@. For more
 --     information, see
 --     <https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/service-quotas.html#service-endpoints Amazon EMR on EKS Service Endpoints>.
-module Network.AWS.EMRContainers
+module Amazonka.EMRContainers
   ( -- * Service Configuration
     defaultService,
 
@@ -220,24 +220,24 @@ module Network.AWS.EMRContainers
   )
 where
 
-import Network.AWS.EMRContainers.CancelJobRun
-import Network.AWS.EMRContainers.CreateManagedEndpoint
-import Network.AWS.EMRContainers.CreateVirtualCluster
-import Network.AWS.EMRContainers.DeleteManagedEndpoint
-import Network.AWS.EMRContainers.DeleteVirtualCluster
-import Network.AWS.EMRContainers.DescribeJobRun
-import Network.AWS.EMRContainers.DescribeManagedEndpoint
-import Network.AWS.EMRContainers.DescribeVirtualCluster
-import Network.AWS.EMRContainers.Lens
-import Network.AWS.EMRContainers.ListJobRuns
-import Network.AWS.EMRContainers.ListManagedEndpoints
-import Network.AWS.EMRContainers.ListTagsForResource
-import Network.AWS.EMRContainers.ListVirtualClusters
-import Network.AWS.EMRContainers.StartJobRun
-import Network.AWS.EMRContainers.TagResource
-import Network.AWS.EMRContainers.Types
-import Network.AWS.EMRContainers.UntagResource
-import Network.AWS.EMRContainers.Waiters
+import Amazonka.EMRContainers.CancelJobRun
+import Amazonka.EMRContainers.CreateManagedEndpoint
+import Amazonka.EMRContainers.CreateVirtualCluster
+import Amazonka.EMRContainers.DeleteManagedEndpoint
+import Amazonka.EMRContainers.DeleteVirtualCluster
+import Amazonka.EMRContainers.DescribeJobRun
+import Amazonka.EMRContainers.DescribeManagedEndpoint
+import Amazonka.EMRContainers.DescribeVirtualCluster
+import Amazonka.EMRContainers.Lens
+import Amazonka.EMRContainers.ListJobRuns
+import Amazonka.EMRContainers.ListManagedEndpoints
+import Amazonka.EMRContainers.ListTagsForResource
+import Amazonka.EMRContainers.ListVirtualClusters
+import Amazonka.EMRContainers.StartJobRun
+import Amazonka.EMRContainers.TagResource
+import Amazonka.EMRContainers.Types
+import Amazonka.EMRContainers.UntagResource
+import Amazonka.EMRContainers.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

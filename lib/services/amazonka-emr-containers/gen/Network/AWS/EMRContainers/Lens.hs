@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EMRContainers.Lens
+-- Module      : Amazonka.EMRContainers.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMRContainers.Lens
+module Amazonka.EMRContainers.Lens
   ( -- * Operations
 
     -- ** ListManagedEndpoints
@@ -232,31 +232,31 @@ module Network.AWS.EMRContainers.Lens
   )
 where
 
-import Network.AWS.EMRContainers.CancelJobRun
-import Network.AWS.EMRContainers.CreateManagedEndpoint
-import Network.AWS.EMRContainers.CreateVirtualCluster
-import Network.AWS.EMRContainers.DeleteManagedEndpoint
-import Network.AWS.EMRContainers.DeleteVirtualCluster
-import Network.AWS.EMRContainers.DescribeJobRun
-import Network.AWS.EMRContainers.DescribeManagedEndpoint
-import Network.AWS.EMRContainers.DescribeVirtualCluster
-import Network.AWS.EMRContainers.ListJobRuns
-import Network.AWS.EMRContainers.ListManagedEndpoints
-import Network.AWS.EMRContainers.ListTagsForResource
-import Network.AWS.EMRContainers.ListVirtualClusters
-import Network.AWS.EMRContainers.StartJobRun
-import Network.AWS.EMRContainers.TagResource
-import Network.AWS.EMRContainers.Types.CloudWatchMonitoringConfiguration
-import Network.AWS.EMRContainers.Types.Configuration
-import Network.AWS.EMRContainers.Types.ConfigurationOverrides
-import Network.AWS.EMRContainers.Types.ContainerInfo
-import Network.AWS.EMRContainers.Types.ContainerProvider
-import Network.AWS.EMRContainers.Types.EksInfo
-import Network.AWS.EMRContainers.Types.Endpoint
-import Network.AWS.EMRContainers.Types.JobDriver
-import Network.AWS.EMRContainers.Types.JobRun
-import Network.AWS.EMRContainers.Types.MonitoringConfiguration
-import Network.AWS.EMRContainers.Types.S3MonitoringConfiguration
-import Network.AWS.EMRContainers.Types.SparkSubmitJobDriver
-import Network.AWS.EMRContainers.Types.VirtualCluster
-import Network.AWS.EMRContainers.UntagResource
+import Amazonka.EMRContainers.CancelJobRun
+import Amazonka.EMRContainers.CreateManagedEndpoint
+import Amazonka.EMRContainers.CreateVirtualCluster
+import Amazonka.EMRContainers.DeleteManagedEndpoint
+import Amazonka.EMRContainers.DeleteVirtualCluster
+import Amazonka.EMRContainers.DescribeJobRun
+import Amazonka.EMRContainers.DescribeManagedEndpoint
+import Amazonka.EMRContainers.DescribeVirtualCluster
+import Amazonka.EMRContainers.ListJobRuns
+import Amazonka.EMRContainers.ListManagedEndpoints
+import Amazonka.EMRContainers.ListTagsForResource
+import Amazonka.EMRContainers.ListVirtualClusters
+import Amazonka.EMRContainers.StartJobRun
+import Amazonka.EMRContainers.TagResource
+import Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration
+import Amazonka.EMRContainers.Types.Configuration
+import Amazonka.EMRContainers.Types.ConfigurationOverrides
+import Amazonka.EMRContainers.Types.ContainerInfo
+import Amazonka.EMRContainers.Types.ContainerProvider
+import Amazonka.EMRContainers.Types.EksInfo
+import Amazonka.EMRContainers.Types.Endpoint
+import Amazonka.EMRContainers.Types.JobDriver
+import Amazonka.EMRContainers.Types.JobRun
+import Amazonka.EMRContainers.Types.MonitoringConfiguration
+import Amazonka.EMRContainers.Types.S3MonitoringConfiguration
+import Amazonka.EMRContainers.Types.SparkSubmitJobDriver
+import Amazonka.EMRContainers.Types.VirtualCluster
+import Amazonka.EMRContainers.UntagResource

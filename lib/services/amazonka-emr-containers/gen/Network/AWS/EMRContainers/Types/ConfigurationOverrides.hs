@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EMRContainers.Types.ConfigurationOverrides
+-- Module      : Amazonka.EMRContainers.Types.ConfigurationOverrides
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMRContainers.Types.ConfigurationOverrides where
+module Amazonka.EMRContainers.Types.ConfigurationOverrides where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EMRContainers.Types.Configuration
-import Network.AWS.EMRContainers.Types.MonitoringConfiguration
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.EMRContainers.Types.Configuration
+import Amazonka.EMRContainers.Types.MonitoringConfiguration
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A configuration specification to be used to override existing
 -- configurations.

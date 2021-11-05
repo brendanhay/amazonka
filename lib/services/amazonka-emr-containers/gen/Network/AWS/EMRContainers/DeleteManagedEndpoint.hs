@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EMRContainers.DeleteManagedEndpoint
+-- Module      : Amazonka.EMRContainers.DeleteManagedEndpoint
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Deletes a managed endpoint. A managed endpoint is a gateway that
 -- connects EMR Studio to Amazon EMR on EKS so that EMR Studio can
 -- communicate with your virtual cluster.
-module Network.AWS.EMRContainers.DeleteManagedEndpoint
+module Amazonka.EMRContainers.DeleteManagedEndpoint
   ( -- * Creating a Request
     DeleteManagedEndpoint (..),
     newDeleteManagedEndpoint,
@@ -43,12 +43,12 @@ module Network.AWS.EMRContainers.DeleteManagedEndpoint
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EMRContainers.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.EMRContainers.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteManagedEndpoint' smart constructor.
 data DeleteManagedEndpoint = DeleteManagedEndpoint'

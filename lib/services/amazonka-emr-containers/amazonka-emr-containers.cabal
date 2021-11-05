@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.EMRContainers.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.EMRContainers.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.EMRContainers" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.EMRContainers" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,46 +45,46 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.EMRContainers
-    Network.AWS.EMRContainers.CancelJobRun
-    Network.AWS.EMRContainers.CreateManagedEndpoint
-    Network.AWS.EMRContainers.CreateVirtualCluster
-    Network.AWS.EMRContainers.DeleteManagedEndpoint
-    Network.AWS.EMRContainers.DeleteVirtualCluster
-    Network.AWS.EMRContainers.DescribeJobRun
-    Network.AWS.EMRContainers.DescribeManagedEndpoint
-    Network.AWS.EMRContainers.DescribeVirtualCluster
-    Network.AWS.EMRContainers.Lens
-    Network.AWS.EMRContainers.ListJobRuns
-    Network.AWS.EMRContainers.ListManagedEndpoints
-    Network.AWS.EMRContainers.ListTagsForResource
-    Network.AWS.EMRContainers.ListVirtualClusters
-    Network.AWS.EMRContainers.StartJobRun
-    Network.AWS.EMRContainers.TagResource
-    Network.AWS.EMRContainers.Types
-    Network.AWS.EMRContainers.Types.CloudWatchMonitoringConfiguration
-    Network.AWS.EMRContainers.Types.Configuration
-    Network.AWS.EMRContainers.Types.ConfigurationOverrides
-    Network.AWS.EMRContainers.Types.ContainerInfo
-    Network.AWS.EMRContainers.Types.ContainerProvider
-    Network.AWS.EMRContainers.Types.ContainerProviderType
-    Network.AWS.EMRContainers.Types.EksInfo
-    Network.AWS.EMRContainers.Types.Endpoint
-    Network.AWS.EMRContainers.Types.EndpointState
-    Network.AWS.EMRContainers.Types.FailureReason
-    Network.AWS.EMRContainers.Types.JobDriver
-    Network.AWS.EMRContainers.Types.JobRun
-    Network.AWS.EMRContainers.Types.JobRunState
-    Network.AWS.EMRContainers.Types.MonitoringConfiguration
-    Network.AWS.EMRContainers.Types.PersistentAppUI
-    Network.AWS.EMRContainers.Types.S3MonitoringConfiguration
-    Network.AWS.EMRContainers.Types.SparkSubmitJobDriver
-    Network.AWS.EMRContainers.Types.VirtualCluster
-    Network.AWS.EMRContainers.Types.VirtualClusterState
-    Network.AWS.EMRContainers.UntagResource
-    Network.AWS.EMRContainers.Waiters
+    Amazonka.EMRContainers
+    Amazonka.EMRContainers.CancelJobRun
+    Amazonka.EMRContainers.CreateManagedEndpoint
+    Amazonka.EMRContainers.CreateVirtualCluster
+    Amazonka.EMRContainers.DeleteManagedEndpoint
+    Amazonka.EMRContainers.DeleteVirtualCluster
+    Amazonka.EMRContainers.DescribeJobRun
+    Amazonka.EMRContainers.DescribeManagedEndpoint
+    Amazonka.EMRContainers.DescribeVirtualCluster
+    Amazonka.EMRContainers.Lens
+    Amazonka.EMRContainers.ListJobRuns
+    Amazonka.EMRContainers.ListManagedEndpoints
+    Amazonka.EMRContainers.ListTagsForResource
+    Amazonka.EMRContainers.ListVirtualClusters
+    Amazonka.EMRContainers.StartJobRun
+    Amazonka.EMRContainers.TagResource
+    Amazonka.EMRContainers.Types
+    Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration
+    Amazonka.EMRContainers.Types.Configuration
+    Amazonka.EMRContainers.Types.ConfigurationOverrides
+    Amazonka.EMRContainers.Types.ContainerInfo
+    Amazonka.EMRContainers.Types.ContainerProvider
+    Amazonka.EMRContainers.Types.ContainerProviderType
+    Amazonka.EMRContainers.Types.EksInfo
+    Amazonka.EMRContainers.Types.Endpoint
+    Amazonka.EMRContainers.Types.EndpointState
+    Amazonka.EMRContainers.Types.FailureReason
+    Amazonka.EMRContainers.Types.JobDriver
+    Amazonka.EMRContainers.Types.JobRun
+    Amazonka.EMRContainers.Types.JobRunState
+    Amazonka.EMRContainers.Types.MonitoringConfiguration
+    Amazonka.EMRContainers.Types.PersistentAppUI
+    Amazonka.EMRContainers.Types.S3MonitoringConfiguration
+    Amazonka.EMRContainers.Types.SparkSubmitJobDriver
+    Amazonka.EMRContainers.Types.VirtualCluster
+    Amazonka.EMRContainers.Types.VirtualClusterState
+    Amazonka.EMRContainers.UntagResource
+    Amazonka.EMRContainers.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

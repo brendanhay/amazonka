@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EMRContainers.Types.ContainerInfo
+-- Module      : Amazonka.EMRContainers.Types.ContainerInfo
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMRContainers.Types.ContainerInfo where
+module Amazonka.EMRContainers.Types.ContainerInfo where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EMRContainers.Types.EksInfo
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.EMRContainers.Types.EksInfo
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The information about the container used for a job run or a managed
 -- endpoint.

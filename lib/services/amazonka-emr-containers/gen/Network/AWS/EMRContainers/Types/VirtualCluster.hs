@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EMRContainers.Types.VirtualCluster
+-- Module      : Amazonka.EMRContainers.Types.VirtualCluster
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMRContainers.Types.VirtualCluster where
+module Amazonka.EMRContainers.Types.VirtualCluster where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EMRContainers.Types.ContainerProvider
-import Network.AWS.EMRContainers.Types.VirtualClusterState
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.EMRContainers.Types.ContainerProvider
+import Amazonka.EMRContainers.Types.VirtualClusterState
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | This entity describes a virtual cluster. A virtual cluster is a
 -- Kubernetes namespace that Amazon EMR is registered with. Amazon EMR uses

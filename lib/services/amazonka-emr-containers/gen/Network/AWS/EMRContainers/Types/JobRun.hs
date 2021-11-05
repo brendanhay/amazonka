@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EMRContainers.Types.JobRun
+-- Module      : Amazonka.EMRContainers.Types.JobRun
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMRContainers.Types.JobRun where
+module Amazonka.EMRContainers.Types.JobRun where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EMRContainers.Types.ConfigurationOverrides
-import Network.AWS.EMRContainers.Types.FailureReason
-import Network.AWS.EMRContainers.Types.JobDriver
-import Network.AWS.EMRContainers.Types.JobRunState
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.EMRContainers.Types.ConfigurationOverrides
+import Amazonka.EMRContainers.Types.FailureReason
+import Amazonka.EMRContainers.Types.JobDriver
+import Amazonka.EMRContainers.Types.JobRunState
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | This entity describes a job run. A job run is a unit of work, such as a
 -- Spark jar, PySpark script, or SparkSQL query, that you submit to Amazon

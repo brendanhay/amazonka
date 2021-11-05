@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EMRContainers.Types
+-- Module      : Amazonka.EMRContainers.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMRContainers.Types
+module Amazonka.EMRContainers.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -153,29 +153,29 @@ module Network.AWS.EMRContainers.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EMRContainers.Types.CloudWatchMonitoringConfiguration
-import Network.AWS.EMRContainers.Types.Configuration
-import Network.AWS.EMRContainers.Types.ConfigurationOverrides
-import Network.AWS.EMRContainers.Types.ContainerInfo
-import Network.AWS.EMRContainers.Types.ContainerProvider
-import Network.AWS.EMRContainers.Types.ContainerProviderType
-import Network.AWS.EMRContainers.Types.EksInfo
-import Network.AWS.EMRContainers.Types.Endpoint
-import Network.AWS.EMRContainers.Types.EndpointState
-import Network.AWS.EMRContainers.Types.FailureReason
-import Network.AWS.EMRContainers.Types.JobDriver
-import Network.AWS.EMRContainers.Types.JobRun
-import Network.AWS.EMRContainers.Types.JobRunState
-import Network.AWS.EMRContainers.Types.MonitoringConfiguration
-import Network.AWS.EMRContainers.Types.PersistentAppUI
-import Network.AWS.EMRContainers.Types.S3MonitoringConfiguration
-import Network.AWS.EMRContainers.Types.SparkSubmitJobDriver
-import Network.AWS.EMRContainers.Types.VirtualCluster
-import Network.AWS.EMRContainers.Types.VirtualClusterState
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration
+import Amazonka.EMRContainers.Types.Configuration
+import Amazonka.EMRContainers.Types.ConfigurationOverrides
+import Amazonka.EMRContainers.Types.ContainerInfo
+import Amazonka.EMRContainers.Types.ContainerProvider
+import Amazonka.EMRContainers.Types.ContainerProviderType
+import Amazonka.EMRContainers.Types.EksInfo
+import Amazonka.EMRContainers.Types.Endpoint
+import Amazonka.EMRContainers.Types.EndpointState
+import Amazonka.EMRContainers.Types.FailureReason
+import Amazonka.EMRContainers.Types.JobDriver
+import Amazonka.EMRContainers.Types.JobRun
+import Amazonka.EMRContainers.Types.JobRunState
+import Amazonka.EMRContainers.Types.MonitoringConfiguration
+import Amazonka.EMRContainers.Types.PersistentAppUI
+import Amazonka.EMRContainers.Types.S3MonitoringConfiguration
+import Amazonka.EMRContainers.Types.SparkSubmitJobDriver
+import Amazonka.EMRContainers.Types.VirtualCluster
+import Amazonka.EMRContainers.Types.VirtualClusterState
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2020-10-01@ of the Amazon EMR Containers SDK configuration.
 defaultService :: Core.Service

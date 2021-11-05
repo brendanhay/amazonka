@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LexModels.Types.ConversationLogsResponse
+-- Module      : Amazonka.LexModels.Types.ConversationLogsResponse
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexModels.Types.ConversationLogsResponse where
+module Amazonka.LexModels.Types.ConversationLogsResponse where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.LexModels.Types.LogSettingsResponse
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.LexModels.Types.LogSettingsResponse
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about conversation log settings.
 --

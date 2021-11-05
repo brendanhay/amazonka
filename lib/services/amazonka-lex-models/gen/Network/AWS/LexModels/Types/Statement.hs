@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LexModels.Types.Statement
+-- Module      : Amazonka.LexModels.Types.Statement
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexModels.Types.Statement where
+module Amazonka.LexModels.Types.Statement where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.LexModels.Types.Message
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.LexModels.Types.Message
+import qualified Amazonka.Prelude as Prelude
 
 -- | A collection of messages that convey information to the user. At
 -- runtime, Amazon Lex selects the message to convey.

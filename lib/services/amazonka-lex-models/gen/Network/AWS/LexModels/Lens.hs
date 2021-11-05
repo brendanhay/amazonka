@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LexModels.Lens
+-- Module      : Amazonka.LexModels.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexModels.Lens
+module Amazonka.LexModels.Lens
   ( -- * Operations
 
     -- ** StartMigration
@@ -693,78 +693,78 @@ module Network.AWS.LexModels.Lens
   )
 where
 
-import Network.AWS.LexModels.CreateBotVersion
-import Network.AWS.LexModels.CreateIntentVersion
-import Network.AWS.LexModels.CreateSlotTypeVersion
-import Network.AWS.LexModels.DeleteBot
-import Network.AWS.LexModels.DeleteBotAlias
-import Network.AWS.LexModels.DeleteBotChannelAssociation
-import Network.AWS.LexModels.DeleteBotVersion
-import Network.AWS.LexModels.DeleteIntent
-import Network.AWS.LexModels.DeleteIntentVersion
-import Network.AWS.LexModels.DeleteSlotType
-import Network.AWS.LexModels.DeleteSlotTypeVersion
-import Network.AWS.LexModels.DeleteUtterances
-import Network.AWS.LexModels.GetBot
-import Network.AWS.LexModels.GetBotAlias
-import Network.AWS.LexModels.GetBotAliases
-import Network.AWS.LexModels.GetBotChannelAssociation
-import Network.AWS.LexModels.GetBotChannelAssociations
-import Network.AWS.LexModels.GetBotVersions
-import Network.AWS.LexModels.GetBots
-import Network.AWS.LexModels.GetBuiltinIntent
-import Network.AWS.LexModels.GetBuiltinIntents
-import Network.AWS.LexModels.GetBuiltinSlotTypes
-import Network.AWS.LexModels.GetExport
-import Network.AWS.LexModels.GetImport
-import Network.AWS.LexModels.GetIntent
-import Network.AWS.LexModels.GetIntentVersions
-import Network.AWS.LexModels.GetIntents
-import Network.AWS.LexModels.GetMigration
-import Network.AWS.LexModels.GetMigrations
-import Network.AWS.LexModels.GetSlotType
-import Network.AWS.LexModels.GetSlotTypeVersions
-import Network.AWS.LexModels.GetSlotTypes
-import Network.AWS.LexModels.GetUtterancesView
-import Network.AWS.LexModels.ListTagsForResource
-import Network.AWS.LexModels.PutBot
-import Network.AWS.LexModels.PutBotAlias
-import Network.AWS.LexModels.PutIntent
-import Network.AWS.LexModels.PutSlotType
-import Network.AWS.LexModels.StartImport
-import Network.AWS.LexModels.StartMigration
-import Network.AWS.LexModels.TagResource
-import Network.AWS.LexModels.Types.BotAliasMetadata
-import Network.AWS.LexModels.Types.BotChannelAssociation
-import Network.AWS.LexModels.Types.BotMetadata
-import Network.AWS.LexModels.Types.BuiltinIntentMetadata
-import Network.AWS.LexModels.Types.BuiltinIntentSlot
-import Network.AWS.LexModels.Types.BuiltinSlotTypeMetadata
-import Network.AWS.LexModels.Types.CodeHook
-import Network.AWS.LexModels.Types.ConversationLogsRequest
-import Network.AWS.LexModels.Types.ConversationLogsResponse
-import Network.AWS.LexModels.Types.EnumerationValue
-import Network.AWS.LexModels.Types.FollowUpPrompt
-import Network.AWS.LexModels.Types.FulfillmentActivity
-import Network.AWS.LexModels.Types.InputContext
-import Network.AWS.LexModels.Types.Intent
-import Network.AWS.LexModels.Types.IntentMetadata
-import Network.AWS.LexModels.Types.KendraConfiguration
-import Network.AWS.LexModels.Types.LogSettingsRequest
-import Network.AWS.LexModels.Types.LogSettingsResponse
-import Network.AWS.LexModels.Types.Message
-import Network.AWS.LexModels.Types.MigrationAlert
-import Network.AWS.LexModels.Types.MigrationSummary
-import Network.AWS.LexModels.Types.OutputContext
-import Network.AWS.LexModels.Types.Prompt
-import Network.AWS.LexModels.Types.Slot
-import Network.AWS.LexModels.Types.SlotDefaultValue
-import Network.AWS.LexModels.Types.SlotDefaultValueSpec
-import Network.AWS.LexModels.Types.SlotTypeConfiguration
-import Network.AWS.LexModels.Types.SlotTypeMetadata
-import Network.AWS.LexModels.Types.SlotTypeRegexConfiguration
-import Network.AWS.LexModels.Types.Statement
-import Network.AWS.LexModels.Types.Tag
-import Network.AWS.LexModels.Types.UtteranceData
-import Network.AWS.LexModels.Types.UtteranceList
-import Network.AWS.LexModels.UntagResource
+import Amazonka.LexModels.CreateBotVersion
+import Amazonka.LexModels.CreateIntentVersion
+import Amazonka.LexModels.CreateSlotTypeVersion
+import Amazonka.LexModels.DeleteBot
+import Amazonka.LexModels.DeleteBotAlias
+import Amazonka.LexModels.DeleteBotChannelAssociation
+import Amazonka.LexModels.DeleteBotVersion
+import Amazonka.LexModels.DeleteIntent
+import Amazonka.LexModels.DeleteIntentVersion
+import Amazonka.LexModels.DeleteSlotType
+import Amazonka.LexModels.DeleteSlotTypeVersion
+import Amazonka.LexModels.DeleteUtterances
+import Amazonka.LexModels.GetBot
+import Amazonka.LexModels.GetBotAlias
+import Amazonka.LexModels.GetBotAliases
+import Amazonka.LexModels.GetBotChannelAssociation
+import Amazonka.LexModels.GetBotChannelAssociations
+import Amazonka.LexModels.GetBotVersions
+import Amazonka.LexModels.GetBots
+import Amazonka.LexModels.GetBuiltinIntent
+import Amazonka.LexModels.GetBuiltinIntents
+import Amazonka.LexModels.GetBuiltinSlotTypes
+import Amazonka.LexModels.GetExport
+import Amazonka.LexModels.GetImport
+import Amazonka.LexModels.GetIntent
+import Amazonka.LexModels.GetIntentVersions
+import Amazonka.LexModels.GetIntents
+import Amazonka.LexModels.GetMigration
+import Amazonka.LexModels.GetMigrations
+import Amazonka.LexModels.GetSlotType
+import Amazonka.LexModels.GetSlotTypeVersions
+import Amazonka.LexModels.GetSlotTypes
+import Amazonka.LexModels.GetUtterancesView
+import Amazonka.LexModels.ListTagsForResource
+import Amazonka.LexModels.PutBot
+import Amazonka.LexModels.PutBotAlias
+import Amazonka.LexModels.PutIntent
+import Amazonka.LexModels.PutSlotType
+import Amazonka.LexModels.StartImport
+import Amazonka.LexModels.StartMigration
+import Amazonka.LexModels.TagResource
+import Amazonka.LexModels.Types.BotAliasMetadata
+import Amazonka.LexModels.Types.BotChannelAssociation
+import Amazonka.LexModels.Types.BotMetadata
+import Amazonka.LexModels.Types.BuiltinIntentMetadata
+import Amazonka.LexModels.Types.BuiltinIntentSlot
+import Amazonka.LexModels.Types.BuiltinSlotTypeMetadata
+import Amazonka.LexModels.Types.CodeHook
+import Amazonka.LexModels.Types.ConversationLogsRequest
+import Amazonka.LexModels.Types.ConversationLogsResponse
+import Amazonka.LexModels.Types.EnumerationValue
+import Amazonka.LexModels.Types.FollowUpPrompt
+import Amazonka.LexModels.Types.FulfillmentActivity
+import Amazonka.LexModels.Types.InputContext
+import Amazonka.LexModels.Types.Intent
+import Amazonka.LexModels.Types.IntentMetadata
+import Amazonka.LexModels.Types.KendraConfiguration
+import Amazonka.LexModels.Types.LogSettingsRequest
+import Amazonka.LexModels.Types.LogSettingsResponse
+import Amazonka.LexModels.Types.Message
+import Amazonka.LexModels.Types.MigrationAlert
+import Amazonka.LexModels.Types.MigrationSummary
+import Amazonka.LexModels.Types.OutputContext
+import Amazonka.LexModels.Types.Prompt
+import Amazonka.LexModels.Types.Slot
+import Amazonka.LexModels.Types.SlotDefaultValue
+import Amazonka.LexModels.Types.SlotDefaultValueSpec
+import Amazonka.LexModels.Types.SlotTypeConfiguration
+import Amazonka.LexModels.Types.SlotTypeMetadata
+import Amazonka.LexModels.Types.SlotTypeRegexConfiguration
+import Amazonka.LexModels.Types.Statement
+import Amazonka.LexModels.Types.Tag
+import Amazonka.LexModels.Types.UtteranceData
+import Amazonka.LexModels.Types.UtteranceList
+import Amazonka.LexModels.UntagResource

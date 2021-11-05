@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LexModels.Types.FulfillmentActivity
+-- Module      : Amazonka.LexModels.Types.FulfillmentActivity
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexModels.Types.FulfillmentActivity where
+module Amazonka.LexModels.Types.FulfillmentActivity where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.LexModels.Types.CodeHook
-import Network.AWS.LexModels.Types.FulfillmentActivityType
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.LexModels.Types.CodeHook
+import Amazonka.LexModels.Types.FulfillmentActivityType
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes how the intent is fulfilled after the user provides all of the
 -- information required for the intent. You can provide a Lambda function

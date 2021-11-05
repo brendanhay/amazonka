@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LexModels.Types.BotChannelAssociation
+-- Module      : Amazonka.LexModels.Types.BotChannelAssociation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexModels.Types.BotChannelAssociation where
+module Amazonka.LexModels.Types.BotChannelAssociation where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.LexModels.Types.ChannelStatus
-import Network.AWS.LexModels.Types.ChannelType
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.LexModels.Types.ChannelStatus
+import Amazonka.LexModels.Types.ChannelType
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an association between an Amazon Lex bot and an external
 -- messaging platform.

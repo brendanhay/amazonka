@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LexModels.Types.UtteranceList
+-- Module      : Amazonka.LexModels.Types.UtteranceList
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexModels.Types.UtteranceList where
+module Amazonka.LexModels.Types.UtteranceList where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.LexModels.Types.UtteranceData
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.LexModels.Types.UtteranceData
+import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a list of utterances that have been made to a specific version
 -- of your bot. The list contains a maximum of 100 utterances.

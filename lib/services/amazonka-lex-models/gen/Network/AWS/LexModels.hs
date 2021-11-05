@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.LexModels
+-- Module      : Amazonka.LexModels
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -16,7 +16,7 @@
 -- Amazon Lex is an AWS service for building conversational voice and text
 -- interfaces. Use these actions to create, update, and delete
 -- conversational bots for new and existing client applications.
-module Network.AWS.LexModels
+module Amazonka.LexModels
   ( -- * Service Configuration
     defaultService,
 
@@ -510,51 +510,51 @@ module Network.AWS.LexModels
   )
 where
 
-import Network.AWS.LexModels.CreateBotVersion
-import Network.AWS.LexModels.CreateIntentVersion
-import Network.AWS.LexModels.CreateSlotTypeVersion
-import Network.AWS.LexModels.DeleteBot
-import Network.AWS.LexModels.DeleteBotAlias
-import Network.AWS.LexModels.DeleteBotChannelAssociation
-import Network.AWS.LexModels.DeleteBotVersion
-import Network.AWS.LexModels.DeleteIntent
-import Network.AWS.LexModels.DeleteIntentVersion
-import Network.AWS.LexModels.DeleteSlotType
-import Network.AWS.LexModels.DeleteSlotTypeVersion
-import Network.AWS.LexModels.DeleteUtterances
-import Network.AWS.LexModels.GetBot
-import Network.AWS.LexModels.GetBotAlias
-import Network.AWS.LexModels.GetBotAliases
-import Network.AWS.LexModels.GetBotChannelAssociation
-import Network.AWS.LexModels.GetBotChannelAssociations
-import Network.AWS.LexModels.GetBotVersions
-import Network.AWS.LexModels.GetBots
-import Network.AWS.LexModels.GetBuiltinIntent
-import Network.AWS.LexModels.GetBuiltinIntents
-import Network.AWS.LexModels.GetBuiltinSlotTypes
-import Network.AWS.LexModels.GetExport
-import Network.AWS.LexModels.GetImport
-import Network.AWS.LexModels.GetIntent
-import Network.AWS.LexModels.GetIntentVersions
-import Network.AWS.LexModels.GetIntents
-import Network.AWS.LexModels.GetMigration
-import Network.AWS.LexModels.GetMigrations
-import Network.AWS.LexModels.GetSlotType
-import Network.AWS.LexModels.GetSlotTypeVersions
-import Network.AWS.LexModels.GetSlotTypes
-import Network.AWS.LexModels.GetUtterancesView
-import Network.AWS.LexModels.Lens
-import Network.AWS.LexModels.ListTagsForResource
-import Network.AWS.LexModels.PutBot
-import Network.AWS.LexModels.PutBotAlias
-import Network.AWS.LexModels.PutIntent
-import Network.AWS.LexModels.PutSlotType
-import Network.AWS.LexModels.StartImport
-import Network.AWS.LexModels.StartMigration
-import Network.AWS.LexModels.TagResource
-import Network.AWS.LexModels.Types
-import Network.AWS.LexModels.UntagResource
-import Network.AWS.LexModels.Waiters
+import Amazonka.LexModels.CreateBotVersion
+import Amazonka.LexModels.CreateIntentVersion
+import Amazonka.LexModels.CreateSlotTypeVersion
+import Amazonka.LexModels.DeleteBot
+import Amazonka.LexModels.DeleteBotAlias
+import Amazonka.LexModels.DeleteBotChannelAssociation
+import Amazonka.LexModels.DeleteBotVersion
+import Amazonka.LexModels.DeleteIntent
+import Amazonka.LexModels.DeleteIntentVersion
+import Amazonka.LexModels.DeleteSlotType
+import Amazonka.LexModels.DeleteSlotTypeVersion
+import Amazonka.LexModels.DeleteUtterances
+import Amazonka.LexModels.GetBot
+import Amazonka.LexModels.GetBotAlias
+import Amazonka.LexModels.GetBotAliases
+import Amazonka.LexModels.GetBotChannelAssociation
+import Amazonka.LexModels.GetBotChannelAssociations
+import Amazonka.LexModels.GetBotVersions
+import Amazonka.LexModels.GetBots
+import Amazonka.LexModels.GetBuiltinIntent
+import Amazonka.LexModels.GetBuiltinIntents
+import Amazonka.LexModels.GetBuiltinSlotTypes
+import Amazonka.LexModels.GetExport
+import Amazonka.LexModels.GetImport
+import Amazonka.LexModels.GetIntent
+import Amazonka.LexModels.GetIntentVersions
+import Amazonka.LexModels.GetIntents
+import Amazonka.LexModels.GetMigration
+import Amazonka.LexModels.GetMigrations
+import Amazonka.LexModels.GetSlotType
+import Amazonka.LexModels.GetSlotTypeVersions
+import Amazonka.LexModels.GetSlotTypes
+import Amazonka.LexModels.GetUtterancesView
+import Amazonka.LexModels.Lens
+import Amazonka.LexModels.ListTagsForResource
+import Amazonka.LexModels.PutBot
+import Amazonka.LexModels.PutBotAlias
+import Amazonka.LexModels.PutIntent
+import Amazonka.LexModels.PutSlotType
+import Amazonka.LexModels.StartImport
+import Amazonka.LexModels.StartMigration
+import Amazonka.LexModels.TagResource
+import Amazonka.LexModels.Types
+import Amazonka.LexModels.UntagResource
+import Amazonka.LexModels.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

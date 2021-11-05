@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.LexModels.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.LexModels.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.LexModels" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.LexModels" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,110 +45,110 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.LexModels
-    Network.AWS.LexModels.CreateBotVersion
-    Network.AWS.LexModels.CreateIntentVersion
-    Network.AWS.LexModels.CreateSlotTypeVersion
-    Network.AWS.LexModels.DeleteBot
-    Network.AWS.LexModels.DeleteBotAlias
-    Network.AWS.LexModels.DeleteBotChannelAssociation
-    Network.AWS.LexModels.DeleteBotVersion
-    Network.AWS.LexModels.DeleteIntent
-    Network.AWS.LexModels.DeleteIntentVersion
-    Network.AWS.LexModels.DeleteSlotType
-    Network.AWS.LexModels.DeleteSlotTypeVersion
-    Network.AWS.LexModels.DeleteUtterances
-    Network.AWS.LexModels.GetBot
-    Network.AWS.LexModels.GetBotAlias
-    Network.AWS.LexModels.GetBotAliases
-    Network.AWS.LexModels.GetBotChannelAssociation
-    Network.AWS.LexModels.GetBotChannelAssociations
-    Network.AWS.LexModels.GetBots
-    Network.AWS.LexModels.GetBotVersions
-    Network.AWS.LexModels.GetBuiltinIntent
-    Network.AWS.LexModels.GetBuiltinIntents
-    Network.AWS.LexModels.GetBuiltinSlotTypes
-    Network.AWS.LexModels.GetExport
-    Network.AWS.LexModels.GetImport
-    Network.AWS.LexModels.GetIntent
-    Network.AWS.LexModels.GetIntents
-    Network.AWS.LexModels.GetIntentVersions
-    Network.AWS.LexModels.GetMigration
-    Network.AWS.LexModels.GetMigrations
-    Network.AWS.LexModels.GetSlotType
-    Network.AWS.LexModels.GetSlotTypes
-    Network.AWS.LexModels.GetSlotTypeVersions
-    Network.AWS.LexModels.GetUtterancesView
-    Network.AWS.LexModels.Lens
-    Network.AWS.LexModels.ListTagsForResource
-    Network.AWS.LexModels.PutBot
-    Network.AWS.LexModels.PutBotAlias
-    Network.AWS.LexModels.PutIntent
-    Network.AWS.LexModels.PutSlotType
-    Network.AWS.LexModels.StartImport
-    Network.AWS.LexModels.StartMigration
-    Network.AWS.LexModels.TagResource
-    Network.AWS.LexModels.Types
-    Network.AWS.LexModels.Types.BotAliasMetadata
-    Network.AWS.LexModels.Types.BotChannelAssociation
-    Network.AWS.LexModels.Types.BotMetadata
-    Network.AWS.LexModels.Types.BuiltinIntentMetadata
-    Network.AWS.LexModels.Types.BuiltinIntentSlot
-    Network.AWS.LexModels.Types.BuiltinSlotTypeMetadata
-    Network.AWS.LexModels.Types.ChannelStatus
-    Network.AWS.LexModels.Types.ChannelType
-    Network.AWS.LexModels.Types.CodeHook
-    Network.AWS.LexModels.Types.ContentType
-    Network.AWS.LexModels.Types.ConversationLogsRequest
-    Network.AWS.LexModels.Types.ConversationLogsResponse
-    Network.AWS.LexModels.Types.Destination
-    Network.AWS.LexModels.Types.EnumerationValue
-    Network.AWS.LexModels.Types.ExportStatus
-    Network.AWS.LexModels.Types.ExportType
-    Network.AWS.LexModels.Types.FollowUpPrompt
-    Network.AWS.LexModels.Types.FulfillmentActivity
-    Network.AWS.LexModels.Types.FulfillmentActivityType
-    Network.AWS.LexModels.Types.ImportStatus
-    Network.AWS.LexModels.Types.InputContext
-    Network.AWS.LexModels.Types.Intent
-    Network.AWS.LexModels.Types.IntentMetadata
-    Network.AWS.LexModels.Types.KendraConfiguration
-    Network.AWS.LexModels.Types.LexStatus
-    Network.AWS.LexModels.Types.Locale
-    Network.AWS.LexModels.Types.LogSettingsRequest
-    Network.AWS.LexModels.Types.LogSettingsResponse
-    Network.AWS.LexModels.Types.LogType
-    Network.AWS.LexModels.Types.MergeStrategy
-    Network.AWS.LexModels.Types.Message
-    Network.AWS.LexModels.Types.MigrationAlert
-    Network.AWS.LexModels.Types.MigrationAlertType
-    Network.AWS.LexModels.Types.MigrationSortAttribute
-    Network.AWS.LexModels.Types.MigrationStatus
-    Network.AWS.LexModels.Types.MigrationStrategy
-    Network.AWS.LexModels.Types.MigrationSummary
-    Network.AWS.LexModels.Types.ObfuscationSetting
-    Network.AWS.LexModels.Types.OutputContext
-    Network.AWS.LexModels.Types.ProcessBehavior
-    Network.AWS.LexModels.Types.Prompt
-    Network.AWS.LexModels.Types.ResourceType
-    Network.AWS.LexModels.Types.Slot
-    Network.AWS.LexModels.Types.SlotConstraint
-    Network.AWS.LexModels.Types.SlotDefaultValue
-    Network.AWS.LexModels.Types.SlotDefaultValueSpec
-    Network.AWS.LexModels.Types.SlotTypeConfiguration
-    Network.AWS.LexModels.Types.SlotTypeMetadata
-    Network.AWS.LexModels.Types.SlotTypeRegexConfiguration
-    Network.AWS.LexModels.Types.SlotValueSelectionStrategy
-    Network.AWS.LexModels.Types.SortOrder
-    Network.AWS.LexModels.Types.Statement
-    Network.AWS.LexModels.Types.StatusType
-    Network.AWS.LexModels.Types.Tag
-    Network.AWS.LexModels.Types.UtteranceData
-    Network.AWS.LexModels.Types.UtteranceList
-    Network.AWS.LexModels.UntagResource
-    Network.AWS.LexModels.Waiters
+    Amazonka.LexModels
+    Amazonka.LexModels.CreateBotVersion
+    Amazonka.LexModels.CreateIntentVersion
+    Amazonka.LexModels.CreateSlotTypeVersion
+    Amazonka.LexModels.DeleteBot
+    Amazonka.LexModels.DeleteBotAlias
+    Amazonka.LexModels.DeleteBotChannelAssociation
+    Amazonka.LexModels.DeleteBotVersion
+    Amazonka.LexModels.DeleteIntent
+    Amazonka.LexModels.DeleteIntentVersion
+    Amazonka.LexModels.DeleteSlotType
+    Amazonka.LexModels.DeleteSlotTypeVersion
+    Amazonka.LexModels.DeleteUtterances
+    Amazonka.LexModels.GetBot
+    Amazonka.LexModels.GetBotAlias
+    Amazonka.LexModels.GetBotAliases
+    Amazonka.LexModels.GetBotChannelAssociation
+    Amazonka.LexModels.GetBotChannelAssociations
+    Amazonka.LexModels.GetBots
+    Amazonka.LexModels.GetBotVersions
+    Amazonka.LexModels.GetBuiltinIntent
+    Amazonka.LexModels.GetBuiltinIntents
+    Amazonka.LexModels.GetBuiltinSlotTypes
+    Amazonka.LexModels.GetExport
+    Amazonka.LexModels.GetImport
+    Amazonka.LexModels.GetIntent
+    Amazonka.LexModels.GetIntents
+    Amazonka.LexModels.GetIntentVersions
+    Amazonka.LexModels.GetMigration
+    Amazonka.LexModels.GetMigrations
+    Amazonka.LexModels.GetSlotType
+    Amazonka.LexModels.GetSlotTypes
+    Amazonka.LexModels.GetSlotTypeVersions
+    Amazonka.LexModels.GetUtterancesView
+    Amazonka.LexModels.Lens
+    Amazonka.LexModels.ListTagsForResource
+    Amazonka.LexModels.PutBot
+    Amazonka.LexModels.PutBotAlias
+    Amazonka.LexModels.PutIntent
+    Amazonka.LexModels.PutSlotType
+    Amazonka.LexModels.StartImport
+    Amazonka.LexModels.StartMigration
+    Amazonka.LexModels.TagResource
+    Amazonka.LexModels.Types
+    Amazonka.LexModels.Types.BotAliasMetadata
+    Amazonka.LexModels.Types.BotChannelAssociation
+    Amazonka.LexModels.Types.BotMetadata
+    Amazonka.LexModels.Types.BuiltinIntentMetadata
+    Amazonka.LexModels.Types.BuiltinIntentSlot
+    Amazonka.LexModels.Types.BuiltinSlotTypeMetadata
+    Amazonka.LexModels.Types.ChannelStatus
+    Amazonka.LexModels.Types.ChannelType
+    Amazonka.LexModels.Types.CodeHook
+    Amazonka.LexModels.Types.ContentType
+    Amazonka.LexModels.Types.ConversationLogsRequest
+    Amazonka.LexModels.Types.ConversationLogsResponse
+    Amazonka.LexModels.Types.Destination
+    Amazonka.LexModels.Types.EnumerationValue
+    Amazonka.LexModels.Types.ExportStatus
+    Amazonka.LexModels.Types.ExportType
+    Amazonka.LexModels.Types.FollowUpPrompt
+    Amazonka.LexModels.Types.FulfillmentActivity
+    Amazonka.LexModels.Types.FulfillmentActivityType
+    Amazonka.LexModels.Types.ImportStatus
+    Amazonka.LexModels.Types.InputContext
+    Amazonka.LexModels.Types.Intent
+    Amazonka.LexModels.Types.IntentMetadata
+    Amazonka.LexModels.Types.KendraConfiguration
+    Amazonka.LexModels.Types.LexStatus
+    Amazonka.LexModels.Types.Locale
+    Amazonka.LexModels.Types.LogSettingsRequest
+    Amazonka.LexModels.Types.LogSettingsResponse
+    Amazonka.LexModels.Types.LogType
+    Amazonka.LexModels.Types.MergeStrategy
+    Amazonka.LexModels.Types.Message
+    Amazonka.LexModels.Types.MigrationAlert
+    Amazonka.LexModels.Types.MigrationAlertType
+    Amazonka.LexModels.Types.MigrationSortAttribute
+    Amazonka.LexModels.Types.MigrationStatus
+    Amazonka.LexModels.Types.MigrationStrategy
+    Amazonka.LexModels.Types.MigrationSummary
+    Amazonka.LexModels.Types.ObfuscationSetting
+    Amazonka.LexModels.Types.OutputContext
+    Amazonka.LexModels.Types.ProcessBehavior
+    Amazonka.LexModels.Types.Prompt
+    Amazonka.LexModels.Types.ResourceType
+    Amazonka.LexModels.Types.Slot
+    Amazonka.LexModels.Types.SlotConstraint
+    Amazonka.LexModels.Types.SlotDefaultValue
+    Amazonka.LexModels.Types.SlotDefaultValueSpec
+    Amazonka.LexModels.Types.SlotTypeConfiguration
+    Amazonka.LexModels.Types.SlotTypeMetadata
+    Amazonka.LexModels.Types.SlotTypeRegexConfiguration
+    Amazonka.LexModels.Types.SlotValueSelectionStrategy
+    Amazonka.LexModels.Types.SortOrder
+    Amazonka.LexModels.Types.Statement
+    Amazonka.LexModels.Types.StatusType
+    Amazonka.LexModels.Types.Tag
+    Amazonka.LexModels.Types.UtteranceData
+    Amazonka.LexModels.Types.UtteranceList
+    Amazonka.LexModels.UntagResource
+    Amazonka.LexModels.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

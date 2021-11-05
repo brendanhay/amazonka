@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LexModels.Types.FollowUpPrompt
+-- Module      : Amazonka.LexModels.Types.FollowUpPrompt
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexModels.Types.FollowUpPrompt where
+module Amazonka.LexModels.Types.FollowUpPrompt where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.LexModels.Types.Prompt
-import Network.AWS.LexModels.Types.Statement
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.LexModels.Types.Prompt
+import Amazonka.LexModels.Types.Statement
+import qualified Amazonka.Prelude as Prelude
 
 -- | A prompt for additional activity after an intent is fulfilled. For
 -- example, after the @OrderPizza@ intent is fulfilled, you might prompt

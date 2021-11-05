@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.LexModels.GetMigration
+-- Module      : Amazonka.LexModels.GetMigration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Provides details about an ongoing or complete migration from an Amazon
 -- Lex V1 bot to an Amazon Lex V2 bot. Use this operation to view the
 -- migration alerts and warnings related to the migration.
-module Network.AWS.LexModels.GetMigration
+module Amazonka.LexModels.GetMigration
   ( -- * Creating a Request
     GetMigration (..),
     newGetMigration,
@@ -50,12 +50,12 @@ module Network.AWS.LexModels.GetMigration
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.LexModels.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.LexModels.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetMigration' smart constructor.
 data GetMigration = GetMigration'

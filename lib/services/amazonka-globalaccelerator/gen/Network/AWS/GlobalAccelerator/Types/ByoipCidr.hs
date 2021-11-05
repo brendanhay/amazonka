@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GlobalAccelerator.Types.ByoipCidr
+-- Module      : Amazonka.GlobalAccelerator.Types.ByoipCidr
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GlobalAccelerator.Types.ByoipCidr where
+module Amazonka.GlobalAccelerator.Types.ByoipCidr where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GlobalAccelerator.Types.ByoipCidrEvent
-import Network.AWS.GlobalAccelerator.Types.ByoipCidrState
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.GlobalAccelerator.Types.ByoipCidrEvent
+import Amazonka.GlobalAccelerator.Types.ByoipCidrState
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an IP address range that is provisioned for use with
 -- your AWS resources through bring your own IP address (BYOIP).

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GlobalAccelerator.CreateCustomRoutingEndpointGroup
+-- Module      : Amazonka.GlobalAccelerator.CreateCustomRoutingEndpointGroup
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Create an endpoint group for the specified listener for a custom routing
 -- accelerator. An endpoint group is a collection of endpoints in one AWS
 -- Region.
-module Network.AWS.GlobalAccelerator.CreateCustomRoutingEndpointGroup
+module Amazonka.GlobalAccelerator.CreateCustomRoutingEndpointGroup
   ( -- * Creating a Request
     CreateCustomRoutingEndpointGroup (..),
     newCreateCustomRoutingEndpointGroup,
@@ -44,12 +44,12 @@ module Network.AWS.GlobalAccelerator.CreateCustomRoutingEndpointGroup
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GlobalAccelerator.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.GlobalAccelerator.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateCustomRoutingEndpointGroup' smart constructor.
 data CreateCustomRoutingEndpointGroup = CreateCustomRoutingEndpointGroup'

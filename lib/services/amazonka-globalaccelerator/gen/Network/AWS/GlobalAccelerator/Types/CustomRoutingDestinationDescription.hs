@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationDescription
+-- Module      : Amazonka.GlobalAccelerator.Types.CustomRoutingDestinationDescription
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationDescription where
+module Amazonka.GlobalAccelerator.Types.CustomRoutingDestinationDescription where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GlobalAccelerator.Types.Protocol
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.GlobalAccelerator.Types.Protocol
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | For a custom routing accelerator, describes the port range and protocol
 -- for all endpoints (virtual private cloud subnets) in an endpoint group

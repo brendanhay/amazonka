@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GlobalAccelerator.Types.CustomRoutingEndpointGroup
+-- Module      : Amazonka.GlobalAccelerator.Types.CustomRoutingEndpointGroup
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GlobalAccelerator.Types.CustomRoutingEndpointGroup where
+module Amazonka.GlobalAccelerator.Types.CustomRoutingEndpointGroup where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationDescription
-import Network.AWS.GlobalAccelerator.Types.CustomRoutingEndpointDescription
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.GlobalAccelerator.Types.CustomRoutingDestinationDescription
+import Amazonka.GlobalAccelerator.Types.CustomRoutingEndpointDescription
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type for the endpoint group for a custom routing accelerator.
 -- An AWS Region can have only one endpoint group for a specific listener.

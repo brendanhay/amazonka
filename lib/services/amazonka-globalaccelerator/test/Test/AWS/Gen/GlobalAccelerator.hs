@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.GlobalAccelerator where
 
+import Amazonka.GlobalAccelerator
 import qualified Data.Proxy as Proxy
-import Network.AWS.GlobalAccelerator
 import Test.AWS.Fixture
 import Test.AWS.GlobalAccelerator.Internal
 import Test.AWS.Prelude

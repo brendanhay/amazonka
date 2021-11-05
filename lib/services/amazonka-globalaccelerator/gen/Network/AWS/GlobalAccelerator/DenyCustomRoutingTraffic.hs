@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GlobalAccelerator.DenyCustomRoutingTraffic
+-- Module      : Amazonka.GlobalAccelerator.DenyCustomRoutingTraffic
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -30,7 +30,7 @@
 -- After you make changes, you can verify that the updates are complete by
 -- checking the status of your accelerator: the status changes from
 -- IN_PROGRESS to DEPLOYED.
-module Network.AWS.GlobalAccelerator.DenyCustomRoutingTraffic
+module Amazonka.GlobalAccelerator.DenyCustomRoutingTraffic
   ( -- * Creating a Request
     DenyCustomRoutingTraffic (..),
     newDenyCustomRoutingTraffic,
@@ -48,12 +48,12 @@ module Network.AWS.GlobalAccelerator.DenyCustomRoutingTraffic
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GlobalAccelerator.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.GlobalAccelerator.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDenyCustomRoutingTraffic' smart constructor.
 data DenyCustomRoutingTraffic = DenyCustomRoutingTraffic'

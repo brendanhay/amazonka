@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.GlobalAccelerator
+-- Module      : Amazonka.GlobalAccelerator
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -186,7 +186,7 @@
 --
 --     Endpoints for custom routing accelerators are virtual private cloud
 --     (VPC) subnets with one or many EC2 instances.
-module Network.AWS.GlobalAccelerator
+module Amazonka.GlobalAccelerator
   ( -- * Service Configuration
     defaultService,
 
@@ -665,56 +665,56 @@ module Network.AWS.GlobalAccelerator
   )
 where
 
-import Network.AWS.GlobalAccelerator.AddCustomRoutingEndpoints
-import Network.AWS.GlobalAccelerator.AdvertiseByoipCidr
-import Network.AWS.GlobalAccelerator.AllowCustomRoutingTraffic
-import Network.AWS.GlobalAccelerator.CreateAccelerator
-import Network.AWS.GlobalAccelerator.CreateCustomRoutingAccelerator
-import Network.AWS.GlobalAccelerator.CreateCustomRoutingEndpointGroup
-import Network.AWS.GlobalAccelerator.CreateCustomRoutingListener
-import Network.AWS.GlobalAccelerator.CreateEndpointGroup
-import Network.AWS.GlobalAccelerator.CreateListener
-import Network.AWS.GlobalAccelerator.DeleteAccelerator
-import Network.AWS.GlobalAccelerator.DeleteCustomRoutingAccelerator
-import Network.AWS.GlobalAccelerator.DeleteCustomRoutingEndpointGroup
-import Network.AWS.GlobalAccelerator.DeleteCustomRoutingListener
-import Network.AWS.GlobalAccelerator.DeleteEndpointGroup
-import Network.AWS.GlobalAccelerator.DeleteListener
-import Network.AWS.GlobalAccelerator.DenyCustomRoutingTraffic
-import Network.AWS.GlobalAccelerator.DeprovisionByoipCidr
-import Network.AWS.GlobalAccelerator.DescribeAccelerator
-import Network.AWS.GlobalAccelerator.DescribeAcceleratorAttributes
-import Network.AWS.GlobalAccelerator.DescribeCustomRoutingAccelerator
-import Network.AWS.GlobalAccelerator.DescribeCustomRoutingAcceleratorAttributes
-import Network.AWS.GlobalAccelerator.DescribeCustomRoutingEndpointGroup
-import Network.AWS.GlobalAccelerator.DescribeCustomRoutingListener
-import Network.AWS.GlobalAccelerator.DescribeEndpointGroup
-import Network.AWS.GlobalAccelerator.DescribeListener
-import Network.AWS.GlobalAccelerator.Lens
-import Network.AWS.GlobalAccelerator.ListAccelerators
-import Network.AWS.GlobalAccelerator.ListByoipCidrs
-import Network.AWS.GlobalAccelerator.ListCustomRoutingAccelerators
-import Network.AWS.GlobalAccelerator.ListCustomRoutingEndpointGroups
-import Network.AWS.GlobalAccelerator.ListCustomRoutingListeners
-import Network.AWS.GlobalAccelerator.ListCustomRoutingPortMappings
-import Network.AWS.GlobalAccelerator.ListCustomRoutingPortMappingsByDestination
-import Network.AWS.GlobalAccelerator.ListEndpointGroups
-import Network.AWS.GlobalAccelerator.ListListeners
-import Network.AWS.GlobalAccelerator.ListTagsForResource
-import Network.AWS.GlobalAccelerator.ProvisionByoipCidr
-import Network.AWS.GlobalAccelerator.RemoveCustomRoutingEndpoints
-import Network.AWS.GlobalAccelerator.TagResource
-import Network.AWS.GlobalAccelerator.Types
-import Network.AWS.GlobalAccelerator.UntagResource
-import Network.AWS.GlobalAccelerator.UpdateAccelerator
-import Network.AWS.GlobalAccelerator.UpdateAcceleratorAttributes
-import Network.AWS.GlobalAccelerator.UpdateCustomRoutingAccelerator
-import Network.AWS.GlobalAccelerator.UpdateCustomRoutingAcceleratorAttributes
-import Network.AWS.GlobalAccelerator.UpdateCustomRoutingListener
-import Network.AWS.GlobalAccelerator.UpdateEndpointGroup
-import Network.AWS.GlobalAccelerator.UpdateListener
-import Network.AWS.GlobalAccelerator.Waiters
-import Network.AWS.GlobalAccelerator.WithdrawByoipCidr
+import Amazonka.GlobalAccelerator.AddCustomRoutingEndpoints
+import Amazonka.GlobalAccelerator.AdvertiseByoipCidr
+import Amazonka.GlobalAccelerator.AllowCustomRoutingTraffic
+import Amazonka.GlobalAccelerator.CreateAccelerator
+import Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator
+import Amazonka.GlobalAccelerator.CreateCustomRoutingEndpointGroup
+import Amazonka.GlobalAccelerator.CreateCustomRoutingListener
+import Amazonka.GlobalAccelerator.CreateEndpointGroup
+import Amazonka.GlobalAccelerator.CreateListener
+import Amazonka.GlobalAccelerator.DeleteAccelerator
+import Amazonka.GlobalAccelerator.DeleteCustomRoutingAccelerator
+import Amazonka.GlobalAccelerator.DeleteCustomRoutingEndpointGroup
+import Amazonka.GlobalAccelerator.DeleteCustomRoutingListener
+import Amazonka.GlobalAccelerator.DeleteEndpointGroup
+import Amazonka.GlobalAccelerator.DeleteListener
+import Amazonka.GlobalAccelerator.DenyCustomRoutingTraffic
+import Amazonka.GlobalAccelerator.DeprovisionByoipCidr
+import Amazonka.GlobalAccelerator.DescribeAccelerator
+import Amazonka.GlobalAccelerator.DescribeAcceleratorAttributes
+import Amazonka.GlobalAccelerator.DescribeCustomRoutingAccelerator
+import Amazonka.GlobalAccelerator.DescribeCustomRoutingAcceleratorAttributes
+import Amazonka.GlobalAccelerator.DescribeCustomRoutingEndpointGroup
+import Amazonka.GlobalAccelerator.DescribeCustomRoutingListener
+import Amazonka.GlobalAccelerator.DescribeEndpointGroup
+import Amazonka.GlobalAccelerator.DescribeListener
+import Amazonka.GlobalAccelerator.Lens
+import Amazonka.GlobalAccelerator.ListAccelerators
+import Amazonka.GlobalAccelerator.ListByoipCidrs
+import Amazonka.GlobalAccelerator.ListCustomRoutingAccelerators
+import Amazonka.GlobalAccelerator.ListCustomRoutingEndpointGroups
+import Amazonka.GlobalAccelerator.ListCustomRoutingListeners
+import Amazonka.GlobalAccelerator.ListCustomRoutingPortMappings
+import Amazonka.GlobalAccelerator.ListCustomRoutingPortMappingsByDestination
+import Amazonka.GlobalAccelerator.ListEndpointGroups
+import Amazonka.GlobalAccelerator.ListListeners
+import Amazonka.GlobalAccelerator.ListTagsForResource
+import Amazonka.GlobalAccelerator.ProvisionByoipCidr
+import Amazonka.GlobalAccelerator.RemoveCustomRoutingEndpoints
+import Amazonka.GlobalAccelerator.TagResource
+import Amazonka.GlobalAccelerator.Types
+import Amazonka.GlobalAccelerator.UntagResource
+import Amazonka.GlobalAccelerator.UpdateAccelerator
+import Amazonka.GlobalAccelerator.UpdateAcceleratorAttributes
+import Amazonka.GlobalAccelerator.UpdateCustomRoutingAccelerator
+import Amazonka.GlobalAccelerator.UpdateCustomRoutingAcceleratorAttributes
+import Amazonka.GlobalAccelerator.UpdateCustomRoutingListener
+import Amazonka.GlobalAccelerator.UpdateEndpointGroup
+import Amazonka.GlobalAccelerator.UpdateListener
+import Amazonka.GlobalAccelerator.Waiters
+import Amazonka.GlobalAccelerator.WithdrawByoipCidr
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

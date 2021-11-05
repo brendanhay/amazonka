@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GlobalAccelerator.UpdateCustomRoutingListener
+-- Module      : Amazonka.GlobalAccelerator.UpdateCustomRoutingListener
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Update a listener for a custom routing accelerator.
-module Network.AWS.GlobalAccelerator.UpdateCustomRoutingListener
+module Amazonka.GlobalAccelerator.UpdateCustomRoutingListener
   ( -- * Creating a Request
     UpdateCustomRoutingListener (..),
     newUpdateCustomRoutingListener,
@@ -40,12 +40,12 @@ module Network.AWS.GlobalAccelerator.UpdateCustomRoutingListener
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GlobalAccelerator.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.GlobalAccelerator.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateCustomRoutingListener' smart constructor.
 data UpdateCustomRoutingListener = UpdateCustomRoutingListener'

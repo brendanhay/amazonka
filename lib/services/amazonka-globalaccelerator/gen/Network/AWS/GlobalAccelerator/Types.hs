@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GlobalAccelerator.Types
+-- Module      : Amazonka.GlobalAccelerator.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GlobalAccelerator.Types
+module Amazonka.GlobalAccelerator.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -255,44 +255,44 @@ module Network.AWS.GlobalAccelerator.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GlobalAccelerator.Types.Accelerator
-import Network.AWS.GlobalAccelerator.Types.AcceleratorAttributes
-import Network.AWS.GlobalAccelerator.Types.AcceleratorStatus
-import Network.AWS.GlobalAccelerator.Types.ByoipCidr
-import Network.AWS.GlobalAccelerator.Types.ByoipCidrEvent
-import Network.AWS.GlobalAccelerator.Types.ByoipCidrState
-import Network.AWS.GlobalAccelerator.Types.CidrAuthorizationContext
-import Network.AWS.GlobalAccelerator.Types.ClientAffinity
-import Network.AWS.GlobalAccelerator.Types.CustomRoutingAccelerator
-import Network.AWS.GlobalAccelerator.Types.CustomRoutingAcceleratorAttributes
-import Network.AWS.GlobalAccelerator.Types.CustomRoutingAcceleratorStatus
-import Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationConfiguration
-import Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationDescription
-import Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationTrafficState
-import Network.AWS.GlobalAccelerator.Types.CustomRoutingEndpointConfiguration
-import Network.AWS.GlobalAccelerator.Types.CustomRoutingEndpointDescription
-import Network.AWS.GlobalAccelerator.Types.CustomRoutingEndpointGroup
-import Network.AWS.GlobalAccelerator.Types.CustomRoutingListener
-import Network.AWS.GlobalAccelerator.Types.CustomRoutingProtocol
-import Network.AWS.GlobalAccelerator.Types.DestinationPortMapping
-import Network.AWS.GlobalAccelerator.Types.EndpointConfiguration
-import Network.AWS.GlobalAccelerator.Types.EndpointDescription
-import Network.AWS.GlobalAccelerator.Types.EndpointGroup
-import Network.AWS.GlobalAccelerator.Types.HealthCheckProtocol
-import Network.AWS.GlobalAccelerator.Types.HealthState
-import Network.AWS.GlobalAccelerator.Types.IpAddressType
-import Network.AWS.GlobalAccelerator.Types.IpSet
-import Network.AWS.GlobalAccelerator.Types.Listener
-import Network.AWS.GlobalAccelerator.Types.PortMapping
-import Network.AWS.GlobalAccelerator.Types.PortOverride
-import Network.AWS.GlobalAccelerator.Types.PortRange
-import Network.AWS.GlobalAccelerator.Types.Protocol
-import Network.AWS.GlobalAccelerator.Types.SocketAddress
-import Network.AWS.GlobalAccelerator.Types.Tag
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.GlobalAccelerator.Types.Accelerator
+import Amazonka.GlobalAccelerator.Types.AcceleratorAttributes
+import Amazonka.GlobalAccelerator.Types.AcceleratorStatus
+import Amazonka.GlobalAccelerator.Types.ByoipCidr
+import Amazonka.GlobalAccelerator.Types.ByoipCidrEvent
+import Amazonka.GlobalAccelerator.Types.ByoipCidrState
+import Amazonka.GlobalAccelerator.Types.CidrAuthorizationContext
+import Amazonka.GlobalAccelerator.Types.ClientAffinity
+import Amazonka.GlobalAccelerator.Types.CustomRoutingAccelerator
+import Amazonka.GlobalAccelerator.Types.CustomRoutingAcceleratorAttributes
+import Amazonka.GlobalAccelerator.Types.CustomRoutingAcceleratorStatus
+import Amazonka.GlobalAccelerator.Types.CustomRoutingDestinationConfiguration
+import Amazonka.GlobalAccelerator.Types.CustomRoutingDestinationDescription
+import Amazonka.GlobalAccelerator.Types.CustomRoutingDestinationTrafficState
+import Amazonka.GlobalAccelerator.Types.CustomRoutingEndpointConfiguration
+import Amazonka.GlobalAccelerator.Types.CustomRoutingEndpointDescription
+import Amazonka.GlobalAccelerator.Types.CustomRoutingEndpointGroup
+import Amazonka.GlobalAccelerator.Types.CustomRoutingListener
+import Amazonka.GlobalAccelerator.Types.CustomRoutingProtocol
+import Amazonka.GlobalAccelerator.Types.DestinationPortMapping
+import Amazonka.GlobalAccelerator.Types.EndpointConfiguration
+import Amazonka.GlobalAccelerator.Types.EndpointDescription
+import Amazonka.GlobalAccelerator.Types.EndpointGroup
+import Amazonka.GlobalAccelerator.Types.HealthCheckProtocol
+import Amazonka.GlobalAccelerator.Types.HealthState
+import Amazonka.GlobalAccelerator.Types.IpAddressType
+import Amazonka.GlobalAccelerator.Types.IpSet
+import Amazonka.GlobalAccelerator.Types.Listener
+import Amazonka.GlobalAccelerator.Types.PortMapping
+import Amazonka.GlobalAccelerator.Types.PortOverride
+import Amazonka.GlobalAccelerator.Types.PortRange
+import Amazonka.GlobalAccelerator.Types.Protocol
+import Amazonka.GlobalAccelerator.Types.SocketAddress
+import Amazonka.GlobalAccelerator.Types.Tag
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2018-08-08@ of the Amazon Global Accelerator SDK configuration.
 defaultService :: Core.Service

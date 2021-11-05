@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Amplify.Types.App
+-- Module      : Amazonka.Amplify.Types.App
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Amplify.Types.App where
+module Amazonka.Amplify.Types.App where
 
-import Network.AWS.Amplify.Types.AutoBranchCreationConfig
-import Network.AWS.Amplify.Types.CustomRule
-import Network.AWS.Amplify.Types.Platform
-import Network.AWS.Amplify.Types.ProductionBranch
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Amplify.Types.AutoBranchCreationConfig
+import Amazonka.Amplify.Types.CustomRule
+import Amazonka.Amplify.Types.Platform
+import Amazonka.Amplify.Types.ProductionBranch
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the different branches of a repository for building,
 -- deploying, and hosting an Amplify app.

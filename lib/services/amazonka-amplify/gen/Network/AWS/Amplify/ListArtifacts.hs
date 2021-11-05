@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Amplify.ListArtifacts
+-- Module      : Amazonka.Amplify.ListArtifacts
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list of artifacts for a specified app, branch, and job.
-module Network.AWS.Amplify.ListArtifacts
+module Amazonka.Amplify.ListArtifacts
   ( -- * Creating a Request
     ListArtifacts (..),
     newListArtifacts,
@@ -44,12 +44,12 @@ module Network.AWS.Amplify.ListArtifacts
   )
 where
 
-import Network.AWS.Amplify.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Amplify.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Describes the request structure for the list artifacts request.
 --

@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Amplify.Types.DomainAssociation
+-- Module      : Amazonka.Amplify.Types.DomainAssociation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Amplify.Types.DomainAssociation where
+module Amazonka.Amplify.Types.DomainAssociation where
 
-import Network.AWS.Amplify.Types.DomainStatus
-import Network.AWS.Amplify.Types.SubDomain
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Amplify.Types.DomainStatus
+import Amazonka.Amplify.Types.SubDomain
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a domain association that associates a custom domain with an
 -- Amplify app.

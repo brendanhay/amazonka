@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.Amplify.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.Amplify.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.Amplify" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.Amplify" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,68 +45,68 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.Amplify
-    Network.AWS.Amplify.CreateApp
-    Network.AWS.Amplify.CreateBackendEnvironment
-    Network.AWS.Amplify.CreateBranch
-    Network.AWS.Amplify.CreateDeployment
-    Network.AWS.Amplify.CreateDomainAssociation
-    Network.AWS.Amplify.CreateWebhook
-    Network.AWS.Amplify.DeleteApp
-    Network.AWS.Amplify.DeleteBackendEnvironment
-    Network.AWS.Amplify.DeleteBranch
-    Network.AWS.Amplify.DeleteDomainAssociation
-    Network.AWS.Amplify.DeleteJob
-    Network.AWS.Amplify.DeleteWebhook
-    Network.AWS.Amplify.GenerateAccessLogs
-    Network.AWS.Amplify.GetApp
-    Network.AWS.Amplify.GetArtifactUrl
-    Network.AWS.Amplify.GetBackendEnvironment
-    Network.AWS.Amplify.GetBranch
-    Network.AWS.Amplify.GetDomainAssociation
-    Network.AWS.Amplify.GetJob
-    Network.AWS.Amplify.GetWebhook
-    Network.AWS.Amplify.Lens
-    Network.AWS.Amplify.ListApps
-    Network.AWS.Amplify.ListArtifacts
-    Network.AWS.Amplify.ListBackendEnvironments
-    Network.AWS.Amplify.ListBranches
-    Network.AWS.Amplify.ListDomainAssociations
-    Network.AWS.Amplify.ListJobs
-    Network.AWS.Amplify.ListTagsForResource
-    Network.AWS.Amplify.ListWebhooks
-    Network.AWS.Amplify.StartDeployment
-    Network.AWS.Amplify.StartJob
-    Network.AWS.Amplify.StopJob
-    Network.AWS.Amplify.TagResource
-    Network.AWS.Amplify.Types
-    Network.AWS.Amplify.Types.App
-    Network.AWS.Amplify.Types.Artifact
-    Network.AWS.Amplify.Types.AutoBranchCreationConfig
-    Network.AWS.Amplify.Types.BackendEnvironment
-    Network.AWS.Amplify.Types.Branch
-    Network.AWS.Amplify.Types.CustomRule
-    Network.AWS.Amplify.Types.DomainAssociation
-    Network.AWS.Amplify.Types.DomainStatus
-    Network.AWS.Amplify.Types.Job
-    Network.AWS.Amplify.Types.JobStatus
-    Network.AWS.Amplify.Types.JobSummary
-    Network.AWS.Amplify.Types.JobType
-    Network.AWS.Amplify.Types.Platform
-    Network.AWS.Amplify.Types.ProductionBranch
-    Network.AWS.Amplify.Types.Stage
-    Network.AWS.Amplify.Types.Step
-    Network.AWS.Amplify.Types.SubDomain
-    Network.AWS.Amplify.Types.SubDomainSetting
-    Network.AWS.Amplify.Types.Webhook
-    Network.AWS.Amplify.UntagResource
-    Network.AWS.Amplify.UpdateApp
-    Network.AWS.Amplify.UpdateBranch
-    Network.AWS.Amplify.UpdateDomainAssociation
-    Network.AWS.Amplify.UpdateWebhook
-    Network.AWS.Amplify.Waiters
+    Amazonka.Amplify
+    Amazonka.Amplify.CreateApp
+    Amazonka.Amplify.CreateBackendEnvironment
+    Amazonka.Amplify.CreateBranch
+    Amazonka.Amplify.CreateDeployment
+    Amazonka.Amplify.CreateDomainAssociation
+    Amazonka.Amplify.CreateWebhook
+    Amazonka.Amplify.DeleteApp
+    Amazonka.Amplify.DeleteBackendEnvironment
+    Amazonka.Amplify.DeleteBranch
+    Amazonka.Amplify.DeleteDomainAssociation
+    Amazonka.Amplify.DeleteJob
+    Amazonka.Amplify.DeleteWebhook
+    Amazonka.Amplify.GenerateAccessLogs
+    Amazonka.Amplify.GetApp
+    Amazonka.Amplify.GetArtifactUrl
+    Amazonka.Amplify.GetBackendEnvironment
+    Amazonka.Amplify.GetBranch
+    Amazonka.Amplify.GetDomainAssociation
+    Amazonka.Amplify.GetJob
+    Amazonka.Amplify.GetWebhook
+    Amazonka.Amplify.Lens
+    Amazonka.Amplify.ListApps
+    Amazonka.Amplify.ListArtifacts
+    Amazonka.Amplify.ListBackendEnvironments
+    Amazonka.Amplify.ListBranches
+    Amazonka.Amplify.ListDomainAssociations
+    Amazonka.Amplify.ListJobs
+    Amazonka.Amplify.ListTagsForResource
+    Amazonka.Amplify.ListWebhooks
+    Amazonka.Amplify.StartDeployment
+    Amazonka.Amplify.StartJob
+    Amazonka.Amplify.StopJob
+    Amazonka.Amplify.TagResource
+    Amazonka.Amplify.Types
+    Amazonka.Amplify.Types.App
+    Amazonka.Amplify.Types.Artifact
+    Amazonka.Amplify.Types.AutoBranchCreationConfig
+    Amazonka.Amplify.Types.BackendEnvironment
+    Amazonka.Amplify.Types.Branch
+    Amazonka.Amplify.Types.CustomRule
+    Amazonka.Amplify.Types.DomainAssociation
+    Amazonka.Amplify.Types.DomainStatus
+    Amazonka.Amplify.Types.Job
+    Amazonka.Amplify.Types.JobStatus
+    Amazonka.Amplify.Types.JobSummary
+    Amazonka.Amplify.Types.JobType
+    Amazonka.Amplify.Types.Platform
+    Amazonka.Amplify.Types.ProductionBranch
+    Amazonka.Amplify.Types.Stage
+    Amazonka.Amplify.Types.Step
+    Amazonka.Amplify.Types.SubDomain
+    Amazonka.Amplify.Types.SubDomainSetting
+    Amazonka.Amplify.Types.Webhook
+    Amazonka.Amplify.UntagResource
+    Amazonka.Amplify.UpdateApp
+    Amazonka.Amplify.UpdateBranch
+    Amazonka.Amplify.UpdateDomainAssociation
+    Amazonka.Amplify.UpdateWebhook
+    Amazonka.Amplify.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

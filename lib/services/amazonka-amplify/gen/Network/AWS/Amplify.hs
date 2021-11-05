@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Amplify
+-- Module      : Amazonka.Amplify
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -18,7 +18,7 @@
 -- The Amplify Framework is a comprehensive set of SDKs, libraries, tools,
 -- and documentation for client app development. For more information, see
 -- the <https://docs.amplify.aws/ Amplify Framework.>
-module Network.AWS.Amplify
+module Amazonka.Amplify
   ( -- * Service Configuration
     defaultService,
 
@@ -349,46 +349,46 @@ module Network.AWS.Amplify
   )
 where
 
-import Network.AWS.Amplify.CreateApp
-import Network.AWS.Amplify.CreateBackendEnvironment
-import Network.AWS.Amplify.CreateBranch
-import Network.AWS.Amplify.CreateDeployment
-import Network.AWS.Amplify.CreateDomainAssociation
-import Network.AWS.Amplify.CreateWebhook
-import Network.AWS.Amplify.DeleteApp
-import Network.AWS.Amplify.DeleteBackendEnvironment
-import Network.AWS.Amplify.DeleteBranch
-import Network.AWS.Amplify.DeleteDomainAssociation
-import Network.AWS.Amplify.DeleteJob
-import Network.AWS.Amplify.DeleteWebhook
-import Network.AWS.Amplify.GenerateAccessLogs
-import Network.AWS.Amplify.GetApp
-import Network.AWS.Amplify.GetArtifactUrl
-import Network.AWS.Amplify.GetBackendEnvironment
-import Network.AWS.Amplify.GetBranch
-import Network.AWS.Amplify.GetDomainAssociation
-import Network.AWS.Amplify.GetJob
-import Network.AWS.Amplify.GetWebhook
-import Network.AWS.Amplify.Lens
-import Network.AWS.Amplify.ListApps
-import Network.AWS.Amplify.ListArtifacts
-import Network.AWS.Amplify.ListBackendEnvironments
-import Network.AWS.Amplify.ListBranches
-import Network.AWS.Amplify.ListDomainAssociations
-import Network.AWS.Amplify.ListJobs
-import Network.AWS.Amplify.ListTagsForResource
-import Network.AWS.Amplify.ListWebhooks
-import Network.AWS.Amplify.StartDeployment
-import Network.AWS.Amplify.StartJob
-import Network.AWS.Amplify.StopJob
-import Network.AWS.Amplify.TagResource
-import Network.AWS.Amplify.Types
-import Network.AWS.Amplify.UntagResource
-import Network.AWS.Amplify.UpdateApp
-import Network.AWS.Amplify.UpdateBranch
-import Network.AWS.Amplify.UpdateDomainAssociation
-import Network.AWS.Amplify.UpdateWebhook
-import Network.AWS.Amplify.Waiters
+import Amazonka.Amplify.CreateApp
+import Amazonka.Amplify.CreateBackendEnvironment
+import Amazonka.Amplify.CreateBranch
+import Amazonka.Amplify.CreateDeployment
+import Amazonka.Amplify.CreateDomainAssociation
+import Amazonka.Amplify.CreateWebhook
+import Amazonka.Amplify.DeleteApp
+import Amazonka.Amplify.DeleteBackendEnvironment
+import Amazonka.Amplify.DeleteBranch
+import Amazonka.Amplify.DeleteDomainAssociation
+import Amazonka.Amplify.DeleteJob
+import Amazonka.Amplify.DeleteWebhook
+import Amazonka.Amplify.GenerateAccessLogs
+import Amazonka.Amplify.GetApp
+import Amazonka.Amplify.GetArtifactUrl
+import Amazonka.Amplify.GetBackendEnvironment
+import Amazonka.Amplify.GetBranch
+import Amazonka.Amplify.GetDomainAssociation
+import Amazonka.Amplify.GetJob
+import Amazonka.Amplify.GetWebhook
+import Amazonka.Amplify.Lens
+import Amazonka.Amplify.ListApps
+import Amazonka.Amplify.ListArtifacts
+import Amazonka.Amplify.ListBackendEnvironments
+import Amazonka.Amplify.ListBranches
+import Amazonka.Amplify.ListDomainAssociations
+import Amazonka.Amplify.ListJobs
+import Amazonka.Amplify.ListTagsForResource
+import Amazonka.Amplify.ListWebhooks
+import Amazonka.Amplify.StartDeployment
+import Amazonka.Amplify.StartJob
+import Amazonka.Amplify.StopJob
+import Amazonka.Amplify.TagResource
+import Amazonka.Amplify.Types
+import Amazonka.Amplify.UntagResource
+import Amazonka.Amplify.UpdateApp
+import Amazonka.Amplify.UpdateBranch
+import Amazonka.Amplify.UpdateDomainAssociation
+import Amazonka.Amplify.UpdateWebhook
+import Amazonka.Amplify.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

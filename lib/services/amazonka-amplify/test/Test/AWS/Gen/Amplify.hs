@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Amplify where
 
+import Amazonka.Amplify
 import qualified Data.Proxy as Proxy
-import Network.AWS.Amplify
 import Test.AWS.Amplify.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

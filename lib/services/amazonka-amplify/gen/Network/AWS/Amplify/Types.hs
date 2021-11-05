@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Amplify.Types
+-- Module      : Amazonka.Amplify.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Amplify.Types
+module Amazonka.Amplify.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -217,29 +217,29 @@ module Network.AWS.Amplify.Types
   )
 where
 
-import Network.AWS.Amplify.Types.App
-import Network.AWS.Amplify.Types.Artifact
-import Network.AWS.Amplify.Types.AutoBranchCreationConfig
-import Network.AWS.Amplify.Types.BackendEnvironment
-import Network.AWS.Amplify.Types.Branch
-import Network.AWS.Amplify.Types.CustomRule
-import Network.AWS.Amplify.Types.DomainAssociation
-import Network.AWS.Amplify.Types.DomainStatus
-import Network.AWS.Amplify.Types.Job
-import Network.AWS.Amplify.Types.JobStatus
-import Network.AWS.Amplify.Types.JobSummary
-import Network.AWS.Amplify.Types.JobType
-import Network.AWS.Amplify.Types.Platform
-import Network.AWS.Amplify.Types.ProductionBranch
-import Network.AWS.Amplify.Types.Stage
-import Network.AWS.Amplify.Types.Step
-import Network.AWS.Amplify.Types.SubDomain
-import Network.AWS.Amplify.Types.SubDomainSetting
-import Network.AWS.Amplify.Types.Webhook
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.Amplify.Types.App
+import Amazonka.Amplify.Types.Artifact
+import Amazonka.Amplify.Types.AutoBranchCreationConfig
+import Amazonka.Amplify.Types.BackendEnvironment
+import Amazonka.Amplify.Types.Branch
+import Amazonka.Amplify.Types.CustomRule
+import Amazonka.Amplify.Types.DomainAssociation
+import Amazonka.Amplify.Types.DomainStatus
+import Amazonka.Amplify.Types.Job
+import Amazonka.Amplify.Types.JobStatus
+import Amazonka.Amplify.Types.JobSummary
+import Amazonka.Amplify.Types.JobType
+import Amazonka.Amplify.Types.Platform
+import Amazonka.Amplify.Types.ProductionBranch
+import Amazonka.Amplify.Types.Stage
+import Amazonka.Amplify.Types.Step
+import Amazonka.Amplify.Types.SubDomain
+import Amazonka.Amplify.Types.SubDomainSetting
+import Amazonka.Amplify.Types.Webhook
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2017-07-25@ of the Amazon Amplify SDK configuration.
 defaultService :: Core.Service

@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig
+-- Module      : Amazonka.Comprehend.Types.DocumentClassifierInputDataConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig where
+module Amazonka.Comprehend.Types.DocumentClassifierInputDataConfig where
 
-import Network.AWS.Comprehend.Types.AugmentedManifestsListItem
-import Network.AWS.Comprehend.Types.DocumentClassifierDataFormat
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Comprehend.Types.AugmentedManifestsListItem
+import Amazonka.Comprehend.Types.DocumentClassifierDataFormat
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The input properties for training a document classifier.
 --

@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Comprehend.Types.AugmentedManifestsListItem
+-- Module      : Amazonka.Comprehend.Types.AugmentedManifestsListItem
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Comprehend.Types.AugmentedManifestsListItem where
+module Amazonka.Comprehend.Types.AugmentedManifestsListItem where
 
-import Network.AWS.Comprehend.Types.AugmentedManifestsDocumentTypeFormat
-import Network.AWS.Comprehend.Types.Split
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Comprehend.Types.AugmentedManifestsDocumentTypeFormat
+import Amazonka.Comprehend.Types.Split
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | An augmented manifest file that provides training data for your custom
 -- model. An augmented manifest file is a labeled dataset that is produced

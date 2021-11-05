@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult
+-- Module      : Amazonka.Comprehend.Types.BatchDetectEntitiesItemResult
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult where
+module Amazonka.Comprehend.Types.BatchDetectEntitiesItemResult where
 
-import Network.AWS.Comprehend.Types.Entity
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Comprehend.Types.Entity
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The result of calling the operation. The operation returns one object
 -- for each document that is successfully processed by the operation.

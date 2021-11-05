@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Comprehend.ListEntityRecognizerSummaries
+-- Module      : Amazonka.Comprehend.ListEntityRecognizerSummaries
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Gets a list of summaries for the entity recognizers that you have
 -- created.
-module Network.AWS.Comprehend.ListEntityRecognizerSummaries
+module Amazonka.Comprehend.ListEntityRecognizerSummaries
   ( -- * Creating a Request
     ListEntityRecognizerSummaries (..),
     newListEntityRecognizerSummaries,
@@ -42,12 +42,12 @@ module Network.AWS.Comprehend.ListEntityRecognizerSummaries
   )
 where
 
-import Network.AWS.Comprehend.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Comprehend.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListEntityRecognizerSummaries' smart constructor.
 data ListEntityRecognizerSummaries = ListEntityRecognizerSummaries'

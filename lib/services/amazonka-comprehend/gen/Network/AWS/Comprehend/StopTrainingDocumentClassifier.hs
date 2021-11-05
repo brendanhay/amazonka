@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Comprehend.StopTrainingDocumentClassifier
+-- Module      : Amazonka.Comprehend.StopTrainingDocumentClassifier
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 -- completes before it can be stopped, it is put into the @TRAINED@;
 -- otherwise the training job is stopped and put into the @STOPPED@ state
 -- and the service sends back an HTTP 200 response with an empty HTTP body.
-module Network.AWS.Comprehend.StopTrainingDocumentClassifier
+module Amazonka.Comprehend.StopTrainingDocumentClassifier
   ( -- * Creating a Request
     StopTrainingDocumentClassifier (..),
     newStopTrainingDocumentClassifier,
@@ -44,12 +44,12 @@ module Network.AWS.Comprehend.StopTrainingDocumentClassifier
   )
 where
 
-import Network.AWS.Comprehend.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Comprehend.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStopTrainingDocumentClassifier' smart constructor.
 data StopTrainingDocumentClassifier = StopTrainingDocumentClassifier'

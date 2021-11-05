@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Comprehend
+-- Module      : Amazonka.Comprehend
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -15,7 +15,7 @@
 -- of documents. Use these actions to determine the topics contained in
 -- your documents, the topics they discuss, the predominant sentiment
 -- expressed in them, the predominant language used, and more.
-module Network.AWS.Comprehend
+module Amazonka.Comprehend
   ( -- * Service Configuration
     defaultService,
 
@@ -762,72 +762,72 @@ module Network.AWS.Comprehend
   )
 where
 
-import Network.AWS.Comprehend.BatchDetectDominantLanguage
-import Network.AWS.Comprehend.BatchDetectEntities
-import Network.AWS.Comprehend.BatchDetectKeyPhrases
-import Network.AWS.Comprehend.BatchDetectSentiment
-import Network.AWS.Comprehend.BatchDetectSyntax
-import Network.AWS.Comprehend.ClassifyDocument
-import Network.AWS.Comprehend.ContainsPiiEntities
-import Network.AWS.Comprehend.CreateDocumentClassifier
-import Network.AWS.Comprehend.CreateEndpoint
-import Network.AWS.Comprehend.CreateEntityRecognizer
-import Network.AWS.Comprehend.DeleteDocumentClassifier
-import Network.AWS.Comprehend.DeleteEndpoint
-import Network.AWS.Comprehend.DeleteEntityRecognizer
-import Network.AWS.Comprehend.DescribeDocumentClassificationJob
-import Network.AWS.Comprehend.DescribeDocumentClassifier
-import Network.AWS.Comprehend.DescribeDominantLanguageDetectionJob
-import Network.AWS.Comprehend.DescribeEndpoint
-import Network.AWS.Comprehend.DescribeEntitiesDetectionJob
-import Network.AWS.Comprehend.DescribeEntityRecognizer
-import Network.AWS.Comprehend.DescribeEventsDetectionJob
-import Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob
-import Network.AWS.Comprehend.DescribePiiEntitiesDetectionJob
-import Network.AWS.Comprehend.DescribeSentimentDetectionJob
-import Network.AWS.Comprehend.DescribeTopicsDetectionJob
-import Network.AWS.Comprehend.DetectDominantLanguage
-import Network.AWS.Comprehend.DetectEntities
-import Network.AWS.Comprehend.DetectKeyPhrases
-import Network.AWS.Comprehend.DetectPiiEntities
-import Network.AWS.Comprehend.DetectSentiment
-import Network.AWS.Comprehend.DetectSyntax
-import Network.AWS.Comprehend.Lens
-import Network.AWS.Comprehend.ListDocumentClassificationJobs
-import Network.AWS.Comprehend.ListDocumentClassifierSummaries
-import Network.AWS.Comprehend.ListDocumentClassifiers
-import Network.AWS.Comprehend.ListDominantLanguageDetectionJobs
-import Network.AWS.Comprehend.ListEndpoints
-import Network.AWS.Comprehend.ListEntitiesDetectionJobs
-import Network.AWS.Comprehend.ListEntityRecognizerSummaries
-import Network.AWS.Comprehend.ListEntityRecognizers
-import Network.AWS.Comprehend.ListEventsDetectionJobs
-import Network.AWS.Comprehend.ListKeyPhrasesDetectionJobs
-import Network.AWS.Comprehend.ListPiiEntitiesDetectionJobs
-import Network.AWS.Comprehend.ListSentimentDetectionJobs
-import Network.AWS.Comprehend.ListTagsForResource
-import Network.AWS.Comprehend.ListTopicsDetectionJobs
-import Network.AWS.Comprehend.StartDocumentClassificationJob
-import Network.AWS.Comprehend.StartDominantLanguageDetectionJob
-import Network.AWS.Comprehend.StartEntitiesDetectionJob
-import Network.AWS.Comprehend.StartEventsDetectionJob
-import Network.AWS.Comprehend.StartKeyPhrasesDetectionJob
-import Network.AWS.Comprehend.StartPiiEntitiesDetectionJob
-import Network.AWS.Comprehend.StartSentimentDetectionJob
-import Network.AWS.Comprehend.StartTopicsDetectionJob
-import Network.AWS.Comprehend.StopDominantLanguageDetectionJob
-import Network.AWS.Comprehend.StopEntitiesDetectionJob
-import Network.AWS.Comprehend.StopEventsDetectionJob
-import Network.AWS.Comprehend.StopKeyPhrasesDetectionJob
-import Network.AWS.Comprehend.StopPiiEntitiesDetectionJob
-import Network.AWS.Comprehend.StopSentimentDetectionJob
-import Network.AWS.Comprehend.StopTrainingDocumentClassifier
-import Network.AWS.Comprehend.StopTrainingEntityRecognizer
-import Network.AWS.Comprehend.TagResource
-import Network.AWS.Comprehend.Types
-import Network.AWS.Comprehend.UntagResource
-import Network.AWS.Comprehend.UpdateEndpoint
-import Network.AWS.Comprehend.Waiters
+import Amazonka.Comprehend.BatchDetectDominantLanguage
+import Amazonka.Comprehend.BatchDetectEntities
+import Amazonka.Comprehend.BatchDetectKeyPhrases
+import Amazonka.Comprehend.BatchDetectSentiment
+import Amazonka.Comprehend.BatchDetectSyntax
+import Amazonka.Comprehend.ClassifyDocument
+import Amazonka.Comprehend.ContainsPiiEntities
+import Amazonka.Comprehend.CreateDocumentClassifier
+import Amazonka.Comprehend.CreateEndpoint
+import Amazonka.Comprehend.CreateEntityRecognizer
+import Amazonka.Comprehend.DeleteDocumentClassifier
+import Amazonka.Comprehend.DeleteEndpoint
+import Amazonka.Comprehend.DeleteEntityRecognizer
+import Amazonka.Comprehend.DescribeDocumentClassificationJob
+import Amazonka.Comprehend.DescribeDocumentClassifier
+import Amazonka.Comprehend.DescribeDominantLanguageDetectionJob
+import Amazonka.Comprehend.DescribeEndpoint
+import Amazonka.Comprehend.DescribeEntitiesDetectionJob
+import Amazonka.Comprehend.DescribeEntityRecognizer
+import Amazonka.Comprehend.DescribeEventsDetectionJob
+import Amazonka.Comprehend.DescribeKeyPhrasesDetectionJob
+import Amazonka.Comprehend.DescribePiiEntitiesDetectionJob
+import Amazonka.Comprehend.DescribeSentimentDetectionJob
+import Amazonka.Comprehend.DescribeTopicsDetectionJob
+import Amazonka.Comprehend.DetectDominantLanguage
+import Amazonka.Comprehend.DetectEntities
+import Amazonka.Comprehend.DetectKeyPhrases
+import Amazonka.Comprehend.DetectPiiEntities
+import Amazonka.Comprehend.DetectSentiment
+import Amazonka.Comprehend.DetectSyntax
+import Amazonka.Comprehend.Lens
+import Amazonka.Comprehend.ListDocumentClassificationJobs
+import Amazonka.Comprehend.ListDocumentClassifierSummaries
+import Amazonka.Comprehend.ListDocumentClassifiers
+import Amazonka.Comprehend.ListDominantLanguageDetectionJobs
+import Amazonka.Comprehend.ListEndpoints
+import Amazonka.Comprehend.ListEntitiesDetectionJobs
+import Amazonka.Comprehend.ListEntityRecognizerSummaries
+import Amazonka.Comprehend.ListEntityRecognizers
+import Amazonka.Comprehend.ListEventsDetectionJobs
+import Amazonka.Comprehend.ListKeyPhrasesDetectionJobs
+import Amazonka.Comprehend.ListPiiEntitiesDetectionJobs
+import Amazonka.Comprehend.ListSentimentDetectionJobs
+import Amazonka.Comprehend.ListTagsForResource
+import Amazonka.Comprehend.ListTopicsDetectionJobs
+import Amazonka.Comprehend.StartDocumentClassificationJob
+import Amazonka.Comprehend.StartDominantLanguageDetectionJob
+import Amazonka.Comprehend.StartEntitiesDetectionJob
+import Amazonka.Comprehend.StartEventsDetectionJob
+import Amazonka.Comprehend.StartKeyPhrasesDetectionJob
+import Amazonka.Comprehend.StartPiiEntitiesDetectionJob
+import Amazonka.Comprehend.StartSentimentDetectionJob
+import Amazonka.Comprehend.StartTopicsDetectionJob
+import Amazonka.Comprehend.StopDominantLanguageDetectionJob
+import Amazonka.Comprehend.StopEntitiesDetectionJob
+import Amazonka.Comprehend.StopEventsDetectionJob
+import Amazonka.Comprehend.StopKeyPhrasesDetectionJob
+import Amazonka.Comprehend.StopPiiEntitiesDetectionJob
+import Amazonka.Comprehend.StopSentimentDetectionJob
+import Amazonka.Comprehend.StopTrainingDocumentClassifier
+import Amazonka.Comprehend.StopTrainingEntityRecognizer
+import Amazonka.Comprehend.TagResource
+import Amazonka.Comprehend.Types
+import Amazonka.Comprehend.UntagResource
+import Amazonka.Comprehend.UpdateEndpoint
+import Amazonka.Comprehend.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

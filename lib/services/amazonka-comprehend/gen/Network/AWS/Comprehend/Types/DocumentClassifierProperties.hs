@@ -11,24 +11,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Comprehend.Types.DocumentClassifierProperties
+-- Module      : Amazonka.Comprehend.Types.DocumentClassifierProperties
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Comprehend.Types.DocumentClassifierProperties where
+module Amazonka.Comprehend.Types.DocumentClassifierProperties where
 
-import Network.AWS.Comprehend.Types.ClassifierMetadata
-import Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig
-import Network.AWS.Comprehend.Types.DocumentClassifierMode
-import Network.AWS.Comprehend.Types.DocumentClassifierOutputDataConfig
-import Network.AWS.Comprehend.Types.LanguageCode
-import Network.AWS.Comprehend.Types.ModelStatus
-import Network.AWS.Comprehend.Types.VpcConfig
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Comprehend.Types.ClassifierMetadata
+import Amazonka.Comprehend.Types.DocumentClassifierInputDataConfig
+import Amazonka.Comprehend.Types.DocumentClassifierMode
+import Amazonka.Comprehend.Types.DocumentClassifierOutputDataConfig
+import Amazonka.Comprehend.Types.LanguageCode
+import Amazonka.Comprehend.Types.ModelStatus
+import Amazonka.Comprehend.Types.VpcConfig
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about a document classifier.
 --

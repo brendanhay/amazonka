@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Comprehend.Types.DocumentReaderConfig
+-- Module      : Amazonka.Comprehend.Types.DocumentReaderConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Comprehend.Types.DocumentReaderConfig where
+module Amazonka.Comprehend.Types.DocumentReaderConfig where
 
-import Network.AWS.Comprehend.Types.DocumentReadAction
-import Network.AWS.Comprehend.Types.DocumentReadFeatureTypes
-import Network.AWS.Comprehend.Types.DocumentReadMode
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Comprehend.Types.DocumentReadAction
+import Amazonka.Comprehend.Types.DocumentReadFeatureTypes
+import Amazonka.Comprehend.Types.DocumentReadMode
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The input properties for a topic detection job.
 --

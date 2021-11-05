@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Comprehend.Types
+-- Module      : Amazonka.Comprehend.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Comprehend.Types
+module Amazonka.Comprehend.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -654,91 +654,91 @@ module Network.AWS.Comprehend.Types
   )
 where
 
-import Network.AWS.Comprehend.Types.AugmentedManifestsDocumentTypeFormat
-import Network.AWS.Comprehend.Types.AugmentedManifestsListItem
-import Network.AWS.Comprehend.Types.BatchDetectDominantLanguageItemResult
-import Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult
-import Network.AWS.Comprehend.Types.BatchDetectKeyPhrasesItemResult
-import Network.AWS.Comprehend.Types.BatchDetectSentimentItemResult
-import Network.AWS.Comprehend.Types.BatchDetectSyntaxItemResult
-import Network.AWS.Comprehend.Types.BatchItemError
-import Network.AWS.Comprehend.Types.ClassifierEvaluationMetrics
-import Network.AWS.Comprehend.Types.ClassifierMetadata
-import Network.AWS.Comprehend.Types.DocumentClass
-import Network.AWS.Comprehend.Types.DocumentClassificationJobFilter
-import Network.AWS.Comprehend.Types.DocumentClassificationJobProperties
-import Network.AWS.Comprehend.Types.DocumentClassifierDataFormat
-import Network.AWS.Comprehend.Types.DocumentClassifierFilter
-import Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig
-import Network.AWS.Comprehend.Types.DocumentClassifierMode
-import Network.AWS.Comprehend.Types.DocumentClassifierOutputDataConfig
-import Network.AWS.Comprehend.Types.DocumentClassifierProperties
-import Network.AWS.Comprehend.Types.DocumentClassifierSummary
-import Network.AWS.Comprehend.Types.DocumentLabel
-import Network.AWS.Comprehend.Types.DocumentReadAction
-import Network.AWS.Comprehend.Types.DocumentReadFeatureTypes
-import Network.AWS.Comprehend.Types.DocumentReadMode
-import Network.AWS.Comprehend.Types.DocumentReaderConfig
-import Network.AWS.Comprehend.Types.DominantLanguage
-import Network.AWS.Comprehend.Types.DominantLanguageDetectionJobFilter
-import Network.AWS.Comprehend.Types.DominantLanguageDetectionJobProperties
-import Network.AWS.Comprehend.Types.EndpointFilter
-import Network.AWS.Comprehend.Types.EndpointProperties
-import Network.AWS.Comprehend.Types.EndpointStatus
-import Network.AWS.Comprehend.Types.EntitiesDetectionJobFilter
-import Network.AWS.Comprehend.Types.EntitiesDetectionJobProperties
-import Network.AWS.Comprehend.Types.Entity
-import Network.AWS.Comprehend.Types.EntityLabel
-import Network.AWS.Comprehend.Types.EntityRecognizerAnnotations
-import Network.AWS.Comprehend.Types.EntityRecognizerDataFormat
-import Network.AWS.Comprehend.Types.EntityRecognizerDocuments
-import Network.AWS.Comprehend.Types.EntityRecognizerEntityList
-import Network.AWS.Comprehend.Types.EntityRecognizerEvaluationMetrics
-import Network.AWS.Comprehend.Types.EntityRecognizerFilter
-import Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig
-import Network.AWS.Comprehend.Types.EntityRecognizerMetadata
-import Network.AWS.Comprehend.Types.EntityRecognizerMetadataEntityTypesListItem
-import Network.AWS.Comprehend.Types.EntityRecognizerProperties
-import Network.AWS.Comprehend.Types.EntityRecognizerSummary
-import Network.AWS.Comprehend.Types.EntityType
-import Network.AWS.Comprehend.Types.EntityTypesEvaluationMetrics
-import Network.AWS.Comprehend.Types.EntityTypesListItem
-import Network.AWS.Comprehend.Types.EventsDetectionJobFilter
-import Network.AWS.Comprehend.Types.EventsDetectionJobProperties
-import Network.AWS.Comprehend.Types.InputDataConfig
-import Network.AWS.Comprehend.Types.InputFormat
-import Network.AWS.Comprehend.Types.JobStatus
-import Network.AWS.Comprehend.Types.KeyPhrase
-import Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter
-import Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobProperties
-import Network.AWS.Comprehend.Types.LanguageCode
-import Network.AWS.Comprehend.Types.ModelStatus
-import Network.AWS.Comprehend.Types.OutputDataConfig
-import Network.AWS.Comprehend.Types.PartOfSpeechTag
-import Network.AWS.Comprehend.Types.PartOfSpeechTagType
-import Network.AWS.Comprehend.Types.PiiEntitiesDetectionJobFilter
-import Network.AWS.Comprehend.Types.PiiEntitiesDetectionJobProperties
-import Network.AWS.Comprehend.Types.PiiEntitiesDetectionMaskMode
-import Network.AWS.Comprehend.Types.PiiEntitiesDetectionMode
-import Network.AWS.Comprehend.Types.PiiEntity
-import Network.AWS.Comprehend.Types.PiiEntityType
-import Network.AWS.Comprehend.Types.PiiOutputDataConfig
-import Network.AWS.Comprehend.Types.RedactionConfig
-import Network.AWS.Comprehend.Types.SentimentDetectionJobFilter
-import Network.AWS.Comprehend.Types.SentimentDetectionJobProperties
-import Network.AWS.Comprehend.Types.SentimentScore
-import Network.AWS.Comprehend.Types.SentimentType
-import Network.AWS.Comprehend.Types.Split
-import Network.AWS.Comprehend.Types.SyntaxLanguageCode
-import Network.AWS.Comprehend.Types.SyntaxToken
-import Network.AWS.Comprehend.Types.Tag
-import Network.AWS.Comprehend.Types.TopicsDetectionJobFilter
-import Network.AWS.Comprehend.Types.TopicsDetectionJobProperties
-import Network.AWS.Comprehend.Types.VpcConfig
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.Comprehend.Types.AugmentedManifestsDocumentTypeFormat
+import Amazonka.Comprehend.Types.AugmentedManifestsListItem
+import Amazonka.Comprehend.Types.BatchDetectDominantLanguageItemResult
+import Amazonka.Comprehend.Types.BatchDetectEntitiesItemResult
+import Amazonka.Comprehend.Types.BatchDetectKeyPhrasesItemResult
+import Amazonka.Comprehend.Types.BatchDetectSentimentItemResult
+import Amazonka.Comprehend.Types.BatchDetectSyntaxItemResult
+import Amazonka.Comprehend.Types.BatchItemError
+import Amazonka.Comprehend.Types.ClassifierEvaluationMetrics
+import Amazonka.Comprehend.Types.ClassifierMetadata
+import Amazonka.Comprehend.Types.DocumentClass
+import Amazonka.Comprehend.Types.DocumentClassificationJobFilter
+import Amazonka.Comprehend.Types.DocumentClassificationJobProperties
+import Amazonka.Comprehend.Types.DocumentClassifierDataFormat
+import Amazonka.Comprehend.Types.DocumentClassifierFilter
+import Amazonka.Comprehend.Types.DocumentClassifierInputDataConfig
+import Amazonka.Comprehend.Types.DocumentClassifierMode
+import Amazonka.Comprehend.Types.DocumentClassifierOutputDataConfig
+import Amazonka.Comprehend.Types.DocumentClassifierProperties
+import Amazonka.Comprehend.Types.DocumentClassifierSummary
+import Amazonka.Comprehend.Types.DocumentLabel
+import Amazonka.Comprehend.Types.DocumentReadAction
+import Amazonka.Comprehend.Types.DocumentReadFeatureTypes
+import Amazonka.Comprehend.Types.DocumentReadMode
+import Amazonka.Comprehend.Types.DocumentReaderConfig
+import Amazonka.Comprehend.Types.DominantLanguage
+import Amazonka.Comprehend.Types.DominantLanguageDetectionJobFilter
+import Amazonka.Comprehend.Types.DominantLanguageDetectionJobProperties
+import Amazonka.Comprehend.Types.EndpointFilter
+import Amazonka.Comprehend.Types.EndpointProperties
+import Amazonka.Comprehend.Types.EndpointStatus
+import Amazonka.Comprehend.Types.EntitiesDetectionJobFilter
+import Amazonka.Comprehend.Types.EntitiesDetectionJobProperties
+import Amazonka.Comprehend.Types.Entity
+import Amazonka.Comprehend.Types.EntityLabel
+import Amazonka.Comprehend.Types.EntityRecognizerAnnotations
+import Amazonka.Comprehend.Types.EntityRecognizerDataFormat
+import Amazonka.Comprehend.Types.EntityRecognizerDocuments
+import Amazonka.Comprehend.Types.EntityRecognizerEntityList
+import Amazonka.Comprehend.Types.EntityRecognizerEvaluationMetrics
+import Amazonka.Comprehend.Types.EntityRecognizerFilter
+import Amazonka.Comprehend.Types.EntityRecognizerInputDataConfig
+import Amazonka.Comprehend.Types.EntityRecognizerMetadata
+import Amazonka.Comprehend.Types.EntityRecognizerMetadataEntityTypesListItem
+import Amazonka.Comprehend.Types.EntityRecognizerProperties
+import Amazonka.Comprehend.Types.EntityRecognizerSummary
+import Amazonka.Comprehend.Types.EntityType
+import Amazonka.Comprehend.Types.EntityTypesEvaluationMetrics
+import Amazonka.Comprehend.Types.EntityTypesListItem
+import Amazonka.Comprehend.Types.EventsDetectionJobFilter
+import Amazonka.Comprehend.Types.EventsDetectionJobProperties
+import Amazonka.Comprehend.Types.InputDataConfig
+import Amazonka.Comprehend.Types.InputFormat
+import Amazonka.Comprehend.Types.JobStatus
+import Amazonka.Comprehend.Types.KeyPhrase
+import Amazonka.Comprehend.Types.KeyPhrasesDetectionJobFilter
+import Amazonka.Comprehend.Types.KeyPhrasesDetectionJobProperties
+import Amazonka.Comprehend.Types.LanguageCode
+import Amazonka.Comprehend.Types.ModelStatus
+import Amazonka.Comprehend.Types.OutputDataConfig
+import Amazonka.Comprehend.Types.PartOfSpeechTag
+import Amazonka.Comprehend.Types.PartOfSpeechTagType
+import Amazonka.Comprehend.Types.PiiEntitiesDetectionJobFilter
+import Amazonka.Comprehend.Types.PiiEntitiesDetectionJobProperties
+import Amazonka.Comprehend.Types.PiiEntitiesDetectionMaskMode
+import Amazonka.Comprehend.Types.PiiEntitiesDetectionMode
+import Amazonka.Comprehend.Types.PiiEntity
+import Amazonka.Comprehend.Types.PiiEntityType
+import Amazonka.Comprehend.Types.PiiOutputDataConfig
+import Amazonka.Comprehend.Types.RedactionConfig
+import Amazonka.Comprehend.Types.SentimentDetectionJobFilter
+import Amazonka.Comprehend.Types.SentimentDetectionJobProperties
+import Amazonka.Comprehend.Types.SentimentScore
+import Amazonka.Comprehend.Types.SentimentType
+import Amazonka.Comprehend.Types.Split
+import Amazonka.Comprehend.Types.SyntaxLanguageCode
+import Amazonka.Comprehend.Types.SyntaxToken
+import Amazonka.Comprehend.Types.Tag
+import Amazonka.Comprehend.Types.TopicsDetectionJobFilter
+import Amazonka.Comprehend.Types.TopicsDetectionJobProperties
+import Amazonka.Comprehend.Types.VpcConfig
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2017-11-27@ of the Amazon Comprehend SDK configuration.
 defaultService :: Core.Service

@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Comprehend.Types.PiiEntitiesDetectionJobProperties
+-- Module      : Amazonka.Comprehend.Types.PiiEntitiesDetectionJobProperties
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Comprehend.Types.PiiEntitiesDetectionJobProperties where
+module Amazonka.Comprehend.Types.PiiEntitiesDetectionJobProperties where
 
-import Network.AWS.Comprehend.Types.InputDataConfig
-import Network.AWS.Comprehend.Types.JobStatus
-import Network.AWS.Comprehend.Types.LanguageCode
-import Network.AWS.Comprehend.Types.PiiEntitiesDetectionMode
-import Network.AWS.Comprehend.Types.PiiOutputDataConfig
-import Network.AWS.Comprehend.Types.RedactionConfig
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Comprehend.Types.InputDataConfig
+import Amazonka.Comprehend.Types.JobStatus
+import Amazonka.Comprehend.Types.LanguageCode
+import Amazonka.Comprehend.Types.PiiEntitiesDetectionMode
+import Amazonka.Comprehend.Types.PiiOutputDataConfig
+import Amazonka.Comprehend.Types.RedactionConfig
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about a PII entities detection job.
 --

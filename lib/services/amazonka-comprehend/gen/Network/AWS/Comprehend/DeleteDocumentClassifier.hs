@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Comprehend.DeleteDocumentClassifier
+-- Module      : Amazonka.Comprehend.DeleteDocumentClassifier
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -30,7 +30,7 @@
 -- state, and it is then removed by a background job. Once removed, the
 -- classifier disappears from your account and is no longer available for
 -- use.
-module Network.AWS.Comprehend.DeleteDocumentClassifier
+module Amazonka.Comprehend.DeleteDocumentClassifier
   ( -- * Creating a Request
     DeleteDocumentClassifier (..),
     newDeleteDocumentClassifier,
@@ -47,12 +47,12 @@ module Network.AWS.Comprehend.DeleteDocumentClassifier
   )
 where
 
-import Network.AWS.Comprehend.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Comprehend.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteDocumentClassifier' smart constructor.
 data DeleteDocumentClassifier = DeleteDocumentClassifier'

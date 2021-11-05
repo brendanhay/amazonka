@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Comprehend.BatchDetectSyntax
+-- Module      : Amazonka.Comprehend.BatchDetectSyntax
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Inspects the text of a batch of documents for the syntax and part of
 -- speech of the words in the document and returns information about them.
 -- For more information, see how-syntax.
-module Network.AWS.Comprehend.BatchDetectSyntax
+module Amazonka.Comprehend.BatchDetectSyntax
   ( -- * Creating a Request
     BatchDetectSyntax (..),
     newBatchDetectSyntax,
@@ -43,12 +43,12 @@ module Network.AWS.Comprehend.BatchDetectSyntax
   )
 where
 
-import Network.AWS.Comprehend.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Comprehend.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newBatchDetectSyntax' smart constructor.
 data BatchDetectSyntax = BatchDetectSyntax'

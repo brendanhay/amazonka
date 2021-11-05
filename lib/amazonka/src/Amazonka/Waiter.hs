@@ -26,7 +26,6 @@ module Amazonka.Waiter
   )
 where
 
-import qualified Data.Text as Text
 import Amazonka.Data
 import Amazonka.Error (_HttpStatus)
 import Amazonka.Lens
@@ -39,6 +38,7 @@ import Amazonka.Lens
   )
 import Amazonka.Prelude
 import Amazonka.Types
+import qualified Data.Text as Text
 import qualified Network.HTTP.Client as Client
 
 type Acceptor a = Request a -> Either Error (ClientResponse (AWSResponse a)) -> Maybe Accept

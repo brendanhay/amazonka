@@ -7,6 +7,13 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.S3.Encryption.Envelope where
 
+import qualified Amazonka as AWS
+import Amazonka.Core
+import qualified Amazonka.KMS as KMS
+import qualified Amazonka.KMS.Lens as KMS
+import Amazonka.Prelude
+import Amazonka.S3.Encryption.Body
+import Amazonka.S3.Encryption.Types
 import Conduit ((.|))
 import qualified Conduit
 import qualified Control.Exception as Exception
@@ -26,13 +33,6 @@ import qualified Data.ByteArray as ByteArray
 import qualified Data.ByteString as BS
 import qualified Data.CaseInsensitive as CI
 import qualified Data.HashMap.Strict as Map
-import qualified Amazonka as AWS
-import Amazonka.Core
-import qualified Amazonka.KMS as KMS
-import qualified Amazonka.KMS.Lens as KMS
-import Amazonka.Prelude
-import Amazonka.S3.Encryption.Body
-import Amazonka.S3.Encryption.Types
 
 data V1Envelope = V1Envelope
   { -- | @x-amz-key@: Content encrypting key (cek) in encrypted form, base64

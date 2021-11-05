@@ -7,6 +7,12 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.Data.Log where
 
+import Amazonka.Data.ByteString
+import Amazonka.Data.Headers
+import Amazonka.Data.Path
+import Amazonka.Data.Query
+import Amazonka.Data.Text
+import Amazonka.Prelude
 import qualified Data.ByteString as BS
 import qualified Data.ByteString.Builder as Build
 import qualified Data.ByteString.Lazy as LBS
@@ -16,12 +22,6 @@ import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text
 import qualified Data.Text.Lazy as LText
 import qualified Data.Text.Lazy.Encoding as LText
-import Amazonka.Data.ByteString
-import Amazonka.Data.Headers
-import Amazonka.Data.Path
-import Amazonka.Data.Query
-import Amazonka.Data.Text
-import Amazonka.Prelude
 import qualified Network.HTTP.Client as Client
 import qualified Network.HTTP.Types as HTTP
 import qualified Numeric as Numeric

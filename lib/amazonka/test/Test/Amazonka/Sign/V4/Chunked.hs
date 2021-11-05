@@ -7,15 +7,15 @@
 -- Portability : non-portable (GHC extensions)
 module Test.Amazonka.Sign.V4.Chunked (tests) where
 
-import qualified Data.ByteString.Char8 as BS8
-import qualified Data.Conduit.List as Conduit
-import qualified Data.Foldable as Fold
 import Amazonka.Core
 import Amazonka.Lens ((.~))
 import Amazonka.Prelude hiding
   ( elem,
   )
 import Amazonka.Sign.V4
+import qualified Data.ByteString.Char8 as BS8
+import qualified Data.Conduit.List as Conduit
+import qualified Data.Foldable as Fold
 import qualified Network.HTTP.Conduit as Client
 import Numeric (showHex)
 import Test.Amazonka.Arbitrary ()

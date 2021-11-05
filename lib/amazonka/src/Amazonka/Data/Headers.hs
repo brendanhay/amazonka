@@ -13,14 +13,14 @@ module Amazonka.Data.Headers
   )
 where
 
+import Amazonka.Data.ByteString
+import Amazonka.Data.Text
+import Amazonka.Prelude
 import qualified Data.ByteString as BS
 import qualified Data.ByteString.Char8 as BS8
 import qualified Data.CaseInsensitive as CI
 import qualified Data.HashMap.Strict as HashMap
 import qualified Data.Text.Encoding as Text
-import Amazonka.Data.ByteString
-import Amazonka.Data.Text
-import Amazonka.Prelude
 import Network.HTTP.Types (Header, HeaderName, ResponseHeaders)
 import qualified Network.HTTP.Types as HTTP
 

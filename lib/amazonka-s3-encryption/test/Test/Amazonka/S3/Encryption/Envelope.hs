@@ -6,6 +6,9 @@ module Test.Amazonka.S3.Encryption.Envelope
   )
 where
 
+import Amazonka.Core
+import Amazonka.S3.Encryption.Envelope
+import Amazonka.S3.Encryption.Types
 import Control.Monad.Trans.Resource
 import Crypto.Cipher.AES
 import Crypto.Cipher.Types
@@ -14,9 +17,6 @@ import qualified Data.ByteString as BS
 import Data.Conduit
 import qualified Data.Conduit.List as CL
 import qualified Data.Foldable as Fold
-import Amazonka.Core
-import Amazonka.S3.Encryption.Envelope
-import Amazonka.S3.Encryption.Types
 import Test.Amazonka.Prelude
 import Test.QuickCheck.Instances.ByteString ()
 import qualified Test.QuickCheck.Monadic as QC

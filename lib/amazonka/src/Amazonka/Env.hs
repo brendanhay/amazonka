@@ -28,13 +28,13 @@ module Amazonka.Env
   )
 where
 
-import qualified Data.Function as Function
-import Data.Monoid (Dual (..), Endo (..))
 import Amazonka.Auth
 import Amazonka.Lens ((.~), (?~))
 import Amazonka.Logger
 import Amazonka.Prelude
 import Amazonka.Types
+import qualified Data.Function as Function
+import Data.Monoid (Dual (..), Endo (..))
 import qualified Network.HTTP.Client as Client
 import qualified Network.HTTP.Conduit as Client.Conduit
 

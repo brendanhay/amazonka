@@ -25,11 +25,11 @@ module Amazonka.Logger
   )
 where
 
-import qualified Control.Monad as Monad
-import qualified Data.ByteString.Builder as Build
 import Amazonka.Data
 import Amazonka.Prelude
 import Amazonka.Types
+import qualified Control.Monad as Monad
+import qualified Data.ByteString.Builder as Build
 import qualified System.IO as IO
 
 -- | This is a primitive logger which can be used to log builds to a 'Handle'.

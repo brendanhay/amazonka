@@ -18,6 +18,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.Amazonka.Fixture where
 
+import Amazonka.Core
+import Amazonka.Prelude
 import Control.Monad.Trans.Resource
 import qualified Data.ByteString.Lazy as LBS
 import qualified Data.CaseInsensitive as CI
@@ -26,8 +28,6 @@ import qualified Data.List as List
 import qualified Data.Ord as Ord
 import qualified Data.Text.Encoding as Text
 import qualified Data.Yaml as YAML
-import Amazonka.Core
-import Amazonka.Prelude
 import qualified Network.HTTP.Client.Internal as Client
 import Network.HTTP.Types (Method)
 import qualified Network.HTTP.Types as HTTP

@@ -51,14 +51,14 @@ module Amazonka.EC2.Metadata
   )
 where
 
-import qualified Control.Exception as Exception
-import qualified Data.ByteString.Char8 as BS8
-import qualified Data.ByteString.Lazy as LBS
-import qualified Data.Text as Text
 import Amazonka.Data
 import Amazonka.Lens (lens, mapping)
 import Amazonka.Prelude
 import Amazonka.Types (Region)
+import qualified Control.Exception as Exception
+import qualified Data.ByteString.Char8 as BS8
+import qualified Data.ByteString.Lazy as LBS
+import qualified Data.Text as Text
 import qualified Network.HTTP.Client as Client
 
 data Dynamic

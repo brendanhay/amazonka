@@ -7,6 +7,9 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.Data.XML where
 
+import Amazonka.Data.ByteString
+import Amazonka.Data.Text
+import Amazonka.Prelude
 import qualified Data.ByteString.Lazy as LBS
 import qualified Data.Conduit as Conduit
 import qualified Data.Conduit.Lazy as Conduit.Lazy
@@ -14,9 +17,6 @@ import qualified Data.Conduit.List as Conduit.List
 import qualified Data.HashMap.Strict as HashMap
 import qualified Data.List.NonEmpty as NonEmpty
 import Data.XML.Types (Event (..))
-import Amazonka.Data.ByteString
-import Amazonka.Data.Text
-import Amazonka.Prelude
 import System.IO.Unsafe (unsafePerformIO)
 import Text.XML
 import qualified Text.XML.Stream.Render as XML.Stream

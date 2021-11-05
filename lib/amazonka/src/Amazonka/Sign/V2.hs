@@ -10,12 +10,12 @@ module Amazonka.Sign.V2
   )
 where
 
-import qualified Data.ByteString.Char8 as BS8
 import qualified Amazonka.Bytes as Bytes
 import qualified Amazonka.Crypto as Crypto
 import Amazonka.Data
 import Amazonka.Prelude
 import Amazonka.Types
+import qualified Data.ByteString.Char8 as BS8
 import qualified Network.HTTP.Client as Client
 import qualified Network.HTTP.Types as HTTP
 import qualified Network.HTTP.Types.URI as URI

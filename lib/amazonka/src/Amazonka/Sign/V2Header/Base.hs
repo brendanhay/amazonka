@@ -21,14 +21,14 @@ module Amazonka.Sign.V2Header.Base
   )
 where
 
+import qualified Amazonka.Data.Query as Query
+import Amazonka.Prelude
 import qualified Data.ByteString.Builder as Build
 import qualified Data.ByteString.Char8 as BS8
 import qualified Data.ByteString.Lazy as LBS
 import qualified Data.CaseInsensitive as CI
 import qualified Data.Function as Function
 import qualified Data.List as List
-import qualified Amazonka.Data.Query as Query
-import Amazonka.Prelude
 import qualified Network.HTTP.Types as HTTP
 import qualified Network.HTTP.Types.URI as URI
 

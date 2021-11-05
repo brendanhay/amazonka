@@ -7,6 +7,15 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.Data.Body where
 
+import qualified Amazonka.Bytes as Bytes
+import Amazonka.Crypto (Digest, SHA256)
+import qualified Amazonka.Crypto as Crypto
+import Amazonka.Data.ByteString
+import Amazonka.Data.Log
+import Amazonka.Data.Query (QueryString)
+import Amazonka.Data.XML (encodeXML)
+import Amazonka.Lens (AReview, lens, to, un)
+import Amazonka.Prelude
 import Control.Monad.Trans.Resource (ResourceT, runResourceT)
 import qualified Data.Aeson as Aeson
 import qualified Data.ByteString as BS
@@ -17,15 +26,6 @@ import qualified Data.Conduit as Conduit
 import qualified Data.Conduit.Binary as Conduit.Binary
 import qualified Data.Text.Encoding as Text
 import qualified Data.Text.Lazy.Encoding as LText
-import qualified Amazonka.Bytes as Bytes
-import Amazonka.Crypto (Digest, SHA256)
-import qualified Amazonka.Crypto as Crypto
-import Amazonka.Data.ByteString
-import Amazonka.Data.Log
-import Amazonka.Data.Query (QueryString)
-import Amazonka.Data.XML (encodeXML)
-import Amazonka.Lens (AReview, lens, to, un)
-import Amazonka.Prelude
 import qualified Network.HTTP.Client as Client
 import qualified Network.HTTP.Conduit as Client.Conduit
 import qualified System.IO as IO

@@ -12,11 +12,11 @@ module Amazonka.Endpoint
   )
 where
 
-import qualified Data.CaseInsensitive as CI
 import Amazonka.Data.ByteString
 import Amazonka.Lens ((%~), (.~))
 import Amazonka.Prelude
 import Amazonka.Types
+import qualified Data.CaseInsensitive as CI
 
 -- | A convenience function for overriding the 'Service' 'Endpoint'.
 --

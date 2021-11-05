@@ -17,14 +17,14 @@ module Amazonka.Data.ByteString
   )
 where
 
+import Amazonka.Data.Text
+import Amazonka.Prelude
 import qualified Data.ByteString.Builder as Build
 import qualified Data.ByteString.Char8 as BS8
 import qualified Data.ByteString.Lazy as LBS
 import qualified Data.CaseInsensitive as CI
 import qualified Data.Char as Char
 import qualified Data.Text.Encoding as Text
-import Amazonka.Data.Text
-import Amazonka.Prelude
 import qualified Network.HTTP.Types as HTTP
 import qualified Numeric
 

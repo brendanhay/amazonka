@@ -131,11 +131,6 @@ module Amazonka
   )
 where
 
-import qualified Control.Exception as Exception
-import Control.Monad.Trans.Resource (runResourceT)
-import Data.Conduit (ConduitM)
-import qualified Data.Conduit as Conduit
-import Data.Monoid (Dual (..), Endo (..))
 import Amazonka.Auth
 import Amazonka.Core
 import qualified Amazonka.Crypto as Crypto
@@ -153,6 +148,11 @@ import Amazonka.Prelude
 import qualified Amazonka.Presign as Presign
 import Amazonka.Request (clientRequestURL)
 import qualified Amazonka.Waiter as Waiter
+import qualified Control.Exception as Exception
+import Control.Monad.Trans.Resource (runResourceT)
+import Data.Conduit (ConduitM)
+import qualified Data.Conduit as Conduit
+import Data.Monoid (Dual (..), Endo (..))
 import qualified Network.HTTP.Client as Client
 
 -- $usage

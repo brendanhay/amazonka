@@ -18,6 +18,9 @@ module Amazonka.Data.Text
   )
 where
 
+import qualified Amazonka.Bytes as Bytes
+import qualified Amazonka.Crypto as Crypto
+import Amazonka.Prelude
 import qualified Data.Attoparsec.Text as A
 import qualified Data.ByteString.Char8 as BS8
 import qualified Data.CaseInsensitive as CI
@@ -27,9 +30,6 @@ import qualified Data.Text.Lazy as LText
 import qualified Data.Text.Lazy.Builder as Build
 import qualified Data.Text.Lazy.Builder.Int as Build
 import qualified Data.Text.Lazy.Builder.Scientific as Build
-import qualified Amazonka.Bytes as Bytes
-import qualified Amazonka.Crypto as Crypto
-import Amazonka.Prelude
 import qualified Network.HTTP.Types as HTTP
 import qualified Numeric
 

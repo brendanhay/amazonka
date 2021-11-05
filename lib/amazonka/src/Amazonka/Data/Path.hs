@@ -21,11 +21,11 @@ module Amazonka.Data.Path
   )
 where
 
-import qualified Data.ByteString as BS
-import qualified Data.ByteString.Char8 as BS8
 import Amazonka.Data.ByteString
 import Amazonka.Data.Text
 import Amazonka.Prelude
+import qualified Data.ByteString as BS
+import qualified Data.ByteString.Char8 as BS8
 import qualified Network.HTTP.Types.URI as URI
 
 class ToPath a where

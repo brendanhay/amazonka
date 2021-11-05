@@ -41,10 +41,10 @@ module Amazonka.Request
   )
 where
 
-import qualified Data.ByteString.Char8 as B8
 import Amazonka.Core
 import Amazonka.Lens ((%~), (.~))
 import Amazonka.Prelude
+import qualified Data.ByteString.Char8 as B8
 import qualified Network.HTTP.Client as Client
 import Network.HTTP.Types (StdMethod (..))
 import qualified Network.HTTP.Types as HTTP

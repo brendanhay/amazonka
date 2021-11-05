@@ -7,10 +7,6 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.S3.Encryption.Instructions where
 
-import Control.Arrow ((&&&))
-import Control.Lens ((%~))
-import qualified Control.Lens as Lens
-import qualified Data.Aeson.Types as Aeson
 import qualified Amazonka as AWS
 import Amazonka.Core
 import Amazonka.Prelude
@@ -19,6 +15,10 @@ import qualified Amazonka.S3 as S3
 import Amazonka.S3.Encryption.Envelope
 import Amazonka.S3.Encryption.Types
 import qualified Amazonka.S3.Lens as S3
+import Control.Arrow ((&&&))
+import Control.Lens ((%~))
+import qualified Control.Lens as Lens
+import qualified Data.Aeson.Types as Aeson
 
 newtype Instructions = Instructions
   { runInstructions :: forall m. MonadResource m => Key -> AWS.Env -> m Envelope

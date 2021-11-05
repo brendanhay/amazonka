@@ -10,11 +10,6 @@ module Amazonka.Sign.V4.Chunked
   )
 where
 
-import qualified Data.ByteString as BS
-import qualified Data.ByteString.Builder as Build
-import qualified Data.ByteString.Char8 as BS8
-import Data.Conduit (ConduitM)
-import qualified Data.Conduit as Conduit
 import qualified Amazonka.Bytes as Bytes
 import qualified Amazonka.Crypto as Crypto
 import Amazonka.Data
@@ -22,6 +17,11 @@ import Amazonka.Lens ((<>~), (^.))
 import Amazonka.Prelude
 import Amazonka.Sign.V4.Base hiding (algorithm)
 import Amazonka.Types
+import qualified Data.ByteString as BS
+import qualified Data.ByteString.Builder as Build
+import qualified Data.ByteString.Char8 as BS8
+import Data.Conduit (ConduitM)
+import qualified Data.Conduit as Conduit
 import qualified Network.HTTP.Types as HTTP
 import qualified Numeric
 

@@ -9,6 +9,9 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.S3.Encryption.Types where
 
+import Amazonka.Core
+import Amazonka.Prelude
+import qualified Amazonka.S3 as S3
 import qualified Control.Exception.Lens as Exception.Lens
 import qualified Control.Lens as Lens
 import qualified Crypto.Cipher.AES as AES
@@ -17,9 +20,6 @@ import qualified Crypto.PubKey.RSA.Types as RSA
 import qualified Data.Aeson as Aeson
 import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text
-import Amazonka.Core
-import Amazonka.Prelude
-import qualified Amazonka.S3 as S3
 
 -- | An error thrown when performing encryption or decryption.
 data EncryptionError

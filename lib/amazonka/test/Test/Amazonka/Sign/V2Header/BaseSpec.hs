@@ -4,16 +4,16 @@
 -- Portability : non-portable (GHC extensions)
 module Test.Amazonka.Sign.V2Header.BaseSpec (tests) where
 
-import qualified Data.ByteString.Char8 as BS8
-import qualified Data.CaseInsensitive as CI
-import qualified Data.List as List
-import Data.List.Ordered (subset)
-import qualified Data.Text as Text
 import Amazonka.Core hiding
   ( nonEmptyText,
   )
 import Amazonka.Prelude
 import Amazonka.Sign.V2Header.Base
+import qualified Data.ByteString.Char8 as BS8
+import qualified Data.CaseInsensitive as CI
+import qualified Data.List as List
+import Data.List.Ordered (subset)
+import qualified Data.Text as Text
 import qualified Network.HTTP.Types as HTTP
 import qualified Test.QuickCheck as QC
 import Test.Tasty (TestTree, testGroup)

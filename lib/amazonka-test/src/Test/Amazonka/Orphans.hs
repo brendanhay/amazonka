@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.Amazonka.Orphans where
 
-import Data.Aeson
 import Amazonka.Core
+import Data.Aeson
 
 instance FromJSON ByteString where
   parseJSON = withText "bytestring" (either fail pure . fromText)

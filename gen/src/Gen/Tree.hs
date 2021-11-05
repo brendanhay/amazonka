@@ -75,16 +75,16 @@ populate d Templates {..} l = (d :/) . dir lib <$> layout
             "gen"
             [ dir
                 "Amazonka"
-                    [ dir svc $
-                        [ dir "Types" $
-                            mapMaybe shape (l ^.. shapes . each),
-                          mod (l ^. typesNS) (typeImports l) typesTemplate,
-                          mod (l ^. waitersNS) (waiterImports l) waitersTemplate,
-                          mod (l ^. lensNS) (lensImports l) lensTemplate
-                        ]
-                          ++ map op (l ^.. operations . each),
-                      mod (l ^. libraryNS) mempty tocTemplate
+                [ dir svc $
+                    [ dir "Types" $
+                        mapMaybe shape (l ^.. shapes . each),
+                      mod (l ^. typesNS) (typeImports l) typesTemplate,
+                      mod (l ^. waitersNS) (waiterImports l) waitersTemplate,
+                      mod (l ^. lensNS) (lensImports l) lensTemplate
                     ]
+                      ++ map op (l ^.. operations . each),
+                  mod (l ^. libraryNS) mempty tocTemplate
+                ]
             ],
           dir
             "test"

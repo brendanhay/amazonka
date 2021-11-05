@@ -9,15 +9,15 @@
 -- Portability : non-portable (GHC extensions)
 module Test.Amazonka.Arbitrary where
 
+import Amazonka.Core
+import Amazonka.Prelude
+import Amazonka.Sign.V4
 import qualified Data.ByteString.Char8 as BS8
 import Data.CaseInsensitive (FoldCase)
 import qualified Data.CaseInsensitive as CI
 import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text
 import Data.Time (Day (..), UTCTime (..))
-import Amazonka.Core
-import Amazonka.Prelude
-import Amazonka.Sign.V4
 import Network.HTTP.Types (StdMethod (..))
 import Test.QuickCheck.Gen as QC
 import qualified Test.QuickCheck.Unicode as Unicode

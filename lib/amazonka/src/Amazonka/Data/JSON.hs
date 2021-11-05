@@ -34,11 +34,11 @@ module Amazonka.Data.JSON
   )
 where
 
+import Amazonka.Data.Text
+import Amazonka.Prelude
 import qualified Data.Aeson as Aeson
 import qualified Data.Aeson.Types as Aeson.Types
 import qualified Data.HashMap.Strict as HashMap
-import Amazonka.Data.Text
-import Amazonka.Prelude
 
 parseJSONText :: FromText a => String -> Aeson.Value -> Aeson.Types.Parser a
 parseJSONText n = Aeson.withText n (either fail pure . fromText)

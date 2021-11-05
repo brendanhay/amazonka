@@ -138,14 +138,14 @@ module Amazonka.Types
   )
 where
 
+import Amazonka.Data
+import qualified Amazonka.Lens as Lens
+import Amazonka.Prelude
 import Control.Concurrent (ThreadId)
 import Control.Monad.Trans.Resource (ResourceT)
 import Data.Conduit (ConduitM)
 import Data.IORef (IORef, readIORef)
 import qualified Data.Text as Text
-import Amazonka.Data
-import qualified Amazonka.Lens as Lens
-import Amazonka.Prelude
 import qualified Network.HTTP.Client as Client
 import Network.HTTP.Types.Method (StdMethod)
 import Network.HTTP.Types.Status (Status)

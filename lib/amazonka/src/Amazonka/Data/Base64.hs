@@ -11,7 +11,6 @@ module Amazonka.Data.Base64
   )
 where
 
-import qualified Data.Text.Encoding as Text
 import qualified Amazonka.Bytes as Bytes
 import Amazonka.Data.Body
 import Amazonka.Data.ByteString
@@ -21,6 +20,7 @@ import Amazonka.Data.Text
 import Amazonka.Data.XML
 import Amazonka.Lens (iso)
 import Amazonka.Prelude
+import qualified Data.Text.Encoding as Text
 
 -- | Base64 encoded binary data.
 --

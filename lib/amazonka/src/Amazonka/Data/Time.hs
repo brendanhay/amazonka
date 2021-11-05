@@ -21,6 +21,13 @@ module Amazonka.Data.Time
   )
 where
 
+import Amazonka.Data.ByteString
+import Amazonka.Data.JSON
+import Amazonka.Data.Query
+import Amazonka.Data.Text
+import Amazonka.Data.XML
+import Amazonka.Lens (iso)
+import Amazonka.Prelude
 import qualified Data.Aeson as Aeson
 import qualified Data.Aeson.Types as Aeson
 import qualified Data.Attoparsec.Text as A
@@ -33,13 +40,6 @@ import qualified Data.Text as Text
 import qualified Data.Time as Time
 import Data.Time.Clock.POSIX
 import Data.Time.Format (defaultTimeLocale, formatTime, iso8601DateFormat)
-import Amazonka.Data.ByteString
-import Amazonka.Data.JSON
-import Amazonka.Data.Query
-import Amazonka.Data.Text
-import Amazonka.Data.XML
-import Amazonka.Lens (iso)
-import Amazonka.Prelude
 
 data Format
   = RFC822Format

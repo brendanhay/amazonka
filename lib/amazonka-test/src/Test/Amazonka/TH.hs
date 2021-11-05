@@ -13,11 +13,11 @@
 -- Portability : non-portable (GHC extensions)
 module Test.Amazonka.TH where
 
+import Amazonka.Core
+import Amazonka.Lens (view)
 import Data.Time (Day (..), DiffTime, UTCTime (..))
 import Language.Haskell.TH
 import Language.Haskell.TH.Syntax
-import Amazonka.Core
-import Amazonka.Lens (view)
 
 mkTime :: Text -> Q Exp
 mkTime x =

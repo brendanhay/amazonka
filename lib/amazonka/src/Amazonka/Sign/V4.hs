@@ -11,7 +11,6 @@ module Amazonka.Sign.V4
   )
 where
 
-import qualified Data.CaseInsensitive as CI
 import Amazonka.Data.Body
 import Amazonka.Data.ByteString
 import Amazonka.Data.Headers
@@ -23,6 +22,7 @@ import Amazonka.Request
 import Amazonka.Sign.V4.Base
 import Amazonka.Sign.V4.Chunked
 import Amazonka.Types
+import qualified Data.CaseInsensitive as CI
 
 v4 :: Signer
 v4 = Signer sign presign

@@ -7,8 +7,6 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.S3.Encryption.Encrypt where
 
-import Control.Lens ((%~), (<>~), (^.))
-import qualified Control.Lens as Lens
 import qualified Amazonka as AWS
 import Amazonka.Core
 import Amazonka.Prelude
@@ -17,6 +15,8 @@ import Amazonka.S3.Encryption.Envelope
 import Amazonka.S3.Encryption.Instructions
 import Amazonka.S3.Encryption.Types
 import qualified Amazonka.S3.Lens as S3
+import Control.Lens ((%~), (<>~), (^.))
+import qualified Control.Lens as Lens
 
 -- FIXME: Material
 

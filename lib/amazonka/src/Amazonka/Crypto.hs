@@ -27,12 +27,12 @@ module Amazonka.Crypto
   )
 where
 
+import Amazonka.Prelude
 import qualified Crypto.Hash as Hash
 import qualified Crypto.MAC.HMAC as HMAC
 import Data.ByteArray (ByteArrayAccess)
 import Data.Conduit (ConduitM)
 import qualified Data.Conduit as Conduit
-import Amazonka.Prelude
 
 type Key = ByteString
 

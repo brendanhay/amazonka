@@ -7,15 +7,15 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.Data.Query where
 
+import Amazonka.Data.ByteString
+import Amazonka.Data.Text
+import Amazonka.Prelude
 import qualified Data.ByteString.Builder as Build
 import qualified Data.ByteString.Char8 as BS8
 import qualified Data.ByteString.Lazy as LBS
 import qualified Data.HashMap.Strict as HashMap
 import qualified Data.List as List
 import qualified Data.Text.Encoding as Text
-import Amazonka.Data.ByteString
-import Amazonka.Data.Text
-import Amazonka.Prelude
 import qualified Network.HTTP.Types.URI as URI
 
 data QueryString

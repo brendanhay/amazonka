@@ -7,11 +7,11 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.S3.Encryption.Body where
 
+import Amazonka.Core
+import Amazonka.Prelude
 import Conduit ((.|))
 import qualified Conduit
 import qualified Data.ByteString as BS
-import Amazonka.Core
-import Amazonka.Prelude
 
 -- Resides here since it's unsafe without the use of enforceChunks,
 -- which incurs extra dependencies not desired in core.

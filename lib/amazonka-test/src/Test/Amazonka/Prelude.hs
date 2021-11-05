@@ -10,8 +10,8 @@ module Test.Amazonka.Prelude
   )
 where
 
-import Data.Traversable as Export (traverse)
 import Amazonka.Lens as Export
+import Data.Traversable as Export (traverse)
 import Test.Amazonka.Assert as Export
 import Test.Amazonka.Orphans as Export ()
 import Test.Amazonka.TH as Export

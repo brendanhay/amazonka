@@ -63,6 +63,11 @@ module Amazonka.Auth
   )
 where
 
+import Amazonka.Data
+import Amazonka.EC2.Metadata
+import Amazonka.Lens (catching, catching_, exception, prism, throwingM, _IOException)
+import Amazonka.Prelude
+import Amazonka.Types
 import Control.Concurrent (ThreadId)
 import qualified Control.Concurrent as Concurrent
 import qualified Control.Exception as Exception
@@ -76,11 +81,6 @@ import qualified Data.Ini as INI
 import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text
 import qualified Data.Time as Time
-import Amazonka.Data
-import Amazonka.EC2.Metadata
-import Amazonka.Lens (catching, catching_, exception, prism, throwingM, _IOException)
-import Amazonka.Prelude
-import Amazonka.Types
 import qualified Network.HTTP.Client as Client
 import qualified System.Directory as Directory
 import qualified System.Environment as Environment

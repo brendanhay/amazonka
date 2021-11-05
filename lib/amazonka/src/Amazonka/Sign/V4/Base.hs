@@ -7,12 +7,6 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.Sign.V4.Base where
 
-import qualified Data.ByteString as BS
-import qualified Data.ByteString.Char8 as BS8
-import qualified Data.CaseInsensitive as CI
-import qualified Data.Foldable as Foldable
-import qualified Data.Function as Function
-import qualified Data.List as List
 import qualified Amazonka.Bytes as Bytes
 import qualified Amazonka.Crypto as Crypto
 import Amazonka.Data hiding (Path)
@@ -20,6 +14,12 @@ import Amazonka.Lens ((%~), (<>~), (^.))
 import Amazonka.Prelude
 import Amazonka.Request
 import Amazonka.Types
+import qualified Data.ByteString as BS
+import qualified Data.ByteString.Char8 as BS8
+import qualified Data.CaseInsensitive as CI
+import qualified Data.Foldable as Foldable
+import qualified Data.Function as Function
+import qualified Data.List as List
 import qualified Network.HTTP.Client as Client
 import qualified Network.HTTP.Types as HTTP
 

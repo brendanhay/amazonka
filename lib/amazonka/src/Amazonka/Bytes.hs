@@ -14,9 +14,9 @@ module Amazonka.Bytes
   )
 where
 
+import Amazonka.Prelude
 import Data.ByteArray (ByteArrayAccess, convert)
 import qualified Data.ByteArray.Encoding as ByteArray.Encoding
-import Amazonka.Prelude
 
 encodeBase16 :: ByteArrayAccess a => a -> ByteString
 encodeBase16 = ByteArray.Encoding.convertToBase ByteArray.Encoding.Base16

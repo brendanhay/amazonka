@@ -13,11 +13,11 @@ module Amazonka.Pager
   )
 where
 
-import qualified Data.HashMap.Strict as HashMap
 import Amazonka.Data (ToText (..))
 import Amazonka.Lens (Getter, to)
 import Amazonka.Prelude
 import Amazonka.Types
+import qualified Data.HashMap.Strict as HashMap
 
 -- | Specify how an 'AWSRequest' and it's associated 'Rs' response can
 -- generate a subsequent request, if available.

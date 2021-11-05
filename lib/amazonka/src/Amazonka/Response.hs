@@ -27,6 +27,9 @@ module Amazonka.Response
   )
 where
 
+import Amazonka.Data
+import Amazonka.Prelude
+import Amazonka.Types
 import qualified Control.Monad.Except as Except
 import Control.Monad.Trans.Resource (liftResourceT)
 import qualified Data.Aeson as Aeson
@@ -34,9 +37,6 @@ import qualified Data.ByteString.Lazy as LBS
 import Data.Conduit ()
 import qualified Data.Conduit as Conduit
 import qualified Data.Conduit.Binary as Conduit.Binary
-import Amazonka.Data
-import Amazonka.Prelude
-import Amazonka.Types
 import qualified Network.HTTP.Client as Client
 import Network.HTTP.Types (ResponseHeaders)
 import qualified Text.XML as XML

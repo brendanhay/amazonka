@@ -84,10 +84,6 @@ module Amazonka.S3.Encryption
   )
 where
 
-import Control.Lens
-import Control.Monad.Reader
-import Crypto.PubKey.RSA.Types as RSA
-import Crypto.Random
 import Amazonka as AWS
 import Amazonka.Prelude
 import Amazonka.S3
@@ -96,6 +92,10 @@ import Amazonka.S3.Encryption.Encrypt
 import Amazonka.S3.Encryption.Envelope
 import Amazonka.S3.Encryption.Instructions
 import Amazonka.S3.Encryption.Types
+import Control.Lens
+import Control.Monad.Reader
+import Crypto.PubKey.RSA.Types as RSA
+import Crypto.Random
 
 -- | Specify a KMS master key to use, with an initially empty material description.
 --

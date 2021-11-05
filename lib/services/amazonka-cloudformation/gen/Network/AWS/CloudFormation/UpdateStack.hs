@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudFormation.UpdateStack
+-- Module      : Amazonka.CloudFormation.UpdateStack
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -30,7 +30,7 @@
 -- For more information about creating an update template, updating a
 -- stack, and monitoring the progress of the update, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html Updating a Stack>.
-module Network.AWS.CloudFormation.UpdateStack
+module Amazonka.CloudFormation.UpdateStack
   ( -- * Creating a Request
     UpdateStack (..),
     newUpdateStack,
@@ -64,12 +64,12 @@ module Network.AWS.CloudFormation.UpdateStack
   )
 where
 
-import Network.AWS.CloudFormation.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudFormation.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | The input for an UpdateStack action.
 --

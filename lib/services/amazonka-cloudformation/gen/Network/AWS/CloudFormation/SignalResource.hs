@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudFormation.SignalResource
+-- Module      : Amazonka.CloudFormation.SignalResource
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 -- signals or the timeout period is exceeded. The SignalResource API is
 -- useful in cases where you want to send signals from anywhere other than
 -- an Amazon EC2 instance.
-module Network.AWS.CloudFormation.SignalResource
+module Amazonka.CloudFormation.SignalResource
   ( -- * Creating a Request
     SignalResource (..),
     newSignalResource,
@@ -44,12 +44,12 @@ module Network.AWS.CloudFormation.SignalResource
   )
 where
 
-import Network.AWS.CloudFormation.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudFormation.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | The input for the SignalResource action.
 --

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudFormation.DescribeStackSetOperation
+-- Module      : Amazonka.CloudFormation.DescribeStackSetOperation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the description of the specified stack set operation.
-module Network.AWS.CloudFormation.DescribeStackSetOperation
+module Amazonka.CloudFormation.DescribeStackSetOperation
   ( -- * Creating a Request
     DescribeStackSetOperation (..),
     newDescribeStackSetOperation,
@@ -41,12 +41,12 @@ module Network.AWS.CloudFormation.DescribeStackSetOperation
   )
 where
 
-import Network.AWS.CloudFormation.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudFormation.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeStackSetOperation' smart constructor.
 data DescribeStackSetOperation = DescribeStackSetOperation'

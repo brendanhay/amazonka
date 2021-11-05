@@ -7,24 +7,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudFormation.Waiters
+-- Module      : Amazonka.CloudFormation.Waiters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Waiters where
+module Amazonka.CloudFormation.Waiters where
 
-import Network.AWS.CloudFormation.DescribeChangeSet
-import Network.AWS.CloudFormation.DescribeStacks
-import Network.AWS.CloudFormation.DescribeTypeRegistration
-import Network.AWS.CloudFormation.Lens
-import Network.AWS.CloudFormation.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudFormation.DescribeChangeSet
+import Amazonka.CloudFormation.DescribeStacks
+import Amazonka.CloudFormation.DescribeTypeRegistration
+import Amazonka.CloudFormation.Lens
+import Amazonka.CloudFormation.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
--- | Polls 'Network.AWS.CloudFormation.DescribeStacks' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
+-- | Polls 'Amazonka.CloudFormation.DescribeStacks' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
 newStackImportComplete :: Core.Wait DescribeStacks
 newStackImportComplete =
   Core.Wait
@@ -98,7 +98,7 @@ newStackImportComplete =
         ]
     }
 
--- | Polls 'Network.AWS.CloudFormation.DescribeStacks' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
+-- | Polls 'Amazonka.CloudFormation.DescribeStacks' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
 newStackCreateComplete :: Core.Wait DescribeStacks
 newStackCreateComplete =
   Core.Wait
@@ -172,7 +172,7 @@ newStackCreateComplete =
         ]
     }
 
--- | Polls 'Network.AWS.CloudFormation.DescribeStacks' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
+-- | Polls 'Amazonka.CloudFormation.DescribeStacks' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
 newStackRollbackComplete :: Core.Wait DescribeStacks
 newStackRollbackComplete =
   Core.Wait
@@ -226,7 +226,7 @@ newStackRollbackComplete =
         ]
     }
 
--- | Polls 'Network.AWS.CloudFormation.DescribeTypeRegistration' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
+-- | Polls 'Amazonka.CloudFormation.DescribeTypeRegistration' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
 newTypeRegistrationComplete :: Core.Wait DescribeTypeRegistration
 newTypeRegistrationComplete =
   Core.Wait
@@ -252,7 +252,7 @@ newTypeRegistrationComplete =
         ]
     }
 
--- | Polls 'Network.AWS.CloudFormation.DescribeStacks' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
+-- | Polls 'Amazonka.CloudFormation.DescribeStacks' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
 newStackUpdateComplete :: Core.Wait DescribeStacks
 newStackUpdateComplete =
   Core.Wait
@@ -306,7 +306,7 @@ newStackUpdateComplete =
         ]
     }
 
--- | Polls 'Network.AWS.CloudFormation.DescribeStacks' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
+-- | Polls 'Amazonka.CloudFormation.DescribeStacks' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 newStackExists :: Core.Wait DescribeStacks
 newStackExists =
   Core.Wait
@@ -319,7 +319,7 @@ newStackExists =
         ]
     }
 
--- | Polls 'Network.AWS.CloudFormation.DescribeStacks' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
+-- | Polls 'Amazonka.CloudFormation.DescribeStacks' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
 newStackDeleteComplete :: Core.Wait DescribeStacks
 newStackDeleteComplete =
   Core.Wait
@@ -401,7 +401,7 @@ newStackDeleteComplete =
         ]
     }
 
--- | Polls 'Network.AWS.CloudFormation.DescribeChangeSet' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
+-- | Polls 'Amazonka.CloudFormation.DescribeChangeSet' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
 newChangeSetCreateComplete :: Core.Wait DescribeChangeSet
 newChangeSetCreateComplete =
   Core.Wait

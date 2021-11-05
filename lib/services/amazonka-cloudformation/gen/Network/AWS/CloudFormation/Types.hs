@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudFormation.Types
+-- Module      : Amazonka.CloudFormation.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types
+module Amazonka.CloudFormation.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -696,109 +696,109 @@ module Network.AWS.CloudFormation.Types
   )
 where
 
-import Network.AWS.CloudFormation.Types.AccountGateResult
-import Network.AWS.CloudFormation.Types.AccountGateStatus
-import Network.AWS.CloudFormation.Types.AccountLimit
-import Network.AWS.CloudFormation.Types.AutoDeployment
-import Network.AWS.CloudFormation.Types.BatchDescribeTypeConfigurationsError
-import Network.AWS.CloudFormation.Types.CallAs
-import Network.AWS.CloudFormation.Types.Capability
-import Network.AWS.CloudFormation.Types.Category
-import Network.AWS.CloudFormation.Types.Change
-import Network.AWS.CloudFormation.Types.ChangeAction
-import Network.AWS.CloudFormation.Types.ChangeSetStatus
-import Network.AWS.CloudFormation.Types.ChangeSetSummary
-import Network.AWS.CloudFormation.Types.ChangeSetType
-import Network.AWS.CloudFormation.Types.ChangeSource
-import Network.AWS.CloudFormation.Types.ChangeType
-import Network.AWS.CloudFormation.Types.DeploymentTargets
-import Network.AWS.CloudFormation.Types.DeprecatedStatus
-import Network.AWS.CloudFormation.Types.DifferenceType
-import Network.AWS.CloudFormation.Types.EvaluationType
-import Network.AWS.CloudFormation.Types.ExecutionStatus
-import Network.AWS.CloudFormation.Types.Export
-import Network.AWS.CloudFormation.Types.HandlerErrorCode
-import Network.AWS.CloudFormation.Types.IdentityProvider
-import Network.AWS.CloudFormation.Types.LoggingConfig
-import Network.AWS.CloudFormation.Types.ModuleInfo
-import Network.AWS.CloudFormation.Types.OnFailure
-import Network.AWS.CloudFormation.Types.OperationStatus
-import Network.AWS.CloudFormation.Types.Output
-import Network.AWS.CloudFormation.Types.Parameter
-import Network.AWS.CloudFormation.Types.ParameterConstraints
-import Network.AWS.CloudFormation.Types.ParameterDeclaration
-import Network.AWS.CloudFormation.Types.PermissionModels
-import Network.AWS.CloudFormation.Types.PhysicalResourceIdContextKeyValuePair
-import Network.AWS.CloudFormation.Types.PropertyDifference
-import Network.AWS.CloudFormation.Types.ProvisioningType
-import Network.AWS.CloudFormation.Types.PublisherStatus
-import Network.AWS.CloudFormation.Types.RegionConcurrencyType
-import Network.AWS.CloudFormation.Types.RegistrationStatus
-import Network.AWS.CloudFormation.Types.RegistryType
-import Network.AWS.CloudFormation.Types.Replacement
-import Network.AWS.CloudFormation.Types.RequiredActivatedType
-import Network.AWS.CloudFormation.Types.RequiresRecreation
-import Network.AWS.CloudFormation.Types.ResourceAttribute
-import Network.AWS.CloudFormation.Types.ResourceChange
-import Network.AWS.CloudFormation.Types.ResourceChangeDetail
-import Network.AWS.CloudFormation.Types.ResourceIdentifierSummary
-import Network.AWS.CloudFormation.Types.ResourceSignalStatus
-import Network.AWS.CloudFormation.Types.ResourceStatus
-import Network.AWS.CloudFormation.Types.ResourceTargetDefinition
-import Network.AWS.CloudFormation.Types.ResourceToImport
-import Network.AWS.CloudFormation.Types.RollbackConfiguration
-import Network.AWS.CloudFormation.Types.RollbackTrigger
-import Network.AWS.CloudFormation.Types.Stack
-import Network.AWS.CloudFormation.Types.StackDriftDetectionStatus
-import Network.AWS.CloudFormation.Types.StackDriftInformation
-import Network.AWS.CloudFormation.Types.StackDriftInformationSummary
-import Network.AWS.CloudFormation.Types.StackDriftStatus
-import Network.AWS.CloudFormation.Types.StackEvent
-import Network.AWS.CloudFormation.Types.StackInstance
-import Network.AWS.CloudFormation.Types.StackInstanceComprehensiveStatus
-import Network.AWS.CloudFormation.Types.StackInstanceDetailedStatus
-import Network.AWS.CloudFormation.Types.StackInstanceFilter
-import Network.AWS.CloudFormation.Types.StackInstanceFilterName
-import Network.AWS.CloudFormation.Types.StackInstanceStatus
-import Network.AWS.CloudFormation.Types.StackInstanceSummary
-import Network.AWS.CloudFormation.Types.StackResource
-import Network.AWS.CloudFormation.Types.StackResourceDetail
-import Network.AWS.CloudFormation.Types.StackResourceDrift
-import Network.AWS.CloudFormation.Types.StackResourceDriftInformation
-import Network.AWS.CloudFormation.Types.StackResourceDriftInformationSummary
-import Network.AWS.CloudFormation.Types.StackResourceDriftStatus
-import Network.AWS.CloudFormation.Types.StackResourceSummary
-import Network.AWS.CloudFormation.Types.StackSet
-import Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails
-import Network.AWS.CloudFormation.Types.StackSetDriftDetectionStatus
-import Network.AWS.CloudFormation.Types.StackSetDriftStatus
-import Network.AWS.CloudFormation.Types.StackSetOperation
-import Network.AWS.CloudFormation.Types.StackSetOperationAction
-import Network.AWS.CloudFormation.Types.StackSetOperationPreferences
-import Network.AWS.CloudFormation.Types.StackSetOperationResultStatus
-import Network.AWS.CloudFormation.Types.StackSetOperationResultSummary
-import Network.AWS.CloudFormation.Types.StackSetOperationStatus
-import Network.AWS.CloudFormation.Types.StackSetOperationSummary
-import Network.AWS.CloudFormation.Types.StackSetStatus
-import Network.AWS.CloudFormation.Types.StackSetSummary
-import Network.AWS.CloudFormation.Types.StackStatus
-import Network.AWS.CloudFormation.Types.StackSummary
-import Network.AWS.CloudFormation.Types.Tag
-import Network.AWS.CloudFormation.Types.TemplateParameter
-import Network.AWS.CloudFormation.Types.TemplateStage
-import Network.AWS.CloudFormation.Types.ThirdPartyType
-import Network.AWS.CloudFormation.Types.TypeConfigurationDetails
-import Network.AWS.CloudFormation.Types.TypeConfigurationIdentifier
-import Network.AWS.CloudFormation.Types.TypeFilters
-import Network.AWS.CloudFormation.Types.TypeSummary
-import Network.AWS.CloudFormation.Types.TypeTestsStatus
-import Network.AWS.CloudFormation.Types.TypeVersionSummary
-import Network.AWS.CloudFormation.Types.VersionBump
-import Network.AWS.CloudFormation.Types.Visibility
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.CloudFormation.Types.AccountGateResult
+import Amazonka.CloudFormation.Types.AccountGateStatus
+import Amazonka.CloudFormation.Types.AccountLimit
+import Amazonka.CloudFormation.Types.AutoDeployment
+import Amazonka.CloudFormation.Types.BatchDescribeTypeConfigurationsError
+import Amazonka.CloudFormation.Types.CallAs
+import Amazonka.CloudFormation.Types.Capability
+import Amazonka.CloudFormation.Types.Category
+import Amazonka.CloudFormation.Types.Change
+import Amazonka.CloudFormation.Types.ChangeAction
+import Amazonka.CloudFormation.Types.ChangeSetStatus
+import Amazonka.CloudFormation.Types.ChangeSetSummary
+import Amazonka.CloudFormation.Types.ChangeSetType
+import Amazonka.CloudFormation.Types.ChangeSource
+import Amazonka.CloudFormation.Types.ChangeType
+import Amazonka.CloudFormation.Types.DeploymentTargets
+import Amazonka.CloudFormation.Types.DeprecatedStatus
+import Amazonka.CloudFormation.Types.DifferenceType
+import Amazonka.CloudFormation.Types.EvaluationType
+import Amazonka.CloudFormation.Types.ExecutionStatus
+import Amazonka.CloudFormation.Types.Export
+import Amazonka.CloudFormation.Types.HandlerErrorCode
+import Amazonka.CloudFormation.Types.IdentityProvider
+import Amazonka.CloudFormation.Types.LoggingConfig
+import Amazonka.CloudFormation.Types.ModuleInfo
+import Amazonka.CloudFormation.Types.OnFailure
+import Amazonka.CloudFormation.Types.OperationStatus
+import Amazonka.CloudFormation.Types.Output
+import Amazonka.CloudFormation.Types.Parameter
+import Amazonka.CloudFormation.Types.ParameterConstraints
+import Amazonka.CloudFormation.Types.ParameterDeclaration
+import Amazonka.CloudFormation.Types.PermissionModels
+import Amazonka.CloudFormation.Types.PhysicalResourceIdContextKeyValuePair
+import Amazonka.CloudFormation.Types.PropertyDifference
+import Amazonka.CloudFormation.Types.ProvisioningType
+import Amazonka.CloudFormation.Types.PublisherStatus
+import Amazonka.CloudFormation.Types.RegionConcurrencyType
+import Amazonka.CloudFormation.Types.RegistrationStatus
+import Amazonka.CloudFormation.Types.RegistryType
+import Amazonka.CloudFormation.Types.Replacement
+import Amazonka.CloudFormation.Types.RequiredActivatedType
+import Amazonka.CloudFormation.Types.RequiresRecreation
+import Amazonka.CloudFormation.Types.ResourceAttribute
+import Amazonka.CloudFormation.Types.ResourceChange
+import Amazonka.CloudFormation.Types.ResourceChangeDetail
+import Amazonka.CloudFormation.Types.ResourceIdentifierSummary
+import Amazonka.CloudFormation.Types.ResourceSignalStatus
+import Amazonka.CloudFormation.Types.ResourceStatus
+import Amazonka.CloudFormation.Types.ResourceTargetDefinition
+import Amazonka.CloudFormation.Types.ResourceToImport
+import Amazonka.CloudFormation.Types.RollbackConfiguration
+import Amazonka.CloudFormation.Types.RollbackTrigger
+import Amazonka.CloudFormation.Types.Stack
+import Amazonka.CloudFormation.Types.StackDriftDetectionStatus
+import Amazonka.CloudFormation.Types.StackDriftInformation
+import Amazonka.CloudFormation.Types.StackDriftInformationSummary
+import Amazonka.CloudFormation.Types.StackDriftStatus
+import Amazonka.CloudFormation.Types.StackEvent
+import Amazonka.CloudFormation.Types.StackInstance
+import Amazonka.CloudFormation.Types.StackInstanceComprehensiveStatus
+import Amazonka.CloudFormation.Types.StackInstanceDetailedStatus
+import Amazonka.CloudFormation.Types.StackInstanceFilter
+import Amazonka.CloudFormation.Types.StackInstanceFilterName
+import Amazonka.CloudFormation.Types.StackInstanceStatus
+import Amazonka.CloudFormation.Types.StackInstanceSummary
+import Amazonka.CloudFormation.Types.StackResource
+import Amazonka.CloudFormation.Types.StackResourceDetail
+import Amazonka.CloudFormation.Types.StackResourceDrift
+import Amazonka.CloudFormation.Types.StackResourceDriftInformation
+import Amazonka.CloudFormation.Types.StackResourceDriftInformationSummary
+import Amazonka.CloudFormation.Types.StackResourceDriftStatus
+import Amazonka.CloudFormation.Types.StackResourceSummary
+import Amazonka.CloudFormation.Types.StackSet
+import Amazonka.CloudFormation.Types.StackSetDriftDetectionDetails
+import Amazonka.CloudFormation.Types.StackSetDriftDetectionStatus
+import Amazonka.CloudFormation.Types.StackSetDriftStatus
+import Amazonka.CloudFormation.Types.StackSetOperation
+import Amazonka.CloudFormation.Types.StackSetOperationAction
+import Amazonka.CloudFormation.Types.StackSetOperationPreferences
+import Amazonka.CloudFormation.Types.StackSetOperationResultStatus
+import Amazonka.CloudFormation.Types.StackSetOperationResultSummary
+import Amazonka.CloudFormation.Types.StackSetOperationStatus
+import Amazonka.CloudFormation.Types.StackSetOperationSummary
+import Amazonka.CloudFormation.Types.StackSetStatus
+import Amazonka.CloudFormation.Types.StackSetSummary
+import Amazonka.CloudFormation.Types.StackStatus
+import Amazonka.CloudFormation.Types.StackSummary
+import Amazonka.CloudFormation.Types.Tag
+import Amazonka.CloudFormation.Types.TemplateParameter
+import Amazonka.CloudFormation.Types.TemplateStage
+import Amazonka.CloudFormation.Types.ThirdPartyType
+import Amazonka.CloudFormation.Types.TypeConfigurationDetails
+import Amazonka.CloudFormation.Types.TypeConfigurationIdentifier
+import Amazonka.CloudFormation.Types.TypeFilters
+import Amazonka.CloudFormation.Types.TypeSummary
+import Amazonka.CloudFormation.Types.TypeTestsStatus
+import Amazonka.CloudFormation.Types.TypeVersionSummary
+import Amazonka.CloudFormation.Types.VersionBump
+import Amazonka.CloudFormation.Types.Visibility
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2010-05-15@ of the Amazon CloudFormation SDK configuration.
 defaultService :: Core.Service

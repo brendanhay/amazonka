@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudFormation.Types.StackSetSummary
+-- Module      : Amazonka.CloudFormation.Types.StackSetSummary
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.StackSetSummary where
+module Amazonka.CloudFormation.Types.StackSetSummary where
 
-import Network.AWS.CloudFormation.Types.AutoDeployment
-import Network.AWS.CloudFormation.Types.PermissionModels
-import Network.AWS.CloudFormation.Types.StackDriftStatus
-import Network.AWS.CloudFormation.Types.StackSetStatus
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudFormation.Types.AutoDeployment
+import Amazonka.CloudFormation.Types.PermissionModels
+import Amazonka.CloudFormation.Types.StackDriftStatus
+import Amazonka.CloudFormation.Types.StackSetStatus
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The structures that contain summary information about the specified
 -- stack set.

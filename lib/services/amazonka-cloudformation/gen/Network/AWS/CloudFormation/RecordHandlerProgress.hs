@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudFormation.RecordHandlerProgress
+-- Module      : Amazonka.CloudFormation.RecordHandlerProgress
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- Reserved for use by the
 -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI>.
 -- Do not use this API in your code.
-module Network.AWS.CloudFormation.RecordHandlerProgress
+module Amazonka.CloudFormation.RecordHandlerProgress
   ( -- * Creating a Request
     RecordHandlerProgress (..),
     newRecordHandlerProgress,
@@ -48,12 +48,12 @@ module Network.AWS.CloudFormation.RecordHandlerProgress
   )
 where
 
-import Network.AWS.CloudFormation.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudFormation.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRecordHandlerProgress' smart constructor.
 data RecordHandlerProgress = RecordHandlerProgress'

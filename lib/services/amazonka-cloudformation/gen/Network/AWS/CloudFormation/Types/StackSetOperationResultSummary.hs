@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudFormation.Types.StackSetOperationResultSummary
+-- Module      : Amazonka.CloudFormation.Types.StackSetOperationResultSummary
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.StackSetOperationResultSummary where
+module Amazonka.CloudFormation.Types.StackSetOperationResultSummary where
 
-import Network.AWS.CloudFormation.Types.AccountGateResult
-import Network.AWS.CloudFormation.Types.StackSetOperationResultStatus
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudFormation.Types.AccountGateResult
+import Amazonka.CloudFormation.Types.StackSetOperationResultStatus
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The structure that contains information about a specified operation\'s
 -- results for a given account in a given Region.

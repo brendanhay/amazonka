@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudFormation.UpdateStackSet
+-- Module      : Amazonka.CloudFormation.UpdateStackSet
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -28,7 +28,7 @@
 -- the stack set is updated with your changes. Subsequent
 -- CreateStackInstances calls on the specified stack set use the updated
 -- stack set.
-module Network.AWS.CloudFormation.UpdateStackSet
+module Amazonka.CloudFormation.UpdateStackSet
   ( -- * Creating a Request
     UpdateStackSet (..),
     newUpdateStackSet,
@@ -63,12 +63,12 @@ module Network.AWS.CloudFormation.UpdateStackSet
   )
 where
 
-import Network.AWS.CloudFormation.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudFormation.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateStackSet' smart constructor.
 data UpdateStackSet = UpdateStackSet'

@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CloudFormation where
 
+import Amazonka.CloudFormation
 import qualified Data.Proxy as Proxy
-import Network.AWS.CloudFormation
 import Test.AWS.CloudFormation.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

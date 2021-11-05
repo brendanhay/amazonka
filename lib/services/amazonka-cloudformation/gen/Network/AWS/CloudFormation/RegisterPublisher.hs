@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudFormation.RegisterPublisher
+-- Module      : Amazonka.CloudFormation.RegisterPublisher
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -29,7 +29,7 @@
 -- publisher, see
 -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-prereqs Registering your account to publish CloudFormation extensions>
 -- in the /CloudFormation CLI User Guide/.
-module Network.AWS.CloudFormation.RegisterPublisher
+module Amazonka.CloudFormation.RegisterPublisher
   ( -- * Creating a Request
     RegisterPublisher (..),
     newRegisterPublisher,
@@ -48,12 +48,12 @@ module Network.AWS.CloudFormation.RegisterPublisher
   )
 where
 
-import Network.AWS.CloudFormation.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudFormation.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRegisterPublisher' smart constructor.
 data RegisterPublisher = RegisterPublisher'

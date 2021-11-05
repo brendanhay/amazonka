@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudFormation.ListStacks
+-- Module      : Amazonka.CloudFormation.ListStacks
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 -- returned (including existing stacks and stacks that have been deleted).
 --
 -- This operation returns paginated results.
-module Network.AWS.CloudFormation.ListStacks
+module Amazonka.CloudFormation.ListStacks
   ( -- * Creating a Request
     ListStacks (..),
     newListStacks,
@@ -47,12 +47,12 @@ module Network.AWS.CloudFormation.ListStacks
   )
 where
 
-import Network.AWS.CloudFormation.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudFormation.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | The input for ListStacks action.
 --

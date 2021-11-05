@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudFormation.DescribeStackResourceDrifts
+-- Module      : Amazonka.CloudFormation.DescribeStackResourceDrifts
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -35,7 +35,7 @@
 -- Use DetectStackResourceDrift to detect drift on individual resources, or
 -- DetectStackDrift to detect drift on all supported resources for a given
 -- stack.
-module Network.AWS.CloudFormation.DescribeStackResourceDrifts
+module Amazonka.CloudFormation.DescribeStackResourceDrifts
   ( -- * Creating a Request
     DescribeStackResourceDrifts (..),
     newDescribeStackResourceDrifts,
@@ -57,12 +57,12 @@ module Network.AWS.CloudFormation.DescribeStackResourceDrifts
   )
 where
 
-import Network.AWS.CloudFormation.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudFormation.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeStackResourceDrifts' smart constructor.
 data DescribeStackResourceDrifts = DescribeStackResourceDrifts'

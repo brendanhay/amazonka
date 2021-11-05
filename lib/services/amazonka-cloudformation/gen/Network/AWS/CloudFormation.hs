@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.CloudFormation
+-- Module      : Amazonka.CloudFormation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -35,7 +35,7 @@
 -- need additional technical information about a specific Amazon Web
 -- Services product, you can find the product\'s technical documentation at
 -- <https://docs.aws.amazon.com/ docs.aws.amazon.com> .
-module Network.AWS.CloudFormation
+module Amazonka.CloudFormation
   ( -- * Service Configuration
     defaultService,
 
@@ -882,74 +882,74 @@ module Network.AWS.CloudFormation
   )
 where
 
-import Network.AWS.CloudFormation.ActivateType
-import Network.AWS.CloudFormation.BatchDescribeTypeConfigurations
-import Network.AWS.CloudFormation.CancelUpdateStack
-import Network.AWS.CloudFormation.ContinueUpdateRollback
-import Network.AWS.CloudFormation.CreateChangeSet
-import Network.AWS.CloudFormation.CreateStack
-import Network.AWS.CloudFormation.CreateStackInstances
-import Network.AWS.CloudFormation.CreateStackSet
-import Network.AWS.CloudFormation.DeactivateType
-import Network.AWS.CloudFormation.DeleteChangeSet
-import Network.AWS.CloudFormation.DeleteStack
-import Network.AWS.CloudFormation.DeleteStackInstances
-import Network.AWS.CloudFormation.DeleteStackSet
-import Network.AWS.CloudFormation.DeregisterType
-import Network.AWS.CloudFormation.DescribeAccountLimits
-import Network.AWS.CloudFormation.DescribeChangeSet
-import Network.AWS.CloudFormation.DescribePublisher
-import Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus
-import Network.AWS.CloudFormation.DescribeStackEvents
-import Network.AWS.CloudFormation.DescribeStackInstance
-import Network.AWS.CloudFormation.DescribeStackResource
-import Network.AWS.CloudFormation.DescribeStackResourceDrifts
-import Network.AWS.CloudFormation.DescribeStackResources
-import Network.AWS.CloudFormation.DescribeStackSet
-import Network.AWS.CloudFormation.DescribeStackSetOperation
-import Network.AWS.CloudFormation.DescribeStacks
-import Network.AWS.CloudFormation.DescribeType
-import Network.AWS.CloudFormation.DescribeTypeRegistration
-import Network.AWS.CloudFormation.DetectStackDrift
-import Network.AWS.CloudFormation.DetectStackResourceDrift
-import Network.AWS.CloudFormation.DetectStackSetDrift
-import Network.AWS.CloudFormation.EstimateTemplateCost
-import Network.AWS.CloudFormation.ExecuteChangeSet
-import Network.AWS.CloudFormation.GetStackPolicy
-import Network.AWS.CloudFormation.GetTemplate
-import Network.AWS.CloudFormation.GetTemplateSummary
-import Network.AWS.CloudFormation.ImportStacksToStackSet
-import Network.AWS.CloudFormation.Lens
-import Network.AWS.CloudFormation.ListChangeSets
-import Network.AWS.CloudFormation.ListExports
-import Network.AWS.CloudFormation.ListImports
-import Network.AWS.CloudFormation.ListStackInstances
-import Network.AWS.CloudFormation.ListStackResources
-import Network.AWS.CloudFormation.ListStackSetOperationResults
-import Network.AWS.CloudFormation.ListStackSetOperations
-import Network.AWS.CloudFormation.ListStackSets
-import Network.AWS.CloudFormation.ListStacks
-import Network.AWS.CloudFormation.ListTypeRegistrations
-import Network.AWS.CloudFormation.ListTypeVersions
-import Network.AWS.CloudFormation.ListTypes
-import Network.AWS.CloudFormation.PublishType
-import Network.AWS.CloudFormation.RecordHandlerProgress
-import Network.AWS.CloudFormation.RegisterPublisher
-import Network.AWS.CloudFormation.RegisterType
-import Network.AWS.CloudFormation.RollbackStack
-import Network.AWS.CloudFormation.SetStackPolicy
-import Network.AWS.CloudFormation.SetTypeConfiguration
-import Network.AWS.CloudFormation.SetTypeDefaultVersion
-import Network.AWS.CloudFormation.SignalResource
-import Network.AWS.CloudFormation.StopStackSetOperation
-import Network.AWS.CloudFormation.TestType
-import Network.AWS.CloudFormation.Types
-import Network.AWS.CloudFormation.UpdateStack
-import Network.AWS.CloudFormation.UpdateStackInstances
-import Network.AWS.CloudFormation.UpdateStackSet
-import Network.AWS.CloudFormation.UpdateTerminationProtection
-import Network.AWS.CloudFormation.ValidateTemplate
-import Network.AWS.CloudFormation.Waiters
+import Amazonka.CloudFormation.ActivateType
+import Amazonka.CloudFormation.BatchDescribeTypeConfigurations
+import Amazonka.CloudFormation.CancelUpdateStack
+import Amazonka.CloudFormation.ContinueUpdateRollback
+import Amazonka.CloudFormation.CreateChangeSet
+import Amazonka.CloudFormation.CreateStack
+import Amazonka.CloudFormation.CreateStackInstances
+import Amazonka.CloudFormation.CreateStackSet
+import Amazonka.CloudFormation.DeactivateType
+import Amazonka.CloudFormation.DeleteChangeSet
+import Amazonka.CloudFormation.DeleteStack
+import Amazonka.CloudFormation.DeleteStackInstances
+import Amazonka.CloudFormation.DeleteStackSet
+import Amazonka.CloudFormation.DeregisterType
+import Amazonka.CloudFormation.DescribeAccountLimits
+import Amazonka.CloudFormation.DescribeChangeSet
+import Amazonka.CloudFormation.DescribePublisher
+import Amazonka.CloudFormation.DescribeStackDriftDetectionStatus
+import Amazonka.CloudFormation.DescribeStackEvents
+import Amazonka.CloudFormation.DescribeStackInstance
+import Amazonka.CloudFormation.DescribeStackResource
+import Amazonka.CloudFormation.DescribeStackResourceDrifts
+import Amazonka.CloudFormation.DescribeStackResources
+import Amazonka.CloudFormation.DescribeStackSet
+import Amazonka.CloudFormation.DescribeStackSetOperation
+import Amazonka.CloudFormation.DescribeStacks
+import Amazonka.CloudFormation.DescribeType
+import Amazonka.CloudFormation.DescribeTypeRegistration
+import Amazonka.CloudFormation.DetectStackDrift
+import Amazonka.CloudFormation.DetectStackResourceDrift
+import Amazonka.CloudFormation.DetectStackSetDrift
+import Amazonka.CloudFormation.EstimateTemplateCost
+import Amazonka.CloudFormation.ExecuteChangeSet
+import Amazonka.CloudFormation.GetStackPolicy
+import Amazonka.CloudFormation.GetTemplate
+import Amazonka.CloudFormation.GetTemplateSummary
+import Amazonka.CloudFormation.ImportStacksToStackSet
+import Amazonka.CloudFormation.Lens
+import Amazonka.CloudFormation.ListChangeSets
+import Amazonka.CloudFormation.ListExports
+import Amazonka.CloudFormation.ListImports
+import Amazonka.CloudFormation.ListStackInstances
+import Amazonka.CloudFormation.ListStackResources
+import Amazonka.CloudFormation.ListStackSetOperationResults
+import Amazonka.CloudFormation.ListStackSetOperations
+import Amazonka.CloudFormation.ListStackSets
+import Amazonka.CloudFormation.ListStacks
+import Amazonka.CloudFormation.ListTypeRegistrations
+import Amazonka.CloudFormation.ListTypeVersions
+import Amazonka.CloudFormation.ListTypes
+import Amazonka.CloudFormation.PublishType
+import Amazonka.CloudFormation.RecordHandlerProgress
+import Amazonka.CloudFormation.RegisterPublisher
+import Amazonka.CloudFormation.RegisterType
+import Amazonka.CloudFormation.RollbackStack
+import Amazonka.CloudFormation.SetStackPolicy
+import Amazonka.CloudFormation.SetTypeConfiguration
+import Amazonka.CloudFormation.SetTypeDefaultVersion
+import Amazonka.CloudFormation.SignalResource
+import Amazonka.CloudFormation.StopStackSetOperation
+import Amazonka.CloudFormation.TestType
+import Amazonka.CloudFormation.Types
+import Amazonka.CloudFormation.UpdateStack
+import Amazonka.CloudFormation.UpdateStackInstances
+import Amazonka.CloudFormation.UpdateStackSet
+import Amazonka.CloudFormation.UpdateTerminationProtection
+import Amazonka.CloudFormation.ValidateTemplate
+import Amazonka.CloudFormation.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

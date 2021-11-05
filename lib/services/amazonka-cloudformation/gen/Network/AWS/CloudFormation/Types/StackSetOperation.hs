@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudFormation.Types.StackSetOperation
+-- Module      : Amazonka.CloudFormation.Types.StackSetOperation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.StackSetOperation where
+module Amazonka.CloudFormation.Types.StackSetOperation where
 
-import Network.AWS.CloudFormation.Types.DeploymentTargets
-import Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails
-import Network.AWS.CloudFormation.Types.StackSetOperationAction
-import Network.AWS.CloudFormation.Types.StackSetOperationPreferences
-import Network.AWS.CloudFormation.Types.StackSetOperationStatus
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudFormation.Types.DeploymentTargets
+import Amazonka.CloudFormation.Types.StackSetDriftDetectionDetails
+import Amazonka.CloudFormation.Types.StackSetOperationAction
+import Amazonka.CloudFormation.Types.StackSetOperationPreferences
+import Amazonka.CloudFormation.Types.StackSetOperationStatus
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The structure that contains information about a stack set operation.
 --

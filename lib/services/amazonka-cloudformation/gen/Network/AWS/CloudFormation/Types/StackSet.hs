@@ -11,24 +11,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudFormation.Types.StackSet
+-- Module      : Amazonka.CloudFormation.Types.StackSet
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.StackSet where
+module Amazonka.CloudFormation.Types.StackSet where
 
-import Network.AWS.CloudFormation.Types.AutoDeployment
-import Network.AWS.CloudFormation.Types.Capability
-import Network.AWS.CloudFormation.Types.Parameter
-import Network.AWS.CloudFormation.Types.PermissionModels
-import Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails
-import Network.AWS.CloudFormation.Types.StackSetStatus
-import Network.AWS.CloudFormation.Types.Tag
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudFormation.Types.AutoDeployment
+import Amazonka.CloudFormation.Types.Capability
+import Amazonka.CloudFormation.Types.Parameter
+import Amazonka.CloudFormation.Types.PermissionModels
+import Amazonka.CloudFormation.Types.StackSetDriftDetectionDetails
+import Amazonka.CloudFormation.Types.StackSetStatus
+import Amazonka.CloudFormation.Types.Tag
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that contains information about a stack set. A stack set
 -- enables you to provision stacks into Amazon Web Services accounts and

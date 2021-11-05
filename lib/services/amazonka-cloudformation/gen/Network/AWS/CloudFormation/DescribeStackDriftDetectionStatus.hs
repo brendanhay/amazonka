@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus
+-- Module      : Amazonka.CloudFormation.DescribeStackDriftDetectionStatus
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -35,7 +35,7 @@
 -- @DescribeStackDriftDetectionStatus@. Once the drift detection operation
 -- has completed, use DescribeStackResourceDrifts to return drift
 -- information about the stack and its resources.
-module Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus
+module Amazonka.CloudFormation.DescribeStackDriftDetectionStatus
   ( -- * Creating a Request
     DescribeStackDriftDetectionStatus (..),
     newDescribeStackDriftDetectionStatus,
@@ -59,12 +59,12 @@ module Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus
   )
 where
 
-import Network.AWS.CloudFormation.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudFormation.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeStackDriftDetectionStatus' smart constructor.
 data DescribeStackDriftDetectionStatus = DescribeStackDriftDetectionStatus'

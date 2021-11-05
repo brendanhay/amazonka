@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudFormation.Types.StackSetOperationSummary
+-- Module      : Amazonka.CloudFormation.Types.StackSetOperationSummary
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.StackSetOperationSummary where
+module Amazonka.CloudFormation.Types.StackSetOperationSummary where
 
-import Network.AWS.CloudFormation.Types.StackSetOperationAction
-import Network.AWS.CloudFormation.Types.StackSetOperationStatus
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudFormation.Types.StackSetOperationAction
+import Amazonka.CloudFormation.Types.StackSetOperationStatus
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The structures that contain summary information about the specified
 -- operation.

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudFormation.DetectStackDrift
+-- Module      : Amazonka.CloudFormation.DetectStackDrift
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -49,7 +49,7 @@
 -- When detecting drift on a stack, CloudFormation does not detect drift on
 -- any nested stacks belonging to that stack. Perform @DetectStackDrift@
 -- directly on the nested stack itself.
-module Network.AWS.CloudFormation.DetectStackDrift
+module Amazonka.CloudFormation.DetectStackDrift
   ( -- * Creating a Request
     DetectStackDrift (..),
     newDetectStackDrift,
@@ -68,12 +68,12 @@ module Network.AWS.CloudFormation.DetectStackDrift
   )
 where
 
-import Network.AWS.CloudFormation.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudFormation.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDetectStackDrift' smart constructor.
 data DetectStackDrift = DetectStackDrift'

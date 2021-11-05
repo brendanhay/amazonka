@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AutoScaling.DetachLoadBalancers
+-- Module      : Amazonka.AutoScaling.DetachLoadBalancers
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -31,7 +31,7 @@
 -- deregistering the instances in the group. When all instances are
 -- deregistered, then you can no longer describe the load balancer using
 -- the DescribeLoadBalancers API call. The instances remain running.
-module Network.AWS.AutoScaling.DetachLoadBalancers
+module Amazonka.AutoScaling.DetachLoadBalancers
   ( -- * Creating a Request
     DetachLoadBalancers (..),
     newDetachLoadBalancers,
@@ -49,12 +49,12 @@ module Network.AWS.AutoScaling.DetachLoadBalancers
   )
 where
 
-import Network.AWS.AutoScaling.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AutoScaling.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDetachLoadBalancers' smart constructor.
 data DetachLoadBalancers = DetachLoadBalancers'

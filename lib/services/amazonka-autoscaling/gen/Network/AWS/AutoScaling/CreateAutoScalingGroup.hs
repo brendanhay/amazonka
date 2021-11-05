@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AutoScaling.CreateAutoScalingGroup
+-- Module      : Amazonka.AutoScaling.CreateAutoScalingGroup
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -46,7 +46,7 @@
 -- instances policy that defines weights for the instance types, you must
 -- specify these sizes with the same units that you use for weighting
 -- instances.
-module Network.AWS.AutoScaling.CreateAutoScalingGroup
+module Amazonka.AutoScaling.CreateAutoScalingGroup
   ( -- * Creating a Request
     CreateAutoScalingGroup (..),
     newCreateAutoScalingGroup,
@@ -83,12 +83,12 @@ module Network.AWS.AutoScaling.CreateAutoScalingGroup
   )
 where
 
-import Network.AWS.AutoScaling.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AutoScaling.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateAutoScalingGroup' smart constructor.
 data CreateAutoScalingGroup = CreateAutoScalingGroup'

@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.AutoScaling
+-- Module      : Amazonka.AutoScaling
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- to Amazon EC2 Auto Scaling, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-permissions.html Granting IAM users required permissions for Amazon EC2 Auto Scaling resources>
 -- in the /Amazon EC2 Auto Scaling API Reference/.
-module Network.AWS.AutoScaling
+module Amazonka.AutoScaling
   ( -- * Service Configuration
     defaultService,
 
@@ -690,70 +690,70 @@ module Network.AWS.AutoScaling
   )
 where
 
-import Network.AWS.AutoScaling.AttachInstances
-import Network.AWS.AutoScaling.AttachLoadBalancerTargetGroups
-import Network.AWS.AutoScaling.AttachLoadBalancers
-import Network.AWS.AutoScaling.BatchDeleteScheduledAction
-import Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction
-import Network.AWS.AutoScaling.CancelInstanceRefresh
-import Network.AWS.AutoScaling.CompleteLifecycleAction
-import Network.AWS.AutoScaling.CreateAutoScalingGroup
-import Network.AWS.AutoScaling.CreateLaunchConfiguration
-import Network.AWS.AutoScaling.CreateOrUpdateTags
-import Network.AWS.AutoScaling.DeleteAutoScalingGroup
-import Network.AWS.AutoScaling.DeleteLaunchConfiguration
-import Network.AWS.AutoScaling.DeleteLifecycleHook
-import Network.AWS.AutoScaling.DeleteNotificationConfiguration
-import Network.AWS.AutoScaling.DeletePolicy
-import Network.AWS.AutoScaling.DeleteScheduledAction
-import Network.AWS.AutoScaling.DeleteTags
-import Network.AWS.AutoScaling.DeleteWarmPool
-import Network.AWS.AutoScaling.DescribeAccountLimits
-import Network.AWS.AutoScaling.DescribeAdjustmentTypes
-import Network.AWS.AutoScaling.DescribeAutoScalingGroups
-import Network.AWS.AutoScaling.DescribeAutoScalingInstances
-import Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes
-import Network.AWS.AutoScaling.DescribeInstanceRefreshes
-import Network.AWS.AutoScaling.DescribeLaunchConfigurations
-import Network.AWS.AutoScaling.DescribeLifecycleHookTypes
-import Network.AWS.AutoScaling.DescribeLifecycleHooks
-import Network.AWS.AutoScaling.DescribeLoadBalancerTargetGroups
-import Network.AWS.AutoScaling.DescribeLoadBalancers
-import Network.AWS.AutoScaling.DescribeMetricCollectionTypes
-import Network.AWS.AutoScaling.DescribeNotificationConfigurations
-import Network.AWS.AutoScaling.DescribePolicies
-import Network.AWS.AutoScaling.DescribeScalingActivities
-import Network.AWS.AutoScaling.DescribeScalingProcessTypes
-import Network.AWS.AutoScaling.DescribeScheduledActions
-import Network.AWS.AutoScaling.DescribeTags
-import Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
-import Network.AWS.AutoScaling.DescribeWarmPool
-import Network.AWS.AutoScaling.DetachInstances
-import Network.AWS.AutoScaling.DetachLoadBalancerTargetGroups
-import Network.AWS.AutoScaling.DetachLoadBalancers
-import Network.AWS.AutoScaling.DisableMetricsCollection
-import Network.AWS.AutoScaling.EnableMetricsCollection
-import Network.AWS.AutoScaling.EnterStandby
-import Network.AWS.AutoScaling.ExecutePolicy
-import Network.AWS.AutoScaling.ExitStandby
-import Network.AWS.AutoScaling.GetPredictiveScalingForecast
-import Network.AWS.AutoScaling.Lens
-import Network.AWS.AutoScaling.PutLifecycleHook
-import Network.AWS.AutoScaling.PutNotificationConfiguration
-import Network.AWS.AutoScaling.PutScalingPolicy
-import Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
-import Network.AWS.AutoScaling.PutWarmPool
-import Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
-import Network.AWS.AutoScaling.ResumeProcesses
-import Network.AWS.AutoScaling.SetDesiredCapacity
-import Network.AWS.AutoScaling.SetInstanceHealth
-import Network.AWS.AutoScaling.SetInstanceProtection
-import Network.AWS.AutoScaling.StartInstanceRefresh
-import Network.AWS.AutoScaling.SuspendProcesses
-import Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
-import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.UpdateAutoScalingGroup
-import Network.AWS.AutoScaling.Waiters
+import Amazonka.AutoScaling.AttachInstances
+import Amazonka.AutoScaling.AttachLoadBalancerTargetGroups
+import Amazonka.AutoScaling.AttachLoadBalancers
+import Amazonka.AutoScaling.BatchDeleteScheduledAction
+import Amazonka.AutoScaling.BatchPutScheduledUpdateGroupAction
+import Amazonka.AutoScaling.CancelInstanceRefresh
+import Amazonka.AutoScaling.CompleteLifecycleAction
+import Amazonka.AutoScaling.CreateAutoScalingGroup
+import Amazonka.AutoScaling.CreateLaunchConfiguration
+import Amazonka.AutoScaling.CreateOrUpdateTags
+import Amazonka.AutoScaling.DeleteAutoScalingGroup
+import Amazonka.AutoScaling.DeleteLaunchConfiguration
+import Amazonka.AutoScaling.DeleteLifecycleHook
+import Amazonka.AutoScaling.DeleteNotificationConfiguration
+import Amazonka.AutoScaling.DeletePolicy
+import Amazonka.AutoScaling.DeleteScheduledAction
+import Amazonka.AutoScaling.DeleteTags
+import Amazonka.AutoScaling.DeleteWarmPool
+import Amazonka.AutoScaling.DescribeAccountLimits
+import Amazonka.AutoScaling.DescribeAdjustmentTypes
+import Amazonka.AutoScaling.DescribeAutoScalingGroups
+import Amazonka.AutoScaling.DescribeAutoScalingInstances
+import Amazonka.AutoScaling.DescribeAutoScalingNotificationTypes
+import Amazonka.AutoScaling.DescribeInstanceRefreshes
+import Amazonka.AutoScaling.DescribeLaunchConfigurations
+import Amazonka.AutoScaling.DescribeLifecycleHookTypes
+import Amazonka.AutoScaling.DescribeLifecycleHooks
+import Amazonka.AutoScaling.DescribeLoadBalancerTargetGroups
+import Amazonka.AutoScaling.DescribeLoadBalancers
+import Amazonka.AutoScaling.DescribeMetricCollectionTypes
+import Amazonka.AutoScaling.DescribeNotificationConfigurations
+import Amazonka.AutoScaling.DescribePolicies
+import Amazonka.AutoScaling.DescribeScalingActivities
+import Amazonka.AutoScaling.DescribeScalingProcessTypes
+import Amazonka.AutoScaling.DescribeScheduledActions
+import Amazonka.AutoScaling.DescribeTags
+import Amazonka.AutoScaling.DescribeTerminationPolicyTypes
+import Amazonka.AutoScaling.DescribeWarmPool
+import Amazonka.AutoScaling.DetachInstances
+import Amazonka.AutoScaling.DetachLoadBalancerTargetGroups
+import Amazonka.AutoScaling.DetachLoadBalancers
+import Amazonka.AutoScaling.DisableMetricsCollection
+import Amazonka.AutoScaling.EnableMetricsCollection
+import Amazonka.AutoScaling.EnterStandby
+import Amazonka.AutoScaling.ExecutePolicy
+import Amazonka.AutoScaling.ExitStandby
+import Amazonka.AutoScaling.GetPredictiveScalingForecast
+import Amazonka.AutoScaling.Lens
+import Amazonka.AutoScaling.PutLifecycleHook
+import Amazonka.AutoScaling.PutNotificationConfiguration
+import Amazonka.AutoScaling.PutScalingPolicy
+import Amazonka.AutoScaling.PutScheduledUpdateGroupAction
+import Amazonka.AutoScaling.PutWarmPool
+import Amazonka.AutoScaling.RecordLifecycleActionHeartbeat
+import Amazonka.AutoScaling.ResumeProcesses
+import Amazonka.AutoScaling.SetDesiredCapacity
+import Amazonka.AutoScaling.SetInstanceHealth
+import Amazonka.AutoScaling.SetInstanceProtection
+import Amazonka.AutoScaling.StartInstanceRefresh
+import Amazonka.AutoScaling.SuspendProcesses
+import Amazonka.AutoScaling.TerminateInstanceInAutoScalingGroup
+import Amazonka.AutoScaling.Types
+import Amazonka.AutoScaling.UpdateAutoScalingGroup
+import Amazonka.AutoScaling.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

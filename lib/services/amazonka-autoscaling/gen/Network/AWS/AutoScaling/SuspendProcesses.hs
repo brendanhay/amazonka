@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AutoScaling.SuspendProcesses
+-- Module      : Amazonka.AutoScaling.SuspendProcesses
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -31,7 +31,7 @@
 --
 -- To resume processes that have been suspended, call the ResumeProcesses
 -- API.
-module Network.AWS.AutoScaling.SuspendProcesses
+module Amazonka.AutoScaling.SuspendProcesses
   ( -- * Creating a Request
     SuspendProcesses (..),
     newSuspendProcesses,
@@ -46,12 +46,12 @@ module Network.AWS.AutoScaling.SuspendProcesses
   )
 where
 
-import Network.AWS.AutoScaling.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AutoScaling.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSuspendProcesses' smart constructor.
 data SuspendProcesses = SuspendProcesses'

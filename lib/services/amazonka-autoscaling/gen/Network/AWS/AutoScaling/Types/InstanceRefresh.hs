@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AutoScaling.Types.InstanceRefresh
+-- Module      : Amazonka.AutoScaling.Types.InstanceRefresh
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AutoScaling.Types.InstanceRefresh where
+module Amazonka.AutoScaling.Types.InstanceRefresh where
 
-import Network.AWS.AutoScaling.Types.DesiredConfiguration
-import Network.AWS.AutoScaling.Types.InstanceRefreshProgressDetails
-import Network.AWS.AutoScaling.Types.InstanceRefreshStatus
-import Network.AWS.AutoScaling.Types.RefreshPreferences
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AutoScaling.Types.DesiredConfiguration
+import Amazonka.AutoScaling.Types.InstanceRefreshProgressDetails
+import Amazonka.AutoScaling.Types.InstanceRefreshStatus
+import Amazonka.AutoScaling.Types.RefreshPreferences
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an instance refresh for an Auto Scaling group.
 --

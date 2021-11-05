@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AutoScaling.Types.PredictiveScalingConfiguration
+-- Module      : Amazonka.AutoScaling.Types.PredictiveScalingConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AutoScaling.Types.PredictiveScalingConfiguration where
+module Amazonka.AutoScaling.Types.PredictiveScalingConfiguration where
 
-import Network.AWS.AutoScaling.Types.PredictiveScalingMaxCapacityBreachBehavior
-import Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification
-import Network.AWS.AutoScaling.Types.PredictiveScalingMode
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AutoScaling.Types.PredictiveScalingMaxCapacityBreachBehavior
+import Amazonka.AutoScaling.Types.PredictiveScalingMetricSpecification
+import Amazonka.AutoScaling.Types.PredictiveScalingMode
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a predictive scaling policy configuration to use with Amazon
 -- EC2 Auto Scaling.

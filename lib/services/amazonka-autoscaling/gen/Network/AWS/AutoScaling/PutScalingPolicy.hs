@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AutoScaling.PutScalingPolicy
+-- Module      : Amazonka.AutoScaling.PutScalingPolicy
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -38,7 +38,7 @@
 -- You can view the scaling policies for an Auto Scaling group using the
 -- DescribePolicies API call. If you are no longer using a scaling policy,
 -- you can delete it by calling the DeletePolicy API.
-module Network.AWS.AutoScaling.PutScalingPolicy
+module Amazonka.AutoScaling.PutScalingPolicy
   ( -- * Creating a Request
     PutScalingPolicy (..),
     newPutScalingPolicy,
@@ -70,12 +70,12 @@ module Network.AWS.AutoScaling.PutScalingPolicy
   )
 where
 
-import Network.AWS.AutoScaling.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AutoScaling.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutScalingPolicy' smart constructor.
 data PutScalingPolicy = PutScalingPolicy'

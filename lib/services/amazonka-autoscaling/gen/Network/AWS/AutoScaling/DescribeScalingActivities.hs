@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AutoScaling.DescribeScalingActivities
+-- Module      : Amazonka.AutoScaling.DescribeScalingActivities
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -36,7 +36,7 @@
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 --
 -- This operation returns paginated results.
-module Network.AWS.AutoScaling.DescribeScalingActivities
+module Amazonka.AutoScaling.DescribeScalingActivities
   ( -- * Creating a Request
     DescribeScalingActivities (..),
     newDescribeScalingActivities,
@@ -59,12 +59,12 @@ module Network.AWS.AutoScaling.DescribeScalingActivities
   )
 where
 
-import Network.AWS.AutoScaling.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AutoScaling.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeScalingActivities' smart constructor.
 data DescribeScalingActivities = DescribeScalingActivities'

@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AutoScaling.Types
+-- Module      : Amazonka.AutoScaling.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AutoScaling.Types
+module Amazonka.AutoScaling.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -548,78 +548,78 @@ module Network.AWS.AutoScaling.Types
   )
 where
 
-import Network.AWS.AutoScaling.Types.Activity
-import Network.AWS.AutoScaling.Types.AdjustmentType
-import Network.AWS.AutoScaling.Types.Alarm
-import Network.AWS.AutoScaling.Types.AutoScalingGroup
-import Network.AWS.AutoScaling.Types.AutoScalingInstanceDetails
-import Network.AWS.AutoScaling.Types.BlockDeviceMapping
-import Network.AWS.AutoScaling.Types.CapacityForecast
-import Network.AWS.AutoScaling.Types.CustomizedMetricSpecification
-import Network.AWS.AutoScaling.Types.DesiredConfiguration
-import Network.AWS.AutoScaling.Types.Ebs
-import Network.AWS.AutoScaling.Types.EnabledMetric
-import Network.AWS.AutoScaling.Types.FailedScheduledUpdateGroupActionRequest
-import Network.AWS.AutoScaling.Types.Filter
-import Network.AWS.AutoScaling.Types.Instance
-import Network.AWS.AutoScaling.Types.InstanceMetadataEndpointState
-import Network.AWS.AutoScaling.Types.InstanceMetadataHttpTokensState
-import Network.AWS.AutoScaling.Types.InstanceMetadataOptions
-import Network.AWS.AutoScaling.Types.InstanceMonitoring
-import Network.AWS.AutoScaling.Types.InstanceRefresh
-import Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress
-import Network.AWS.AutoScaling.Types.InstanceRefreshProgressDetails
-import Network.AWS.AutoScaling.Types.InstanceRefreshStatus
-import Network.AWS.AutoScaling.Types.InstanceRefreshWarmPoolProgress
-import Network.AWS.AutoScaling.Types.InstancesDistribution
-import Network.AWS.AutoScaling.Types.LaunchConfiguration
-import Network.AWS.AutoScaling.Types.LaunchTemplate
-import Network.AWS.AutoScaling.Types.LaunchTemplateOverrides
-import Network.AWS.AutoScaling.Types.LaunchTemplateSpecification
-import Network.AWS.AutoScaling.Types.LifecycleHook
-import Network.AWS.AutoScaling.Types.LifecycleHookSpecification
-import Network.AWS.AutoScaling.Types.LifecycleState
-import Network.AWS.AutoScaling.Types.LoadBalancerState
-import Network.AWS.AutoScaling.Types.LoadBalancerTargetGroupState
-import Network.AWS.AutoScaling.Types.LoadForecast
-import Network.AWS.AutoScaling.Types.MetricCollectionType
-import Network.AWS.AutoScaling.Types.MetricDimension
-import Network.AWS.AutoScaling.Types.MetricGranularityType
-import Network.AWS.AutoScaling.Types.MetricStatistic
-import Network.AWS.AutoScaling.Types.MetricType
-import Network.AWS.AutoScaling.Types.MixedInstancesPolicy
-import Network.AWS.AutoScaling.Types.NotificationConfiguration
-import Network.AWS.AutoScaling.Types.PredefinedLoadMetricType
-import Network.AWS.AutoScaling.Types.PredefinedMetricPairType
-import Network.AWS.AutoScaling.Types.PredefinedMetricSpecification
-import Network.AWS.AutoScaling.Types.PredefinedScalingMetricType
-import Network.AWS.AutoScaling.Types.PredictiveScalingConfiguration
-import Network.AWS.AutoScaling.Types.PredictiveScalingMaxCapacityBreachBehavior
-import Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification
-import Network.AWS.AutoScaling.Types.PredictiveScalingMode
-import Network.AWS.AutoScaling.Types.PredictiveScalingPredefinedLoadMetric
-import Network.AWS.AutoScaling.Types.PredictiveScalingPredefinedMetricPair
-import Network.AWS.AutoScaling.Types.PredictiveScalingPredefinedScalingMetric
-import Network.AWS.AutoScaling.Types.ProcessType
-import Network.AWS.AutoScaling.Types.RefreshPreferences
-import Network.AWS.AutoScaling.Types.RefreshStrategy
-import Network.AWS.AutoScaling.Types.ScalingActivityStatusCode
-import Network.AWS.AutoScaling.Types.ScalingPolicy
-import Network.AWS.AutoScaling.Types.ScalingProcessQuery
-import Network.AWS.AutoScaling.Types.ScheduledUpdateGroupAction
-import Network.AWS.AutoScaling.Types.ScheduledUpdateGroupActionRequest
-import Network.AWS.AutoScaling.Types.StepAdjustment
-import Network.AWS.AutoScaling.Types.SuspendedProcess
-import Network.AWS.AutoScaling.Types.Tag
-import Network.AWS.AutoScaling.Types.TagDescription
-import Network.AWS.AutoScaling.Types.TargetTrackingConfiguration
-import Network.AWS.AutoScaling.Types.WarmPoolConfiguration
-import Network.AWS.AutoScaling.Types.WarmPoolState
-import Network.AWS.AutoScaling.Types.WarmPoolStatus
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.AutoScaling.Types.Activity
+import Amazonka.AutoScaling.Types.AdjustmentType
+import Amazonka.AutoScaling.Types.Alarm
+import Amazonka.AutoScaling.Types.AutoScalingGroup
+import Amazonka.AutoScaling.Types.AutoScalingInstanceDetails
+import Amazonka.AutoScaling.Types.BlockDeviceMapping
+import Amazonka.AutoScaling.Types.CapacityForecast
+import Amazonka.AutoScaling.Types.CustomizedMetricSpecification
+import Amazonka.AutoScaling.Types.DesiredConfiguration
+import Amazonka.AutoScaling.Types.Ebs
+import Amazonka.AutoScaling.Types.EnabledMetric
+import Amazonka.AutoScaling.Types.FailedScheduledUpdateGroupActionRequest
+import Amazonka.AutoScaling.Types.Filter
+import Amazonka.AutoScaling.Types.Instance
+import Amazonka.AutoScaling.Types.InstanceMetadataEndpointState
+import Amazonka.AutoScaling.Types.InstanceMetadataHttpTokensState
+import Amazonka.AutoScaling.Types.InstanceMetadataOptions
+import Amazonka.AutoScaling.Types.InstanceMonitoring
+import Amazonka.AutoScaling.Types.InstanceRefresh
+import Amazonka.AutoScaling.Types.InstanceRefreshLivePoolProgress
+import Amazonka.AutoScaling.Types.InstanceRefreshProgressDetails
+import Amazonka.AutoScaling.Types.InstanceRefreshStatus
+import Amazonka.AutoScaling.Types.InstanceRefreshWarmPoolProgress
+import Amazonka.AutoScaling.Types.InstancesDistribution
+import Amazonka.AutoScaling.Types.LaunchConfiguration
+import Amazonka.AutoScaling.Types.LaunchTemplate
+import Amazonka.AutoScaling.Types.LaunchTemplateOverrides
+import Amazonka.AutoScaling.Types.LaunchTemplateSpecification
+import Amazonka.AutoScaling.Types.LifecycleHook
+import Amazonka.AutoScaling.Types.LifecycleHookSpecification
+import Amazonka.AutoScaling.Types.LifecycleState
+import Amazonka.AutoScaling.Types.LoadBalancerState
+import Amazonka.AutoScaling.Types.LoadBalancerTargetGroupState
+import Amazonka.AutoScaling.Types.LoadForecast
+import Amazonka.AutoScaling.Types.MetricCollectionType
+import Amazonka.AutoScaling.Types.MetricDimension
+import Amazonka.AutoScaling.Types.MetricGranularityType
+import Amazonka.AutoScaling.Types.MetricStatistic
+import Amazonka.AutoScaling.Types.MetricType
+import Amazonka.AutoScaling.Types.MixedInstancesPolicy
+import Amazonka.AutoScaling.Types.NotificationConfiguration
+import Amazonka.AutoScaling.Types.PredefinedLoadMetricType
+import Amazonka.AutoScaling.Types.PredefinedMetricPairType
+import Amazonka.AutoScaling.Types.PredefinedMetricSpecification
+import Amazonka.AutoScaling.Types.PredefinedScalingMetricType
+import Amazonka.AutoScaling.Types.PredictiveScalingConfiguration
+import Amazonka.AutoScaling.Types.PredictiveScalingMaxCapacityBreachBehavior
+import Amazonka.AutoScaling.Types.PredictiveScalingMetricSpecification
+import Amazonka.AutoScaling.Types.PredictiveScalingMode
+import Amazonka.AutoScaling.Types.PredictiveScalingPredefinedLoadMetric
+import Amazonka.AutoScaling.Types.PredictiveScalingPredefinedMetricPair
+import Amazonka.AutoScaling.Types.PredictiveScalingPredefinedScalingMetric
+import Amazonka.AutoScaling.Types.ProcessType
+import Amazonka.AutoScaling.Types.RefreshPreferences
+import Amazonka.AutoScaling.Types.RefreshStrategy
+import Amazonka.AutoScaling.Types.ScalingActivityStatusCode
+import Amazonka.AutoScaling.Types.ScalingPolicy
+import Amazonka.AutoScaling.Types.ScalingProcessQuery
+import Amazonka.AutoScaling.Types.ScheduledUpdateGroupAction
+import Amazonka.AutoScaling.Types.ScheduledUpdateGroupActionRequest
+import Amazonka.AutoScaling.Types.StepAdjustment
+import Amazonka.AutoScaling.Types.SuspendedProcess
+import Amazonka.AutoScaling.Types.Tag
+import Amazonka.AutoScaling.Types.TagDescription
+import Amazonka.AutoScaling.Types.TargetTrackingConfiguration
+import Amazonka.AutoScaling.Types.WarmPoolConfiguration
+import Amazonka.AutoScaling.Types.WarmPoolState
+import Amazonka.AutoScaling.Types.WarmPoolStatus
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2011-01-01@ of the Amazon Auto Scaling SDK configuration.
 defaultService :: Core.Service

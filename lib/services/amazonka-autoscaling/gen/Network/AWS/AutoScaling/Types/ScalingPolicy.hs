@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AutoScaling.Types.ScalingPolicy
+-- Module      : Amazonka.AutoScaling.Types.ScalingPolicy
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AutoScaling.Types.ScalingPolicy where
+module Amazonka.AutoScaling.Types.ScalingPolicy where
 
-import Network.AWS.AutoScaling.Types.Alarm
-import Network.AWS.AutoScaling.Types.PredictiveScalingConfiguration
-import Network.AWS.AutoScaling.Types.StepAdjustment
-import Network.AWS.AutoScaling.Types.TargetTrackingConfiguration
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AutoScaling.Types.Alarm
+import Amazonka.AutoScaling.Types.PredictiveScalingConfiguration
+import Amazonka.AutoScaling.Types.StepAdjustment
+import Amazonka.AutoScaling.Types.TargetTrackingConfiguration
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a scaling policy.
 --

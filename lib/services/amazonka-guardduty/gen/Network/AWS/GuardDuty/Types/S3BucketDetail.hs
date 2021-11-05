@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GuardDuty.Types.S3BucketDetail
+-- Module      : Amazonka.GuardDuty.Types.S3BucketDetail
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.S3BucketDetail where
+module Amazonka.GuardDuty.Types.S3BucketDetail where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GuardDuty.Types.DefaultServerSideEncryption
-import Network.AWS.GuardDuty.Types.Owner
-import Network.AWS.GuardDuty.Types.PublicAccess
-import Network.AWS.GuardDuty.Types.Tag
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.GuardDuty.Types.DefaultServerSideEncryption
+import Amazonka.GuardDuty.Types.Owner
+import Amazonka.GuardDuty.Types.PublicAccess
+import Amazonka.GuardDuty.Types.Tag
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information on the S3 bucket.
 --

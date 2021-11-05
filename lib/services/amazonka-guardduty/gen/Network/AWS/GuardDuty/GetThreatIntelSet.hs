@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GuardDuty.GetThreatIntelSet
+-- Module      : Amazonka.GuardDuty.GetThreatIntelSet
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves the ThreatIntelSet that is specified by the ThreatIntelSet ID.
-module Network.AWS.GuardDuty.GetThreatIntelSet
+module Amazonka.GuardDuty.GetThreatIntelSet
   ( -- * Creating a Request
     GetThreatIntelSet (..),
     newGetThreatIntelSet,
@@ -44,12 +44,12 @@ module Network.AWS.GuardDuty.GetThreatIntelSet
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GuardDuty.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.GuardDuty.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetThreatIntelSet' smart constructor.
 data GetThreatIntelSet = GetThreatIntelSet'

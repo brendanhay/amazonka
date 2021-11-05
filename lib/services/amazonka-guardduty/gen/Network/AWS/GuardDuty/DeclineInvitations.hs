@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GuardDuty.DeclineInvitations
+-- Module      : Amazonka.GuardDuty.DeclineInvitations
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Declines invitations sent to the current member account by AWS accounts
 -- specified by their account IDs.
-module Network.AWS.GuardDuty.DeclineInvitations
+module Amazonka.GuardDuty.DeclineInvitations
   ( -- * Creating a Request
     DeclineInvitations (..),
     newDeclineInvitations,
@@ -40,12 +40,12 @@ module Network.AWS.GuardDuty.DeclineInvitations
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GuardDuty.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.GuardDuty.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeclineInvitations' smart constructor.
 data DeclineInvitations = DeclineInvitations'

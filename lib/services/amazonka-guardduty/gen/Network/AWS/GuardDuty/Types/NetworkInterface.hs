@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GuardDuty.Types.NetworkInterface
+-- Module      : Amazonka.GuardDuty.Types.NetworkInterface
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.NetworkInterface where
+module Amazonka.GuardDuty.Types.NetworkInterface where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GuardDuty.Types.PrivateIpAddressDetails
-import Network.AWS.GuardDuty.Types.SecurityGroup
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.GuardDuty.Types.PrivateIpAddressDetails
+import Amazonka.GuardDuty.Types.SecurityGroup
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the elastic network interface of the EC2
 -- instance.

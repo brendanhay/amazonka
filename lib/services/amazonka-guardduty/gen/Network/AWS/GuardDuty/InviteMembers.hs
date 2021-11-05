@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GuardDuty.InviteMembers
+-- Module      : Amazonka.GuardDuty.InviteMembers
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- account by CreateMembers) to enable GuardDuty, and allow the current AWS
 -- account to view and manage these accounts\' findings on their behalf as
 -- the GuardDuty administrator account.
-module Network.AWS.GuardDuty.InviteMembers
+module Amazonka.GuardDuty.InviteMembers
   ( -- * Creating a Request
     InviteMembers (..),
     newInviteMembers,
@@ -45,12 +45,12 @@ module Network.AWS.GuardDuty.InviteMembers
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GuardDuty.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.GuardDuty.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newInviteMembers' smart constructor.
 data InviteMembers = InviteMembers'

@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GuardDuty.Types.Action
+-- Module      : Amazonka.GuardDuty.Types.Action
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.Action where
+module Amazonka.GuardDuty.Types.Action where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GuardDuty.Types.AwsApiCallAction
-import Network.AWS.GuardDuty.Types.DnsRequestAction
-import Network.AWS.GuardDuty.Types.NetworkConnectionAction
-import Network.AWS.GuardDuty.Types.PortProbeAction
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.GuardDuty.Types.AwsApiCallAction
+import Amazonka.GuardDuty.Types.DnsRequestAction
+import Amazonka.GuardDuty.Types.NetworkConnectionAction
+import Amazonka.GuardDuty.Types.PortProbeAction
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about actions.
 --

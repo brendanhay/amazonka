@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GuardDuty.Types.NetworkConnectionAction
+-- Module      : Amazonka.GuardDuty.Types.NetworkConnectionAction
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.NetworkConnectionAction where
+module Amazonka.GuardDuty.Types.NetworkConnectionAction where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GuardDuty.Types.LocalIpDetails
-import Network.AWS.GuardDuty.Types.LocalPortDetails
-import Network.AWS.GuardDuty.Types.RemoteIpDetails
-import Network.AWS.GuardDuty.Types.RemotePortDetails
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.GuardDuty.Types.LocalIpDetails
+import Amazonka.GuardDuty.Types.LocalPortDetails
+import Amazonka.GuardDuty.Types.RemoteIpDetails
+import Amazonka.GuardDuty.Types.RemotePortDetails
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the NETWORK_CONNECTION action described in
 -- the finding.

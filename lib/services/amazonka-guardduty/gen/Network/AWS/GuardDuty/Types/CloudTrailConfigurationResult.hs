@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GuardDuty.Types.CloudTrailConfigurationResult
+-- Module      : Amazonka.GuardDuty.Types.CloudTrailConfigurationResult
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.CloudTrailConfigurationResult where
+module Amazonka.GuardDuty.Types.CloudTrailConfigurationResult where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GuardDuty.Types.DataSourceStatus
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.GuardDuty.Types.DataSourceStatus
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information on the status of CloudTrail as a data source for
 -- the detector.

@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GuardDuty.Types.InstanceDetails
+-- Module      : Amazonka.GuardDuty.Types.InstanceDetails
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.InstanceDetails where
+module Amazonka.GuardDuty.Types.InstanceDetails where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GuardDuty.Types.IamInstanceProfile
-import Network.AWS.GuardDuty.Types.NetworkInterface
-import Network.AWS.GuardDuty.Types.ProductCode
-import Network.AWS.GuardDuty.Types.Tag
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.GuardDuty.Types.IamInstanceProfile
+import Amazonka.GuardDuty.Types.NetworkInterface
+import Amazonka.GuardDuty.Types.ProductCode
+import Amazonka.GuardDuty.Types.Tag
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the details of an instance.
 --

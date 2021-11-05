@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GuardDuty.DisableOrganizationAdminAccount
+-- Module      : Amazonka.GuardDuty.DisableOrganizationAdminAccount
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Disables an AWS account within the Organization as the GuardDuty
 -- delegated administrator.
-module Network.AWS.GuardDuty.DisableOrganizationAdminAccount
+module Amazonka.GuardDuty.DisableOrganizationAdminAccount
   ( -- * Creating a Request
     DisableOrganizationAdminAccount (..),
     newDisableOrganizationAdminAccount,
@@ -39,12 +39,12 @@ module Network.AWS.GuardDuty.DisableOrganizationAdminAccount
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GuardDuty.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.GuardDuty.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDisableOrganizationAdminAccount' smart constructor.
 data DisableOrganizationAdminAccount = DisableOrganizationAdminAccount'

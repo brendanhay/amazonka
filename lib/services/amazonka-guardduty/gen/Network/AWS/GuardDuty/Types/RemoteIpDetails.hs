@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GuardDuty.Types.RemoteIpDetails
+-- Module      : Amazonka.GuardDuty.Types.RemoteIpDetails
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.RemoteIpDetails where
+module Amazonka.GuardDuty.Types.RemoteIpDetails where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GuardDuty.Types.City
-import Network.AWS.GuardDuty.Types.Country
-import Network.AWS.GuardDuty.Types.GeoLocation
-import Network.AWS.GuardDuty.Types.Organization
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.GuardDuty.Types.City
+import Amazonka.GuardDuty.Types.Country
+import Amazonka.GuardDuty.Types.GeoLocation
+import Amazonka.GuardDuty.Types.Organization
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the remote IP address of the connection.
 --

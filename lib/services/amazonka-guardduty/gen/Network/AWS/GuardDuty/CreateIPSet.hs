@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GuardDuty.CreateIPSet
+-- Module      : Amazonka.GuardDuty.CreateIPSet
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- secure communication with AWS infrastructure and applications. GuardDuty
 -- doesn\'t generate findings for IP addresses that are included in IPSets.
 -- Only users from the administrator account can use this operation.
-module Network.AWS.GuardDuty.CreateIPSet
+module Amazonka.GuardDuty.CreateIPSet
   ( -- * Creating a Request
     CreateIPSet (..),
     newCreateIPSet,
@@ -49,12 +49,12 @@ module Network.AWS.GuardDuty.CreateIPSet
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GuardDuty.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.GuardDuty.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateIPSet' smart constructor.
 data CreateIPSet = CreateIPSet'

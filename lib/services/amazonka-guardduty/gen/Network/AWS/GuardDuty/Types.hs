@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GuardDuty.Types
+-- Module      : Amazonka.GuardDuty.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types
+module Amazonka.GuardDuty.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -555,94 +555,94 @@ module Network.AWS.GuardDuty.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GuardDuty.Types.AccessControlList
-import Network.AWS.GuardDuty.Types.AccessKeyDetails
-import Network.AWS.GuardDuty.Types.AccountDetail
-import Network.AWS.GuardDuty.Types.AccountLevelPermissions
-import Network.AWS.GuardDuty.Types.Action
-import Network.AWS.GuardDuty.Types.AdminAccount
-import Network.AWS.GuardDuty.Types.AdminStatus
-import Network.AWS.GuardDuty.Types.AwsApiCallAction
-import Network.AWS.GuardDuty.Types.BlockPublicAccess
-import Network.AWS.GuardDuty.Types.BucketLevelPermissions
-import Network.AWS.GuardDuty.Types.BucketPolicy
-import Network.AWS.GuardDuty.Types.City
-import Network.AWS.GuardDuty.Types.CloudTrailConfigurationResult
-import Network.AWS.GuardDuty.Types.Condition
-import Network.AWS.GuardDuty.Types.Country
-import Network.AWS.GuardDuty.Types.DNSLogsConfigurationResult
-import Network.AWS.GuardDuty.Types.DataSource
-import Network.AWS.GuardDuty.Types.DataSourceConfigurations
-import Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult
-import Network.AWS.GuardDuty.Types.DataSourceStatus
-import Network.AWS.GuardDuty.Types.DefaultServerSideEncryption
-import Network.AWS.GuardDuty.Types.Destination
-import Network.AWS.GuardDuty.Types.DestinationProperties
-import Network.AWS.GuardDuty.Types.DestinationType
-import Network.AWS.GuardDuty.Types.DetectorStatus
-import Network.AWS.GuardDuty.Types.DnsRequestAction
-import Network.AWS.GuardDuty.Types.DomainDetails
-import Network.AWS.GuardDuty.Types.Evidence
-import Network.AWS.GuardDuty.Types.Feedback
-import Network.AWS.GuardDuty.Types.FilterAction
-import Network.AWS.GuardDuty.Types.Finding
-import Network.AWS.GuardDuty.Types.FindingCriteria
-import Network.AWS.GuardDuty.Types.FindingPublishingFrequency
-import Network.AWS.GuardDuty.Types.FindingStatisticType
-import Network.AWS.GuardDuty.Types.FindingStatistics
-import Network.AWS.GuardDuty.Types.FlowLogsConfigurationResult
-import Network.AWS.GuardDuty.Types.GeoLocation
-import Network.AWS.GuardDuty.Types.IamInstanceProfile
-import Network.AWS.GuardDuty.Types.InstanceDetails
-import Network.AWS.GuardDuty.Types.Invitation
-import Network.AWS.GuardDuty.Types.IpSetFormat
-import Network.AWS.GuardDuty.Types.IpSetStatus
-import Network.AWS.GuardDuty.Types.LocalIpDetails
-import Network.AWS.GuardDuty.Types.LocalPortDetails
-import Network.AWS.GuardDuty.Types.Master
-import Network.AWS.GuardDuty.Types.Member
-import Network.AWS.GuardDuty.Types.MemberDataSourceConfiguration
-import Network.AWS.GuardDuty.Types.NetworkConnectionAction
-import Network.AWS.GuardDuty.Types.NetworkInterface
-import Network.AWS.GuardDuty.Types.OrderBy
-import Network.AWS.GuardDuty.Types.Organization
-import Network.AWS.GuardDuty.Types.OrganizationDataSourceConfigurations
-import Network.AWS.GuardDuty.Types.OrganizationDataSourceConfigurationsResult
-import Network.AWS.GuardDuty.Types.OrganizationS3LogsConfiguration
-import Network.AWS.GuardDuty.Types.OrganizationS3LogsConfigurationResult
-import Network.AWS.GuardDuty.Types.Owner
-import Network.AWS.GuardDuty.Types.PermissionConfiguration
-import Network.AWS.GuardDuty.Types.PortProbeAction
-import Network.AWS.GuardDuty.Types.PortProbeDetail
-import Network.AWS.GuardDuty.Types.PrivateIpAddressDetails
-import Network.AWS.GuardDuty.Types.ProductCode
-import Network.AWS.GuardDuty.Types.PublicAccess
-import Network.AWS.GuardDuty.Types.PublishingStatus
-import Network.AWS.GuardDuty.Types.RemoteIpDetails
-import Network.AWS.GuardDuty.Types.RemotePortDetails
-import Network.AWS.GuardDuty.Types.Resource
-import Network.AWS.GuardDuty.Types.S3BucketDetail
-import Network.AWS.GuardDuty.Types.S3LogsConfiguration
-import Network.AWS.GuardDuty.Types.S3LogsConfigurationResult
-import Network.AWS.GuardDuty.Types.SecurityGroup
-import Network.AWS.GuardDuty.Types.ServiceInfo
-import Network.AWS.GuardDuty.Types.SortCriteria
-import Network.AWS.GuardDuty.Types.Tag
-import Network.AWS.GuardDuty.Types.ThreatIntelSetFormat
-import Network.AWS.GuardDuty.Types.ThreatIntelSetStatus
-import Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail
-import Network.AWS.GuardDuty.Types.Total
-import Network.AWS.GuardDuty.Types.UnprocessedAccount
-import Network.AWS.GuardDuty.Types.UsageAccountResult
-import Network.AWS.GuardDuty.Types.UsageCriteria
-import Network.AWS.GuardDuty.Types.UsageDataSourceResult
-import Network.AWS.GuardDuty.Types.UsageResourceResult
-import Network.AWS.GuardDuty.Types.UsageStatisticType
-import Network.AWS.GuardDuty.Types.UsageStatistics
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.GuardDuty.Types.AccessControlList
+import Amazonka.GuardDuty.Types.AccessKeyDetails
+import Amazonka.GuardDuty.Types.AccountDetail
+import Amazonka.GuardDuty.Types.AccountLevelPermissions
+import Amazonka.GuardDuty.Types.Action
+import Amazonka.GuardDuty.Types.AdminAccount
+import Amazonka.GuardDuty.Types.AdminStatus
+import Amazonka.GuardDuty.Types.AwsApiCallAction
+import Amazonka.GuardDuty.Types.BlockPublicAccess
+import Amazonka.GuardDuty.Types.BucketLevelPermissions
+import Amazonka.GuardDuty.Types.BucketPolicy
+import Amazonka.GuardDuty.Types.City
+import Amazonka.GuardDuty.Types.CloudTrailConfigurationResult
+import Amazonka.GuardDuty.Types.Condition
+import Amazonka.GuardDuty.Types.Country
+import Amazonka.GuardDuty.Types.DNSLogsConfigurationResult
+import Amazonka.GuardDuty.Types.DataSource
+import Amazonka.GuardDuty.Types.DataSourceConfigurations
+import Amazonka.GuardDuty.Types.DataSourceConfigurationsResult
+import Amazonka.GuardDuty.Types.DataSourceStatus
+import Amazonka.GuardDuty.Types.DefaultServerSideEncryption
+import Amazonka.GuardDuty.Types.Destination
+import Amazonka.GuardDuty.Types.DestinationProperties
+import Amazonka.GuardDuty.Types.DestinationType
+import Amazonka.GuardDuty.Types.DetectorStatus
+import Amazonka.GuardDuty.Types.DnsRequestAction
+import Amazonka.GuardDuty.Types.DomainDetails
+import Amazonka.GuardDuty.Types.Evidence
+import Amazonka.GuardDuty.Types.Feedback
+import Amazonka.GuardDuty.Types.FilterAction
+import Amazonka.GuardDuty.Types.Finding
+import Amazonka.GuardDuty.Types.FindingCriteria
+import Amazonka.GuardDuty.Types.FindingPublishingFrequency
+import Amazonka.GuardDuty.Types.FindingStatisticType
+import Amazonka.GuardDuty.Types.FindingStatistics
+import Amazonka.GuardDuty.Types.FlowLogsConfigurationResult
+import Amazonka.GuardDuty.Types.GeoLocation
+import Amazonka.GuardDuty.Types.IamInstanceProfile
+import Amazonka.GuardDuty.Types.InstanceDetails
+import Amazonka.GuardDuty.Types.Invitation
+import Amazonka.GuardDuty.Types.IpSetFormat
+import Amazonka.GuardDuty.Types.IpSetStatus
+import Amazonka.GuardDuty.Types.LocalIpDetails
+import Amazonka.GuardDuty.Types.LocalPortDetails
+import Amazonka.GuardDuty.Types.Master
+import Amazonka.GuardDuty.Types.Member
+import Amazonka.GuardDuty.Types.MemberDataSourceConfiguration
+import Amazonka.GuardDuty.Types.NetworkConnectionAction
+import Amazonka.GuardDuty.Types.NetworkInterface
+import Amazonka.GuardDuty.Types.OrderBy
+import Amazonka.GuardDuty.Types.Organization
+import Amazonka.GuardDuty.Types.OrganizationDataSourceConfigurations
+import Amazonka.GuardDuty.Types.OrganizationDataSourceConfigurationsResult
+import Amazonka.GuardDuty.Types.OrganizationS3LogsConfiguration
+import Amazonka.GuardDuty.Types.OrganizationS3LogsConfigurationResult
+import Amazonka.GuardDuty.Types.Owner
+import Amazonka.GuardDuty.Types.PermissionConfiguration
+import Amazonka.GuardDuty.Types.PortProbeAction
+import Amazonka.GuardDuty.Types.PortProbeDetail
+import Amazonka.GuardDuty.Types.PrivateIpAddressDetails
+import Amazonka.GuardDuty.Types.ProductCode
+import Amazonka.GuardDuty.Types.PublicAccess
+import Amazonka.GuardDuty.Types.PublishingStatus
+import Amazonka.GuardDuty.Types.RemoteIpDetails
+import Amazonka.GuardDuty.Types.RemotePortDetails
+import Amazonka.GuardDuty.Types.Resource
+import Amazonka.GuardDuty.Types.S3BucketDetail
+import Amazonka.GuardDuty.Types.S3LogsConfiguration
+import Amazonka.GuardDuty.Types.S3LogsConfigurationResult
+import Amazonka.GuardDuty.Types.SecurityGroup
+import Amazonka.GuardDuty.Types.ServiceInfo
+import Amazonka.GuardDuty.Types.SortCriteria
+import Amazonka.GuardDuty.Types.Tag
+import Amazonka.GuardDuty.Types.ThreatIntelSetFormat
+import Amazonka.GuardDuty.Types.ThreatIntelSetStatus
+import Amazonka.GuardDuty.Types.ThreatIntelligenceDetail
+import Amazonka.GuardDuty.Types.Total
+import Amazonka.GuardDuty.Types.UnprocessedAccount
+import Amazonka.GuardDuty.Types.UsageAccountResult
+import Amazonka.GuardDuty.Types.UsageCriteria
+import Amazonka.GuardDuty.Types.UsageDataSourceResult
+import Amazonka.GuardDuty.Types.UsageResourceResult
+import Amazonka.GuardDuty.Types.UsageStatisticType
+import Amazonka.GuardDuty.Types.UsageStatistics
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2017-11-28@ of the Amazon GuardDuty SDK configuration.
 defaultService :: Core.Service

@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GuardDuty.Types.Destination
+-- Module      : Amazonka.GuardDuty.Types.Destination
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.Destination where
+module Amazonka.GuardDuty.Types.Destination where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GuardDuty.Types.DestinationType
-import Network.AWS.GuardDuty.Types.PublishingStatus
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.GuardDuty.Types.DestinationType
+import Amazonka.GuardDuty.Types.PublishingStatus
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the publishing destination, including the ID,
 -- type, and status.

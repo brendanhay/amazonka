@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GuardDuty.Types.Resource
+-- Module      : Amazonka.GuardDuty.Types.Resource
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.Resource where
+module Amazonka.GuardDuty.Types.Resource where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GuardDuty.Types.AccessKeyDetails
-import Network.AWS.GuardDuty.Types.InstanceDetails
-import Network.AWS.GuardDuty.Types.S3BucketDetail
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.GuardDuty.Types.AccessKeyDetails
+import Amazonka.GuardDuty.Types.InstanceDetails
+import Amazonka.GuardDuty.Types.S3BucketDetail
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the AWS resource associated with the activity
 -- that prompted GuardDuty to generate a finding.

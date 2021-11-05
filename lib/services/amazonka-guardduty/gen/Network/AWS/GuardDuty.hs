@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.GuardDuty
+-- Module      : Amazonka.GuardDuty
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -32,7 +32,7 @@
 -- Amazon CloudWatch events. For more information, see the
 -- /<https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html Amazon GuardDuty User Guide>/
 -- .
-module Network.AWS.GuardDuty
+module Amazonka.GuardDuty
   ( -- * Service Configuration
     defaultService,
 
@@ -723,67 +723,67 @@ module Network.AWS.GuardDuty
   )
 where
 
-import Network.AWS.GuardDuty.AcceptInvitation
-import Network.AWS.GuardDuty.ArchiveFindings
-import Network.AWS.GuardDuty.CreateDetector
-import Network.AWS.GuardDuty.CreateFilter
-import Network.AWS.GuardDuty.CreateIPSet
-import Network.AWS.GuardDuty.CreateMembers
-import Network.AWS.GuardDuty.CreatePublishingDestination
-import Network.AWS.GuardDuty.CreateSampleFindings
-import Network.AWS.GuardDuty.CreateThreatIntelSet
-import Network.AWS.GuardDuty.DeclineInvitations
-import Network.AWS.GuardDuty.DeleteDetector
-import Network.AWS.GuardDuty.DeleteFilter
-import Network.AWS.GuardDuty.DeleteIPSet
-import Network.AWS.GuardDuty.DeleteInvitations
-import Network.AWS.GuardDuty.DeleteMembers
-import Network.AWS.GuardDuty.DeletePublishingDestination
-import Network.AWS.GuardDuty.DeleteThreatIntelSet
-import Network.AWS.GuardDuty.DescribeOrganizationConfiguration
-import Network.AWS.GuardDuty.DescribePublishingDestination
-import Network.AWS.GuardDuty.DisableOrganizationAdminAccount
-import Network.AWS.GuardDuty.DisassociateFromMasterAccount
-import Network.AWS.GuardDuty.DisassociateMembers
-import Network.AWS.GuardDuty.EnableOrganizationAdminAccount
-import Network.AWS.GuardDuty.GetDetector
-import Network.AWS.GuardDuty.GetFilter
-import Network.AWS.GuardDuty.GetFindings
-import Network.AWS.GuardDuty.GetFindingsStatistics
-import Network.AWS.GuardDuty.GetIPSet
-import Network.AWS.GuardDuty.GetInvitationsCount
-import Network.AWS.GuardDuty.GetMasterAccount
-import Network.AWS.GuardDuty.GetMemberDetectors
-import Network.AWS.GuardDuty.GetMembers
-import Network.AWS.GuardDuty.GetThreatIntelSet
-import Network.AWS.GuardDuty.GetUsageStatistics
-import Network.AWS.GuardDuty.InviteMembers
-import Network.AWS.GuardDuty.Lens
-import Network.AWS.GuardDuty.ListDetectors
-import Network.AWS.GuardDuty.ListFilters
-import Network.AWS.GuardDuty.ListFindings
-import Network.AWS.GuardDuty.ListIPSets
-import Network.AWS.GuardDuty.ListInvitations
-import Network.AWS.GuardDuty.ListMembers
-import Network.AWS.GuardDuty.ListOrganizationAdminAccounts
-import Network.AWS.GuardDuty.ListPublishingDestinations
-import Network.AWS.GuardDuty.ListTagsForResource
-import Network.AWS.GuardDuty.ListThreatIntelSets
-import Network.AWS.GuardDuty.StartMonitoringMembers
-import Network.AWS.GuardDuty.StopMonitoringMembers
-import Network.AWS.GuardDuty.TagResource
-import Network.AWS.GuardDuty.Types
-import Network.AWS.GuardDuty.UnarchiveFindings
-import Network.AWS.GuardDuty.UntagResource
-import Network.AWS.GuardDuty.UpdateDetector
-import Network.AWS.GuardDuty.UpdateFilter
-import Network.AWS.GuardDuty.UpdateFindingsFeedback
-import Network.AWS.GuardDuty.UpdateIPSet
-import Network.AWS.GuardDuty.UpdateMemberDetectors
-import Network.AWS.GuardDuty.UpdateOrganizationConfiguration
-import Network.AWS.GuardDuty.UpdatePublishingDestination
-import Network.AWS.GuardDuty.UpdateThreatIntelSet
-import Network.AWS.GuardDuty.Waiters
+import Amazonka.GuardDuty.AcceptInvitation
+import Amazonka.GuardDuty.ArchiveFindings
+import Amazonka.GuardDuty.CreateDetector
+import Amazonka.GuardDuty.CreateFilter
+import Amazonka.GuardDuty.CreateIPSet
+import Amazonka.GuardDuty.CreateMembers
+import Amazonka.GuardDuty.CreatePublishingDestination
+import Amazonka.GuardDuty.CreateSampleFindings
+import Amazonka.GuardDuty.CreateThreatIntelSet
+import Amazonka.GuardDuty.DeclineInvitations
+import Amazonka.GuardDuty.DeleteDetector
+import Amazonka.GuardDuty.DeleteFilter
+import Amazonka.GuardDuty.DeleteIPSet
+import Amazonka.GuardDuty.DeleteInvitations
+import Amazonka.GuardDuty.DeleteMembers
+import Amazonka.GuardDuty.DeletePublishingDestination
+import Amazonka.GuardDuty.DeleteThreatIntelSet
+import Amazonka.GuardDuty.DescribeOrganizationConfiguration
+import Amazonka.GuardDuty.DescribePublishingDestination
+import Amazonka.GuardDuty.DisableOrganizationAdminAccount
+import Amazonka.GuardDuty.DisassociateFromMasterAccount
+import Amazonka.GuardDuty.DisassociateMembers
+import Amazonka.GuardDuty.EnableOrganizationAdminAccount
+import Amazonka.GuardDuty.GetDetector
+import Amazonka.GuardDuty.GetFilter
+import Amazonka.GuardDuty.GetFindings
+import Amazonka.GuardDuty.GetFindingsStatistics
+import Amazonka.GuardDuty.GetIPSet
+import Amazonka.GuardDuty.GetInvitationsCount
+import Amazonka.GuardDuty.GetMasterAccount
+import Amazonka.GuardDuty.GetMemberDetectors
+import Amazonka.GuardDuty.GetMembers
+import Amazonka.GuardDuty.GetThreatIntelSet
+import Amazonka.GuardDuty.GetUsageStatistics
+import Amazonka.GuardDuty.InviteMembers
+import Amazonka.GuardDuty.Lens
+import Amazonka.GuardDuty.ListDetectors
+import Amazonka.GuardDuty.ListFilters
+import Amazonka.GuardDuty.ListFindings
+import Amazonka.GuardDuty.ListIPSets
+import Amazonka.GuardDuty.ListInvitations
+import Amazonka.GuardDuty.ListMembers
+import Amazonka.GuardDuty.ListOrganizationAdminAccounts
+import Amazonka.GuardDuty.ListPublishingDestinations
+import Amazonka.GuardDuty.ListTagsForResource
+import Amazonka.GuardDuty.ListThreatIntelSets
+import Amazonka.GuardDuty.StartMonitoringMembers
+import Amazonka.GuardDuty.StopMonitoringMembers
+import Amazonka.GuardDuty.TagResource
+import Amazonka.GuardDuty.Types
+import Amazonka.GuardDuty.UnarchiveFindings
+import Amazonka.GuardDuty.UntagResource
+import Amazonka.GuardDuty.UpdateDetector
+import Amazonka.GuardDuty.UpdateFilter
+import Amazonka.GuardDuty.UpdateFindingsFeedback
+import Amazonka.GuardDuty.UpdateIPSet
+import Amazonka.GuardDuty.UpdateMemberDetectors
+import Amazonka.GuardDuty.UpdateOrganizationConfiguration
+import Amazonka.GuardDuty.UpdatePublishingDestination
+import Amazonka.GuardDuty.UpdateThreatIntelSet
+import Amazonka.GuardDuty.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

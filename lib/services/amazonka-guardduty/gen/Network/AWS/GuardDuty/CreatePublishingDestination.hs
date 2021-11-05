@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GuardDuty.CreatePublishingDestination
+-- Module      : Amazonka.GuardDuty.CreatePublishingDestination
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Creates a publishing destination to export findings to. The resource to
 -- export findings to must exist before you use this operation.
-module Network.AWS.GuardDuty.CreatePublishingDestination
+module Amazonka.GuardDuty.CreatePublishingDestination
   ( -- * Creating a Request
     CreatePublishingDestination (..),
     newCreatePublishingDestination,
@@ -43,12 +43,12 @@ module Network.AWS.GuardDuty.CreatePublishingDestination
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GuardDuty.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.GuardDuty.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreatePublishingDestination' smart constructor.
 data CreatePublishingDestination = CreatePublishingDestination'

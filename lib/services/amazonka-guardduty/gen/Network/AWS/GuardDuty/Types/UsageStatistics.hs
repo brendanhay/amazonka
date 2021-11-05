@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GuardDuty.Types.UsageStatistics
+-- Module      : Amazonka.GuardDuty.Types.UsageStatistics
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.UsageStatistics where
+module Amazonka.GuardDuty.Types.UsageStatistics where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GuardDuty.Types.UsageAccountResult
-import Network.AWS.GuardDuty.Types.UsageDataSourceResult
-import Network.AWS.GuardDuty.Types.UsageResourceResult
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.GuardDuty.Types.UsageAccountResult
+import Amazonka.GuardDuty.Types.UsageDataSourceResult
+import Amazonka.GuardDuty.Types.UsageResourceResult
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the result of GuardDuty usage. If a UsageStatisticType is
 -- provided the result for other types will be null.

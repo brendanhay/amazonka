@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.GuardDuty where
 
+import Amazonka.GuardDuty
 import qualified Data.Proxy as Proxy
-import Network.AWS.GuardDuty
 import Test.AWS.Fixture
 import Test.AWS.GuardDuty.Internal
 import Test.AWS.Prelude

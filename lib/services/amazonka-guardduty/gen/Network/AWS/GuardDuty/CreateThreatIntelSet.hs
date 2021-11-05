@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.GuardDuty.CreateThreatIntelSet
+-- Module      : Amazonka.GuardDuty.CreateThreatIntelSet
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Creates a new ThreatIntelSet. ThreatIntelSets consist of known malicious
 -- IP addresses. GuardDuty generates findings based on ThreatIntelSets.
 -- Only users of the administrator account can use this operation.
-module Network.AWS.GuardDuty.CreateThreatIntelSet
+module Amazonka.GuardDuty.CreateThreatIntelSet
   ( -- * Creating a Request
     CreateThreatIntelSet (..),
     newCreateThreatIntelSet,
@@ -47,12 +47,12 @@ module Network.AWS.GuardDuty.CreateThreatIntelSet
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.GuardDuty.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.GuardDuty.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateThreatIntelSet' smart constructor.
 data CreateThreatIntelSet = CreateThreatIntelSet'

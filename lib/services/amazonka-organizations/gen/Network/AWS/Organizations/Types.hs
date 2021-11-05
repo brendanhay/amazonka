@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Organizations.Types
+-- Module      : Amazonka.Organizations.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Organizations.Types
+module Amazonka.Organizations.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -272,46 +272,46 @@ module Network.AWS.Organizations.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Organizations.Types.Account
-import Network.AWS.Organizations.Types.AccountJoinedMethod
-import Network.AWS.Organizations.Types.AccountStatus
-import Network.AWS.Organizations.Types.ActionType
-import Network.AWS.Organizations.Types.Child
-import Network.AWS.Organizations.Types.ChildType
-import Network.AWS.Organizations.Types.CreateAccountFailureReason
-import Network.AWS.Organizations.Types.CreateAccountState
-import Network.AWS.Organizations.Types.CreateAccountStatus
-import Network.AWS.Organizations.Types.DelegatedAdministrator
-import Network.AWS.Organizations.Types.DelegatedService
-import Network.AWS.Organizations.Types.EffectivePolicy
-import Network.AWS.Organizations.Types.EffectivePolicyType
-import Network.AWS.Organizations.Types.EnabledServicePrincipal
-import Network.AWS.Organizations.Types.Handshake
-import Network.AWS.Organizations.Types.HandshakeFilter
-import Network.AWS.Organizations.Types.HandshakeParty
-import Network.AWS.Organizations.Types.HandshakePartyType
-import Network.AWS.Organizations.Types.HandshakeResource
-import Network.AWS.Organizations.Types.HandshakeResourceType
-import Network.AWS.Organizations.Types.HandshakeState
-import Network.AWS.Organizations.Types.IAMUserAccessToBilling
-import Network.AWS.Organizations.Types.Organization
-import Network.AWS.Organizations.Types.OrganizationFeatureSet
-import Network.AWS.Organizations.Types.OrganizationalUnit
-import Network.AWS.Organizations.Types.Parent
-import Network.AWS.Organizations.Types.ParentType
-import Network.AWS.Organizations.Types.Policy
-import Network.AWS.Organizations.Types.PolicySummary
-import Network.AWS.Organizations.Types.PolicyTargetSummary
-import Network.AWS.Organizations.Types.PolicyType
-import Network.AWS.Organizations.Types.PolicyTypeStatus
-import Network.AWS.Organizations.Types.PolicyTypeSummary
-import Network.AWS.Organizations.Types.Root
-import Network.AWS.Organizations.Types.Tag
-import Network.AWS.Organizations.Types.TargetType
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Organizations.Types.Account
+import Amazonka.Organizations.Types.AccountJoinedMethod
+import Amazonka.Organizations.Types.AccountStatus
+import Amazonka.Organizations.Types.ActionType
+import Amazonka.Organizations.Types.Child
+import Amazonka.Organizations.Types.ChildType
+import Amazonka.Organizations.Types.CreateAccountFailureReason
+import Amazonka.Organizations.Types.CreateAccountState
+import Amazonka.Organizations.Types.CreateAccountStatus
+import Amazonka.Organizations.Types.DelegatedAdministrator
+import Amazonka.Organizations.Types.DelegatedService
+import Amazonka.Organizations.Types.EffectivePolicy
+import Amazonka.Organizations.Types.EffectivePolicyType
+import Amazonka.Organizations.Types.EnabledServicePrincipal
+import Amazonka.Organizations.Types.Handshake
+import Amazonka.Organizations.Types.HandshakeFilter
+import Amazonka.Organizations.Types.HandshakeParty
+import Amazonka.Organizations.Types.HandshakePartyType
+import Amazonka.Organizations.Types.HandshakeResource
+import Amazonka.Organizations.Types.HandshakeResourceType
+import Amazonka.Organizations.Types.HandshakeState
+import Amazonka.Organizations.Types.IAMUserAccessToBilling
+import Amazonka.Organizations.Types.Organization
+import Amazonka.Organizations.Types.OrganizationFeatureSet
+import Amazonka.Organizations.Types.OrganizationalUnit
+import Amazonka.Organizations.Types.Parent
+import Amazonka.Organizations.Types.ParentType
+import Amazonka.Organizations.Types.Policy
+import Amazonka.Organizations.Types.PolicySummary
+import Amazonka.Organizations.Types.PolicyTargetSummary
+import Amazonka.Organizations.Types.PolicyType
+import Amazonka.Organizations.Types.PolicyTypeStatus
+import Amazonka.Organizations.Types.PolicyTypeSummary
+import Amazonka.Organizations.Types.Root
+import Amazonka.Organizations.Types.Tag
+import Amazonka.Organizations.Types.TargetType
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2016-11-28@ of the Amazon Organizations SDK configuration.
 defaultService :: Core.Service

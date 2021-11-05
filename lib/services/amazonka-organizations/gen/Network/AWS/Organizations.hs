@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Organizations
+-- Module      : Amazonka.Organizations
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -80,7 +80,7 @@
 -- in the /AWS Organizations User Guide/. To learn more about AWS
 -- CloudTrail, including how to turn it on and find your log files, see the
 -- <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html AWS CloudTrail User Guide>.
-module Network.AWS.Organizations
+module Amazonka.Organizations
   ( -- * Service Configuration
     defaultService,
 
@@ -663,60 +663,60 @@ module Network.AWS.Organizations
   )
 where
 
-import Network.AWS.Organizations.AcceptHandshake
-import Network.AWS.Organizations.AttachPolicy
-import Network.AWS.Organizations.CancelHandshake
-import Network.AWS.Organizations.CreateAccount
-import Network.AWS.Organizations.CreateGovCloudAccount
-import Network.AWS.Organizations.CreateOrganization
-import Network.AWS.Organizations.CreateOrganizationalUnit
-import Network.AWS.Organizations.CreatePolicy
-import Network.AWS.Organizations.DeclineHandshake
-import Network.AWS.Organizations.DeleteOrganization
-import Network.AWS.Organizations.DeleteOrganizationalUnit
-import Network.AWS.Organizations.DeletePolicy
-import Network.AWS.Organizations.DeregisterDelegatedAdministrator
-import Network.AWS.Organizations.DescribeAccount
-import Network.AWS.Organizations.DescribeCreateAccountStatus
-import Network.AWS.Organizations.DescribeEffectivePolicy
-import Network.AWS.Organizations.DescribeHandshake
-import Network.AWS.Organizations.DescribeOrganization
-import Network.AWS.Organizations.DescribeOrganizationalUnit
-import Network.AWS.Organizations.DescribePolicy
-import Network.AWS.Organizations.DetachPolicy
-import Network.AWS.Organizations.DisableAWSServiceAccess
-import Network.AWS.Organizations.DisablePolicyType
-import Network.AWS.Organizations.EnableAWSServiceAccess
-import Network.AWS.Organizations.EnableAllFeatures
-import Network.AWS.Organizations.EnablePolicyType
-import Network.AWS.Organizations.InviteAccountToOrganization
-import Network.AWS.Organizations.LeaveOrganization
-import Network.AWS.Organizations.Lens
-import Network.AWS.Organizations.ListAWSServiceAccessForOrganization
-import Network.AWS.Organizations.ListAccounts
-import Network.AWS.Organizations.ListAccountsForParent
-import Network.AWS.Organizations.ListChildren
-import Network.AWS.Organizations.ListCreateAccountStatus
-import Network.AWS.Organizations.ListDelegatedAdministrators
-import Network.AWS.Organizations.ListDelegatedServicesForAccount
-import Network.AWS.Organizations.ListHandshakesForAccount
-import Network.AWS.Organizations.ListHandshakesForOrganization
-import Network.AWS.Organizations.ListOrganizationalUnitsForParent
-import Network.AWS.Organizations.ListParents
-import Network.AWS.Organizations.ListPolicies
-import Network.AWS.Organizations.ListPoliciesForTarget
-import Network.AWS.Organizations.ListRoots
-import Network.AWS.Organizations.ListTagsForResource
-import Network.AWS.Organizations.ListTargetsForPolicy
-import Network.AWS.Organizations.MoveAccount
-import Network.AWS.Organizations.RegisterDelegatedAdministrator
-import Network.AWS.Organizations.RemoveAccountFromOrganization
-import Network.AWS.Organizations.TagResource
-import Network.AWS.Organizations.Types
-import Network.AWS.Organizations.UntagResource
-import Network.AWS.Organizations.UpdateOrganizationalUnit
-import Network.AWS.Organizations.UpdatePolicy
-import Network.AWS.Organizations.Waiters
+import Amazonka.Organizations.AcceptHandshake
+import Amazonka.Organizations.AttachPolicy
+import Amazonka.Organizations.CancelHandshake
+import Amazonka.Organizations.CreateAccount
+import Amazonka.Organizations.CreateGovCloudAccount
+import Amazonka.Organizations.CreateOrganization
+import Amazonka.Organizations.CreateOrganizationalUnit
+import Amazonka.Organizations.CreatePolicy
+import Amazonka.Organizations.DeclineHandshake
+import Amazonka.Organizations.DeleteOrganization
+import Amazonka.Organizations.DeleteOrganizationalUnit
+import Amazonka.Organizations.DeletePolicy
+import Amazonka.Organizations.DeregisterDelegatedAdministrator
+import Amazonka.Organizations.DescribeAccount
+import Amazonka.Organizations.DescribeCreateAccountStatus
+import Amazonka.Organizations.DescribeEffectivePolicy
+import Amazonka.Organizations.DescribeHandshake
+import Amazonka.Organizations.DescribeOrganization
+import Amazonka.Organizations.DescribeOrganizationalUnit
+import Amazonka.Organizations.DescribePolicy
+import Amazonka.Organizations.DetachPolicy
+import Amazonka.Organizations.DisableAWSServiceAccess
+import Amazonka.Organizations.DisablePolicyType
+import Amazonka.Organizations.EnableAWSServiceAccess
+import Amazonka.Organizations.EnableAllFeatures
+import Amazonka.Organizations.EnablePolicyType
+import Amazonka.Organizations.InviteAccountToOrganization
+import Amazonka.Organizations.LeaveOrganization
+import Amazonka.Organizations.Lens
+import Amazonka.Organizations.ListAWSServiceAccessForOrganization
+import Amazonka.Organizations.ListAccounts
+import Amazonka.Organizations.ListAccountsForParent
+import Amazonka.Organizations.ListChildren
+import Amazonka.Organizations.ListCreateAccountStatus
+import Amazonka.Organizations.ListDelegatedAdministrators
+import Amazonka.Organizations.ListDelegatedServicesForAccount
+import Amazonka.Organizations.ListHandshakesForAccount
+import Amazonka.Organizations.ListHandshakesForOrganization
+import Amazonka.Organizations.ListOrganizationalUnitsForParent
+import Amazonka.Organizations.ListParents
+import Amazonka.Organizations.ListPolicies
+import Amazonka.Organizations.ListPoliciesForTarget
+import Amazonka.Organizations.ListRoots
+import Amazonka.Organizations.ListTagsForResource
+import Amazonka.Organizations.ListTargetsForPolicy
+import Amazonka.Organizations.MoveAccount
+import Amazonka.Organizations.RegisterDelegatedAdministrator
+import Amazonka.Organizations.RemoveAccountFromOrganization
+import Amazonka.Organizations.TagResource
+import Amazonka.Organizations.Types
+import Amazonka.Organizations.UntagResource
+import Amazonka.Organizations.UpdateOrganizationalUnit
+import Amazonka.Organizations.UpdatePolicy
+import Amazonka.Organizations.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

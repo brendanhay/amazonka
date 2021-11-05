@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Organizations.Types.Parent
+-- Module      : Amazonka.Organizations.Types.Parent
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Organizations.Types.Parent where
+module Amazonka.Organizations.Types.Parent where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Organizations.Types.ParentType
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Organizations.Types.ParentType
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about either a root or an organizational unit (OU)
 -- that can contain OUs or accounts in an organization.

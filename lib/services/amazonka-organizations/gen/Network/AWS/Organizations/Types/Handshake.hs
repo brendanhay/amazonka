@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Organizations.Types.Handshake
+-- Module      : Amazonka.Organizations.Types.Handshake
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Organizations.Types.Handshake where
+module Amazonka.Organizations.Types.Handshake where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Organizations.Types.ActionType
-import Network.AWS.Organizations.Types.HandshakeParty
-import Network.AWS.Organizations.Types.HandshakeResource
-import Network.AWS.Organizations.Types.HandshakeState
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Organizations.Types.ActionType
+import Amazonka.Organizations.Types.HandshakeParty
+import Amazonka.Organizations.Types.HandshakeResource
+import Amazonka.Organizations.Types.HandshakeState
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information that must be exchanged to securely establish a
 -- relationship between two accounts (an /originator/ and a /recipient/).

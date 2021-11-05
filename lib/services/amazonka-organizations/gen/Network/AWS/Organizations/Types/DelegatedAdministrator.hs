@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Organizations.Types.DelegatedAdministrator
+-- Module      : Amazonka.Organizations.Types.DelegatedAdministrator
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Organizations.Types.DelegatedAdministrator where
+module Amazonka.Organizations.Types.DelegatedAdministrator where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Organizations.Types.AccountJoinedMethod
-import Network.AWS.Organizations.Types.AccountStatus
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Organizations.Types.AccountJoinedMethod
+import Amazonka.Organizations.Types.AccountStatus
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the delegated administrator.
 --

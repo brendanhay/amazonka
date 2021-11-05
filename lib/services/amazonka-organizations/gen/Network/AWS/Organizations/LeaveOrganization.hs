@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Organizations.LeaveOrganization
+-- Module      : Amazonka.Organizations.LeaveOrganization
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -73,7 +73,7 @@
 -- -   A newly created account has a waiting period before it can be
 --     removed from its organization. If you get an error that indicates
 --     that a wait period is required, then try again in a few days.
-module Network.AWS.Organizations.LeaveOrganization
+module Amazonka.Organizations.LeaveOrganization
   ( -- * Creating a Request
     LeaveOrganization (..),
     newLeaveOrganization,
@@ -84,12 +84,12 @@ module Network.AWS.Organizations.LeaveOrganization
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Organizations.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newLeaveOrganization' smart constructor.
 data LeaveOrganization = LeaveOrganization'

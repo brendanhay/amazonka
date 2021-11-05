@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Organizations.DeleteOrganization
+-- Module      : Amazonka.Organizations.DeleteOrganization
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Deletes the organization. You can delete an organization only by using
 -- credentials from the management account. The organization must be empty
 -- of member accounts.
-module Network.AWS.Organizations.DeleteOrganization
+module Amazonka.Organizations.DeleteOrganization
   ( -- * Creating a Request
     DeleteOrganization (..),
     newDeleteOrganization,
@@ -34,12 +34,12 @@ module Network.AWS.Organizations.DeleteOrganization
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Organizations.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteOrganization' smart constructor.
 data DeleteOrganization = DeleteOrganization'

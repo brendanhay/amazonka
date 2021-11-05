@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Organizations.CancelHandshake
+-- Module      : Amazonka.Organizations.CancelHandshake
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -30,7 +30,7 @@
 --
 -- After you cancel a handshake, it continues to appear in the results of
 -- relevant APIs for only 30 days. After that, it\'s deleted.
-module Network.AWS.Organizations.CancelHandshake
+module Amazonka.Organizations.CancelHandshake
   ( -- * Creating a Request
     CancelHandshake (..),
     newCancelHandshake,
@@ -48,12 +48,12 @@ module Network.AWS.Organizations.CancelHandshake
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Organizations.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCancelHandshake' smart constructor.
 data CancelHandshake = CancelHandshake'

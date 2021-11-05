@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Organizations.Types.CreateAccountStatus
+-- Module      : Amazonka.Organizations.Types.CreateAccountStatus
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Organizations.Types.CreateAccountStatus where
+module Amazonka.Organizations.Types.CreateAccountStatus where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Organizations.Types.CreateAccountFailureReason
-import Network.AWS.Organizations.Types.CreateAccountState
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Organizations.Types.CreateAccountFailureReason
+import Amazonka.Organizations.Types.CreateAccountState
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the status about a CreateAccount or CreateGovCloudAccount
 -- request to create an AWS account or an AWS GovCloud (US) account in an

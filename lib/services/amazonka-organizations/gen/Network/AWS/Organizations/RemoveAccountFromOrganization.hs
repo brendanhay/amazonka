@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Organizations.RemoveAccountFromOrganization
+-- Module      : Amazonka.Organizations.RemoveAccountFromOrganization
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -57,7 +57,7 @@
 -- -   After the account leaves the organization, all tags that were
 --     attached to the account object in the organization are deleted. AWS
 --     accounts outside of an organization do not support tags.
-module Network.AWS.Organizations.RemoveAccountFromOrganization
+module Amazonka.Organizations.RemoveAccountFromOrganization
   ( -- * Creating a Request
     RemoveAccountFromOrganization (..),
     newRemoveAccountFromOrganization,
@@ -71,12 +71,12 @@ module Network.AWS.Organizations.RemoveAccountFromOrganization
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Organizations.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRemoveAccountFromOrganization' smart constructor.
 data RemoveAccountFromOrganization = RemoveAccountFromOrganization'

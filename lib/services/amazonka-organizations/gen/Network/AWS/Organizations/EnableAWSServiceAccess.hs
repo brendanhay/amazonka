@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Organizations.EnableAWSServiceAccess
+-- Module      : Amazonka.Organizations.EnableAWSServiceAccess
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -43,7 +43,7 @@
 -- This operation can be called only from the organization\'s management
 -- account and only if the organization has
 -- <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html enabled all features>.
-module Network.AWS.Organizations.EnableAWSServiceAccess
+module Amazonka.Organizations.EnableAWSServiceAccess
   ( -- * Creating a Request
     EnableAWSServiceAccess (..),
     newEnableAWSServiceAccess,
@@ -57,12 +57,12 @@ module Network.AWS.Organizations.EnableAWSServiceAccess
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Organizations.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newEnableAWSServiceAccess' smart constructor.
 data EnableAWSServiceAccess = EnableAWSServiceAccess'

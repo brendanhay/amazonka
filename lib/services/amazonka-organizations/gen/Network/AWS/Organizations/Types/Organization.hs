@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Organizations.Types.Organization
+-- Module      : Amazonka.Organizations.Types.Organization
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Organizations.Types.Organization where
+module Amazonka.Organizations.Types.Organization where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Organizations.Types.OrganizationFeatureSet
-import Network.AWS.Organizations.Types.PolicyTypeSummary
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Organizations.Types.OrganizationFeatureSet
+import Amazonka.Organizations.Types.PolicyTypeSummary
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details about an organization. An organization is a collection
 -- of accounts that are centrally managed together using consolidated

@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Organizations.Lens
+-- Module      : Amazonka.Organizations.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Organizations.Lens
+module Amazonka.Organizations.Lens
   ( -- * Operations
 
     -- ** ListHandshakesForAccount
@@ -438,74 +438,74 @@ module Network.AWS.Organizations.Lens
   )
 where
 
-import Network.AWS.Organizations.AcceptHandshake
-import Network.AWS.Organizations.AttachPolicy
-import Network.AWS.Organizations.CancelHandshake
-import Network.AWS.Organizations.CreateAccount
-import Network.AWS.Organizations.CreateGovCloudAccount
-import Network.AWS.Organizations.CreateOrganization
-import Network.AWS.Organizations.CreateOrganizationalUnit
-import Network.AWS.Organizations.CreatePolicy
-import Network.AWS.Organizations.DeclineHandshake
-import Network.AWS.Organizations.DeleteOrganization
-import Network.AWS.Organizations.DeleteOrganizationalUnit
-import Network.AWS.Organizations.DeletePolicy
-import Network.AWS.Organizations.DeregisterDelegatedAdministrator
-import Network.AWS.Organizations.DescribeAccount
-import Network.AWS.Organizations.DescribeCreateAccountStatus
-import Network.AWS.Organizations.DescribeEffectivePolicy
-import Network.AWS.Organizations.DescribeHandshake
-import Network.AWS.Organizations.DescribeOrganization
-import Network.AWS.Organizations.DescribeOrganizationalUnit
-import Network.AWS.Organizations.DescribePolicy
-import Network.AWS.Organizations.DetachPolicy
-import Network.AWS.Organizations.DisableAWSServiceAccess
-import Network.AWS.Organizations.DisablePolicyType
-import Network.AWS.Organizations.EnableAWSServiceAccess
-import Network.AWS.Organizations.EnableAllFeatures
-import Network.AWS.Organizations.EnablePolicyType
-import Network.AWS.Organizations.InviteAccountToOrganization
-import Network.AWS.Organizations.LeaveOrganization
-import Network.AWS.Organizations.ListAWSServiceAccessForOrganization
-import Network.AWS.Organizations.ListAccounts
-import Network.AWS.Organizations.ListAccountsForParent
-import Network.AWS.Organizations.ListChildren
-import Network.AWS.Organizations.ListCreateAccountStatus
-import Network.AWS.Organizations.ListDelegatedAdministrators
-import Network.AWS.Organizations.ListDelegatedServicesForAccount
-import Network.AWS.Organizations.ListHandshakesForAccount
-import Network.AWS.Organizations.ListHandshakesForOrganization
-import Network.AWS.Organizations.ListOrganizationalUnitsForParent
-import Network.AWS.Organizations.ListParents
-import Network.AWS.Organizations.ListPolicies
-import Network.AWS.Organizations.ListPoliciesForTarget
-import Network.AWS.Organizations.ListRoots
-import Network.AWS.Organizations.ListTagsForResource
-import Network.AWS.Organizations.ListTargetsForPolicy
-import Network.AWS.Organizations.MoveAccount
-import Network.AWS.Organizations.RegisterDelegatedAdministrator
-import Network.AWS.Organizations.RemoveAccountFromOrganization
-import Network.AWS.Organizations.TagResource
-import Network.AWS.Organizations.Types.Account
-import Network.AWS.Organizations.Types.Child
-import Network.AWS.Organizations.Types.CreateAccountStatus
-import Network.AWS.Organizations.Types.DelegatedAdministrator
-import Network.AWS.Organizations.Types.DelegatedService
-import Network.AWS.Organizations.Types.EffectivePolicy
-import Network.AWS.Organizations.Types.EnabledServicePrincipal
-import Network.AWS.Organizations.Types.Handshake
-import Network.AWS.Organizations.Types.HandshakeFilter
-import Network.AWS.Organizations.Types.HandshakeParty
-import Network.AWS.Organizations.Types.HandshakeResource
-import Network.AWS.Organizations.Types.Organization
-import Network.AWS.Organizations.Types.OrganizationalUnit
-import Network.AWS.Organizations.Types.Parent
-import Network.AWS.Organizations.Types.Policy
-import Network.AWS.Organizations.Types.PolicySummary
-import Network.AWS.Organizations.Types.PolicyTargetSummary
-import Network.AWS.Organizations.Types.PolicyTypeSummary
-import Network.AWS.Organizations.Types.Root
-import Network.AWS.Organizations.Types.Tag
-import Network.AWS.Organizations.UntagResource
-import Network.AWS.Organizations.UpdateOrganizationalUnit
-import Network.AWS.Organizations.UpdatePolicy
+import Amazonka.Organizations.AcceptHandshake
+import Amazonka.Organizations.AttachPolicy
+import Amazonka.Organizations.CancelHandshake
+import Amazonka.Organizations.CreateAccount
+import Amazonka.Organizations.CreateGovCloudAccount
+import Amazonka.Organizations.CreateOrganization
+import Amazonka.Organizations.CreateOrganizationalUnit
+import Amazonka.Organizations.CreatePolicy
+import Amazonka.Organizations.DeclineHandshake
+import Amazonka.Organizations.DeleteOrganization
+import Amazonka.Organizations.DeleteOrganizationalUnit
+import Amazonka.Organizations.DeletePolicy
+import Amazonka.Organizations.DeregisterDelegatedAdministrator
+import Amazonka.Organizations.DescribeAccount
+import Amazonka.Organizations.DescribeCreateAccountStatus
+import Amazonka.Organizations.DescribeEffectivePolicy
+import Amazonka.Organizations.DescribeHandshake
+import Amazonka.Organizations.DescribeOrganization
+import Amazonka.Organizations.DescribeOrganizationalUnit
+import Amazonka.Organizations.DescribePolicy
+import Amazonka.Organizations.DetachPolicy
+import Amazonka.Organizations.DisableAWSServiceAccess
+import Amazonka.Organizations.DisablePolicyType
+import Amazonka.Organizations.EnableAWSServiceAccess
+import Amazonka.Organizations.EnableAllFeatures
+import Amazonka.Organizations.EnablePolicyType
+import Amazonka.Organizations.InviteAccountToOrganization
+import Amazonka.Organizations.LeaveOrganization
+import Amazonka.Organizations.ListAWSServiceAccessForOrganization
+import Amazonka.Organizations.ListAccounts
+import Amazonka.Organizations.ListAccountsForParent
+import Amazonka.Organizations.ListChildren
+import Amazonka.Organizations.ListCreateAccountStatus
+import Amazonka.Organizations.ListDelegatedAdministrators
+import Amazonka.Organizations.ListDelegatedServicesForAccount
+import Amazonka.Organizations.ListHandshakesForAccount
+import Amazonka.Organizations.ListHandshakesForOrganization
+import Amazonka.Organizations.ListOrganizationalUnitsForParent
+import Amazonka.Organizations.ListParents
+import Amazonka.Organizations.ListPolicies
+import Amazonka.Organizations.ListPoliciesForTarget
+import Amazonka.Organizations.ListRoots
+import Amazonka.Organizations.ListTagsForResource
+import Amazonka.Organizations.ListTargetsForPolicy
+import Amazonka.Organizations.MoveAccount
+import Amazonka.Organizations.RegisterDelegatedAdministrator
+import Amazonka.Organizations.RemoveAccountFromOrganization
+import Amazonka.Organizations.TagResource
+import Amazonka.Organizations.Types.Account
+import Amazonka.Organizations.Types.Child
+import Amazonka.Organizations.Types.CreateAccountStatus
+import Amazonka.Organizations.Types.DelegatedAdministrator
+import Amazonka.Organizations.Types.DelegatedService
+import Amazonka.Organizations.Types.EffectivePolicy
+import Amazonka.Organizations.Types.EnabledServicePrincipal
+import Amazonka.Organizations.Types.Handshake
+import Amazonka.Organizations.Types.HandshakeFilter
+import Amazonka.Organizations.Types.HandshakeParty
+import Amazonka.Organizations.Types.HandshakeResource
+import Amazonka.Organizations.Types.Organization
+import Amazonka.Organizations.Types.OrganizationalUnit
+import Amazonka.Organizations.Types.Parent
+import Amazonka.Organizations.Types.Policy
+import Amazonka.Organizations.Types.PolicySummary
+import Amazonka.Organizations.Types.PolicyTargetSummary
+import Amazonka.Organizations.Types.PolicyTypeSummary
+import Amazonka.Organizations.Types.Root
+import Amazonka.Organizations.Types.Tag
+import Amazonka.Organizations.UntagResource
+import Amazonka.Organizations.UpdateOrganizationalUnit
+import Amazonka.Organizations.UpdatePolicy

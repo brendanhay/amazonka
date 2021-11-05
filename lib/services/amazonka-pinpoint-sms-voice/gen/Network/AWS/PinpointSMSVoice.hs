@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.PinpointSMSVoice
+-- Module      : Amazonka.PinpointSMSVoice
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -12,7 +12,7 @@
 -- Derived from API version @2018-09-05@ of the AWS service descriptions, licensed under Apache 2.0.
 --
 -- Pinpoint SMS and Voice Messaging public facing APIs
-module Network.AWS.PinpointSMSVoice
+module Amazonka.PinpointSMSVoice
   ( -- * Service Configuration
     defaultService,
 
@@ -128,16 +128,16 @@ module Network.AWS.PinpointSMSVoice
   )
 where
 
-import Network.AWS.PinpointSMSVoice.CreateConfigurationSet
-import Network.AWS.PinpointSMSVoice.CreateConfigurationSetEventDestination
-import Network.AWS.PinpointSMSVoice.DeleteConfigurationSet
-import Network.AWS.PinpointSMSVoice.DeleteConfigurationSetEventDestination
-import Network.AWS.PinpointSMSVoice.GetConfigurationSetEventDestinations
-import Network.AWS.PinpointSMSVoice.Lens
-import Network.AWS.PinpointSMSVoice.SendVoiceMessage
-import Network.AWS.PinpointSMSVoice.Types
-import Network.AWS.PinpointSMSVoice.UpdateConfigurationSetEventDestination
-import Network.AWS.PinpointSMSVoice.Waiters
+import Amazonka.PinpointSMSVoice.CreateConfigurationSet
+import Amazonka.PinpointSMSVoice.CreateConfigurationSetEventDestination
+import Amazonka.PinpointSMSVoice.DeleteConfigurationSet
+import Amazonka.PinpointSMSVoice.DeleteConfigurationSetEventDestination
+import Amazonka.PinpointSMSVoice.GetConfigurationSetEventDestinations
+import Amazonka.PinpointSMSVoice.Lens
+import Amazonka.PinpointSMSVoice.SendVoiceMessage
+import Amazonka.PinpointSMSVoice.Types
+import Amazonka.PinpointSMSVoice.UpdateConfigurationSetEventDestination
+import Amazonka.PinpointSMSVoice.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

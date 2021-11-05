@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.PinpointSMSVoice where
 
+import Amazonka.PinpointSMSVoice
 import qualified Data.Proxy as Proxy
-import Network.AWS.PinpointSMSVoice
 import Test.AWS.Fixture
 import Test.AWS.PinpointSMSVoice.Internal
 import Test.AWS.Prelude

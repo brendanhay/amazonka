@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.PinpointSMSVoice.Types.VoiceMessageContent
+-- Module      : Amazonka.PinpointSMSVoice.Types.VoiceMessageContent
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.PinpointSMSVoice.Types.VoiceMessageContent where
+module Amazonka.PinpointSMSVoice.Types.VoiceMessageContent where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.PinpointSMSVoice.Types.CallInstructionsMessageType
-import Network.AWS.PinpointSMSVoice.Types.PlainTextMessageType
-import Network.AWS.PinpointSMSVoice.Types.SSMLMessageType
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.PinpointSMSVoice.Types.CallInstructionsMessageType
+import Amazonka.PinpointSMSVoice.Types.PlainTextMessageType
+import Amazonka.PinpointSMSVoice.Types.SSMLMessageType
+import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains a voice message and information about the
 -- recipient that you want to send it to.

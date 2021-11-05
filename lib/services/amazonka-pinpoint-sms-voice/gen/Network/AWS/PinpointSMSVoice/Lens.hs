@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.PinpointSMSVoice.Lens
+-- Module      : Amazonka.PinpointSMSVoice.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.PinpointSMSVoice.Lens
+module Amazonka.PinpointSMSVoice.Lens
   ( -- * Operations
 
     -- ** UpdateConfigurationSetEventDestination
@@ -101,19 +101,19 @@ module Network.AWS.PinpointSMSVoice.Lens
   )
 where
 
-import Network.AWS.PinpointSMSVoice.CreateConfigurationSet
-import Network.AWS.PinpointSMSVoice.CreateConfigurationSetEventDestination
-import Network.AWS.PinpointSMSVoice.DeleteConfigurationSet
-import Network.AWS.PinpointSMSVoice.DeleteConfigurationSetEventDestination
-import Network.AWS.PinpointSMSVoice.GetConfigurationSetEventDestinations
-import Network.AWS.PinpointSMSVoice.SendVoiceMessage
-import Network.AWS.PinpointSMSVoice.Types.CallInstructionsMessageType
-import Network.AWS.PinpointSMSVoice.Types.CloudWatchLogsDestination
-import Network.AWS.PinpointSMSVoice.Types.EventDestination
-import Network.AWS.PinpointSMSVoice.Types.EventDestinationDefinition
-import Network.AWS.PinpointSMSVoice.Types.KinesisFirehoseDestination
-import Network.AWS.PinpointSMSVoice.Types.PlainTextMessageType
-import Network.AWS.PinpointSMSVoice.Types.SSMLMessageType
-import Network.AWS.PinpointSMSVoice.Types.SnsDestination
-import Network.AWS.PinpointSMSVoice.Types.VoiceMessageContent
-import Network.AWS.PinpointSMSVoice.UpdateConfigurationSetEventDestination
+import Amazonka.PinpointSMSVoice.CreateConfigurationSet
+import Amazonka.PinpointSMSVoice.CreateConfigurationSetEventDestination
+import Amazonka.PinpointSMSVoice.DeleteConfigurationSet
+import Amazonka.PinpointSMSVoice.DeleteConfigurationSetEventDestination
+import Amazonka.PinpointSMSVoice.GetConfigurationSetEventDestinations
+import Amazonka.PinpointSMSVoice.SendVoiceMessage
+import Amazonka.PinpointSMSVoice.Types.CallInstructionsMessageType
+import Amazonka.PinpointSMSVoice.Types.CloudWatchLogsDestination
+import Amazonka.PinpointSMSVoice.Types.EventDestination
+import Amazonka.PinpointSMSVoice.Types.EventDestinationDefinition
+import Amazonka.PinpointSMSVoice.Types.KinesisFirehoseDestination
+import Amazonka.PinpointSMSVoice.Types.PlainTextMessageType
+import Amazonka.PinpointSMSVoice.Types.SSMLMessageType
+import Amazonka.PinpointSMSVoice.Types.SnsDestination
+import Amazonka.PinpointSMSVoice.Types.VoiceMessageContent
+import Amazonka.PinpointSMSVoice.UpdateConfigurationSetEventDestination

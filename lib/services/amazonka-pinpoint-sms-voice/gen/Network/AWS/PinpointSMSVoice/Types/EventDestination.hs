@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.PinpointSMSVoice.Types.EventDestination
+-- Module      : Amazonka.PinpointSMSVoice.Types.EventDestination
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.PinpointSMSVoice.Types.EventDestination where
+module Amazonka.PinpointSMSVoice.Types.EventDestination where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.PinpointSMSVoice.Types.CloudWatchLogsDestination
-import Network.AWS.PinpointSMSVoice.Types.EventType
-import Network.AWS.PinpointSMSVoice.Types.KinesisFirehoseDestination
-import Network.AWS.PinpointSMSVoice.Types.SnsDestination
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.PinpointSMSVoice.Types.CloudWatchLogsDestination
+import Amazonka.PinpointSMSVoice.Types.EventType
+import Amazonka.PinpointSMSVoice.Types.KinesisFirehoseDestination
+import Amazonka.PinpointSMSVoice.Types.SnsDestination
+import qualified Amazonka.Prelude as Prelude
 
 -- | An object that defines an event destination.
 --

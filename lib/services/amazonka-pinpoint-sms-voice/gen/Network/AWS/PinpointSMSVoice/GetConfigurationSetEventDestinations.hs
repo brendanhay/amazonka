@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.PinpointSMSVoice.GetConfigurationSetEventDestinations
+-- Module      : Amazonka.PinpointSMSVoice.GetConfigurationSetEventDestinations
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Obtain information about an event destination, including the types of
 -- events it reports, the Amazon Resource Name (ARN) of the destination,
 -- and the name of the event destination.
-module Network.AWS.PinpointSMSVoice.GetConfigurationSetEventDestinations
+module Amazonka.PinpointSMSVoice.GetConfigurationSetEventDestinations
   ( -- * Creating a Request
     GetConfigurationSetEventDestinations (..),
     newGetConfigurationSetEventDestinations,
@@ -41,12 +41,12 @@ module Network.AWS.PinpointSMSVoice.GetConfigurationSetEventDestinations
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.PinpointSMSVoice.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.PinpointSMSVoice.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetConfigurationSetEventDestinations' smart constructor.
 data GetConfigurationSetEventDestinations = GetConfigurationSetEventDestinations'

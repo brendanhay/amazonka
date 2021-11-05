@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.PinpointSMSVoice.Types
+-- Module      : Amazonka.PinpointSMSVoice.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.PinpointSMSVoice.Types
+module Amazonka.PinpointSMSVoice.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -91,20 +91,20 @@ module Network.AWS.PinpointSMSVoice.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.PinpointSMSVoice.Types.CallInstructionsMessageType
-import Network.AWS.PinpointSMSVoice.Types.CloudWatchLogsDestination
-import Network.AWS.PinpointSMSVoice.Types.EventDestination
-import Network.AWS.PinpointSMSVoice.Types.EventDestinationDefinition
-import Network.AWS.PinpointSMSVoice.Types.EventType
-import Network.AWS.PinpointSMSVoice.Types.KinesisFirehoseDestination
-import Network.AWS.PinpointSMSVoice.Types.PlainTextMessageType
-import Network.AWS.PinpointSMSVoice.Types.SSMLMessageType
-import Network.AWS.PinpointSMSVoice.Types.SnsDestination
-import Network.AWS.PinpointSMSVoice.Types.VoiceMessageContent
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.PinpointSMSVoice.Types.CallInstructionsMessageType
+import Amazonka.PinpointSMSVoice.Types.CloudWatchLogsDestination
+import Amazonka.PinpointSMSVoice.Types.EventDestination
+import Amazonka.PinpointSMSVoice.Types.EventDestinationDefinition
+import Amazonka.PinpointSMSVoice.Types.EventType
+import Amazonka.PinpointSMSVoice.Types.KinesisFirehoseDestination
+import Amazonka.PinpointSMSVoice.Types.PlainTextMessageType
+import Amazonka.PinpointSMSVoice.Types.SSMLMessageType
+import Amazonka.PinpointSMSVoice.Types.SnsDestination
+import Amazonka.PinpointSMSVoice.Types.VoiceMessageContent
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2018-09-05@ of the Amazon Pinpoint SMS and Voice Service SDK configuration.
 defaultService :: Core.Service

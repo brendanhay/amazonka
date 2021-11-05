@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CodeStarConnections where
 
+import Amazonka.CodeStarConnections
 import qualified Data.Proxy as Proxy
-import Network.AWS.CodeStarConnections
 import Test.AWS.CodeStarConnections.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

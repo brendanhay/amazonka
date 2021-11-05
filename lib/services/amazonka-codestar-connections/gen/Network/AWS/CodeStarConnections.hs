@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.CodeStarConnections
+-- Module      : Amazonka.CodeStarConnections
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -74,7 +74,7 @@
 --
 -- For information about how to use AWS CodeStar Connections, see the
 -- <https://docs.aws.amazon.com/dtconsole/latest/userguide/welcome-connections.html Developer Tools User Guide>.
-module Network.AWS.CodeStarConnections
+module Amazonka.CodeStarConnections
   ( -- * Service Configuration
     defaultService,
 
@@ -200,21 +200,21 @@ module Network.AWS.CodeStarConnections
   )
 where
 
-import Network.AWS.CodeStarConnections.CreateConnection
-import Network.AWS.CodeStarConnections.CreateHost
-import Network.AWS.CodeStarConnections.DeleteConnection
-import Network.AWS.CodeStarConnections.DeleteHost
-import Network.AWS.CodeStarConnections.GetConnection
-import Network.AWS.CodeStarConnections.GetHost
-import Network.AWS.CodeStarConnections.Lens
-import Network.AWS.CodeStarConnections.ListConnections
-import Network.AWS.CodeStarConnections.ListHosts
-import Network.AWS.CodeStarConnections.ListTagsForResource
-import Network.AWS.CodeStarConnections.TagResource
-import Network.AWS.CodeStarConnections.Types
-import Network.AWS.CodeStarConnections.UntagResource
-import Network.AWS.CodeStarConnections.UpdateHost
-import Network.AWS.CodeStarConnections.Waiters
+import Amazonka.CodeStarConnections.CreateConnection
+import Amazonka.CodeStarConnections.CreateHost
+import Amazonka.CodeStarConnections.DeleteConnection
+import Amazonka.CodeStarConnections.DeleteHost
+import Amazonka.CodeStarConnections.GetConnection
+import Amazonka.CodeStarConnections.GetHost
+import Amazonka.CodeStarConnections.Lens
+import Amazonka.CodeStarConnections.ListConnections
+import Amazonka.CodeStarConnections.ListHosts
+import Amazonka.CodeStarConnections.ListTagsForResource
+import Amazonka.CodeStarConnections.TagResource
+import Amazonka.CodeStarConnections.Types
+import Amazonka.CodeStarConnections.UntagResource
+import Amazonka.CodeStarConnections.UpdateHost
+import Amazonka.CodeStarConnections.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

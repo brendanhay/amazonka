@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeStarConnections.Types.Host
+-- Module      : Amazonka.CodeStarConnections.Types.Host
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeStarConnections.Types.Host where
+module Amazonka.CodeStarConnections.Types.Host where
 
-import Network.AWS.CodeStarConnections.Types.ProviderType
-import Network.AWS.CodeStarConnections.Types.VpcConfiguration
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CodeStarConnections.Types.ProviderType
+import Amazonka.CodeStarConnections.Types.VpcConfiguration
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A resource that represents the infrastructure where a third-party
 -- provider is installed. The host is used when you create connections to

@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeStarConnections.Lens
+-- Module      : Amazonka.CodeStarConnections.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeStarConnections.Lens
+module Amazonka.CodeStarConnections.Lens
   ( -- * Operations
 
     -- ** CreateHost
@@ -123,19 +123,19 @@ module Network.AWS.CodeStarConnections.Lens
   )
 where
 
-import Network.AWS.CodeStarConnections.CreateConnection
-import Network.AWS.CodeStarConnections.CreateHost
-import Network.AWS.CodeStarConnections.DeleteConnection
-import Network.AWS.CodeStarConnections.DeleteHost
-import Network.AWS.CodeStarConnections.GetConnection
-import Network.AWS.CodeStarConnections.GetHost
-import Network.AWS.CodeStarConnections.ListConnections
-import Network.AWS.CodeStarConnections.ListHosts
-import Network.AWS.CodeStarConnections.ListTagsForResource
-import Network.AWS.CodeStarConnections.TagResource
-import Network.AWS.CodeStarConnections.Types.Connection
-import Network.AWS.CodeStarConnections.Types.Host
-import Network.AWS.CodeStarConnections.Types.Tag
-import Network.AWS.CodeStarConnections.Types.VpcConfiguration
-import Network.AWS.CodeStarConnections.UntagResource
-import Network.AWS.CodeStarConnections.UpdateHost
+import Amazonka.CodeStarConnections.CreateConnection
+import Amazonka.CodeStarConnections.CreateHost
+import Amazonka.CodeStarConnections.DeleteConnection
+import Amazonka.CodeStarConnections.DeleteHost
+import Amazonka.CodeStarConnections.GetConnection
+import Amazonka.CodeStarConnections.GetHost
+import Amazonka.CodeStarConnections.ListConnections
+import Amazonka.CodeStarConnections.ListHosts
+import Amazonka.CodeStarConnections.ListTagsForResource
+import Amazonka.CodeStarConnections.TagResource
+import Amazonka.CodeStarConnections.Types.Connection
+import Amazonka.CodeStarConnections.Types.Host
+import Amazonka.CodeStarConnections.Types.Tag
+import Amazonka.CodeStarConnections.Types.VpcConfiguration
+import Amazonka.CodeStarConnections.UntagResource
+import Amazonka.CodeStarConnections.UpdateHost

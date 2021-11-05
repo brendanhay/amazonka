@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SecretsManager where
 
+import Amazonka.SecretsManager
 import qualified Data.Proxy as Proxy
-import Network.AWS.SecretsManager
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.SecretsManager.Internal

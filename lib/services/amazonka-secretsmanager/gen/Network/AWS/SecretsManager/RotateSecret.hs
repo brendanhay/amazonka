@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SecretsManager.RotateSecret
+-- Module      : Amazonka.SecretsManager.RotateSecret
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -81,7 +81,7 @@
 --
 -- -   To attach staging labels to or remove staging labels from a version
 --     of a secret, use UpdateSecretVersionStage.
-module Network.AWS.SecretsManager.RotateSecret
+module Amazonka.SecretsManager.RotateSecret
   ( -- * Creating a Request
     RotateSecret (..),
     newRotateSecret,
@@ -104,12 +104,12 @@ module Network.AWS.SecretsManager.RotateSecret
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SecretsManager.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SecretsManager.Types
 
 -- | /See:/ 'newRotateSecret' smart constructor.
 data RotateSecret = RotateSecret'

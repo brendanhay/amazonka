@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SecretsManager.Lens
+-- Module      : Amazonka.SecretsManager.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SecretsManager.Lens
+module Amazonka.SecretsManager.Lens
   ( -- * Operations
 
     -- ** ValidateResourcePolicy
@@ -272,33 +272,33 @@ module Network.AWS.SecretsManager.Lens
   )
 where
 
-import Network.AWS.SecretsManager.CancelRotateSecret
-import Network.AWS.SecretsManager.CreateSecret
-import Network.AWS.SecretsManager.DeleteResourcePolicy
-import Network.AWS.SecretsManager.DeleteSecret
-import Network.AWS.SecretsManager.DescribeSecret
-import Network.AWS.SecretsManager.GetRandomPassword
-import Network.AWS.SecretsManager.GetResourcePolicy
-import Network.AWS.SecretsManager.GetSecretValue
-import Network.AWS.SecretsManager.ListSecretVersionIds
-import Network.AWS.SecretsManager.ListSecrets
-import Network.AWS.SecretsManager.PutResourcePolicy
-import Network.AWS.SecretsManager.PutSecretValue
-import Network.AWS.SecretsManager.RemoveRegionsFromReplication
-import Network.AWS.SecretsManager.ReplicateSecretToRegions
-import Network.AWS.SecretsManager.RestoreSecret
-import Network.AWS.SecretsManager.RotateSecret
-import Network.AWS.SecretsManager.StopReplicationToReplica
-import Network.AWS.SecretsManager.TagResource
-import Network.AWS.SecretsManager.Types.Filter
-import Network.AWS.SecretsManager.Types.ReplicaRegionType
-import Network.AWS.SecretsManager.Types.ReplicationStatusType
-import Network.AWS.SecretsManager.Types.RotationRulesType
-import Network.AWS.SecretsManager.Types.SecretListEntry
-import Network.AWS.SecretsManager.Types.SecretVersionsListEntry
-import Network.AWS.SecretsManager.Types.Tag
-import Network.AWS.SecretsManager.Types.ValidationErrorsEntry
-import Network.AWS.SecretsManager.UntagResource
-import Network.AWS.SecretsManager.UpdateSecret
-import Network.AWS.SecretsManager.UpdateSecretVersionStage
-import Network.AWS.SecretsManager.ValidateResourcePolicy
+import Amazonka.SecretsManager.CancelRotateSecret
+import Amazonka.SecretsManager.CreateSecret
+import Amazonka.SecretsManager.DeleteResourcePolicy
+import Amazonka.SecretsManager.DeleteSecret
+import Amazonka.SecretsManager.DescribeSecret
+import Amazonka.SecretsManager.GetRandomPassword
+import Amazonka.SecretsManager.GetResourcePolicy
+import Amazonka.SecretsManager.GetSecretValue
+import Amazonka.SecretsManager.ListSecretVersionIds
+import Amazonka.SecretsManager.ListSecrets
+import Amazonka.SecretsManager.PutResourcePolicy
+import Amazonka.SecretsManager.PutSecretValue
+import Amazonka.SecretsManager.RemoveRegionsFromReplication
+import Amazonka.SecretsManager.ReplicateSecretToRegions
+import Amazonka.SecretsManager.RestoreSecret
+import Amazonka.SecretsManager.RotateSecret
+import Amazonka.SecretsManager.StopReplicationToReplica
+import Amazonka.SecretsManager.TagResource
+import Amazonka.SecretsManager.Types.Filter
+import Amazonka.SecretsManager.Types.ReplicaRegionType
+import Amazonka.SecretsManager.Types.ReplicationStatusType
+import Amazonka.SecretsManager.Types.RotationRulesType
+import Amazonka.SecretsManager.Types.SecretListEntry
+import Amazonka.SecretsManager.Types.SecretVersionsListEntry
+import Amazonka.SecretsManager.Types.Tag
+import Amazonka.SecretsManager.Types.ValidationErrorsEntry
+import Amazonka.SecretsManager.UntagResource
+import Amazonka.SecretsManager.UpdateSecret
+import Amazonka.SecretsManager.UpdateSecretVersionStage
+import Amazonka.SecretsManager.ValidateResourcePolicy

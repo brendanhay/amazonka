@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SecretsManager.Types
+-- Module      : Amazonka.SecretsManager.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SecretsManager.Types
+module Amazonka.SecretsManager.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -108,21 +108,21 @@ module Network.AWS.SecretsManager.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SecretsManager.Types.Filter
-import Network.AWS.SecretsManager.Types.FilterNameStringType
-import Network.AWS.SecretsManager.Types.ReplicaRegionType
-import Network.AWS.SecretsManager.Types.ReplicationStatusType
-import Network.AWS.SecretsManager.Types.RotationRulesType
-import Network.AWS.SecretsManager.Types.SecretListEntry
-import Network.AWS.SecretsManager.Types.SecretVersionsListEntry
-import Network.AWS.SecretsManager.Types.SortOrderType
-import Network.AWS.SecretsManager.Types.StatusType
-import Network.AWS.SecretsManager.Types.Tag
-import Network.AWS.SecretsManager.Types.ValidationErrorsEntry
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SecretsManager.Types.Filter
+import Amazonka.SecretsManager.Types.FilterNameStringType
+import Amazonka.SecretsManager.Types.ReplicaRegionType
+import Amazonka.SecretsManager.Types.ReplicationStatusType
+import Amazonka.SecretsManager.Types.RotationRulesType
+import Amazonka.SecretsManager.Types.SecretListEntry
+import Amazonka.SecretsManager.Types.SecretVersionsListEntry
+import Amazonka.SecretsManager.Types.SortOrderType
+import Amazonka.SecretsManager.Types.StatusType
+import Amazonka.SecretsManager.Types.Tag
+import Amazonka.SecretsManager.Types.ValidationErrorsEntry
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2017-10-17@ of the Amazon Secrets Manager SDK configuration.
 defaultService :: Core.Service

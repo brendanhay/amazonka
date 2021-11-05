@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.SecretsManager
+-- Module      : Amazonka.SecretsManager
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -81,7 +81,7 @@
 -- in the /Amazon Web Services Secrets Manager User Guide/. To learn more
 -- about CloudTrail, including enabling it and find your log files, see the
 -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html Amazon Web Services CloudTrail User Guide>.
-module Network.AWS.SecretsManager
+module Amazonka.SecretsManager
   ( -- * Service Configuration
     defaultService,
 
@@ -307,31 +307,31 @@ module Network.AWS.SecretsManager
   )
 where
 
-import Network.AWS.SecretsManager.CancelRotateSecret
-import Network.AWS.SecretsManager.CreateSecret
-import Network.AWS.SecretsManager.DeleteResourcePolicy
-import Network.AWS.SecretsManager.DeleteSecret
-import Network.AWS.SecretsManager.DescribeSecret
-import Network.AWS.SecretsManager.GetRandomPassword
-import Network.AWS.SecretsManager.GetResourcePolicy
-import Network.AWS.SecretsManager.GetSecretValue
-import Network.AWS.SecretsManager.Lens
-import Network.AWS.SecretsManager.ListSecretVersionIds
-import Network.AWS.SecretsManager.ListSecrets
-import Network.AWS.SecretsManager.PutResourcePolicy
-import Network.AWS.SecretsManager.PutSecretValue
-import Network.AWS.SecretsManager.RemoveRegionsFromReplication
-import Network.AWS.SecretsManager.ReplicateSecretToRegions
-import Network.AWS.SecretsManager.RestoreSecret
-import Network.AWS.SecretsManager.RotateSecret
-import Network.AWS.SecretsManager.StopReplicationToReplica
-import Network.AWS.SecretsManager.TagResource
-import Network.AWS.SecretsManager.Types
-import Network.AWS.SecretsManager.UntagResource
-import Network.AWS.SecretsManager.UpdateSecret
-import Network.AWS.SecretsManager.UpdateSecretVersionStage
-import Network.AWS.SecretsManager.ValidateResourcePolicy
-import Network.AWS.SecretsManager.Waiters
+import Amazonka.SecretsManager.CancelRotateSecret
+import Amazonka.SecretsManager.CreateSecret
+import Amazonka.SecretsManager.DeleteResourcePolicy
+import Amazonka.SecretsManager.DeleteSecret
+import Amazonka.SecretsManager.DescribeSecret
+import Amazonka.SecretsManager.GetRandomPassword
+import Amazonka.SecretsManager.GetResourcePolicy
+import Amazonka.SecretsManager.GetSecretValue
+import Amazonka.SecretsManager.Lens
+import Amazonka.SecretsManager.ListSecretVersionIds
+import Amazonka.SecretsManager.ListSecrets
+import Amazonka.SecretsManager.PutResourcePolicy
+import Amazonka.SecretsManager.PutSecretValue
+import Amazonka.SecretsManager.RemoveRegionsFromReplication
+import Amazonka.SecretsManager.ReplicateSecretToRegions
+import Amazonka.SecretsManager.RestoreSecret
+import Amazonka.SecretsManager.RotateSecret
+import Amazonka.SecretsManager.StopReplicationToReplica
+import Amazonka.SecretsManager.TagResource
+import Amazonka.SecretsManager.Types
+import Amazonka.SecretsManager.UntagResource
+import Amazonka.SecretsManager.UpdateSecret
+import Amazonka.SecretsManager.UpdateSecretVersionStage
+import Amazonka.SecretsManager.ValidateResourcePolicy
+import Amazonka.SecretsManager.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

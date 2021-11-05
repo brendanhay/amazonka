@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SecretsManager.UpdateSecretVersionStage
+-- Module      : Amazonka.SecretsManager.UpdateSecretVersionStage
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -54,7 +54,7 @@
 -- -   To get the list of staging labels that are currently associated with
 --     a version of a secret, use @ DescribeSecret @ and examine the
 --     @SecretVersionsToStages@ response value.
-module Network.AWS.SecretsManager.UpdateSecretVersionStage
+module Amazonka.SecretsManager.UpdateSecretVersionStage
   ( -- * Creating a Request
     UpdateSecretVersionStage (..),
     newUpdateSecretVersionStage,
@@ -76,12 +76,12 @@ module Network.AWS.SecretsManager.UpdateSecretVersionStage
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SecretsManager.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SecretsManager.Types
 
 -- | /See:/ 'newUpdateSecretVersionStage' smart constructor.
 data UpdateSecretVersionStage = UpdateSecretVersionStage'

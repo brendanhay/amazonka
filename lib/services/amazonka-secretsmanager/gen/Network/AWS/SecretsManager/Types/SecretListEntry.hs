@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SecretsManager.Types.SecretListEntry
+-- Module      : Amazonka.SecretsManager.Types.SecretListEntry
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SecretsManager.Types.SecretListEntry where
+module Amazonka.SecretsManager.Types.SecretListEntry where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SecretsManager.Types.RotationRulesType
-import Network.AWS.SecretsManager.Types.Tag
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SecretsManager.Types.RotationRulesType
+import Amazonka.SecretsManager.Types.Tag
 
 -- | A structure that contains the details about a secret. It does not
 -- include the encrypted @SecretString@ and @SecretBinary@ values. To get

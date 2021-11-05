@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.S3.Types.InventoryEncryption
+-- Module      : Amazonka.S3.Types.InventoryEncryption
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.InventoryEncryption where
+module Amazonka.S3.Types.InventoryEncryption where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.SSEKMS
-import Network.AWS.S3.Types.SSES3
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.S3.Internal
+import Amazonka.S3.Types.SSEKMS
+import Amazonka.S3.Types.SSES3
 
 -- | Contains the type of server-side encryption used to encrypt the
 -- inventory results.

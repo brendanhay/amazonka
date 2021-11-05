@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.S3.Types.RestoreRequest
+-- Module      : Amazonka.S3.Types.RestoreRequest
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.RestoreRequest where
+module Amazonka.S3.Types.RestoreRequest where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.GlacierJobParameters
-import Network.AWS.S3.Types.OutputLocation
-import Network.AWS.S3.Types.RestoreRequestType
-import Network.AWS.S3.Types.SelectParameters
-import Network.AWS.S3.Types.Tier
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.S3.Internal
+import Amazonka.S3.Types.GlacierJobParameters
+import Amazonka.S3.Types.OutputLocation
+import Amazonka.S3.Types.RestoreRequestType
+import Amazonka.S3.Types.SelectParameters
+import Amazonka.S3.Types.Tier
 
 -- | Container for restore job parameters.
 --

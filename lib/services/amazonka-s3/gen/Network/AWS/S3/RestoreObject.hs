@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.S3.RestoreObject
+-- Module      : Amazonka.S3.RestoreObject
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -250,7 +250,7 @@
 --
 -- -   <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference.html SQL Reference for Amazon S3 Select and S3 Glacier Select>
 --     in the /Amazon S3 User Guide/
-module Network.AWS.S3.RestoreObject
+module Amazonka.S3.RestoreObject
   ( -- * Creating a Request
     RestoreObject (..),
     newRestoreObject,
@@ -274,12 +274,12 @@ module Network.AWS.S3.RestoreObject
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.S3.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.S3.Types
 
 -- | /See:/ 'newRestoreObject' smart constructor.
 data RestoreObject = RestoreObject'

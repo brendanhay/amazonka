@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.S3.Types.LifecycleRuleFilter
+-- Module      : Amazonka.S3.Types.LifecycleRuleFilter
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.LifecycleRuleFilter where
+module Amazonka.S3.Types.LifecycleRuleFilter where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.LifecycleRuleAndOperator
-import Network.AWS.S3.Types.Tag
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.S3.Internal
+import Amazonka.S3.Types.LifecycleRuleAndOperator
+import Amazonka.S3.Types.Tag
 
 -- | The @Filter@ is used to identify objects that a Lifecycle Rule applies
 -- to. A @Filter@ must have exactly one of @Prefix@, @Tag@, or @And@

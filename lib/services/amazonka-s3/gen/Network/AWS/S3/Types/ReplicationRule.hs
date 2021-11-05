@@ -11,24 +11,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.S3.Types.ReplicationRule
+-- Module      : Amazonka.S3.Types.ReplicationRule
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.ReplicationRule where
+module Amazonka.S3.Types.ReplicationRule where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.DeleteMarkerReplication
-import Network.AWS.S3.Types.Destination
-import Network.AWS.S3.Types.ExistingObjectReplication
-import Network.AWS.S3.Types.ReplicationRuleFilter
-import Network.AWS.S3.Types.ReplicationRuleStatus
-import Network.AWS.S3.Types.SourceSelectionCriteria
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.S3.Internal
+import Amazonka.S3.Types.DeleteMarkerReplication
+import Amazonka.S3.Types.Destination
+import Amazonka.S3.Types.ExistingObjectReplication
+import Amazonka.S3.Types.ReplicationRuleFilter
+import Amazonka.S3.Types.ReplicationRuleStatus
+import Amazonka.S3.Types.SourceSelectionCriteria
 
 -- | Specifies which Amazon S3 objects to replicate and where to store the
 -- replicas.

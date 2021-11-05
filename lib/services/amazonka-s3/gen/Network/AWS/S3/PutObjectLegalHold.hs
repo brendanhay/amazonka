@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.S3.PutObjectLegalHold
+-- Module      : Amazonka.S3.PutObjectLegalHold
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html Locking Objects>.
 --
 -- This action is not supported by Amazon S3 on Outposts.
-module Network.AWS.S3.PutObjectLegalHold
+module Amazonka.S3.PutObjectLegalHold
   ( -- * Creating a Request
     PutObjectLegalHold (..),
     newPutObjectLegalHold,
@@ -49,12 +49,12 @@ module Network.AWS.S3.PutObjectLegalHold
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.S3.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.S3.Types
 
 -- | /See:/ 'newPutObjectLegalHold' smart constructor.
 data PutObjectLegalHold = PutObjectLegalHold'

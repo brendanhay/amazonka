@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.S3.Types.MetricsFilter
+-- Module      : Amazonka.S3.Types.MetricsFilter
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.MetricsFilter where
+module Amazonka.S3.Types.MetricsFilter where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.MetricsAndOperator
-import Network.AWS.S3.Types.Tag
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.S3.Internal
+import Amazonka.S3.Types.MetricsAndOperator
+import Amazonka.S3.Types.Tag
 
 -- | Specifies a metrics configuration filter. The metrics configuration only
 -- includes objects that meet the filter\'s criteria. A filter must be a

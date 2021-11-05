@@ -8,14 +8,14 @@
 {-# LANGUAGE RankNTypes                 #-}
 
 -- |
--- Module      : Network.AWS.S3.Internal
+-- Module      : Amazonka.S3.Internal
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : This Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
-module Network.AWS.S3.Internal
+module Amazonka.S3.Internal
     ( Region             (..)
     , BucketName         (..)
     , ETag               (..)
@@ -37,9 +37,9 @@ module Network.AWS.S3.Internal
     , getWebsiteEndpoint
     ) where
 
-import Network.AWS.Lens (IndexedTraversal', iso, prism, traversed, _1, _2)
-import Network.AWS.Core
-import Network.AWS.Prelude
+import Amazonka.Lens (IndexedTraversal', iso, prism, traversed, _1, _2)
+import Amazonka.Core
+import Amazonka.Prelude
 import qualified Data.Text as Text
 
 newtype BucketName = BucketName Text

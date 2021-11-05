@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.S3.Types.SelectObjectContentEventStream
+-- Module      : Amazonka.S3.Types.SelectObjectContentEventStream
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.SelectObjectContentEventStream where
+module Amazonka.S3.Types.SelectObjectContentEventStream where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.ContinuationEvent
-import Network.AWS.S3.Types.EndEvent
-import Network.AWS.S3.Types.ProgressEvent
-import Network.AWS.S3.Types.RecordsEvent
-import Network.AWS.S3.Types.StatsEvent
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.S3.Internal
+import Amazonka.S3.Types.ContinuationEvent
+import Amazonka.S3.Types.EndEvent
+import Amazonka.S3.Types.ProgressEvent
+import Amazonka.S3.Types.RecordsEvent
+import Amazonka.S3.Types.StatsEvent
 
 -- | The container for selecting objects from a content event stream.
 --

@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.S3.Types.SourceSelectionCriteria
+-- Module      : Amazonka.S3.Types.SourceSelectionCriteria
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.SourceSelectionCriteria where
+module Amazonka.S3.Types.SourceSelectionCriteria where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.ReplicaModifications
-import Network.AWS.S3.Types.SseKmsEncryptedObjects
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.S3.Internal
+import Amazonka.S3.Types.ReplicaModifications
+import Amazonka.S3.Types.SseKmsEncryptedObjects
 
 -- | A container that describes additional filters for identifying the source
 -- objects that you want to replicate. You can choose to enable or disable

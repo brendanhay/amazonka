@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.S3
+-- Module      : Amazonka.S3
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -18,7 +18,7 @@
 -- inexpensive data storage infrastructure that Amazon uses to run its own
 -- global network of web sites. The service aims to maximize benefits of
 -- scale and to pass those benefits on to developers.
-module Network.AWS.S3
+module Amazonka.S3
   ( -- * Service Configuration
     defaultService,
 
@@ -622,7 +622,7 @@ module Network.AWS.S3
     -- * Types
 
     -- ** Common
-    module Network.AWS.S3.Internal,
+    module Amazonka.S3.Internal,
 
     -- ** AnalyticsS3ExportFileFormat
     AnalyticsS3ExportFileFormat (..),
@@ -1296,102 +1296,102 @@ module Network.AWS.S3
   )
 where
 
-import Network.AWS.S3.AbortMultipartUpload
-import Network.AWS.S3.CompleteMultipartUpload
-import Network.AWS.S3.CopyObject
-import Network.AWS.S3.CreateBucket
-import Network.AWS.S3.CreateMultipartUpload
-import Network.AWS.S3.DeleteBucket
-import Network.AWS.S3.DeleteBucketAnalyticsConfiguration
-import Network.AWS.S3.DeleteBucketCors
-import Network.AWS.S3.DeleteBucketEncryption
-import Network.AWS.S3.DeleteBucketIntelligentTieringConfiguration
-import Network.AWS.S3.DeleteBucketInventoryConfiguration
-import Network.AWS.S3.DeleteBucketLifecycle
-import Network.AWS.S3.DeleteBucketMetricsConfiguration
-import Network.AWS.S3.DeleteBucketOwnershipControls
-import Network.AWS.S3.DeleteBucketPolicy
-import Network.AWS.S3.DeleteBucketReplication
-import Network.AWS.S3.DeleteBucketTagging
-import Network.AWS.S3.DeleteBucketWebsite
-import Network.AWS.S3.DeleteObject
-import Network.AWS.S3.DeleteObjectTagging
-import Network.AWS.S3.DeleteObjects
-import Network.AWS.S3.DeletePublicAccessBlock
-import Network.AWS.S3.GetBucketAccelerateConfiguration
-import Network.AWS.S3.GetBucketAcl
-import Network.AWS.S3.GetBucketAnalyticsConfiguration
-import Network.AWS.S3.GetBucketCors
-import Network.AWS.S3.GetBucketEncryption
-import Network.AWS.S3.GetBucketIntelligentTieringConfiguration
-import Network.AWS.S3.GetBucketInventoryConfiguration
-import Network.AWS.S3.GetBucketLifecycleConfiguration
-import Network.AWS.S3.GetBucketLocation
-import Network.AWS.S3.GetBucketLogging
-import Network.AWS.S3.GetBucketMetricsConfiguration
-import Network.AWS.S3.GetBucketNotificationConfiguration
-import Network.AWS.S3.GetBucketOwnershipControls
-import Network.AWS.S3.GetBucketPolicy
-import Network.AWS.S3.GetBucketPolicyStatus
-import Network.AWS.S3.GetBucketReplication
-import Network.AWS.S3.GetBucketRequestPayment
-import Network.AWS.S3.GetBucketTagging
-import Network.AWS.S3.GetBucketVersioning
-import Network.AWS.S3.GetBucketWebsite
-import Network.AWS.S3.GetObject
-import Network.AWS.S3.GetObjectAcl
-import Network.AWS.S3.GetObjectLegalHold
-import Network.AWS.S3.GetObjectLockConfiguration
-import Network.AWS.S3.GetObjectRetention
-import Network.AWS.S3.GetObjectTagging
-import Network.AWS.S3.GetObjectTorrent
-import Network.AWS.S3.GetPublicAccessBlock
-import Network.AWS.S3.HeadBucket
-import Network.AWS.S3.HeadObject
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Lens
-import Network.AWS.S3.ListBucketAnalyticsConfigurations
-import Network.AWS.S3.ListBucketIntelligentTieringConfigurations
-import Network.AWS.S3.ListBucketInventoryConfigurations
-import Network.AWS.S3.ListBucketMetricsConfigurations
-import Network.AWS.S3.ListBuckets
-import Network.AWS.S3.ListMultipartUploads
-import Network.AWS.S3.ListObjectVersions
-import Network.AWS.S3.ListObjects
-import Network.AWS.S3.ListObjectsV2
-import Network.AWS.S3.ListParts
-import Network.AWS.S3.PutBucketAccelerateConfiguration
-import Network.AWS.S3.PutBucketAcl
-import Network.AWS.S3.PutBucketAnalyticsConfiguration
-import Network.AWS.S3.PutBucketCors
-import Network.AWS.S3.PutBucketEncryption
-import Network.AWS.S3.PutBucketIntelligentTieringConfiguration
-import Network.AWS.S3.PutBucketInventoryConfiguration
-import Network.AWS.S3.PutBucketLifecycleConfiguration
-import Network.AWS.S3.PutBucketLogging
-import Network.AWS.S3.PutBucketMetricsConfiguration
-import Network.AWS.S3.PutBucketNotificationConfiguration
-import Network.AWS.S3.PutBucketOwnershipControls
-import Network.AWS.S3.PutBucketPolicy
-import Network.AWS.S3.PutBucketReplication
-import Network.AWS.S3.PutBucketRequestPayment
-import Network.AWS.S3.PutBucketTagging
-import Network.AWS.S3.PutBucketVersioning
-import Network.AWS.S3.PutBucketWebsite
-import Network.AWS.S3.PutObject
-import Network.AWS.S3.PutObjectAcl
-import Network.AWS.S3.PutObjectLegalHold
-import Network.AWS.S3.PutObjectLockConfiguration
-import Network.AWS.S3.PutObjectRetention
-import Network.AWS.S3.PutObjectTagging
-import Network.AWS.S3.PutPublicAccessBlock
-import Network.AWS.S3.RestoreObject
-import Network.AWS.S3.SelectObjectContent
-import Network.AWS.S3.Types
-import Network.AWS.S3.UploadPart
-import Network.AWS.S3.UploadPartCopy
-import Network.AWS.S3.Waiters
-import Network.AWS.S3.WriteGetObjectResponse
+import Amazonka.S3.AbortMultipartUpload
+import Amazonka.S3.CompleteMultipartUpload
+import Amazonka.S3.CopyObject
+import Amazonka.S3.CreateBucket
+import Amazonka.S3.CreateMultipartUpload
+import Amazonka.S3.DeleteBucket
+import Amazonka.S3.DeleteBucketAnalyticsConfiguration
+import Amazonka.S3.DeleteBucketCors
+import Amazonka.S3.DeleteBucketEncryption
+import Amazonka.S3.DeleteBucketIntelligentTieringConfiguration
+import Amazonka.S3.DeleteBucketInventoryConfiguration
+import Amazonka.S3.DeleteBucketLifecycle
+import Amazonka.S3.DeleteBucketMetricsConfiguration
+import Amazonka.S3.DeleteBucketOwnershipControls
+import Amazonka.S3.DeleteBucketPolicy
+import Amazonka.S3.DeleteBucketReplication
+import Amazonka.S3.DeleteBucketTagging
+import Amazonka.S3.DeleteBucketWebsite
+import Amazonka.S3.DeleteObject
+import Amazonka.S3.DeleteObjectTagging
+import Amazonka.S3.DeleteObjects
+import Amazonka.S3.DeletePublicAccessBlock
+import Amazonka.S3.GetBucketAccelerateConfiguration
+import Amazonka.S3.GetBucketAcl
+import Amazonka.S3.GetBucketAnalyticsConfiguration
+import Amazonka.S3.GetBucketCors
+import Amazonka.S3.GetBucketEncryption
+import Amazonka.S3.GetBucketIntelligentTieringConfiguration
+import Amazonka.S3.GetBucketInventoryConfiguration
+import Amazonka.S3.GetBucketLifecycleConfiguration
+import Amazonka.S3.GetBucketLocation
+import Amazonka.S3.GetBucketLogging
+import Amazonka.S3.GetBucketMetricsConfiguration
+import Amazonka.S3.GetBucketNotificationConfiguration
+import Amazonka.S3.GetBucketOwnershipControls
+import Amazonka.S3.GetBucketPolicy
+import Amazonka.S3.GetBucketPolicyStatus
+import Amazonka.S3.GetBucketReplication
+import Amazonka.S3.GetBucketRequestPayment
+import Amazonka.S3.GetBucketTagging
+import Amazonka.S3.GetBucketVersioning
+import Amazonka.S3.GetBucketWebsite
+import Amazonka.S3.GetObject
+import Amazonka.S3.GetObjectAcl
+import Amazonka.S3.GetObjectLegalHold
+import Amazonka.S3.GetObjectLockConfiguration
+import Amazonka.S3.GetObjectRetention
+import Amazonka.S3.GetObjectTagging
+import Amazonka.S3.GetObjectTorrent
+import Amazonka.S3.GetPublicAccessBlock
+import Amazonka.S3.HeadBucket
+import Amazonka.S3.HeadObject
+import Amazonka.S3.Internal
+import Amazonka.S3.Lens
+import Amazonka.S3.ListBucketAnalyticsConfigurations
+import Amazonka.S3.ListBucketIntelligentTieringConfigurations
+import Amazonka.S3.ListBucketInventoryConfigurations
+import Amazonka.S3.ListBucketMetricsConfigurations
+import Amazonka.S3.ListBuckets
+import Amazonka.S3.ListMultipartUploads
+import Amazonka.S3.ListObjectVersions
+import Amazonka.S3.ListObjects
+import Amazonka.S3.ListObjectsV2
+import Amazonka.S3.ListParts
+import Amazonka.S3.PutBucketAccelerateConfiguration
+import Amazonka.S3.PutBucketAcl
+import Amazonka.S3.PutBucketAnalyticsConfiguration
+import Amazonka.S3.PutBucketCors
+import Amazonka.S3.PutBucketEncryption
+import Amazonka.S3.PutBucketIntelligentTieringConfiguration
+import Amazonka.S3.PutBucketInventoryConfiguration
+import Amazonka.S3.PutBucketLifecycleConfiguration
+import Amazonka.S3.PutBucketLogging
+import Amazonka.S3.PutBucketMetricsConfiguration
+import Amazonka.S3.PutBucketNotificationConfiguration
+import Amazonka.S3.PutBucketOwnershipControls
+import Amazonka.S3.PutBucketPolicy
+import Amazonka.S3.PutBucketReplication
+import Amazonka.S3.PutBucketRequestPayment
+import Amazonka.S3.PutBucketTagging
+import Amazonka.S3.PutBucketVersioning
+import Amazonka.S3.PutBucketWebsite
+import Amazonka.S3.PutObject
+import Amazonka.S3.PutObjectAcl
+import Amazonka.S3.PutObjectLegalHold
+import Amazonka.S3.PutObjectLockConfiguration
+import Amazonka.S3.PutObjectRetention
+import Amazonka.S3.PutObjectTagging
+import Amazonka.S3.PutPublicAccessBlock
+import Amazonka.S3.RestoreObject
+import Amazonka.S3.SelectObjectContent
+import Amazonka.S3.Types
+import Amazonka.S3.UploadPart
+import Amazonka.S3.UploadPartCopy
+import Amazonka.S3.Waiters
+import Amazonka.S3.WriteGetObjectResponse
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

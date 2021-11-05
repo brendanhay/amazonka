@@ -7,23 +7,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.S3.Waiters
+-- Module      : Amazonka.S3.Waiters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Waiters where
+module Amazonka.S3.Waiters where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.S3.HeadBucket
-import Network.AWS.S3.HeadObject
-import Network.AWS.S3.Lens
-import Network.AWS.S3.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.S3.HeadBucket
+import Amazonka.S3.HeadObject
+import Amazonka.S3.Lens
+import Amazonka.S3.Types
 
--- | Polls 'Network.AWS.S3.HeadObject' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
+-- | Polls 'Amazonka.S3.HeadObject' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 newObjectNotExists :: Core.Wait HeadObject
 newObjectNotExists =
   Core.Wait
@@ -34,7 +34,7 @@ newObjectNotExists =
         [Core.matchStatus 404 Core.AcceptSuccess]
     }
 
--- | Polls 'Network.AWS.S3.HeadBucket' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
+-- | Polls 'Amazonka.S3.HeadBucket' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 newBucketExists :: Core.Wait HeadBucket
 newBucketExists =
   Core.Wait
@@ -49,7 +49,7 @@ newBucketExists =
         ]
     }
 
--- | Polls 'Network.AWS.S3.HeadObject' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
+-- | Polls 'Amazonka.S3.HeadObject' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 newObjectExists :: Core.Wait HeadObject
 newObjectExists =
   Core.Wait
@@ -62,7 +62,7 @@ newObjectExists =
         ]
     }
 
--- | Polls 'Network.AWS.S3.HeadBucket' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
+-- | Polls 'Amazonka.S3.HeadBucket' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 newBucketNotExists :: Core.Wait HeadBucket
 newBucketNotExists =
   Core.Wait

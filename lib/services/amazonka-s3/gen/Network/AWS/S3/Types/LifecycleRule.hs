@@ -11,25 +11,25 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.S3.Types.LifecycleRule
+-- Module      : Amazonka.S3.Types.LifecycleRule
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.LifecycleRule where
+module Amazonka.S3.Types.LifecycleRule where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.AbortIncompleteMultipartUpload
-import Network.AWS.S3.Types.ExpirationStatus
-import Network.AWS.S3.Types.LifecycleExpiration
-import Network.AWS.S3.Types.LifecycleRuleFilter
-import Network.AWS.S3.Types.NoncurrentVersionExpiration
-import Network.AWS.S3.Types.NoncurrentVersionTransition
-import Network.AWS.S3.Types.Transition
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.S3.Internal
+import Amazonka.S3.Types.AbortIncompleteMultipartUpload
+import Amazonka.S3.Types.ExpirationStatus
+import Amazonka.S3.Types.LifecycleExpiration
+import Amazonka.S3.Types.LifecycleRuleFilter
+import Amazonka.S3.Types.NoncurrentVersionExpiration
+import Amazonka.S3.Types.NoncurrentVersionTransition
+import Amazonka.S3.Types.Transition
 
 -- | A lifecycle rule for individual objects in an Amazon S3 bucket.
 --

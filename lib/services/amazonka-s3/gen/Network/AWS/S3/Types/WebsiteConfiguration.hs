@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.S3.Types.WebsiteConfiguration
+-- Module      : Amazonka.S3.Types.WebsiteConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.WebsiteConfiguration where
+module Amazonka.S3.Types.WebsiteConfiguration where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.ErrorDocument
-import Network.AWS.S3.Types.IndexDocument
-import Network.AWS.S3.Types.RedirectAllRequestsTo
-import Network.AWS.S3.Types.RoutingRule
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.S3.Internal
+import Amazonka.S3.Types.ErrorDocument
+import Amazonka.S3.Types.IndexDocument
+import Amazonka.S3.Types.RedirectAllRequestsTo
+import Amazonka.S3.Types.RoutingRule
 
 -- | Specifies website configuration parameters for an Amazon S3 bucket.
 --

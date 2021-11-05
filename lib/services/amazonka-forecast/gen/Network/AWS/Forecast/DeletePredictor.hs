@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Forecast.DeletePredictor
+-- Module      : Amazonka.Forecast.DeletePredictor
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Deletes a predictor created using the CreatePredictor operation. You can
 -- delete only predictor that have a status of @ACTIVE@ or @CREATE_FAILED@.
 -- To get the status, use the DescribePredictor operation.
-module Network.AWS.Forecast.DeletePredictor
+module Amazonka.Forecast.DeletePredictor
   ( -- * Creating a Request
     DeletePredictor (..),
     newDeletePredictor,
@@ -37,12 +37,12 @@ module Network.AWS.Forecast.DeletePredictor
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Forecast.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Forecast.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeletePredictor' smart constructor.
 data DeletePredictor = DeletePredictor'

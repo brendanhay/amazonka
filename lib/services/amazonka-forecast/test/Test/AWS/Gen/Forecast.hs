@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Forecast where
 
+import Amazonka.Forecast
 import qualified Data.Proxy as Proxy
-import Network.AWS.Forecast
 import Test.AWS.Fixture
 import Test.AWS.Forecast.Internal
 import Test.AWS.Prelude

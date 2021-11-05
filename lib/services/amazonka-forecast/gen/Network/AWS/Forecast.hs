@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Forecast
+-- Module      : Amazonka.Forecast
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -12,7 +12,7 @@
 -- Derived from API version @2018-06-26@ of the AWS service descriptions, licensed under Apache 2.0.
 --
 -- Provides APIs for creating and managing Amazon Forecast resources.
-module Network.AWS.Forecast
+module Amazonka.Forecast
   ( -- * Service Configuration
     defaultService,
 
@@ -424,44 +424,44 @@ module Network.AWS.Forecast
   )
 where
 
-import Network.AWS.Forecast.CreateDataset
-import Network.AWS.Forecast.CreateDatasetGroup
-import Network.AWS.Forecast.CreateDatasetImportJob
-import Network.AWS.Forecast.CreateForecast
-import Network.AWS.Forecast.CreateForecastExportJob
-import Network.AWS.Forecast.CreatePredictor
-import Network.AWS.Forecast.CreatePredictorBacktestExportJob
-import Network.AWS.Forecast.DeleteDataset
-import Network.AWS.Forecast.DeleteDatasetGroup
-import Network.AWS.Forecast.DeleteDatasetImportJob
-import Network.AWS.Forecast.DeleteForecast
-import Network.AWS.Forecast.DeleteForecastExportJob
-import Network.AWS.Forecast.DeletePredictor
-import Network.AWS.Forecast.DeletePredictorBacktestExportJob
-import Network.AWS.Forecast.DeleteResourceTree
-import Network.AWS.Forecast.DescribeDataset
-import Network.AWS.Forecast.DescribeDatasetGroup
-import Network.AWS.Forecast.DescribeDatasetImportJob
-import Network.AWS.Forecast.DescribeForecast
-import Network.AWS.Forecast.DescribeForecastExportJob
-import Network.AWS.Forecast.DescribePredictor
-import Network.AWS.Forecast.DescribePredictorBacktestExportJob
-import Network.AWS.Forecast.GetAccuracyMetrics
-import Network.AWS.Forecast.Lens
-import Network.AWS.Forecast.ListDatasetGroups
-import Network.AWS.Forecast.ListDatasetImportJobs
-import Network.AWS.Forecast.ListDatasets
-import Network.AWS.Forecast.ListForecastExportJobs
-import Network.AWS.Forecast.ListForecasts
-import Network.AWS.Forecast.ListPredictorBacktestExportJobs
-import Network.AWS.Forecast.ListPredictors
-import Network.AWS.Forecast.ListTagsForResource
-import Network.AWS.Forecast.StopResource
-import Network.AWS.Forecast.TagResource
-import Network.AWS.Forecast.Types
-import Network.AWS.Forecast.UntagResource
-import Network.AWS.Forecast.UpdateDatasetGroup
-import Network.AWS.Forecast.Waiters
+import Amazonka.Forecast.CreateDataset
+import Amazonka.Forecast.CreateDatasetGroup
+import Amazonka.Forecast.CreateDatasetImportJob
+import Amazonka.Forecast.CreateForecast
+import Amazonka.Forecast.CreateForecastExportJob
+import Amazonka.Forecast.CreatePredictor
+import Amazonka.Forecast.CreatePredictorBacktestExportJob
+import Amazonka.Forecast.DeleteDataset
+import Amazonka.Forecast.DeleteDatasetGroup
+import Amazonka.Forecast.DeleteDatasetImportJob
+import Amazonka.Forecast.DeleteForecast
+import Amazonka.Forecast.DeleteForecastExportJob
+import Amazonka.Forecast.DeletePredictor
+import Amazonka.Forecast.DeletePredictorBacktestExportJob
+import Amazonka.Forecast.DeleteResourceTree
+import Amazonka.Forecast.DescribeDataset
+import Amazonka.Forecast.DescribeDatasetGroup
+import Amazonka.Forecast.DescribeDatasetImportJob
+import Amazonka.Forecast.DescribeForecast
+import Amazonka.Forecast.DescribeForecastExportJob
+import Amazonka.Forecast.DescribePredictor
+import Amazonka.Forecast.DescribePredictorBacktestExportJob
+import Amazonka.Forecast.GetAccuracyMetrics
+import Amazonka.Forecast.Lens
+import Amazonka.Forecast.ListDatasetGroups
+import Amazonka.Forecast.ListDatasetImportJobs
+import Amazonka.Forecast.ListDatasets
+import Amazonka.Forecast.ListForecastExportJobs
+import Amazonka.Forecast.ListForecasts
+import Amazonka.Forecast.ListPredictorBacktestExportJobs
+import Amazonka.Forecast.ListPredictors
+import Amazonka.Forecast.ListTagsForResource
+import Amazonka.Forecast.StopResource
+import Amazonka.Forecast.TagResource
+import Amazonka.Forecast.Types
+import Amazonka.Forecast.UntagResource
+import Amazonka.Forecast.UpdateDatasetGroup
+import Amazonka.Forecast.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Forecast.Types.ForecastExportJobSummary
+-- Module      : Amazonka.Forecast.Types.ForecastExportJobSummary
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Forecast.Types.ForecastExportJobSummary where
+module Amazonka.Forecast.Types.ForecastExportJobSummary where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Forecast.Types.DataDestination
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Forecast.Types.DataDestination
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a summary of the forecast export job properties used in the
 -- ListForecastExportJobs operation. To get the complete set of properties,

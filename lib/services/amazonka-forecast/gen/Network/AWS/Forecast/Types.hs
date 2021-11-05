@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Forecast.Types
+-- Module      : Amazonka.Forecast.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Forecast.Types
+module Amazonka.Forecast.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -318,54 +318,54 @@ module Network.AWS.Forecast.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Forecast.Types.AttributeType
-import Network.AWS.Forecast.Types.AutoMLOverrideStrategy
-import Network.AWS.Forecast.Types.CategoricalParameterRange
-import Network.AWS.Forecast.Types.ContinuousParameterRange
-import Network.AWS.Forecast.Types.DataDestination
-import Network.AWS.Forecast.Types.DataSource
-import Network.AWS.Forecast.Types.DatasetGroupSummary
-import Network.AWS.Forecast.Types.DatasetImportJobSummary
-import Network.AWS.Forecast.Types.DatasetSummary
-import Network.AWS.Forecast.Types.DatasetType
-import Network.AWS.Forecast.Types.Domain
-import Network.AWS.Forecast.Types.EncryptionConfig
-import Network.AWS.Forecast.Types.ErrorMetric
-import Network.AWS.Forecast.Types.EvaluationParameters
-import Network.AWS.Forecast.Types.EvaluationResult
-import Network.AWS.Forecast.Types.EvaluationType
-import Network.AWS.Forecast.Types.Featurization
-import Network.AWS.Forecast.Types.FeaturizationConfig
-import Network.AWS.Forecast.Types.FeaturizationMethod
-import Network.AWS.Forecast.Types.FeaturizationMethodName
-import Network.AWS.Forecast.Types.Filter
-import Network.AWS.Forecast.Types.FilterConditionString
-import Network.AWS.Forecast.Types.ForecastExportJobSummary
-import Network.AWS.Forecast.Types.ForecastSummary
-import Network.AWS.Forecast.Types.HyperParameterTuningJobConfig
-import Network.AWS.Forecast.Types.InputDataConfig
-import Network.AWS.Forecast.Types.IntegerParameterRange
-import Network.AWS.Forecast.Types.Metrics
-import Network.AWS.Forecast.Types.OptimizationMetric
-import Network.AWS.Forecast.Types.ParameterRanges
-import Network.AWS.Forecast.Types.PredictorBacktestExportJobSummary
-import Network.AWS.Forecast.Types.PredictorExecution
-import Network.AWS.Forecast.Types.PredictorExecutionDetails
-import Network.AWS.Forecast.Types.PredictorSummary
-import Network.AWS.Forecast.Types.S3Config
-import Network.AWS.Forecast.Types.ScalingType
-import Network.AWS.Forecast.Types.Schema
-import Network.AWS.Forecast.Types.SchemaAttribute
-import Network.AWS.Forecast.Types.Statistics
-import Network.AWS.Forecast.Types.SupplementaryFeature
-import Network.AWS.Forecast.Types.Tag
-import Network.AWS.Forecast.Types.TestWindowSummary
-import Network.AWS.Forecast.Types.WeightedQuantileLoss
-import Network.AWS.Forecast.Types.WindowSummary
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.Forecast.Types.AttributeType
+import Amazonka.Forecast.Types.AutoMLOverrideStrategy
+import Amazonka.Forecast.Types.CategoricalParameterRange
+import Amazonka.Forecast.Types.ContinuousParameterRange
+import Amazonka.Forecast.Types.DataDestination
+import Amazonka.Forecast.Types.DataSource
+import Amazonka.Forecast.Types.DatasetGroupSummary
+import Amazonka.Forecast.Types.DatasetImportJobSummary
+import Amazonka.Forecast.Types.DatasetSummary
+import Amazonka.Forecast.Types.DatasetType
+import Amazonka.Forecast.Types.Domain
+import Amazonka.Forecast.Types.EncryptionConfig
+import Amazonka.Forecast.Types.ErrorMetric
+import Amazonka.Forecast.Types.EvaluationParameters
+import Amazonka.Forecast.Types.EvaluationResult
+import Amazonka.Forecast.Types.EvaluationType
+import Amazonka.Forecast.Types.Featurization
+import Amazonka.Forecast.Types.FeaturizationConfig
+import Amazonka.Forecast.Types.FeaturizationMethod
+import Amazonka.Forecast.Types.FeaturizationMethodName
+import Amazonka.Forecast.Types.Filter
+import Amazonka.Forecast.Types.FilterConditionString
+import Amazonka.Forecast.Types.ForecastExportJobSummary
+import Amazonka.Forecast.Types.ForecastSummary
+import Amazonka.Forecast.Types.HyperParameterTuningJobConfig
+import Amazonka.Forecast.Types.InputDataConfig
+import Amazonka.Forecast.Types.IntegerParameterRange
+import Amazonka.Forecast.Types.Metrics
+import Amazonka.Forecast.Types.OptimizationMetric
+import Amazonka.Forecast.Types.ParameterRanges
+import Amazonka.Forecast.Types.PredictorBacktestExportJobSummary
+import Amazonka.Forecast.Types.PredictorExecution
+import Amazonka.Forecast.Types.PredictorExecutionDetails
+import Amazonka.Forecast.Types.PredictorSummary
+import Amazonka.Forecast.Types.S3Config
+import Amazonka.Forecast.Types.ScalingType
+import Amazonka.Forecast.Types.Schema
+import Amazonka.Forecast.Types.SchemaAttribute
+import Amazonka.Forecast.Types.Statistics
+import Amazonka.Forecast.Types.SupplementaryFeature
+import Amazonka.Forecast.Types.Tag
+import Amazonka.Forecast.Types.TestWindowSummary
+import Amazonka.Forecast.Types.WeightedQuantileLoss
+import Amazonka.Forecast.Types.WindowSummary
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2018-06-26@ of the Amazon Forecast Service SDK configuration.
 defaultService :: Core.Service

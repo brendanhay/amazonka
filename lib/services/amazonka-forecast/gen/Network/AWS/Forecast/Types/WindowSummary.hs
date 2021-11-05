@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Forecast.Types.WindowSummary
+-- Module      : Amazonka.Forecast.Types.WindowSummary
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Forecast.Types.WindowSummary where
+module Amazonka.Forecast.Types.WindowSummary where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Forecast.Types.EvaluationType
-import Network.AWS.Forecast.Types.Metrics
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Forecast.Types.EvaluationType
+import Amazonka.Forecast.Types.Metrics
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The metrics for a time range within the evaluation portion of a dataset.
 -- This object is part of the EvaluationResult object.

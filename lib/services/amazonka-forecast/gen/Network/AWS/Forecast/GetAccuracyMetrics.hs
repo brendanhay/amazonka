@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Forecast.GetAccuracyMetrics
+-- Module      : Amazonka.Forecast.GetAccuracyMetrics
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -41,7 +41,7 @@
 -- Before you can get accuracy metrics, the @Status@ of the predictor must
 -- be @ACTIVE@, signifying that training has completed. To get the status,
 -- use the DescribePredictor operation.
-module Network.AWS.Forecast.GetAccuracyMetrics
+module Amazonka.Forecast.GetAccuracyMetrics
   ( -- * Creating a Request
     GetAccuracyMetrics (..),
     newGetAccuracyMetrics,
@@ -61,12 +61,12 @@ module Network.AWS.Forecast.GetAccuracyMetrics
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Forecast.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Forecast.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetAccuracyMetrics' smart constructor.
 data GetAccuracyMetrics = GetAccuracyMetrics'

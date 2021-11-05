@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Forecast.Types.DataSource
+-- Module      : Amazonka.Forecast.Types.DataSource
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Forecast.Types.DataSource where
+module Amazonka.Forecast.Types.DataSource where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Forecast.Types.S3Config
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Forecast.Types.S3Config
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The source of your training data, an AWS Identity and Access Management
 -- (IAM) role that allows Amazon Forecast to access the data and,

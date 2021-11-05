@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Forecast.Lens
+-- Module      : Amazonka.Forecast.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Forecast.Lens
+module Amazonka.Forecast.Lens
   ( -- * Operations
 
     -- ** ListDatasetGroups
@@ -504,73 +504,73 @@ module Network.AWS.Forecast.Lens
   )
 where
 
-import Network.AWS.Forecast.CreateDataset
-import Network.AWS.Forecast.CreateDatasetGroup
-import Network.AWS.Forecast.CreateDatasetImportJob
-import Network.AWS.Forecast.CreateForecast
-import Network.AWS.Forecast.CreateForecastExportJob
-import Network.AWS.Forecast.CreatePredictor
-import Network.AWS.Forecast.CreatePredictorBacktestExportJob
-import Network.AWS.Forecast.DeleteDataset
-import Network.AWS.Forecast.DeleteDatasetGroup
-import Network.AWS.Forecast.DeleteDatasetImportJob
-import Network.AWS.Forecast.DeleteForecast
-import Network.AWS.Forecast.DeleteForecastExportJob
-import Network.AWS.Forecast.DeletePredictor
-import Network.AWS.Forecast.DeletePredictorBacktestExportJob
-import Network.AWS.Forecast.DeleteResourceTree
-import Network.AWS.Forecast.DescribeDataset
-import Network.AWS.Forecast.DescribeDatasetGroup
-import Network.AWS.Forecast.DescribeDatasetImportJob
-import Network.AWS.Forecast.DescribeForecast
-import Network.AWS.Forecast.DescribeForecastExportJob
-import Network.AWS.Forecast.DescribePredictor
-import Network.AWS.Forecast.DescribePredictorBacktestExportJob
-import Network.AWS.Forecast.GetAccuracyMetrics
-import Network.AWS.Forecast.ListDatasetGroups
-import Network.AWS.Forecast.ListDatasetImportJobs
-import Network.AWS.Forecast.ListDatasets
-import Network.AWS.Forecast.ListForecastExportJobs
-import Network.AWS.Forecast.ListForecasts
-import Network.AWS.Forecast.ListPredictorBacktestExportJobs
-import Network.AWS.Forecast.ListPredictors
-import Network.AWS.Forecast.ListTagsForResource
-import Network.AWS.Forecast.StopResource
-import Network.AWS.Forecast.TagResource
-import Network.AWS.Forecast.Types.CategoricalParameterRange
-import Network.AWS.Forecast.Types.ContinuousParameterRange
-import Network.AWS.Forecast.Types.DataDestination
-import Network.AWS.Forecast.Types.DataSource
-import Network.AWS.Forecast.Types.DatasetGroupSummary
-import Network.AWS.Forecast.Types.DatasetImportJobSummary
-import Network.AWS.Forecast.Types.DatasetSummary
-import Network.AWS.Forecast.Types.EncryptionConfig
-import Network.AWS.Forecast.Types.ErrorMetric
-import Network.AWS.Forecast.Types.EvaluationParameters
-import Network.AWS.Forecast.Types.EvaluationResult
-import Network.AWS.Forecast.Types.Featurization
-import Network.AWS.Forecast.Types.FeaturizationConfig
-import Network.AWS.Forecast.Types.FeaturizationMethod
-import Network.AWS.Forecast.Types.Filter
-import Network.AWS.Forecast.Types.ForecastExportJobSummary
-import Network.AWS.Forecast.Types.ForecastSummary
-import Network.AWS.Forecast.Types.HyperParameterTuningJobConfig
-import Network.AWS.Forecast.Types.InputDataConfig
-import Network.AWS.Forecast.Types.IntegerParameterRange
-import Network.AWS.Forecast.Types.Metrics
-import Network.AWS.Forecast.Types.ParameterRanges
-import Network.AWS.Forecast.Types.PredictorBacktestExportJobSummary
-import Network.AWS.Forecast.Types.PredictorExecution
-import Network.AWS.Forecast.Types.PredictorExecutionDetails
-import Network.AWS.Forecast.Types.PredictorSummary
-import Network.AWS.Forecast.Types.S3Config
-import Network.AWS.Forecast.Types.Schema
-import Network.AWS.Forecast.Types.SchemaAttribute
-import Network.AWS.Forecast.Types.Statistics
-import Network.AWS.Forecast.Types.SupplementaryFeature
-import Network.AWS.Forecast.Types.Tag
-import Network.AWS.Forecast.Types.TestWindowSummary
-import Network.AWS.Forecast.Types.WeightedQuantileLoss
-import Network.AWS.Forecast.Types.WindowSummary
-import Network.AWS.Forecast.UntagResource
-import Network.AWS.Forecast.UpdateDatasetGroup
+import Amazonka.Forecast.CreateDataset
+import Amazonka.Forecast.CreateDatasetGroup
+import Amazonka.Forecast.CreateDatasetImportJob
+import Amazonka.Forecast.CreateForecast
+import Amazonka.Forecast.CreateForecastExportJob
+import Amazonka.Forecast.CreatePredictor
+import Amazonka.Forecast.CreatePredictorBacktestExportJob
+import Amazonka.Forecast.DeleteDataset
+import Amazonka.Forecast.DeleteDatasetGroup
+import Amazonka.Forecast.DeleteDatasetImportJob
+import Amazonka.Forecast.DeleteForecast
+import Amazonka.Forecast.DeleteForecastExportJob
+import Amazonka.Forecast.DeletePredictor
+import Amazonka.Forecast.DeletePredictorBacktestExportJob
+import Amazonka.Forecast.DeleteResourceTree
+import Amazonka.Forecast.DescribeDataset
+import Amazonka.Forecast.DescribeDatasetGroup
+import Amazonka.Forecast.DescribeDatasetImportJob
+import Amazonka.Forecast.DescribeForecast
+import Amazonka.Forecast.DescribeForecastExportJob
+import Amazonka.Forecast.DescribePredictor
+import Amazonka.Forecast.DescribePredictorBacktestExportJob
+import Amazonka.Forecast.GetAccuracyMetrics
+import Amazonka.Forecast.ListDatasetGroups
+import Amazonka.Forecast.ListDatasetImportJobs
+import Amazonka.Forecast.ListDatasets
+import Amazonka.Forecast.ListForecastExportJobs
+import Amazonka.Forecast.ListForecasts
+import Amazonka.Forecast.ListPredictorBacktestExportJobs
+import Amazonka.Forecast.ListPredictors
+import Amazonka.Forecast.ListTagsForResource
+import Amazonka.Forecast.StopResource
+import Amazonka.Forecast.TagResource
+import Amazonka.Forecast.Types.CategoricalParameterRange
+import Amazonka.Forecast.Types.ContinuousParameterRange
+import Amazonka.Forecast.Types.DataDestination
+import Amazonka.Forecast.Types.DataSource
+import Amazonka.Forecast.Types.DatasetGroupSummary
+import Amazonka.Forecast.Types.DatasetImportJobSummary
+import Amazonka.Forecast.Types.DatasetSummary
+import Amazonka.Forecast.Types.EncryptionConfig
+import Amazonka.Forecast.Types.ErrorMetric
+import Amazonka.Forecast.Types.EvaluationParameters
+import Amazonka.Forecast.Types.EvaluationResult
+import Amazonka.Forecast.Types.Featurization
+import Amazonka.Forecast.Types.FeaturizationConfig
+import Amazonka.Forecast.Types.FeaturizationMethod
+import Amazonka.Forecast.Types.Filter
+import Amazonka.Forecast.Types.ForecastExportJobSummary
+import Amazonka.Forecast.Types.ForecastSummary
+import Amazonka.Forecast.Types.HyperParameterTuningJobConfig
+import Amazonka.Forecast.Types.InputDataConfig
+import Amazonka.Forecast.Types.IntegerParameterRange
+import Amazonka.Forecast.Types.Metrics
+import Amazonka.Forecast.Types.ParameterRanges
+import Amazonka.Forecast.Types.PredictorBacktestExportJobSummary
+import Amazonka.Forecast.Types.PredictorExecution
+import Amazonka.Forecast.Types.PredictorExecutionDetails
+import Amazonka.Forecast.Types.PredictorSummary
+import Amazonka.Forecast.Types.S3Config
+import Amazonka.Forecast.Types.Schema
+import Amazonka.Forecast.Types.SchemaAttribute
+import Amazonka.Forecast.Types.Statistics
+import Amazonka.Forecast.Types.SupplementaryFeature
+import Amazonka.Forecast.Types.Tag
+import Amazonka.Forecast.Types.TestWindowSummary
+import Amazonka.Forecast.Types.WeightedQuantileLoss
+import Amazonka.Forecast.Types.WindowSummary
+import Amazonka.Forecast.UntagResource
+import Amazonka.Forecast.UpdateDatasetGroup

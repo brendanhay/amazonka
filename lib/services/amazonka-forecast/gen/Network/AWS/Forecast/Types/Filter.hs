@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Forecast.Types.Filter
+-- Module      : Amazonka.Forecast.Types.Filter
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Forecast.Types.Filter where
+module Amazonka.Forecast.Types.Filter where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Forecast.Types.FilterConditionString
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Forecast.Types.FilterConditionString
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a filter for choosing a subset of objects. Each filter
 -- consists of a condition and a match statement. The condition is either

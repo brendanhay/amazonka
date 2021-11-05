@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Forecast.Types.FeaturizationMethod
+-- Module      : Amazonka.Forecast.Types.FeaturizationMethod
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Forecast.Types.FeaturizationMethod where
+module Amazonka.Forecast.Types.FeaturizationMethod where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Forecast.Types.FeaturizationMethodName
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Forecast.Types.FeaturizationMethodName
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the method that featurizes (transforms) a
 -- dataset field. The method is part of the @FeaturizationPipeline@ of the

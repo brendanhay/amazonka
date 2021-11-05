@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Lambda.DeleteEventSourceMapping
+-- Module      : Amazonka.Lambda.DeleteEventSourceMapping
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 --
 -- When you delete an event source mapping, it enters a @Deleting@ state
 -- and might not be completely deleted for several seconds.
-module Network.AWS.Lambda.DeleteEventSourceMapping
+module Amazonka.Lambda.DeleteEventSourceMapping
   ( -- * Creating a Request
     DeleteEventSourceMapping (..),
     newDeleteEventSourceMapping,
@@ -65,12 +65,12 @@ module Network.AWS.Lambda.DeleteEventSourceMapping
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Lambda.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Lambda.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteEventSourceMapping' smart constructor.
 data DeleteEventSourceMapping = DeleteEventSourceMapping'

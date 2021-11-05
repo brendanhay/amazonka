@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Lambda.Types
+-- Module      : Amazonka.Lambda.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lambda.Types
+module Amazonka.Lambda.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -412,64 +412,64 @@ module Network.AWS.Lambda.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Lambda.Types.AccountLimit
-import Network.AWS.Lambda.Types.AccountUsage
-import Network.AWS.Lambda.Types.AliasConfiguration
-import Network.AWS.Lambda.Types.AliasRoutingConfiguration
-import Network.AWS.Lambda.Types.AllowedPublishers
-import Network.AWS.Lambda.Types.Architecture
-import Network.AWS.Lambda.Types.CodeSigningConfig
-import Network.AWS.Lambda.Types.CodeSigningPolicies
-import Network.AWS.Lambda.Types.CodeSigningPolicy
-import Network.AWS.Lambda.Types.Concurrency
-import Network.AWS.Lambda.Types.DeadLetterConfig
-import Network.AWS.Lambda.Types.DestinationConfig
-import Network.AWS.Lambda.Types.EndPointType
-import Network.AWS.Lambda.Types.Environment
-import Network.AWS.Lambda.Types.EnvironmentError
-import Network.AWS.Lambda.Types.EnvironmentResponse
-import Network.AWS.Lambda.Types.EventSourceMappingConfiguration
-import Network.AWS.Lambda.Types.EventSourcePosition
-import Network.AWS.Lambda.Types.FileSystemConfig
-import Network.AWS.Lambda.Types.FunctionCode
-import Network.AWS.Lambda.Types.FunctionCodeLocation
-import Network.AWS.Lambda.Types.FunctionConfiguration
-import Network.AWS.Lambda.Types.FunctionEventInvokeConfig
-import Network.AWS.Lambda.Types.FunctionResponseType
-import Network.AWS.Lambda.Types.FunctionVersion
-import Network.AWS.Lambda.Types.GetLayerVersionResponse
-import Network.AWS.Lambda.Types.ImageConfig
-import Network.AWS.Lambda.Types.ImageConfigError
-import Network.AWS.Lambda.Types.ImageConfigResponse
-import Network.AWS.Lambda.Types.InvocationType
-import Network.AWS.Lambda.Types.LastUpdateStatus
-import Network.AWS.Lambda.Types.LastUpdateStatusReasonCode
-import Network.AWS.Lambda.Types.Layer
-import Network.AWS.Lambda.Types.LayerVersionContentInput
-import Network.AWS.Lambda.Types.LayerVersionContentOutput
-import Network.AWS.Lambda.Types.LayerVersionsListItem
-import Network.AWS.Lambda.Types.LayersListItem
-import Network.AWS.Lambda.Types.LogType
-import Network.AWS.Lambda.Types.OnFailure
-import Network.AWS.Lambda.Types.OnSuccess
-import Network.AWS.Lambda.Types.PackageType
-import Network.AWS.Lambda.Types.ProvisionedConcurrencyConfigListItem
-import Network.AWS.Lambda.Types.ProvisionedConcurrencyStatusEnum
-import Network.AWS.Lambda.Types.Runtime
-import Network.AWS.Lambda.Types.SelfManagedEventSource
-import Network.AWS.Lambda.Types.SourceAccessConfiguration
-import Network.AWS.Lambda.Types.SourceAccessType
-import Network.AWS.Lambda.Types.State
-import Network.AWS.Lambda.Types.StateReasonCode
-import Network.AWS.Lambda.Types.TracingConfig
-import Network.AWS.Lambda.Types.TracingConfigResponse
-import Network.AWS.Lambda.Types.TracingMode
-import Network.AWS.Lambda.Types.VpcConfig
-import Network.AWS.Lambda.Types.VpcConfigResponse
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.Lambda.Types.AccountLimit
+import Amazonka.Lambda.Types.AccountUsage
+import Amazonka.Lambda.Types.AliasConfiguration
+import Amazonka.Lambda.Types.AliasRoutingConfiguration
+import Amazonka.Lambda.Types.AllowedPublishers
+import Amazonka.Lambda.Types.Architecture
+import Amazonka.Lambda.Types.CodeSigningConfig
+import Amazonka.Lambda.Types.CodeSigningPolicies
+import Amazonka.Lambda.Types.CodeSigningPolicy
+import Amazonka.Lambda.Types.Concurrency
+import Amazonka.Lambda.Types.DeadLetterConfig
+import Amazonka.Lambda.Types.DestinationConfig
+import Amazonka.Lambda.Types.EndPointType
+import Amazonka.Lambda.Types.Environment
+import Amazonka.Lambda.Types.EnvironmentError
+import Amazonka.Lambda.Types.EnvironmentResponse
+import Amazonka.Lambda.Types.EventSourceMappingConfiguration
+import Amazonka.Lambda.Types.EventSourcePosition
+import Amazonka.Lambda.Types.FileSystemConfig
+import Amazonka.Lambda.Types.FunctionCode
+import Amazonka.Lambda.Types.FunctionCodeLocation
+import Amazonka.Lambda.Types.FunctionConfiguration
+import Amazonka.Lambda.Types.FunctionEventInvokeConfig
+import Amazonka.Lambda.Types.FunctionResponseType
+import Amazonka.Lambda.Types.FunctionVersion
+import Amazonka.Lambda.Types.GetLayerVersionResponse
+import Amazonka.Lambda.Types.ImageConfig
+import Amazonka.Lambda.Types.ImageConfigError
+import Amazonka.Lambda.Types.ImageConfigResponse
+import Amazonka.Lambda.Types.InvocationType
+import Amazonka.Lambda.Types.LastUpdateStatus
+import Amazonka.Lambda.Types.LastUpdateStatusReasonCode
+import Amazonka.Lambda.Types.Layer
+import Amazonka.Lambda.Types.LayerVersionContentInput
+import Amazonka.Lambda.Types.LayerVersionContentOutput
+import Amazonka.Lambda.Types.LayerVersionsListItem
+import Amazonka.Lambda.Types.LayersListItem
+import Amazonka.Lambda.Types.LogType
+import Amazonka.Lambda.Types.OnFailure
+import Amazonka.Lambda.Types.OnSuccess
+import Amazonka.Lambda.Types.PackageType
+import Amazonka.Lambda.Types.ProvisionedConcurrencyConfigListItem
+import Amazonka.Lambda.Types.ProvisionedConcurrencyStatusEnum
+import Amazonka.Lambda.Types.Runtime
+import Amazonka.Lambda.Types.SelfManagedEventSource
+import Amazonka.Lambda.Types.SourceAccessConfiguration
+import Amazonka.Lambda.Types.SourceAccessType
+import Amazonka.Lambda.Types.State
+import Amazonka.Lambda.Types.StateReasonCode
+import Amazonka.Lambda.Types.TracingConfig
+import Amazonka.Lambda.Types.TracingConfigResponse
+import Amazonka.Lambda.Types.TracingMode
+import Amazonka.Lambda.Types.VpcConfig
+import Amazonka.Lambda.Types.VpcConfigResponse
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2015-03-31@ of the Amazon Lambda SDK configuration.
 defaultService :: Core.Service

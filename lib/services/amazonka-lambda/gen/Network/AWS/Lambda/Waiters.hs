@@ -7,23 +7,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Lambda.Waiters
+-- Module      : Amazonka.Lambda.Waiters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lambda.Waiters where
+module Amazonka.Lambda.Waiters where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Lambda.GetFunction
-import Network.AWS.Lambda.GetFunctionConfiguration
-import Network.AWS.Lambda.Lens
-import Network.AWS.Lambda.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Lambda.GetFunction
+import Amazonka.Lambda.GetFunctionConfiguration
+import Amazonka.Lambda.Lens
+import Amazonka.Lambda.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
--- | Polls 'Network.AWS.Lambda.GetFunction' every 1 seconds until a successful state is reached. An error is returned after 20 failed checks.
+-- | Polls 'Amazonka.Lambda.GetFunction' every 1 seconds until a successful state is reached. An error is returned after 20 failed checks.
 newFunctionExists :: Core.Wait GetFunction
 newFunctionExists =
   Core.Wait
@@ -38,7 +38,7 @@ newFunctionExists =
         ]
     }
 
--- | Polls 'Network.AWS.Lambda.GetFunctionConfiguration' every 5 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.Lambda.GetFunctionConfiguration' every 5 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newFunctionActive :: Core.Wait GetFunctionConfiguration
 newFunctionActive =
   Core.Wait
@@ -67,7 +67,7 @@ newFunctionActive =
         ]
     }
 
--- | Polls 'Network.AWS.Lambda.GetFunctionConfiguration' every 5 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.Lambda.GetFunctionConfiguration' every 5 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newFunctionUpdated :: Core.Wait GetFunctionConfiguration
 newFunctionUpdated =
   Core.Wait

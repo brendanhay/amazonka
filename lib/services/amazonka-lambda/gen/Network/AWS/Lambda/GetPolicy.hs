@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Lambda.GetPolicy
+-- Module      : Amazonka.Lambda.GetPolicy
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Returns the
 -- <https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html resource-based IAM policy>
 -- for a function, version, or alias.
-module Network.AWS.Lambda.GetPolicy
+module Amazonka.Lambda.GetPolicy
   ( -- * Creating a Request
     GetPolicy (..),
     newGetPolicy,
@@ -43,12 +43,12 @@ module Network.AWS.Lambda.GetPolicy
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Lambda.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Lambda.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetPolicy' smart constructor.
 data GetPolicy = GetPolicy'

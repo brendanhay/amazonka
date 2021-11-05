@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Lambda
+-- Module      : Amazonka.Lambda
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- and for information about how the service works, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html Lambda: How it Works>
 -- in the __Lambda Developer Guide__.
-module Network.AWS.Lambda
+module Amazonka.Lambda
   ( -- * Service Configuration
     defaultService,
 
@@ -690,66 +690,66 @@ module Network.AWS.Lambda
   )
 where
 
-import Network.AWS.Lambda.AddLayerVersionPermission
-import Network.AWS.Lambda.AddPermission
-import Network.AWS.Lambda.CreateAlias
-import Network.AWS.Lambda.CreateCodeSigningConfig
-import Network.AWS.Lambda.CreateEventSourceMapping
-import Network.AWS.Lambda.CreateFunction
-import Network.AWS.Lambda.DeleteAlias
-import Network.AWS.Lambda.DeleteCodeSigningConfig
-import Network.AWS.Lambda.DeleteEventSourceMapping
-import Network.AWS.Lambda.DeleteFunction
-import Network.AWS.Lambda.DeleteFunctionCodeSigningConfig
-import Network.AWS.Lambda.DeleteFunctionConcurrency
-import Network.AWS.Lambda.DeleteFunctionEventInvokeConfig
-import Network.AWS.Lambda.DeleteLayerVersion
-import Network.AWS.Lambda.DeleteProvisionedConcurrencyConfig
-import Network.AWS.Lambda.GetAccountSettings
-import Network.AWS.Lambda.GetAlias
-import Network.AWS.Lambda.GetCodeSigningConfig
-import Network.AWS.Lambda.GetEventSourceMapping
-import Network.AWS.Lambda.GetFunction
-import Network.AWS.Lambda.GetFunctionCodeSigningConfig
-import Network.AWS.Lambda.GetFunctionConcurrency
-import Network.AWS.Lambda.GetFunctionConfiguration
-import Network.AWS.Lambda.GetFunctionEventInvokeConfig
-import Network.AWS.Lambda.GetLayerVersion
-import Network.AWS.Lambda.GetLayerVersionByArn
-import Network.AWS.Lambda.GetLayerVersionPolicy
-import Network.AWS.Lambda.GetPolicy
-import Network.AWS.Lambda.GetProvisionedConcurrencyConfig
-import Network.AWS.Lambda.Invoke
-import Network.AWS.Lambda.Lens
-import Network.AWS.Lambda.ListAliases
-import Network.AWS.Lambda.ListCodeSigningConfigs
-import Network.AWS.Lambda.ListEventSourceMappings
-import Network.AWS.Lambda.ListFunctionEventInvokeConfigs
-import Network.AWS.Lambda.ListFunctions
-import Network.AWS.Lambda.ListFunctionsByCodeSigningConfig
-import Network.AWS.Lambda.ListLayerVersions
-import Network.AWS.Lambda.ListLayers
-import Network.AWS.Lambda.ListProvisionedConcurrencyConfigs
-import Network.AWS.Lambda.ListTags
-import Network.AWS.Lambda.ListVersionsByFunction
-import Network.AWS.Lambda.PublishLayerVersion
-import Network.AWS.Lambda.PublishVersion
-import Network.AWS.Lambda.PutFunctionCodeSigningConfig
-import Network.AWS.Lambda.PutFunctionConcurrency
-import Network.AWS.Lambda.PutFunctionEventInvokeConfig
-import Network.AWS.Lambda.PutProvisionedConcurrencyConfig
-import Network.AWS.Lambda.RemoveLayerVersionPermission
-import Network.AWS.Lambda.RemovePermission
-import Network.AWS.Lambda.TagResource
-import Network.AWS.Lambda.Types
-import Network.AWS.Lambda.UntagResource
-import Network.AWS.Lambda.UpdateAlias
-import Network.AWS.Lambda.UpdateCodeSigningConfig
-import Network.AWS.Lambda.UpdateEventSourceMapping
-import Network.AWS.Lambda.UpdateFunctionCode
-import Network.AWS.Lambda.UpdateFunctionConfiguration
-import Network.AWS.Lambda.UpdateFunctionEventInvokeConfig
-import Network.AWS.Lambda.Waiters
+import Amazonka.Lambda.AddLayerVersionPermission
+import Amazonka.Lambda.AddPermission
+import Amazonka.Lambda.CreateAlias
+import Amazonka.Lambda.CreateCodeSigningConfig
+import Amazonka.Lambda.CreateEventSourceMapping
+import Amazonka.Lambda.CreateFunction
+import Amazonka.Lambda.DeleteAlias
+import Amazonka.Lambda.DeleteCodeSigningConfig
+import Amazonka.Lambda.DeleteEventSourceMapping
+import Amazonka.Lambda.DeleteFunction
+import Amazonka.Lambda.DeleteFunctionCodeSigningConfig
+import Amazonka.Lambda.DeleteFunctionConcurrency
+import Amazonka.Lambda.DeleteFunctionEventInvokeConfig
+import Amazonka.Lambda.DeleteLayerVersion
+import Amazonka.Lambda.DeleteProvisionedConcurrencyConfig
+import Amazonka.Lambda.GetAccountSettings
+import Amazonka.Lambda.GetAlias
+import Amazonka.Lambda.GetCodeSigningConfig
+import Amazonka.Lambda.GetEventSourceMapping
+import Amazonka.Lambda.GetFunction
+import Amazonka.Lambda.GetFunctionCodeSigningConfig
+import Amazonka.Lambda.GetFunctionConcurrency
+import Amazonka.Lambda.GetFunctionConfiguration
+import Amazonka.Lambda.GetFunctionEventInvokeConfig
+import Amazonka.Lambda.GetLayerVersion
+import Amazonka.Lambda.GetLayerVersionByArn
+import Amazonka.Lambda.GetLayerVersionPolicy
+import Amazonka.Lambda.GetPolicy
+import Amazonka.Lambda.GetProvisionedConcurrencyConfig
+import Amazonka.Lambda.Invoke
+import Amazonka.Lambda.Lens
+import Amazonka.Lambda.ListAliases
+import Amazonka.Lambda.ListCodeSigningConfigs
+import Amazonka.Lambda.ListEventSourceMappings
+import Amazonka.Lambda.ListFunctionEventInvokeConfigs
+import Amazonka.Lambda.ListFunctions
+import Amazonka.Lambda.ListFunctionsByCodeSigningConfig
+import Amazonka.Lambda.ListLayerVersions
+import Amazonka.Lambda.ListLayers
+import Amazonka.Lambda.ListProvisionedConcurrencyConfigs
+import Amazonka.Lambda.ListTags
+import Amazonka.Lambda.ListVersionsByFunction
+import Amazonka.Lambda.PublishLayerVersion
+import Amazonka.Lambda.PublishVersion
+import Amazonka.Lambda.PutFunctionCodeSigningConfig
+import Amazonka.Lambda.PutFunctionConcurrency
+import Amazonka.Lambda.PutFunctionEventInvokeConfig
+import Amazonka.Lambda.PutProvisionedConcurrencyConfig
+import Amazonka.Lambda.RemoveLayerVersionPermission
+import Amazonka.Lambda.RemovePermission
+import Amazonka.Lambda.TagResource
+import Amazonka.Lambda.Types
+import Amazonka.Lambda.UntagResource
+import Amazonka.Lambda.UpdateAlias
+import Amazonka.Lambda.UpdateCodeSigningConfig
+import Amazonka.Lambda.UpdateEventSourceMapping
+import Amazonka.Lambda.UpdateFunctionCode
+import Amazonka.Lambda.UpdateFunctionConfiguration
+import Amazonka.Lambda.UpdateFunctionEventInvokeConfig
+import Amazonka.Lambda.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

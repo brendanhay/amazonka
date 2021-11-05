@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Lambda.GetEventSourceMapping
+-- Module      : Amazonka.Lambda.GetEventSourceMapping
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Returns details about an event source mapping. You can get the
 -- identifier of a mapping from the output of ListEventSourceMappings.
-module Network.AWS.Lambda.GetEventSourceMapping
+module Amazonka.Lambda.GetEventSourceMapping
   ( -- * Creating a Request
     GetEventSourceMapping (..),
     newGetEventSourceMapping,
@@ -60,12 +60,12 @@ module Network.AWS.Lambda.GetEventSourceMapping
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Lambda.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Lambda.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetEventSourceMapping' smart constructor.
 data GetEventSourceMapping = GetEventSourceMapping'

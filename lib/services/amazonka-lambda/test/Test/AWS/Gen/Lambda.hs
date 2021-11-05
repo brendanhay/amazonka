@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Lambda where
 
+import Amazonka.Lambda
 import qualified Data.Proxy as Proxy
-import Network.AWS.Lambda
 import Test.AWS.Fixture
 import Test.AWS.Lambda.Internal
 import Test.AWS.Prelude

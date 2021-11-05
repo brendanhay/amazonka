@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Lambda.Types.EventSourceMappingConfiguration
+-- Module      : Amazonka.Lambda.Types.EventSourceMappingConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lambda.Types.EventSourceMappingConfiguration where
+module Amazonka.Lambda.Types.EventSourceMappingConfiguration where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Lambda.Types.DestinationConfig
-import Network.AWS.Lambda.Types.EventSourcePosition
-import Network.AWS.Lambda.Types.FunctionResponseType
-import Network.AWS.Lambda.Types.SelfManagedEventSource
-import Network.AWS.Lambda.Types.SourceAccessConfiguration
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Lambda.Types.DestinationConfig
+import Amazonka.Lambda.Types.EventSourcePosition
+import Amazonka.Lambda.Types.FunctionResponseType
+import Amazonka.Lambda.Types.SelfManagedEventSource
+import Amazonka.Lambda.Types.SourceAccessConfiguration
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A mapping between an Amazon Web Services resource and a Lambda function.
 -- For details, see CreateEventSourceMapping.

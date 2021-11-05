@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Lambda.Types.LayersListItem
+-- Module      : Amazonka.Lambda.Types.LayersListItem
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lambda.Types.LayersListItem where
+module Amazonka.Lambda.Types.LayersListItem where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Lambda.Types.LayerVersionsListItem
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Lambda.Types.LayerVersionsListItem
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Details about an
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html Lambda layer>.

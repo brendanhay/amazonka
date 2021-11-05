@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Lambda.ListCodeSigningConfigs
+-- Module      : Amazonka.Lambda.ListCodeSigningConfigs
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- @MaxItems@ parameter to return fewer configurations per call.
 --
 -- This operation returns paginated results.
-module Network.AWS.Lambda.ListCodeSigningConfigs
+module Amazonka.Lambda.ListCodeSigningConfigs
   ( -- * Creating a Request
     ListCodeSigningConfigs (..),
     newListCodeSigningConfigs,
@@ -46,12 +46,12 @@ module Network.AWS.Lambda.ListCodeSigningConfigs
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Lambda.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Lambda.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListCodeSigningConfigs' smart constructor.
 data ListCodeSigningConfigs = ListCodeSigningConfigs'

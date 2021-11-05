@@ -11,31 +11,31 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Lambda.Types.FunctionConfiguration
+-- Module      : Amazonka.Lambda.Types.FunctionConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lambda.Types.FunctionConfiguration where
+module Amazonka.Lambda.Types.FunctionConfiguration where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Lambda.Types.Architecture
-import Network.AWS.Lambda.Types.DeadLetterConfig
-import Network.AWS.Lambda.Types.EnvironmentResponse
-import Network.AWS.Lambda.Types.FileSystemConfig
-import Network.AWS.Lambda.Types.ImageConfigResponse
-import Network.AWS.Lambda.Types.LastUpdateStatus
-import Network.AWS.Lambda.Types.LastUpdateStatusReasonCode
-import Network.AWS.Lambda.Types.Layer
-import Network.AWS.Lambda.Types.PackageType
-import Network.AWS.Lambda.Types.Runtime
-import Network.AWS.Lambda.Types.State
-import Network.AWS.Lambda.Types.StateReasonCode
-import Network.AWS.Lambda.Types.TracingConfigResponse
-import Network.AWS.Lambda.Types.VpcConfigResponse
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Lambda.Types.Architecture
+import Amazonka.Lambda.Types.DeadLetterConfig
+import Amazonka.Lambda.Types.EnvironmentResponse
+import Amazonka.Lambda.Types.FileSystemConfig
+import Amazonka.Lambda.Types.ImageConfigResponse
+import Amazonka.Lambda.Types.LastUpdateStatus
+import Amazonka.Lambda.Types.LastUpdateStatusReasonCode
+import Amazonka.Lambda.Types.Layer
+import Amazonka.Lambda.Types.PackageType
+import Amazonka.Lambda.Types.Runtime
+import Amazonka.Lambda.Types.State
+import Amazonka.Lambda.Types.StateReasonCode
+import Amazonka.Lambda.Types.TracingConfigResponse
+import Amazonka.Lambda.Types.VpcConfigResponse
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Details about a function\'s configuration.
 --

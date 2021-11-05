@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Lambda.RemoveLayerVersionPermission
+-- Module      : Amazonka.Lambda.RemoveLayerVersionPermission
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Removes a statement from the permissions policy for a version of an
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html Lambda layer>.
 -- For more information, see AddLayerVersionPermission.
-module Network.AWS.Lambda.RemoveLayerVersionPermission
+module Amazonka.Lambda.RemoveLayerVersionPermission
   ( -- * Creating a Request
     RemoveLayerVersionPermission (..),
     newRemoveLayerVersionPermission,
@@ -40,12 +40,12 @@ module Network.AWS.Lambda.RemoveLayerVersionPermission
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Lambda.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Lambda.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRemoveLayerVersionPermission' smart constructor.
 data RemoveLayerVersionPermission = RemoveLayerVersionPermission'

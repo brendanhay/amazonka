@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.S3Outposts.Lens
+-- Module      : Amazonka.S3Outposts.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3Outposts.Lens
+module Amazonka.S3Outposts.Lens
   ( -- * Operations
 
     -- ** CreateEndpoint
@@ -54,8 +54,8 @@ module Network.AWS.S3Outposts.Lens
   )
 where
 
-import Network.AWS.S3Outposts.CreateEndpoint
-import Network.AWS.S3Outposts.DeleteEndpoint
-import Network.AWS.S3Outposts.ListEndpoints
-import Network.AWS.S3Outposts.Types.Endpoint
-import Network.AWS.S3Outposts.Types.NetworkInterface
+import Amazonka.S3Outposts.CreateEndpoint
+import Amazonka.S3Outposts.DeleteEndpoint
+import Amazonka.S3Outposts.ListEndpoints
+import Amazonka.S3Outposts.Types.Endpoint
+import Amazonka.S3Outposts.Types.NetworkInterface

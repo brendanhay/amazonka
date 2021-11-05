@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.S3Outposts
+-- Module      : Amazonka.S3Outposts
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -12,7 +12,7 @@
 -- Derived from API version @2017-07-25@ of the AWS service descriptions, licensed under Apache 2.0.
 --
 -- Amazon S3 on Outposts provides access to S3 on Outposts operations.
-module Network.AWS.S3Outposts
+module Amazonka.S3Outposts
   ( -- * Service Configuration
     defaultService,
 
@@ -76,12 +76,12 @@ module Network.AWS.S3Outposts
   )
 where
 
-import Network.AWS.S3Outposts.CreateEndpoint
-import Network.AWS.S3Outposts.DeleteEndpoint
-import Network.AWS.S3Outposts.Lens
-import Network.AWS.S3Outposts.ListEndpoints
-import Network.AWS.S3Outposts.Types
-import Network.AWS.S3Outposts.Waiters
+import Amazonka.S3Outposts.CreateEndpoint
+import Amazonka.S3Outposts.DeleteEndpoint
+import Amazonka.S3Outposts.Lens
+import Amazonka.S3Outposts.ListEndpoints
+import Amazonka.S3Outposts.Types
+import Amazonka.S3Outposts.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.S3Outposts where
 
+import Amazonka.S3Outposts
 import qualified Data.Proxy as Proxy
-import Network.AWS.S3Outposts
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.S3Outposts.Internal

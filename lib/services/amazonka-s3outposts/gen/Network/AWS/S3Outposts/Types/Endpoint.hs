@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.S3Outposts.Types.Endpoint
+-- Module      : Amazonka.S3Outposts.Types.Endpoint
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3Outposts.Types.Endpoint where
+module Amazonka.S3Outposts.Types.Endpoint where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.S3Outposts.Types.EndpointAccessType
-import Network.AWS.S3Outposts.Types.EndpointStatus
-import Network.AWS.S3Outposts.Types.NetworkInterface
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.S3Outposts.Types.EndpointAccessType
+import Amazonka.S3Outposts.Types.EndpointStatus
+import Amazonka.S3Outposts.Types.NetworkInterface
 
 -- | Amazon S3 on Outposts Access Points simplify managing data access at
 -- scale for shared datasets in S3 on Outposts. S3 on Outposts uses

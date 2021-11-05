@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Wisdom.UpdateKnowledgeBaseTemplateUri
+-- Module      : Amazonka.Wisdom.UpdateKnowledgeBaseTemplateUri
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- content. For example, if you ingest a Salesforce article, it has an @Id@
 -- value, and you can set the template URI to
 -- @https:\/\/myInstanceName.lightning.force.com\/lightning\/r\/Knowledge__kav\/*${Id}*\/view@.
-module Network.AWS.Wisdom.UpdateKnowledgeBaseTemplateUri
+module Amazonka.Wisdom.UpdateKnowledgeBaseTemplateUri
   ( -- * Creating a Request
     UpdateKnowledgeBaseTemplateUri (..),
     newUpdateKnowledgeBaseTemplateUri,
@@ -45,12 +45,12 @@ module Network.AWS.Wisdom.UpdateKnowledgeBaseTemplateUri
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Wisdom.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Wisdom.Types
 
 -- | /See:/ 'newUpdateKnowledgeBaseTemplateUri' smart constructor.
 data UpdateKnowledgeBaseTemplateUri = UpdateKnowledgeBaseTemplateUri'

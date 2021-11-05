@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Wisdom.DeleteKnowledgeBase
+-- Module      : Amazonka.Wisdom.DeleteKnowledgeBase
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -32,7 +32,7 @@
 -- and
 -- <https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html CreateDataIntegration>
 -- in the /Amazon AppIntegrations API Reference/.
-module Network.AWS.Wisdom.DeleteKnowledgeBase
+module Amazonka.Wisdom.DeleteKnowledgeBase
   ( -- * Creating a Request
     DeleteKnowledgeBase (..),
     newDeleteKnowledgeBase,
@@ -49,12 +49,12 @@ module Network.AWS.Wisdom.DeleteKnowledgeBase
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Wisdom.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Wisdom.Types
 
 -- | /See:/ 'newDeleteKnowledgeBase' smart constructor.
 data DeleteKnowledgeBase = DeleteKnowledgeBase'

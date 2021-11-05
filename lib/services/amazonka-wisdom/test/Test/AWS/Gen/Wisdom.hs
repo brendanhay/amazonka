@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Wisdom where
 
+import Amazonka.Wisdom
 import qualified Data.Proxy as Proxy
-import Network.AWS.Wisdom
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.Wisdom.Internal

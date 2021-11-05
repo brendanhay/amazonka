@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Wisdom.Lens
+-- Module      : Amazonka.Wisdom.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Wisdom.Lens
+module Amazonka.Wisdom.Lens
   ( -- * Operations
 
     -- ** ListAssistantAssociations
@@ -411,60 +411,60 @@ module Network.AWS.Wisdom.Lens
   )
 where
 
-import Network.AWS.Wisdom.CreateAssistant
-import Network.AWS.Wisdom.CreateAssistantAssociation
-import Network.AWS.Wisdom.CreateContent
-import Network.AWS.Wisdom.CreateKnowledgeBase
-import Network.AWS.Wisdom.CreateSession
-import Network.AWS.Wisdom.DeleteAssistant
-import Network.AWS.Wisdom.DeleteAssistantAssociation
-import Network.AWS.Wisdom.DeleteContent
-import Network.AWS.Wisdom.DeleteKnowledgeBase
-import Network.AWS.Wisdom.GetAssistant
-import Network.AWS.Wisdom.GetAssistantAssociation
-import Network.AWS.Wisdom.GetContent
-import Network.AWS.Wisdom.GetContentSummary
-import Network.AWS.Wisdom.GetKnowledgeBase
-import Network.AWS.Wisdom.GetRecommendations
-import Network.AWS.Wisdom.GetSession
-import Network.AWS.Wisdom.ListAssistantAssociations
-import Network.AWS.Wisdom.ListAssistants
-import Network.AWS.Wisdom.ListContents
-import Network.AWS.Wisdom.ListKnowledgeBases
-import Network.AWS.Wisdom.ListTagsForResource
-import Network.AWS.Wisdom.NotifyRecommendationsReceived
-import Network.AWS.Wisdom.QueryAssistant
-import Network.AWS.Wisdom.RemoveKnowledgeBaseTemplateUri
-import Network.AWS.Wisdom.SearchContent
-import Network.AWS.Wisdom.SearchSessions
-import Network.AWS.Wisdom.StartContentUpload
-import Network.AWS.Wisdom.TagResource
-import Network.AWS.Wisdom.Types.AppIntegrationsConfiguration
-import Network.AWS.Wisdom.Types.AssistantAssociationData
-import Network.AWS.Wisdom.Types.AssistantAssociationInputData
-import Network.AWS.Wisdom.Types.AssistantAssociationOutputData
-import Network.AWS.Wisdom.Types.AssistantAssociationSummary
-import Network.AWS.Wisdom.Types.AssistantData
-import Network.AWS.Wisdom.Types.AssistantSummary
-import Network.AWS.Wisdom.Types.ContentData
-import Network.AWS.Wisdom.Types.ContentReference
-import Network.AWS.Wisdom.Types.ContentSummary
-import Network.AWS.Wisdom.Types.Document
-import Network.AWS.Wisdom.Types.DocumentText
-import Network.AWS.Wisdom.Types.Filter
-import Network.AWS.Wisdom.Types.Highlight
-import Network.AWS.Wisdom.Types.KnowledgeBaseAssociationData
-import Network.AWS.Wisdom.Types.KnowledgeBaseData
-import Network.AWS.Wisdom.Types.KnowledgeBaseSummary
-import Network.AWS.Wisdom.Types.NotifyRecommendationsReceivedError
-import Network.AWS.Wisdom.Types.RecommendationData
-import Network.AWS.Wisdom.Types.RenderingConfiguration
-import Network.AWS.Wisdom.Types.ResultData
-import Network.AWS.Wisdom.Types.SearchExpression
-import Network.AWS.Wisdom.Types.ServerSideEncryptionConfiguration
-import Network.AWS.Wisdom.Types.SessionData
-import Network.AWS.Wisdom.Types.SessionSummary
-import Network.AWS.Wisdom.Types.SourceConfiguration
-import Network.AWS.Wisdom.UntagResource
-import Network.AWS.Wisdom.UpdateContent
-import Network.AWS.Wisdom.UpdateKnowledgeBaseTemplateUri
+import Amazonka.Wisdom.CreateAssistant
+import Amazonka.Wisdom.CreateAssistantAssociation
+import Amazonka.Wisdom.CreateContent
+import Amazonka.Wisdom.CreateKnowledgeBase
+import Amazonka.Wisdom.CreateSession
+import Amazonka.Wisdom.DeleteAssistant
+import Amazonka.Wisdom.DeleteAssistantAssociation
+import Amazonka.Wisdom.DeleteContent
+import Amazonka.Wisdom.DeleteKnowledgeBase
+import Amazonka.Wisdom.GetAssistant
+import Amazonka.Wisdom.GetAssistantAssociation
+import Amazonka.Wisdom.GetContent
+import Amazonka.Wisdom.GetContentSummary
+import Amazonka.Wisdom.GetKnowledgeBase
+import Amazonka.Wisdom.GetRecommendations
+import Amazonka.Wisdom.GetSession
+import Amazonka.Wisdom.ListAssistantAssociations
+import Amazonka.Wisdom.ListAssistants
+import Amazonka.Wisdom.ListContents
+import Amazonka.Wisdom.ListKnowledgeBases
+import Amazonka.Wisdom.ListTagsForResource
+import Amazonka.Wisdom.NotifyRecommendationsReceived
+import Amazonka.Wisdom.QueryAssistant
+import Amazonka.Wisdom.RemoveKnowledgeBaseTemplateUri
+import Amazonka.Wisdom.SearchContent
+import Amazonka.Wisdom.SearchSessions
+import Amazonka.Wisdom.StartContentUpload
+import Amazonka.Wisdom.TagResource
+import Amazonka.Wisdom.Types.AppIntegrationsConfiguration
+import Amazonka.Wisdom.Types.AssistantAssociationData
+import Amazonka.Wisdom.Types.AssistantAssociationInputData
+import Amazonka.Wisdom.Types.AssistantAssociationOutputData
+import Amazonka.Wisdom.Types.AssistantAssociationSummary
+import Amazonka.Wisdom.Types.AssistantData
+import Amazonka.Wisdom.Types.AssistantSummary
+import Amazonka.Wisdom.Types.ContentData
+import Amazonka.Wisdom.Types.ContentReference
+import Amazonka.Wisdom.Types.ContentSummary
+import Amazonka.Wisdom.Types.Document
+import Amazonka.Wisdom.Types.DocumentText
+import Amazonka.Wisdom.Types.Filter
+import Amazonka.Wisdom.Types.Highlight
+import Amazonka.Wisdom.Types.KnowledgeBaseAssociationData
+import Amazonka.Wisdom.Types.KnowledgeBaseData
+import Amazonka.Wisdom.Types.KnowledgeBaseSummary
+import Amazonka.Wisdom.Types.NotifyRecommendationsReceivedError
+import Amazonka.Wisdom.Types.RecommendationData
+import Amazonka.Wisdom.Types.RenderingConfiguration
+import Amazonka.Wisdom.Types.ResultData
+import Amazonka.Wisdom.Types.SearchExpression
+import Amazonka.Wisdom.Types.ServerSideEncryptionConfiguration
+import Amazonka.Wisdom.Types.SessionData
+import Amazonka.Wisdom.Types.SessionSummary
+import Amazonka.Wisdom.Types.SourceConfiguration
+import Amazonka.Wisdom.UntagResource
+import Amazonka.Wisdom.UpdateContent
+import Amazonka.Wisdom.UpdateKnowledgeBaseTemplateUri

@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Wisdom.Types
+-- Module      : Amazonka.Wisdom.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Wisdom.Types
+module Amazonka.Wisdom.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -276,45 +276,45 @@ module Network.AWS.Wisdom.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
-import Network.AWS.Wisdom.Types.AppIntegrationsConfiguration
-import Network.AWS.Wisdom.Types.AssistantAssociationData
-import Network.AWS.Wisdom.Types.AssistantAssociationInputData
-import Network.AWS.Wisdom.Types.AssistantAssociationOutputData
-import Network.AWS.Wisdom.Types.AssistantAssociationSummary
-import Network.AWS.Wisdom.Types.AssistantData
-import Network.AWS.Wisdom.Types.AssistantStatus
-import Network.AWS.Wisdom.Types.AssistantSummary
-import Network.AWS.Wisdom.Types.AssistantType
-import Network.AWS.Wisdom.Types.AssociationType
-import Network.AWS.Wisdom.Types.ContentData
-import Network.AWS.Wisdom.Types.ContentReference
-import Network.AWS.Wisdom.Types.ContentStatus
-import Network.AWS.Wisdom.Types.ContentSummary
-import Network.AWS.Wisdom.Types.Document
-import Network.AWS.Wisdom.Types.DocumentText
-import Network.AWS.Wisdom.Types.Filter
-import Network.AWS.Wisdom.Types.FilterField
-import Network.AWS.Wisdom.Types.FilterOperator
-import Network.AWS.Wisdom.Types.Highlight
-import Network.AWS.Wisdom.Types.KnowledgeBaseAssociationData
-import Network.AWS.Wisdom.Types.KnowledgeBaseData
-import Network.AWS.Wisdom.Types.KnowledgeBaseStatus
-import Network.AWS.Wisdom.Types.KnowledgeBaseSummary
-import Network.AWS.Wisdom.Types.KnowledgeBaseType
-import Network.AWS.Wisdom.Types.NotifyRecommendationsReceivedError
-import Network.AWS.Wisdom.Types.RecommendationData
-import Network.AWS.Wisdom.Types.RelevanceLevel
-import Network.AWS.Wisdom.Types.RenderingConfiguration
-import Network.AWS.Wisdom.Types.ResultData
-import Network.AWS.Wisdom.Types.SearchExpression
-import Network.AWS.Wisdom.Types.ServerSideEncryptionConfiguration
-import Network.AWS.Wisdom.Types.SessionData
-import Network.AWS.Wisdom.Types.SessionSummary
-import Network.AWS.Wisdom.Types.SourceConfiguration
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
+import Amazonka.Wisdom.Types.AppIntegrationsConfiguration
+import Amazonka.Wisdom.Types.AssistantAssociationData
+import Amazonka.Wisdom.Types.AssistantAssociationInputData
+import Amazonka.Wisdom.Types.AssistantAssociationOutputData
+import Amazonka.Wisdom.Types.AssistantAssociationSummary
+import Amazonka.Wisdom.Types.AssistantData
+import Amazonka.Wisdom.Types.AssistantStatus
+import Amazonka.Wisdom.Types.AssistantSummary
+import Amazonka.Wisdom.Types.AssistantType
+import Amazonka.Wisdom.Types.AssociationType
+import Amazonka.Wisdom.Types.ContentData
+import Amazonka.Wisdom.Types.ContentReference
+import Amazonka.Wisdom.Types.ContentStatus
+import Amazonka.Wisdom.Types.ContentSummary
+import Amazonka.Wisdom.Types.Document
+import Amazonka.Wisdom.Types.DocumentText
+import Amazonka.Wisdom.Types.Filter
+import Amazonka.Wisdom.Types.FilterField
+import Amazonka.Wisdom.Types.FilterOperator
+import Amazonka.Wisdom.Types.Highlight
+import Amazonka.Wisdom.Types.KnowledgeBaseAssociationData
+import Amazonka.Wisdom.Types.KnowledgeBaseData
+import Amazonka.Wisdom.Types.KnowledgeBaseStatus
+import Amazonka.Wisdom.Types.KnowledgeBaseSummary
+import Amazonka.Wisdom.Types.KnowledgeBaseType
+import Amazonka.Wisdom.Types.NotifyRecommendationsReceivedError
+import Amazonka.Wisdom.Types.RecommendationData
+import Amazonka.Wisdom.Types.RelevanceLevel
+import Amazonka.Wisdom.Types.RenderingConfiguration
+import Amazonka.Wisdom.Types.ResultData
+import Amazonka.Wisdom.Types.SearchExpression
+import Amazonka.Wisdom.Types.ServerSideEncryptionConfiguration
+import Amazonka.Wisdom.Types.SessionData
+import Amazonka.Wisdom.Types.SessionSummary
+import Amazonka.Wisdom.Types.SourceConfiguration
 
 -- | API version @2020-10-19@ of the Amazon Connect Wisdom Service SDK configuration.
 defaultService :: Core.Service

@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Wisdom
+-- Module      : Amazonka.Wisdom
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -15,7 +15,7 @@
 -- example, you can create an assistant and a knowledge base.
 --
 -- >  <p>Some more advanced features are only accessible using the Wisdom API. For example, you can manually manage content by uploading custom files and control their lifecycle. </p>
-module Network.AWS.Wisdom
+module Amazonka.Wisdom
   ( -- * Service Configuration
     defaultService,
 
@@ -370,40 +370,40 @@ module Network.AWS.Wisdom
   )
 where
 
-import Network.AWS.Wisdom.CreateAssistant
-import Network.AWS.Wisdom.CreateAssistantAssociation
-import Network.AWS.Wisdom.CreateContent
-import Network.AWS.Wisdom.CreateKnowledgeBase
-import Network.AWS.Wisdom.CreateSession
-import Network.AWS.Wisdom.DeleteAssistant
-import Network.AWS.Wisdom.DeleteAssistantAssociation
-import Network.AWS.Wisdom.DeleteContent
-import Network.AWS.Wisdom.DeleteKnowledgeBase
-import Network.AWS.Wisdom.GetAssistant
-import Network.AWS.Wisdom.GetAssistantAssociation
-import Network.AWS.Wisdom.GetContent
-import Network.AWS.Wisdom.GetContentSummary
-import Network.AWS.Wisdom.GetKnowledgeBase
-import Network.AWS.Wisdom.GetRecommendations
-import Network.AWS.Wisdom.GetSession
-import Network.AWS.Wisdom.Lens
-import Network.AWS.Wisdom.ListAssistantAssociations
-import Network.AWS.Wisdom.ListAssistants
-import Network.AWS.Wisdom.ListContents
-import Network.AWS.Wisdom.ListKnowledgeBases
-import Network.AWS.Wisdom.ListTagsForResource
-import Network.AWS.Wisdom.NotifyRecommendationsReceived
-import Network.AWS.Wisdom.QueryAssistant
-import Network.AWS.Wisdom.RemoveKnowledgeBaseTemplateUri
-import Network.AWS.Wisdom.SearchContent
-import Network.AWS.Wisdom.SearchSessions
-import Network.AWS.Wisdom.StartContentUpload
-import Network.AWS.Wisdom.TagResource
-import Network.AWS.Wisdom.Types
-import Network.AWS.Wisdom.UntagResource
-import Network.AWS.Wisdom.UpdateContent
-import Network.AWS.Wisdom.UpdateKnowledgeBaseTemplateUri
-import Network.AWS.Wisdom.Waiters
+import Amazonka.Wisdom.CreateAssistant
+import Amazonka.Wisdom.CreateAssistantAssociation
+import Amazonka.Wisdom.CreateContent
+import Amazonka.Wisdom.CreateKnowledgeBase
+import Amazonka.Wisdom.CreateSession
+import Amazonka.Wisdom.DeleteAssistant
+import Amazonka.Wisdom.DeleteAssistantAssociation
+import Amazonka.Wisdom.DeleteContent
+import Amazonka.Wisdom.DeleteKnowledgeBase
+import Amazonka.Wisdom.GetAssistant
+import Amazonka.Wisdom.GetAssistantAssociation
+import Amazonka.Wisdom.GetContent
+import Amazonka.Wisdom.GetContentSummary
+import Amazonka.Wisdom.GetKnowledgeBase
+import Amazonka.Wisdom.GetRecommendations
+import Amazonka.Wisdom.GetSession
+import Amazonka.Wisdom.Lens
+import Amazonka.Wisdom.ListAssistantAssociations
+import Amazonka.Wisdom.ListAssistants
+import Amazonka.Wisdom.ListContents
+import Amazonka.Wisdom.ListKnowledgeBases
+import Amazonka.Wisdom.ListTagsForResource
+import Amazonka.Wisdom.NotifyRecommendationsReceived
+import Amazonka.Wisdom.QueryAssistant
+import Amazonka.Wisdom.RemoveKnowledgeBaseTemplateUri
+import Amazonka.Wisdom.SearchContent
+import Amazonka.Wisdom.SearchSessions
+import Amazonka.Wisdom.StartContentUpload
+import Amazonka.Wisdom.TagResource
+import Amazonka.Wisdom.Types
+import Amazonka.Wisdom.UntagResource
+import Amazonka.Wisdom.UpdateContent
+import Amazonka.Wisdom.UpdateKnowledgeBaseTemplateUri
+import Amazonka.Wisdom.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

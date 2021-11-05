@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Wisdom.Types.KnowledgeBaseData
+-- Module      : Amazonka.Wisdom.Types.KnowledgeBaseData
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Wisdom.Types.KnowledgeBaseData where
+module Amazonka.Wisdom.Types.KnowledgeBaseData where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Wisdom.Types.KnowledgeBaseStatus
-import Network.AWS.Wisdom.Types.KnowledgeBaseType
-import Network.AWS.Wisdom.Types.RenderingConfiguration
-import Network.AWS.Wisdom.Types.ServerSideEncryptionConfiguration
-import Network.AWS.Wisdom.Types.SourceConfiguration
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Wisdom.Types.KnowledgeBaseStatus
+import Amazonka.Wisdom.Types.KnowledgeBaseType
+import Amazonka.Wisdom.Types.RenderingConfiguration
+import Amazonka.Wisdom.Types.ServerSideEncryptionConfiguration
+import Amazonka.Wisdom.Types.SourceConfiguration
 
 -- | Information about the knowledge base.
 --

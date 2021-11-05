@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.Wisdom.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.Wisdom.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.Wisdom" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.Wisdom" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,78 +45,78 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.Wisdom
-    Network.AWS.Wisdom.CreateAssistant
-    Network.AWS.Wisdom.CreateAssistantAssociation
-    Network.AWS.Wisdom.CreateContent
-    Network.AWS.Wisdom.CreateKnowledgeBase
-    Network.AWS.Wisdom.CreateSession
-    Network.AWS.Wisdom.DeleteAssistant
-    Network.AWS.Wisdom.DeleteAssistantAssociation
-    Network.AWS.Wisdom.DeleteContent
-    Network.AWS.Wisdom.DeleteKnowledgeBase
-    Network.AWS.Wisdom.GetAssistant
-    Network.AWS.Wisdom.GetAssistantAssociation
-    Network.AWS.Wisdom.GetContent
-    Network.AWS.Wisdom.GetContentSummary
-    Network.AWS.Wisdom.GetKnowledgeBase
-    Network.AWS.Wisdom.GetRecommendations
-    Network.AWS.Wisdom.GetSession
-    Network.AWS.Wisdom.Lens
-    Network.AWS.Wisdom.ListAssistantAssociations
-    Network.AWS.Wisdom.ListAssistants
-    Network.AWS.Wisdom.ListContents
-    Network.AWS.Wisdom.ListKnowledgeBases
-    Network.AWS.Wisdom.ListTagsForResource
-    Network.AWS.Wisdom.NotifyRecommendationsReceived
-    Network.AWS.Wisdom.QueryAssistant
-    Network.AWS.Wisdom.RemoveKnowledgeBaseTemplateUri
-    Network.AWS.Wisdom.SearchContent
-    Network.AWS.Wisdom.SearchSessions
-    Network.AWS.Wisdom.StartContentUpload
-    Network.AWS.Wisdom.TagResource
-    Network.AWS.Wisdom.Types
-    Network.AWS.Wisdom.Types.AppIntegrationsConfiguration
-    Network.AWS.Wisdom.Types.AssistantAssociationData
-    Network.AWS.Wisdom.Types.AssistantAssociationInputData
-    Network.AWS.Wisdom.Types.AssistantAssociationOutputData
-    Network.AWS.Wisdom.Types.AssistantAssociationSummary
-    Network.AWS.Wisdom.Types.AssistantData
-    Network.AWS.Wisdom.Types.AssistantStatus
-    Network.AWS.Wisdom.Types.AssistantSummary
-    Network.AWS.Wisdom.Types.AssistantType
-    Network.AWS.Wisdom.Types.AssociationType
-    Network.AWS.Wisdom.Types.ContentData
-    Network.AWS.Wisdom.Types.ContentReference
-    Network.AWS.Wisdom.Types.ContentStatus
-    Network.AWS.Wisdom.Types.ContentSummary
-    Network.AWS.Wisdom.Types.Document
-    Network.AWS.Wisdom.Types.DocumentText
-    Network.AWS.Wisdom.Types.Filter
-    Network.AWS.Wisdom.Types.FilterField
-    Network.AWS.Wisdom.Types.FilterOperator
-    Network.AWS.Wisdom.Types.Highlight
-    Network.AWS.Wisdom.Types.KnowledgeBaseAssociationData
-    Network.AWS.Wisdom.Types.KnowledgeBaseData
-    Network.AWS.Wisdom.Types.KnowledgeBaseStatus
-    Network.AWS.Wisdom.Types.KnowledgeBaseSummary
-    Network.AWS.Wisdom.Types.KnowledgeBaseType
-    Network.AWS.Wisdom.Types.NotifyRecommendationsReceivedError
-    Network.AWS.Wisdom.Types.RecommendationData
-    Network.AWS.Wisdom.Types.RelevanceLevel
-    Network.AWS.Wisdom.Types.RenderingConfiguration
-    Network.AWS.Wisdom.Types.ResultData
-    Network.AWS.Wisdom.Types.SearchExpression
-    Network.AWS.Wisdom.Types.ServerSideEncryptionConfiguration
-    Network.AWS.Wisdom.Types.SessionData
-    Network.AWS.Wisdom.Types.SessionSummary
-    Network.AWS.Wisdom.Types.SourceConfiguration
-    Network.AWS.Wisdom.UntagResource
-    Network.AWS.Wisdom.UpdateContent
-    Network.AWS.Wisdom.UpdateKnowledgeBaseTemplateUri
-    Network.AWS.Wisdom.Waiters
+    Amazonka.Wisdom
+    Amazonka.Wisdom.CreateAssistant
+    Amazonka.Wisdom.CreateAssistantAssociation
+    Amazonka.Wisdom.CreateContent
+    Amazonka.Wisdom.CreateKnowledgeBase
+    Amazonka.Wisdom.CreateSession
+    Amazonka.Wisdom.DeleteAssistant
+    Amazonka.Wisdom.DeleteAssistantAssociation
+    Amazonka.Wisdom.DeleteContent
+    Amazonka.Wisdom.DeleteKnowledgeBase
+    Amazonka.Wisdom.GetAssistant
+    Amazonka.Wisdom.GetAssistantAssociation
+    Amazonka.Wisdom.GetContent
+    Amazonka.Wisdom.GetContentSummary
+    Amazonka.Wisdom.GetKnowledgeBase
+    Amazonka.Wisdom.GetRecommendations
+    Amazonka.Wisdom.GetSession
+    Amazonka.Wisdom.Lens
+    Amazonka.Wisdom.ListAssistantAssociations
+    Amazonka.Wisdom.ListAssistants
+    Amazonka.Wisdom.ListContents
+    Amazonka.Wisdom.ListKnowledgeBases
+    Amazonka.Wisdom.ListTagsForResource
+    Amazonka.Wisdom.NotifyRecommendationsReceived
+    Amazonka.Wisdom.QueryAssistant
+    Amazonka.Wisdom.RemoveKnowledgeBaseTemplateUri
+    Amazonka.Wisdom.SearchContent
+    Amazonka.Wisdom.SearchSessions
+    Amazonka.Wisdom.StartContentUpload
+    Amazonka.Wisdom.TagResource
+    Amazonka.Wisdom.Types
+    Amazonka.Wisdom.Types.AppIntegrationsConfiguration
+    Amazonka.Wisdom.Types.AssistantAssociationData
+    Amazonka.Wisdom.Types.AssistantAssociationInputData
+    Amazonka.Wisdom.Types.AssistantAssociationOutputData
+    Amazonka.Wisdom.Types.AssistantAssociationSummary
+    Amazonka.Wisdom.Types.AssistantData
+    Amazonka.Wisdom.Types.AssistantStatus
+    Amazonka.Wisdom.Types.AssistantSummary
+    Amazonka.Wisdom.Types.AssistantType
+    Amazonka.Wisdom.Types.AssociationType
+    Amazonka.Wisdom.Types.ContentData
+    Amazonka.Wisdom.Types.ContentReference
+    Amazonka.Wisdom.Types.ContentStatus
+    Amazonka.Wisdom.Types.ContentSummary
+    Amazonka.Wisdom.Types.Document
+    Amazonka.Wisdom.Types.DocumentText
+    Amazonka.Wisdom.Types.Filter
+    Amazonka.Wisdom.Types.FilterField
+    Amazonka.Wisdom.Types.FilterOperator
+    Amazonka.Wisdom.Types.Highlight
+    Amazonka.Wisdom.Types.KnowledgeBaseAssociationData
+    Amazonka.Wisdom.Types.KnowledgeBaseData
+    Amazonka.Wisdom.Types.KnowledgeBaseStatus
+    Amazonka.Wisdom.Types.KnowledgeBaseSummary
+    Amazonka.Wisdom.Types.KnowledgeBaseType
+    Amazonka.Wisdom.Types.NotifyRecommendationsReceivedError
+    Amazonka.Wisdom.Types.RecommendationData
+    Amazonka.Wisdom.Types.RelevanceLevel
+    Amazonka.Wisdom.Types.RenderingConfiguration
+    Amazonka.Wisdom.Types.ResultData
+    Amazonka.Wisdom.Types.SearchExpression
+    Amazonka.Wisdom.Types.ServerSideEncryptionConfiguration
+    Amazonka.Wisdom.Types.SessionData
+    Amazonka.Wisdom.Types.SessionSummary
+    Amazonka.Wisdom.Types.SourceConfiguration
+    Amazonka.Wisdom.UntagResource
+    Amazonka.Wisdom.UpdateContent
+    Amazonka.Wisdom.UpdateKnowledgeBaseTemplateUri
+    Amazonka.Wisdom.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

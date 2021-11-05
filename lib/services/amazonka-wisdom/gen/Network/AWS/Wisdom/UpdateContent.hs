@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Wisdom.UpdateContent
+-- Module      : Amazonka.Wisdom.UpdateContent
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates information about the content.
-module Network.AWS.Wisdom.UpdateContent
+module Amazonka.Wisdom.UpdateContent
   ( -- * Creating a Request
     UpdateContent (..),
     newUpdateContent,
@@ -46,12 +46,12 @@ module Network.AWS.Wisdom.UpdateContent
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Wisdom.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Wisdom.Types
 
 -- | /See:/ 'newUpdateContent' smart constructor.
 data UpdateContent = UpdateContent'

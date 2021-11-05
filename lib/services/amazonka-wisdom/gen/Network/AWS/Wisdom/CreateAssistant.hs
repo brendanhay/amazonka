@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Wisdom.CreateAssistant
+-- Module      : Amazonka.Wisdom.CreateAssistant
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates an Amazon Connect Wisdom assistant.
-module Network.AWS.Wisdom.CreateAssistant
+module Amazonka.Wisdom.CreateAssistant
   ( -- * Creating a Request
     CreateAssistant (..),
     newCreateAssistant,
@@ -44,12 +44,12 @@ module Network.AWS.Wisdom.CreateAssistant
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Wisdom.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Wisdom.Types
 
 -- | /See:/ 'newCreateAssistant' smart constructor.
 data CreateAssistant = CreateAssistant'

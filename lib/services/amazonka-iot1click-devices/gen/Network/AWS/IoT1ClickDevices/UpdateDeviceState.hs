@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoT1ClickDevices.UpdateDeviceState
+-- Module      : Amazonka.IoT1ClickDevices.UpdateDeviceState
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Using a Boolean value (true or false), this operation enables or
 -- disables the device given a device ID.
-module Network.AWS.IoT1ClickDevices.UpdateDeviceState
+module Amazonka.IoT1ClickDevices.UpdateDeviceState
   ( -- * Creating a Request
     UpdateDeviceState (..),
     newUpdateDeviceState,
@@ -40,12 +40,12 @@ module Network.AWS.IoT1ClickDevices.UpdateDeviceState
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoT1ClickDevices.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IoT1ClickDevices.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateDeviceState' smart constructor.
 data UpdateDeviceState = UpdateDeviceState'

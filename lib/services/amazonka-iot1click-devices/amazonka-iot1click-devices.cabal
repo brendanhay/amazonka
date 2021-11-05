@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.IoT1ClickDevices.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.IoT1ClickDevices.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.IoT1ClickDevices" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.IoT1ClickDevices" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,30 +45,30 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.IoT1ClickDevices
-    Network.AWS.IoT1ClickDevices.ClaimDevicesByClaimCode
-    Network.AWS.IoT1ClickDevices.DescribeDevice
-    Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim
-    Network.AWS.IoT1ClickDevices.GetDeviceMethods
-    Network.AWS.IoT1ClickDevices.InitiateDeviceClaim
-    Network.AWS.IoT1ClickDevices.InvokeDeviceMethod
-    Network.AWS.IoT1ClickDevices.Lens
-    Network.AWS.IoT1ClickDevices.ListDeviceEvents
-    Network.AWS.IoT1ClickDevices.ListDevices
-    Network.AWS.IoT1ClickDevices.ListTagsForResource
-    Network.AWS.IoT1ClickDevices.TagResource
-    Network.AWS.IoT1ClickDevices.Types
-    Network.AWS.IoT1ClickDevices.Types.Attributes
-    Network.AWS.IoT1ClickDevices.Types.Device
-    Network.AWS.IoT1ClickDevices.Types.DeviceDescription
-    Network.AWS.IoT1ClickDevices.Types.DeviceEvent
-    Network.AWS.IoT1ClickDevices.Types.DeviceMethod
-    Network.AWS.IoT1ClickDevices.UnclaimDevice
-    Network.AWS.IoT1ClickDevices.UntagResource
-    Network.AWS.IoT1ClickDevices.UpdateDeviceState
-    Network.AWS.IoT1ClickDevices.Waiters
+    Amazonka.IoT1ClickDevices
+    Amazonka.IoT1ClickDevices.ClaimDevicesByClaimCode
+    Amazonka.IoT1ClickDevices.DescribeDevice
+    Amazonka.IoT1ClickDevices.FinalizeDeviceClaim
+    Amazonka.IoT1ClickDevices.GetDeviceMethods
+    Amazonka.IoT1ClickDevices.InitiateDeviceClaim
+    Amazonka.IoT1ClickDevices.InvokeDeviceMethod
+    Amazonka.IoT1ClickDevices.Lens
+    Amazonka.IoT1ClickDevices.ListDeviceEvents
+    Amazonka.IoT1ClickDevices.ListDevices
+    Amazonka.IoT1ClickDevices.ListTagsForResource
+    Amazonka.IoT1ClickDevices.TagResource
+    Amazonka.IoT1ClickDevices.Types
+    Amazonka.IoT1ClickDevices.Types.Attributes
+    Amazonka.IoT1ClickDevices.Types.Device
+    Amazonka.IoT1ClickDevices.Types.DeviceDescription
+    Amazonka.IoT1ClickDevices.Types.DeviceEvent
+    Amazonka.IoT1ClickDevices.Types.DeviceMethod
+    Amazonka.IoT1ClickDevices.UnclaimDevice
+    Amazonka.IoT1ClickDevices.UntagResource
+    Amazonka.IoT1ClickDevices.UpdateDeviceState
+    Amazonka.IoT1ClickDevices.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

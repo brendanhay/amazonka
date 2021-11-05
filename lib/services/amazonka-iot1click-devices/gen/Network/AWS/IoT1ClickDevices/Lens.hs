@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoT1ClickDevices.Lens
+-- Module      : Amazonka.IoT1ClickDevices.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT1ClickDevices.Lens
+module Amazonka.IoT1ClickDevices.Lens
   ( -- * Operations
 
     -- ** GetDeviceMethods
@@ -117,21 +117,21 @@ module Network.AWS.IoT1ClickDevices.Lens
   )
 where
 
-import Network.AWS.IoT1ClickDevices.ClaimDevicesByClaimCode
-import Network.AWS.IoT1ClickDevices.DescribeDevice
-import Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim
-import Network.AWS.IoT1ClickDevices.GetDeviceMethods
-import Network.AWS.IoT1ClickDevices.InitiateDeviceClaim
-import Network.AWS.IoT1ClickDevices.InvokeDeviceMethod
-import Network.AWS.IoT1ClickDevices.ListDeviceEvents
-import Network.AWS.IoT1ClickDevices.ListDevices
-import Network.AWS.IoT1ClickDevices.ListTagsForResource
-import Network.AWS.IoT1ClickDevices.TagResource
-import Network.AWS.IoT1ClickDevices.Types.Attributes
-import Network.AWS.IoT1ClickDevices.Types.Device
-import Network.AWS.IoT1ClickDevices.Types.DeviceDescription
-import Network.AWS.IoT1ClickDevices.Types.DeviceEvent
-import Network.AWS.IoT1ClickDevices.Types.DeviceMethod
-import Network.AWS.IoT1ClickDevices.UnclaimDevice
-import Network.AWS.IoT1ClickDevices.UntagResource
-import Network.AWS.IoT1ClickDevices.UpdateDeviceState
+import Amazonka.IoT1ClickDevices.ClaimDevicesByClaimCode
+import Amazonka.IoT1ClickDevices.DescribeDevice
+import Amazonka.IoT1ClickDevices.FinalizeDeviceClaim
+import Amazonka.IoT1ClickDevices.GetDeviceMethods
+import Amazonka.IoT1ClickDevices.InitiateDeviceClaim
+import Amazonka.IoT1ClickDevices.InvokeDeviceMethod
+import Amazonka.IoT1ClickDevices.ListDeviceEvents
+import Amazonka.IoT1ClickDevices.ListDevices
+import Amazonka.IoT1ClickDevices.ListTagsForResource
+import Amazonka.IoT1ClickDevices.TagResource
+import Amazonka.IoT1ClickDevices.Types.Attributes
+import Amazonka.IoT1ClickDevices.Types.Device
+import Amazonka.IoT1ClickDevices.Types.DeviceDescription
+import Amazonka.IoT1ClickDevices.Types.DeviceEvent
+import Amazonka.IoT1ClickDevices.Types.DeviceMethod
+import Amazonka.IoT1ClickDevices.UnclaimDevice
+import Amazonka.IoT1ClickDevices.UntagResource
+import Amazonka.IoT1ClickDevices.UpdateDeviceState

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoT1ClickDevices.ClaimDevicesByClaimCode
+-- Module      : Amazonka.IoT1ClickDevices.ClaimDevicesByClaimCode
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Adds device(s) to your account (i.e., claim one or more devices) if and
 -- only if you received a claim code with the device(s).
-module Network.AWS.IoT1ClickDevices.ClaimDevicesByClaimCode
+module Amazonka.IoT1ClickDevices.ClaimDevicesByClaimCode
   ( -- * Creating a Request
     ClaimDevicesByClaimCode (..),
     newClaimDevicesByClaimCode,
@@ -41,12 +41,12 @@ module Network.AWS.IoT1ClickDevices.ClaimDevicesByClaimCode
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoT1ClickDevices.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IoT1ClickDevices.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newClaimDevicesByClaimCode' smart constructor.
 data ClaimDevicesByClaimCode = ClaimDevicesByClaimCode'

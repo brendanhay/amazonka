@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoT1ClickDevices.UnclaimDevice
+-- Module      : Amazonka.IoT1ClickDevices.UnclaimDevice
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Disassociates a device from your AWS account using its device ID.
-module Network.AWS.IoT1ClickDevices.UnclaimDevice
+module Amazonka.IoT1ClickDevices.UnclaimDevice
   ( -- * Creating a Request
     UnclaimDevice (..),
     newUnclaimDevice,
@@ -39,12 +39,12 @@ module Network.AWS.IoT1ClickDevices.UnclaimDevice
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoT1ClickDevices.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IoT1ClickDevices.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUnclaimDevice' smart constructor.
 data UnclaimDevice = UnclaimDevice'

@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.IoT1ClickDevices
+-- Module      : Amazonka.IoT1ClickDevices
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -14,7 +14,7 @@
 -- Describes all of the AWS IoT 1-Click device-related API operations for
 -- the service. Also provides sample requests, responses, and errors for
 -- the supported web services protocols.
-module Network.AWS.IoT1ClickDevices
+module Amazonka.IoT1ClickDevices
   ( -- * Service Configuration
     defaultService,
 
@@ -150,22 +150,22 @@ module Network.AWS.IoT1ClickDevices
   )
 where
 
-import Network.AWS.IoT1ClickDevices.ClaimDevicesByClaimCode
-import Network.AWS.IoT1ClickDevices.DescribeDevice
-import Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim
-import Network.AWS.IoT1ClickDevices.GetDeviceMethods
-import Network.AWS.IoT1ClickDevices.InitiateDeviceClaim
-import Network.AWS.IoT1ClickDevices.InvokeDeviceMethod
-import Network.AWS.IoT1ClickDevices.Lens
-import Network.AWS.IoT1ClickDevices.ListDeviceEvents
-import Network.AWS.IoT1ClickDevices.ListDevices
-import Network.AWS.IoT1ClickDevices.ListTagsForResource
-import Network.AWS.IoT1ClickDevices.TagResource
-import Network.AWS.IoT1ClickDevices.Types
-import Network.AWS.IoT1ClickDevices.UnclaimDevice
-import Network.AWS.IoT1ClickDevices.UntagResource
-import Network.AWS.IoT1ClickDevices.UpdateDeviceState
-import Network.AWS.IoT1ClickDevices.Waiters
+import Amazonka.IoT1ClickDevices.ClaimDevicesByClaimCode
+import Amazonka.IoT1ClickDevices.DescribeDevice
+import Amazonka.IoT1ClickDevices.FinalizeDeviceClaim
+import Amazonka.IoT1ClickDevices.GetDeviceMethods
+import Amazonka.IoT1ClickDevices.InitiateDeviceClaim
+import Amazonka.IoT1ClickDevices.InvokeDeviceMethod
+import Amazonka.IoT1ClickDevices.Lens
+import Amazonka.IoT1ClickDevices.ListDeviceEvents
+import Amazonka.IoT1ClickDevices.ListDevices
+import Amazonka.IoT1ClickDevices.ListTagsForResource
+import Amazonka.IoT1ClickDevices.TagResource
+import Amazonka.IoT1ClickDevices.Types
+import Amazonka.IoT1ClickDevices.UnclaimDevice
+import Amazonka.IoT1ClickDevices.UntagResource
+import Amazonka.IoT1ClickDevices.UpdateDeviceState
+import Amazonka.IoT1ClickDevices.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

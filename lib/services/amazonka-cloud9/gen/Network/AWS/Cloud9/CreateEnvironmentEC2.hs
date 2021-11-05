@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Cloud9.CreateEnvironmentEC2
+-- Module      : Amazonka.Cloud9.CreateEnvironmentEC2
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Creates an Cloud9 development environment, launches an Amazon Elastic
 -- Compute Cloud (Amazon EC2) instance, and then connects from the instance
 -- to the environment.
-module Network.AWS.Cloud9.CreateEnvironmentEC2
+module Amazonka.Cloud9.CreateEnvironmentEC2
   ( -- * Creating a Request
     CreateEnvironmentEC2 (..),
     newCreateEnvironmentEC2,
@@ -51,12 +51,12 @@ module Network.AWS.Cloud9.CreateEnvironmentEC2
   )
 where
 
-import Network.AWS.Cloud9.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Cloud9.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateEnvironmentEC2' smart constructor.
 data CreateEnvironmentEC2 = CreateEnvironmentEC2'

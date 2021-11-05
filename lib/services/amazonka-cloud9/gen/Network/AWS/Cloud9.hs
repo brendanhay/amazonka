@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Cloud9
+-- Module      : Amazonka.Cloud9
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -56,7 +56,7 @@
 --
 -- -   @UpdateEnvironmentMembership@: Changes the settings of an existing
 --     environment member for an environment.
-module Network.AWS.Cloud9
+module Amazonka.Cloud9
   ( -- * Service Configuration
     defaultService,
 
@@ -215,22 +215,22 @@ module Network.AWS.Cloud9
   )
 where
 
-import Network.AWS.Cloud9.CreateEnvironmentEC2
-import Network.AWS.Cloud9.CreateEnvironmentMembership
-import Network.AWS.Cloud9.DeleteEnvironment
-import Network.AWS.Cloud9.DeleteEnvironmentMembership
-import Network.AWS.Cloud9.DescribeEnvironmentMemberships
-import Network.AWS.Cloud9.DescribeEnvironmentStatus
-import Network.AWS.Cloud9.DescribeEnvironments
-import Network.AWS.Cloud9.Lens
-import Network.AWS.Cloud9.ListEnvironments
-import Network.AWS.Cloud9.ListTagsForResource
-import Network.AWS.Cloud9.TagResource
-import Network.AWS.Cloud9.Types
-import Network.AWS.Cloud9.UntagResource
-import Network.AWS.Cloud9.UpdateEnvironment
-import Network.AWS.Cloud9.UpdateEnvironmentMembership
-import Network.AWS.Cloud9.Waiters
+import Amazonka.Cloud9.CreateEnvironmentEC2
+import Amazonka.Cloud9.CreateEnvironmentMembership
+import Amazonka.Cloud9.DeleteEnvironment
+import Amazonka.Cloud9.DeleteEnvironmentMembership
+import Amazonka.Cloud9.DescribeEnvironmentMemberships
+import Amazonka.Cloud9.DescribeEnvironmentStatus
+import Amazonka.Cloud9.DescribeEnvironments
+import Amazonka.Cloud9.Lens
+import Amazonka.Cloud9.ListEnvironments
+import Amazonka.Cloud9.ListTagsForResource
+import Amazonka.Cloud9.TagResource
+import Amazonka.Cloud9.Types
+import Amazonka.Cloud9.UntagResource
+import Amazonka.Cloud9.UpdateEnvironment
+import Amazonka.Cloud9.UpdateEnvironmentMembership
+import Amazonka.Cloud9.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Cloud9.TagResource
+-- Module      : Amazonka.Cloud9.TagResource
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 --
 -- Tags that you add to an Cloud9 environment by using this method will NOT
 -- be automatically propagated to underlying resources.
-module Network.AWS.Cloud9.TagResource
+module Amazonka.Cloud9.TagResource
   ( -- * Creating a Request
     TagResource (..),
     newTagResource,
@@ -42,12 +42,12 @@ module Network.AWS.Cloud9.TagResource
   )
 where
 
-import Network.AWS.Cloud9.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Cloud9.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'

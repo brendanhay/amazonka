@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Cloud9.CreateEnvironmentMembership
+-- Module      : Amazonka.Cloud9.CreateEnvironmentMembership
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds an environment member to an Cloud9 development environment.
-module Network.AWS.Cloud9.CreateEnvironmentMembership
+module Amazonka.Cloud9.CreateEnvironmentMembership
   ( -- * Creating a Request
     CreateEnvironmentMembership (..),
     newCreateEnvironmentMembership,
@@ -41,12 +41,12 @@ module Network.AWS.Cloud9.CreateEnvironmentMembership
   )
 where
 
-import Network.AWS.Cloud9.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Cloud9.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateEnvironmentMembership' smart constructor.
 data CreateEnvironmentMembership = CreateEnvironmentMembership'

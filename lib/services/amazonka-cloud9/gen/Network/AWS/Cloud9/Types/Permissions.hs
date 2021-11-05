@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Cloud9.Types.Permissions
+-- Module      : Amazonka.Cloud9.Types.Permissions
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Cloud9.Types.Permissions
+module Amazonka.Cloud9.Types.Permissions
   ( Permissions
       ( ..,
         Permissions_Owner,
@@ -27,8 +27,8 @@ module Network.AWS.Cloud9.Types.Permissions
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 newtype Permissions = Permissions'
   { fromPermissions ::

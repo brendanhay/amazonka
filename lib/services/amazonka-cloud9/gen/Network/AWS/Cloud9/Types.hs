@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Cloud9.Types
+-- Module      : Amazonka.Cloud9.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Cloud9.Types
+module Amazonka.Cloud9.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -87,22 +87,22 @@ module Network.AWS.Cloud9.Types
   )
 where
 
-import Network.AWS.Cloud9.Types.ConnectionType
-import Network.AWS.Cloud9.Types.Environment
-import Network.AWS.Cloud9.Types.EnvironmentLifecycle
-import Network.AWS.Cloud9.Types.EnvironmentLifecycleStatus
-import Network.AWS.Cloud9.Types.EnvironmentMember
-import Network.AWS.Cloud9.Types.EnvironmentStatus
-import Network.AWS.Cloud9.Types.EnvironmentType
-import Network.AWS.Cloud9.Types.ManagedCredentialsAction
-import Network.AWS.Cloud9.Types.ManagedCredentialsStatus
-import Network.AWS.Cloud9.Types.MemberPermissions
-import Network.AWS.Cloud9.Types.Permissions
-import Network.AWS.Cloud9.Types.Tag
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.Cloud9.Types.ConnectionType
+import Amazonka.Cloud9.Types.Environment
+import Amazonka.Cloud9.Types.EnvironmentLifecycle
+import Amazonka.Cloud9.Types.EnvironmentLifecycleStatus
+import Amazonka.Cloud9.Types.EnvironmentMember
+import Amazonka.Cloud9.Types.EnvironmentStatus
+import Amazonka.Cloud9.Types.EnvironmentType
+import Amazonka.Cloud9.Types.ManagedCredentialsAction
+import Amazonka.Cloud9.Types.ManagedCredentialsStatus
+import Amazonka.Cloud9.Types.MemberPermissions
+import Amazonka.Cloud9.Types.Permissions
+import Amazonka.Cloud9.Types.Tag
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2017-09-23@ of the Amazon Cloud9 SDK configuration.
 defaultService :: Core.Service

@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Cloud9.Lens
+-- Module      : Amazonka.Cloud9.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Cloud9.Lens
+module Amazonka.Cloud9.Lens
   ( -- * Operations
 
     -- ** ListEnvironments
@@ -133,20 +133,20 @@ module Network.AWS.Cloud9.Lens
   )
 where
 
-import Network.AWS.Cloud9.CreateEnvironmentEC2
-import Network.AWS.Cloud9.CreateEnvironmentMembership
-import Network.AWS.Cloud9.DeleteEnvironment
-import Network.AWS.Cloud9.DeleteEnvironmentMembership
-import Network.AWS.Cloud9.DescribeEnvironmentMemberships
-import Network.AWS.Cloud9.DescribeEnvironmentStatus
-import Network.AWS.Cloud9.DescribeEnvironments
-import Network.AWS.Cloud9.ListEnvironments
-import Network.AWS.Cloud9.ListTagsForResource
-import Network.AWS.Cloud9.TagResource
-import Network.AWS.Cloud9.Types.Environment
-import Network.AWS.Cloud9.Types.EnvironmentLifecycle
-import Network.AWS.Cloud9.Types.EnvironmentMember
-import Network.AWS.Cloud9.Types.Tag
-import Network.AWS.Cloud9.UntagResource
-import Network.AWS.Cloud9.UpdateEnvironment
-import Network.AWS.Cloud9.UpdateEnvironmentMembership
+import Amazonka.Cloud9.CreateEnvironmentEC2
+import Amazonka.Cloud9.CreateEnvironmentMembership
+import Amazonka.Cloud9.DeleteEnvironment
+import Amazonka.Cloud9.DeleteEnvironmentMembership
+import Amazonka.Cloud9.DescribeEnvironmentMemberships
+import Amazonka.Cloud9.DescribeEnvironmentStatus
+import Amazonka.Cloud9.DescribeEnvironments
+import Amazonka.Cloud9.ListEnvironments
+import Amazonka.Cloud9.ListTagsForResource
+import Amazonka.Cloud9.TagResource
+import Amazonka.Cloud9.Types.Environment
+import Amazonka.Cloud9.Types.EnvironmentLifecycle
+import Amazonka.Cloud9.Types.EnvironmentMember
+import Amazonka.Cloud9.Types.Tag
+import Amazonka.Cloud9.UntagResource
+import Amazonka.Cloud9.UpdateEnvironment
+import Amazonka.Cloud9.UpdateEnvironmentMembership

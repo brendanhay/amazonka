@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Cloud9 where
 
+import Amazonka.Cloud9
 import qualified Data.Proxy as Proxy
-import Network.AWS.Cloud9
 import Test.AWS.Cloud9.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

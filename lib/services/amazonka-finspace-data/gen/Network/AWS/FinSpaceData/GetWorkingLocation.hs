@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.FinSpaceData.GetWorkingLocation
+-- Module      : Amazonka.FinSpaceData.GetWorkingLocation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- A temporary Amazon S3 location to copy your files from a source location
 -- to stage or use as a scratch space in Habanero notebook.
-module Network.AWS.FinSpaceData.GetWorkingLocation
+module Amazonka.FinSpaceData.GetWorkingLocation
   ( -- * Creating a Request
     GetWorkingLocation (..),
     newGetWorkingLocation,
@@ -42,12 +42,12 @@ module Network.AWS.FinSpaceData.GetWorkingLocation
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.FinSpaceData.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.FinSpaceData.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetWorkingLocation' smart constructor.
 data GetWorkingLocation = GetWorkingLocation'

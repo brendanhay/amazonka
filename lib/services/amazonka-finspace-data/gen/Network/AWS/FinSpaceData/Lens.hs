@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.FinSpaceData.Lens
+-- Module      : Amazonka.FinSpaceData.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.FinSpaceData.Lens
+module Amazonka.FinSpaceData.Lens
   ( -- * Operations
 
     -- ** CreateChangeset
@@ -68,9 +68,9 @@ module Network.AWS.FinSpaceData.Lens
   )
 where
 
-import Network.AWS.FinSpaceData.CreateChangeset
-import Network.AWS.FinSpaceData.GetProgrammaticAccessCredentials
-import Network.AWS.FinSpaceData.GetWorkingLocation
-import Network.AWS.FinSpaceData.Types.ChangesetInfo
-import Network.AWS.FinSpaceData.Types.Credentials
-import Network.AWS.FinSpaceData.Types.ErrorInfo
+import Amazonka.FinSpaceData.CreateChangeset
+import Amazonka.FinSpaceData.GetProgrammaticAccessCredentials
+import Amazonka.FinSpaceData.GetWorkingLocation
+import Amazonka.FinSpaceData.Types.ChangesetInfo
+import Amazonka.FinSpaceData.Types.Credentials
+import Amazonka.FinSpaceData.Types.ErrorInfo

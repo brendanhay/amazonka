@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.FinSpaceData
+-- Module      : Amazonka.FinSpaceData
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -12,7 +12,7 @@
 -- Derived from API version @2020-07-13@ of the AWS service descriptions, licensed under Apache 2.0.
 --
 -- The FinSpace APIs let you take actions inside the FinSpace environment.
-module Network.AWS.FinSpaceData
+module Amazonka.FinSpaceData
   ( -- * Service Configuration
     defaultService,
 
@@ -92,12 +92,12 @@ module Network.AWS.FinSpaceData
   )
 where
 
-import Network.AWS.FinSpaceData.CreateChangeset
-import Network.AWS.FinSpaceData.GetProgrammaticAccessCredentials
-import Network.AWS.FinSpaceData.GetWorkingLocation
-import Network.AWS.FinSpaceData.Lens
-import Network.AWS.FinSpaceData.Types
-import Network.AWS.FinSpaceData.Waiters
+import Amazonka.FinSpaceData.CreateChangeset
+import Amazonka.FinSpaceData.GetProgrammaticAccessCredentials
+import Amazonka.FinSpaceData.GetWorkingLocation
+import Amazonka.FinSpaceData.Lens
+import Amazonka.FinSpaceData.Types
+import Amazonka.FinSpaceData.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus
+-- Module      : Amazonka.OpsWorksCM.DescribeNodeAssociationStatus
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 -- disassociation request with the specified token is found, or when the
 -- server does not exist. A @ValidationException@ is raised when parameters
 -- of the request are not valid.
-module Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus
+module Amazonka.OpsWorksCM.DescribeNodeAssociationStatus
   ( -- * Creating a Request
     DescribeNodeAssociationStatus (..),
     newDescribeNodeAssociationStatus,
@@ -47,12 +47,12 @@ module Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorksCM.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.OpsWorksCM.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeNodeAssociationStatus' smart constructor.
 data DescribeNodeAssociationStatus = DescribeNodeAssociationStatus'

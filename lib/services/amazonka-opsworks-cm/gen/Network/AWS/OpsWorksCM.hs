@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.OpsWorksCM
+-- Module      : Amazonka.OpsWorksCM
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -82,7 +82,7 @@
 --
 -- All API operations allow for five requests per second with a burst of 10
 -- requests per second.
-module Network.AWS.OpsWorksCM
+module Amazonka.OpsWorksCM
   ( -- * Service Configuration
     defaultService,
 
@@ -273,28 +273,28 @@ module Network.AWS.OpsWorksCM
   )
 where
 
-import Network.AWS.OpsWorksCM.AssociateNode
-import Network.AWS.OpsWorksCM.CreateBackup
-import Network.AWS.OpsWorksCM.CreateServer
-import Network.AWS.OpsWorksCM.DeleteBackup
-import Network.AWS.OpsWorksCM.DeleteServer
-import Network.AWS.OpsWorksCM.DescribeAccountAttributes
-import Network.AWS.OpsWorksCM.DescribeBackups
-import Network.AWS.OpsWorksCM.DescribeEvents
-import Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus
-import Network.AWS.OpsWorksCM.DescribeServers
-import Network.AWS.OpsWorksCM.DisassociateNode
-import Network.AWS.OpsWorksCM.ExportServerEngineAttribute
-import Network.AWS.OpsWorksCM.Lens
-import Network.AWS.OpsWorksCM.ListTagsForResource
-import Network.AWS.OpsWorksCM.RestoreServer
-import Network.AWS.OpsWorksCM.StartMaintenance
-import Network.AWS.OpsWorksCM.TagResource
-import Network.AWS.OpsWorksCM.Types
-import Network.AWS.OpsWorksCM.UntagResource
-import Network.AWS.OpsWorksCM.UpdateServer
-import Network.AWS.OpsWorksCM.UpdateServerEngineAttributes
-import Network.AWS.OpsWorksCM.Waiters
+import Amazonka.OpsWorksCM.AssociateNode
+import Amazonka.OpsWorksCM.CreateBackup
+import Amazonka.OpsWorksCM.CreateServer
+import Amazonka.OpsWorksCM.DeleteBackup
+import Amazonka.OpsWorksCM.DeleteServer
+import Amazonka.OpsWorksCM.DescribeAccountAttributes
+import Amazonka.OpsWorksCM.DescribeBackups
+import Amazonka.OpsWorksCM.DescribeEvents
+import Amazonka.OpsWorksCM.DescribeNodeAssociationStatus
+import Amazonka.OpsWorksCM.DescribeServers
+import Amazonka.OpsWorksCM.DisassociateNode
+import Amazonka.OpsWorksCM.ExportServerEngineAttribute
+import Amazonka.OpsWorksCM.Lens
+import Amazonka.OpsWorksCM.ListTagsForResource
+import Amazonka.OpsWorksCM.RestoreServer
+import Amazonka.OpsWorksCM.StartMaintenance
+import Amazonka.OpsWorksCM.TagResource
+import Amazonka.OpsWorksCM.Types
+import Amazonka.OpsWorksCM.UntagResource
+import Amazonka.OpsWorksCM.UpdateServer
+import Amazonka.OpsWorksCM.UpdateServerEngineAttributes
+import Amazonka.OpsWorksCM.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

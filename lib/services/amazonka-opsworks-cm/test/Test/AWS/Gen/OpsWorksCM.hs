@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.OpsWorksCM where
 
+import Amazonka.OpsWorksCM
 import qualified Data.Proxy as Proxy
-import Network.AWS.OpsWorksCM
 import Test.AWS.Fixture
 import Test.AWS.OpsWorksCM.Internal
 import Test.AWS.Prelude

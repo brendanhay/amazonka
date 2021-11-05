@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.OpsWorksCM.Types.Server
+-- Module      : Amazonka.OpsWorksCM.Types.Server
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorksCM.Types.Server where
+module Amazonka.OpsWorksCM.Types.Server where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorksCM.Types.EngineAttribute
-import Network.AWS.OpsWorksCM.Types.MaintenanceStatus
-import Network.AWS.OpsWorksCM.Types.ServerStatus
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.OpsWorksCM.Types.EngineAttribute
+import Amazonka.OpsWorksCM.Types.MaintenanceStatus
+import Amazonka.OpsWorksCM.Types.ServerStatus
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a configuration management server.
 --

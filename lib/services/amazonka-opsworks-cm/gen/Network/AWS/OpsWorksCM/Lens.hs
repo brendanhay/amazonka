@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.OpsWorksCM.Lens
+-- Module      : Amazonka.OpsWorksCM.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorksCM.Lens
+module Amazonka.OpsWorksCM.Lens
   ( -- * Operations
 
     -- ** AssociateNode
@@ -235,28 +235,28 @@ module Network.AWS.OpsWorksCM.Lens
   )
 where
 
-import Network.AWS.OpsWorksCM.AssociateNode
-import Network.AWS.OpsWorksCM.CreateBackup
-import Network.AWS.OpsWorksCM.CreateServer
-import Network.AWS.OpsWorksCM.DeleteBackup
-import Network.AWS.OpsWorksCM.DeleteServer
-import Network.AWS.OpsWorksCM.DescribeAccountAttributes
-import Network.AWS.OpsWorksCM.DescribeBackups
-import Network.AWS.OpsWorksCM.DescribeEvents
-import Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus
-import Network.AWS.OpsWorksCM.DescribeServers
-import Network.AWS.OpsWorksCM.DisassociateNode
-import Network.AWS.OpsWorksCM.ExportServerEngineAttribute
-import Network.AWS.OpsWorksCM.ListTagsForResource
-import Network.AWS.OpsWorksCM.RestoreServer
-import Network.AWS.OpsWorksCM.StartMaintenance
-import Network.AWS.OpsWorksCM.TagResource
-import Network.AWS.OpsWorksCM.Types.AccountAttribute
-import Network.AWS.OpsWorksCM.Types.Backup
-import Network.AWS.OpsWorksCM.Types.EngineAttribute
-import Network.AWS.OpsWorksCM.Types.Server
-import Network.AWS.OpsWorksCM.Types.ServerEvent
-import Network.AWS.OpsWorksCM.Types.Tag
-import Network.AWS.OpsWorksCM.UntagResource
-import Network.AWS.OpsWorksCM.UpdateServer
-import Network.AWS.OpsWorksCM.UpdateServerEngineAttributes
+import Amazonka.OpsWorksCM.AssociateNode
+import Amazonka.OpsWorksCM.CreateBackup
+import Amazonka.OpsWorksCM.CreateServer
+import Amazonka.OpsWorksCM.DeleteBackup
+import Amazonka.OpsWorksCM.DeleteServer
+import Amazonka.OpsWorksCM.DescribeAccountAttributes
+import Amazonka.OpsWorksCM.DescribeBackups
+import Amazonka.OpsWorksCM.DescribeEvents
+import Amazonka.OpsWorksCM.DescribeNodeAssociationStatus
+import Amazonka.OpsWorksCM.DescribeServers
+import Amazonka.OpsWorksCM.DisassociateNode
+import Amazonka.OpsWorksCM.ExportServerEngineAttribute
+import Amazonka.OpsWorksCM.ListTagsForResource
+import Amazonka.OpsWorksCM.RestoreServer
+import Amazonka.OpsWorksCM.StartMaintenance
+import Amazonka.OpsWorksCM.TagResource
+import Amazonka.OpsWorksCM.Types.AccountAttribute
+import Amazonka.OpsWorksCM.Types.Backup
+import Amazonka.OpsWorksCM.Types.EngineAttribute
+import Amazonka.OpsWorksCM.Types.Server
+import Amazonka.OpsWorksCM.Types.ServerEvent
+import Amazonka.OpsWorksCM.Types.Tag
+import Amazonka.OpsWorksCM.UntagResource
+import Amazonka.OpsWorksCM.UpdateServer
+import Amazonka.OpsWorksCM.UpdateServerEngineAttributes

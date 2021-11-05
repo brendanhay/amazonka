@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.OpsWorksCM.Types
+-- Module      : Amazonka.OpsWorksCM.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorksCM.Types
+module Amazonka.OpsWorksCM.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -124,21 +124,21 @@ module Network.AWS.OpsWorksCM.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorksCM.Types.AccountAttribute
-import Network.AWS.OpsWorksCM.Types.Backup
-import Network.AWS.OpsWorksCM.Types.BackupStatus
-import Network.AWS.OpsWorksCM.Types.BackupType
-import Network.AWS.OpsWorksCM.Types.EngineAttribute
-import Network.AWS.OpsWorksCM.Types.MaintenanceStatus
-import Network.AWS.OpsWorksCM.Types.NodeAssociationStatus
-import Network.AWS.OpsWorksCM.Types.Server
-import Network.AWS.OpsWorksCM.Types.ServerEvent
-import Network.AWS.OpsWorksCM.Types.ServerStatus
-import Network.AWS.OpsWorksCM.Types.Tag
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.OpsWorksCM.Types.AccountAttribute
+import Amazonka.OpsWorksCM.Types.Backup
+import Amazonka.OpsWorksCM.Types.BackupStatus
+import Amazonka.OpsWorksCM.Types.BackupType
+import Amazonka.OpsWorksCM.Types.EngineAttribute
+import Amazonka.OpsWorksCM.Types.MaintenanceStatus
+import Amazonka.OpsWorksCM.Types.NodeAssociationStatus
+import Amazonka.OpsWorksCM.Types.Server
+import Amazonka.OpsWorksCM.Types.ServerEvent
+import Amazonka.OpsWorksCM.Types.ServerStatus
+import Amazonka.OpsWorksCM.Types.Tag
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2016-11-01@ of the Amazon OpsWorks CM SDK configuration.
 defaultService :: Core.Service

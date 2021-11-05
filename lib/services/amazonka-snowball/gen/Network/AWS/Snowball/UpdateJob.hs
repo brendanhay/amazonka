@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Snowball.UpdateJob
+-- Module      : Amazonka.Snowball.UpdateJob
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- information associated with a job. Once the job changes to a different
 -- job state, usually within 60 minutes of the job being created, this
 -- action is no longer available.
-module Network.AWS.Snowball.UpdateJob
+module Amazonka.Snowball.UpdateJob
   ( -- * Creating a Request
     UpdateJob (..),
     newUpdateJob,
@@ -50,12 +50,12 @@ module Network.AWS.Snowball.UpdateJob
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Snowball.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Snowball.Types
 
 -- | /See:/ 'newUpdateJob' smart constructor.
 data UpdateJob = UpdateJob'

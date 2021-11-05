@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Snowball.CreateLongTermPricing
+-- Module      : Amazonka.Snowball.CreateLongTermPricing
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- long-term usage is a 1-year or 3-year long-term pricing type for the
 -- device. You are billed upfront, and AWS provides discounts for long-term
 -- pricing.
-module Network.AWS.Snowball.CreateLongTermPricing
+module Amazonka.Snowball.CreateLongTermPricing
   ( -- * Creating a Request
     CreateLongTermPricing (..),
     newCreateLongTermPricing,
@@ -44,12 +44,12 @@ module Network.AWS.Snowball.CreateLongTermPricing
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Snowball.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Snowball.Types
 
 -- | /See:/ 'newCreateLongTermPricing' smart constructor.
 data CreateLongTermPricing = CreateLongTermPricing'

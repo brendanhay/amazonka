@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Snowball
+-- Module      : Amazonka.Snowball
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Snowball Edge client or the Amazon S3 API Interface for Snowball or AWS
 -- OpsHub for Snow Family. For more information, see the
 -- <https://docs.aws.amazon.com/AWSImportExport/latest/ug/api-reference.html User Guide>.
-module Network.AWS.Snowball
+module Amazonka.Snowball
   ( -- * Service Configuration
     defaultService,
 
@@ -364,34 +364,34 @@ module Network.AWS.Snowball
   )
 where
 
-import Network.AWS.Snowball.CancelCluster
-import Network.AWS.Snowball.CancelJob
-import Network.AWS.Snowball.CreateAddress
-import Network.AWS.Snowball.CreateCluster
-import Network.AWS.Snowball.CreateJob
-import Network.AWS.Snowball.CreateLongTermPricing
-import Network.AWS.Snowball.CreateReturnShippingLabel
-import Network.AWS.Snowball.DescribeAddress
-import Network.AWS.Snowball.DescribeAddresses
-import Network.AWS.Snowball.DescribeCluster
-import Network.AWS.Snowball.DescribeJob
-import Network.AWS.Snowball.DescribeReturnShippingLabel
-import Network.AWS.Snowball.GetJobManifest
-import Network.AWS.Snowball.GetJobUnlockCode
-import Network.AWS.Snowball.GetSnowballUsage
-import Network.AWS.Snowball.GetSoftwareUpdates
-import Network.AWS.Snowball.Lens
-import Network.AWS.Snowball.ListClusterJobs
-import Network.AWS.Snowball.ListClusters
-import Network.AWS.Snowball.ListCompatibleImages
-import Network.AWS.Snowball.ListJobs
-import Network.AWS.Snowball.ListLongTermPricing
-import Network.AWS.Snowball.Types
-import Network.AWS.Snowball.UpdateCluster
-import Network.AWS.Snowball.UpdateJob
-import Network.AWS.Snowball.UpdateJobShipmentState
-import Network.AWS.Snowball.UpdateLongTermPricing
-import Network.AWS.Snowball.Waiters
+import Amazonka.Snowball.CancelCluster
+import Amazonka.Snowball.CancelJob
+import Amazonka.Snowball.CreateAddress
+import Amazonka.Snowball.CreateCluster
+import Amazonka.Snowball.CreateJob
+import Amazonka.Snowball.CreateLongTermPricing
+import Amazonka.Snowball.CreateReturnShippingLabel
+import Amazonka.Snowball.DescribeAddress
+import Amazonka.Snowball.DescribeAddresses
+import Amazonka.Snowball.DescribeCluster
+import Amazonka.Snowball.DescribeJob
+import Amazonka.Snowball.DescribeReturnShippingLabel
+import Amazonka.Snowball.GetJobManifest
+import Amazonka.Snowball.GetJobUnlockCode
+import Amazonka.Snowball.GetSnowballUsage
+import Amazonka.Snowball.GetSoftwareUpdates
+import Amazonka.Snowball.Lens
+import Amazonka.Snowball.ListClusterJobs
+import Amazonka.Snowball.ListClusters
+import Amazonka.Snowball.ListCompatibleImages
+import Amazonka.Snowball.ListJobs
+import Amazonka.Snowball.ListLongTermPricing
+import Amazonka.Snowball.Types
+import Amazonka.Snowball.UpdateCluster
+import Amazonka.Snowball.UpdateJob
+import Amazonka.Snowball.UpdateJobShipmentState
+import Amazonka.Snowball.UpdateLongTermPricing
+import Amazonka.Snowball.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

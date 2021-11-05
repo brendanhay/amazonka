@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Snowball.Types.TargetOnDeviceService
+-- Module      : Amazonka.Snowball.Types.TargetOnDeviceService
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Snowball.Types.TargetOnDeviceService where
+module Amazonka.Snowball.Types.TargetOnDeviceService where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Snowball.Types.DeviceServiceName
-import Network.AWS.Snowball.Types.TransferOption
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Snowball.Types.DeviceServiceName
+import Amazonka.Snowball.Types.TransferOption
 
 -- | An object that represents the service or services on the Snow Family
 -- device that your transferred data will be exported from or imported

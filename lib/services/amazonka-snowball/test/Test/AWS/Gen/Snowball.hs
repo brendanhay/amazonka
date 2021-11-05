@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Snowball where
 
+import Amazonka.Snowball
 import qualified Data.Proxy as Proxy
-import Network.AWS.Snowball
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.Snowball.Internal

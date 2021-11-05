@@ -11,30 +11,30 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Snowball.Types.JobMetadata
+-- Module      : Amazonka.Snowball.Types.JobMetadata
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Snowball.Types.JobMetadata where
+module Amazonka.Snowball.Types.JobMetadata where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Snowball.Types.DataTransfer
-import Network.AWS.Snowball.Types.DeviceConfiguration
-import Network.AWS.Snowball.Types.JobLogs
-import Network.AWS.Snowball.Types.JobResource
-import Network.AWS.Snowball.Types.JobState
-import Network.AWS.Snowball.Types.JobType
-import Network.AWS.Snowball.Types.Notification
-import Network.AWS.Snowball.Types.OnDeviceServiceConfiguration
-import Network.AWS.Snowball.Types.RemoteManagement
-import Network.AWS.Snowball.Types.ShippingDetails
-import Network.AWS.Snowball.Types.SnowballCapacity
-import Network.AWS.Snowball.Types.SnowballType
-import Network.AWS.Snowball.Types.TaxDocuments
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Snowball.Types.DataTransfer
+import Amazonka.Snowball.Types.DeviceConfiguration
+import Amazonka.Snowball.Types.JobLogs
+import Amazonka.Snowball.Types.JobResource
+import Amazonka.Snowball.Types.JobState
+import Amazonka.Snowball.Types.JobType
+import Amazonka.Snowball.Types.Notification
+import Amazonka.Snowball.Types.OnDeviceServiceConfiguration
+import Amazonka.Snowball.Types.RemoteManagement
+import Amazonka.Snowball.Types.ShippingDetails
+import Amazonka.Snowball.Types.SnowballCapacity
+import Amazonka.Snowball.Types.SnowballType
+import Amazonka.Snowball.Types.TaxDocuments
 
 -- | Contains information about a specific job including shipping
 -- information, job status, and other important metadata. This information

@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.Snowball.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.Snowball.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.Snowball" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.Snowball" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,76 +45,76 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.Snowball
-    Network.AWS.Snowball.CancelCluster
-    Network.AWS.Snowball.CancelJob
-    Network.AWS.Snowball.CreateAddress
-    Network.AWS.Snowball.CreateCluster
-    Network.AWS.Snowball.CreateJob
-    Network.AWS.Snowball.CreateLongTermPricing
-    Network.AWS.Snowball.CreateReturnShippingLabel
-    Network.AWS.Snowball.DescribeAddress
-    Network.AWS.Snowball.DescribeAddresses
-    Network.AWS.Snowball.DescribeCluster
-    Network.AWS.Snowball.DescribeJob
-    Network.AWS.Snowball.DescribeReturnShippingLabel
-    Network.AWS.Snowball.GetJobManifest
-    Network.AWS.Snowball.GetJobUnlockCode
-    Network.AWS.Snowball.GetSnowballUsage
-    Network.AWS.Snowball.GetSoftwareUpdates
-    Network.AWS.Snowball.Lens
-    Network.AWS.Snowball.ListClusterJobs
-    Network.AWS.Snowball.ListClusters
-    Network.AWS.Snowball.ListCompatibleImages
-    Network.AWS.Snowball.ListJobs
-    Network.AWS.Snowball.ListLongTermPricing
-    Network.AWS.Snowball.Types
-    Network.AWS.Snowball.Types.Address
-    Network.AWS.Snowball.Types.ClusterListEntry
-    Network.AWS.Snowball.Types.ClusterMetadata
-    Network.AWS.Snowball.Types.ClusterState
-    Network.AWS.Snowball.Types.CompatibleImage
-    Network.AWS.Snowball.Types.DataTransfer
-    Network.AWS.Snowball.Types.DeviceConfiguration
-    Network.AWS.Snowball.Types.DeviceServiceName
-    Network.AWS.Snowball.Types.Ec2AmiResource
-    Network.AWS.Snowball.Types.EventTriggerDefinition
-    Network.AWS.Snowball.Types.INDTaxDocuments
-    Network.AWS.Snowball.Types.JobListEntry
-    Network.AWS.Snowball.Types.JobLogs
-    Network.AWS.Snowball.Types.JobMetadata
-    Network.AWS.Snowball.Types.JobResource
-    Network.AWS.Snowball.Types.JobState
-    Network.AWS.Snowball.Types.JobType
-    Network.AWS.Snowball.Types.KeyRange
-    Network.AWS.Snowball.Types.LambdaResource
-    Network.AWS.Snowball.Types.LongTermPricingListEntry
-    Network.AWS.Snowball.Types.LongTermPricingType
-    Network.AWS.Snowball.Types.NFSOnDeviceServiceConfiguration
-    Network.AWS.Snowball.Types.Notification
-    Network.AWS.Snowball.Types.OnDeviceServiceConfiguration
-    Network.AWS.Snowball.Types.RemoteManagement
-    Network.AWS.Snowball.Types.S3Resource
-    Network.AWS.Snowball.Types.Shipment
-    Network.AWS.Snowball.Types.ShipmentState
-    Network.AWS.Snowball.Types.ShippingDetails
-    Network.AWS.Snowball.Types.ShippingLabelStatus
-    Network.AWS.Snowball.Types.ShippingOption
-    Network.AWS.Snowball.Types.SnowballCapacity
-    Network.AWS.Snowball.Types.SnowballType
-    Network.AWS.Snowball.Types.SnowconeDeviceConfiguration
-    Network.AWS.Snowball.Types.StorageUnit
-    Network.AWS.Snowball.Types.TargetOnDeviceService
-    Network.AWS.Snowball.Types.TaxDocuments
-    Network.AWS.Snowball.Types.TransferOption
-    Network.AWS.Snowball.Types.WirelessConnection
-    Network.AWS.Snowball.UpdateCluster
-    Network.AWS.Snowball.UpdateJob
-    Network.AWS.Snowball.UpdateJobShipmentState
-    Network.AWS.Snowball.UpdateLongTermPricing
-    Network.AWS.Snowball.Waiters
+    Amazonka.Snowball
+    Amazonka.Snowball.CancelCluster
+    Amazonka.Snowball.CancelJob
+    Amazonka.Snowball.CreateAddress
+    Amazonka.Snowball.CreateCluster
+    Amazonka.Snowball.CreateJob
+    Amazonka.Snowball.CreateLongTermPricing
+    Amazonka.Snowball.CreateReturnShippingLabel
+    Amazonka.Snowball.DescribeAddress
+    Amazonka.Snowball.DescribeAddresses
+    Amazonka.Snowball.DescribeCluster
+    Amazonka.Snowball.DescribeJob
+    Amazonka.Snowball.DescribeReturnShippingLabel
+    Amazonka.Snowball.GetJobManifest
+    Amazonka.Snowball.GetJobUnlockCode
+    Amazonka.Snowball.GetSnowballUsage
+    Amazonka.Snowball.GetSoftwareUpdates
+    Amazonka.Snowball.Lens
+    Amazonka.Snowball.ListClusterJobs
+    Amazonka.Snowball.ListClusters
+    Amazonka.Snowball.ListCompatibleImages
+    Amazonka.Snowball.ListJobs
+    Amazonka.Snowball.ListLongTermPricing
+    Amazonka.Snowball.Types
+    Amazonka.Snowball.Types.Address
+    Amazonka.Snowball.Types.ClusterListEntry
+    Amazonka.Snowball.Types.ClusterMetadata
+    Amazonka.Snowball.Types.ClusterState
+    Amazonka.Snowball.Types.CompatibleImage
+    Amazonka.Snowball.Types.DataTransfer
+    Amazonka.Snowball.Types.DeviceConfiguration
+    Amazonka.Snowball.Types.DeviceServiceName
+    Amazonka.Snowball.Types.Ec2AmiResource
+    Amazonka.Snowball.Types.EventTriggerDefinition
+    Amazonka.Snowball.Types.INDTaxDocuments
+    Amazonka.Snowball.Types.JobListEntry
+    Amazonka.Snowball.Types.JobLogs
+    Amazonka.Snowball.Types.JobMetadata
+    Amazonka.Snowball.Types.JobResource
+    Amazonka.Snowball.Types.JobState
+    Amazonka.Snowball.Types.JobType
+    Amazonka.Snowball.Types.KeyRange
+    Amazonka.Snowball.Types.LambdaResource
+    Amazonka.Snowball.Types.LongTermPricingListEntry
+    Amazonka.Snowball.Types.LongTermPricingType
+    Amazonka.Snowball.Types.NFSOnDeviceServiceConfiguration
+    Amazonka.Snowball.Types.Notification
+    Amazonka.Snowball.Types.OnDeviceServiceConfiguration
+    Amazonka.Snowball.Types.RemoteManagement
+    Amazonka.Snowball.Types.S3Resource
+    Amazonka.Snowball.Types.Shipment
+    Amazonka.Snowball.Types.ShipmentState
+    Amazonka.Snowball.Types.ShippingDetails
+    Amazonka.Snowball.Types.ShippingLabelStatus
+    Amazonka.Snowball.Types.ShippingOption
+    Amazonka.Snowball.Types.SnowballCapacity
+    Amazonka.Snowball.Types.SnowballType
+    Amazonka.Snowball.Types.SnowconeDeviceConfiguration
+    Amazonka.Snowball.Types.StorageUnit
+    Amazonka.Snowball.Types.TargetOnDeviceService
+    Amazonka.Snowball.Types.TaxDocuments
+    Amazonka.Snowball.Types.TransferOption
+    Amazonka.Snowball.Types.WirelessConnection
+    Amazonka.Snowball.UpdateCluster
+    Amazonka.Snowball.UpdateJob
+    Amazonka.Snowball.UpdateJobShipmentState
+    Amazonka.Snowball.UpdateLongTermPricing
+    Amazonka.Snowball.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

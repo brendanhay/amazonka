@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Snowball.Types.JobListEntry
+-- Module      : Amazonka.Snowball.Types.JobListEntry
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Snowball.Types.JobListEntry where
+module Amazonka.Snowball.Types.JobListEntry where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Snowball.Types.JobState
-import Network.AWS.Snowball.Types.JobType
-import Network.AWS.Snowball.Types.SnowballType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Snowball.Types.JobState
+import Amazonka.Snowball.Types.JobType
+import Amazonka.Snowball.Types.SnowballType
 
 -- | Each @JobListEntry@ object contains a job\'s state, a job\'s ID, and a
 -- value that indicates whether the job is a job part, in the case of an

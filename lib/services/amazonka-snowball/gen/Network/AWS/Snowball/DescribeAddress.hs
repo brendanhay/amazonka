@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Snowball.DescribeAddress
+-- Module      : Amazonka.Snowball.DescribeAddress
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Takes an @AddressId@ and returns specific details about that address in
 -- the form of an @Address@ object.
-module Network.AWS.Snowball.DescribeAddress
+module Amazonka.Snowball.DescribeAddress
   ( -- * Creating a Request
     DescribeAddress (..),
     newDescribeAddress,
@@ -40,12 +40,12 @@ module Network.AWS.Snowball.DescribeAddress
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Snowball.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Snowball.Types
 
 -- | /See:/ 'newDescribeAddress' smart constructor.
 data DescribeAddress = DescribeAddress'

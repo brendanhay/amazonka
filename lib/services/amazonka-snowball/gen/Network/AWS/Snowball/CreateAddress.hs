@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Snowball.CreateAddress
+-- Module      : Amazonka.Snowball.CreateAddress
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- addresses are validated at the time of creation. The address you provide
 -- must be located within the serviceable area of your region. If the
 -- address is invalid or unsupported, then an exception is thrown.
-module Network.AWS.Snowball.CreateAddress
+module Amazonka.Snowball.CreateAddress
   ( -- * Creating a Request
     CreateAddress (..),
     newCreateAddress,
@@ -42,12 +42,12 @@ module Network.AWS.Snowball.CreateAddress
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Snowball.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Snowball.Types
 
 -- | /See:/ 'newCreateAddress' smart constructor.
 data CreateAddress = CreateAddress'

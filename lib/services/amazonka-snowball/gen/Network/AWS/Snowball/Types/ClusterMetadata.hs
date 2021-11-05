@@ -11,25 +11,25 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Snowball.Types.ClusterMetadata
+-- Module      : Amazonka.Snowball.Types.ClusterMetadata
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Snowball.Types.ClusterMetadata where
+module Amazonka.Snowball.Types.ClusterMetadata where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Snowball.Types.ClusterState
-import Network.AWS.Snowball.Types.JobResource
-import Network.AWS.Snowball.Types.JobType
-import Network.AWS.Snowball.Types.Notification
-import Network.AWS.Snowball.Types.OnDeviceServiceConfiguration
-import Network.AWS.Snowball.Types.ShippingOption
-import Network.AWS.Snowball.Types.SnowballType
-import Network.AWS.Snowball.Types.TaxDocuments
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Snowball.Types.ClusterState
+import Amazonka.Snowball.Types.JobResource
+import Amazonka.Snowball.Types.JobType
+import Amazonka.Snowball.Types.Notification
+import Amazonka.Snowball.Types.OnDeviceServiceConfiguration
+import Amazonka.Snowball.Types.ShippingOption
+import Amazonka.Snowball.Types.SnowballType
+import Amazonka.Snowball.Types.TaxDocuments
 
 -- | Contains metadata about a specific cluster.
 --

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Snowball.CreateCluster
+-- Module      : Amazonka.Snowball.CreateCluster
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Creates an empty cluster. Each cluster supports five nodes. You use the
 -- CreateJob action separately to create the jobs for each of these nodes.
 -- The cluster does not ship until these five node jobs have been created.
-module Network.AWS.Snowball.CreateCluster
+module Amazonka.Snowball.CreateCluster
   ( -- * Creating a Request
     CreateCluster (..),
     newCreateCluster,
@@ -53,12 +53,12 @@ module Network.AWS.Snowball.CreateCluster
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Snowball.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Snowball.Types
 
 -- | /See:/ 'newCreateCluster' smart constructor.
 data CreateCluster = CreateCluster'

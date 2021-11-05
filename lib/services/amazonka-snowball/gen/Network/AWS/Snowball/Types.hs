@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Snowball.Types
+-- Module      : Amazonka.Snowball.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Snowball.Types
+module Amazonka.Snowball.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -286,49 +286,49 @@ module Network.AWS.Snowball.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
-import Network.AWS.Snowball.Types.Address
-import Network.AWS.Snowball.Types.ClusterListEntry
-import Network.AWS.Snowball.Types.ClusterMetadata
-import Network.AWS.Snowball.Types.ClusterState
-import Network.AWS.Snowball.Types.CompatibleImage
-import Network.AWS.Snowball.Types.DataTransfer
-import Network.AWS.Snowball.Types.DeviceConfiguration
-import Network.AWS.Snowball.Types.DeviceServiceName
-import Network.AWS.Snowball.Types.Ec2AmiResource
-import Network.AWS.Snowball.Types.EventTriggerDefinition
-import Network.AWS.Snowball.Types.INDTaxDocuments
-import Network.AWS.Snowball.Types.JobListEntry
-import Network.AWS.Snowball.Types.JobLogs
-import Network.AWS.Snowball.Types.JobMetadata
-import Network.AWS.Snowball.Types.JobResource
-import Network.AWS.Snowball.Types.JobState
-import Network.AWS.Snowball.Types.JobType
-import Network.AWS.Snowball.Types.KeyRange
-import Network.AWS.Snowball.Types.LambdaResource
-import Network.AWS.Snowball.Types.LongTermPricingListEntry
-import Network.AWS.Snowball.Types.LongTermPricingType
-import Network.AWS.Snowball.Types.NFSOnDeviceServiceConfiguration
-import Network.AWS.Snowball.Types.Notification
-import Network.AWS.Snowball.Types.OnDeviceServiceConfiguration
-import Network.AWS.Snowball.Types.RemoteManagement
-import Network.AWS.Snowball.Types.S3Resource
-import Network.AWS.Snowball.Types.Shipment
-import Network.AWS.Snowball.Types.ShipmentState
-import Network.AWS.Snowball.Types.ShippingDetails
-import Network.AWS.Snowball.Types.ShippingLabelStatus
-import Network.AWS.Snowball.Types.ShippingOption
-import Network.AWS.Snowball.Types.SnowballCapacity
-import Network.AWS.Snowball.Types.SnowballType
-import Network.AWS.Snowball.Types.SnowconeDeviceConfiguration
-import Network.AWS.Snowball.Types.StorageUnit
-import Network.AWS.Snowball.Types.TargetOnDeviceService
-import Network.AWS.Snowball.Types.TaxDocuments
-import Network.AWS.Snowball.Types.TransferOption
-import Network.AWS.Snowball.Types.WirelessConnection
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
+import Amazonka.Snowball.Types.Address
+import Amazonka.Snowball.Types.ClusterListEntry
+import Amazonka.Snowball.Types.ClusterMetadata
+import Amazonka.Snowball.Types.ClusterState
+import Amazonka.Snowball.Types.CompatibleImage
+import Amazonka.Snowball.Types.DataTransfer
+import Amazonka.Snowball.Types.DeviceConfiguration
+import Amazonka.Snowball.Types.DeviceServiceName
+import Amazonka.Snowball.Types.Ec2AmiResource
+import Amazonka.Snowball.Types.EventTriggerDefinition
+import Amazonka.Snowball.Types.INDTaxDocuments
+import Amazonka.Snowball.Types.JobListEntry
+import Amazonka.Snowball.Types.JobLogs
+import Amazonka.Snowball.Types.JobMetadata
+import Amazonka.Snowball.Types.JobResource
+import Amazonka.Snowball.Types.JobState
+import Amazonka.Snowball.Types.JobType
+import Amazonka.Snowball.Types.KeyRange
+import Amazonka.Snowball.Types.LambdaResource
+import Amazonka.Snowball.Types.LongTermPricingListEntry
+import Amazonka.Snowball.Types.LongTermPricingType
+import Amazonka.Snowball.Types.NFSOnDeviceServiceConfiguration
+import Amazonka.Snowball.Types.Notification
+import Amazonka.Snowball.Types.OnDeviceServiceConfiguration
+import Amazonka.Snowball.Types.RemoteManagement
+import Amazonka.Snowball.Types.S3Resource
+import Amazonka.Snowball.Types.Shipment
+import Amazonka.Snowball.Types.ShipmentState
+import Amazonka.Snowball.Types.ShippingDetails
+import Amazonka.Snowball.Types.ShippingLabelStatus
+import Amazonka.Snowball.Types.ShippingOption
+import Amazonka.Snowball.Types.SnowballCapacity
+import Amazonka.Snowball.Types.SnowballType
+import Amazonka.Snowball.Types.SnowconeDeviceConfiguration
+import Amazonka.Snowball.Types.StorageUnit
+import Amazonka.Snowball.Types.TargetOnDeviceService
+import Amazonka.Snowball.Types.TaxDocuments
+import Amazonka.Snowball.Types.TransferOption
+import Amazonka.Snowball.Types.WirelessConnection
 
 -- | API version @2016-06-30@ of the Amazon Import/Export Snowball SDK configuration.
 defaultService :: Core.Service

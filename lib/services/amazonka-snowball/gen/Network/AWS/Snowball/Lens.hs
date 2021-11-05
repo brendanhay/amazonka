@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Snowball.Lens
+-- Module      : Amazonka.Snowball.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Snowball.Lens
+module Amazonka.Snowball.Lens
   ( -- * Operations
 
     -- ** CancelCluster
@@ -367,54 +367,54 @@ module Network.AWS.Snowball.Lens
   )
 where
 
-import Network.AWS.Snowball.CancelCluster
-import Network.AWS.Snowball.CancelJob
-import Network.AWS.Snowball.CreateAddress
-import Network.AWS.Snowball.CreateCluster
-import Network.AWS.Snowball.CreateJob
-import Network.AWS.Snowball.CreateLongTermPricing
-import Network.AWS.Snowball.CreateReturnShippingLabel
-import Network.AWS.Snowball.DescribeAddress
-import Network.AWS.Snowball.DescribeAddresses
-import Network.AWS.Snowball.DescribeCluster
-import Network.AWS.Snowball.DescribeJob
-import Network.AWS.Snowball.DescribeReturnShippingLabel
-import Network.AWS.Snowball.GetJobManifest
-import Network.AWS.Snowball.GetJobUnlockCode
-import Network.AWS.Snowball.GetSnowballUsage
-import Network.AWS.Snowball.GetSoftwareUpdates
-import Network.AWS.Snowball.ListClusterJobs
-import Network.AWS.Snowball.ListClusters
-import Network.AWS.Snowball.ListCompatibleImages
-import Network.AWS.Snowball.ListJobs
-import Network.AWS.Snowball.ListLongTermPricing
-import Network.AWS.Snowball.Types.Address
-import Network.AWS.Snowball.Types.ClusterListEntry
-import Network.AWS.Snowball.Types.ClusterMetadata
-import Network.AWS.Snowball.Types.CompatibleImage
-import Network.AWS.Snowball.Types.DataTransfer
-import Network.AWS.Snowball.Types.DeviceConfiguration
-import Network.AWS.Snowball.Types.Ec2AmiResource
-import Network.AWS.Snowball.Types.EventTriggerDefinition
-import Network.AWS.Snowball.Types.INDTaxDocuments
-import Network.AWS.Snowball.Types.JobListEntry
-import Network.AWS.Snowball.Types.JobLogs
-import Network.AWS.Snowball.Types.JobMetadata
-import Network.AWS.Snowball.Types.JobResource
-import Network.AWS.Snowball.Types.KeyRange
-import Network.AWS.Snowball.Types.LambdaResource
-import Network.AWS.Snowball.Types.LongTermPricingListEntry
-import Network.AWS.Snowball.Types.NFSOnDeviceServiceConfiguration
-import Network.AWS.Snowball.Types.Notification
-import Network.AWS.Snowball.Types.OnDeviceServiceConfiguration
-import Network.AWS.Snowball.Types.S3Resource
-import Network.AWS.Snowball.Types.Shipment
-import Network.AWS.Snowball.Types.ShippingDetails
-import Network.AWS.Snowball.Types.SnowconeDeviceConfiguration
-import Network.AWS.Snowball.Types.TargetOnDeviceService
-import Network.AWS.Snowball.Types.TaxDocuments
-import Network.AWS.Snowball.Types.WirelessConnection
-import Network.AWS.Snowball.UpdateCluster
-import Network.AWS.Snowball.UpdateJob
-import Network.AWS.Snowball.UpdateJobShipmentState
-import Network.AWS.Snowball.UpdateLongTermPricing
+import Amazonka.Snowball.CancelCluster
+import Amazonka.Snowball.CancelJob
+import Amazonka.Snowball.CreateAddress
+import Amazonka.Snowball.CreateCluster
+import Amazonka.Snowball.CreateJob
+import Amazonka.Snowball.CreateLongTermPricing
+import Amazonka.Snowball.CreateReturnShippingLabel
+import Amazonka.Snowball.DescribeAddress
+import Amazonka.Snowball.DescribeAddresses
+import Amazonka.Snowball.DescribeCluster
+import Amazonka.Snowball.DescribeJob
+import Amazonka.Snowball.DescribeReturnShippingLabel
+import Amazonka.Snowball.GetJobManifest
+import Amazonka.Snowball.GetJobUnlockCode
+import Amazonka.Snowball.GetSnowballUsage
+import Amazonka.Snowball.GetSoftwareUpdates
+import Amazonka.Snowball.ListClusterJobs
+import Amazonka.Snowball.ListClusters
+import Amazonka.Snowball.ListCompatibleImages
+import Amazonka.Snowball.ListJobs
+import Amazonka.Snowball.ListLongTermPricing
+import Amazonka.Snowball.Types.Address
+import Amazonka.Snowball.Types.ClusterListEntry
+import Amazonka.Snowball.Types.ClusterMetadata
+import Amazonka.Snowball.Types.CompatibleImage
+import Amazonka.Snowball.Types.DataTransfer
+import Amazonka.Snowball.Types.DeviceConfiguration
+import Amazonka.Snowball.Types.Ec2AmiResource
+import Amazonka.Snowball.Types.EventTriggerDefinition
+import Amazonka.Snowball.Types.INDTaxDocuments
+import Amazonka.Snowball.Types.JobListEntry
+import Amazonka.Snowball.Types.JobLogs
+import Amazonka.Snowball.Types.JobMetadata
+import Amazonka.Snowball.Types.JobResource
+import Amazonka.Snowball.Types.KeyRange
+import Amazonka.Snowball.Types.LambdaResource
+import Amazonka.Snowball.Types.LongTermPricingListEntry
+import Amazonka.Snowball.Types.NFSOnDeviceServiceConfiguration
+import Amazonka.Snowball.Types.Notification
+import Amazonka.Snowball.Types.OnDeviceServiceConfiguration
+import Amazonka.Snowball.Types.S3Resource
+import Amazonka.Snowball.Types.Shipment
+import Amazonka.Snowball.Types.ShippingDetails
+import Amazonka.Snowball.Types.SnowconeDeviceConfiguration
+import Amazonka.Snowball.Types.TargetOnDeviceService
+import Amazonka.Snowball.Types.TaxDocuments
+import Amazonka.Snowball.Types.WirelessConnection
+import Amazonka.Snowball.UpdateCluster
+import Amazonka.Snowball.UpdateJob
+import Amazonka.Snowball.UpdateJobShipmentState
+import Amazonka.Snowball.UpdateLongTermPricing

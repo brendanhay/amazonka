@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTEventsData.Types.AlarmState
+-- Module      : Amazonka.IoTEventsData.Types.AlarmState
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTEventsData.Types.AlarmState where
+module Amazonka.IoTEventsData.Types.AlarmState where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTEventsData.Types.AlarmStateName
-import Network.AWS.IoTEventsData.Types.CustomerAction
-import Network.AWS.IoTEventsData.Types.RuleEvaluation
-import Network.AWS.IoTEventsData.Types.SystemEvent
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IoTEventsData.Types.AlarmStateName
+import Amazonka.IoTEventsData.Types.CustomerAction
+import Amazonka.IoTEventsData.Types.RuleEvaluation
+import Amazonka.IoTEventsData.Types.SystemEvent
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the current state of the alarm.
 --

@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.IoTEventsData.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.IoTEventsData.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.IoTEventsData" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.IoTEventsData" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,62 +45,62 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.IoTEventsData
-    Network.AWS.IoTEventsData.BatchAcknowledgeAlarm
-    Network.AWS.IoTEventsData.BatchDisableAlarm
-    Network.AWS.IoTEventsData.BatchEnableAlarm
-    Network.AWS.IoTEventsData.BatchPutMessage
-    Network.AWS.IoTEventsData.BatchResetAlarm
-    Network.AWS.IoTEventsData.BatchSnoozeAlarm
-    Network.AWS.IoTEventsData.BatchUpdateDetector
-    Network.AWS.IoTEventsData.DescribeAlarm
-    Network.AWS.IoTEventsData.DescribeDetector
-    Network.AWS.IoTEventsData.Lens
-    Network.AWS.IoTEventsData.ListAlarms
-    Network.AWS.IoTEventsData.ListDetectors
-    Network.AWS.IoTEventsData.Types
-    Network.AWS.IoTEventsData.Types.AcknowledgeActionConfiguration
-    Network.AWS.IoTEventsData.Types.AcknowledgeAlarmActionRequest
-    Network.AWS.IoTEventsData.Types.Alarm
-    Network.AWS.IoTEventsData.Types.AlarmState
-    Network.AWS.IoTEventsData.Types.AlarmStateName
-    Network.AWS.IoTEventsData.Types.AlarmSummary
-    Network.AWS.IoTEventsData.Types.BatchAlarmActionErrorEntry
-    Network.AWS.IoTEventsData.Types.BatchPutMessageErrorEntry
-    Network.AWS.IoTEventsData.Types.BatchUpdateDetectorErrorEntry
-    Network.AWS.IoTEventsData.Types.ComparisonOperator
-    Network.AWS.IoTEventsData.Types.CustomerAction
-    Network.AWS.IoTEventsData.Types.CustomerActionName
-    Network.AWS.IoTEventsData.Types.Detector
-    Network.AWS.IoTEventsData.Types.DetectorState
-    Network.AWS.IoTEventsData.Types.DetectorStateDefinition
-    Network.AWS.IoTEventsData.Types.DetectorStateSummary
-    Network.AWS.IoTEventsData.Types.DetectorSummary
-    Network.AWS.IoTEventsData.Types.DisableActionConfiguration
-    Network.AWS.IoTEventsData.Types.DisableAlarmActionRequest
-    Network.AWS.IoTEventsData.Types.EnableActionConfiguration
-    Network.AWS.IoTEventsData.Types.EnableAlarmActionRequest
-    Network.AWS.IoTEventsData.Types.ErrorCode
-    Network.AWS.IoTEventsData.Types.EventType
-    Network.AWS.IoTEventsData.Types.Message
-    Network.AWS.IoTEventsData.Types.ResetActionConfiguration
-    Network.AWS.IoTEventsData.Types.ResetAlarmActionRequest
-    Network.AWS.IoTEventsData.Types.RuleEvaluation
-    Network.AWS.IoTEventsData.Types.SimpleRuleEvaluation
-    Network.AWS.IoTEventsData.Types.SnoozeActionConfiguration
-    Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest
-    Network.AWS.IoTEventsData.Types.StateChangeConfiguration
-    Network.AWS.IoTEventsData.Types.SystemEvent
-    Network.AWS.IoTEventsData.Types.Timer
-    Network.AWS.IoTEventsData.Types.TimerDefinition
-    Network.AWS.IoTEventsData.Types.TimestampValue
-    Network.AWS.IoTEventsData.Types.TriggerType
-    Network.AWS.IoTEventsData.Types.UpdateDetectorRequest
-    Network.AWS.IoTEventsData.Types.Variable
-    Network.AWS.IoTEventsData.Types.VariableDefinition
-    Network.AWS.IoTEventsData.Waiters
+    Amazonka.IoTEventsData
+    Amazonka.IoTEventsData.BatchAcknowledgeAlarm
+    Amazonka.IoTEventsData.BatchDisableAlarm
+    Amazonka.IoTEventsData.BatchEnableAlarm
+    Amazonka.IoTEventsData.BatchPutMessage
+    Amazonka.IoTEventsData.BatchResetAlarm
+    Amazonka.IoTEventsData.BatchSnoozeAlarm
+    Amazonka.IoTEventsData.BatchUpdateDetector
+    Amazonka.IoTEventsData.DescribeAlarm
+    Amazonka.IoTEventsData.DescribeDetector
+    Amazonka.IoTEventsData.Lens
+    Amazonka.IoTEventsData.ListAlarms
+    Amazonka.IoTEventsData.ListDetectors
+    Amazonka.IoTEventsData.Types
+    Amazonka.IoTEventsData.Types.AcknowledgeActionConfiguration
+    Amazonka.IoTEventsData.Types.AcknowledgeAlarmActionRequest
+    Amazonka.IoTEventsData.Types.Alarm
+    Amazonka.IoTEventsData.Types.AlarmState
+    Amazonka.IoTEventsData.Types.AlarmStateName
+    Amazonka.IoTEventsData.Types.AlarmSummary
+    Amazonka.IoTEventsData.Types.BatchAlarmActionErrorEntry
+    Amazonka.IoTEventsData.Types.BatchPutMessageErrorEntry
+    Amazonka.IoTEventsData.Types.BatchUpdateDetectorErrorEntry
+    Amazonka.IoTEventsData.Types.ComparisonOperator
+    Amazonka.IoTEventsData.Types.CustomerAction
+    Amazonka.IoTEventsData.Types.CustomerActionName
+    Amazonka.IoTEventsData.Types.Detector
+    Amazonka.IoTEventsData.Types.DetectorState
+    Amazonka.IoTEventsData.Types.DetectorStateDefinition
+    Amazonka.IoTEventsData.Types.DetectorStateSummary
+    Amazonka.IoTEventsData.Types.DetectorSummary
+    Amazonka.IoTEventsData.Types.DisableActionConfiguration
+    Amazonka.IoTEventsData.Types.DisableAlarmActionRequest
+    Amazonka.IoTEventsData.Types.EnableActionConfiguration
+    Amazonka.IoTEventsData.Types.EnableAlarmActionRequest
+    Amazonka.IoTEventsData.Types.ErrorCode
+    Amazonka.IoTEventsData.Types.EventType
+    Amazonka.IoTEventsData.Types.Message
+    Amazonka.IoTEventsData.Types.ResetActionConfiguration
+    Amazonka.IoTEventsData.Types.ResetAlarmActionRequest
+    Amazonka.IoTEventsData.Types.RuleEvaluation
+    Amazonka.IoTEventsData.Types.SimpleRuleEvaluation
+    Amazonka.IoTEventsData.Types.SnoozeActionConfiguration
+    Amazonka.IoTEventsData.Types.SnoozeAlarmActionRequest
+    Amazonka.IoTEventsData.Types.StateChangeConfiguration
+    Amazonka.IoTEventsData.Types.SystemEvent
+    Amazonka.IoTEventsData.Types.Timer
+    Amazonka.IoTEventsData.Types.TimerDefinition
+    Amazonka.IoTEventsData.Types.TimestampValue
+    Amazonka.IoTEventsData.Types.TriggerType
+    Amazonka.IoTEventsData.Types.UpdateDetectorRequest
+    Amazonka.IoTEventsData.Types.Variable
+    Amazonka.IoTEventsData.Types.VariableDefinition
+    Amazonka.IoTEventsData.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

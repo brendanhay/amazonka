@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTEventsData.BatchPutMessage
+-- Module      : Amazonka.IoTEventsData.BatchPutMessage
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- messages are sent, the order in which the messages are processed isn\'t
 -- guaranteed. To guarantee ordering, you must send messages one at a time
 -- and wait for a successful response.
-module Network.AWS.IoTEventsData.BatchPutMessage
+module Amazonka.IoTEventsData.BatchPutMessage
   ( -- * Creating a Request
     BatchPutMessage (..),
     newBatchPutMessage,
@@ -44,12 +44,12 @@ module Network.AWS.IoTEventsData.BatchPutMessage
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTEventsData.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IoTEventsData.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newBatchPutMessage' smart constructor.
 data BatchPutMessage = BatchPutMessage'

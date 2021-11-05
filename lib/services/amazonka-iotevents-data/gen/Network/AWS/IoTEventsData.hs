@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.IoTEventsData
+-- Module      : Amazonka.IoTEventsData
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -19,7 +19,7 @@
 -- For more information, see
 -- <https://docs.aws.amazon.com/iotevents/latest/developerguide/what-is-iotevents.html What is AWS IoT Events?>
 -- in the /AWS IoT Events Developer Guide/.
-module Network.AWS.IoTEventsData
+module Amazonka.IoTEventsData
   ( -- * Service Configuration
     defaultService,
 
@@ -267,20 +267,20 @@ module Network.AWS.IoTEventsData
   )
 where
 
-import Network.AWS.IoTEventsData.BatchAcknowledgeAlarm
-import Network.AWS.IoTEventsData.BatchDisableAlarm
-import Network.AWS.IoTEventsData.BatchEnableAlarm
-import Network.AWS.IoTEventsData.BatchPutMessage
-import Network.AWS.IoTEventsData.BatchResetAlarm
-import Network.AWS.IoTEventsData.BatchSnoozeAlarm
-import Network.AWS.IoTEventsData.BatchUpdateDetector
-import Network.AWS.IoTEventsData.DescribeAlarm
-import Network.AWS.IoTEventsData.DescribeDetector
-import Network.AWS.IoTEventsData.Lens
-import Network.AWS.IoTEventsData.ListAlarms
-import Network.AWS.IoTEventsData.ListDetectors
-import Network.AWS.IoTEventsData.Types
-import Network.AWS.IoTEventsData.Waiters
+import Amazonka.IoTEventsData.BatchAcknowledgeAlarm
+import Amazonka.IoTEventsData.BatchDisableAlarm
+import Amazonka.IoTEventsData.BatchEnableAlarm
+import Amazonka.IoTEventsData.BatchPutMessage
+import Amazonka.IoTEventsData.BatchResetAlarm
+import Amazonka.IoTEventsData.BatchSnoozeAlarm
+import Amazonka.IoTEventsData.BatchUpdateDetector
+import Amazonka.IoTEventsData.DescribeAlarm
+import Amazonka.IoTEventsData.DescribeDetector
+import Amazonka.IoTEventsData.Lens
+import Amazonka.IoTEventsData.ListAlarms
+import Amazonka.IoTEventsData.ListDetectors
+import Amazonka.IoTEventsData.Types
+import Amazonka.IoTEventsData.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

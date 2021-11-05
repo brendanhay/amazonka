@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTEventsData.Types
+-- Module      : Amazonka.IoTEventsData.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTEventsData.Types
+module Amazonka.IoTEventsData.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -277,49 +277,49 @@ module Network.AWS.IoTEventsData.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTEventsData.Types.AcknowledgeActionConfiguration
-import Network.AWS.IoTEventsData.Types.AcknowledgeAlarmActionRequest
-import Network.AWS.IoTEventsData.Types.Alarm
-import Network.AWS.IoTEventsData.Types.AlarmState
-import Network.AWS.IoTEventsData.Types.AlarmStateName
-import Network.AWS.IoTEventsData.Types.AlarmSummary
-import Network.AWS.IoTEventsData.Types.BatchAlarmActionErrorEntry
-import Network.AWS.IoTEventsData.Types.BatchPutMessageErrorEntry
-import Network.AWS.IoTEventsData.Types.BatchUpdateDetectorErrorEntry
-import Network.AWS.IoTEventsData.Types.ComparisonOperator
-import Network.AWS.IoTEventsData.Types.CustomerAction
-import Network.AWS.IoTEventsData.Types.CustomerActionName
-import Network.AWS.IoTEventsData.Types.Detector
-import Network.AWS.IoTEventsData.Types.DetectorState
-import Network.AWS.IoTEventsData.Types.DetectorStateDefinition
-import Network.AWS.IoTEventsData.Types.DetectorStateSummary
-import Network.AWS.IoTEventsData.Types.DetectorSummary
-import Network.AWS.IoTEventsData.Types.DisableActionConfiguration
-import Network.AWS.IoTEventsData.Types.DisableAlarmActionRequest
-import Network.AWS.IoTEventsData.Types.EnableActionConfiguration
-import Network.AWS.IoTEventsData.Types.EnableAlarmActionRequest
-import Network.AWS.IoTEventsData.Types.ErrorCode
-import Network.AWS.IoTEventsData.Types.EventType
-import Network.AWS.IoTEventsData.Types.Message
-import Network.AWS.IoTEventsData.Types.ResetActionConfiguration
-import Network.AWS.IoTEventsData.Types.ResetAlarmActionRequest
-import Network.AWS.IoTEventsData.Types.RuleEvaluation
-import Network.AWS.IoTEventsData.Types.SimpleRuleEvaluation
-import Network.AWS.IoTEventsData.Types.SnoozeActionConfiguration
-import Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest
-import Network.AWS.IoTEventsData.Types.StateChangeConfiguration
-import Network.AWS.IoTEventsData.Types.SystemEvent
-import Network.AWS.IoTEventsData.Types.Timer
-import Network.AWS.IoTEventsData.Types.TimerDefinition
-import Network.AWS.IoTEventsData.Types.TimestampValue
-import Network.AWS.IoTEventsData.Types.TriggerType
-import Network.AWS.IoTEventsData.Types.UpdateDetectorRequest
-import Network.AWS.IoTEventsData.Types.Variable
-import Network.AWS.IoTEventsData.Types.VariableDefinition
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.IoTEventsData.Types.AcknowledgeActionConfiguration
+import Amazonka.IoTEventsData.Types.AcknowledgeAlarmActionRequest
+import Amazonka.IoTEventsData.Types.Alarm
+import Amazonka.IoTEventsData.Types.AlarmState
+import Amazonka.IoTEventsData.Types.AlarmStateName
+import Amazonka.IoTEventsData.Types.AlarmSummary
+import Amazonka.IoTEventsData.Types.BatchAlarmActionErrorEntry
+import Amazonka.IoTEventsData.Types.BatchPutMessageErrorEntry
+import Amazonka.IoTEventsData.Types.BatchUpdateDetectorErrorEntry
+import Amazonka.IoTEventsData.Types.ComparisonOperator
+import Amazonka.IoTEventsData.Types.CustomerAction
+import Amazonka.IoTEventsData.Types.CustomerActionName
+import Amazonka.IoTEventsData.Types.Detector
+import Amazonka.IoTEventsData.Types.DetectorState
+import Amazonka.IoTEventsData.Types.DetectorStateDefinition
+import Amazonka.IoTEventsData.Types.DetectorStateSummary
+import Amazonka.IoTEventsData.Types.DetectorSummary
+import Amazonka.IoTEventsData.Types.DisableActionConfiguration
+import Amazonka.IoTEventsData.Types.DisableAlarmActionRequest
+import Amazonka.IoTEventsData.Types.EnableActionConfiguration
+import Amazonka.IoTEventsData.Types.EnableAlarmActionRequest
+import Amazonka.IoTEventsData.Types.ErrorCode
+import Amazonka.IoTEventsData.Types.EventType
+import Amazonka.IoTEventsData.Types.Message
+import Amazonka.IoTEventsData.Types.ResetActionConfiguration
+import Amazonka.IoTEventsData.Types.ResetAlarmActionRequest
+import Amazonka.IoTEventsData.Types.RuleEvaluation
+import Amazonka.IoTEventsData.Types.SimpleRuleEvaluation
+import Amazonka.IoTEventsData.Types.SnoozeActionConfiguration
+import Amazonka.IoTEventsData.Types.SnoozeAlarmActionRequest
+import Amazonka.IoTEventsData.Types.StateChangeConfiguration
+import Amazonka.IoTEventsData.Types.SystemEvent
+import Amazonka.IoTEventsData.Types.Timer
+import Amazonka.IoTEventsData.Types.TimerDefinition
+import Amazonka.IoTEventsData.Types.TimestampValue
+import Amazonka.IoTEventsData.Types.TriggerType
+import Amazonka.IoTEventsData.Types.UpdateDetectorRequest
+import Amazonka.IoTEventsData.Types.Variable
+import Amazonka.IoTEventsData.Types.VariableDefinition
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2018-10-23@ of the Amazon IoT Events Data SDK configuration.
 defaultService :: Core.Service

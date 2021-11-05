@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTEventsData.Types.CustomerAction
+-- Module      : Amazonka.IoTEventsData.Types.CustomerAction
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTEventsData.Types.CustomerAction where
+module Amazonka.IoTEventsData.Types.CustomerAction where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTEventsData.Types.AcknowledgeActionConfiguration
-import Network.AWS.IoTEventsData.Types.CustomerActionName
-import Network.AWS.IoTEventsData.Types.DisableActionConfiguration
-import Network.AWS.IoTEventsData.Types.EnableActionConfiguration
-import Network.AWS.IoTEventsData.Types.ResetActionConfiguration
-import Network.AWS.IoTEventsData.Types.SnoozeActionConfiguration
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IoTEventsData.Types.AcknowledgeActionConfiguration
+import Amazonka.IoTEventsData.Types.CustomerActionName
+import Amazonka.IoTEventsData.Types.DisableActionConfiguration
+import Amazonka.IoTEventsData.Types.EnableActionConfiguration
+import Amazonka.IoTEventsData.Types.ResetActionConfiguration
+import Amazonka.IoTEventsData.Types.SnoozeActionConfiguration
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the action that you can take to respond to
 -- the alarm.

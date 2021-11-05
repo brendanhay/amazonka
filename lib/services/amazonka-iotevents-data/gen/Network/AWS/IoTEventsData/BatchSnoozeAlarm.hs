@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTEventsData.BatchSnoozeAlarm
+-- Module      : Amazonka.IoTEventsData.BatchSnoozeAlarm
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Changes one or more alarms to the snooze mode. The alarms change to the
 -- @SNOOZE_DISABLED@ state after you set them to the snooze mode.
-module Network.AWS.IoTEventsData.BatchSnoozeAlarm
+module Amazonka.IoTEventsData.BatchSnoozeAlarm
   ( -- * Creating a Request
     BatchSnoozeAlarm (..),
     newBatchSnoozeAlarm,
@@ -40,12 +40,12 @@ module Network.AWS.IoTEventsData.BatchSnoozeAlarm
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTEventsData.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IoTEventsData.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newBatchSnoozeAlarm' smart constructor.
 data BatchSnoozeAlarm = BatchSnoozeAlarm'

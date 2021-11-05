@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoTEventsData.BatchAcknowledgeAlarm
+-- Module      : Amazonka.IoTEventsData.BatchAcknowledgeAlarm
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Acknowledges one or more alarms. The alarms change to the @ACKNOWLEDGED@
 -- state after you acknowledge them.
-module Network.AWS.IoTEventsData.BatchAcknowledgeAlarm
+module Amazonka.IoTEventsData.BatchAcknowledgeAlarm
   ( -- * Creating a Request
     BatchAcknowledgeAlarm (..),
     newBatchAcknowledgeAlarm,
@@ -40,12 +40,12 @@ module Network.AWS.IoTEventsData.BatchAcknowledgeAlarm
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoTEventsData.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IoTEventsData.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newBatchAcknowledgeAlarm' smart constructor.
 data BatchAcknowledgeAlarm = BatchAcknowledgeAlarm'

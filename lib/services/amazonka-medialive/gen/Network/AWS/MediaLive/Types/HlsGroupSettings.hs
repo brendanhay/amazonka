@@ -11,44 +11,44 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaLive.Types.HlsGroupSettings
+-- Module      : Amazonka.MediaLive.Types.HlsGroupSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.HlsGroupSettings where
+module Amazonka.MediaLive.Types.HlsGroupSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.CaptionLanguageMapping
-import Network.AWS.MediaLive.Types.HlsAdMarkers
-import Network.AWS.MediaLive.Types.HlsCaptionLanguageSetting
-import Network.AWS.MediaLive.Types.HlsCdnSettings
-import Network.AWS.MediaLive.Types.HlsClientCache
-import Network.AWS.MediaLive.Types.HlsCodecSpecification
-import Network.AWS.MediaLive.Types.HlsDirectoryStructure
-import Network.AWS.MediaLive.Types.HlsDiscontinuityTags
-import Network.AWS.MediaLive.Types.HlsEncryptionType
-import Network.AWS.MediaLive.Types.HlsId3SegmentTaggingState
-import Network.AWS.MediaLive.Types.HlsIncompleteSegmentBehavior
-import Network.AWS.MediaLive.Types.HlsIvInManifest
-import Network.AWS.MediaLive.Types.HlsIvSource
-import Network.AWS.MediaLive.Types.HlsManifestCompression
-import Network.AWS.MediaLive.Types.HlsManifestDurationFormat
-import Network.AWS.MediaLive.Types.HlsMode
-import Network.AWS.MediaLive.Types.HlsOutputSelection
-import Network.AWS.MediaLive.Types.HlsProgramDateTime
-import Network.AWS.MediaLive.Types.HlsRedundantManifest
-import Network.AWS.MediaLive.Types.HlsSegmentationMode
-import Network.AWS.MediaLive.Types.HlsStreamInfResolution
-import Network.AWS.MediaLive.Types.HlsTimedMetadataId3Frame
-import Network.AWS.MediaLive.Types.HlsTsFileMode
-import Network.AWS.MediaLive.Types.IFrameOnlyPlaylistType
-import Network.AWS.MediaLive.Types.InputLossActionForHlsOut
-import Network.AWS.MediaLive.Types.KeyProviderSettings
-import Network.AWS.MediaLive.Types.OutputLocationRef
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaLive.Types.CaptionLanguageMapping
+import Amazonka.MediaLive.Types.HlsAdMarkers
+import Amazonka.MediaLive.Types.HlsCaptionLanguageSetting
+import Amazonka.MediaLive.Types.HlsCdnSettings
+import Amazonka.MediaLive.Types.HlsClientCache
+import Amazonka.MediaLive.Types.HlsCodecSpecification
+import Amazonka.MediaLive.Types.HlsDirectoryStructure
+import Amazonka.MediaLive.Types.HlsDiscontinuityTags
+import Amazonka.MediaLive.Types.HlsEncryptionType
+import Amazonka.MediaLive.Types.HlsId3SegmentTaggingState
+import Amazonka.MediaLive.Types.HlsIncompleteSegmentBehavior
+import Amazonka.MediaLive.Types.HlsIvInManifest
+import Amazonka.MediaLive.Types.HlsIvSource
+import Amazonka.MediaLive.Types.HlsManifestCompression
+import Amazonka.MediaLive.Types.HlsManifestDurationFormat
+import Amazonka.MediaLive.Types.HlsMode
+import Amazonka.MediaLive.Types.HlsOutputSelection
+import Amazonka.MediaLive.Types.HlsProgramDateTime
+import Amazonka.MediaLive.Types.HlsRedundantManifest
+import Amazonka.MediaLive.Types.HlsSegmentationMode
+import Amazonka.MediaLive.Types.HlsStreamInfResolution
+import Amazonka.MediaLive.Types.HlsTimedMetadataId3Frame
+import Amazonka.MediaLive.Types.HlsTsFileMode
+import Amazonka.MediaLive.Types.IFrameOnlyPlaylistType
+import Amazonka.MediaLive.Types.InputLossActionForHlsOut
+import Amazonka.MediaLive.Types.KeyProviderSettings
+import Amazonka.MediaLive.Types.OutputLocationRef
+import qualified Amazonka.Prelude as Prelude
 
 -- | Hls Group Settings
 --

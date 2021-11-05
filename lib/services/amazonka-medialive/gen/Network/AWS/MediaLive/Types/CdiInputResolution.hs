@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaLive.Types.CdiInputResolution
+-- Module      : Amazonka.MediaLive.Types.CdiInputResolution
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.CdiInputResolution
+module Amazonka.MediaLive.Types.CdiInputResolution
   ( CdiInputResolution
       ( ..,
         CdiInputResolution_FHD,
@@ -28,8 +28,8 @@ module Network.AWS.MediaLive.Types.CdiInputResolution
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Maximum CDI input resolution; SD is 480i and 576i up to 30
 -- frames-per-second (fps), HD is 720p up to 60 fps \/ 1080i up to 30 fps,

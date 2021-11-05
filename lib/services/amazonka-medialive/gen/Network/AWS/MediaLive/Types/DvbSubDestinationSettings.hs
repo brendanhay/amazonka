@@ -11,24 +11,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaLive.Types.DvbSubDestinationSettings
+-- Module      : Amazonka.MediaLive.Types.DvbSubDestinationSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.DvbSubDestinationSettings where
+module Amazonka.MediaLive.Types.DvbSubDestinationSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.DvbSubDestinationAlignment
-import Network.AWS.MediaLive.Types.DvbSubDestinationBackgroundColor
-import Network.AWS.MediaLive.Types.DvbSubDestinationFontColor
-import Network.AWS.MediaLive.Types.DvbSubDestinationOutlineColor
-import Network.AWS.MediaLive.Types.DvbSubDestinationShadowColor
-import Network.AWS.MediaLive.Types.DvbSubDestinationTeletextGridControl
-import Network.AWS.MediaLive.Types.InputLocation
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaLive.Types.DvbSubDestinationAlignment
+import Amazonka.MediaLive.Types.DvbSubDestinationBackgroundColor
+import Amazonka.MediaLive.Types.DvbSubDestinationFontColor
+import Amazonka.MediaLive.Types.DvbSubDestinationOutlineColor
+import Amazonka.MediaLive.Types.DvbSubDestinationShadowColor
+import Amazonka.MediaLive.Types.DvbSubDestinationTeletextGridControl
+import Amazonka.MediaLive.Types.InputLocation
+import qualified Amazonka.Prelude as Prelude
 
 -- | Dvb Sub Destination Settings
 --

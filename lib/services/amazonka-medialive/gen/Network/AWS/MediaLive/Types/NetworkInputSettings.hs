@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaLive.Types.NetworkInputSettings
+-- Module      : Amazonka.MediaLive.Types.NetworkInputSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.NetworkInputSettings where
+module Amazonka.MediaLive.Types.NetworkInputSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.HlsInputSettings
-import Network.AWS.MediaLive.Types.NetworkInputServerValidation
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaLive.Types.HlsInputSettings
+import Amazonka.MediaLive.Types.NetworkInputServerValidation
+import qualified Amazonka.Prelude as Prelude
 
 -- | Network source to transcode. Must be accessible to the Elemental Live
 -- node that is running the live event through a network connection.

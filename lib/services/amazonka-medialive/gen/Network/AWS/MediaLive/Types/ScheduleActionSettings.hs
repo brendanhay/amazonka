@@ -11,29 +11,29 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaLive.Types.ScheduleActionSettings
+-- Module      : Amazonka.MediaLive.Types.ScheduleActionSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.ScheduleActionSettings where
+module Amazonka.MediaLive.Types.ScheduleActionSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.HlsId3SegmentTaggingScheduleActionSettings
-import Network.AWS.MediaLive.Types.HlsTimedMetadataScheduleActionSettings
-import Network.AWS.MediaLive.Types.InputPrepareScheduleActionSettings
-import Network.AWS.MediaLive.Types.InputSwitchScheduleActionSettings
-import Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings
-import Network.AWS.MediaLive.Types.MotionGraphicsDeactivateScheduleActionSettings
-import Network.AWS.MediaLive.Types.PauseStateScheduleActionSettings
-import Network.AWS.MediaLive.Types.Scte35ReturnToNetworkScheduleActionSettings
-import Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings
-import Network.AWS.MediaLive.Types.Scte35TimeSignalScheduleActionSettings
-import Network.AWS.MediaLive.Types.StaticImageActivateScheduleActionSettings
-import Network.AWS.MediaLive.Types.StaticImageDeactivateScheduleActionSettings
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaLive.Types.HlsId3SegmentTaggingScheduleActionSettings
+import Amazonka.MediaLive.Types.HlsTimedMetadataScheduleActionSettings
+import Amazonka.MediaLive.Types.InputPrepareScheduleActionSettings
+import Amazonka.MediaLive.Types.InputSwitchScheduleActionSettings
+import Amazonka.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings
+import Amazonka.MediaLive.Types.MotionGraphicsDeactivateScheduleActionSettings
+import Amazonka.MediaLive.Types.PauseStateScheduleActionSettings
+import Amazonka.MediaLive.Types.Scte35ReturnToNetworkScheduleActionSettings
+import Amazonka.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings
+import Amazonka.MediaLive.Types.Scte35TimeSignalScheduleActionSettings
+import Amazonka.MediaLive.Types.StaticImageActivateScheduleActionSettings
+import Amazonka.MediaLive.Types.StaticImageDeactivateScheduleActionSettings
+import qualified Amazonka.Prelude as Prelude
 
 -- | Holds the settings for a single schedule action.
 --

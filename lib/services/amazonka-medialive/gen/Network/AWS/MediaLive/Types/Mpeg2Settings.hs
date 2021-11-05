@@ -11,28 +11,28 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaLive.Types.Mpeg2Settings
+-- Module      : Amazonka.MediaLive.Types.Mpeg2Settings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.Mpeg2Settings where
+module Amazonka.MediaLive.Types.Mpeg2Settings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.AfdSignaling
-import Network.AWS.MediaLive.Types.FixedAfd
-import Network.AWS.MediaLive.Types.Mpeg2AdaptiveQuantization
-import Network.AWS.MediaLive.Types.Mpeg2ColorMetadata
-import Network.AWS.MediaLive.Types.Mpeg2ColorSpace
-import Network.AWS.MediaLive.Types.Mpeg2DisplayRatio
-import Network.AWS.MediaLive.Types.Mpeg2FilterSettings
-import Network.AWS.MediaLive.Types.Mpeg2GopSizeUnits
-import Network.AWS.MediaLive.Types.Mpeg2ScanType
-import Network.AWS.MediaLive.Types.Mpeg2SubGopLength
-import Network.AWS.MediaLive.Types.Mpeg2TimecodeInsertionBehavior
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaLive.Types.AfdSignaling
+import Amazonka.MediaLive.Types.FixedAfd
+import Amazonka.MediaLive.Types.Mpeg2AdaptiveQuantization
+import Amazonka.MediaLive.Types.Mpeg2ColorMetadata
+import Amazonka.MediaLive.Types.Mpeg2ColorSpace
+import Amazonka.MediaLive.Types.Mpeg2DisplayRatio
+import Amazonka.MediaLive.Types.Mpeg2FilterSettings
+import Amazonka.MediaLive.Types.Mpeg2GopSizeUnits
+import Amazonka.MediaLive.Types.Mpeg2ScanType
+import Amazonka.MediaLive.Types.Mpeg2SubGopLength
+import Amazonka.MediaLive.Types.Mpeg2TimecodeInsertionBehavior
+import qualified Amazonka.Prelude as Prelude
 
 -- | Mpeg2 Settings
 --

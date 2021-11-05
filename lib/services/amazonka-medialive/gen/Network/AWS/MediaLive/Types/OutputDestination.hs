@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaLive.Types.OutputDestination
+-- Module      : Amazonka.MediaLive.Types.OutputDestination
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.OutputDestination where
+module Amazonka.MediaLive.Types.OutputDestination where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.MediaPackageOutputDestinationSettings
-import Network.AWS.MediaLive.Types.MultiplexProgramChannelDestinationSettings
-import Network.AWS.MediaLive.Types.OutputDestinationSettings
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaLive.Types.MediaPackageOutputDestinationSettings
+import Amazonka.MediaLive.Types.MultiplexProgramChannelDestinationSettings
+import Amazonka.MediaLive.Types.OutputDestinationSettings
+import qualified Amazonka.Prelude as Prelude
 
 -- | Placeholder documentation for OutputDestination
 --

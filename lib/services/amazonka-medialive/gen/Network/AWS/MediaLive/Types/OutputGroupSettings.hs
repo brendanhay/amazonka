@@ -11,25 +11,25 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaLive.Types.OutputGroupSettings
+-- Module      : Amazonka.MediaLive.Types.OutputGroupSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.OutputGroupSettings where
+module Amazonka.MediaLive.Types.OutputGroupSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.ArchiveGroupSettings
-import Network.AWS.MediaLive.Types.FrameCaptureGroupSettings
-import Network.AWS.MediaLive.Types.HlsGroupSettings
-import Network.AWS.MediaLive.Types.MediaPackageGroupSettings
-import Network.AWS.MediaLive.Types.MsSmoothGroupSettings
-import Network.AWS.MediaLive.Types.MultiplexGroupSettings
-import Network.AWS.MediaLive.Types.RtmpGroupSettings
-import Network.AWS.MediaLive.Types.UdpGroupSettings
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaLive.Types.ArchiveGroupSettings
+import Amazonka.MediaLive.Types.FrameCaptureGroupSettings
+import Amazonka.MediaLive.Types.HlsGroupSettings
+import Amazonka.MediaLive.Types.MediaPackageGroupSettings
+import Amazonka.MediaLive.Types.MsSmoothGroupSettings
+import Amazonka.MediaLive.Types.MultiplexGroupSettings
+import Amazonka.MediaLive.Types.RtmpGroupSettings
+import Amazonka.MediaLive.Types.UdpGroupSettings
+import qualified Amazonka.Prelude as Prelude
 
 -- | Output Group Settings
 --

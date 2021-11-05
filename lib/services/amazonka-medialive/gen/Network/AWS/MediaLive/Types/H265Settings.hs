@@ -11,34 +11,34 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaLive.Types.H265Settings
+-- Module      : Amazonka.MediaLive.Types.H265Settings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.H265Settings where
+module Amazonka.MediaLive.Types.H265Settings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.AfdSignaling
-import Network.AWS.MediaLive.Types.FixedAfd
-import Network.AWS.MediaLive.Types.H265AdaptiveQuantization
-import Network.AWS.MediaLive.Types.H265AlternativeTransferFunction
-import Network.AWS.MediaLive.Types.H265ColorMetadata
-import Network.AWS.MediaLive.Types.H265ColorSpaceSettings
-import Network.AWS.MediaLive.Types.H265FilterSettings
-import Network.AWS.MediaLive.Types.H265FlickerAq
-import Network.AWS.MediaLive.Types.H265GopSizeUnits
-import Network.AWS.MediaLive.Types.H265Level
-import Network.AWS.MediaLive.Types.H265LookAheadRateControl
-import Network.AWS.MediaLive.Types.H265Profile
-import Network.AWS.MediaLive.Types.H265RateControlMode
-import Network.AWS.MediaLive.Types.H265ScanType
-import Network.AWS.MediaLive.Types.H265SceneChangeDetect
-import Network.AWS.MediaLive.Types.H265Tier
-import Network.AWS.MediaLive.Types.H265TimecodeInsertionBehavior
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaLive.Types.AfdSignaling
+import Amazonka.MediaLive.Types.FixedAfd
+import Amazonka.MediaLive.Types.H265AdaptiveQuantization
+import Amazonka.MediaLive.Types.H265AlternativeTransferFunction
+import Amazonka.MediaLive.Types.H265ColorMetadata
+import Amazonka.MediaLive.Types.H265ColorSpaceSettings
+import Amazonka.MediaLive.Types.H265FilterSettings
+import Amazonka.MediaLive.Types.H265FlickerAq
+import Amazonka.MediaLive.Types.H265GopSizeUnits
+import Amazonka.MediaLive.Types.H265Level
+import Amazonka.MediaLive.Types.H265LookAheadRateControl
+import Amazonka.MediaLive.Types.H265Profile
+import Amazonka.MediaLive.Types.H265RateControlMode
+import Amazonka.MediaLive.Types.H265ScanType
+import Amazonka.MediaLive.Types.H265SceneChangeDetect
+import Amazonka.MediaLive.Types.H265Tier
+import Amazonka.MediaLive.Types.H265TimecodeInsertionBehavior
+import qualified Amazonka.Prelude as Prelude
 
 -- | H265 Settings
 --

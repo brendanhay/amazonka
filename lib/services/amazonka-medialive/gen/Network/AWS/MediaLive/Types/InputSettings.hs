@@ -11,26 +11,26 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaLive.Types.InputSettings
+-- Module      : Amazonka.MediaLive.Types.InputSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.InputSettings where
+module Amazonka.MediaLive.Types.InputSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.AudioSelector
-import Network.AWS.MediaLive.Types.CaptionSelector
-import Network.AWS.MediaLive.Types.InputDeblockFilter
-import Network.AWS.MediaLive.Types.InputDenoiseFilter
-import Network.AWS.MediaLive.Types.InputFilter
-import Network.AWS.MediaLive.Types.InputSourceEndBehavior
-import Network.AWS.MediaLive.Types.NetworkInputSettings
-import Network.AWS.MediaLive.Types.Smpte2038DataPreference
-import Network.AWS.MediaLive.Types.VideoSelector
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaLive.Types.AudioSelector
+import Amazonka.MediaLive.Types.CaptionSelector
+import Amazonka.MediaLive.Types.InputDeblockFilter
+import Amazonka.MediaLive.Types.InputDenoiseFilter
+import Amazonka.MediaLive.Types.InputFilter
+import Amazonka.MediaLive.Types.InputSourceEndBehavior
+import Amazonka.MediaLive.Types.NetworkInputSettings
+import Amazonka.MediaLive.Types.Smpte2038DataPreference
+import Amazonka.MediaLive.Types.VideoSelector
+import qualified Amazonka.Prelude as Prelude
 
 -- | Live Event input parameters. There can be multiple inputs in a single
 -- Live Event.

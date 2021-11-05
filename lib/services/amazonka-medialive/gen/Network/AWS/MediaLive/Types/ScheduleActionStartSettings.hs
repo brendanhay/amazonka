@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaLive.Types.ScheduleActionStartSettings
+-- Module      : Amazonka.MediaLive.Types.ScheduleActionStartSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.ScheduleActionStartSettings where
+module Amazonka.MediaLive.Types.ScheduleActionStartSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.FixedModeScheduleActionStartSettings
-import Network.AWS.MediaLive.Types.FollowModeScheduleActionStartSettings
-import Network.AWS.MediaLive.Types.ImmediateModeScheduleActionStartSettings
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaLive.Types.FixedModeScheduleActionStartSettings
+import Amazonka.MediaLive.Types.FollowModeScheduleActionStartSettings
+import Amazonka.MediaLive.Types.ImmediateModeScheduleActionStartSettings
+import qualified Amazonka.Prelude as Prelude
 
 -- | Settings to specify when an action should occur. Only one of the options
 -- must be selected.

@@ -11,24 +11,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaLive.Types.AacSettings
+-- Module      : Amazonka.MediaLive.Types.AacSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.AacSettings where
+module Amazonka.MediaLive.Types.AacSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.AacCodingMode
-import Network.AWS.MediaLive.Types.AacInputType
-import Network.AWS.MediaLive.Types.AacProfile
-import Network.AWS.MediaLive.Types.AacRateControlMode
-import Network.AWS.MediaLive.Types.AacRawFormat
-import Network.AWS.MediaLive.Types.AacSpec
-import Network.AWS.MediaLive.Types.AacVbrQuality
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaLive.Types.AacCodingMode
+import Amazonka.MediaLive.Types.AacInputType
+import Amazonka.MediaLive.Types.AacProfile
+import Amazonka.MediaLive.Types.AacRateControlMode
+import Amazonka.MediaLive.Types.AacRawFormat
+import Amazonka.MediaLive.Types.AacSpec
+import Amazonka.MediaLive.Types.AacVbrQuality
+import qualified Amazonka.Prelude as Prelude
 
 -- | Aac Settings
 --

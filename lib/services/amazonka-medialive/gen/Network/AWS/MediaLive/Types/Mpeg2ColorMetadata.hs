@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaLive.Types.Mpeg2ColorMetadata
+-- Module      : Amazonka.MediaLive.Types.Mpeg2ColorMetadata
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.Mpeg2ColorMetadata
+module Amazonka.MediaLive.Types.Mpeg2ColorMetadata
   ( Mpeg2ColorMetadata
       ( ..,
         Mpeg2ColorMetadata_IGNORE,
@@ -26,8 +26,8 @@ module Network.AWS.MediaLive.Types.Mpeg2ColorMetadata
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Mpeg2 Color Metadata
 newtype Mpeg2ColorMetadata = Mpeg2ColorMetadata'

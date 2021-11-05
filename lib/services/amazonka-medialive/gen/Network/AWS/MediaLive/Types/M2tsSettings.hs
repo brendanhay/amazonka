@@ -11,39 +11,39 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaLive.Types.M2tsSettings
+-- Module      : Amazonka.MediaLive.Types.M2tsSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.M2tsSettings where
+module Amazonka.MediaLive.Types.M2tsSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.DvbNitSettings
-import Network.AWS.MediaLive.Types.DvbSdtSettings
-import Network.AWS.MediaLive.Types.DvbTdtSettings
-import Network.AWS.MediaLive.Types.M2tsAbsentInputAudioBehavior
-import Network.AWS.MediaLive.Types.M2tsArib
-import Network.AWS.MediaLive.Types.M2tsAribCaptionsPidControl
-import Network.AWS.MediaLive.Types.M2tsAudioBufferModel
-import Network.AWS.MediaLive.Types.M2tsAudioInterval
-import Network.AWS.MediaLive.Types.M2tsAudioStreamType
-import Network.AWS.MediaLive.Types.M2tsBufferModel
-import Network.AWS.MediaLive.Types.M2tsCcDescriptor
-import Network.AWS.MediaLive.Types.M2tsEbifControl
-import Network.AWS.MediaLive.Types.M2tsEbpPlacement
-import Network.AWS.MediaLive.Types.M2tsEsRateInPes
-import Network.AWS.MediaLive.Types.M2tsKlv
-import Network.AWS.MediaLive.Types.M2tsNielsenId3Behavior
-import Network.AWS.MediaLive.Types.M2tsPcrControl
-import Network.AWS.MediaLive.Types.M2tsRateMode
-import Network.AWS.MediaLive.Types.M2tsScte35Control
-import Network.AWS.MediaLive.Types.M2tsSegmentationMarkers
-import Network.AWS.MediaLive.Types.M2tsSegmentationStyle
-import Network.AWS.MediaLive.Types.M2tsTimedMetadataBehavior
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaLive.Types.DvbNitSettings
+import Amazonka.MediaLive.Types.DvbSdtSettings
+import Amazonka.MediaLive.Types.DvbTdtSettings
+import Amazonka.MediaLive.Types.M2tsAbsentInputAudioBehavior
+import Amazonka.MediaLive.Types.M2tsArib
+import Amazonka.MediaLive.Types.M2tsAribCaptionsPidControl
+import Amazonka.MediaLive.Types.M2tsAudioBufferModel
+import Amazonka.MediaLive.Types.M2tsAudioInterval
+import Amazonka.MediaLive.Types.M2tsAudioStreamType
+import Amazonka.MediaLive.Types.M2tsBufferModel
+import Amazonka.MediaLive.Types.M2tsCcDescriptor
+import Amazonka.MediaLive.Types.M2tsEbifControl
+import Amazonka.MediaLive.Types.M2tsEbpPlacement
+import Amazonka.MediaLive.Types.M2tsEsRateInPes
+import Amazonka.MediaLive.Types.M2tsKlv
+import Amazonka.MediaLive.Types.M2tsNielsenId3Behavior
+import Amazonka.MediaLive.Types.M2tsPcrControl
+import Amazonka.MediaLive.Types.M2tsRateMode
+import Amazonka.MediaLive.Types.M2tsScte35Control
+import Amazonka.MediaLive.Types.M2tsSegmentationMarkers
+import Amazonka.MediaLive.Types.M2tsSegmentationStyle
+import Amazonka.MediaLive.Types.M2tsTimedMetadataBehavior
+import qualified Amazonka.Prelude as Prelude
 
 -- | M2ts Settings
 --

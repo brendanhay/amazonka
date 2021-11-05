@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaLive.Types.Ac3Settings
+-- Module      : Amazonka.MediaLive.Types.Ac3Settings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.Ac3Settings where
+module Amazonka.MediaLive.Types.Ac3Settings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.Ac3BitstreamMode
-import Network.AWS.MediaLive.Types.Ac3CodingMode
-import Network.AWS.MediaLive.Types.Ac3DrcProfile
-import Network.AWS.MediaLive.Types.Ac3LfeFilter
-import Network.AWS.MediaLive.Types.Ac3MetadataControl
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaLive.Types.Ac3BitstreamMode
+import Amazonka.MediaLive.Types.Ac3CodingMode
+import Amazonka.MediaLive.Types.Ac3DrcProfile
+import Amazonka.MediaLive.Types.Ac3LfeFilter
+import Amazonka.MediaLive.Types.Ac3MetadataControl
+import qualified Amazonka.Prelude as Prelude
 
 -- | Ac3 Settings
 --

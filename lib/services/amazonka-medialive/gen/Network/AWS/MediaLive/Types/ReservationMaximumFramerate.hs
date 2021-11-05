@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaLive.Types.ReservationMaximumFramerate
+-- Module      : Amazonka.MediaLive.Types.ReservationMaximumFramerate
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.ReservationMaximumFramerate
+module Amazonka.MediaLive.Types.ReservationMaximumFramerate
   ( ReservationMaximumFramerate
       ( ..,
         ReservationMaximumFramerate_MAX_30_FPS,
@@ -26,8 +26,8 @@ module Network.AWS.MediaLive.Types.ReservationMaximumFramerate
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Maximum framerate in frames per second (Outputs only)
 newtype ReservationMaximumFramerate = ReservationMaximumFramerate'

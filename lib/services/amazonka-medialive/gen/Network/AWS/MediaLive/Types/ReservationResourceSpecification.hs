@@ -11,25 +11,25 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaLive.Types.ReservationResourceSpecification
+-- Module      : Amazonka.MediaLive.Types.ReservationResourceSpecification
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.ReservationResourceSpecification where
+module Amazonka.MediaLive.Types.ReservationResourceSpecification where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.ChannelClass
-import Network.AWS.MediaLive.Types.ReservationCodec
-import Network.AWS.MediaLive.Types.ReservationMaximumBitrate
-import Network.AWS.MediaLive.Types.ReservationMaximumFramerate
-import Network.AWS.MediaLive.Types.ReservationResolution
-import Network.AWS.MediaLive.Types.ReservationResourceType
-import Network.AWS.MediaLive.Types.ReservationSpecialFeature
-import Network.AWS.MediaLive.Types.ReservationVideoQuality
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaLive.Types.ChannelClass
+import Amazonka.MediaLive.Types.ReservationCodec
+import Amazonka.MediaLive.Types.ReservationMaximumBitrate
+import Amazonka.MediaLive.Types.ReservationMaximumFramerate
+import Amazonka.MediaLive.Types.ReservationResolution
+import Amazonka.MediaLive.Types.ReservationResourceType
+import Amazonka.MediaLive.Types.ReservationSpecialFeature
+import Amazonka.MediaLive.Types.ReservationVideoQuality
+import qualified Amazonka.Prelude as Prelude
 
 -- | Resource configuration (codec, resolution, bitrate, ...)
 --

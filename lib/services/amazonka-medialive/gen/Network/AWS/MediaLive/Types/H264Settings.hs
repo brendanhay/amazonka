@@ -11,42 +11,42 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaLive.Types.H264Settings
+-- Module      : Amazonka.MediaLive.Types.H264Settings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.H264Settings where
+module Amazonka.MediaLive.Types.H264Settings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.AfdSignaling
-import Network.AWS.MediaLive.Types.FixedAfd
-import Network.AWS.MediaLive.Types.H264AdaptiveQuantization
-import Network.AWS.MediaLive.Types.H264ColorMetadata
-import Network.AWS.MediaLive.Types.H264ColorSpaceSettings
-import Network.AWS.MediaLive.Types.H264EntropyEncoding
-import Network.AWS.MediaLive.Types.H264FilterSettings
-import Network.AWS.MediaLive.Types.H264FlickerAq
-import Network.AWS.MediaLive.Types.H264ForceFieldPictures
-import Network.AWS.MediaLive.Types.H264FramerateControl
-import Network.AWS.MediaLive.Types.H264GopBReference
-import Network.AWS.MediaLive.Types.H264GopSizeUnits
-import Network.AWS.MediaLive.Types.H264Level
-import Network.AWS.MediaLive.Types.H264LookAheadRateControl
-import Network.AWS.MediaLive.Types.H264ParControl
-import Network.AWS.MediaLive.Types.H264Profile
-import Network.AWS.MediaLive.Types.H264QualityLevel
-import Network.AWS.MediaLive.Types.H264RateControlMode
-import Network.AWS.MediaLive.Types.H264ScanType
-import Network.AWS.MediaLive.Types.H264SceneChangeDetect
-import Network.AWS.MediaLive.Types.H264SpatialAq
-import Network.AWS.MediaLive.Types.H264SubGopLength
-import Network.AWS.MediaLive.Types.H264Syntax
-import Network.AWS.MediaLive.Types.H264TemporalAq
-import Network.AWS.MediaLive.Types.H264TimecodeInsertionBehavior
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaLive.Types.AfdSignaling
+import Amazonka.MediaLive.Types.FixedAfd
+import Amazonka.MediaLive.Types.H264AdaptiveQuantization
+import Amazonka.MediaLive.Types.H264ColorMetadata
+import Amazonka.MediaLive.Types.H264ColorSpaceSettings
+import Amazonka.MediaLive.Types.H264EntropyEncoding
+import Amazonka.MediaLive.Types.H264FilterSettings
+import Amazonka.MediaLive.Types.H264FlickerAq
+import Amazonka.MediaLive.Types.H264ForceFieldPictures
+import Amazonka.MediaLive.Types.H264FramerateControl
+import Amazonka.MediaLive.Types.H264GopBReference
+import Amazonka.MediaLive.Types.H264GopSizeUnits
+import Amazonka.MediaLive.Types.H264Level
+import Amazonka.MediaLive.Types.H264LookAheadRateControl
+import Amazonka.MediaLive.Types.H264ParControl
+import Amazonka.MediaLive.Types.H264Profile
+import Amazonka.MediaLive.Types.H264QualityLevel
+import Amazonka.MediaLive.Types.H264RateControlMode
+import Amazonka.MediaLive.Types.H264ScanType
+import Amazonka.MediaLive.Types.H264SceneChangeDetect
+import Amazonka.MediaLive.Types.H264SpatialAq
+import Amazonka.MediaLive.Types.H264SubGopLength
+import Amazonka.MediaLive.Types.H264Syntax
+import Amazonka.MediaLive.Types.H264TemporalAq
+import Amazonka.MediaLive.Types.H264TimecodeInsertionBehavior
+import qualified Amazonka.Prelude as Prelude
 
 -- | H264 Settings
 --

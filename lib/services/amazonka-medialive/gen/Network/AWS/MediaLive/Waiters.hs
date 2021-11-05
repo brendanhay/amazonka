@@ -7,24 +7,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaLive.Waiters
+-- Module      : Amazonka.MediaLive.Waiters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Waiters where
+module Amazonka.MediaLive.Waiters where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.DescribeChannel
-import Network.AWS.MediaLive.DescribeInput
-import Network.AWS.MediaLive.DescribeMultiplex
-import Network.AWS.MediaLive.Lens
-import Network.AWS.MediaLive.Types
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaLive.DescribeChannel
+import Amazonka.MediaLive.DescribeInput
+import Amazonka.MediaLive.DescribeMultiplex
+import Amazonka.MediaLive.Lens
+import Amazonka.MediaLive.Types
+import qualified Amazonka.Prelude as Prelude
 
--- | Polls 'Network.AWS.MediaLive.DescribeChannel' every 5 seconds until a successful state is reached. An error is returned after 120 failed checks.
+-- | Polls 'Amazonka.MediaLive.DescribeChannel' every 5 seconds until a successful state is reached. An error is returned after 120 failed checks.
 newChannelRunning :: Core.Wait DescribeChannel
 newChannelRunning =
   Core.Wait
@@ -48,7 +48,7 @@ newChannelRunning =
         ]
     }
 
--- | Polls 'Network.AWS.MediaLive.DescribeInput' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
+-- | Polls 'Amazonka.MediaLive.DescribeInput' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 newInputAttached :: Core.Wait DescribeInput
 newInputAttached =
   Core.Wait
@@ -72,7 +72,7 @@ newInputAttached =
         ]
     }
 
--- | Polls 'Network.AWS.MediaLive.DescribeMultiplex' every 5 seconds until a successful state is reached. An error is returned after 120 failed checks.
+-- | Polls 'Amazonka.MediaLive.DescribeMultiplex' every 5 seconds until a successful state is reached. An error is returned after 120 failed checks.
 newMultiplexRunning :: Core.Wait DescribeMultiplex
 newMultiplexRunning =
   Core.Wait
@@ -96,7 +96,7 @@ newMultiplexRunning =
         ]
     }
 
--- | Polls 'Network.AWS.MediaLive.DescribeMultiplex' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
+-- | Polls 'Amazonka.MediaLive.DescribeMultiplex' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 newMultiplexDeleted :: Core.Wait DescribeMultiplex
 newMultiplexDeleted =
   Core.Wait
@@ -120,7 +120,7 @@ newMultiplexDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.MediaLive.DescribeInput' every 5 seconds until a successful state is reached. An error is returned after 84 failed checks.
+-- | Polls 'Amazonka.MediaLive.DescribeInput' every 5 seconds until a successful state is reached. An error is returned after 84 failed checks.
 newInputDetached :: Core.Wait DescribeInput
 newInputDetached =
   Core.Wait
@@ -150,7 +150,7 @@ newInputDetached =
         ]
     }
 
--- | Polls 'Network.AWS.MediaLive.DescribeInput' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
+-- | Polls 'Amazonka.MediaLive.DescribeInput' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 newInputDeleted :: Core.Wait DescribeInput
 newInputDeleted =
   Core.Wait
@@ -174,7 +174,7 @@ newInputDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.MediaLive.DescribeChannel' every 5 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.MediaLive.DescribeChannel' every 5 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newChannelStopped :: Core.Wait DescribeChannel
 newChannelStopped =
   Core.Wait
@@ -198,7 +198,7 @@ newChannelStopped =
         ]
     }
 
--- | Polls 'Network.AWS.MediaLive.DescribeMultiplex' every 3 seconds until a successful state is reached. An error is returned after 5 failed checks.
+-- | Polls 'Amazonka.MediaLive.DescribeMultiplex' every 3 seconds until a successful state is reached. An error is returned after 5 failed checks.
 newMultiplexCreated :: Core.Wait DescribeMultiplex
 newMultiplexCreated =
   Core.Wait
@@ -228,7 +228,7 @@ newMultiplexCreated =
         ]
     }
 
--- | Polls 'Network.AWS.MediaLive.DescribeChannel' every 3 seconds until a successful state is reached. An error is returned after 5 failed checks.
+-- | Polls 'Amazonka.MediaLive.DescribeChannel' every 3 seconds until a successful state is reached. An error is returned after 5 failed checks.
 newChannelCreated :: Core.Wait DescribeChannel
 newChannelCreated =
   Core.Wait
@@ -258,7 +258,7 @@ newChannelCreated =
         ]
     }
 
--- | Polls 'Network.AWS.MediaLive.DescribeChannel' every 5 seconds until a successful state is reached. An error is returned after 84 failed checks.
+-- | Polls 'Amazonka.MediaLive.DescribeChannel' every 5 seconds until a successful state is reached. An error is returned after 84 failed checks.
 newChannelDeleted :: Core.Wait DescribeChannel
 newChannelDeleted =
   Core.Wait
@@ -282,7 +282,7 @@ newChannelDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.MediaLive.DescribeMultiplex' every 5 seconds until a successful state is reached. An error is returned after 28 failed checks.
+-- | Polls 'Amazonka.MediaLive.DescribeMultiplex' every 5 seconds until a successful state is reached. An error is returned after 28 failed checks.
 newMultiplexStopped :: Core.Wait DescribeMultiplex
 newMultiplexStopped =
   Core.Wait

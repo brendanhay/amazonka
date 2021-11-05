@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaLive.Types.HlsH265PackagingType
+-- Module      : Amazonka.MediaLive.Types.HlsH265PackagingType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.HlsH265PackagingType
+module Amazonka.MediaLive.Types.HlsH265PackagingType
   ( HlsH265PackagingType
       ( ..,
         HlsH265PackagingType_HEV1,
@@ -26,8 +26,8 @@ module Network.AWS.MediaLive.Types.HlsH265PackagingType
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Hls H265 Packaging Type
 newtype HlsH265PackagingType = HlsH265PackagingType'

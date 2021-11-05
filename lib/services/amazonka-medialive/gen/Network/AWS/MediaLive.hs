@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.MediaLive
+-- Module      : Amazonka.MediaLive
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -12,7 +12,7 @@
 -- Derived from API version @2017-10-14@ of the AWS service descriptions, licensed under Apache 2.0.
 --
 -- API for AWS Elemental MediaLive
-module Network.AWS.MediaLive
+module Amazonka.MediaLive
   ( -- * Service Configuration
     defaultService,
 
@@ -2083,66 +2083,66 @@ module Network.AWS.MediaLive
   )
 where
 
-import Network.AWS.MediaLive.AcceptInputDeviceTransfer
-import Network.AWS.MediaLive.BatchDelete
-import Network.AWS.MediaLive.BatchStart
-import Network.AWS.MediaLive.BatchStop
-import Network.AWS.MediaLive.BatchUpdateSchedule
-import Network.AWS.MediaLive.CancelInputDeviceTransfer
-import Network.AWS.MediaLive.ClaimDevice
-import Network.AWS.MediaLive.CreateChannel
-import Network.AWS.MediaLive.CreateInput
-import Network.AWS.MediaLive.CreateInputSecurityGroup
-import Network.AWS.MediaLive.CreateMultiplex
-import Network.AWS.MediaLive.CreateMultiplexProgram
-import Network.AWS.MediaLive.CreatePartnerInput
-import Network.AWS.MediaLive.CreateTags
-import Network.AWS.MediaLive.DeleteChannel
-import Network.AWS.MediaLive.DeleteInput
-import Network.AWS.MediaLive.DeleteInputSecurityGroup
-import Network.AWS.MediaLive.DeleteMultiplex
-import Network.AWS.MediaLive.DeleteMultiplexProgram
-import Network.AWS.MediaLive.DeleteReservation
-import Network.AWS.MediaLive.DeleteSchedule
-import Network.AWS.MediaLive.DeleteTags
-import Network.AWS.MediaLive.DescribeChannel
-import Network.AWS.MediaLive.DescribeInput
-import Network.AWS.MediaLive.DescribeInputDevice
-import Network.AWS.MediaLive.DescribeInputDeviceThumbnail
-import Network.AWS.MediaLive.DescribeInputSecurityGroup
-import Network.AWS.MediaLive.DescribeMultiplex
-import Network.AWS.MediaLive.DescribeMultiplexProgram
-import Network.AWS.MediaLive.DescribeOffering
-import Network.AWS.MediaLive.DescribeReservation
-import Network.AWS.MediaLive.DescribeSchedule
-import Network.AWS.MediaLive.Lens
-import Network.AWS.MediaLive.ListChannels
-import Network.AWS.MediaLive.ListInputDeviceTransfers
-import Network.AWS.MediaLive.ListInputDevices
-import Network.AWS.MediaLive.ListInputSecurityGroups
-import Network.AWS.MediaLive.ListInputs
-import Network.AWS.MediaLive.ListMultiplexPrograms
-import Network.AWS.MediaLive.ListMultiplexes
-import Network.AWS.MediaLive.ListOfferings
-import Network.AWS.MediaLive.ListReservations
-import Network.AWS.MediaLive.ListTagsForResource
-import Network.AWS.MediaLive.PurchaseOffering
-import Network.AWS.MediaLive.RejectInputDeviceTransfer
-import Network.AWS.MediaLive.StartChannel
-import Network.AWS.MediaLive.StartMultiplex
-import Network.AWS.MediaLive.StopChannel
-import Network.AWS.MediaLive.StopMultiplex
-import Network.AWS.MediaLive.TransferInputDevice
-import Network.AWS.MediaLive.Types
-import Network.AWS.MediaLive.UpdateChannel
-import Network.AWS.MediaLive.UpdateChannelClass
-import Network.AWS.MediaLive.UpdateInput
-import Network.AWS.MediaLive.UpdateInputDevice
-import Network.AWS.MediaLive.UpdateInputSecurityGroup
-import Network.AWS.MediaLive.UpdateMultiplex
-import Network.AWS.MediaLive.UpdateMultiplexProgram
-import Network.AWS.MediaLive.UpdateReservation
-import Network.AWS.MediaLive.Waiters
+import Amazonka.MediaLive.AcceptInputDeviceTransfer
+import Amazonka.MediaLive.BatchDelete
+import Amazonka.MediaLive.BatchStart
+import Amazonka.MediaLive.BatchStop
+import Amazonka.MediaLive.BatchUpdateSchedule
+import Amazonka.MediaLive.CancelInputDeviceTransfer
+import Amazonka.MediaLive.ClaimDevice
+import Amazonka.MediaLive.CreateChannel
+import Amazonka.MediaLive.CreateInput
+import Amazonka.MediaLive.CreateInputSecurityGroup
+import Amazonka.MediaLive.CreateMultiplex
+import Amazonka.MediaLive.CreateMultiplexProgram
+import Amazonka.MediaLive.CreatePartnerInput
+import Amazonka.MediaLive.CreateTags
+import Amazonka.MediaLive.DeleteChannel
+import Amazonka.MediaLive.DeleteInput
+import Amazonka.MediaLive.DeleteInputSecurityGroup
+import Amazonka.MediaLive.DeleteMultiplex
+import Amazonka.MediaLive.DeleteMultiplexProgram
+import Amazonka.MediaLive.DeleteReservation
+import Amazonka.MediaLive.DeleteSchedule
+import Amazonka.MediaLive.DeleteTags
+import Amazonka.MediaLive.DescribeChannel
+import Amazonka.MediaLive.DescribeInput
+import Amazonka.MediaLive.DescribeInputDevice
+import Amazonka.MediaLive.DescribeInputDeviceThumbnail
+import Amazonka.MediaLive.DescribeInputSecurityGroup
+import Amazonka.MediaLive.DescribeMultiplex
+import Amazonka.MediaLive.DescribeMultiplexProgram
+import Amazonka.MediaLive.DescribeOffering
+import Amazonka.MediaLive.DescribeReservation
+import Amazonka.MediaLive.DescribeSchedule
+import Amazonka.MediaLive.Lens
+import Amazonka.MediaLive.ListChannels
+import Amazonka.MediaLive.ListInputDeviceTransfers
+import Amazonka.MediaLive.ListInputDevices
+import Amazonka.MediaLive.ListInputSecurityGroups
+import Amazonka.MediaLive.ListInputs
+import Amazonka.MediaLive.ListMultiplexPrograms
+import Amazonka.MediaLive.ListMultiplexes
+import Amazonka.MediaLive.ListOfferings
+import Amazonka.MediaLive.ListReservations
+import Amazonka.MediaLive.ListTagsForResource
+import Amazonka.MediaLive.PurchaseOffering
+import Amazonka.MediaLive.RejectInputDeviceTransfer
+import Amazonka.MediaLive.StartChannel
+import Amazonka.MediaLive.StartMultiplex
+import Amazonka.MediaLive.StopChannel
+import Amazonka.MediaLive.StopMultiplex
+import Amazonka.MediaLive.TransferInputDevice
+import Amazonka.MediaLive.Types
+import Amazonka.MediaLive.UpdateChannel
+import Amazonka.MediaLive.UpdateChannelClass
+import Amazonka.MediaLive.UpdateInput
+import Amazonka.MediaLive.UpdateInputDevice
+import Amazonka.MediaLive.UpdateInputSecurityGroup
+import Amazonka.MediaLive.UpdateMultiplex
+import Amazonka.MediaLive.UpdateMultiplexProgram
+import Amazonka.MediaLive.UpdateReservation
+import Amazonka.MediaLive.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaLive.Types.GlobalConfiguration
+-- Module      : Amazonka.MediaLive.Types.GlobalConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.GlobalConfiguration where
+module Amazonka.MediaLive.Types.GlobalConfiguration where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.GlobalConfigurationInputEndAction
-import Network.AWS.MediaLive.Types.GlobalConfigurationLowFramerateInputs
-import Network.AWS.MediaLive.Types.GlobalConfigurationOutputLockingMode
-import Network.AWS.MediaLive.Types.GlobalConfigurationOutputTimingSource
-import Network.AWS.MediaLive.Types.InputLossBehavior
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaLive.Types.GlobalConfigurationInputEndAction
+import Amazonka.MediaLive.Types.GlobalConfigurationLowFramerateInputs
+import Amazonka.MediaLive.Types.GlobalConfigurationOutputLockingMode
+import Amazonka.MediaLive.Types.GlobalConfigurationOutputTimingSource
+import Amazonka.MediaLive.Types.InputLossBehavior
+import qualified Amazonka.Prelude as Prelude
 
 -- | Global Configuration
 --

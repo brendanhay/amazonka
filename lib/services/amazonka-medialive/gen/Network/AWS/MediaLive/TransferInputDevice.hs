@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaLive.TransferInputDevice
+-- Module      : Amazonka.MediaLive.TransferInputDevice
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Start an input device transfer to another AWS account. After you make
 -- the request, the other account must accept or reject the transfer.
-module Network.AWS.MediaLive.TransferInputDevice
+module Amazonka.MediaLive.TransferInputDevice
   ( -- * Creating a Request
     TransferInputDevice' (..),
     newTransferInputDevice',
@@ -42,12 +42,12 @@ module Network.AWS.MediaLive.TransferInputDevice
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaLive.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | A request to transfer an input device.
 --

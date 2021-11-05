@@ -11,24 +11,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaLive.Types.BurnInDestinationSettings
+-- Module      : Amazonka.MediaLive.Types.BurnInDestinationSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.BurnInDestinationSettings where
+module Amazonka.MediaLive.Types.BurnInDestinationSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.BurnInAlignment
-import Network.AWS.MediaLive.Types.BurnInBackgroundColor
-import Network.AWS.MediaLive.Types.BurnInFontColor
-import Network.AWS.MediaLive.Types.BurnInOutlineColor
-import Network.AWS.MediaLive.Types.BurnInShadowColor
-import Network.AWS.MediaLive.Types.BurnInTeletextGridControl
-import Network.AWS.MediaLive.Types.InputLocation
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaLive.Types.BurnInAlignment
+import Amazonka.MediaLive.Types.BurnInBackgroundColor
+import Amazonka.MediaLive.Types.BurnInFontColor
+import Amazonka.MediaLive.Types.BurnInOutlineColor
+import Amazonka.MediaLive.Types.BurnInShadowColor
+import Amazonka.MediaLive.Types.BurnInTeletextGridControl
+import Amazonka.MediaLive.Types.InputLocation
+import qualified Amazonka.Prelude as Prelude
 
 -- | Burn In Destination Settings
 --

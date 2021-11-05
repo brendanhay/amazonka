@@ -11,24 +11,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaLive.Types.AudioDescription
+-- Module      : Amazonka.MediaLive.Types.AudioDescription
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.AudioDescription where
+module Amazonka.MediaLive.Types.AudioDescription where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.AudioCodecSettings
-import Network.AWS.MediaLive.Types.AudioDescriptionAudioTypeControl
-import Network.AWS.MediaLive.Types.AudioDescriptionLanguageCodeControl
-import Network.AWS.MediaLive.Types.AudioNormalizationSettings
-import Network.AWS.MediaLive.Types.AudioType
-import Network.AWS.MediaLive.Types.AudioWatermarkSettings
-import Network.AWS.MediaLive.Types.RemixSettings
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaLive.Types.AudioCodecSettings
+import Amazonka.MediaLive.Types.AudioDescriptionAudioTypeControl
+import Amazonka.MediaLive.Types.AudioDescriptionLanguageCodeControl
+import Amazonka.MediaLive.Types.AudioNormalizationSettings
+import Amazonka.MediaLive.Types.AudioType
+import Amazonka.MediaLive.Types.AudioWatermarkSettings
+import Amazonka.MediaLive.Types.RemixSettings
+import qualified Amazonka.Prelude as Prelude
 
 -- | Audio Description
 --

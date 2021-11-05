@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaLive.Types.InputClippingSettings
+-- Module      : Amazonka.MediaLive.Types.InputClippingSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.InputClippingSettings where
+module Amazonka.MediaLive.Types.InputClippingSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.InputTimecodeSource
-import Network.AWS.MediaLive.Types.StartTimecode
-import Network.AWS.MediaLive.Types.StopTimecode
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaLive.Types.InputTimecodeSource
+import Amazonka.MediaLive.Types.StartTimecode
+import Amazonka.MediaLive.Types.StopTimecode
+import qualified Amazonka.Prelude as Prelude
 
 -- | Settings to let you create a clip of the file input, in order to set up
 -- the input to ingest only a portion of the file.

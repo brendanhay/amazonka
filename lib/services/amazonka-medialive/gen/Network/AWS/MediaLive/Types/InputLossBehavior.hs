@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaLive.Types.InputLossBehavior
+-- Module      : Amazonka.MediaLive.Types.InputLossBehavior
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.InputLossBehavior where
+module Amazonka.MediaLive.Types.InputLossBehavior where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.InputLocation
-import Network.AWS.MediaLive.Types.InputLossImageType
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaLive.Types.InputLocation
+import Amazonka.MediaLive.Types.InputLossImageType
+import qualified Amazonka.Prelude as Prelude
 
 -- | Input Loss Behavior
 --

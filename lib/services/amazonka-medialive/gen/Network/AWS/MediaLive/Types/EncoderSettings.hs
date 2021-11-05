@@ -11,29 +11,29 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaLive.Types.EncoderSettings
+-- Module      : Amazonka.MediaLive.Types.EncoderSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.EncoderSettings where
+module Amazonka.MediaLive.Types.EncoderSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.AudioDescription
-import Network.AWS.MediaLive.Types.AvailBlanking
-import Network.AWS.MediaLive.Types.AvailConfiguration
-import Network.AWS.MediaLive.Types.BlackoutSlate
-import Network.AWS.MediaLive.Types.CaptionDescription
-import Network.AWS.MediaLive.Types.FeatureActivations
-import Network.AWS.MediaLive.Types.GlobalConfiguration
-import Network.AWS.MediaLive.Types.MotionGraphicsConfiguration
-import Network.AWS.MediaLive.Types.NielsenConfiguration
-import Network.AWS.MediaLive.Types.OutputGroup
-import Network.AWS.MediaLive.Types.TimecodeConfig
-import Network.AWS.MediaLive.Types.VideoDescription
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaLive.Types.AudioDescription
+import Amazonka.MediaLive.Types.AvailBlanking
+import Amazonka.MediaLive.Types.AvailConfiguration
+import Amazonka.MediaLive.Types.BlackoutSlate
+import Amazonka.MediaLive.Types.CaptionDescription
+import Amazonka.MediaLive.Types.FeatureActivations
+import Amazonka.MediaLive.Types.GlobalConfiguration
+import Amazonka.MediaLive.Types.MotionGraphicsConfiguration
+import Amazonka.MediaLive.Types.NielsenConfiguration
+import Amazonka.MediaLive.Types.OutputGroup
+import Amazonka.MediaLive.Types.TimecodeConfig
+import Amazonka.MediaLive.Types.VideoDescription
+import qualified Amazonka.Prelude as Prelude
 
 -- | Encoder Settings
 --

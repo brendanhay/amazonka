@@ -11,30 +11,30 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaLive.Types.CaptionDestinationSettings
+-- Module      : Amazonka.MediaLive.Types.CaptionDestinationSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.CaptionDestinationSettings where
+module Amazonka.MediaLive.Types.CaptionDestinationSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.AribDestinationSettings
-import Network.AWS.MediaLive.Types.BurnInDestinationSettings
-import Network.AWS.MediaLive.Types.DvbSubDestinationSettings
-import Network.AWS.MediaLive.Types.EbuTtDDestinationSettings
-import Network.AWS.MediaLive.Types.EmbeddedDestinationSettings
-import Network.AWS.MediaLive.Types.EmbeddedPlusScte20DestinationSettings
-import Network.AWS.MediaLive.Types.RtmpCaptionInfoDestinationSettings
-import Network.AWS.MediaLive.Types.Scte20PlusEmbeddedDestinationSettings
-import Network.AWS.MediaLive.Types.Scte27DestinationSettings
-import Network.AWS.MediaLive.Types.SmpteTtDestinationSettings
-import Network.AWS.MediaLive.Types.TeletextDestinationSettings
-import Network.AWS.MediaLive.Types.TtmlDestinationSettings
-import Network.AWS.MediaLive.Types.WebvttDestinationSettings
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaLive.Types.AribDestinationSettings
+import Amazonka.MediaLive.Types.BurnInDestinationSettings
+import Amazonka.MediaLive.Types.DvbSubDestinationSettings
+import Amazonka.MediaLive.Types.EbuTtDDestinationSettings
+import Amazonka.MediaLive.Types.EmbeddedDestinationSettings
+import Amazonka.MediaLive.Types.EmbeddedPlusScte20DestinationSettings
+import Amazonka.MediaLive.Types.RtmpCaptionInfoDestinationSettings
+import Amazonka.MediaLive.Types.Scte20PlusEmbeddedDestinationSettings
+import Amazonka.MediaLive.Types.Scte27DestinationSettings
+import Amazonka.MediaLive.Types.SmpteTtDestinationSettings
+import Amazonka.MediaLive.Types.TeletextDestinationSettings
+import Amazonka.MediaLive.Types.TtmlDestinationSettings
+import Amazonka.MediaLive.Types.WebvttDestinationSettings
+import qualified Amazonka.Prelude as Prelude
 
 -- | Caption Destination Settings
 --

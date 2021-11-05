@@ -11,26 +11,26 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaLive.Types.ChannelSummary
+-- Module      : Amazonka.MediaLive.Types.ChannelSummary
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.ChannelSummary where
+module Amazonka.MediaLive.Types.ChannelSummary where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.CdiInputSpecification
-import Network.AWS.MediaLive.Types.ChannelClass
-import Network.AWS.MediaLive.Types.ChannelEgressEndpoint
-import Network.AWS.MediaLive.Types.ChannelState
-import Network.AWS.MediaLive.Types.InputAttachment
-import Network.AWS.MediaLive.Types.InputSpecification
-import Network.AWS.MediaLive.Types.LogLevel
-import Network.AWS.MediaLive.Types.OutputDestination
-import Network.AWS.MediaLive.Types.VpcOutputSettingsDescription
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaLive.Types.CdiInputSpecification
+import Amazonka.MediaLive.Types.ChannelClass
+import Amazonka.MediaLive.Types.ChannelEgressEndpoint
+import Amazonka.MediaLive.Types.ChannelState
+import Amazonka.MediaLive.Types.InputAttachment
+import Amazonka.MediaLive.Types.InputSpecification
+import Amazonka.MediaLive.Types.LogLevel
+import Amazonka.MediaLive.Types.OutputDestination
+import Amazonka.MediaLive.Types.VpcOutputSettingsDescription
+import qualified Amazonka.Prelude as Prelude
 
 -- | Placeholder documentation for ChannelSummary
 --

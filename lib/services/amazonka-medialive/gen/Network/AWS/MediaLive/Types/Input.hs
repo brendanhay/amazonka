@@ -11,25 +11,25 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaLive.Types.Input
+-- Module      : Amazonka.MediaLive.Types.Input
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.Input where
+module Amazonka.MediaLive.Types.Input where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.InputClass
-import Network.AWS.MediaLive.Types.InputDestination
-import Network.AWS.MediaLive.Types.InputDeviceSettings
-import Network.AWS.MediaLive.Types.InputSource
-import Network.AWS.MediaLive.Types.InputSourceType
-import Network.AWS.MediaLive.Types.InputState
-import Network.AWS.MediaLive.Types.InputType
-import Network.AWS.MediaLive.Types.MediaConnectFlow
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaLive.Types.InputClass
+import Amazonka.MediaLive.Types.InputDestination
+import Amazonka.MediaLive.Types.InputDeviceSettings
+import Amazonka.MediaLive.Types.InputSource
+import Amazonka.MediaLive.Types.InputSourceType
+import Amazonka.MediaLive.Types.InputState
+import Amazonka.MediaLive.Types.InputType
+import Amazonka.MediaLive.Types.MediaConnectFlow
+import qualified Amazonka.Prelude as Prelude
 
 -- | Placeholder documentation for Input
 --

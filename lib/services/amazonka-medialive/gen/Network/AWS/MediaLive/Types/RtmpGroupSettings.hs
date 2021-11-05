@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaLive.Types.RtmpGroupSettings
+-- Module      : Amazonka.MediaLive.Types.RtmpGroupSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.RtmpGroupSettings where
+module Amazonka.MediaLive.Types.RtmpGroupSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.AuthenticationScheme
-import Network.AWS.MediaLive.Types.InputLossActionForRtmpOut
-import Network.AWS.MediaLive.Types.RtmpAdMarkers
-import Network.AWS.MediaLive.Types.RtmpCacheFullBehavior
-import Network.AWS.MediaLive.Types.RtmpCaptionData
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaLive.Types.AuthenticationScheme
+import Amazonka.MediaLive.Types.InputLossActionForRtmpOut
+import Amazonka.MediaLive.Types.RtmpAdMarkers
+import Amazonka.MediaLive.Types.RtmpCacheFullBehavior
+import Amazonka.MediaLive.Types.RtmpCaptionData
+import qualified Amazonka.Prelude as Prelude
 
 -- | Rtmp Group Settings
 --

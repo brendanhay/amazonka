@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaLive.Types.Scte35WebDeliveryAllowedFlag
+-- Module      : Amazonka.MediaLive.Types.Scte35WebDeliveryAllowedFlag
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.Scte35WebDeliveryAllowedFlag
+module Amazonka.MediaLive.Types.Scte35WebDeliveryAllowedFlag
   ( Scte35WebDeliveryAllowedFlag
       ( ..,
         Scte35WebDeliveryAllowedFlag_WEB_DELIVERY_ALLOWED,
@@ -26,8 +26,8 @@ module Network.AWS.MediaLive.Types.Scte35WebDeliveryAllowedFlag
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Corresponds to the web_delivery_allowed_flag parameter. A value of
 -- WEB_DELIVERY_NOT_ALLOWED corresponds to 0 (false) in the SCTE-35

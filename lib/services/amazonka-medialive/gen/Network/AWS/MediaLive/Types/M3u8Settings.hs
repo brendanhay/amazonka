@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaLive.Types.M3u8Settings
+-- Module      : Amazonka.MediaLive.Types.M3u8Settings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.M3u8Settings where
+module Amazonka.MediaLive.Types.M3u8Settings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.M3u8NielsenId3Behavior
-import Network.AWS.MediaLive.Types.M3u8PcrControl
-import Network.AWS.MediaLive.Types.M3u8Scte35Behavior
-import Network.AWS.MediaLive.Types.M3u8TimedMetadataBehavior
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaLive.Types.M3u8NielsenId3Behavior
+import Amazonka.MediaLive.Types.M3u8PcrControl
+import Amazonka.MediaLive.Types.M3u8Scte35Behavior
+import Amazonka.MediaLive.Types.M3u8TimedMetadataBehavior
+import qualified Amazonka.Prelude as Prelude
 
 -- | Settings information for the .m3u8 container
 --

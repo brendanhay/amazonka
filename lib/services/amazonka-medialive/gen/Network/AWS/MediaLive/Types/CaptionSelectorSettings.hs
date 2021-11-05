@@ -11,24 +11,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaLive.Types.CaptionSelectorSettings
+-- Module      : Amazonka.MediaLive.Types.CaptionSelectorSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.CaptionSelectorSettings where
+module Amazonka.MediaLive.Types.CaptionSelectorSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.AncillarySourceSettings
-import Network.AWS.MediaLive.Types.AribSourceSettings
-import Network.AWS.MediaLive.Types.DvbSubSourceSettings
-import Network.AWS.MediaLive.Types.EmbeddedSourceSettings
-import Network.AWS.MediaLive.Types.Scte20SourceSettings
-import Network.AWS.MediaLive.Types.Scte27SourceSettings
-import Network.AWS.MediaLive.Types.TeletextSourceSettings
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaLive.Types.AncillarySourceSettings
+import Amazonka.MediaLive.Types.AribSourceSettings
+import Amazonka.MediaLive.Types.DvbSubSourceSettings
+import Amazonka.MediaLive.Types.EmbeddedSourceSettings
+import Amazonka.MediaLive.Types.Scte20SourceSettings
+import Amazonka.MediaLive.Types.Scte27SourceSettings
+import Amazonka.MediaLive.Types.TeletextSourceSettings
+import qualified Amazonka.Prelude as Prelude
 
 -- | Caption Selector Settings
 --

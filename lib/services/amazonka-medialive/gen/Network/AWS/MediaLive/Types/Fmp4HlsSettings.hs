@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaLive.Types.Fmp4HlsSettings
+-- Module      : Amazonka.MediaLive.Types.Fmp4HlsSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.Fmp4HlsSettings where
+module Amazonka.MediaLive.Types.Fmp4HlsSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.Fmp4NielsenId3Behavior
-import Network.AWS.MediaLive.Types.Fmp4TimedMetadataBehavior
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaLive.Types.Fmp4NielsenId3Behavior
+import Amazonka.MediaLive.Types.Fmp4TimedMetadataBehavior
+import qualified Amazonka.Prelude as Prelude
 
 -- | Fmp4 Hls Settings
 --

@@ -11,31 +11,31 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaLive.Types.Eac3Settings
+-- Module      : Amazonka.MediaLive.Types.Eac3Settings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.Eac3Settings where
+module Amazonka.MediaLive.Types.Eac3Settings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.Eac3AttenuationControl
-import Network.AWS.MediaLive.Types.Eac3BitstreamMode
-import Network.AWS.MediaLive.Types.Eac3CodingMode
-import Network.AWS.MediaLive.Types.Eac3DcFilter
-import Network.AWS.MediaLive.Types.Eac3DrcLine
-import Network.AWS.MediaLive.Types.Eac3DrcRf
-import Network.AWS.MediaLive.Types.Eac3LfeControl
-import Network.AWS.MediaLive.Types.Eac3LfeFilter
-import Network.AWS.MediaLive.Types.Eac3MetadataControl
-import Network.AWS.MediaLive.Types.Eac3PassthroughControl
-import Network.AWS.MediaLive.Types.Eac3PhaseControl
-import Network.AWS.MediaLive.Types.Eac3StereoDownmix
-import Network.AWS.MediaLive.Types.Eac3SurroundExMode
-import Network.AWS.MediaLive.Types.Eac3SurroundMode
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaLive.Types.Eac3AttenuationControl
+import Amazonka.MediaLive.Types.Eac3BitstreamMode
+import Amazonka.MediaLive.Types.Eac3CodingMode
+import Amazonka.MediaLive.Types.Eac3DcFilter
+import Amazonka.MediaLive.Types.Eac3DrcLine
+import Amazonka.MediaLive.Types.Eac3DrcRf
+import Amazonka.MediaLive.Types.Eac3LfeControl
+import Amazonka.MediaLive.Types.Eac3LfeFilter
+import Amazonka.MediaLive.Types.Eac3MetadataControl
+import Amazonka.MediaLive.Types.Eac3PassthroughControl
+import Amazonka.MediaLive.Types.Eac3PhaseControl
+import Amazonka.MediaLive.Types.Eac3StereoDownmix
+import Amazonka.MediaLive.Types.Eac3SurroundExMode
+import Amazonka.MediaLive.Types.Eac3SurroundMode
+import qualified Amazonka.Prelude as Prelude
 
 -- | Eac3 Settings
 --

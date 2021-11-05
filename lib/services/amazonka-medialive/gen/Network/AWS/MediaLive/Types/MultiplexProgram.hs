@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaLive.Types.MultiplexProgram
+-- Module      : Amazonka.MediaLive.Types.MultiplexProgram
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.MultiplexProgram where
+module Amazonka.MediaLive.Types.MultiplexProgram where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.MultiplexProgramPacketIdentifiersMap
-import Network.AWS.MediaLive.Types.MultiplexProgramPipelineDetail
-import Network.AWS.MediaLive.Types.MultiplexProgramSettings
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaLive.Types.MultiplexProgramPacketIdentifiersMap
+import Amazonka.MediaLive.Types.MultiplexProgramPipelineDetail
+import Amazonka.MediaLive.Types.MultiplexProgramSettings
+import qualified Amazonka.Prelude as Prelude
 
 -- | The multiplex program object.
 --

@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaLive.Types.H265ColorSpaceSettings
+-- Module      : Amazonka.MediaLive.Types.H265ColorSpaceSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.H265ColorSpaceSettings where
+module Amazonka.MediaLive.Types.H265ColorSpaceSettings where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.ColorSpacePassthroughSettings
-import Network.AWS.MediaLive.Types.Hdr10Settings
-import Network.AWS.MediaLive.Types.Rec601Settings
-import Network.AWS.MediaLive.Types.Rec709Settings
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MediaLive.Types.ColorSpacePassthroughSettings
+import Amazonka.MediaLive.Types.Hdr10Settings
+import Amazonka.MediaLive.Types.Rec601Settings
+import Amazonka.MediaLive.Types.Rec709Settings
+import qualified Amazonka.Prelude as Prelude
 
 -- | H265 Color Space Settings
 --

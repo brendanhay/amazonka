@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Textract where
 
+import Amazonka.Textract
 import qualified Data.Proxy as Proxy
-import Network.AWS.Textract
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.Textract.Internal

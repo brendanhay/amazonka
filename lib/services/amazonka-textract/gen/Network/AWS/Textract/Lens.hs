@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Textract.Lens
+-- Module      : Amazonka.Textract.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Textract.Lens
+module Amazonka.Textract.Lens
   ( -- * Operations
 
     -- ** DetectDocumentText
@@ -189,31 +189,31 @@ module Network.AWS.Textract.Lens
   )
 where
 
-import Network.AWS.Textract.AnalyzeDocument
-import Network.AWS.Textract.AnalyzeExpense
-import Network.AWS.Textract.DetectDocumentText
-import Network.AWS.Textract.GetDocumentAnalysis
-import Network.AWS.Textract.GetDocumentTextDetection
-import Network.AWS.Textract.StartDocumentAnalysis
-import Network.AWS.Textract.StartDocumentTextDetection
-import Network.AWS.Textract.Types.Block
-import Network.AWS.Textract.Types.BoundingBox
-import Network.AWS.Textract.Types.Document
-import Network.AWS.Textract.Types.DocumentLocation
-import Network.AWS.Textract.Types.DocumentMetadata
-import Network.AWS.Textract.Types.ExpenseDetection
-import Network.AWS.Textract.Types.ExpenseDocument
-import Network.AWS.Textract.Types.ExpenseField
-import Network.AWS.Textract.Types.ExpenseType
-import Network.AWS.Textract.Types.Geometry
-import Network.AWS.Textract.Types.HumanLoopActivationOutput
-import Network.AWS.Textract.Types.HumanLoopConfig
-import Network.AWS.Textract.Types.HumanLoopDataAttributes
-import Network.AWS.Textract.Types.LineItemFields
-import Network.AWS.Textract.Types.LineItemGroup
-import Network.AWS.Textract.Types.NotificationChannel
-import Network.AWS.Textract.Types.OutputConfig
-import Network.AWS.Textract.Types.Point
-import Network.AWS.Textract.Types.Relationship
-import Network.AWS.Textract.Types.S3Object
-import Network.AWS.Textract.Types.Warning
+import Amazonka.Textract.AnalyzeDocument
+import Amazonka.Textract.AnalyzeExpense
+import Amazonka.Textract.DetectDocumentText
+import Amazonka.Textract.GetDocumentAnalysis
+import Amazonka.Textract.GetDocumentTextDetection
+import Amazonka.Textract.StartDocumentAnalysis
+import Amazonka.Textract.StartDocumentTextDetection
+import Amazonka.Textract.Types.Block
+import Amazonka.Textract.Types.BoundingBox
+import Amazonka.Textract.Types.Document
+import Amazonka.Textract.Types.DocumentLocation
+import Amazonka.Textract.Types.DocumentMetadata
+import Amazonka.Textract.Types.ExpenseDetection
+import Amazonka.Textract.Types.ExpenseDocument
+import Amazonka.Textract.Types.ExpenseField
+import Amazonka.Textract.Types.ExpenseType
+import Amazonka.Textract.Types.Geometry
+import Amazonka.Textract.Types.HumanLoopActivationOutput
+import Amazonka.Textract.Types.HumanLoopConfig
+import Amazonka.Textract.Types.HumanLoopDataAttributes
+import Amazonka.Textract.Types.LineItemFields
+import Amazonka.Textract.Types.LineItemGroup
+import Amazonka.Textract.Types.NotificationChannel
+import Amazonka.Textract.Types.OutputConfig
+import Amazonka.Textract.Types.Point
+import Amazonka.Textract.Types.Relationship
+import Amazonka.Textract.Types.S3Object
+import Amazonka.Textract.Types.Warning

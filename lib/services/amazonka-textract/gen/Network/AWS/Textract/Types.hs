@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Textract.Types
+-- Module      : Amazonka.Textract.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Textract.Types
+module Amazonka.Textract.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -201,39 +201,39 @@ module Network.AWS.Textract.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
-import Network.AWS.Textract.Types.Block
-import Network.AWS.Textract.Types.BlockType
-import Network.AWS.Textract.Types.BoundingBox
-import Network.AWS.Textract.Types.ContentClassifier
-import Network.AWS.Textract.Types.Document
-import Network.AWS.Textract.Types.DocumentLocation
-import Network.AWS.Textract.Types.DocumentMetadata
-import Network.AWS.Textract.Types.EntityType
-import Network.AWS.Textract.Types.ExpenseDetection
-import Network.AWS.Textract.Types.ExpenseDocument
-import Network.AWS.Textract.Types.ExpenseField
-import Network.AWS.Textract.Types.ExpenseType
-import Network.AWS.Textract.Types.FeatureType
-import Network.AWS.Textract.Types.Geometry
-import Network.AWS.Textract.Types.HumanLoopActivationOutput
-import Network.AWS.Textract.Types.HumanLoopConfig
-import Network.AWS.Textract.Types.HumanLoopDataAttributes
-import Network.AWS.Textract.Types.JobStatus
-import Network.AWS.Textract.Types.LineItemFields
-import Network.AWS.Textract.Types.LineItemGroup
-import Network.AWS.Textract.Types.NotificationChannel
-import Network.AWS.Textract.Types.OutputConfig
-import Network.AWS.Textract.Types.Point
-import Network.AWS.Textract.Types.Relationship
-import Network.AWS.Textract.Types.RelationshipType
-import Network.AWS.Textract.Types.S3Object
-import Network.AWS.Textract.Types.SelectionStatus
-import Network.AWS.Textract.Types.TextType
-import Network.AWS.Textract.Types.Warning
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
+import Amazonka.Textract.Types.Block
+import Amazonka.Textract.Types.BlockType
+import Amazonka.Textract.Types.BoundingBox
+import Amazonka.Textract.Types.ContentClassifier
+import Amazonka.Textract.Types.Document
+import Amazonka.Textract.Types.DocumentLocation
+import Amazonka.Textract.Types.DocumentMetadata
+import Amazonka.Textract.Types.EntityType
+import Amazonka.Textract.Types.ExpenseDetection
+import Amazonka.Textract.Types.ExpenseDocument
+import Amazonka.Textract.Types.ExpenseField
+import Amazonka.Textract.Types.ExpenseType
+import Amazonka.Textract.Types.FeatureType
+import Amazonka.Textract.Types.Geometry
+import Amazonka.Textract.Types.HumanLoopActivationOutput
+import Amazonka.Textract.Types.HumanLoopConfig
+import Amazonka.Textract.Types.HumanLoopDataAttributes
+import Amazonka.Textract.Types.JobStatus
+import Amazonka.Textract.Types.LineItemFields
+import Amazonka.Textract.Types.LineItemGroup
+import Amazonka.Textract.Types.NotificationChannel
+import Amazonka.Textract.Types.OutputConfig
+import Amazonka.Textract.Types.Point
+import Amazonka.Textract.Types.Relationship
+import Amazonka.Textract.Types.RelationshipType
+import Amazonka.Textract.Types.S3Object
+import Amazonka.Textract.Types.SelectionStatus
+import Amazonka.Textract.Types.TextType
+import Amazonka.Textract.Types.Warning
 
 -- | API version @2018-06-27@ of the Amazon Textract SDK configuration.
 defaultService :: Core.Service

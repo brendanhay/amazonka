@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Textract
+-- Module      : Amazonka.Textract
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -14,7 +14,7 @@
 -- Amazon Textract detects and analyzes text in documents and converts it
 -- into machine-readable text. This is the API reference documentation for
 -- Amazon Textract.
-module Network.AWS.Textract
+module Amazonka.Textract
   ( -- * Service Configuration
     defaultService,
 
@@ -223,16 +223,16 @@ module Network.AWS.Textract
   )
 where
 
-import Network.AWS.Textract.AnalyzeDocument
-import Network.AWS.Textract.AnalyzeExpense
-import Network.AWS.Textract.DetectDocumentText
-import Network.AWS.Textract.GetDocumentAnalysis
-import Network.AWS.Textract.GetDocumentTextDetection
-import Network.AWS.Textract.Lens
-import Network.AWS.Textract.StartDocumentAnalysis
-import Network.AWS.Textract.StartDocumentTextDetection
-import Network.AWS.Textract.Types
-import Network.AWS.Textract.Waiters
+import Amazonka.Textract.AnalyzeDocument
+import Amazonka.Textract.AnalyzeExpense
+import Amazonka.Textract.DetectDocumentText
+import Amazonka.Textract.GetDocumentAnalysis
+import Amazonka.Textract.GetDocumentTextDetection
+import Amazonka.Textract.Lens
+import Amazonka.Textract.StartDocumentAnalysis
+import Amazonka.Textract.StartDocumentTextDetection
+import Amazonka.Textract.Types
+import Amazonka.Textract.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

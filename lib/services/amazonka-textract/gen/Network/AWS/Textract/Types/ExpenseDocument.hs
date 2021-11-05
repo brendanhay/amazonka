@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Textract.Types.ExpenseDocument
+-- Module      : Amazonka.Textract.Types.ExpenseDocument
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Textract.Types.ExpenseDocument where
+module Amazonka.Textract.Types.ExpenseDocument where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Textract.Types.ExpenseField
-import Network.AWS.Textract.Types.LineItemGroup
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Textract.Types.ExpenseField
+import Amazonka.Textract.Types.LineItemGroup
 
 -- | The structure holding all the information returned by AnalyzeExpense
 --

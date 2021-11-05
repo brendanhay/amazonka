@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Chime.Types.EngineTranscribeMedicalSettings
+-- Module      : Amazonka.Chime.Types.EngineTranscribeMedicalSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Chime.Types.EngineTranscribeMedicalSettings where
+module Amazonka.Chime.Types.EngineTranscribeMedicalSettings where
 
-import Network.AWS.Chime.Types.TranscribeMedicalLanguageCode
-import Network.AWS.Chime.Types.TranscribeMedicalRegion
-import Network.AWS.Chime.Types.TranscribeMedicalSpecialty
-import Network.AWS.Chime.Types.TranscribeMedicalType
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Chime.Types.TranscribeMedicalLanguageCode
+import Amazonka.Chime.Types.TranscribeMedicalRegion
+import Amazonka.Chime.Types.TranscribeMedicalSpecialty
+import Amazonka.Chime.Types.TranscribeMedicalType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Settings specific to the Amazon Transcribe Medical engine.
 --

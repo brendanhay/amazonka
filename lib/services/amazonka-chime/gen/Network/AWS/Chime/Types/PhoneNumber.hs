@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Chime.Types.PhoneNumber
+-- Module      : Amazonka.Chime.Types.PhoneNumber
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Chime.Types.PhoneNumber where
+module Amazonka.Chime.Types.PhoneNumber where
 
-import Network.AWS.Chime.Types.CallingNameStatus
-import Network.AWS.Chime.Types.PhoneNumberAssociation
-import Network.AWS.Chime.Types.PhoneNumberCapabilities
-import Network.AWS.Chime.Types.PhoneNumberProductType
-import Network.AWS.Chime.Types.PhoneNumberStatus
-import Network.AWS.Chime.Types.PhoneNumberType
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Chime.Types.CallingNameStatus
+import Amazonka.Chime.Types.PhoneNumberAssociation
+import Amazonka.Chime.Types.PhoneNumberCapabilities
+import Amazonka.Chime.Types.PhoneNumberProductType
+import Amazonka.Chime.Types.PhoneNumberStatus
+import Amazonka.Chime.Types.PhoneNumberType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A phone number used for Amazon Chime Business Calling or an Amazon Chime
 -- Voice Connector.

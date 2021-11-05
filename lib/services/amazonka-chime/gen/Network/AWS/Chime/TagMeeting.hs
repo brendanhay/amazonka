@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Chime.TagMeeting
+-- Module      : Amazonka.Chime.TagMeeting
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Applies the specified tags to the specified Amazon Chime SDK meeting.
-module Network.AWS.Chime.TagMeeting
+module Amazonka.Chime.TagMeeting
   ( -- * Creating a Request
     TagMeeting (..),
     newTagMeeting,
@@ -36,12 +36,12 @@ module Network.AWS.Chime.TagMeeting
   )
 where
 
-import Network.AWS.Chime.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Chime.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newTagMeeting' smart constructor.
 data TagMeeting = TagMeeting'

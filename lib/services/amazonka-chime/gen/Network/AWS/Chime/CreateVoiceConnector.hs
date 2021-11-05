@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Chime.CreateVoiceConnector
+-- Module      : Amazonka.Chime.CreateVoiceConnector
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -28,7 +28,7 @@
 -- Amazon Chime Voice Connector to use TLS transport for SIP signaling and
 -- Secure RTP (SRTP) for media. Inbound calls use TLS transport, and
 -- unencrypted outbound calls are blocked.
-module Network.AWS.Chime.CreateVoiceConnector
+module Amazonka.Chime.CreateVoiceConnector
   ( -- * Creating a Request
     CreateVoiceConnector (..),
     newCreateVoiceConnector,
@@ -48,12 +48,12 @@ module Network.AWS.Chime.CreateVoiceConnector
   )
 where
 
-import Network.AWS.Chime.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Chime.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateVoiceConnector' smart constructor.
 data CreateVoiceConnector = CreateVoiceConnector'

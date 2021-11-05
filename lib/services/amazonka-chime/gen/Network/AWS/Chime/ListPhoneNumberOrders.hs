@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Chime.ListPhoneNumberOrders
+-- Module      : Amazonka.Chime.ListPhoneNumberOrders
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Lists the phone number orders for the administrator\'s Amazon Chime
 -- account.
-module Network.AWS.Chime.ListPhoneNumberOrders
+module Amazonka.Chime.ListPhoneNumberOrders
   ( -- * Creating a Request
     ListPhoneNumberOrders (..),
     newListPhoneNumberOrders,
@@ -42,12 +42,12 @@ module Network.AWS.Chime.ListPhoneNumberOrders
   )
 where
 
-import Network.AWS.Chime.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Chime.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPhoneNumberOrders' smart constructor.
 data ListPhoneNumberOrders = ListPhoneNumberOrders'

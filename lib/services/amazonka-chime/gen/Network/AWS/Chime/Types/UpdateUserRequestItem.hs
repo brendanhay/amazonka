@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Chime.Types.UpdateUserRequestItem
+-- Module      : Amazonka.Chime.Types.UpdateUserRequestItem
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Chime.Types.UpdateUserRequestItem where
+module Amazonka.Chime.Types.UpdateUserRequestItem where
 
-import Network.AWS.Chime.Types.AlexaForBusinessMetadata
-import Network.AWS.Chime.Types.License
-import Network.AWS.Chime.Types.UserType
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Chime.Types.AlexaForBusinessMetadata
+import Amazonka.Chime.Types.License
+import Amazonka.Chime.Types.UserType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The user ID and user fields to update, used with the BatchUpdateUser
 -- action.

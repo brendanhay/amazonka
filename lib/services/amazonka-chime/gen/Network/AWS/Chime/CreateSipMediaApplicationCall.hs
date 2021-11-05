@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Chime.CreateSipMediaApplicationCall
+-- Module      : Amazonka.Chime.CreateSipMediaApplicationCall
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Creates an outbound call to a phone number from the phone number
 -- specified in the request, and it invokes the endpoint of the specified
 -- @sipMediaApplicationId@.
-module Network.AWS.Chime.CreateSipMediaApplicationCall
+module Amazonka.Chime.CreateSipMediaApplicationCall
   ( -- * Creating a Request
     CreateSipMediaApplicationCall (..),
     newCreateSipMediaApplicationCall,
@@ -44,12 +44,12 @@ module Network.AWS.Chime.CreateSipMediaApplicationCall
   )
 where
 
-import Network.AWS.Chime.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Chime.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateSipMediaApplicationCall' smart constructor.
 data CreateSipMediaApplicationCall = CreateSipMediaApplicationCall'

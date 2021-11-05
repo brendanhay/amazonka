@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Chime where
 
+import Amazonka.Chime
 import qualified Data.Proxy as Proxy
-import Network.AWS.Chime
 import Test.AWS.Chime.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

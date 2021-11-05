@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Chime.CreateSipRule
+-- Module      : Amazonka.Chime.CreateSipRule
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Creates a SIP rule which can be used to run a SIP media application as a
 -- target for a specific trigger type.
-module Network.AWS.Chime.CreateSipRule
+module Amazonka.Chime.CreateSipRule
   ( -- * Creating a Request
     CreateSipRule (..),
     newCreateSipRule,
@@ -44,12 +44,12 @@ module Network.AWS.Chime.CreateSipRule
   )
 where
 
-import Network.AWS.Chime.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Chime.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateSipRule' smart constructor.
 data CreateSipRule = CreateSipRule'

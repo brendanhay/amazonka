@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Chime.Types.TranscribeRegion
+-- Module      : Amazonka.Chime.Types.TranscribeRegion
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Chime.Types.TranscribeRegion
+module Amazonka.Chime.Types.TranscribeRegion
   ( TranscribeRegion
       ( ..,
         TranscribeRegion_Ap_northeast_1,
@@ -36,8 +36,8 @@ module Network.AWS.Chime.Types.TranscribeRegion
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 newtype TranscribeRegion = TranscribeRegion'
   { fromTranscribeRegion ::

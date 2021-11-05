@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Chime.GetProxySession
+-- Module      : Amazonka.Chime.GetProxySession
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Gets the specified proxy session details for the specified Amazon Chime
 -- Voice Connector.
-module Network.AWS.Chime.GetProxySession
+module Amazonka.Chime.GetProxySession
   ( -- * Creating a Request
     GetProxySession (..),
     newGetProxySession,
@@ -41,12 +41,12 @@ module Network.AWS.Chime.GetProxySession
   )
 where
 
-import Network.AWS.Chime.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Chime.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetProxySession' smart constructor.
 data GetProxySession = GetProxySession'

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Chime.DeletePhoneNumber
+-- Module      : Amazonka.Chime.DeletePhoneNumber
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 --
 -- Deleted phone numbers remain in the __Deletion queue__ for 7 days before
 -- they are deleted permanently.
-module Network.AWS.Chime.DeletePhoneNumber
+module Amazonka.Chime.DeletePhoneNumber
   ( -- * Creating a Request
     DeletePhoneNumber (..),
     newDeletePhoneNumber,
@@ -40,12 +40,12 @@ module Network.AWS.Chime.DeletePhoneNumber
   )
 where
 
-import Network.AWS.Chime.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Chime.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeletePhoneNumber' smart constructor.
 data DeletePhoneNumber = DeletePhoneNumber'

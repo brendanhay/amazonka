@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Chime.GetEventsConfiguration
+-- Module      : Amazonka.Chime.GetEventsConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Gets details for an events configuration that allows a bot to receive
 -- outgoing events, such as an HTTPS endpoint or Lambda function ARN.
-module Network.AWS.Chime.GetEventsConfiguration
+module Amazonka.Chime.GetEventsConfiguration
   ( -- * Creating a Request
     GetEventsConfiguration (..),
     newGetEventsConfiguration,
@@ -41,12 +41,12 @@ module Network.AWS.Chime.GetEventsConfiguration
   )
 where
 
-import Network.AWS.Chime.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Chime.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetEventsConfiguration' smart constructor.
 data GetEventsConfiguration = GetEventsConfiguration'

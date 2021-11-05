@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Chime.Types.SipRule
+-- Module      : Amazonka.Chime.Types.SipRule
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Chime.Types.SipRule where
+module Amazonka.Chime.Types.SipRule where
 
-import Network.AWS.Chime.Types.SipRuleTargetApplication
-import Network.AWS.Chime.Types.SipRuleTriggerType
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Chime.Types.SipRuleTargetApplication
+import Amazonka.Chime.Types.SipRuleTriggerType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The SIP rule details, including name, triggers, and target applications.
 -- An AWS account can have multiple SIP rules.

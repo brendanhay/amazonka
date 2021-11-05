@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Chime.Types.VoiceConnectorGroup
+-- Module      : Amazonka.Chime.Types.VoiceConnectorGroup
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Chime.Types.VoiceConnectorGroup where
+module Amazonka.Chime.Types.VoiceConnectorGroup where
 
-import Network.AWS.Chime.Types.VoiceConnectorItem
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Chime.Types.VoiceConnectorItem
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon Chime Voice Connector group configuration, including
 -- associated Amazon Chime Voice Connectors. You can include Amazon Chime

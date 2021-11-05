@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Chime.Types.EngineTranscribeSettings
+-- Module      : Amazonka.Chime.Types.EngineTranscribeSettings
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Chime.Types.EngineTranscribeSettings where
+module Amazonka.Chime.Types.EngineTranscribeSettings where
 
-import Network.AWS.Chime.Types.TranscribeLanguageCode
-import Network.AWS.Chime.Types.TranscribeRegion
-import Network.AWS.Chime.Types.TranscribeVocabularyFilterMethod
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Chime.Types.TranscribeLanguageCode
+import Amazonka.Chime.Types.TranscribeRegion
+import Amazonka.Chime.Types.TranscribeVocabularyFilterMethod
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Settings specific to the Amazon Transcribe engine.
 --

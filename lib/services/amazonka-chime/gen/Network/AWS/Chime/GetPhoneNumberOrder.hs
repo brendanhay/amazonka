@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Chime.GetPhoneNumberOrder
+-- Module      : Amazonka.Chime.GetPhoneNumberOrder
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Retrieves details for the specified phone number order, such as the
 -- order creation timestamp, phone numbers in E.164 format, product type,
 -- and order status.
-module Network.AWS.Chime.GetPhoneNumberOrder
+module Amazonka.Chime.GetPhoneNumberOrder
   ( -- * Creating a Request
     GetPhoneNumberOrder (..),
     newGetPhoneNumberOrder,
@@ -41,12 +41,12 @@ module Network.AWS.Chime.GetPhoneNumberOrder
   )
 where
 
-import Network.AWS.Chime.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Chime.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetPhoneNumberOrder' smart constructor.
 data GetPhoneNumberOrder = GetPhoneNumberOrder'

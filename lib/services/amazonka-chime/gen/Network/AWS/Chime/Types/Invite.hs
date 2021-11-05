@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Chime.Types.Invite
+-- Module      : Amazonka.Chime.Types.Invite
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Chime.Types.Invite where
+module Amazonka.Chime.Types.Invite where
 
-import Network.AWS.Chime.Types.EmailStatus
-import Network.AWS.Chime.Types.InviteStatus
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Chime.Types.EmailStatus
+import Amazonka.Chime.Types.InviteStatus
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Invitation object returned after emailing users to invite them to join
 -- the Amazon Chime @Team@ account.

@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Chime.Types.User
+-- Module      : Amazonka.Chime.Types.User
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Chime.Types.User where
+module Amazonka.Chime.Types.User where
 
-import Network.AWS.Chime.Types.AlexaForBusinessMetadata
-import Network.AWS.Chime.Types.InviteStatus
-import Network.AWS.Chime.Types.License
-import Network.AWS.Chime.Types.RegistrationStatus
-import Network.AWS.Chime.Types.UserType
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Chime.Types.AlexaForBusinessMetadata
+import Amazonka.Chime.Types.InviteStatus
+import Amazonka.Chime.Types.License
+import Amazonka.Chime.Types.RegistrationStatus
+import Amazonka.Chime.Types.UserType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The user on the Amazon Chime account.
 --

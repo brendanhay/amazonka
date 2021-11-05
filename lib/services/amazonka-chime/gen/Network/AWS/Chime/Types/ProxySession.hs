@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Chime.Types.ProxySession
+-- Module      : Amazonka.Chime.Types.ProxySession
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Chime.Types.ProxySession where
+module Amazonka.Chime.Types.ProxySession where
 
-import Network.AWS.Chime.Types.Capability
-import Network.AWS.Chime.Types.GeoMatchLevel
-import Network.AWS.Chime.Types.GeoMatchParams
-import Network.AWS.Chime.Types.NumberSelectionBehavior
-import Network.AWS.Chime.Types.Participant
-import Network.AWS.Chime.Types.ProxySessionStatus
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Chime.Types.Capability
+import Amazonka.Chime.Types.GeoMatchLevel
+import Amazonka.Chime.Types.GeoMatchParams
+import Amazonka.Chime.Types.NumberSelectionBehavior
+import Amazonka.Chime.Types.Participant
+import Amazonka.Chime.Types.ProxySessionStatus
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The proxy session for an Amazon Chime Voice Connector.
 --

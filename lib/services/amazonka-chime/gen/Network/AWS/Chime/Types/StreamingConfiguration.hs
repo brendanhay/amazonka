@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Chime.Types.StreamingConfiguration
+-- Module      : Amazonka.Chime.Types.StreamingConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Chime.Types.StreamingConfiguration where
+module Amazonka.Chime.Types.StreamingConfiguration where
 
-import Network.AWS.Chime.Types.StreamingNotificationTarget
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Chime.Types.StreamingNotificationTarget
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The streaming configuration associated with an Amazon Chime Voice
 -- Connector. Specifies whether media streaming is enabled for sending to

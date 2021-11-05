@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Chime.Types.UpdatePhoneNumberRequestItem
+-- Module      : Amazonka.Chime.Types.UpdatePhoneNumberRequestItem
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Chime.Types.UpdatePhoneNumberRequestItem where
+module Amazonka.Chime.Types.UpdatePhoneNumberRequestItem where
 
-import Network.AWS.Chime.Types.PhoneNumberProductType
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Chime.Types.PhoneNumberProductType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The phone number ID, product type, or calling name fields to update,
 -- used with the BatchUpdatePhoneNumber and UpdatePhoneNumber actions.

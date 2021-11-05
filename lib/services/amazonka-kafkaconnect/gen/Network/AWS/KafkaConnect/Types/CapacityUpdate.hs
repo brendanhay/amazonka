@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KafkaConnect.Types.CapacityUpdate
+-- Module      : Amazonka.KafkaConnect.Types.CapacityUpdate
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KafkaConnect.Types.CapacityUpdate where
+module Amazonka.KafkaConnect.Types.CapacityUpdate where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KafkaConnect.Types.AutoScalingUpdate
-import Network.AWS.KafkaConnect.Types.ProvisionedCapacityUpdate
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.KafkaConnect.Types.AutoScalingUpdate
+import Amazonka.KafkaConnect.Types.ProvisionedCapacityUpdate
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The target capacity for the connector. The capacity can be auto scaled
 -- or provisioned.

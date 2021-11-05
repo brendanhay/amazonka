@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KafkaConnect.Types.ApacheKafkaClusterDescription
+-- Module      : Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KafkaConnect.Types.ApacheKafkaClusterDescription where
+module Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KafkaConnect.Types.VpcDescription
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.KafkaConnect.Types.VpcDescription
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The description of the Apache Kafka cluster to which the connector is
 -- connected.

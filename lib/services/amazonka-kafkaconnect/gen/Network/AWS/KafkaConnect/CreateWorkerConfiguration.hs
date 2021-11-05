@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KafkaConnect.CreateWorkerConfiguration
+-- Module      : Amazonka.KafkaConnect.CreateWorkerConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a worker configuration using the specified properties.
-module Network.AWS.KafkaConnect.CreateWorkerConfiguration
+module Amazonka.KafkaConnect.CreateWorkerConfiguration
   ( -- * Creating a Request
     CreateWorkerConfiguration (..),
     newCreateWorkerConfiguration,
@@ -44,12 +44,12 @@ module Network.AWS.KafkaConnect.CreateWorkerConfiguration
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KafkaConnect.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.KafkaConnect.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateWorkerConfiguration' smart constructor.
 data CreateWorkerConfiguration = CreateWorkerConfiguration'

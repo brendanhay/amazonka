@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.KafkaConnect
+-- Module      : Amazonka.KafkaConnect
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -10,7 +10,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Derived from API version @2021-09-14@ of the AWS service descriptions, licensed under Apache 2.0.
-module Network.AWS.KafkaConnect
+module Amazonka.KafkaConnect
   ( -- * Service Configuration
     defaultService,
 
@@ -340,20 +340,20 @@ module Network.AWS.KafkaConnect
   )
 where
 
-import Network.AWS.KafkaConnect.CreateConnector
-import Network.AWS.KafkaConnect.CreateCustomPlugin
-import Network.AWS.KafkaConnect.CreateWorkerConfiguration
-import Network.AWS.KafkaConnect.DeleteConnector
-import Network.AWS.KafkaConnect.DescribeConnector
-import Network.AWS.KafkaConnect.DescribeCustomPlugin
-import Network.AWS.KafkaConnect.DescribeWorkerConfiguration
-import Network.AWS.KafkaConnect.Lens
-import Network.AWS.KafkaConnect.ListConnectors
-import Network.AWS.KafkaConnect.ListCustomPlugins
-import Network.AWS.KafkaConnect.ListWorkerConfigurations
-import Network.AWS.KafkaConnect.Types
-import Network.AWS.KafkaConnect.UpdateConnector
-import Network.AWS.KafkaConnect.Waiters
+import Amazonka.KafkaConnect.CreateConnector
+import Amazonka.KafkaConnect.CreateCustomPlugin
+import Amazonka.KafkaConnect.CreateWorkerConfiguration
+import Amazonka.KafkaConnect.DeleteConnector
+import Amazonka.KafkaConnect.DescribeConnector
+import Amazonka.KafkaConnect.DescribeCustomPlugin
+import Amazonka.KafkaConnect.DescribeWorkerConfiguration
+import Amazonka.KafkaConnect.Lens
+import Amazonka.KafkaConnect.ListConnectors
+import Amazonka.KafkaConnect.ListCustomPlugins
+import Amazonka.KafkaConnect.ListWorkerConfigurations
+import Amazonka.KafkaConnect.Types
+import Amazonka.KafkaConnect.UpdateConnector
+import Amazonka.KafkaConnect.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

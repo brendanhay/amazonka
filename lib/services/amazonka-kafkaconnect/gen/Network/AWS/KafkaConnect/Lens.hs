@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KafkaConnect.Lens
+-- Module      : Amazonka.KafkaConnect.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KafkaConnect.Lens
+module Amazonka.KafkaConnect.Lens
   ( -- * Operations
 
     -- ** ListWorkerConfigurations
@@ -365,66 +365,66 @@ module Network.AWS.KafkaConnect.Lens
   )
 where
 
-import Network.AWS.KafkaConnect.CreateConnector
-import Network.AWS.KafkaConnect.CreateCustomPlugin
-import Network.AWS.KafkaConnect.CreateWorkerConfiguration
-import Network.AWS.KafkaConnect.DeleteConnector
-import Network.AWS.KafkaConnect.DescribeConnector
-import Network.AWS.KafkaConnect.DescribeCustomPlugin
-import Network.AWS.KafkaConnect.DescribeWorkerConfiguration
-import Network.AWS.KafkaConnect.ListConnectors
-import Network.AWS.KafkaConnect.ListCustomPlugins
-import Network.AWS.KafkaConnect.ListWorkerConfigurations
-import Network.AWS.KafkaConnect.Types.ApacheKafkaCluster
-import Network.AWS.KafkaConnect.Types.ApacheKafkaClusterDescription
-import Network.AWS.KafkaConnect.Types.AutoScaling
-import Network.AWS.KafkaConnect.Types.AutoScalingDescription
-import Network.AWS.KafkaConnect.Types.AutoScalingUpdate
-import Network.AWS.KafkaConnect.Types.Capacity
-import Network.AWS.KafkaConnect.Types.CapacityDescription
-import Network.AWS.KafkaConnect.Types.CapacityUpdate
-import Network.AWS.KafkaConnect.Types.CloudWatchLogsLogDelivery
-import Network.AWS.KafkaConnect.Types.CloudWatchLogsLogDeliveryDescription
-import Network.AWS.KafkaConnect.Types.ConnectorSummary
-import Network.AWS.KafkaConnect.Types.CustomPlugin
-import Network.AWS.KafkaConnect.Types.CustomPluginDescription
-import Network.AWS.KafkaConnect.Types.CustomPluginFileDescription
-import Network.AWS.KafkaConnect.Types.CustomPluginLocation
-import Network.AWS.KafkaConnect.Types.CustomPluginLocationDescription
-import Network.AWS.KafkaConnect.Types.CustomPluginRevisionSummary
-import Network.AWS.KafkaConnect.Types.CustomPluginSummary
-import Network.AWS.KafkaConnect.Types.FirehoseLogDelivery
-import Network.AWS.KafkaConnect.Types.FirehoseLogDeliveryDescription
-import Network.AWS.KafkaConnect.Types.KafkaCluster
-import Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthentication
-import Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationDescription
-import Network.AWS.KafkaConnect.Types.KafkaClusterDescription
-import Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransit
-import Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransitDescription
-import Network.AWS.KafkaConnect.Types.LogDelivery
-import Network.AWS.KafkaConnect.Types.LogDeliveryDescription
-import Network.AWS.KafkaConnect.Types.Plugin
-import Network.AWS.KafkaConnect.Types.PluginDescription
-import Network.AWS.KafkaConnect.Types.ProvisionedCapacity
-import Network.AWS.KafkaConnect.Types.ProvisionedCapacityDescription
-import Network.AWS.KafkaConnect.Types.ProvisionedCapacityUpdate
-import Network.AWS.KafkaConnect.Types.S3Location
-import Network.AWS.KafkaConnect.Types.S3LocationDescription
-import Network.AWS.KafkaConnect.Types.S3LogDelivery
-import Network.AWS.KafkaConnect.Types.S3LogDeliveryDescription
-import Network.AWS.KafkaConnect.Types.ScaleInPolicy
-import Network.AWS.KafkaConnect.Types.ScaleInPolicyDescription
-import Network.AWS.KafkaConnect.Types.ScaleInPolicyUpdate
-import Network.AWS.KafkaConnect.Types.ScaleOutPolicy
-import Network.AWS.KafkaConnect.Types.ScaleOutPolicyDescription
-import Network.AWS.KafkaConnect.Types.ScaleOutPolicyUpdate
-import Network.AWS.KafkaConnect.Types.Vpc
-import Network.AWS.KafkaConnect.Types.VpcDescription
-import Network.AWS.KafkaConnect.Types.WorkerConfiguration
-import Network.AWS.KafkaConnect.Types.WorkerConfigurationDescription
-import Network.AWS.KafkaConnect.Types.WorkerConfigurationRevisionDescription
-import Network.AWS.KafkaConnect.Types.WorkerConfigurationRevisionSummary
-import Network.AWS.KafkaConnect.Types.WorkerConfigurationSummary
-import Network.AWS.KafkaConnect.Types.WorkerLogDelivery
-import Network.AWS.KafkaConnect.Types.WorkerLogDeliveryDescription
-import Network.AWS.KafkaConnect.UpdateConnector
+import Amazonka.KafkaConnect.CreateConnector
+import Amazonka.KafkaConnect.CreateCustomPlugin
+import Amazonka.KafkaConnect.CreateWorkerConfiguration
+import Amazonka.KafkaConnect.DeleteConnector
+import Amazonka.KafkaConnect.DescribeConnector
+import Amazonka.KafkaConnect.DescribeCustomPlugin
+import Amazonka.KafkaConnect.DescribeWorkerConfiguration
+import Amazonka.KafkaConnect.ListConnectors
+import Amazonka.KafkaConnect.ListCustomPlugins
+import Amazonka.KafkaConnect.ListWorkerConfigurations
+import Amazonka.KafkaConnect.Types.ApacheKafkaCluster
+import Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription
+import Amazonka.KafkaConnect.Types.AutoScaling
+import Amazonka.KafkaConnect.Types.AutoScalingDescription
+import Amazonka.KafkaConnect.Types.AutoScalingUpdate
+import Amazonka.KafkaConnect.Types.Capacity
+import Amazonka.KafkaConnect.Types.CapacityDescription
+import Amazonka.KafkaConnect.Types.CapacityUpdate
+import Amazonka.KafkaConnect.Types.CloudWatchLogsLogDelivery
+import Amazonka.KafkaConnect.Types.CloudWatchLogsLogDeliveryDescription
+import Amazonka.KafkaConnect.Types.ConnectorSummary
+import Amazonka.KafkaConnect.Types.CustomPlugin
+import Amazonka.KafkaConnect.Types.CustomPluginDescription
+import Amazonka.KafkaConnect.Types.CustomPluginFileDescription
+import Amazonka.KafkaConnect.Types.CustomPluginLocation
+import Amazonka.KafkaConnect.Types.CustomPluginLocationDescription
+import Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary
+import Amazonka.KafkaConnect.Types.CustomPluginSummary
+import Amazonka.KafkaConnect.Types.FirehoseLogDelivery
+import Amazonka.KafkaConnect.Types.FirehoseLogDeliveryDescription
+import Amazonka.KafkaConnect.Types.KafkaCluster
+import Amazonka.KafkaConnect.Types.KafkaClusterClientAuthentication
+import Amazonka.KafkaConnect.Types.KafkaClusterClientAuthenticationDescription
+import Amazonka.KafkaConnect.Types.KafkaClusterDescription
+import Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransit
+import Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitDescription
+import Amazonka.KafkaConnect.Types.LogDelivery
+import Amazonka.KafkaConnect.Types.LogDeliveryDescription
+import Amazonka.KafkaConnect.Types.Plugin
+import Amazonka.KafkaConnect.Types.PluginDescription
+import Amazonka.KafkaConnect.Types.ProvisionedCapacity
+import Amazonka.KafkaConnect.Types.ProvisionedCapacityDescription
+import Amazonka.KafkaConnect.Types.ProvisionedCapacityUpdate
+import Amazonka.KafkaConnect.Types.S3Location
+import Amazonka.KafkaConnect.Types.S3LocationDescription
+import Amazonka.KafkaConnect.Types.S3LogDelivery
+import Amazonka.KafkaConnect.Types.S3LogDeliveryDescription
+import Amazonka.KafkaConnect.Types.ScaleInPolicy
+import Amazonka.KafkaConnect.Types.ScaleInPolicyDescription
+import Amazonka.KafkaConnect.Types.ScaleInPolicyUpdate
+import Amazonka.KafkaConnect.Types.ScaleOutPolicy
+import Amazonka.KafkaConnect.Types.ScaleOutPolicyDescription
+import Amazonka.KafkaConnect.Types.ScaleOutPolicyUpdate
+import Amazonka.KafkaConnect.Types.Vpc
+import Amazonka.KafkaConnect.Types.VpcDescription
+import Amazonka.KafkaConnect.Types.WorkerConfiguration
+import Amazonka.KafkaConnect.Types.WorkerConfigurationDescription
+import Amazonka.KafkaConnect.Types.WorkerConfigurationRevisionDescription
+import Amazonka.KafkaConnect.Types.WorkerConfigurationRevisionSummary
+import Amazonka.KafkaConnect.Types.WorkerConfigurationSummary
+import Amazonka.KafkaConnect.Types.WorkerLogDelivery
+import Amazonka.KafkaConnect.Types.WorkerLogDeliveryDescription
+import Amazonka.KafkaConnect.UpdateConnector

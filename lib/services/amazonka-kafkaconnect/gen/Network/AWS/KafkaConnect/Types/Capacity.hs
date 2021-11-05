@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KafkaConnect.Types.Capacity
+-- Module      : Amazonka.KafkaConnect.Types.Capacity
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KafkaConnect.Types.Capacity where
+module Amazonka.KafkaConnect.Types.Capacity where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KafkaConnect.Types.AutoScaling
-import Network.AWS.KafkaConnect.Types.ProvisionedCapacity
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.KafkaConnect.Types.AutoScaling
+import Amazonka.KafkaConnect.Types.ProvisionedCapacity
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the capacity of the connector, whether it is auto
 -- scaled or provisioned.

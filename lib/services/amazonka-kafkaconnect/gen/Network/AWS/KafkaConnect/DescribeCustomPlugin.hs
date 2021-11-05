@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KafkaConnect.DescribeCustomPlugin
+-- Module      : Amazonka.KafkaConnect.DescribeCustomPlugin
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- A summary description of the custom plugin.
-module Network.AWS.KafkaConnect.DescribeCustomPlugin
+module Amazonka.KafkaConnect.DescribeCustomPlugin
   ( -- * Creating a Request
     DescribeCustomPlugin (..),
     newDescribeCustomPlugin,
@@ -44,12 +44,12 @@ module Network.AWS.KafkaConnect.DescribeCustomPlugin
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KafkaConnect.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.KafkaConnect.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeCustomPlugin' smart constructor.
 data DescribeCustomPlugin = DescribeCustomPlugin'

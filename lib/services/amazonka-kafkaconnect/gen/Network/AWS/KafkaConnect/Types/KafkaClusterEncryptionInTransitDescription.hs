@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransitDescription
+-- Module      : Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitDescription
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransitDescription where
+module Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitDescription where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransitType
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The description of the encryption in transit to the Apache Kafka
 -- cluster.

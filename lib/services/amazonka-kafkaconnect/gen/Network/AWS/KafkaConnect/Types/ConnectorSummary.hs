@@ -11,25 +11,25 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KafkaConnect.Types.ConnectorSummary
+-- Module      : Amazonka.KafkaConnect.Types.ConnectorSummary
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KafkaConnect.Types.ConnectorSummary where
+module Amazonka.KafkaConnect.Types.ConnectorSummary where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KafkaConnect.Types.CapacityDescription
-import Network.AWS.KafkaConnect.Types.ConnectorState
-import Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationDescription
-import Network.AWS.KafkaConnect.Types.KafkaClusterDescription
-import Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransitDescription
-import Network.AWS.KafkaConnect.Types.LogDeliveryDescription
-import Network.AWS.KafkaConnect.Types.PluginDescription
-import Network.AWS.KafkaConnect.Types.WorkerConfigurationDescription
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.KafkaConnect.Types.CapacityDescription
+import Amazonka.KafkaConnect.Types.ConnectorState
+import Amazonka.KafkaConnect.Types.KafkaClusterClientAuthenticationDescription
+import Amazonka.KafkaConnect.Types.KafkaClusterDescription
+import Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitDescription
+import Amazonka.KafkaConnect.Types.LogDeliveryDescription
+import Amazonka.KafkaConnect.Types.PluginDescription
+import Amazonka.KafkaConnect.Types.WorkerConfigurationDescription
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Summary of a connector.
 --

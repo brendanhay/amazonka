@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KafkaConnect.Types.WorkerLogDeliveryDescription
+-- Module      : Amazonka.KafkaConnect.Types.WorkerLogDeliveryDescription
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KafkaConnect.Types.WorkerLogDeliveryDescription where
+module Amazonka.KafkaConnect.Types.WorkerLogDeliveryDescription where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KafkaConnect.Types.CloudWatchLogsLogDeliveryDescription
-import Network.AWS.KafkaConnect.Types.FirehoseLogDeliveryDescription
-import Network.AWS.KafkaConnect.Types.S3LogDeliveryDescription
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.KafkaConnect.Types.CloudWatchLogsLogDeliveryDescription
+import Amazonka.KafkaConnect.Types.FirehoseLogDeliveryDescription
+import Amazonka.KafkaConnect.Types.S3LogDeliveryDescription
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Workers can send worker logs to different destination types. This
 -- configuration specifies the details of these destinations.

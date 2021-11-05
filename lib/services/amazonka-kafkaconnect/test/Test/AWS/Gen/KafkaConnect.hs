@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.KafkaConnect where
 
+import Amazonka.KafkaConnect
 import qualified Data.Proxy as Proxy
-import Network.AWS.KafkaConnect
 import Test.AWS.Fixture
 import Test.AWS.KafkaConnect.Internal
 import Test.AWS.Prelude

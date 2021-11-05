@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KafkaConnect.ListCustomPlugins
+-- Module      : Amazonka.KafkaConnect.ListCustomPlugins
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Returns a list of all of the custom plugins in this account and Region.
 --
 -- This operation returns paginated results.
-module Network.AWS.KafkaConnect.ListCustomPlugins
+module Amazonka.KafkaConnect.ListCustomPlugins
   ( -- * Creating a Request
     ListCustomPlugins (..),
     newListCustomPlugins,
@@ -43,12 +43,12 @@ module Network.AWS.KafkaConnect.ListCustomPlugins
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KafkaConnect.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.KafkaConnect.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListCustomPlugins' smart constructor.
 data ListCustomPlugins = ListCustomPlugins'

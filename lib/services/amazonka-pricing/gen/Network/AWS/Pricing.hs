@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Pricing
+-- Module      : Amazonka.Pricing
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -39,7 +39,7 @@
 -- -   https:\/\/api.pricing.us-east-1.amazonaws.com
 --
 -- -   https:\/\/api.pricing.ap-south-1.amazonaws.com
-module Network.AWS.Pricing
+module Amazonka.Pricing
   ( -- * Service Configuration
     defaultService,
 
@@ -104,12 +104,12 @@ module Network.AWS.Pricing
   )
 where
 
-import Network.AWS.Pricing.DescribeServices
-import Network.AWS.Pricing.GetAttributeValues
-import Network.AWS.Pricing.GetProducts
-import Network.AWS.Pricing.Lens
-import Network.AWS.Pricing.Types
-import Network.AWS.Pricing.Waiters
+import Amazonka.Pricing.DescribeServices
+import Amazonka.Pricing.GetAttributeValues
+import Amazonka.Pricing.GetProducts
+import Amazonka.Pricing.Lens
+import Amazonka.Pricing.Types
+import Amazonka.Pricing.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

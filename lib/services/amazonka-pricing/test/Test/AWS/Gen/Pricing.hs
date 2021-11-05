@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Pricing where
 
+import Amazonka.Pricing
 import qualified Data.Proxy as Proxy
-import Network.AWS.Pricing
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.Pricing.Internal

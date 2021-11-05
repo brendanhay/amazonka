@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Pricing.Lens
+-- Module      : Amazonka.Pricing.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pricing.Lens
+module Amazonka.Pricing.Lens
   ( -- * Operations
 
     -- ** GetAttributeValues
@@ -60,9 +60,9 @@ module Network.AWS.Pricing.Lens
   )
 where
 
-import Network.AWS.Pricing.DescribeServices
-import Network.AWS.Pricing.GetAttributeValues
-import Network.AWS.Pricing.GetProducts
-import Network.AWS.Pricing.Types.AttributeValue
-import Network.AWS.Pricing.Types.Filter
-import Network.AWS.Pricing.Types.PricingService
+import Amazonka.Pricing.DescribeServices
+import Amazonka.Pricing.GetAttributeValues
+import Amazonka.Pricing.GetProducts
+import Amazonka.Pricing.Types.AttributeValue
+import Amazonka.Pricing.Types.Filter
+import Amazonka.Pricing.Types.PricingService

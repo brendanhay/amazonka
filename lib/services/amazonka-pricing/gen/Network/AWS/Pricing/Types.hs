@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Pricing.Types
+-- Module      : Amazonka.Pricing.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pricing.Types
+module Amazonka.Pricing.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -46,14 +46,14 @@ module Network.AWS.Pricing.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Pricing.Types.AttributeValue
-import Network.AWS.Pricing.Types.Filter
-import Network.AWS.Pricing.Types.FilterType
-import Network.AWS.Pricing.Types.PricingService
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Pricing.Types.AttributeValue
+import Amazonka.Pricing.Types.Filter
+import Amazonka.Pricing.Types.FilterType
+import Amazonka.Pricing.Types.PricingService
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2017-10-15@ of the Amazon Price List Service SDK configuration.
 defaultService :: Core.Service

@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DataExchange.Types.AssetEntry
+-- Module      : Amazonka.DataExchange.Types.AssetEntry
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DataExchange.Types.AssetEntry where
+module Amazonka.DataExchange.Types.AssetEntry where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DataExchange.Types.AssetDetails
-import Network.AWS.DataExchange.Types.AssetType
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DataExchange.Types.AssetDetails
+import Amazonka.DataExchange.Types.AssetType
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | An asset in AWS Data Exchange is a piece of data. The asset can be a
 -- structured data file, an image file, or some other data file that can be

@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DataExchange.Lens
+-- Module      : Amazonka.DataExchange.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DataExchange.Lens
+module Amazonka.DataExchange.Lens
   ( -- * Operations
 
     -- ** GetEventAction
@@ -482,66 +482,66 @@ module Network.AWS.DataExchange.Lens
   )
 where
 
-import Network.AWS.DataExchange.CancelJob
-import Network.AWS.DataExchange.CreateDataSet
-import Network.AWS.DataExchange.CreateEventAction
-import Network.AWS.DataExchange.CreateJob
-import Network.AWS.DataExchange.CreateRevision
-import Network.AWS.DataExchange.DeleteAsset
-import Network.AWS.DataExchange.DeleteDataSet
-import Network.AWS.DataExchange.DeleteEventAction
-import Network.AWS.DataExchange.DeleteRevision
-import Network.AWS.DataExchange.GetAsset
-import Network.AWS.DataExchange.GetDataSet
-import Network.AWS.DataExchange.GetEventAction
-import Network.AWS.DataExchange.GetJob
-import Network.AWS.DataExchange.GetRevision
-import Network.AWS.DataExchange.ListDataSetRevisions
-import Network.AWS.DataExchange.ListDataSets
-import Network.AWS.DataExchange.ListEventActions
-import Network.AWS.DataExchange.ListJobs
-import Network.AWS.DataExchange.ListRevisionAssets
-import Network.AWS.DataExchange.ListTagsForResource
-import Network.AWS.DataExchange.StartJob
-import Network.AWS.DataExchange.TagResource
-import Network.AWS.DataExchange.Types.Action
-import Network.AWS.DataExchange.Types.AssetDestinationEntry
-import Network.AWS.DataExchange.Types.AssetDetails
-import Network.AWS.DataExchange.Types.AssetEntry
-import Network.AWS.DataExchange.Types.AssetSourceEntry
-import Network.AWS.DataExchange.Types.AutoExportRevisionDestinationEntry
-import Network.AWS.DataExchange.Types.AutoExportRevisionToS3RequestDetails
-import Network.AWS.DataExchange.Types.DataSetEntry
-import Network.AWS.DataExchange.Types.Details
-import Network.AWS.DataExchange.Types.Event
-import Network.AWS.DataExchange.Types.EventActionEntry
-import Network.AWS.DataExchange.Types.ExportAssetToSignedUrlRequestDetails
-import Network.AWS.DataExchange.Types.ExportAssetToSignedUrlResponseDetails
-import Network.AWS.DataExchange.Types.ExportAssetsToS3RequestDetails
-import Network.AWS.DataExchange.Types.ExportAssetsToS3ResponseDetails
-import Network.AWS.DataExchange.Types.ExportRevisionsToS3RequestDetails
-import Network.AWS.DataExchange.Types.ExportRevisionsToS3ResponseDetails
-import Network.AWS.DataExchange.Types.ExportServerSideEncryption
-import Network.AWS.DataExchange.Types.ImportAssetFromSignedUrlJobErrorDetails
-import Network.AWS.DataExchange.Types.ImportAssetFromSignedUrlRequestDetails
-import Network.AWS.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails
-import Network.AWS.DataExchange.Types.ImportAssetsFromRedshiftDataSharesRequestDetails
-import Network.AWS.DataExchange.Types.ImportAssetsFromRedshiftDataSharesResponseDetails
-import Network.AWS.DataExchange.Types.ImportAssetsFromS3RequestDetails
-import Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails
-import Network.AWS.DataExchange.Types.JobEntry
-import Network.AWS.DataExchange.Types.JobError
-import Network.AWS.DataExchange.Types.OriginDetails
-import Network.AWS.DataExchange.Types.RedshiftDataShareAsset
-import Network.AWS.DataExchange.Types.RedshiftDataShareAssetSourceEntry
-import Network.AWS.DataExchange.Types.RequestDetails
-import Network.AWS.DataExchange.Types.ResponseDetails
-import Network.AWS.DataExchange.Types.RevisionDestinationEntry
-import Network.AWS.DataExchange.Types.RevisionEntry
-import Network.AWS.DataExchange.Types.RevisionPublished
-import Network.AWS.DataExchange.Types.S3SnapshotAsset
-import Network.AWS.DataExchange.UntagResource
-import Network.AWS.DataExchange.UpdateAsset
-import Network.AWS.DataExchange.UpdateDataSet
-import Network.AWS.DataExchange.UpdateEventAction
-import Network.AWS.DataExchange.UpdateRevision
+import Amazonka.DataExchange.CancelJob
+import Amazonka.DataExchange.CreateDataSet
+import Amazonka.DataExchange.CreateEventAction
+import Amazonka.DataExchange.CreateJob
+import Amazonka.DataExchange.CreateRevision
+import Amazonka.DataExchange.DeleteAsset
+import Amazonka.DataExchange.DeleteDataSet
+import Amazonka.DataExchange.DeleteEventAction
+import Amazonka.DataExchange.DeleteRevision
+import Amazonka.DataExchange.GetAsset
+import Amazonka.DataExchange.GetDataSet
+import Amazonka.DataExchange.GetEventAction
+import Amazonka.DataExchange.GetJob
+import Amazonka.DataExchange.GetRevision
+import Amazonka.DataExchange.ListDataSetRevisions
+import Amazonka.DataExchange.ListDataSets
+import Amazonka.DataExchange.ListEventActions
+import Amazonka.DataExchange.ListJobs
+import Amazonka.DataExchange.ListRevisionAssets
+import Amazonka.DataExchange.ListTagsForResource
+import Amazonka.DataExchange.StartJob
+import Amazonka.DataExchange.TagResource
+import Amazonka.DataExchange.Types.Action
+import Amazonka.DataExchange.Types.AssetDestinationEntry
+import Amazonka.DataExchange.Types.AssetDetails
+import Amazonka.DataExchange.Types.AssetEntry
+import Amazonka.DataExchange.Types.AssetSourceEntry
+import Amazonka.DataExchange.Types.AutoExportRevisionDestinationEntry
+import Amazonka.DataExchange.Types.AutoExportRevisionToS3RequestDetails
+import Amazonka.DataExchange.Types.DataSetEntry
+import Amazonka.DataExchange.Types.Details
+import Amazonka.DataExchange.Types.Event
+import Amazonka.DataExchange.Types.EventActionEntry
+import Amazonka.DataExchange.Types.ExportAssetToSignedUrlRequestDetails
+import Amazonka.DataExchange.Types.ExportAssetToSignedUrlResponseDetails
+import Amazonka.DataExchange.Types.ExportAssetsToS3RequestDetails
+import Amazonka.DataExchange.Types.ExportAssetsToS3ResponseDetails
+import Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails
+import Amazonka.DataExchange.Types.ExportRevisionsToS3ResponseDetails
+import Amazonka.DataExchange.Types.ExportServerSideEncryption
+import Amazonka.DataExchange.Types.ImportAssetFromSignedUrlJobErrorDetails
+import Amazonka.DataExchange.Types.ImportAssetFromSignedUrlRequestDetails
+import Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails
+import Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesRequestDetails
+import Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesResponseDetails
+import Amazonka.DataExchange.Types.ImportAssetsFromS3RequestDetails
+import Amazonka.DataExchange.Types.ImportAssetsFromS3ResponseDetails
+import Amazonka.DataExchange.Types.JobEntry
+import Amazonka.DataExchange.Types.JobError
+import Amazonka.DataExchange.Types.OriginDetails
+import Amazonka.DataExchange.Types.RedshiftDataShareAsset
+import Amazonka.DataExchange.Types.RedshiftDataShareAssetSourceEntry
+import Amazonka.DataExchange.Types.RequestDetails
+import Amazonka.DataExchange.Types.ResponseDetails
+import Amazonka.DataExchange.Types.RevisionDestinationEntry
+import Amazonka.DataExchange.Types.RevisionEntry
+import Amazonka.DataExchange.Types.RevisionPublished
+import Amazonka.DataExchange.Types.S3SnapshotAsset
+import Amazonka.DataExchange.UntagResource
+import Amazonka.DataExchange.UpdateAsset
+import Amazonka.DataExchange.UpdateDataSet
+import Amazonka.DataExchange.UpdateEventAction
+import Amazonka.DataExchange.UpdateRevision

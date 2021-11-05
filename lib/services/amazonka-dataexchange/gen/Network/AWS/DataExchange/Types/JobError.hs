@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DataExchange.Types.JobError
+-- Module      : Amazonka.DataExchange.Types.JobError
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DataExchange.Types.JobError where
+module Amazonka.DataExchange.Types.JobError where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DataExchange.Types.Code
-import Network.AWS.DataExchange.Types.Details
-import Network.AWS.DataExchange.Types.JobErrorLimitName
-import Network.AWS.DataExchange.Types.JobErrorResourceTypes
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DataExchange.Types.Code
+import Amazonka.DataExchange.Types.Details
+import Amazonka.DataExchange.Types.JobErrorLimitName
+import Amazonka.DataExchange.Types.JobErrorResourceTypes
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | An error that occurred with the job request.
 --

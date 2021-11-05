@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.DataExchange
+-- Module      : Amazonka.DataExchange
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -32,7 +32,7 @@
 -- be stored as an Amazon S3 object. The asset can be a structured data
 -- file, an image file, or some other data file. Jobs are asynchronous
 -- import or export operations used to create or copy assets.
-module Network.AWS.DataExchange
+module Amazonka.DataExchange
   ( -- * Service Configuration
     defaultService,
 
@@ -400,36 +400,36 @@ module Network.AWS.DataExchange
   )
 where
 
-import Network.AWS.DataExchange.CancelJob
-import Network.AWS.DataExchange.CreateDataSet
-import Network.AWS.DataExchange.CreateEventAction
-import Network.AWS.DataExchange.CreateJob
-import Network.AWS.DataExchange.CreateRevision
-import Network.AWS.DataExchange.DeleteAsset
-import Network.AWS.DataExchange.DeleteDataSet
-import Network.AWS.DataExchange.DeleteEventAction
-import Network.AWS.DataExchange.DeleteRevision
-import Network.AWS.DataExchange.GetAsset
-import Network.AWS.DataExchange.GetDataSet
-import Network.AWS.DataExchange.GetEventAction
-import Network.AWS.DataExchange.GetJob
-import Network.AWS.DataExchange.GetRevision
-import Network.AWS.DataExchange.Lens
-import Network.AWS.DataExchange.ListDataSetRevisions
-import Network.AWS.DataExchange.ListDataSets
-import Network.AWS.DataExchange.ListEventActions
-import Network.AWS.DataExchange.ListJobs
-import Network.AWS.DataExchange.ListRevisionAssets
-import Network.AWS.DataExchange.ListTagsForResource
-import Network.AWS.DataExchange.StartJob
-import Network.AWS.DataExchange.TagResource
-import Network.AWS.DataExchange.Types
-import Network.AWS.DataExchange.UntagResource
-import Network.AWS.DataExchange.UpdateAsset
-import Network.AWS.DataExchange.UpdateDataSet
-import Network.AWS.DataExchange.UpdateEventAction
-import Network.AWS.DataExchange.UpdateRevision
-import Network.AWS.DataExchange.Waiters
+import Amazonka.DataExchange.CancelJob
+import Amazonka.DataExchange.CreateDataSet
+import Amazonka.DataExchange.CreateEventAction
+import Amazonka.DataExchange.CreateJob
+import Amazonka.DataExchange.CreateRevision
+import Amazonka.DataExchange.DeleteAsset
+import Amazonka.DataExchange.DeleteDataSet
+import Amazonka.DataExchange.DeleteEventAction
+import Amazonka.DataExchange.DeleteRevision
+import Amazonka.DataExchange.GetAsset
+import Amazonka.DataExchange.GetDataSet
+import Amazonka.DataExchange.GetEventAction
+import Amazonka.DataExchange.GetJob
+import Amazonka.DataExchange.GetRevision
+import Amazonka.DataExchange.Lens
+import Amazonka.DataExchange.ListDataSetRevisions
+import Amazonka.DataExchange.ListDataSets
+import Amazonka.DataExchange.ListEventActions
+import Amazonka.DataExchange.ListJobs
+import Amazonka.DataExchange.ListRevisionAssets
+import Amazonka.DataExchange.ListTagsForResource
+import Amazonka.DataExchange.StartJob
+import Amazonka.DataExchange.TagResource
+import Amazonka.DataExchange.Types
+import Amazonka.DataExchange.UntagResource
+import Amazonka.DataExchange.UpdateAsset
+import Amazonka.DataExchange.UpdateDataSet
+import Amazonka.DataExchange.UpdateEventAction
+import Amazonka.DataExchange.UpdateRevision
+import Amazonka.DataExchange.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

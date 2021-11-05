@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DataExchange.Types.JobEntry
+-- Module      : Amazonka.DataExchange.Types.JobEntry
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DataExchange.Types.JobEntry where
+module Amazonka.DataExchange.Types.JobEntry where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DataExchange.Types.JobError
-import Network.AWS.DataExchange.Types.ResponseDetails
-import Network.AWS.DataExchange.Types.State
-import Network.AWS.DataExchange.Types.Type
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DataExchange.Types.JobError
+import Amazonka.DataExchange.Types.ResponseDetails
+import Amazonka.DataExchange.Types.State
+import Amazonka.DataExchange.Types.Type
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | AWS Data Exchange Jobs are asynchronous import or export operations used
 -- to create or copy assets. A data set owner can both import and export as

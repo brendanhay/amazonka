@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DataExchange.Types
+-- Module      : Amazonka.DataExchange.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DataExchange.Types
+module Amazonka.DataExchange.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -327,54 +327,54 @@ module Network.AWS.DataExchange.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DataExchange.Types.Action
-import Network.AWS.DataExchange.Types.AssetDestinationEntry
-import Network.AWS.DataExchange.Types.AssetDetails
-import Network.AWS.DataExchange.Types.AssetEntry
-import Network.AWS.DataExchange.Types.AssetSourceEntry
-import Network.AWS.DataExchange.Types.AssetType
-import Network.AWS.DataExchange.Types.AutoExportRevisionDestinationEntry
-import Network.AWS.DataExchange.Types.AutoExportRevisionToS3RequestDetails
-import Network.AWS.DataExchange.Types.Code
-import Network.AWS.DataExchange.Types.DataSetEntry
-import Network.AWS.DataExchange.Types.Details
-import Network.AWS.DataExchange.Types.Event
-import Network.AWS.DataExchange.Types.EventActionEntry
-import Network.AWS.DataExchange.Types.ExportAssetToSignedUrlRequestDetails
-import Network.AWS.DataExchange.Types.ExportAssetToSignedUrlResponseDetails
-import Network.AWS.DataExchange.Types.ExportAssetsToS3RequestDetails
-import Network.AWS.DataExchange.Types.ExportAssetsToS3ResponseDetails
-import Network.AWS.DataExchange.Types.ExportRevisionsToS3RequestDetails
-import Network.AWS.DataExchange.Types.ExportRevisionsToS3ResponseDetails
-import Network.AWS.DataExchange.Types.ExportServerSideEncryption
-import Network.AWS.DataExchange.Types.ImportAssetFromSignedUrlJobErrorDetails
-import Network.AWS.DataExchange.Types.ImportAssetFromSignedUrlRequestDetails
-import Network.AWS.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails
-import Network.AWS.DataExchange.Types.ImportAssetsFromRedshiftDataSharesRequestDetails
-import Network.AWS.DataExchange.Types.ImportAssetsFromRedshiftDataSharesResponseDetails
-import Network.AWS.DataExchange.Types.ImportAssetsFromS3RequestDetails
-import Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails
-import Network.AWS.DataExchange.Types.JobEntry
-import Network.AWS.DataExchange.Types.JobError
-import Network.AWS.DataExchange.Types.JobErrorLimitName
-import Network.AWS.DataExchange.Types.JobErrorResourceTypes
-import Network.AWS.DataExchange.Types.Origin
-import Network.AWS.DataExchange.Types.OriginDetails
-import Network.AWS.DataExchange.Types.RedshiftDataShareAsset
-import Network.AWS.DataExchange.Types.RedshiftDataShareAssetSourceEntry
-import Network.AWS.DataExchange.Types.RequestDetails
-import Network.AWS.DataExchange.Types.ResponseDetails
-import Network.AWS.DataExchange.Types.RevisionDestinationEntry
-import Network.AWS.DataExchange.Types.RevisionEntry
-import Network.AWS.DataExchange.Types.RevisionPublished
-import Network.AWS.DataExchange.Types.S3SnapshotAsset
-import Network.AWS.DataExchange.Types.ServerSideEncryptionTypes
-import Network.AWS.DataExchange.Types.State
-import Network.AWS.DataExchange.Types.Type
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.DataExchange.Types.Action
+import Amazonka.DataExchange.Types.AssetDestinationEntry
+import Amazonka.DataExchange.Types.AssetDetails
+import Amazonka.DataExchange.Types.AssetEntry
+import Amazonka.DataExchange.Types.AssetSourceEntry
+import Amazonka.DataExchange.Types.AssetType
+import Amazonka.DataExchange.Types.AutoExportRevisionDestinationEntry
+import Amazonka.DataExchange.Types.AutoExportRevisionToS3RequestDetails
+import Amazonka.DataExchange.Types.Code
+import Amazonka.DataExchange.Types.DataSetEntry
+import Amazonka.DataExchange.Types.Details
+import Amazonka.DataExchange.Types.Event
+import Amazonka.DataExchange.Types.EventActionEntry
+import Amazonka.DataExchange.Types.ExportAssetToSignedUrlRequestDetails
+import Amazonka.DataExchange.Types.ExportAssetToSignedUrlResponseDetails
+import Amazonka.DataExchange.Types.ExportAssetsToS3RequestDetails
+import Amazonka.DataExchange.Types.ExportAssetsToS3ResponseDetails
+import Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails
+import Amazonka.DataExchange.Types.ExportRevisionsToS3ResponseDetails
+import Amazonka.DataExchange.Types.ExportServerSideEncryption
+import Amazonka.DataExchange.Types.ImportAssetFromSignedUrlJobErrorDetails
+import Amazonka.DataExchange.Types.ImportAssetFromSignedUrlRequestDetails
+import Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails
+import Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesRequestDetails
+import Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesResponseDetails
+import Amazonka.DataExchange.Types.ImportAssetsFromS3RequestDetails
+import Amazonka.DataExchange.Types.ImportAssetsFromS3ResponseDetails
+import Amazonka.DataExchange.Types.JobEntry
+import Amazonka.DataExchange.Types.JobError
+import Amazonka.DataExchange.Types.JobErrorLimitName
+import Amazonka.DataExchange.Types.JobErrorResourceTypes
+import Amazonka.DataExchange.Types.Origin
+import Amazonka.DataExchange.Types.OriginDetails
+import Amazonka.DataExchange.Types.RedshiftDataShareAsset
+import Amazonka.DataExchange.Types.RedshiftDataShareAssetSourceEntry
+import Amazonka.DataExchange.Types.RequestDetails
+import Amazonka.DataExchange.Types.ResponseDetails
+import Amazonka.DataExchange.Types.RevisionDestinationEntry
+import Amazonka.DataExchange.Types.RevisionEntry
+import Amazonka.DataExchange.Types.RevisionPublished
+import Amazonka.DataExchange.Types.S3SnapshotAsset
+import Amazonka.DataExchange.Types.ServerSideEncryptionTypes
+import Amazonka.DataExchange.Types.State
+import Amazonka.DataExchange.Types.Type
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2017-07-25@ of the Amazon Data Exchange SDK configuration.
 defaultService :: Core.Service

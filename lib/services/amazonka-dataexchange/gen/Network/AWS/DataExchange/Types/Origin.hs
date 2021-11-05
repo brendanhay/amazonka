@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DataExchange.Types.Origin
+-- Module      : Amazonka.DataExchange.Types.Origin
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DataExchange.Types.Origin
+module Amazonka.DataExchange.Types.Origin
   ( Origin
       ( ..,
         Origin_ENTITLED,
@@ -26,8 +26,8 @@ module Network.AWS.DataExchange.Types.Origin
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | A property that defines the data set as OWNED by the account (for
 -- providers) or ENTITLED to the account (for subscribers). When an owned

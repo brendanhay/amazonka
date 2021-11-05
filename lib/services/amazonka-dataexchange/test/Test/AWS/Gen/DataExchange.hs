@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.DataExchange where
 
+import Amazonka.DataExchange
 import qualified Data.Proxy as Proxy
-import Network.AWS.DataExchange
 import Test.AWS.DataExchange.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

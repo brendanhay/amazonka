@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DataExchange.Types.ResponseDetails
+-- Module      : Amazonka.DataExchange.Types.ResponseDetails
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DataExchange.Types.ResponseDetails where
+module Amazonka.DataExchange.Types.ResponseDetails where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DataExchange.Types.ExportAssetToSignedUrlResponseDetails
-import Network.AWS.DataExchange.Types.ExportAssetsToS3ResponseDetails
-import Network.AWS.DataExchange.Types.ExportRevisionsToS3ResponseDetails
-import Network.AWS.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails
-import Network.AWS.DataExchange.Types.ImportAssetsFromRedshiftDataSharesResponseDetails
-import Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DataExchange.Types.ExportAssetToSignedUrlResponseDetails
+import Amazonka.DataExchange.Types.ExportAssetsToS3ResponseDetails
+import Amazonka.DataExchange.Types.ExportRevisionsToS3ResponseDetails
+import Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails
+import Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesResponseDetails
+import Amazonka.DataExchange.Types.ImportAssetsFromS3ResponseDetails
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Details for the response.
 --

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DataExchange.ListDataSetRevisions
+-- Module      : Amazonka.DataExchange.ListDataSetRevisions
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- descending order.
 --
 -- This operation returns paginated results.
-module Network.AWS.DataExchange.ListDataSetRevisions
+module Amazonka.DataExchange.ListDataSetRevisions
   ( -- * Creating a Request
     ListDataSetRevisions (..),
     newListDataSetRevisions,
@@ -45,12 +45,12 @@ module Network.AWS.DataExchange.ListDataSetRevisions
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DataExchange.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DataExchange.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDataSetRevisions' smart constructor.
 data ListDataSetRevisions = ListDataSetRevisions'

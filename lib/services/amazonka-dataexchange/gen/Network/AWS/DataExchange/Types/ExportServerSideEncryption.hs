@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DataExchange.Types.ExportServerSideEncryption
+-- Module      : Amazonka.DataExchange.Types.ExportServerSideEncryption
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DataExchange.Types.ExportServerSideEncryption where
+module Amazonka.DataExchange.Types.ExportServerSideEncryption where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DataExchange.Types.ServerSideEncryptionTypes
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DataExchange.Types.ServerSideEncryptionTypes
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Encryption configuration of the export job. Includes the encryption type
 -- in addition to the AWS KMS key. The KMS key is only necessary if you

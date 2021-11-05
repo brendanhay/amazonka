@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DataExchange.CancelJob
+-- Module      : Amazonka.DataExchange.CancelJob
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- This operation cancels a job. Jobs can be cancelled only when they are
 -- in the WAITING state.
-module Network.AWS.DataExchange.CancelJob
+module Amazonka.DataExchange.CancelJob
   ( -- * Creating a Request
     CancelJob (..),
     newCancelJob,
@@ -36,12 +36,12 @@ module Network.AWS.DataExchange.CancelJob
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DataExchange.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DataExchange.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCancelJob' smart constructor.
 data CancelJob = CancelJob'

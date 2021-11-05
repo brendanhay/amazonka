@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.EC2InstanceConnect
+-- Module      : Amazonka.EC2InstanceConnect
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -14,7 +14,7 @@
 -- Amazon EC2 Instance Connect enables system administrators to publish
 -- one-time use SSH public keys to EC2, providing users a simple and secure
 -- way to connect to their instances.
-module Network.AWS.EC2InstanceConnect
+module Amazonka.EC2InstanceConnect
   ( -- * Service Configuration
     defaultService,
 
@@ -70,11 +70,11 @@ module Network.AWS.EC2InstanceConnect
   )
 where
 
-import Network.AWS.EC2InstanceConnect.Lens
-import Network.AWS.EC2InstanceConnect.SendSSHPublicKey
-import Network.AWS.EC2InstanceConnect.SendSerialConsoleSSHPublicKey
-import Network.AWS.EC2InstanceConnect.Types
-import Network.AWS.EC2InstanceConnect.Waiters
+import Amazonka.EC2InstanceConnect.Lens
+import Amazonka.EC2InstanceConnect.SendSSHPublicKey
+import Amazonka.EC2InstanceConnect.SendSerialConsoleSSHPublicKey
+import Amazonka.EC2InstanceConnect.Types
+import Amazonka.EC2InstanceConnect.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

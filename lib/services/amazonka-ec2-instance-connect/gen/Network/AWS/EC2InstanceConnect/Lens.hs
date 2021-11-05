@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EC2InstanceConnect.Lens
+-- Module      : Amazonka.EC2InstanceConnect.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2InstanceConnect.Lens
+module Amazonka.EC2InstanceConnect.Lens
   ( -- * Operations
 
     -- ** SendSSHPublicKey
@@ -35,5 +35,5 @@ module Network.AWS.EC2InstanceConnect.Lens
   )
 where
 
-import Network.AWS.EC2InstanceConnect.SendSSHPublicKey
-import Network.AWS.EC2InstanceConnect.SendSerialConsoleSSHPublicKey
+import Amazonka.EC2InstanceConnect.SendSSHPublicKey
+import Amazonka.EC2InstanceConnect.SendSerialConsoleSSHPublicKey

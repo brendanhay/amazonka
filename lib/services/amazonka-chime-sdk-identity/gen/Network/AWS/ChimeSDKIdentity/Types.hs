@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ChimeSDKIdentity.Types
+-- Module      : Amazonka.ChimeSDKIdentity.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ChimeSDKIdentity.Types
+module Amazonka.ChimeSDKIdentity.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -94,20 +94,20 @@ module Network.AWS.ChimeSDKIdentity.Types
   )
 where
 
-import Network.AWS.ChimeSDKIdentity.Types.AppInstance
-import Network.AWS.ChimeSDKIdentity.Types.AppInstanceAdmin
-import Network.AWS.ChimeSDKIdentity.Types.AppInstanceAdminSummary
-import Network.AWS.ChimeSDKIdentity.Types.AppInstanceRetentionSettings
-import Network.AWS.ChimeSDKIdentity.Types.AppInstanceSummary
-import Network.AWS.ChimeSDKIdentity.Types.AppInstanceUser
-import Network.AWS.ChimeSDKIdentity.Types.AppInstanceUserSummary
-import Network.AWS.ChimeSDKIdentity.Types.ChannelRetentionSettings
-import Network.AWS.ChimeSDKIdentity.Types.Identity
-import Network.AWS.ChimeSDKIdentity.Types.Tag
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.ChimeSDKIdentity.Types.AppInstance
+import Amazonka.ChimeSDKIdentity.Types.AppInstanceAdmin
+import Amazonka.ChimeSDKIdentity.Types.AppInstanceAdminSummary
+import Amazonka.ChimeSDKIdentity.Types.AppInstanceRetentionSettings
+import Amazonka.ChimeSDKIdentity.Types.AppInstanceSummary
+import Amazonka.ChimeSDKIdentity.Types.AppInstanceUser
+import Amazonka.ChimeSDKIdentity.Types.AppInstanceUserSummary
+import Amazonka.ChimeSDKIdentity.Types.ChannelRetentionSettings
+import Amazonka.ChimeSDKIdentity.Types.Identity
+import Amazonka.ChimeSDKIdentity.Types.Tag
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2021-04-20@ of the Amazon Chime SDK Identity SDK configuration.
 defaultService :: Core.Service

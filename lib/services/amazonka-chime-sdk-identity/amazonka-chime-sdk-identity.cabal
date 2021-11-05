@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.ChimeSDKIdentity.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.ChimeSDKIdentity.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.ChimeSDKIdentity" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.ChimeSDKIdentity" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,38 +45,38 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.ChimeSDKIdentity
-    Network.AWS.ChimeSDKIdentity.CreateAppInstance
-    Network.AWS.ChimeSDKIdentity.CreateAppInstanceAdmin
-    Network.AWS.ChimeSDKIdentity.CreateAppInstanceUser
-    Network.AWS.ChimeSDKIdentity.DeleteAppInstance
-    Network.AWS.ChimeSDKIdentity.DeleteAppInstanceAdmin
-    Network.AWS.ChimeSDKIdentity.DeleteAppInstanceUser
-    Network.AWS.ChimeSDKIdentity.DescribeAppInstance
-    Network.AWS.ChimeSDKIdentity.DescribeAppInstanceAdmin
-    Network.AWS.ChimeSDKIdentity.DescribeAppInstanceUser
-    Network.AWS.ChimeSDKIdentity.GetAppInstanceRetentionSettings
-    Network.AWS.ChimeSDKIdentity.Lens
-    Network.AWS.ChimeSDKIdentity.ListAppInstanceAdmins
-    Network.AWS.ChimeSDKIdentity.ListAppInstances
-    Network.AWS.ChimeSDKIdentity.ListAppInstanceUsers
-    Network.AWS.ChimeSDKIdentity.PutAppInstanceRetentionSettings
-    Network.AWS.ChimeSDKIdentity.Types
-    Network.AWS.ChimeSDKIdentity.Types.AppInstance
-    Network.AWS.ChimeSDKIdentity.Types.AppInstanceAdmin
-    Network.AWS.ChimeSDKIdentity.Types.AppInstanceAdminSummary
-    Network.AWS.ChimeSDKIdentity.Types.AppInstanceRetentionSettings
-    Network.AWS.ChimeSDKIdentity.Types.AppInstanceSummary
-    Network.AWS.ChimeSDKIdentity.Types.AppInstanceUser
-    Network.AWS.ChimeSDKIdentity.Types.AppInstanceUserSummary
-    Network.AWS.ChimeSDKIdentity.Types.ChannelRetentionSettings
-    Network.AWS.ChimeSDKIdentity.Types.Identity
-    Network.AWS.ChimeSDKIdentity.Types.Tag
-    Network.AWS.ChimeSDKIdentity.UpdateAppInstance
-    Network.AWS.ChimeSDKIdentity.UpdateAppInstanceUser
-    Network.AWS.ChimeSDKIdentity.Waiters
+    Amazonka.ChimeSDKIdentity
+    Amazonka.ChimeSDKIdentity.CreateAppInstance
+    Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin
+    Amazonka.ChimeSDKIdentity.CreateAppInstanceUser
+    Amazonka.ChimeSDKIdentity.DeleteAppInstance
+    Amazonka.ChimeSDKIdentity.DeleteAppInstanceAdmin
+    Amazonka.ChimeSDKIdentity.DeleteAppInstanceUser
+    Amazonka.ChimeSDKIdentity.DescribeAppInstance
+    Amazonka.ChimeSDKIdentity.DescribeAppInstanceAdmin
+    Amazonka.ChimeSDKIdentity.DescribeAppInstanceUser
+    Amazonka.ChimeSDKIdentity.GetAppInstanceRetentionSettings
+    Amazonka.ChimeSDKIdentity.Lens
+    Amazonka.ChimeSDKIdentity.ListAppInstanceAdmins
+    Amazonka.ChimeSDKIdentity.ListAppInstances
+    Amazonka.ChimeSDKIdentity.ListAppInstanceUsers
+    Amazonka.ChimeSDKIdentity.PutAppInstanceRetentionSettings
+    Amazonka.ChimeSDKIdentity.Types
+    Amazonka.ChimeSDKIdentity.Types.AppInstance
+    Amazonka.ChimeSDKIdentity.Types.AppInstanceAdmin
+    Amazonka.ChimeSDKIdentity.Types.AppInstanceAdminSummary
+    Amazonka.ChimeSDKIdentity.Types.AppInstanceRetentionSettings
+    Amazonka.ChimeSDKIdentity.Types.AppInstanceSummary
+    Amazonka.ChimeSDKIdentity.Types.AppInstanceUser
+    Amazonka.ChimeSDKIdentity.Types.AppInstanceUserSummary
+    Amazonka.ChimeSDKIdentity.Types.ChannelRetentionSettings
+    Amazonka.ChimeSDKIdentity.Types.Identity
+    Amazonka.ChimeSDKIdentity.Types.Tag
+    Amazonka.ChimeSDKIdentity.UpdateAppInstance
+    Amazonka.ChimeSDKIdentity.UpdateAppInstanceUser
+    Amazonka.ChimeSDKIdentity.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

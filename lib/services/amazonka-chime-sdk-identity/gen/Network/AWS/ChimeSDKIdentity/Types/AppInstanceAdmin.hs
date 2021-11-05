@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ChimeSDKIdentity.Types.AppInstanceAdmin
+-- Module      : Amazonka.ChimeSDKIdentity.Types.AppInstanceAdmin
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ChimeSDKIdentity.Types.AppInstanceAdmin where
+module Amazonka.ChimeSDKIdentity.Types.AppInstanceAdmin where
 
-import Network.AWS.ChimeSDKIdentity.Types.Identity
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.ChimeSDKIdentity.Types.Identity
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The details of an @AppInstanceAdmin@.
 --

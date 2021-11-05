@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.ChimeSDKIdentity
+-- Module      : Amazonka.ChimeSDKIdentity
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -17,7 +17,7 @@
 -- and sending messages. For more information about the identity APIs,
 -- refer to
 -- <https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Identity.html Amazon Chime SDK identity>.
-module Network.AWS.ChimeSDKIdentity
+module Amazonka.ChimeSDKIdentity
   ( -- * Service Configuration
     defaultService,
 
@@ -194,25 +194,25 @@ module Network.AWS.ChimeSDKIdentity
   )
 where
 
-import Network.AWS.ChimeSDKIdentity.CreateAppInstance
-import Network.AWS.ChimeSDKIdentity.CreateAppInstanceAdmin
-import Network.AWS.ChimeSDKIdentity.CreateAppInstanceUser
-import Network.AWS.ChimeSDKIdentity.DeleteAppInstance
-import Network.AWS.ChimeSDKIdentity.DeleteAppInstanceAdmin
-import Network.AWS.ChimeSDKIdentity.DeleteAppInstanceUser
-import Network.AWS.ChimeSDKIdentity.DescribeAppInstance
-import Network.AWS.ChimeSDKIdentity.DescribeAppInstanceAdmin
-import Network.AWS.ChimeSDKIdentity.DescribeAppInstanceUser
-import Network.AWS.ChimeSDKIdentity.GetAppInstanceRetentionSettings
-import Network.AWS.ChimeSDKIdentity.Lens
-import Network.AWS.ChimeSDKIdentity.ListAppInstanceAdmins
-import Network.AWS.ChimeSDKIdentity.ListAppInstanceUsers
-import Network.AWS.ChimeSDKIdentity.ListAppInstances
-import Network.AWS.ChimeSDKIdentity.PutAppInstanceRetentionSettings
-import Network.AWS.ChimeSDKIdentity.Types
-import Network.AWS.ChimeSDKIdentity.UpdateAppInstance
-import Network.AWS.ChimeSDKIdentity.UpdateAppInstanceUser
-import Network.AWS.ChimeSDKIdentity.Waiters
+import Amazonka.ChimeSDKIdentity.CreateAppInstance
+import Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin
+import Amazonka.ChimeSDKIdentity.CreateAppInstanceUser
+import Amazonka.ChimeSDKIdentity.DeleteAppInstance
+import Amazonka.ChimeSDKIdentity.DeleteAppInstanceAdmin
+import Amazonka.ChimeSDKIdentity.DeleteAppInstanceUser
+import Amazonka.ChimeSDKIdentity.DescribeAppInstance
+import Amazonka.ChimeSDKIdentity.DescribeAppInstanceAdmin
+import Amazonka.ChimeSDKIdentity.DescribeAppInstanceUser
+import Amazonka.ChimeSDKIdentity.GetAppInstanceRetentionSettings
+import Amazonka.ChimeSDKIdentity.Lens
+import Amazonka.ChimeSDKIdentity.ListAppInstanceAdmins
+import Amazonka.ChimeSDKIdentity.ListAppInstanceUsers
+import Amazonka.ChimeSDKIdentity.ListAppInstances
+import Amazonka.ChimeSDKIdentity.PutAppInstanceRetentionSettings
+import Amazonka.ChimeSDKIdentity.Types
+import Amazonka.ChimeSDKIdentity.UpdateAppInstance
+import Amazonka.ChimeSDKIdentity.UpdateAppInstanceUser
+import Amazonka.ChimeSDKIdentity.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

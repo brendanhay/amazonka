@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ChimeSDKIdentity.Lens
+-- Module      : Amazonka.ChimeSDKIdentity.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ChimeSDKIdentity.Lens
+module Amazonka.ChimeSDKIdentity.Lens
   ( -- * Operations
 
     -- ** CreateAppInstance
@@ -167,29 +167,29 @@ module Network.AWS.ChimeSDKIdentity.Lens
   )
 where
 
-import Network.AWS.ChimeSDKIdentity.CreateAppInstance
-import Network.AWS.ChimeSDKIdentity.CreateAppInstanceAdmin
-import Network.AWS.ChimeSDKIdentity.CreateAppInstanceUser
-import Network.AWS.ChimeSDKIdentity.DeleteAppInstance
-import Network.AWS.ChimeSDKIdentity.DeleteAppInstanceAdmin
-import Network.AWS.ChimeSDKIdentity.DeleteAppInstanceUser
-import Network.AWS.ChimeSDKIdentity.DescribeAppInstance
-import Network.AWS.ChimeSDKIdentity.DescribeAppInstanceAdmin
-import Network.AWS.ChimeSDKIdentity.DescribeAppInstanceUser
-import Network.AWS.ChimeSDKIdentity.GetAppInstanceRetentionSettings
-import Network.AWS.ChimeSDKIdentity.ListAppInstanceAdmins
-import Network.AWS.ChimeSDKIdentity.ListAppInstanceUsers
-import Network.AWS.ChimeSDKIdentity.ListAppInstances
-import Network.AWS.ChimeSDKIdentity.PutAppInstanceRetentionSettings
-import Network.AWS.ChimeSDKIdentity.Types.AppInstance
-import Network.AWS.ChimeSDKIdentity.Types.AppInstanceAdmin
-import Network.AWS.ChimeSDKIdentity.Types.AppInstanceAdminSummary
-import Network.AWS.ChimeSDKIdentity.Types.AppInstanceRetentionSettings
-import Network.AWS.ChimeSDKIdentity.Types.AppInstanceSummary
-import Network.AWS.ChimeSDKIdentity.Types.AppInstanceUser
-import Network.AWS.ChimeSDKIdentity.Types.AppInstanceUserSummary
-import Network.AWS.ChimeSDKIdentity.Types.ChannelRetentionSettings
-import Network.AWS.ChimeSDKIdentity.Types.Identity
-import Network.AWS.ChimeSDKIdentity.Types.Tag
-import Network.AWS.ChimeSDKIdentity.UpdateAppInstance
-import Network.AWS.ChimeSDKIdentity.UpdateAppInstanceUser
+import Amazonka.ChimeSDKIdentity.CreateAppInstance
+import Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin
+import Amazonka.ChimeSDKIdentity.CreateAppInstanceUser
+import Amazonka.ChimeSDKIdentity.DeleteAppInstance
+import Amazonka.ChimeSDKIdentity.DeleteAppInstanceAdmin
+import Amazonka.ChimeSDKIdentity.DeleteAppInstanceUser
+import Amazonka.ChimeSDKIdentity.DescribeAppInstance
+import Amazonka.ChimeSDKIdentity.DescribeAppInstanceAdmin
+import Amazonka.ChimeSDKIdentity.DescribeAppInstanceUser
+import Amazonka.ChimeSDKIdentity.GetAppInstanceRetentionSettings
+import Amazonka.ChimeSDKIdentity.ListAppInstanceAdmins
+import Amazonka.ChimeSDKIdentity.ListAppInstanceUsers
+import Amazonka.ChimeSDKIdentity.ListAppInstances
+import Amazonka.ChimeSDKIdentity.PutAppInstanceRetentionSettings
+import Amazonka.ChimeSDKIdentity.Types.AppInstance
+import Amazonka.ChimeSDKIdentity.Types.AppInstanceAdmin
+import Amazonka.ChimeSDKIdentity.Types.AppInstanceAdminSummary
+import Amazonka.ChimeSDKIdentity.Types.AppInstanceRetentionSettings
+import Amazonka.ChimeSDKIdentity.Types.AppInstanceSummary
+import Amazonka.ChimeSDKIdentity.Types.AppInstanceUser
+import Amazonka.ChimeSDKIdentity.Types.AppInstanceUserSummary
+import Amazonka.ChimeSDKIdentity.Types.ChannelRetentionSettings
+import Amazonka.ChimeSDKIdentity.Types.Identity
+import Amazonka.ChimeSDKIdentity.Types.Tag
+import Amazonka.ChimeSDKIdentity.UpdateAppInstance
+import Amazonka.ChimeSDKIdentity.UpdateAppInstanceUser

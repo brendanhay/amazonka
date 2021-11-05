@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.Budgets.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.Budgets.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.Budgets" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.Budgets" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,65 +45,65 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.Budgets
-    Network.AWS.Budgets.CreateBudget
-    Network.AWS.Budgets.CreateBudgetAction
-    Network.AWS.Budgets.CreateNotification
-    Network.AWS.Budgets.CreateSubscriber
-    Network.AWS.Budgets.DeleteBudget
-    Network.AWS.Budgets.DeleteBudgetAction
-    Network.AWS.Budgets.DeleteNotification
-    Network.AWS.Budgets.DeleteSubscriber
-    Network.AWS.Budgets.DescribeBudget
-    Network.AWS.Budgets.DescribeBudgetAction
-    Network.AWS.Budgets.DescribeBudgetActionHistories
-    Network.AWS.Budgets.DescribeBudgetActionsForAccount
-    Network.AWS.Budgets.DescribeBudgetActionsForBudget
-    Network.AWS.Budgets.DescribeBudgetPerformanceHistory
-    Network.AWS.Budgets.DescribeBudgets
-    Network.AWS.Budgets.DescribeNotificationsForBudget
-    Network.AWS.Budgets.DescribeSubscribersForNotification
-    Network.AWS.Budgets.ExecuteBudgetAction
-    Network.AWS.Budgets.Lens
-    Network.AWS.Budgets.Types
-    Network.AWS.Budgets.Types.Action
-    Network.AWS.Budgets.Types.ActionHistory
-    Network.AWS.Budgets.Types.ActionHistoryDetails
-    Network.AWS.Budgets.Types.ActionStatus
-    Network.AWS.Budgets.Types.ActionSubType
-    Network.AWS.Budgets.Types.ActionThreshold
-    Network.AWS.Budgets.Types.ActionType
-    Network.AWS.Budgets.Types.ApprovalModel
-    Network.AWS.Budgets.Types.Budget
-    Network.AWS.Budgets.Types.BudgetedAndActualAmounts
-    Network.AWS.Budgets.Types.BudgetPerformanceHistory
-    Network.AWS.Budgets.Types.BudgetType
-    Network.AWS.Budgets.Types.CalculatedSpend
-    Network.AWS.Budgets.Types.ComparisonOperator
-    Network.AWS.Budgets.Types.CostTypes
-    Network.AWS.Budgets.Types.Definition
-    Network.AWS.Budgets.Types.EventType
-    Network.AWS.Budgets.Types.ExecutionType
-    Network.AWS.Budgets.Types.IamActionDefinition
-    Network.AWS.Budgets.Types.Notification
-    Network.AWS.Budgets.Types.NotificationState
-    Network.AWS.Budgets.Types.NotificationType
-    Network.AWS.Budgets.Types.NotificationWithSubscribers
-    Network.AWS.Budgets.Types.ScpActionDefinition
-    Network.AWS.Budgets.Types.Spend
-    Network.AWS.Budgets.Types.SsmActionDefinition
-    Network.AWS.Budgets.Types.Subscriber
-    Network.AWS.Budgets.Types.SubscriptionType
-    Network.AWS.Budgets.Types.ThresholdType
-    Network.AWS.Budgets.Types.TimePeriod
-    Network.AWS.Budgets.Types.TimeUnit
-    Network.AWS.Budgets.UpdateBudget
-    Network.AWS.Budgets.UpdateBudgetAction
-    Network.AWS.Budgets.UpdateNotification
-    Network.AWS.Budgets.UpdateSubscriber
-    Network.AWS.Budgets.Waiters
+    Amazonka.Budgets
+    Amazonka.Budgets.CreateBudget
+    Amazonka.Budgets.CreateBudgetAction
+    Amazonka.Budgets.CreateNotification
+    Amazonka.Budgets.CreateSubscriber
+    Amazonka.Budgets.DeleteBudget
+    Amazonka.Budgets.DeleteBudgetAction
+    Amazonka.Budgets.DeleteNotification
+    Amazonka.Budgets.DeleteSubscriber
+    Amazonka.Budgets.DescribeBudget
+    Amazonka.Budgets.DescribeBudgetAction
+    Amazonka.Budgets.DescribeBudgetActionHistories
+    Amazonka.Budgets.DescribeBudgetActionsForAccount
+    Amazonka.Budgets.DescribeBudgetActionsForBudget
+    Amazonka.Budgets.DescribeBudgetPerformanceHistory
+    Amazonka.Budgets.DescribeBudgets
+    Amazonka.Budgets.DescribeNotificationsForBudget
+    Amazonka.Budgets.DescribeSubscribersForNotification
+    Amazonka.Budgets.ExecuteBudgetAction
+    Amazonka.Budgets.Lens
+    Amazonka.Budgets.Types
+    Amazonka.Budgets.Types.Action
+    Amazonka.Budgets.Types.ActionHistory
+    Amazonka.Budgets.Types.ActionHistoryDetails
+    Amazonka.Budgets.Types.ActionStatus
+    Amazonka.Budgets.Types.ActionSubType
+    Amazonka.Budgets.Types.ActionThreshold
+    Amazonka.Budgets.Types.ActionType
+    Amazonka.Budgets.Types.ApprovalModel
+    Amazonka.Budgets.Types.Budget
+    Amazonka.Budgets.Types.BudgetedAndActualAmounts
+    Amazonka.Budgets.Types.BudgetPerformanceHistory
+    Amazonka.Budgets.Types.BudgetType
+    Amazonka.Budgets.Types.CalculatedSpend
+    Amazonka.Budgets.Types.ComparisonOperator
+    Amazonka.Budgets.Types.CostTypes
+    Amazonka.Budgets.Types.Definition
+    Amazonka.Budgets.Types.EventType
+    Amazonka.Budgets.Types.ExecutionType
+    Amazonka.Budgets.Types.IamActionDefinition
+    Amazonka.Budgets.Types.Notification
+    Amazonka.Budgets.Types.NotificationState
+    Amazonka.Budgets.Types.NotificationType
+    Amazonka.Budgets.Types.NotificationWithSubscribers
+    Amazonka.Budgets.Types.ScpActionDefinition
+    Amazonka.Budgets.Types.Spend
+    Amazonka.Budgets.Types.SsmActionDefinition
+    Amazonka.Budgets.Types.Subscriber
+    Amazonka.Budgets.Types.SubscriptionType
+    Amazonka.Budgets.Types.ThresholdType
+    Amazonka.Budgets.Types.TimePeriod
+    Amazonka.Budgets.Types.TimeUnit
+    Amazonka.Budgets.UpdateBudget
+    Amazonka.Budgets.UpdateBudgetAction
+    Amazonka.Budgets.UpdateNotification
+    Amazonka.Budgets.UpdateSubscriber
+    Amazonka.Budgets.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

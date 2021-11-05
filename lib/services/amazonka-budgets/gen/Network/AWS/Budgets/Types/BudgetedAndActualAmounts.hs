@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Budgets.Types.BudgetedAndActualAmounts
+-- Module      : Amazonka.Budgets.Types.BudgetedAndActualAmounts
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Budgets.Types.BudgetedAndActualAmounts where
+module Amazonka.Budgets.Types.BudgetedAndActualAmounts where
 
-import Network.AWS.Budgets.Types.Spend
-import Network.AWS.Budgets.Types.TimePeriod
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Budgets.Types.Spend
+import Amazonka.Budgets.Types.TimePeriod
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The amount of cost or usage that you created the budget for, compared to
 -- your actual costs or usage.

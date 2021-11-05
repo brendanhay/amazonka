@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Budgets.Types.Definition
+-- Module      : Amazonka.Budgets.Types.Definition
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Budgets.Types.Definition where
+module Amazonka.Budgets.Types.Definition where
 
-import Network.AWS.Budgets.Types.IamActionDefinition
-import Network.AWS.Budgets.Types.ScpActionDefinition
-import Network.AWS.Budgets.Types.SsmActionDefinition
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Budgets.Types.IamActionDefinition
+import Amazonka.Budgets.Types.ScpActionDefinition
+import Amazonka.Budgets.Types.SsmActionDefinition
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies all of the type-specific parameters.
 --

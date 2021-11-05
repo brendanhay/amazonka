@@ -11,24 +11,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Budgets.Types.Action
+-- Module      : Amazonka.Budgets.Types.Action
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Budgets.Types.Action where
+module Amazonka.Budgets.Types.Action where
 
-import Network.AWS.Budgets.Types.ActionStatus
-import Network.AWS.Budgets.Types.ActionThreshold
-import Network.AWS.Budgets.Types.ActionType
-import Network.AWS.Budgets.Types.ApprovalModel
-import Network.AWS.Budgets.Types.Definition
-import Network.AWS.Budgets.Types.NotificationType
-import Network.AWS.Budgets.Types.Subscriber
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Budgets.Types.ActionStatus
+import Amazonka.Budgets.Types.ActionThreshold
+import Amazonka.Budgets.Types.ActionType
+import Amazonka.Budgets.Types.ApprovalModel
+import Amazonka.Budgets.Types.Definition
+import Amazonka.Budgets.Types.NotificationType
+import Amazonka.Budgets.Types.Subscriber
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A budget action resource.
 --

@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Budgets.Lens
+-- Module      : Amazonka.Budgets.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Budgets.Lens
+module Amazonka.Budgets.Lens
   ( -- * Operations
 
     -- ** CreateBudgetAction
@@ -318,43 +318,43 @@ module Network.AWS.Budgets.Lens
   )
 where
 
-import Network.AWS.Budgets.CreateBudget
-import Network.AWS.Budgets.CreateBudgetAction
-import Network.AWS.Budgets.CreateNotification
-import Network.AWS.Budgets.CreateSubscriber
-import Network.AWS.Budgets.DeleteBudget
-import Network.AWS.Budgets.DeleteBudgetAction
-import Network.AWS.Budgets.DeleteNotification
-import Network.AWS.Budgets.DeleteSubscriber
-import Network.AWS.Budgets.DescribeBudget
-import Network.AWS.Budgets.DescribeBudgetAction
-import Network.AWS.Budgets.DescribeBudgetActionHistories
-import Network.AWS.Budgets.DescribeBudgetActionsForAccount
-import Network.AWS.Budgets.DescribeBudgetActionsForBudget
-import Network.AWS.Budgets.DescribeBudgetPerformanceHistory
-import Network.AWS.Budgets.DescribeBudgets
-import Network.AWS.Budgets.DescribeNotificationsForBudget
-import Network.AWS.Budgets.DescribeSubscribersForNotification
-import Network.AWS.Budgets.ExecuteBudgetAction
-import Network.AWS.Budgets.Types.Action
-import Network.AWS.Budgets.Types.ActionHistory
-import Network.AWS.Budgets.Types.ActionHistoryDetails
-import Network.AWS.Budgets.Types.ActionThreshold
-import Network.AWS.Budgets.Types.Budget
-import Network.AWS.Budgets.Types.BudgetPerformanceHistory
-import Network.AWS.Budgets.Types.BudgetedAndActualAmounts
-import Network.AWS.Budgets.Types.CalculatedSpend
-import Network.AWS.Budgets.Types.CostTypes
-import Network.AWS.Budgets.Types.Definition
-import Network.AWS.Budgets.Types.IamActionDefinition
-import Network.AWS.Budgets.Types.Notification
-import Network.AWS.Budgets.Types.NotificationWithSubscribers
-import Network.AWS.Budgets.Types.ScpActionDefinition
-import Network.AWS.Budgets.Types.Spend
-import Network.AWS.Budgets.Types.SsmActionDefinition
-import Network.AWS.Budgets.Types.Subscriber
-import Network.AWS.Budgets.Types.TimePeriod
-import Network.AWS.Budgets.UpdateBudget
-import Network.AWS.Budgets.UpdateBudgetAction
-import Network.AWS.Budgets.UpdateNotification
-import Network.AWS.Budgets.UpdateSubscriber
+import Amazonka.Budgets.CreateBudget
+import Amazonka.Budgets.CreateBudgetAction
+import Amazonka.Budgets.CreateNotification
+import Amazonka.Budgets.CreateSubscriber
+import Amazonka.Budgets.DeleteBudget
+import Amazonka.Budgets.DeleteBudgetAction
+import Amazonka.Budgets.DeleteNotification
+import Amazonka.Budgets.DeleteSubscriber
+import Amazonka.Budgets.DescribeBudget
+import Amazonka.Budgets.DescribeBudgetAction
+import Amazonka.Budgets.DescribeBudgetActionHistories
+import Amazonka.Budgets.DescribeBudgetActionsForAccount
+import Amazonka.Budgets.DescribeBudgetActionsForBudget
+import Amazonka.Budgets.DescribeBudgetPerformanceHistory
+import Amazonka.Budgets.DescribeBudgets
+import Amazonka.Budgets.DescribeNotificationsForBudget
+import Amazonka.Budgets.DescribeSubscribersForNotification
+import Amazonka.Budgets.ExecuteBudgetAction
+import Amazonka.Budgets.Types.Action
+import Amazonka.Budgets.Types.ActionHistory
+import Amazonka.Budgets.Types.ActionHistoryDetails
+import Amazonka.Budgets.Types.ActionThreshold
+import Amazonka.Budgets.Types.Budget
+import Amazonka.Budgets.Types.BudgetPerformanceHistory
+import Amazonka.Budgets.Types.BudgetedAndActualAmounts
+import Amazonka.Budgets.Types.CalculatedSpend
+import Amazonka.Budgets.Types.CostTypes
+import Amazonka.Budgets.Types.Definition
+import Amazonka.Budgets.Types.IamActionDefinition
+import Amazonka.Budgets.Types.Notification
+import Amazonka.Budgets.Types.NotificationWithSubscribers
+import Amazonka.Budgets.Types.ScpActionDefinition
+import Amazonka.Budgets.Types.Spend
+import Amazonka.Budgets.Types.SsmActionDefinition
+import Amazonka.Budgets.Types.Subscriber
+import Amazonka.Budgets.Types.TimePeriod
+import Amazonka.Budgets.UpdateBudget
+import Amazonka.Budgets.UpdateBudgetAction
+import Amazonka.Budgets.UpdateNotification
+import Amazonka.Budgets.UpdateSubscriber

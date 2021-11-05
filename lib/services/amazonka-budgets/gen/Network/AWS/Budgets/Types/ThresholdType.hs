@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Budgets.Types.ThresholdType
+-- Module      : Amazonka.Budgets.Types.ThresholdType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Budgets.Types.ThresholdType
+module Amazonka.Budgets.Types.ThresholdType
   ( ThresholdType
       ( ..,
         ThresholdType_ABSOLUTE_VALUE,
@@ -26,8 +26,8 @@ module Network.AWS.Budgets.Types.ThresholdType
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | The type of threshold for a notification.
 newtype ThresholdType = ThresholdType'

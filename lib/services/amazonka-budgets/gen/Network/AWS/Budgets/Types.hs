@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Budgets.Types
+-- Module      : Amazonka.Budgets.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Budgets.Types
+module Amazonka.Budgets.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -215,41 +215,41 @@ module Network.AWS.Budgets.Types
   )
 where
 
-import Network.AWS.Budgets.Types.Action
-import Network.AWS.Budgets.Types.ActionHistory
-import Network.AWS.Budgets.Types.ActionHistoryDetails
-import Network.AWS.Budgets.Types.ActionStatus
-import Network.AWS.Budgets.Types.ActionSubType
-import Network.AWS.Budgets.Types.ActionThreshold
-import Network.AWS.Budgets.Types.ActionType
-import Network.AWS.Budgets.Types.ApprovalModel
-import Network.AWS.Budgets.Types.Budget
-import Network.AWS.Budgets.Types.BudgetPerformanceHistory
-import Network.AWS.Budgets.Types.BudgetType
-import Network.AWS.Budgets.Types.BudgetedAndActualAmounts
-import Network.AWS.Budgets.Types.CalculatedSpend
-import Network.AWS.Budgets.Types.ComparisonOperator
-import Network.AWS.Budgets.Types.CostTypes
-import Network.AWS.Budgets.Types.Definition
-import Network.AWS.Budgets.Types.EventType
-import Network.AWS.Budgets.Types.ExecutionType
-import Network.AWS.Budgets.Types.IamActionDefinition
-import Network.AWS.Budgets.Types.Notification
-import Network.AWS.Budgets.Types.NotificationState
-import Network.AWS.Budgets.Types.NotificationType
-import Network.AWS.Budgets.Types.NotificationWithSubscribers
-import Network.AWS.Budgets.Types.ScpActionDefinition
-import Network.AWS.Budgets.Types.Spend
-import Network.AWS.Budgets.Types.SsmActionDefinition
-import Network.AWS.Budgets.Types.Subscriber
-import Network.AWS.Budgets.Types.SubscriptionType
-import Network.AWS.Budgets.Types.ThresholdType
-import Network.AWS.Budgets.Types.TimePeriod
-import Network.AWS.Budgets.Types.TimeUnit
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.Budgets.Types.Action
+import Amazonka.Budgets.Types.ActionHistory
+import Amazonka.Budgets.Types.ActionHistoryDetails
+import Amazonka.Budgets.Types.ActionStatus
+import Amazonka.Budgets.Types.ActionSubType
+import Amazonka.Budgets.Types.ActionThreshold
+import Amazonka.Budgets.Types.ActionType
+import Amazonka.Budgets.Types.ApprovalModel
+import Amazonka.Budgets.Types.Budget
+import Amazonka.Budgets.Types.BudgetPerformanceHistory
+import Amazonka.Budgets.Types.BudgetType
+import Amazonka.Budgets.Types.BudgetedAndActualAmounts
+import Amazonka.Budgets.Types.CalculatedSpend
+import Amazonka.Budgets.Types.ComparisonOperator
+import Amazonka.Budgets.Types.CostTypes
+import Amazonka.Budgets.Types.Definition
+import Amazonka.Budgets.Types.EventType
+import Amazonka.Budgets.Types.ExecutionType
+import Amazonka.Budgets.Types.IamActionDefinition
+import Amazonka.Budgets.Types.Notification
+import Amazonka.Budgets.Types.NotificationState
+import Amazonka.Budgets.Types.NotificationType
+import Amazonka.Budgets.Types.NotificationWithSubscribers
+import Amazonka.Budgets.Types.ScpActionDefinition
+import Amazonka.Budgets.Types.Spend
+import Amazonka.Budgets.Types.SsmActionDefinition
+import Amazonka.Budgets.Types.Subscriber
+import Amazonka.Budgets.Types.SubscriptionType
+import Amazonka.Budgets.Types.ThresholdType
+import Amazonka.Budgets.Types.TimePeriod
+import Amazonka.Budgets.Types.TimeUnit
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2016-10-20@ of the Amazon Budgets SDK configuration.
 defaultService :: Core.Service

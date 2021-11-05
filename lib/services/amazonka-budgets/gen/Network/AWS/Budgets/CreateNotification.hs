@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Budgets.CreateNotification
+-- Module      : Amazonka.Budgets.CreateNotification
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Creates a notification. You must create the budget before you create the
 -- associated notification.
-module Network.AWS.Budgets.CreateNotification
+module Amazonka.Budgets.CreateNotification
   ( -- * Creating a Request
     CreateNotification (..),
     newCreateNotification,
@@ -42,12 +42,12 @@ module Network.AWS.Budgets.CreateNotification
   )
 where
 
-import Network.AWS.Budgets.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Budgets.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Request of CreateNotification
 --

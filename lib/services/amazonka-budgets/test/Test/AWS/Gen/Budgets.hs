@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Budgets where
 
+import Amazonka.Budgets
 import qualified Data.Proxy as Proxy
-import Network.AWS.Budgets
 import Test.AWS.Budgets.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

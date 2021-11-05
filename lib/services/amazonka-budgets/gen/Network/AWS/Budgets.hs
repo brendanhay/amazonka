@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Budgets
+-- Module      : Amazonka.Budgets
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -56,7 +56,7 @@
 -- For information about costs that are associated with the AWS Budgets
 -- API, see
 -- <https://aws.amazon.com/aws-cost-management/pricing/ AWS Cost Management Pricing>.
-module Network.AWS.Budgets
+module Amazonka.Budgets
   ( -- * Service Configuration
     defaultService,
 
@@ -343,31 +343,31 @@ module Network.AWS.Budgets
   )
 where
 
-import Network.AWS.Budgets.CreateBudget
-import Network.AWS.Budgets.CreateBudgetAction
-import Network.AWS.Budgets.CreateNotification
-import Network.AWS.Budgets.CreateSubscriber
-import Network.AWS.Budgets.DeleteBudget
-import Network.AWS.Budgets.DeleteBudgetAction
-import Network.AWS.Budgets.DeleteNotification
-import Network.AWS.Budgets.DeleteSubscriber
-import Network.AWS.Budgets.DescribeBudget
-import Network.AWS.Budgets.DescribeBudgetAction
-import Network.AWS.Budgets.DescribeBudgetActionHistories
-import Network.AWS.Budgets.DescribeBudgetActionsForAccount
-import Network.AWS.Budgets.DescribeBudgetActionsForBudget
-import Network.AWS.Budgets.DescribeBudgetPerformanceHistory
-import Network.AWS.Budgets.DescribeBudgets
-import Network.AWS.Budgets.DescribeNotificationsForBudget
-import Network.AWS.Budgets.DescribeSubscribersForNotification
-import Network.AWS.Budgets.ExecuteBudgetAction
-import Network.AWS.Budgets.Lens
-import Network.AWS.Budgets.Types
-import Network.AWS.Budgets.UpdateBudget
-import Network.AWS.Budgets.UpdateBudgetAction
-import Network.AWS.Budgets.UpdateNotification
-import Network.AWS.Budgets.UpdateSubscriber
-import Network.AWS.Budgets.Waiters
+import Amazonka.Budgets.CreateBudget
+import Amazonka.Budgets.CreateBudgetAction
+import Amazonka.Budgets.CreateNotification
+import Amazonka.Budgets.CreateSubscriber
+import Amazonka.Budgets.DeleteBudget
+import Amazonka.Budgets.DeleteBudgetAction
+import Amazonka.Budgets.DeleteNotification
+import Amazonka.Budgets.DeleteSubscriber
+import Amazonka.Budgets.DescribeBudget
+import Amazonka.Budgets.DescribeBudgetAction
+import Amazonka.Budgets.DescribeBudgetActionHistories
+import Amazonka.Budgets.DescribeBudgetActionsForAccount
+import Amazonka.Budgets.DescribeBudgetActionsForBudget
+import Amazonka.Budgets.DescribeBudgetPerformanceHistory
+import Amazonka.Budgets.DescribeBudgets
+import Amazonka.Budgets.DescribeNotificationsForBudget
+import Amazonka.Budgets.DescribeSubscribersForNotification
+import Amazonka.Budgets.ExecuteBudgetAction
+import Amazonka.Budgets.Lens
+import Amazonka.Budgets.Types
+import Amazonka.Budgets.UpdateBudget
+import Amazonka.Budgets.UpdateBudgetAction
+import Amazonka.Budgets.UpdateNotification
+import Amazonka.Budgets.UpdateSubscriber
+import Amazonka.Budgets.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

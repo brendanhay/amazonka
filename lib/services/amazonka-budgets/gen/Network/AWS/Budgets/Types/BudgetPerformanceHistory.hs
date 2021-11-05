@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Budgets.Types.BudgetPerformanceHistory
+-- Module      : Amazonka.Budgets.Types.BudgetPerformanceHistory
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Budgets.Types.BudgetPerformanceHistory where
+module Amazonka.Budgets.Types.BudgetPerformanceHistory where
 
-import Network.AWS.Budgets.Types.BudgetType
-import Network.AWS.Budgets.Types.BudgetedAndActualAmounts
-import Network.AWS.Budgets.Types.CostTypes
-import Network.AWS.Budgets.Types.TimeUnit
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Budgets.Types.BudgetType
+import Amazonka.Budgets.Types.BudgetedAndActualAmounts
+import Amazonka.Budgets.Types.CostTypes
+import Amazonka.Budgets.Types.TimeUnit
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A history of the state of a budget at the end of the budget\'s specified
 -- time period.

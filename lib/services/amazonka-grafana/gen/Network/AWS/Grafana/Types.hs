@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Grafana.Types
+-- Module      : Amazonka.Grafana.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Grafana.Types
+module Amazonka.Grafana.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -180,35 +180,35 @@ module Network.AWS.Grafana.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Grafana.Types.AccountAccessType
-import Network.AWS.Grafana.Types.AssertionAttributes
-import Network.AWS.Grafana.Types.AuthenticationDescription
-import Network.AWS.Grafana.Types.AuthenticationProviderTypes
-import Network.AWS.Grafana.Types.AuthenticationSummary
-import Network.AWS.Grafana.Types.AwsSsoAuthentication
-import Network.AWS.Grafana.Types.DataSourceType
-import Network.AWS.Grafana.Types.IdpMetadata
-import Network.AWS.Grafana.Types.LicenseType
-import Network.AWS.Grafana.Types.NotificationDestinationType
-import Network.AWS.Grafana.Types.PermissionEntry
-import Network.AWS.Grafana.Types.PermissionType
-import Network.AWS.Grafana.Types.Role
-import Network.AWS.Grafana.Types.RoleValues
-import Network.AWS.Grafana.Types.SamlAuthentication
-import Network.AWS.Grafana.Types.SamlConfiguration
-import Network.AWS.Grafana.Types.SamlConfigurationStatus
-import Network.AWS.Grafana.Types.UpdateAction
-import Network.AWS.Grafana.Types.UpdateError
-import Network.AWS.Grafana.Types.UpdateInstruction
-import Network.AWS.Grafana.Types.User
-import Network.AWS.Grafana.Types.UserType
-import Network.AWS.Grafana.Types.WorkspaceDescription
-import Network.AWS.Grafana.Types.WorkspaceStatus
-import Network.AWS.Grafana.Types.WorkspaceSummary
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.Grafana.Types.AccountAccessType
+import Amazonka.Grafana.Types.AssertionAttributes
+import Amazonka.Grafana.Types.AuthenticationDescription
+import Amazonka.Grafana.Types.AuthenticationProviderTypes
+import Amazonka.Grafana.Types.AuthenticationSummary
+import Amazonka.Grafana.Types.AwsSsoAuthentication
+import Amazonka.Grafana.Types.DataSourceType
+import Amazonka.Grafana.Types.IdpMetadata
+import Amazonka.Grafana.Types.LicenseType
+import Amazonka.Grafana.Types.NotificationDestinationType
+import Amazonka.Grafana.Types.PermissionEntry
+import Amazonka.Grafana.Types.PermissionType
+import Amazonka.Grafana.Types.Role
+import Amazonka.Grafana.Types.RoleValues
+import Amazonka.Grafana.Types.SamlAuthentication
+import Amazonka.Grafana.Types.SamlConfiguration
+import Amazonka.Grafana.Types.SamlConfigurationStatus
+import Amazonka.Grafana.Types.UpdateAction
+import Amazonka.Grafana.Types.UpdateError
+import Amazonka.Grafana.Types.UpdateInstruction
+import Amazonka.Grafana.Types.User
+import Amazonka.Grafana.Types.UserType
+import Amazonka.Grafana.Types.WorkspaceDescription
+import Amazonka.Grafana.Types.WorkspaceStatus
+import Amazonka.Grafana.Types.WorkspaceSummary
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2020-08-18@ of the Amazon Managed Grafana SDK configuration.
 defaultService :: Core.Service

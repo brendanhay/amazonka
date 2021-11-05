@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.Grafana.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.Grafana.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.Grafana" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.Grafana" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,48 +45,48 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.Grafana
-    Network.AWS.Grafana.AssociateLicense
-    Network.AWS.Grafana.CreateWorkspace
-    Network.AWS.Grafana.DeleteWorkspace
-    Network.AWS.Grafana.DescribeWorkspace
-    Network.AWS.Grafana.DescribeWorkspaceAuthentication
-    Network.AWS.Grafana.DisassociateLicense
-    Network.AWS.Grafana.Lens
-    Network.AWS.Grafana.ListPermissions
-    Network.AWS.Grafana.ListWorkspaces
-    Network.AWS.Grafana.Types
-    Network.AWS.Grafana.Types.AccountAccessType
-    Network.AWS.Grafana.Types.AssertionAttributes
-    Network.AWS.Grafana.Types.AuthenticationDescription
-    Network.AWS.Grafana.Types.AuthenticationProviderTypes
-    Network.AWS.Grafana.Types.AuthenticationSummary
-    Network.AWS.Grafana.Types.AwsSsoAuthentication
-    Network.AWS.Grafana.Types.DataSourceType
-    Network.AWS.Grafana.Types.IdpMetadata
-    Network.AWS.Grafana.Types.LicenseType
-    Network.AWS.Grafana.Types.NotificationDestinationType
-    Network.AWS.Grafana.Types.PermissionEntry
-    Network.AWS.Grafana.Types.PermissionType
-    Network.AWS.Grafana.Types.Role
-    Network.AWS.Grafana.Types.RoleValues
-    Network.AWS.Grafana.Types.SamlAuthentication
-    Network.AWS.Grafana.Types.SamlConfiguration
-    Network.AWS.Grafana.Types.SamlConfigurationStatus
-    Network.AWS.Grafana.Types.UpdateAction
-    Network.AWS.Grafana.Types.UpdateError
-    Network.AWS.Grafana.Types.UpdateInstruction
-    Network.AWS.Grafana.Types.User
-    Network.AWS.Grafana.Types.UserType
-    Network.AWS.Grafana.Types.WorkspaceDescription
-    Network.AWS.Grafana.Types.WorkspaceStatus
-    Network.AWS.Grafana.Types.WorkspaceSummary
-    Network.AWS.Grafana.UpdatePermissions
-    Network.AWS.Grafana.UpdateWorkspace
-    Network.AWS.Grafana.UpdateWorkspaceAuthentication
-    Network.AWS.Grafana.Waiters
+    Amazonka.Grafana
+    Amazonka.Grafana.AssociateLicense
+    Amazonka.Grafana.CreateWorkspace
+    Amazonka.Grafana.DeleteWorkspace
+    Amazonka.Grafana.DescribeWorkspace
+    Amazonka.Grafana.DescribeWorkspaceAuthentication
+    Amazonka.Grafana.DisassociateLicense
+    Amazonka.Grafana.Lens
+    Amazonka.Grafana.ListPermissions
+    Amazonka.Grafana.ListWorkspaces
+    Amazonka.Grafana.Types
+    Amazonka.Grafana.Types.AccountAccessType
+    Amazonka.Grafana.Types.AssertionAttributes
+    Amazonka.Grafana.Types.AuthenticationDescription
+    Amazonka.Grafana.Types.AuthenticationProviderTypes
+    Amazonka.Grafana.Types.AuthenticationSummary
+    Amazonka.Grafana.Types.AwsSsoAuthentication
+    Amazonka.Grafana.Types.DataSourceType
+    Amazonka.Grafana.Types.IdpMetadata
+    Amazonka.Grafana.Types.LicenseType
+    Amazonka.Grafana.Types.NotificationDestinationType
+    Amazonka.Grafana.Types.PermissionEntry
+    Amazonka.Grafana.Types.PermissionType
+    Amazonka.Grafana.Types.Role
+    Amazonka.Grafana.Types.RoleValues
+    Amazonka.Grafana.Types.SamlAuthentication
+    Amazonka.Grafana.Types.SamlConfiguration
+    Amazonka.Grafana.Types.SamlConfigurationStatus
+    Amazonka.Grafana.Types.UpdateAction
+    Amazonka.Grafana.Types.UpdateError
+    Amazonka.Grafana.Types.UpdateInstruction
+    Amazonka.Grafana.Types.User
+    Amazonka.Grafana.Types.UserType
+    Amazonka.Grafana.Types.WorkspaceDescription
+    Amazonka.Grafana.Types.WorkspaceStatus
+    Amazonka.Grafana.Types.WorkspaceSummary
+    Amazonka.Grafana.UpdatePermissions
+    Amazonka.Grafana.UpdateWorkspace
+    Amazonka.Grafana.UpdateWorkspaceAuthentication
+    Amazonka.Grafana.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

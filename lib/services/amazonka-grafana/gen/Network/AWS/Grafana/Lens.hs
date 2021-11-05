@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Grafana.Lens
+-- Module      : Amazonka.Grafana.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Grafana.Lens
+module Amazonka.Grafana.Lens
   ( -- * Operations
 
     -- ** ListWorkspaces
@@ -199,28 +199,28 @@ module Network.AWS.Grafana.Lens
   )
 where
 
-import Network.AWS.Grafana.AssociateLicense
-import Network.AWS.Grafana.CreateWorkspace
-import Network.AWS.Grafana.DeleteWorkspace
-import Network.AWS.Grafana.DescribeWorkspace
-import Network.AWS.Grafana.DescribeWorkspaceAuthentication
-import Network.AWS.Grafana.DisassociateLicense
-import Network.AWS.Grafana.ListPermissions
-import Network.AWS.Grafana.ListWorkspaces
-import Network.AWS.Grafana.Types.AssertionAttributes
-import Network.AWS.Grafana.Types.AuthenticationDescription
-import Network.AWS.Grafana.Types.AuthenticationSummary
-import Network.AWS.Grafana.Types.AwsSsoAuthentication
-import Network.AWS.Grafana.Types.IdpMetadata
-import Network.AWS.Grafana.Types.PermissionEntry
-import Network.AWS.Grafana.Types.RoleValues
-import Network.AWS.Grafana.Types.SamlAuthentication
-import Network.AWS.Grafana.Types.SamlConfiguration
-import Network.AWS.Grafana.Types.UpdateError
-import Network.AWS.Grafana.Types.UpdateInstruction
-import Network.AWS.Grafana.Types.User
-import Network.AWS.Grafana.Types.WorkspaceDescription
-import Network.AWS.Grafana.Types.WorkspaceSummary
-import Network.AWS.Grafana.UpdatePermissions
-import Network.AWS.Grafana.UpdateWorkspace
-import Network.AWS.Grafana.UpdateWorkspaceAuthentication
+import Amazonka.Grafana.AssociateLicense
+import Amazonka.Grafana.CreateWorkspace
+import Amazonka.Grafana.DeleteWorkspace
+import Amazonka.Grafana.DescribeWorkspace
+import Amazonka.Grafana.DescribeWorkspaceAuthentication
+import Amazonka.Grafana.DisassociateLicense
+import Amazonka.Grafana.ListPermissions
+import Amazonka.Grafana.ListWorkspaces
+import Amazonka.Grafana.Types.AssertionAttributes
+import Amazonka.Grafana.Types.AuthenticationDescription
+import Amazonka.Grafana.Types.AuthenticationSummary
+import Amazonka.Grafana.Types.AwsSsoAuthentication
+import Amazonka.Grafana.Types.IdpMetadata
+import Amazonka.Grafana.Types.PermissionEntry
+import Amazonka.Grafana.Types.RoleValues
+import Amazonka.Grafana.Types.SamlAuthentication
+import Amazonka.Grafana.Types.SamlConfiguration
+import Amazonka.Grafana.Types.UpdateError
+import Amazonka.Grafana.Types.UpdateInstruction
+import Amazonka.Grafana.Types.User
+import Amazonka.Grafana.Types.WorkspaceDescription
+import Amazonka.Grafana.Types.WorkspaceSummary
+import Amazonka.Grafana.UpdatePermissions
+import Amazonka.Grafana.UpdateWorkspace
+import Amazonka.Grafana.UpdateWorkspaceAuthentication

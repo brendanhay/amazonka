@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Grafana
+-- Module      : Amazonka.Grafana
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- dashboards and visualizations to analyze your metrics, logs, and traces
 -- without having to build, package, or deploy any hardware to run Grafana
 -- servers.
-module Network.AWS.Grafana
+module Amazonka.Grafana
   ( -- * Service Configuration
     defaultService,
 
@@ -216,20 +216,20 @@ module Network.AWS.Grafana
   )
 where
 
-import Network.AWS.Grafana.AssociateLicense
-import Network.AWS.Grafana.CreateWorkspace
-import Network.AWS.Grafana.DeleteWorkspace
-import Network.AWS.Grafana.DescribeWorkspace
-import Network.AWS.Grafana.DescribeWorkspaceAuthentication
-import Network.AWS.Grafana.DisassociateLicense
-import Network.AWS.Grafana.Lens
-import Network.AWS.Grafana.ListPermissions
-import Network.AWS.Grafana.ListWorkspaces
-import Network.AWS.Grafana.Types
-import Network.AWS.Grafana.UpdatePermissions
-import Network.AWS.Grafana.UpdateWorkspace
-import Network.AWS.Grafana.UpdateWorkspaceAuthentication
-import Network.AWS.Grafana.Waiters
+import Amazonka.Grafana.AssociateLicense
+import Amazonka.Grafana.CreateWorkspace
+import Amazonka.Grafana.DeleteWorkspace
+import Amazonka.Grafana.DescribeWorkspace
+import Amazonka.Grafana.DescribeWorkspaceAuthentication
+import Amazonka.Grafana.DisassociateLicense
+import Amazonka.Grafana.Lens
+import Amazonka.Grafana.ListPermissions
+import Amazonka.Grafana.ListWorkspaces
+import Amazonka.Grafana.Types
+import Amazonka.Grafana.UpdatePermissions
+import Amazonka.Grafana.UpdateWorkspace
+import Amazonka.Grafana.UpdateWorkspaceAuthentication
+import Amazonka.Grafana.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

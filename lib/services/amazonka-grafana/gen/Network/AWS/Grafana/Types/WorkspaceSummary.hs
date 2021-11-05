@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Grafana.Types.WorkspaceSummary
+-- Module      : Amazonka.Grafana.Types.WorkspaceSummary
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Grafana.Types.WorkspaceSummary where
+module Amazonka.Grafana.Types.WorkspaceSummary where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Grafana.Types.AuthenticationSummary
-import Network.AWS.Grafana.Types.NotificationDestinationType
-import Network.AWS.Grafana.Types.WorkspaceStatus
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Grafana.Types.AuthenticationSummary
+import Amazonka.Grafana.Types.NotificationDestinationType
+import Amazonka.Grafana.Types.WorkspaceStatus
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A structure that contains some information about one workspace in the
 -- account.

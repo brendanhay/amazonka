@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Grafana.AssociateLicense
+-- Module      : Amazonka.Grafana.AssociateLicense
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Assigns a Grafana Enterprise license to a workspace. Upgrading to
 -- Grafana Enterprise incurs additional fees. For more information, see
 -- <https://docs.aws.amazon.com/grafana/latest/userguide/upgrade-to-Grafana-Enterprise.html Upgrade a workspace to Grafana Enterprise>.
-module Network.AWS.Grafana.AssociateLicense
+module Amazonka.Grafana.AssociateLicense
   ( -- * Creating a Request
     AssociateLicense (..),
     newAssociateLicense,
@@ -42,12 +42,12 @@ module Network.AWS.Grafana.AssociateLicense
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Grafana.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Grafana.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAssociateLicense' smart constructor.
 data AssociateLicense = AssociateLicense'

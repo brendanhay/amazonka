@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Grafana where
 
+import Amazonka.Grafana
 import qualified Data.Proxy as Proxy
-import Network.AWS.Grafana
 import Test.AWS.Fixture
 import Test.AWS.Grafana.Internal
 import Test.AWS.Prelude

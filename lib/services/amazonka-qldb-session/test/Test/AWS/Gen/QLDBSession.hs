@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.QLDBSession where
 
+import Amazonka.QLDBSession
 import qualified Data.Proxy as Proxy
-import Network.AWS.QLDBSession
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.QLDBSession.Internal

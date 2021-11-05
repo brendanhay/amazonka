@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.QLDBSession.Types.CommitTransactionResult
+-- Module      : Amazonka.QLDBSession.Types.CommitTransactionResult
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.QLDBSession.Types.CommitTransactionResult where
+module Amazonka.QLDBSession.Types.CommitTransactionResult where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.QLDBSession.Types.IOUsage
-import Network.AWS.QLDBSession.Types.TimingInformation
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.QLDBSession.Types.IOUsage
+import Amazonka.QLDBSession.Types.TimingInformation
 
 -- | Contains the details of the committed transaction.
 --

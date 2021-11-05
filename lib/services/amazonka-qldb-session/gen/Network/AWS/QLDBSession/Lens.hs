@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.QLDBSession.Lens
+-- Module      : Amazonka.QLDBSession.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.QLDBSession.Lens
+module Amazonka.QLDBSession.Lens
   ( -- * Operations
 
     -- ** SendCommand
@@ -103,22 +103,22 @@ module Network.AWS.QLDBSession.Lens
   )
 where
 
-import Network.AWS.QLDBSession.SendCommand
-import Network.AWS.QLDBSession.Types.AbortTransactionRequest
-import Network.AWS.QLDBSession.Types.AbortTransactionResult
-import Network.AWS.QLDBSession.Types.CommitTransactionRequest
-import Network.AWS.QLDBSession.Types.CommitTransactionResult
-import Network.AWS.QLDBSession.Types.EndSessionRequest
-import Network.AWS.QLDBSession.Types.EndSessionResult
-import Network.AWS.QLDBSession.Types.ExecuteStatementRequest
-import Network.AWS.QLDBSession.Types.ExecuteStatementResult
-import Network.AWS.QLDBSession.Types.FetchPageRequest
-import Network.AWS.QLDBSession.Types.FetchPageResult
-import Network.AWS.QLDBSession.Types.IOUsage
-import Network.AWS.QLDBSession.Types.Page
-import Network.AWS.QLDBSession.Types.StartSessionRequest
-import Network.AWS.QLDBSession.Types.StartSessionResult
-import Network.AWS.QLDBSession.Types.StartTransactionRequest
-import Network.AWS.QLDBSession.Types.StartTransactionResult
-import Network.AWS.QLDBSession.Types.TimingInformation
-import Network.AWS.QLDBSession.Types.ValueHolder
+import Amazonka.QLDBSession.SendCommand
+import Amazonka.QLDBSession.Types.AbortTransactionRequest
+import Amazonka.QLDBSession.Types.AbortTransactionResult
+import Amazonka.QLDBSession.Types.CommitTransactionRequest
+import Amazonka.QLDBSession.Types.CommitTransactionResult
+import Amazonka.QLDBSession.Types.EndSessionRequest
+import Amazonka.QLDBSession.Types.EndSessionResult
+import Amazonka.QLDBSession.Types.ExecuteStatementRequest
+import Amazonka.QLDBSession.Types.ExecuteStatementResult
+import Amazonka.QLDBSession.Types.FetchPageRequest
+import Amazonka.QLDBSession.Types.FetchPageResult
+import Amazonka.QLDBSession.Types.IOUsage
+import Amazonka.QLDBSession.Types.Page
+import Amazonka.QLDBSession.Types.StartSessionRequest
+import Amazonka.QLDBSession.Types.StartSessionResult
+import Amazonka.QLDBSession.Types.StartTransactionRequest
+import Amazonka.QLDBSession.Types.StartTransactionResult
+import Amazonka.QLDBSession.Types.TimingInformation
+import Amazonka.QLDBSession.Types.ValueHolder

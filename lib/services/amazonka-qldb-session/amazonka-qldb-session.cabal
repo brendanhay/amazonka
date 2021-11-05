@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.QLDBSession.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.QLDBSession.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.QLDBSession" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.QLDBSession" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,31 +45,31 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.QLDBSession
-    Network.AWS.QLDBSession.Lens
-    Network.AWS.QLDBSession.SendCommand
-    Network.AWS.QLDBSession.Types
-    Network.AWS.QLDBSession.Types.AbortTransactionRequest
-    Network.AWS.QLDBSession.Types.AbortTransactionResult
-    Network.AWS.QLDBSession.Types.CommitTransactionRequest
-    Network.AWS.QLDBSession.Types.CommitTransactionResult
-    Network.AWS.QLDBSession.Types.EndSessionRequest
-    Network.AWS.QLDBSession.Types.EndSessionResult
-    Network.AWS.QLDBSession.Types.ExecuteStatementRequest
-    Network.AWS.QLDBSession.Types.ExecuteStatementResult
-    Network.AWS.QLDBSession.Types.FetchPageRequest
-    Network.AWS.QLDBSession.Types.FetchPageResult
-    Network.AWS.QLDBSession.Types.IOUsage
-    Network.AWS.QLDBSession.Types.Page
-    Network.AWS.QLDBSession.Types.StartSessionRequest
-    Network.AWS.QLDBSession.Types.StartSessionResult
-    Network.AWS.QLDBSession.Types.StartTransactionRequest
-    Network.AWS.QLDBSession.Types.StartTransactionResult
-    Network.AWS.QLDBSession.Types.TimingInformation
-    Network.AWS.QLDBSession.Types.ValueHolder
-    Network.AWS.QLDBSession.Waiters
+    Amazonka.QLDBSession
+    Amazonka.QLDBSession.Lens
+    Amazonka.QLDBSession.SendCommand
+    Amazonka.QLDBSession.Types
+    Amazonka.QLDBSession.Types.AbortTransactionRequest
+    Amazonka.QLDBSession.Types.AbortTransactionResult
+    Amazonka.QLDBSession.Types.CommitTransactionRequest
+    Amazonka.QLDBSession.Types.CommitTransactionResult
+    Amazonka.QLDBSession.Types.EndSessionRequest
+    Amazonka.QLDBSession.Types.EndSessionResult
+    Amazonka.QLDBSession.Types.ExecuteStatementRequest
+    Amazonka.QLDBSession.Types.ExecuteStatementResult
+    Amazonka.QLDBSession.Types.FetchPageRequest
+    Amazonka.QLDBSession.Types.FetchPageResult
+    Amazonka.QLDBSession.Types.IOUsage
+    Amazonka.QLDBSession.Types.Page
+    Amazonka.QLDBSession.Types.StartSessionRequest
+    Amazonka.QLDBSession.Types.StartSessionResult
+    Amazonka.QLDBSession.Types.StartTransactionRequest
+    Amazonka.QLDBSession.Types.StartTransactionResult
+    Amazonka.QLDBSession.Types.TimingInformation
+    Amazonka.QLDBSession.Types.ValueHolder
+    Amazonka.QLDBSession.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.QLDBSession
+-- Module      : Amazonka.QLDBSession
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 --     use the QLDB shell. The shell is a command line interface that uses
 --     the QLDB driver to interact with a ledger. For information, see
 --     <https://docs.aws.amazon.com/qldb/latest/developerguide/data-shell.html Accessing Amazon QLDB using the QLDB shell>.
-module Network.AWS.QLDBSession
+module Amazonka.QLDBSession
   ( -- * Service Configuration
     defaultService,
 
@@ -140,10 +140,10 @@ module Network.AWS.QLDBSession
   )
 where
 
-import Network.AWS.QLDBSession.Lens
-import Network.AWS.QLDBSession.SendCommand
-import Network.AWS.QLDBSession.Types
-import Network.AWS.QLDBSession.Waiters
+import Amazonka.QLDBSession.Lens
+import Amazonka.QLDBSession.SendCommand
+import Amazonka.QLDBSession.Types
+import Amazonka.QLDBSession.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

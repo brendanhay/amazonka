@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KinesisAnalytics.Types.DestinationSchema
+-- Module      : Amazonka.KinesisAnalytics.Types.DestinationSchema
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisAnalytics.Types.DestinationSchema where
+module Amazonka.KinesisAnalytics.Types.DestinationSchema where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KinesisAnalytics.Types.RecordFormatType
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.KinesisAnalytics.Types.RecordFormatType
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the data format when records are written to the destination.
 -- For more information, see

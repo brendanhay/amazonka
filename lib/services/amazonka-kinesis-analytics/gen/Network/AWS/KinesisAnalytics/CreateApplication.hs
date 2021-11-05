@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KinesisAnalytics.CreateApplication
+-- Module      : Amazonka.KinesisAnalytics.CreateApplication
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -54,7 +54,7 @@
 -- For introductory exercises to create an Amazon Kinesis Analytics
 -- application, see
 -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/getting-started.html Getting Started>.
-module Network.AWS.KinesisAnalytics.CreateApplication
+module Amazonka.KinesisAnalytics.CreateApplication
   ( -- * Creating a Request
     CreateApplication (..),
     newCreateApplication,
@@ -78,12 +78,12 @@ module Network.AWS.KinesisAnalytics.CreateApplication
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KinesisAnalytics.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.KinesisAnalytics.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | TBD
 --

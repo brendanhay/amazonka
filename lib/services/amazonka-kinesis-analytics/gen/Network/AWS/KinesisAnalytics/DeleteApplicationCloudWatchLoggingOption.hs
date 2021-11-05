@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KinesisAnalytics.DeleteApplicationCloudWatchLoggingOption
+-- Module      : Amazonka.KinesisAnalytics.DeleteApplicationCloudWatchLoggingOption
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -29,7 +29,7 @@
 -- information about using CloudWatch log streams with Amazon Kinesis
 -- Analytics applications, see
 -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html Working with Amazon CloudWatch Logs>.
-module Network.AWS.KinesisAnalytics.DeleteApplicationCloudWatchLoggingOption
+module Amazonka.KinesisAnalytics.DeleteApplicationCloudWatchLoggingOption
   ( -- * Creating a Request
     DeleteApplicationCloudWatchLoggingOption (..),
     newDeleteApplicationCloudWatchLoggingOption,
@@ -48,12 +48,12 @@ module Network.AWS.KinesisAnalytics.DeleteApplicationCloudWatchLoggingOption
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KinesisAnalytics.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.KinesisAnalytics.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteApplicationCloudWatchLoggingOption' smart constructor.
 data DeleteApplicationCloudWatchLoggingOption = DeleteApplicationCloudWatchLoggingOption'

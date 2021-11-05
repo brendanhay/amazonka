@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KinesisAnalytics.Types
+-- Module      : Amazonka.KinesisAnalytics.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisAnalytics.Types
+module Amazonka.KinesisAnalytics.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -406,66 +406,66 @@ module Network.AWS.KinesisAnalytics.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KinesisAnalytics.Types.ApplicationDetail
-import Network.AWS.KinesisAnalytics.Types.ApplicationStatus
-import Network.AWS.KinesisAnalytics.Types.ApplicationSummary
-import Network.AWS.KinesisAnalytics.Types.ApplicationUpdate
-import Network.AWS.KinesisAnalytics.Types.CSVMappingParameters
-import Network.AWS.KinesisAnalytics.Types.CloudWatchLoggingOption
-import Network.AWS.KinesisAnalytics.Types.CloudWatchLoggingOptionDescription
-import Network.AWS.KinesisAnalytics.Types.CloudWatchLoggingOptionUpdate
-import Network.AWS.KinesisAnalytics.Types.DestinationSchema
-import Network.AWS.KinesisAnalytics.Types.Input
-import Network.AWS.KinesisAnalytics.Types.InputConfiguration
-import Network.AWS.KinesisAnalytics.Types.InputDescription
-import Network.AWS.KinesisAnalytics.Types.InputLambdaProcessor
-import Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorDescription
-import Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorUpdate
-import Network.AWS.KinesisAnalytics.Types.InputParallelism
-import Network.AWS.KinesisAnalytics.Types.InputParallelismUpdate
-import Network.AWS.KinesisAnalytics.Types.InputProcessingConfiguration
-import Network.AWS.KinesisAnalytics.Types.InputProcessingConfigurationDescription
-import Network.AWS.KinesisAnalytics.Types.InputProcessingConfigurationUpdate
-import Network.AWS.KinesisAnalytics.Types.InputSchemaUpdate
-import Network.AWS.KinesisAnalytics.Types.InputStartingPosition
-import Network.AWS.KinesisAnalytics.Types.InputStartingPositionConfiguration
-import Network.AWS.KinesisAnalytics.Types.InputUpdate
-import Network.AWS.KinesisAnalytics.Types.JSONMappingParameters
-import Network.AWS.KinesisAnalytics.Types.KinesisFirehoseInput
-import Network.AWS.KinesisAnalytics.Types.KinesisFirehoseInputDescription
-import Network.AWS.KinesisAnalytics.Types.KinesisFirehoseInputUpdate
-import Network.AWS.KinesisAnalytics.Types.KinesisFirehoseOutput
-import Network.AWS.KinesisAnalytics.Types.KinesisFirehoseOutputDescription
-import Network.AWS.KinesisAnalytics.Types.KinesisFirehoseOutputUpdate
-import Network.AWS.KinesisAnalytics.Types.KinesisStreamsInput
-import Network.AWS.KinesisAnalytics.Types.KinesisStreamsInputDescription
-import Network.AWS.KinesisAnalytics.Types.KinesisStreamsInputUpdate
-import Network.AWS.KinesisAnalytics.Types.KinesisStreamsOutput
-import Network.AWS.KinesisAnalytics.Types.KinesisStreamsOutputDescription
-import Network.AWS.KinesisAnalytics.Types.KinesisStreamsOutputUpdate
-import Network.AWS.KinesisAnalytics.Types.LambdaOutput
-import Network.AWS.KinesisAnalytics.Types.LambdaOutputDescription
-import Network.AWS.KinesisAnalytics.Types.LambdaOutputUpdate
-import Network.AWS.KinesisAnalytics.Types.MappingParameters
-import Network.AWS.KinesisAnalytics.Types.Output
-import Network.AWS.KinesisAnalytics.Types.OutputDescription
-import Network.AWS.KinesisAnalytics.Types.OutputUpdate
-import Network.AWS.KinesisAnalytics.Types.RecordColumn
-import Network.AWS.KinesisAnalytics.Types.RecordFormat
-import Network.AWS.KinesisAnalytics.Types.RecordFormatType
-import Network.AWS.KinesisAnalytics.Types.ReferenceDataSource
-import Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription
-import Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceUpdate
-import Network.AWS.KinesisAnalytics.Types.S3Configuration
-import Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSource
-import Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription
-import Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceUpdate
-import Network.AWS.KinesisAnalytics.Types.SourceSchema
-import Network.AWS.KinesisAnalytics.Types.Tag
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.KinesisAnalytics.Types.ApplicationDetail
+import Amazonka.KinesisAnalytics.Types.ApplicationStatus
+import Amazonka.KinesisAnalytics.Types.ApplicationSummary
+import Amazonka.KinesisAnalytics.Types.ApplicationUpdate
+import Amazonka.KinesisAnalytics.Types.CSVMappingParameters
+import Amazonka.KinesisAnalytics.Types.CloudWatchLoggingOption
+import Amazonka.KinesisAnalytics.Types.CloudWatchLoggingOptionDescription
+import Amazonka.KinesisAnalytics.Types.CloudWatchLoggingOptionUpdate
+import Amazonka.KinesisAnalytics.Types.DestinationSchema
+import Amazonka.KinesisAnalytics.Types.Input
+import Amazonka.KinesisAnalytics.Types.InputConfiguration
+import Amazonka.KinesisAnalytics.Types.InputDescription
+import Amazonka.KinesisAnalytics.Types.InputLambdaProcessor
+import Amazonka.KinesisAnalytics.Types.InputLambdaProcessorDescription
+import Amazonka.KinesisAnalytics.Types.InputLambdaProcessorUpdate
+import Amazonka.KinesisAnalytics.Types.InputParallelism
+import Amazonka.KinesisAnalytics.Types.InputParallelismUpdate
+import Amazonka.KinesisAnalytics.Types.InputProcessingConfiguration
+import Amazonka.KinesisAnalytics.Types.InputProcessingConfigurationDescription
+import Amazonka.KinesisAnalytics.Types.InputProcessingConfigurationUpdate
+import Amazonka.KinesisAnalytics.Types.InputSchemaUpdate
+import Amazonka.KinesisAnalytics.Types.InputStartingPosition
+import Amazonka.KinesisAnalytics.Types.InputStartingPositionConfiguration
+import Amazonka.KinesisAnalytics.Types.InputUpdate
+import Amazonka.KinesisAnalytics.Types.JSONMappingParameters
+import Amazonka.KinesisAnalytics.Types.KinesisFirehoseInput
+import Amazonka.KinesisAnalytics.Types.KinesisFirehoseInputDescription
+import Amazonka.KinesisAnalytics.Types.KinesisFirehoseInputUpdate
+import Amazonka.KinesisAnalytics.Types.KinesisFirehoseOutput
+import Amazonka.KinesisAnalytics.Types.KinesisFirehoseOutputDescription
+import Amazonka.KinesisAnalytics.Types.KinesisFirehoseOutputUpdate
+import Amazonka.KinesisAnalytics.Types.KinesisStreamsInput
+import Amazonka.KinesisAnalytics.Types.KinesisStreamsInputDescription
+import Amazonka.KinesisAnalytics.Types.KinesisStreamsInputUpdate
+import Amazonka.KinesisAnalytics.Types.KinesisStreamsOutput
+import Amazonka.KinesisAnalytics.Types.KinesisStreamsOutputDescription
+import Amazonka.KinesisAnalytics.Types.KinesisStreamsOutputUpdate
+import Amazonka.KinesisAnalytics.Types.LambdaOutput
+import Amazonka.KinesisAnalytics.Types.LambdaOutputDescription
+import Amazonka.KinesisAnalytics.Types.LambdaOutputUpdate
+import Amazonka.KinesisAnalytics.Types.MappingParameters
+import Amazonka.KinesisAnalytics.Types.Output
+import Amazonka.KinesisAnalytics.Types.OutputDescription
+import Amazonka.KinesisAnalytics.Types.OutputUpdate
+import Amazonka.KinesisAnalytics.Types.RecordColumn
+import Amazonka.KinesisAnalytics.Types.RecordFormat
+import Amazonka.KinesisAnalytics.Types.RecordFormatType
+import Amazonka.KinesisAnalytics.Types.ReferenceDataSource
+import Amazonka.KinesisAnalytics.Types.ReferenceDataSourceDescription
+import Amazonka.KinesisAnalytics.Types.ReferenceDataSourceUpdate
+import Amazonka.KinesisAnalytics.Types.S3Configuration
+import Amazonka.KinesisAnalytics.Types.S3ReferenceDataSource
+import Amazonka.KinesisAnalytics.Types.S3ReferenceDataSourceDescription
+import Amazonka.KinesisAnalytics.Types.S3ReferenceDataSourceUpdate
+import Amazonka.KinesisAnalytics.Types.SourceSchema
+import Amazonka.KinesisAnalytics.Types.Tag
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2015-08-14@ of the Amazon Kinesis Analytics SDK configuration.
 defaultService :: Core.Service

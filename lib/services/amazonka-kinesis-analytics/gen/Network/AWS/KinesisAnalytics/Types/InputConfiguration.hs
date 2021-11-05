@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KinesisAnalytics.Types.InputConfiguration
+-- Module      : Amazonka.KinesisAnalytics.Types.InputConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisAnalytics.Types.InputConfiguration where
+module Amazonka.KinesisAnalytics.Types.InputConfiguration where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KinesisAnalytics.Types.InputStartingPositionConfiguration
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.KinesisAnalytics.Types.InputStartingPositionConfiguration
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | When you start your application, you provide this configuration, which
 -- identifies the input source and the point in the input source at which

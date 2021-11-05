@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KinesisAnalytics.Types.ApplicationUpdate
+-- Module      : Amazonka.KinesisAnalytics.Types.ApplicationUpdate
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisAnalytics.Types.ApplicationUpdate where
+module Amazonka.KinesisAnalytics.Types.ApplicationUpdate where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KinesisAnalytics.Types.CloudWatchLoggingOptionUpdate
-import Network.AWS.KinesisAnalytics.Types.InputUpdate
-import Network.AWS.KinesisAnalytics.Types.OutputUpdate
-import Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceUpdate
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.KinesisAnalytics.Types.CloudWatchLoggingOptionUpdate
+import Amazonka.KinesisAnalytics.Types.InputUpdate
+import Amazonka.KinesisAnalytics.Types.OutputUpdate
+import Amazonka.KinesisAnalytics.Types.ReferenceDataSourceUpdate
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes updates to apply to an existing Amazon Kinesis Analytics
 -- application.

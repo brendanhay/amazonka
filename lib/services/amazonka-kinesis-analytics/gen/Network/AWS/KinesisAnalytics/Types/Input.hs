@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KinesisAnalytics.Types.Input
+-- Module      : Amazonka.KinesisAnalytics.Types.Input
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisAnalytics.Types.Input where
+module Amazonka.KinesisAnalytics.Types.Input where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KinesisAnalytics.Types.InputParallelism
-import Network.AWS.KinesisAnalytics.Types.InputProcessingConfiguration
-import Network.AWS.KinesisAnalytics.Types.KinesisFirehoseInput
-import Network.AWS.KinesisAnalytics.Types.KinesisStreamsInput
-import Network.AWS.KinesisAnalytics.Types.SourceSchema
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.KinesisAnalytics.Types.InputParallelism
+import Amazonka.KinesisAnalytics.Types.InputProcessingConfiguration
+import Amazonka.KinesisAnalytics.Types.KinesisFirehoseInput
+import Amazonka.KinesisAnalytics.Types.KinesisStreamsInput
+import Amazonka.KinesisAnalytics.Types.SourceSchema
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | When you configure the application input, you specify the streaming
 -- source, the in-application stream name that is created, and the mapping

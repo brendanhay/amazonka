@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KinesisAnalytics.Types.ApplicationDetail
+-- Module      : Amazonka.KinesisAnalytics.Types.ApplicationDetail
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisAnalytics.Types.ApplicationDetail where
+module Amazonka.KinesisAnalytics.Types.ApplicationDetail where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KinesisAnalytics.Types.ApplicationStatus
-import Network.AWS.KinesisAnalytics.Types.CloudWatchLoggingOptionDescription
-import Network.AWS.KinesisAnalytics.Types.InputDescription
-import Network.AWS.KinesisAnalytics.Types.OutputDescription
-import Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.KinesisAnalytics.Types.ApplicationStatus
+import Amazonka.KinesisAnalytics.Types.CloudWatchLoggingOptionDescription
+import Amazonka.KinesisAnalytics.Types.InputDescription
+import Amazonka.KinesisAnalytics.Types.OutputDescription
+import Amazonka.KinesisAnalytics.Types.ReferenceDataSourceDescription
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | This documentation is for version 1 of the Amazon Kinesis Data Analytics
 -- API, which only supports SQL applications. Version 2 of the API supports

@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KinesisAnalytics.Types.InputUpdate
+-- Module      : Amazonka.KinesisAnalytics.Types.InputUpdate
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisAnalytics.Types.InputUpdate where
+module Amazonka.KinesisAnalytics.Types.InputUpdate where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KinesisAnalytics.Types.InputParallelismUpdate
-import Network.AWS.KinesisAnalytics.Types.InputProcessingConfigurationUpdate
-import Network.AWS.KinesisAnalytics.Types.InputSchemaUpdate
-import Network.AWS.KinesisAnalytics.Types.KinesisFirehoseInputUpdate
-import Network.AWS.KinesisAnalytics.Types.KinesisStreamsInputUpdate
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.KinesisAnalytics.Types.InputParallelismUpdate
+import Amazonka.KinesisAnalytics.Types.InputProcessingConfigurationUpdate
+import Amazonka.KinesisAnalytics.Types.InputSchemaUpdate
+import Amazonka.KinesisAnalytics.Types.KinesisFirehoseInputUpdate
+import Amazonka.KinesisAnalytics.Types.KinesisStreamsInputUpdate
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes updates to a specific input configuration (identified by the
 -- @InputId@ of an application).

@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ManagedBlockChain.Types.ApprovalThresholdPolicy
+-- Module      : Amazonka.ManagedBlockChain.Types.ApprovalThresholdPolicy
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ManagedBlockChain.Types.ApprovalThresholdPolicy where
+module Amazonka.ManagedBlockChain.Types.ApprovalThresholdPolicy where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.ManagedBlockChain.Types.ThresholdComparator
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.ManagedBlockChain.Types.ThresholdComparator
+import qualified Amazonka.Prelude as Prelude
 
 -- | A policy type that defines the voting rules for the network. The rules
 -- decide if a proposal is approved. Approval may be based on criteria such

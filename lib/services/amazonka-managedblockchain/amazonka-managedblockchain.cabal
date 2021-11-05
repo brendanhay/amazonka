@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.ManagedBlockChain.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.ManagedBlockChain.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.ManagedBlockChain" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.ManagedBlockChain" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,80 +45,80 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.ManagedBlockChain
-    Network.AWS.ManagedBlockChain.CreateMember
-    Network.AWS.ManagedBlockChain.CreateNetwork
-    Network.AWS.ManagedBlockChain.CreateNode
-    Network.AWS.ManagedBlockChain.CreateProposal
-    Network.AWS.ManagedBlockChain.DeleteMember
-    Network.AWS.ManagedBlockChain.DeleteNode
-    Network.AWS.ManagedBlockChain.GetMember
-    Network.AWS.ManagedBlockChain.GetNetwork
-    Network.AWS.ManagedBlockChain.GetNode
-    Network.AWS.ManagedBlockChain.GetProposal
-    Network.AWS.ManagedBlockChain.Lens
-    Network.AWS.ManagedBlockChain.ListInvitations
-    Network.AWS.ManagedBlockChain.ListMembers
-    Network.AWS.ManagedBlockChain.ListNetworks
-    Network.AWS.ManagedBlockChain.ListNodes
-    Network.AWS.ManagedBlockChain.ListProposals
-    Network.AWS.ManagedBlockChain.ListProposalVotes
-    Network.AWS.ManagedBlockChain.ListTagsForResource
-    Network.AWS.ManagedBlockChain.RejectInvitation
-    Network.AWS.ManagedBlockChain.TagResource
-    Network.AWS.ManagedBlockChain.Types
-    Network.AWS.ManagedBlockChain.Types.ApprovalThresholdPolicy
-    Network.AWS.ManagedBlockChain.Types.Edition
-    Network.AWS.ManagedBlockChain.Types.Framework
-    Network.AWS.ManagedBlockChain.Types.Invitation
-    Network.AWS.ManagedBlockChain.Types.InvitationStatus
-    Network.AWS.ManagedBlockChain.Types.InviteAction
-    Network.AWS.ManagedBlockChain.Types.LogConfiguration
-    Network.AWS.ManagedBlockChain.Types.LogConfigurations
-    Network.AWS.ManagedBlockChain.Types.Member
-    Network.AWS.ManagedBlockChain.Types.MemberConfiguration
-    Network.AWS.ManagedBlockChain.Types.MemberFabricAttributes
-    Network.AWS.ManagedBlockChain.Types.MemberFabricConfiguration
-    Network.AWS.ManagedBlockChain.Types.MemberFabricLogPublishingConfiguration
-    Network.AWS.ManagedBlockChain.Types.MemberFrameworkAttributes
-    Network.AWS.ManagedBlockChain.Types.MemberFrameworkConfiguration
-    Network.AWS.ManagedBlockChain.Types.MemberLogPublishingConfiguration
-    Network.AWS.ManagedBlockChain.Types.MemberStatus
-    Network.AWS.ManagedBlockChain.Types.MemberSummary
-    Network.AWS.ManagedBlockChain.Types.Network
-    Network.AWS.ManagedBlockChain.Types.NetworkEthereumAttributes
-    Network.AWS.ManagedBlockChain.Types.NetworkFabricAttributes
-    Network.AWS.ManagedBlockChain.Types.NetworkFabricConfiguration
-    Network.AWS.ManagedBlockChain.Types.NetworkFrameworkAttributes
-    Network.AWS.ManagedBlockChain.Types.NetworkFrameworkConfiguration
-    Network.AWS.ManagedBlockChain.Types.NetworkStatus
-    Network.AWS.ManagedBlockChain.Types.NetworkSummary
-    Network.AWS.ManagedBlockChain.Types.Node
-    Network.AWS.ManagedBlockChain.Types.NodeConfiguration
-    Network.AWS.ManagedBlockChain.Types.NodeEthereumAttributes
-    Network.AWS.ManagedBlockChain.Types.NodeFabricAttributes
-    Network.AWS.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration
-    Network.AWS.ManagedBlockChain.Types.NodeFrameworkAttributes
-    Network.AWS.ManagedBlockChain.Types.NodeLogPublishingConfiguration
-    Network.AWS.ManagedBlockChain.Types.NodeStatus
-    Network.AWS.ManagedBlockChain.Types.NodeSummary
-    Network.AWS.ManagedBlockChain.Types.Proposal
-    Network.AWS.ManagedBlockChain.Types.ProposalActions
-    Network.AWS.ManagedBlockChain.Types.ProposalStatus
-    Network.AWS.ManagedBlockChain.Types.ProposalSummary
-    Network.AWS.ManagedBlockChain.Types.RemoveAction
-    Network.AWS.ManagedBlockChain.Types.StateDBType
-    Network.AWS.ManagedBlockChain.Types.ThresholdComparator
-    Network.AWS.ManagedBlockChain.Types.VoteSummary
-    Network.AWS.ManagedBlockChain.Types.VoteValue
-    Network.AWS.ManagedBlockChain.Types.VotingPolicy
-    Network.AWS.ManagedBlockChain.UntagResource
-    Network.AWS.ManagedBlockChain.UpdateMember
-    Network.AWS.ManagedBlockChain.UpdateNode
-    Network.AWS.ManagedBlockChain.VoteOnProposal
-    Network.AWS.ManagedBlockChain.Waiters
+    Amazonka.ManagedBlockChain
+    Amazonka.ManagedBlockChain.CreateMember
+    Amazonka.ManagedBlockChain.CreateNetwork
+    Amazonka.ManagedBlockChain.CreateNode
+    Amazonka.ManagedBlockChain.CreateProposal
+    Amazonka.ManagedBlockChain.DeleteMember
+    Amazonka.ManagedBlockChain.DeleteNode
+    Amazonka.ManagedBlockChain.GetMember
+    Amazonka.ManagedBlockChain.GetNetwork
+    Amazonka.ManagedBlockChain.GetNode
+    Amazonka.ManagedBlockChain.GetProposal
+    Amazonka.ManagedBlockChain.Lens
+    Amazonka.ManagedBlockChain.ListInvitations
+    Amazonka.ManagedBlockChain.ListMembers
+    Amazonka.ManagedBlockChain.ListNetworks
+    Amazonka.ManagedBlockChain.ListNodes
+    Amazonka.ManagedBlockChain.ListProposals
+    Amazonka.ManagedBlockChain.ListProposalVotes
+    Amazonka.ManagedBlockChain.ListTagsForResource
+    Amazonka.ManagedBlockChain.RejectInvitation
+    Amazonka.ManagedBlockChain.TagResource
+    Amazonka.ManagedBlockChain.Types
+    Amazonka.ManagedBlockChain.Types.ApprovalThresholdPolicy
+    Amazonka.ManagedBlockChain.Types.Edition
+    Amazonka.ManagedBlockChain.Types.Framework
+    Amazonka.ManagedBlockChain.Types.Invitation
+    Amazonka.ManagedBlockChain.Types.InvitationStatus
+    Amazonka.ManagedBlockChain.Types.InviteAction
+    Amazonka.ManagedBlockChain.Types.LogConfiguration
+    Amazonka.ManagedBlockChain.Types.LogConfigurations
+    Amazonka.ManagedBlockChain.Types.Member
+    Amazonka.ManagedBlockChain.Types.MemberConfiguration
+    Amazonka.ManagedBlockChain.Types.MemberFabricAttributes
+    Amazonka.ManagedBlockChain.Types.MemberFabricConfiguration
+    Amazonka.ManagedBlockChain.Types.MemberFabricLogPublishingConfiguration
+    Amazonka.ManagedBlockChain.Types.MemberFrameworkAttributes
+    Amazonka.ManagedBlockChain.Types.MemberFrameworkConfiguration
+    Amazonka.ManagedBlockChain.Types.MemberLogPublishingConfiguration
+    Amazonka.ManagedBlockChain.Types.MemberStatus
+    Amazonka.ManagedBlockChain.Types.MemberSummary
+    Amazonka.ManagedBlockChain.Types.Network
+    Amazonka.ManagedBlockChain.Types.NetworkEthereumAttributes
+    Amazonka.ManagedBlockChain.Types.NetworkFabricAttributes
+    Amazonka.ManagedBlockChain.Types.NetworkFabricConfiguration
+    Amazonka.ManagedBlockChain.Types.NetworkFrameworkAttributes
+    Amazonka.ManagedBlockChain.Types.NetworkFrameworkConfiguration
+    Amazonka.ManagedBlockChain.Types.NetworkStatus
+    Amazonka.ManagedBlockChain.Types.NetworkSummary
+    Amazonka.ManagedBlockChain.Types.Node
+    Amazonka.ManagedBlockChain.Types.NodeConfiguration
+    Amazonka.ManagedBlockChain.Types.NodeEthereumAttributes
+    Amazonka.ManagedBlockChain.Types.NodeFabricAttributes
+    Amazonka.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration
+    Amazonka.ManagedBlockChain.Types.NodeFrameworkAttributes
+    Amazonka.ManagedBlockChain.Types.NodeLogPublishingConfiguration
+    Amazonka.ManagedBlockChain.Types.NodeStatus
+    Amazonka.ManagedBlockChain.Types.NodeSummary
+    Amazonka.ManagedBlockChain.Types.Proposal
+    Amazonka.ManagedBlockChain.Types.ProposalActions
+    Amazonka.ManagedBlockChain.Types.ProposalStatus
+    Amazonka.ManagedBlockChain.Types.ProposalSummary
+    Amazonka.ManagedBlockChain.Types.RemoveAction
+    Amazonka.ManagedBlockChain.Types.StateDBType
+    Amazonka.ManagedBlockChain.Types.ThresholdComparator
+    Amazonka.ManagedBlockChain.Types.VoteSummary
+    Amazonka.ManagedBlockChain.Types.VoteValue
+    Amazonka.ManagedBlockChain.Types.VotingPolicy
+    Amazonka.ManagedBlockChain.UntagResource
+    Amazonka.ManagedBlockChain.UpdateMember
+    Amazonka.ManagedBlockChain.UpdateNode
+    Amazonka.ManagedBlockChain.VoteOnProposal
+    Amazonka.ManagedBlockChain.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

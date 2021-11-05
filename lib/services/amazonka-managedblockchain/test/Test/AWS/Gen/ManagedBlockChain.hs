@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ManagedBlockChain where
 
+import Amazonka.ManagedBlockChain
 import qualified Data.Proxy as Proxy
-import Network.AWS.ManagedBlockChain
 import Test.AWS.Fixture
 import Test.AWS.ManagedBlockChain.Internal
 import Test.AWS.Prelude

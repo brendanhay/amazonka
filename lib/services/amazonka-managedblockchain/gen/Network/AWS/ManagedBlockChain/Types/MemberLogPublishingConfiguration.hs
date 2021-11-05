@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ManagedBlockChain.Types.MemberLogPublishingConfiguration
+-- Module      : Amazonka.ManagedBlockChain.Types.MemberLogPublishingConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ManagedBlockChain.Types.MemberLogPublishingConfiguration where
+module Amazonka.ManagedBlockChain.Types.MemberLogPublishingConfiguration where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.ManagedBlockChain.Types.MemberFabricLogPublishingConfiguration
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.ManagedBlockChain.Types.MemberFabricLogPublishingConfiguration
+import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration properties for logging events associated with a member of
 -- a Managed Blockchain network.

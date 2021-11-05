@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ManagedBlockChain.Types
+-- Module      : Amazonka.ManagedBlockChain.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ManagedBlockChain.Types
+module Amazonka.ManagedBlockChain.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -332,55 +332,55 @@ module Network.AWS.ManagedBlockChain.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.ManagedBlockChain.Types.ApprovalThresholdPolicy
-import Network.AWS.ManagedBlockChain.Types.Edition
-import Network.AWS.ManagedBlockChain.Types.Framework
-import Network.AWS.ManagedBlockChain.Types.Invitation
-import Network.AWS.ManagedBlockChain.Types.InvitationStatus
-import Network.AWS.ManagedBlockChain.Types.InviteAction
-import Network.AWS.ManagedBlockChain.Types.LogConfiguration
-import Network.AWS.ManagedBlockChain.Types.LogConfigurations
-import Network.AWS.ManagedBlockChain.Types.Member
-import Network.AWS.ManagedBlockChain.Types.MemberConfiguration
-import Network.AWS.ManagedBlockChain.Types.MemberFabricAttributes
-import Network.AWS.ManagedBlockChain.Types.MemberFabricConfiguration
-import Network.AWS.ManagedBlockChain.Types.MemberFabricLogPublishingConfiguration
-import Network.AWS.ManagedBlockChain.Types.MemberFrameworkAttributes
-import Network.AWS.ManagedBlockChain.Types.MemberFrameworkConfiguration
-import Network.AWS.ManagedBlockChain.Types.MemberLogPublishingConfiguration
-import Network.AWS.ManagedBlockChain.Types.MemberStatus
-import Network.AWS.ManagedBlockChain.Types.MemberSummary
-import Network.AWS.ManagedBlockChain.Types.Network
-import Network.AWS.ManagedBlockChain.Types.NetworkEthereumAttributes
-import Network.AWS.ManagedBlockChain.Types.NetworkFabricAttributes
-import Network.AWS.ManagedBlockChain.Types.NetworkFabricConfiguration
-import Network.AWS.ManagedBlockChain.Types.NetworkFrameworkAttributes
-import Network.AWS.ManagedBlockChain.Types.NetworkFrameworkConfiguration
-import Network.AWS.ManagedBlockChain.Types.NetworkStatus
-import Network.AWS.ManagedBlockChain.Types.NetworkSummary
-import Network.AWS.ManagedBlockChain.Types.Node
-import Network.AWS.ManagedBlockChain.Types.NodeConfiguration
-import Network.AWS.ManagedBlockChain.Types.NodeEthereumAttributes
-import Network.AWS.ManagedBlockChain.Types.NodeFabricAttributes
-import Network.AWS.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration
-import Network.AWS.ManagedBlockChain.Types.NodeFrameworkAttributes
-import Network.AWS.ManagedBlockChain.Types.NodeLogPublishingConfiguration
-import Network.AWS.ManagedBlockChain.Types.NodeStatus
-import Network.AWS.ManagedBlockChain.Types.NodeSummary
-import Network.AWS.ManagedBlockChain.Types.Proposal
-import Network.AWS.ManagedBlockChain.Types.ProposalActions
-import Network.AWS.ManagedBlockChain.Types.ProposalStatus
-import Network.AWS.ManagedBlockChain.Types.ProposalSummary
-import Network.AWS.ManagedBlockChain.Types.RemoveAction
-import Network.AWS.ManagedBlockChain.Types.StateDBType
-import Network.AWS.ManagedBlockChain.Types.ThresholdComparator
-import Network.AWS.ManagedBlockChain.Types.VoteSummary
-import Network.AWS.ManagedBlockChain.Types.VoteValue
-import Network.AWS.ManagedBlockChain.Types.VotingPolicy
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.ManagedBlockChain.Types.ApprovalThresholdPolicy
+import Amazonka.ManagedBlockChain.Types.Edition
+import Amazonka.ManagedBlockChain.Types.Framework
+import Amazonka.ManagedBlockChain.Types.Invitation
+import Amazonka.ManagedBlockChain.Types.InvitationStatus
+import Amazonka.ManagedBlockChain.Types.InviteAction
+import Amazonka.ManagedBlockChain.Types.LogConfiguration
+import Amazonka.ManagedBlockChain.Types.LogConfigurations
+import Amazonka.ManagedBlockChain.Types.Member
+import Amazonka.ManagedBlockChain.Types.MemberConfiguration
+import Amazonka.ManagedBlockChain.Types.MemberFabricAttributes
+import Amazonka.ManagedBlockChain.Types.MemberFabricConfiguration
+import Amazonka.ManagedBlockChain.Types.MemberFabricLogPublishingConfiguration
+import Amazonka.ManagedBlockChain.Types.MemberFrameworkAttributes
+import Amazonka.ManagedBlockChain.Types.MemberFrameworkConfiguration
+import Amazonka.ManagedBlockChain.Types.MemberLogPublishingConfiguration
+import Amazonka.ManagedBlockChain.Types.MemberStatus
+import Amazonka.ManagedBlockChain.Types.MemberSummary
+import Amazonka.ManagedBlockChain.Types.Network
+import Amazonka.ManagedBlockChain.Types.NetworkEthereumAttributes
+import Amazonka.ManagedBlockChain.Types.NetworkFabricAttributes
+import Amazonka.ManagedBlockChain.Types.NetworkFabricConfiguration
+import Amazonka.ManagedBlockChain.Types.NetworkFrameworkAttributes
+import Amazonka.ManagedBlockChain.Types.NetworkFrameworkConfiguration
+import Amazonka.ManagedBlockChain.Types.NetworkStatus
+import Amazonka.ManagedBlockChain.Types.NetworkSummary
+import Amazonka.ManagedBlockChain.Types.Node
+import Amazonka.ManagedBlockChain.Types.NodeConfiguration
+import Amazonka.ManagedBlockChain.Types.NodeEthereumAttributes
+import Amazonka.ManagedBlockChain.Types.NodeFabricAttributes
+import Amazonka.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration
+import Amazonka.ManagedBlockChain.Types.NodeFrameworkAttributes
+import Amazonka.ManagedBlockChain.Types.NodeLogPublishingConfiguration
+import Amazonka.ManagedBlockChain.Types.NodeStatus
+import Amazonka.ManagedBlockChain.Types.NodeSummary
+import Amazonka.ManagedBlockChain.Types.Proposal
+import Amazonka.ManagedBlockChain.Types.ProposalActions
+import Amazonka.ManagedBlockChain.Types.ProposalStatus
+import Amazonka.ManagedBlockChain.Types.ProposalSummary
+import Amazonka.ManagedBlockChain.Types.RemoveAction
+import Amazonka.ManagedBlockChain.Types.StateDBType
+import Amazonka.ManagedBlockChain.Types.ThresholdComparator
+import Amazonka.ManagedBlockChain.Types.VoteSummary
+import Amazonka.ManagedBlockChain.Types.VoteValue
+import Amazonka.ManagedBlockChain.Types.VotingPolicy
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2018-09-24@ of the Amazon Managed Blockchain SDK configuration.
 defaultService :: Core.Service

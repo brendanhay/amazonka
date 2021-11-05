@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ManagedBlockChain.Types.MemberFabricLogPublishingConfiguration
+-- Module      : Amazonka.ManagedBlockChain.Types.MemberFabricLogPublishingConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ManagedBlockChain.Types.MemberFabricLogPublishingConfiguration where
+module Amazonka.ManagedBlockChain.Types.MemberFabricLogPublishingConfiguration where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.ManagedBlockChain.Types.LogConfigurations
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.ManagedBlockChain.Types.LogConfigurations
+import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration properties for logging events associated with a member of
 -- a Managed Blockchain network using the Hyperledger Fabric framework.

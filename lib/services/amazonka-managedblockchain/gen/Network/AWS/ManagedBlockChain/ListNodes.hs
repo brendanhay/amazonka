@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ManagedBlockChain.ListNodes
+-- Module      : Amazonka.ManagedBlockChain.ListNodes
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Returns information about the nodes within a network.
 --
 -- Applies to Hyperledger Fabric and Ethereum.
-module Network.AWS.ManagedBlockChain.ListNodes
+module Amazonka.ManagedBlockChain.ListNodes
   ( -- * Creating a Request
     ListNodes (..),
     newListNodes,
@@ -46,12 +46,12 @@ module Network.AWS.ManagedBlockChain.ListNodes
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.ManagedBlockChain.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.ManagedBlockChain.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListNodes' smart constructor.
 data ListNodes = ListNodes'

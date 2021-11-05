@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.ManagedBlockChain
+-- Module      : Amazonka.ManagedBlockChain
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 -- The description for each action indicates the framework or frameworks to
 -- which it applies. Data types and properties that apply only in the
 -- context of a particular framework are similarly indicated.
-module Network.AWS.ManagedBlockChain
+module Amazonka.ManagedBlockChain
   ( -- * Service Configuration
     defaultService,
 
@@ -382,32 +382,32 @@ module Network.AWS.ManagedBlockChain
   )
 where
 
-import Network.AWS.ManagedBlockChain.CreateMember
-import Network.AWS.ManagedBlockChain.CreateNetwork
-import Network.AWS.ManagedBlockChain.CreateNode
-import Network.AWS.ManagedBlockChain.CreateProposal
-import Network.AWS.ManagedBlockChain.DeleteMember
-import Network.AWS.ManagedBlockChain.DeleteNode
-import Network.AWS.ManagedBlockChain.GetMember
-import Network.AWS.ManagedBlockChain.GetNetwork
-import Network.AWS.ManagedBlockChain.GetNode
-import Network.AWS.ManagedBlockChain.GetProposal
-import Network.AWS.ManagedBlockChain.Lens
-import Network.AWS.ManagedBlockChain.ListInvitations
-import Network.AWS.ManagedBlockChain.ListMembers
-import Network.AWS.ManagedBlockChain.ListNetworks
-import Network.AWS.ManagedBlockChain.ListNodes
-import Network.AWS.ManagedBlockChain.ListProposalVotes
-import Network.AWS.ManagedBlockChain.ListProposals
-import Network.AWS.ManagedBlockChain.ListTagsForResource
-import Network.AWS.ManagedBlockChain.RejectInvitation
-import Network.AWS.ManagedBlockChain.TagResource
-import Network.AWS.ManagedBlockChain.Types
-import Network.AWS.ManagedBlockChain.UntagResource
-import Network.AWS.ManagedBlockChain.UpdateMember
-import Network.AWS.ManagedBlockChain.UpdateNode
-import Network.AWS.ManagedBlockChain.VoteOnProposal
-import Network.AWS.ManagedBlockChain.Waiters
+import Amazonka.ManagedBlockChain.CreateMember
+import Amazonka.ManagedBlockChain.CreateNetwork
+import Amazonka.ManagedBlockChain.CreateNode
+import Amazonka.ManagedBlockChain.CreateProposal
+import Amazonka.ManagedBlockChain.DeleteMember
+import Amazonka.ManagedBlockChain.DeleteNode
+import Amazonka.ManagedBlockChain.GetMember
+import Amazonka.ManagedBlockChain.GetNetwork
+import Amazonka.ManagedBlockChain.GetNode
+import Amazonka.ManagedBlockChain.GetProposal
+import Amazonka.ManagedBlockChain.Lens
+import Amazonka.ManagedBlockChain.ListInvitations
+import Amazonka.ManagedBlockChain.ListMembers
+import Amazonka.ManagedBlockChain.ListNetworks
+import Amazonka.ManagedBlockChain.ListNodes
+import Amazonka.ManagedBlockChain.ListProposalVotes
+import Amazonka.ManagedBlockChain.ListProposals
+import Amazonka.ManagedBlockChain.ListTagsForResource
+import Amazonka.ManagedBlockChain.RejectInvitation
+import Amazonka.ManagedBlockChain.TagResource
+import Amazonka.ManagedBlockChain.Types
+import Amazonka.ManagedBlockChain.UntagResource
+import Amazonka.ManagedBlockChain.UpdateMember
+import Amazonka.ManagedBlockChain.UpdateNode
+import Amazonka.ManagedBlockChain.VoteOnProposal
+import Amazonka.ManagedBlockChain.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

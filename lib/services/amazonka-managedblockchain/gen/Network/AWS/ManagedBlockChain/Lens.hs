@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ManagedBlockChain.Lens
+-- Module      : Amazonka.ManagedBlockChain.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ManagedBlockChain.Lens
+module Amazonka.ManagedBlockChain.Lens
   ( -- * Operations
 
     -- ** CreateMember
@@ -390,61 +390,61 @@ module Network.AWS.ManagedBlockChain.Lens
   )
 where
 
-import Network.AWS.ManagedBlockChain.CreateMember
-import Network.AWS.ManagedBlockChain.CreateNetwork
-import Network.AWS.ManagedBlockChain.CreateNode
-import Network.AWS.ManagedBlockChain.CreateProposal
-import Network.AWS.ManagedBlockChain.DeleteMember
-import Network.AWS.ManagedBlockChain.DeleteNode
-import Network.AWS.ManagedBlockChain.GetMember
-import Network.AWS.ManagedBlockChain.GetNetwork
-import Network.AWS.ManagedBlockChain.GetNode
-import Network.AWS.ManagedBlockChain.GetProposal
-import Network.AWS.ManagedBlockChain.ListInvitations
-import Network.AWS.ManagedBlockChain.ListMembers
-import Network.AWS.ManagedBlockChain.ListNetworks
-import Network.AWS.ManagedBlockChain.ListNodes
-import Network.AWS.ManagedBlockChain.ListProposalVotes
-import Network.AWS.ManagedBlockChain.ListProposals
-import Network.AWS.ManagedBlockChain.ListTagsForResource
-import Network.AWS.ManagedBlockChain.RejectInvitation
-import Network.AWS.ManagedBlockChain.TagResource
-import Network.AWS.ManagedBlockChain.Types.ApprovalThresholdPolicy
-import Network.AWS.ManagedBlockChain.Types.Invitation
-import Network.AWS.ManagedBlockChain.Types.InviteAction
-import Network.AWS.ManagedBlockChain.Types.LogConfiguration
-import Network.AWS.ManagedBlockChain.Types.LogConfigurations
-import Network.AWS.ManagedBlockChain.Types.Member
-import Network.AWS.ManagedBlockChain.Types.MemberConfiguration
-import Network.AWS.ManagedBlockChain.Types.MemberFabricAttributes
-import Network.AWS.ManagedBlockChain.Types.MemberFabricConfiguration
-import Network.AWS.ManagedBlockChain.Types.MemberFabricLogPublishingConfiguration
-import Network.AWS.ManagedBlockChain.Types.MemberFrameworkAttributes
-import Network.AWS.ManagedBlockChain.Types.MemberFrameworkConfiguration
-import Network.AWS.ManagedBlockChain.Types.MemberLogPublishingConfiguration
-import Network.AWS.ManagedBlockChain.Types.MemberSummary
-import Network.AWS.ManagedBlockChain.Types.Network
-import Network.AWS.ManagedBlockChain.Types.NetworkEthereumAttributes
-import Network.AWS.ManagedBlockChain.Types.NetworkFabricAttributes
-import Network.AWS.ManagedBlockChain.Types.NetworkFabricConfiguration
-import Network.AWS.ManagedBlockChain.Types.NetworkFrameworkAttributes
-import Network.AWS.ManagedBlockChain.Types.NetworkFrameworkConfiguration
-import Network.AWS.ManagedBlockChain.Types.NetworkSummary
-import Network.AWS.ManagedBlockChain.Types.Node
-import Network.AWS.ManagedBlockChain.Types.NodeConfiguration
-import Network.AWS.ManagedBlockChain.Types.NodeEthereumAttributes
-import Network.AWS.ManagedBlockChain.Types.NodeFabricAttributes
-import Network.AWS.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration
-import Network.AWS.ManagedBlockChain.Types.NodeFrameworkAttributes
-import Network.AWS.ManagedBlockChain.Types.NodeLogPublishingConfiguration
-import Network.AWS.ManagedBlockChain.Types.NodeSummary
-import Network.AWS.ManagedBlockChain.Types.Proposal
-import Network.AWS.ManagedBlockChain.Types.ProposalActions
-import Network.AWS.ManagedBlockChain.Types.ProposalSummary
-import Network.AWS.ManagedBlockChain.Types.RemoveAction
-import Network.AWS.ManagedBlockChain.Types.VoteSummary
-import Network.AWS.ManagedBlockChain.Types.VotingPolicy
-import Network.AWS.ManagedBlockChain.UntagResource
-import Network.AWS.ManagedBlockChain.UpdateMember
-import Network.AWS.ManagedBlockChain.UpdateNode
-import Network.AWS.ManagedBlockChain.VoteOnProposal
+import Amazonka.ManagedBlockChain.CreateMember
+import Amazonka.ManagedBlockChain.CreateNetwork
+import Amazonka.ManagedBlockChain.CreateNode
+import Amazonka.ManagedBlockChain.CreateProposal
+import Amazonka.ManagedBlockChain.DeleteMember
+import Amazonka.ManagedBlockChain.DeleteNode
+import Amazonka.ManagedBlockChain.GetMember
+import Amazonka.ManagedBlockChain.GetNetwork
+import Amazonka.ManagedBlockChain.GetNode
+import Amazonka.ManagedBlockChain.GetProposal
+import Amazonka.ManagedBlockChain.ListInvitations
+import Amazonka.ManagedBlockChain.ListMembers
+import Amazonka.ManagedBlockChain.ListNetworks
+import Amazonka.ManagedBlockChain.ListNodes
+import Amazonka.ManagedBlockChain.ListProposalVotes
+import Amazonka.ManagedBlockChain.ListProposals
+import Amazonka.ManagedBlockChain.ListTagsForResource
+import Amazonka.ManagedBlockChain.RejectInvitation
+import Amazonka.ManagedBlockChain.TagResource
+import Amazonka.ManagedBlockChain.Types.ApprovalThresholdPolicy
+import Amazonka.ManagedBlockChain.Types.Invitation
+import Amazonka.ManagedBlockChain.Types.InviteAction
+import Amazonka.ManagedBlockChain.Types.LogConfiguration
+import Amazonka.ManagedBlockChain.Types.LogConfigurations
+import Amazonka.ManagedBlockChain.Types.Member
+import Amazonka.ManagedBlockChain.Types.MemberConfiguration
+import Amazonka.ManagedBlockChain.Types.MemberFabricAttributes
+import Amazonka.ManagedBlockChain.Types.MemberFabricConfiguration
+import Amazonka.ManagedBlockChain.Types.MemberFabricLogPublishingConfiguration
+import Amazonka.ManagedBlockChain.Types.MemberFrameworkAttributes
+import Amazonka.ManagedBlockChain.Types.MemberFrameworkConfiguration
+import Amazonka.ManagedBlockChain.Types.MemberLogPublishingConfiguration
+import Amazonka.ManagedBlockChain.Types.MemberSummary
+import Amazonka.ManagedBlockChain.Types.Network
+import Amazonka.ManagedBlockChain.Types.NetworkEthereumAttributes
+import Amazonka.ManagedBlockChain.Types.NetworkFabricAttributes
+import Amazonka.ManagedBlockChain.Types.NetworkFabricConfiguration
+import Amazonka.ManagedBlockChain.Types.NetworkFrameworkAttributes
+import Amazonka.ManagedBlockChain.Types.NetworkFrameworkConfiguration
+import Amazonka.ManagedBlockChain.Types.NetworkSummary
+import Amazonka.ManagedBlockChain.Types.Node
+import Amazonka.ManagedBlockChain.Types.NodeConfiguration
+import Amazonka.ManagedBlockChain.Types.NodeEthereumAttributes
+import Amazonka.ManagedBlockChain.Types.NodeFabricAttributes
+import Amazonka.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration
+import Amazonka.ManagedBlockChain.Types.NodeFrameworkAttributes
+import Amazonka.ManagedBlockChain.Types.NodeLogPublishingConfiguration
+import Amazonka.ManagedBlockChain.Types.NodeSummary
+import Amazonka.ManagedBlockChain.Types.Proposal
+import Amazonka.ManagedBlockChain.Types.ProposalActions
+import Amazonka.ManagedBlockChain.Types.ProposalSummary
+import Amazonka.ManagedBlockChain.Types.RemoveAction
+import Amazonka.ManagedBlockChain.Types.VoteSummary
+import Amazonka.ManagedBlockChain.Types.VotingPolicy
+import Amazonka.ManagedBlockChain.UntagResource
+import Amazonka.ManagedBlockChain.UpdateMember
+import Amazonka.ManagedBlockChain.UpdateNode
+import Amazonka.ManagedBlockChain.VoteOnProposal

@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ManagedBlockChain.Types.NetworkFrameworkAttributes
+-- Module      : Amazonka.ManagedBlockChain.Types.NetworkFrameworkAttributes
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ManagedBlockChain.Types.NetworkFrameworkAttributes where
+module Amazonka.ManagedBlockChain.Types.NetworkFrameworkAttributes where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.ManagedBlockChain.Types.NetworkEthereumAttributes
-import Network.AWS.ManagedBlockChain.Types.NetworkFabricAttributes
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.ManagedBlockChain.Types.NetworkEthereumAttributes
+import Amazonka.ManagedBlockChain.Types.NetworkFabricAttributes
+import qualified Amazonka.Prelude as Prelude
 
 -- | Attributes relevant to the network for the blockchain framework that the
 -- network uses.

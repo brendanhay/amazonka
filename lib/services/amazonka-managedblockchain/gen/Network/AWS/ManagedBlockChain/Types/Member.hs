@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ManagedBlockChain.Types.Member
+-- Module      : Amazonka.ManagedBlockChain.Types.Member
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ManagedBlockChain.Types.Member where
+module Amazonka.ManagedBlockChain.Types.Member where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.ManagedBlockChain.Types.MemberFrameworkAttributes
-import Network.AWS.ManagedBlockChain.Types.MemberLogPublishingConfiguration
-import Network.AWS.ManagedBlockChain.Types.MemberStatus
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.ManagedBlockChain.Types.MemberFrameworkAttributes
+import Amazonka.ManagedBlockChain.Types.MemberLogPublishingConfiguration
+import Amazonka.ManagedBlockChain.Types.MemberStatus
+import qualified Amazonka.Prelude as Prelude
 
 -- | Member configuration properties.
 --

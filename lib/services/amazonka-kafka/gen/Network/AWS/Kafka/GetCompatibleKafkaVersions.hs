@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Kafka.GetCompatibleKafkaVersions
+-- Module      : Amazonka.Kafka.GetCompatibleKafkaVersions
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets the Apache Kafka versions to which you can update the MSK cluster.
-module Network.AWS.Kafka.GetCompatibleKafkaVersions
+module Amazonka.Kafka.GetCompatibleKafkaVersions
   ( -- * Creating a Request
     GetCompatibleKafkaVersions (..),
     newGetCompatibleKafkaVersions,
@@ -39,12 +39,12 @@ module Network.AWS.Kafka.GetCompatibleKafkaVersions
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Kafka.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Kafka.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetCompatibleKafkaVersions' smart constructor.
 data GetCompatibleKafkaVersions = GetCompatibleKafkaVersions'

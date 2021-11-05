@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Kafka.UpdateMonitoring
+-- Module      : Amazonka.Kafka.UpdateMonitoring
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- operation to specify which Apache Kafka metrics you want Amazon MSK to
 -- send to Amazon CloudWatch. You can also specify settings for open
 -- monitoring with Prometheus.
-module Network.AWS.Kafka.UpdateMonitoring
+module Amazonka.Kafka.UpdateMonitoring
   ( -- * Creating a Request
     UpdateMonitoring (..),
     newUpdateMonitoring,
@@ -47,12 +47,12 @@ module Network.AWS.Kafka.UpdateMonitoring
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Kafka.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Kafka.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | Request body for UpdateMonitoring.
 --

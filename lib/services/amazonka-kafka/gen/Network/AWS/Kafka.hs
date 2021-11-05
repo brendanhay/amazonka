@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Kafka
+-- Module      : Amazonka.Kafka
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -12,7 +12,7 @@
 -- Derived from API version @2018-11-14@ of the AWS service descriptions, licensed under Apache 2.0.
 --
 -- The operations for managing an Amazon MSK cluster.
-module Network.AWS.Kafka
+module Amazonka.Kafka
   ( -- * Service Configuration
     defaultService,
 
@@ -432,40 +432,40 @@ module Network.AWS.Kafka
   )
 where
 
-import Network.AWS.Kafka.BatchAssociateScramSecret
-import Network.AWS.Kafka.BatchDisassociateScramSecret
-import Network.AWS.Kafka.CreateCluster
-import Network.AWS.Kafka.CreateConfiguration
-import Network.AWS.Kafka.DeleteCluster
-import Network.AWS.Kafka.DeleteConfiguration
-import Network.AWS.Kafka.DescribeCluster
-import Network.AWS.Kafka.DescribeClusterOperation
-import Network.AWS.Kafka.DescribeConfiguration
-import Network.AWS.Kafka.DescribeConfigurationRevision
-import Network.AWS.Kafka.GetBootstrapBrokers
-import Network.AWS.Kafka.GetCompatibleKafkaVersions
-import Network.AWS.Kafka.Lens
-import Network.AWS.Kafka.ListClusterOperations
-import Network.AWS.Kafka.ListClusters
-import Network.AWS.Kafka.ListConfigurationRevisions
-import Network.AWS.Kafka.ListConfigurations
-import Network.AWS.Kafka.ListKafkaVersions
-import Network.AWS.Kafka.ListNodes
-import Network.AWS.Kafka.ListScramSecrets
-import Network.AWS.Kafka.ListTagsForResource
-import Network.AWS.Kafka.RebootBroker
-import Network.AWS.Kafka.TagResource
-import Network.AWS.Kafka.Types
-import Network.AWS.Kafka.UntagResource
-import Network.AWS.Kafka.UpdateBrokerCount
-import Network.AWS.Kafka.UpdateBrokerStorage
-import Network.AWS.Kafka.UpdateBrokerType
-import Network.AWS.Kafka.UpdateClusterConfiguration
-import Network.AWS.Kafka.UpdateClusterKafkaVersion
-import Network.AWS.Kafka.UpdateConfiguration
-import Network.AWS.Kafka.UpdateMonitoring
-import Network.AWS.Kafka.UpdateSecurity
-import Network.AWS.Kafka.Waiters
+import Amazonka.Kafka.BatchAssociateScramSecret
+import Amazonka.Kafka.BatchDisassociateScramSecret
+import Amazonka.Kafka.CreateCluster
+import Amazonka.Kafka.CreateConfiguration
+import Amazonka.Kafka.DeleteCluster
+import Amazonka.Kafka.DeleteConfiguration
+import Amazonka.Kafka.DescribeCluster
+import Amazonka.Kafka.DescribeClusterOperation
+import Amazonka.Kafka.DescribeConfiguration
+import Amazonka.Kafka.DescribeConfigurationRevision
+import Amazonka.Kafka.GetBootstrapBrokers
+import Amazonka.Kafka.GetCompatibleKafkaVersions
+import Amazonka.Kafka.Lens
+import Amazonka.Kafka.ListClusterOperations
+import Amazonka.Kafka.ListClusters
+import Amazonka.Kafka.ListConfigurationRevisions
+import Amazonka.Kafka.ListConfigurations
+import Amazonka.Kafka.ListKafkaVersions
+import Amazonka.Kafka.ListNodes
+import Amazonka.Kafka.ListScramSecrets
+import Amazonka.Kafka.ListTagsForResource
+import Amazonka.Kafka.RebootBroker
+import Amazonka.Kafka.TagResource
+import Amazonka.Kafka.Types
+import Amazonka.Kafka.UntagResource
+import Amazonka.Kafka.UpdateBrokerCount
+import Amazonka.Kafka.UpdateBrokerStorage
+import Amazonka.Kafka.UpdateBrokerType
+import Amazonka.Kafka.UpdateClusterConfiguration
+import Amazonka.Kafka.UpdateClusterKafkaVersion
+import Amazonka.Kafka.UpdateConfiguration
+import Amazonka.Kafka.UpdateMonitoring
+import Amazonka.Kafka.UpdateSecurity
+import Amazonka.Kafka.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

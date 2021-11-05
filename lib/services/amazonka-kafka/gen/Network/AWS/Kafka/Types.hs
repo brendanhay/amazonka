@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Kafka.Types
+-- Module      : Amazonka.Kafka.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Kafka.Types
+module Amazonka.Kafka.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -351,60 +351,60 @@ module Network.AWS.Kafka.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Kafka.Types.BrokerAZDistribution
-import Network.AWS.Kafka.Types.BrokerEBSVolumeInfo
-import Network.AWS.Kafka.Types.BrokerLogs
-import Network.AWS.Kafka.Types.BrokerNodeGroupInfo
-import Network.AWS.Kafka.Types.BrokerNodeInfo
-import Network.AWS.Kafka.Types.BrokerSoftwareInfo
-import Network.AWS.Kafka.Types.ClientAuthentication
-import Network.AWS.Kafka.Types.ClientBroker
-import Network.AWS.Kafka.Types.CloudWatchLogs
-import Network.AWS.Kafka.Types.ClusterInfo
-import Network.AWS.Kafka.Types.ClusterOperationInfo
-import Network.AWS.Kafka.Types.ClusterOperationStep
-import Network.AWS.Kafka.Types.ClusterOperationStepInfo
-import Network.AWS.Kafka.Types.ClusterState
-import Network.AWS.Kafka.Types.CompatibleKafkaVersion
-import Network.AWS.Kafka.Types.Configuration
-import Network.AWS.Kafka.Types.ConfigurationInfo
-import Network.AWS.Kafka.Types.ConfigurationRevision
-import Network.AWS.Kafka.Types.ConfigurationState
-import Network.AWS.Kafka.Types.EBSStorageInfo
-import Network.AWS.Kafka.Types.EncryptionAtRest
-import Network.AWS.Kafka.Types.EncryptionInTransit
-import Network.AWS.Kafka.Types.EncryptionInfo
-import Network.AWS.Kafka.Types.EnhancedMonitoring
-import Network.AWS.Kafka.Types.ErrorInfo
-import Network.AWS.Kafka.Types.Firehose
-import Network.AWS.Kafka.Types.Iam
-import Network.AWS.Kafka.Types.JmxExporter
-import Network.AWS.Kafka.Types.JmxExporterInfo
-import Network.AWS.Kafka.Types.KafkaVersion
-import Network.AWS.Kafka.Types.KafkaVersionStatus
-import Network.AWS.Kafka.Types.LoggingInfo
-import Network.AWS.Kafka.Types.MutableClusterInfo
-import Network.AWS.Kafka.Types.NodeExporter
-import Network.AWS.Kafka.Types.NodeExporterInfo
-import Network.AWS.Kafka.Types.NodeInfo
-import Network.AWS.Kafka.Types.NodeType
-import Network.AWS.Kafka.Types.OpenMonitoring
-import Network.AWS.Kafka.Types.OpenMonitoringInfo
-import Network.AWS.Kafka.Types.Prometheus
-import Network.AWS.Kafka.Types.PrometheusInfo
-import Network.AWS.Kafka.Types.S3
-import Network.AWS.Kafka.Types.Sasl
-import Network.AWS.Kafka.Types.Scram
-import Network.AWS.Kafka.Types.StateInfo
-import Network.AWS.Kafka.Types.StorageInfo
-import Network.AWS.Kafka.Types.Tls
-import Network.AWS.Kafka.Types.Unauthenticated
-import Network.AWS.Kafka.Types.UnprocessedScramSecret
-import Network.AWS.Kafka.Types.ZookeeperNodeInfo
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.Kafka.Types.BrokerAZDistribution
+import Amazonka.Kafka.Types.BrokerEBSVolumeInfo
+import Amazonka.Kafka.Types.BrokerLogs
+import Amazonka.Kafka.Types.BrokerNodeGroupInfo
+import Amazonka.Kafka.Types.BrokerNodeInfo
+import Amazonka.Kafka.Types.BrokerSoftwareInfo
+import Amazonka.Kafka.Types.ClientAuthentication
+import Amazonka.Kafka.Types.ClientBroker
+import Amazonka.Kafka.Types.CloudWatchLogs
+import Amazonka.Kafka.Types.ClusterInfo
+import Amazonka.Kafka.Types.ClusterOperationInfo
+import Amazonka.Kafka.Types.ClusterOperationStep
+import Amazonka.Kafka.Types.ClusterOperationStepInfo
+import Amazonka.Kafka.Types.ClusterState
+import Amazonka.Kafka.Types.CompatibleKafkaVersion
+import Amazonka.Kafka.Types.Configuration
+import Amazonka.Kafka.Types.ConfigurationInfo
+import Amazonka.Kafka.Types.ConfigurationRevision
+import Amazonka.Kafka.Types.ConfigurationState
+import Amazonka.Kafka.Types.EBSStorageInfo
+import Amazonka.Kafka.Types.EncryptionAtRest
+import Amazonka.Kafka.Types.EncryptionInTransit
+import Amazonka.Kafka.Types.EncryptionInfo
+import Amazonka.Kafka.Types.EnhancedMonitoring
+import Amazonka.Kafka.Types.ErrorInfo
+import Amazonka.Kafka.Types.Firehose
+import Amazonka.Kafka.Types.Iam
+import Amazonka.Kafka.Types.JmxExporter
+import Amazonka.Kafka.Types.JmxExporterInfo
+import Amazonka.Kafka.Types.KafkaVersion
+import Amazonka.Kafka.Types.KafkaVersionStatus
+import Amazonka.Kafka.Types.LoggingInfo
+import Amazonka.Kafka.Types.MutableClusterInfo
+import Amazonka.Kafka.Types.NodeExporter
+import Amazonka.Kafka.Types.NodeExporterInfo
+import Amazonka.Kafka.Types.NodeInfo
+import Amazonka.Kafka.Types.NodeType
+import Amazonka.Kafka.Types.OpenMonitoring
+import Amazonka.Kafka.Types.OpenMonitoringInfo
+import Amazonka.Kafka.Types.Prometheus
+import Amazonka.Kafka.Types.PrometheusInfo
+import Amazonka.Kafka.Types.S3
+import Amazonka.Kafka.Types.Sasl
+import Amazonka.Kafka.Types.Scram
+import Amazonka.Kafka.Types.StateInfo
+import Amazonka.Kafka.Types.StorageInfo
+import Amazonka.Kafka.Types.Tls
+import Amazonka.Kafka.Types.Unauthenticated
+import Amazonka.Kafka.Types.UnprocessedScramSecret
+import Amazonka.Kafka.Types.ZookeeperNodeInfo
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2018-11-14@ of the Amazon Managed Streaming for Kafka SDK configuration.
 defaultService :: Core.Service

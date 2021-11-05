@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Kafka.Types.BrokerNodeGroupInfo
+-- Module      : Amazonka.Kafka.Types.BrokerNodeGroupInfo
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Kafka.Types.BrokerNodeGroupInfo where
+module Amazonka.Kafka.Types.BrokerNodeGroupInfo where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Kafka.Types.BrokerAZDistribution
-import Network.AWS.Kafka.Types.StorageInfo
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Kafka.Types.BrokerAZDistribution
+import Amazonka.Kafka.Types.StorageInfo
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the setup to be used for Kafka broker nodes in the cluster.
 --

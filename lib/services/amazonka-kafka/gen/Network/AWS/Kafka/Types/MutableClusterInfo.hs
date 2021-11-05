@@ -11,24 +11,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Kafka.Types.MutableClusterInfo
+-- Module      : Amazonka.Kafka.Types.MutableClusterInfo
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Kafka.Types.MutableClusterInfo where
+module Amazonka.Kafka.Types.MutableClusterInfo where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Kafka.Types.BrokerEBSVolumeInfo
-import Network.AWS.Kafka.Types.ClientAuthentication
-import Network.AWS.Kafka.Types.ConfigurationInfo
-import Network.AWS.Kafka.Types.EncryptionInfo
-import Network.AWS.Kafka.Types.EnhancedMonitoring
-import Network.AWS.Kafka.Types.LoggingInfo
-import Network.AWS.Kafka.Types.OpenMonitoring
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Kafka.Types.BrokerEBSVolumeInfo
+import Amazonka.Kafka.Types.ClientAuthentication
+import Amazonka.Kafka.Types.ConfigurationInfo
+import Amazonka.Kafka.Types.EncryptionInfo
+import Amazonka.Kafka.Types.EnhancedMonitoring
+import Amazonka.Kafka.Types.LoggingInfo
+import Amazonka.Kafka.Types.OpenMonitoring
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Information about cluster attributes that can be updated via update
 -- APIs.

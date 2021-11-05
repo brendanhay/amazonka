@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Kafka.UpdateSecurity
+-- Module      : Amazonka.Kafka.UpdateSecurity
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Updates the security settings for the cluster. You can use this
 -- operation to specify encryption and authentication on existing clusters.
-module Network.AWS.Kafka.UpdateSecurity
+module Amazonka.Kafka.UpdateSecurity
   ( -- * Creating a Request
     UpdateSecurity (..),
     newUpdateSecurity,
@@ -44,12 +44,12 @@ module Network.AWS.Kafka.UpdateSecurity
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Kafka.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Kafka.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateSecurity' smart constructor.
 data UpdateSecurity = UpdateSecurity'

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Kafka.DescribeCluster
+-- Module      : Amazonka.Kafka.DescribeCluster
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Returns a description of the MSK cluster whose Amazon Resource Name
 -- (ARN) is specified in the request.
-module Network.AWS.Kafka.DescribeCluster
+module Amazonka.Kafka.DescribeCluster
   ( -- * Creating a Request
     DescribeCluster (..),
     newDescribeCluster,
@@ -40,12 +40,12 @@ module Network.AWS.Kafka.DescribeCluster
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Kafka.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.Kafka.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeCluster' smart constructor.
 data DescribeCluster = DescribeCluster'

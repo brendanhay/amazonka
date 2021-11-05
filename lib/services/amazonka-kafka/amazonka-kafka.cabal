@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.Kafka.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.Kafka.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.Kafka" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.Kafka" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,93 +45,93 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.Kafka
-    Network.AWS.Kafka.BatchAssociateScramSecret
-    Network.AWS.Kafka.BatchDisassociateScramSecret
-    Network.AWS.Kafka.CreateCluster
-    Network.AWS.Kafka.CreateConfiguration
-    Network.AWS.Kafka.DeleteCluster
-    Network.AWS.Kafka.DeleteConfiguration
-    Network.AWS.Kafka.DescribeCluster
-    Network.AWS.Kafka.DescribeClusterOperation
-    Network.AWS.Kafka.DescribeConfiguration
-    Network.AWS.Kafka.DescribeConfigurationRevision
-    Network.AWS.Kafka.GetBootstrapBrokers
-    Network.AWS.Kafka.GetCompatibleKafkaVersions
-    Network.AWS.Kafka.Lens
-    Network.AWS.Kafka.ListClusterOperations
-    Network.AWS.Kafka.ListClusters
-    Network.AWS.Kafka.ListConfigurationRevisions
-    Network.AWS.Kafka.ListConfigurations
-    Network.AWS.Kafka.ListKafkaVersions
-    Network.AWS.Kafka.ListNodes
-    Network.AWS.Kafka.ListScramSecrets
-    Network.AWS.Kafka.ListTagsForResource
-    Network.AWS.Kafka.RebootBroker
-    Network.AWS.Kafka.TagResource
-    Network.AWS.Kafka.Types
-    Network.AWS.Kafka.Types.BrokerAZDistribution
-    Network.AWS.Kafka.Types.BrokerEBSVolumeInfo
-    Network.AWS.Kafka.Types.BrokerLogs
-    Network.AWS.Kafka.Types.BrokerNodeGroupInfo
-    Network.AWS.Kafka.Types.BrokerNodeInfo
-    Network.AWS.Kafka.Types.BrokerSoftwareInfo
-    Network.AWS.Kafka.Types.ClientAuthentication
-    Network.AWS.Kafka.Types.ClientBroker
-    Network.AWS.Kafka.Types.CloudWatchLogs
-    Network.AWS.Kafka.Types.ClusterInfo
-    Network.AWS.Kafka.Types.ClusterOperationInfo
-    Network.AWS.Kafka.Types.ClusterOperationStep
-    Network.AWS.Kafka.Types.ClusterOperationStepInfo
-    Network.AWS.Kafka.Types.ClusterState
-    Network.AWS.Kafka.Types.CompatibleKafkaVersion
-    Network.AWS.Kafka.Types.Configuration
-    Network.AWS.Kafka.Types.ConfigurationInfo
-    Network.AWS.Kafka.Types.ConfigurationRevision
-    Network.AWS.Kafka.Types.ConfigurationState
-    Network.AWS.Kafka.Types.EBSStorageInfo
-    Network.AWS.Kafka.Types.EncryptionAtRest
-    Network.AWS.Kafka.Types.EncryptionInfo
-    Network.AWS.Kafka.Types.EncryptionInTransit
-    Network.AWS.Kafka.Types.EnhancedMonitoring
-    Network.AWS.Kafka.Types.ErrorInfo
-    Network.AWS.Kafka.Types.Firehose
-    Network.AWS.Kafka.Types.Iam
-    Network.AWS.Kafka.Types.JmxExporter
-    Network.AWS.Kafka.Types.JmxExporterInfo
-    Network.AWS.Kafka.Types.KafkaVersion
-    Network.AWS.Kafka.Types.KafkaVersionStatus
-    Network.AWS.Kafka.Types.LoggingInfo
-    Network.AWS.Kafka.Types.MutableClusterInfo
-    Network.AWS.Kafka.Types.NodeExporter
-    Network.AWS.Kafka.Types.NodeExporterInfo
-    Network.AWS.Kafka.Types.NodeInfo
-    Network.AWS.Kafka.Types.NodeType
-    Network.AWS.Kafka.Types.OpenMonitoring
-    Network.AWS.Kafka.Types.OpenMonitoringInfo
-    Network.AWS.Kafka.Types.Prometheus
-    Network.AWS.Kafka.Types.PrometheusInfo
-    Network.AWS.Kafka.Types.S3
-    Network.AWS.Kafka.Types.Sasl
-    Network.AWS.Kafka.Types.Scram
-    Network.AWS.Kafka.Types.StateInfo
-    Network.AWS.Kafka.Types.StorageInfo
-    Network.AWS.Kafka.Types.Tls
-    Network.AWS.Kafka.Types.Unauthenticated
-    Network.AWS.Kafka.Types.UnprocessedScramSecret
-    Network.AWS.Kafka.Types.ZookeeperNodeInfo
-    Network.AWS.Kafka.UntagResource
-    Network.AWS.Kafka.UpdateBrokerCount
-    Network.AWS.Kafka.UpdateBrokerStorage
-    Network.AWS.Kafka.UpdateBrokerType
-    Network.AWS.Kafka.UpdateClusterConfiguration
-    Network.AWS.Kafka.UpdateClusterKafkaVersion
-    Network.AWS.Kafka.UpdateConfiguration
-    Network.AWS.Kafka.UpdateMonitoring
-    Network.AWS.Kafka.UpdateSecurity
-    Network.AWS.Kafka.Waiters
+    Amazonka.Kafka
+    Amazonka.Kafka.BatchAssociateScramSecret
+    Amazonka.Kafka.BatchDisassociateScramSecret
+    Amazonka.Kafka.CreateCluster
+    Amazonka.Kafka.CreateConfiguration
+    Amazonka.Kafka.DeleteCluster
+    Amazonka.Kafka.DeleteConfiguration
+    Amazonka.Kafka.DescribeCluster
+    Amazonka.Kafka.DescribeClusterOperation
+    Amazonka.Kafka.DescribeConfiguration
+    Amazonka.Kafka.DescribeConfigurationRevision
+    Amazonka.Kafka.GetBootstrapBrokers
+    Amazonka.Kafka.GetCompatibleKafkaVersions
+    Amazonka.Kafka.Lens
+    Amazonka.Kafka.ListClusterOperations
+    Amazonka.Kafka.ListClusters
+    Amazonka.Kafka.ListConfigurationRevisions
+    Amazonka.Kafka.ListConfigurations
+    Amazonka.Kafka.ListKafkaVersions
+    Amazonka.Kafka.ListNodes
+    Amazonka.Kafka.ListScramSecrets
+    Amazonka.Kafka.ListTagsForResource
+    Amazonka.Kafka.RebootBroker
+    Amazonka.Kafka.TagResource
+    Amazonka.Kafka.Types
+    Amazonka.Kafka.Types.BrokerAZDistribution
+    Amazonka.Kafka.Types.BrokerEBSVolumeInfo
+    Amazonka.Kafka.Types.BrokerLogs
+    Amazonka.Kafka.Types.BrokerNodeGroupInfo
+    Amazonka.Kafka.Types.BrokerNodeInfo
+    Amazonka.Kafka.Types.BrokerSoftwareInfo
+    Amazonka.Kafka.Types.ClientAuthentication
+    Amazonka.Kafka.Types.ClientBroker
+    Amazonka.Kafka.Types.CloudWatchLogs
+    Amazonka.Kafka.Types.ClusterInfo
+    Amazonka.Kafka.Types.ClusterOperationInfo
+    Amazonka.Kafka.Types.ClusterOperationStep
+    Amazonka.Kafka.Types.ClusterOperationStepInfo
+    Amazonka.Kafka.Types.ClusterState
+    Amazonka.Kafka.Types.CompatibleKafkaVersion
+    Amazonka.Kafka.Types.Configuration
+    Amazonka.Kafka.Types.ConfigurationInfo
+    Amazonka.Kafka.Types.ConfigurationRevision
+    Amazonka.Kafka.Types.ConfigurationState
+    Amazonka.Kafka.Types.EBSStorageInfo
+    Amazonka.Kafka.Types.EncryptionAtRest
+    Amazonka.Kafka.Types.EncryptionInfo
+    Amazonka.Kafka.Types.EncryptionInTransit
+    Amazonka.Kafka.Types.EnhancedMonitoring
+    Amazonka.Kafka.Types.ErrorInfo
+    Amazonka.Kafka.Types.Firehose
+    Amazonka.Kafka.Types.Iam
+    Amazonka.Kafka.Types.JmxExporter
+    Amazonka.Kafka.Types.JmxExporterInfo
+    Amazonka.Kafka.Types.KafkaVersion
+    Amazonka.Kafka.Types.KafkaVersionStatus
+    Amazonka.Kafka.Types.LoggingInfo
+    Amazonka.Kafka.Types.MutableClusterInfo
+    Amazonka.Kafka.Types.NodeExporter
+    Amazonka.Kafka.Types.NodeExporterInfo
+    Amazonka.Kafka.Types.NodeInfo
+    Amazonka.Kafka.Types.NodeType
+    Amazonka.Kafka.Types.OpenMonitoring
+    Amazonka.Kafka.Types.OpenMonitoringInfo
+    Amazonka.Kafka.Types.Prometheus
+    Amazonka.Kafka.Types.PrometheusInfo
+    Amazonka.Kafka.Types.S3
+    Amazonka.Kafka.Types.Sasl
+    Amazonka.Kafka.Types.Scram
+    Amazonka.Kafka.Types.StateInfo
+    Amazonka.Kafka.Types.StorageInfo
+    Amazonka.Kafka.Types.Tls
+    Amazonka.Kafka.Types.Unauthenticated
+    Amazonka.Kafka.Types.UnprocessedScramSecret
+    Amazonka.Kafka.Types.ZookeeperNodeInfo
+    Amazonka.Kafka.UntagResource
+    Amazonka.Kafka.UpdateBrokerCount
+    Amazonka.Kafka.UpdateBrokerStorage
+    Amazonka.Kafka.UpdateBrokerType
+    Amazonka.Kafka.UpdateClusterConfiguration
+    Amazonka.Kafka.UpdateClusterKafkaVersion
+    Amazonka.Kafka.UpdateConfiguration
+    Amazonka.Kafka.UpdateMonitoring
+    Amazonka.Kafka.UpdateSecurity
+    Amazonka.Kafka.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

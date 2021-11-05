@@ -11,26 +11,26 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Kafka.Types.ClusterInfo
+-- Module      : Amazonka.Kafka.Types.ClusterInfo
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Kafka.Types.ClusterInfo where
+module Amazonka.Kafka.Types.ClusterInfo where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.Kafka.Types.BrokerNodeGroupInfo
-import Network.AWS.Kafka.Types.BrokerSoftwareInfo
-import Network.AWS.Kafka.Types.ClientAuthentication
-import Network.AWS.Kafka.Types.ClusterState
-import Network.AWS.Kafka.Types.EncryptionInfo
-import Network.AWS.Kafka.Types.EnhancedMonitoring
-import Network.AWS.Kafka.Types.LoggingInfo
-import Network.AWS.Kafka.Types.OpenMonitoring
-import Network.AWS.Kafka.Types.StateInfo
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.Kafka.Types.BrokerNodeGroupInfo
+import Amazonka.Kafka.Types.BrokerSoftwareInfo
+import Amazonka.Kafka.Types.ClientAuthentication
+import Amazonka.Kafka.Types.ClusterState
+import Amazonka.Kafka.Types.EncryptionInfo
+import Amazonka.Kafka.Types.EnhancedMonitoring
+import Amazonka.Kafka.Types.LoggingInfo
+import Amazonka.Kafka.Types.OpenMonitoring
+import Amazonka.Kafka.Types.StateInfo
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about a cluster.
 --

@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Kafka.Lens
+-- Module      : Amazonka.Kafka.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Kafka.Lens
+module Amazonka.Kafka.Lens
   ( -- * Operations
 
     -- ** CreateConfiguration
@@ -476,77 +476,77 @@ module Network.AWS.Kafka.Lens
   )
 where
 
-import Network.AWS.Kafka.BatchAssociateScramSecret
-import Network.AWS.Kafka.BatchDisassociateScramSecret
-import Network.AWS.Kafka.CreateCluster
-import Network.AWS.Kafka.CreateConfiguration
-import Network.AWS.Kafka.DeleteCluster
-import Network.AWS.Kafka.DeleteConfiguration
-import Network.AWS.Kafka.DescribeCluster
-import Network.AWS.Kafka.DescribeClusterOperation
-import Network.AWS.Kafka.DescribeConfiguration
-import Network.AWS.Kafka.DescribeConfigurationRevision
-import Network.AWS.Kafka.GetBootstrapBrokers
-import Network.AWS.Kafka.GetCompatibleKafkaVersions
-import Network.AWS.Kafka.ListClusterOperations
-import Network.AWS.Kafka.ListClusters
-import Network.AWS.Kafka.ListConfigurationRevisions
-import Network.AWS.Kafka.ListConfigurations
-import Network.AWS.Kafka.ListKafkaVersions
-import Network.AWS.Kafka.ListNodes
-import Network.AWS.Kafka.ListScramSecrets
-import Network.AWS.Kafka.ListTagsForResource
-import Network.AWS.Kafka.RebootBroker
-import Network.AWS.Kafka.TagResource
-import Network.AWS.Kafka.Types.BrokerEBSVolumeInfo
-import Network.AWS.Kafka.Types.BrokerLogs
-import Network.AWS.Kafka.Types.BrokerNodeGroupInfo
-import Network.AWS.Kafka.Types.BrokerNodeInfo
-import Network.AWS.Kafka.Types.BrokerSoftwareInfo
-import Network.AWS.Kafka.Types.ClientAuthentication
-import Network.AWS.Kafka.Types.CloudWatchLogs
-import Network.AWS.Kafka.Types.ClusterInfo
-import Network.AWS.Kafka.Types.ClusterOperationInfo
-import Network.AWS.Kafka.Types.ClusterOperationStep
-import Network.AWS.Kafka.Types.ClusterOperationStepInfo
-import Network.AWS.Kafka.Types.CompatibleKafkaVersion
-import Network.AWS.Kafka.Types.Configuration
-import Network.AWS.Kafka.Types.ConfigurationInfo
-import Network.AWS.Kafka.Types.ConfigurationRevision
-import Network.AWS.Kafka.Types.EBSStorageInfo
-import Network.AWS.Kafka.Types.EncryptionAtRest
-import Network.AWS.Kafka.Types.EncryptionInTransit
-import Network.AWS.Kafka.Types.EncryptionInfo
-import Network.AWS.Kafka.Types.ErrorInfo
-import Network.AWS.Kafka.Types.Firehose
-import Network.AWS.Kafka.Types.Iam
-import Network.AWS.Kafka.Types.JmxExporter
-import Network.AWS.Kafka.Types.JmxExporterInfo
-import Network.AWS.Kafka.Types.KafkaVersion
-import Network.AWS.Kafka.Types.LoggingInfo
-import Network.AWS.Kafka.Types.MutableClusterInfo
-import Network.AWS.Kafka.Types.NodeExporter
-import Network.AWS.Kafka.Types.NodeExporterInfo
-import Network.AWS.Kafka.Types.NodeInfo
-import Network.AWS.Kafka.Types.OpenMonitoring
-import Network.AWS.Kafka.Types.OpenMonitoringInfo
-import Network.AWS.Kafka.Types.Prometheus
-import Network.AWS.Kafka.Types.PrometheusInfo
-import Network.AWS.Kafka.Types.S3
-import Network.AWS.Kafka.Types.Sasl
-import Network.AWS.Kafka.Types.Scram
-import Network.AWS.Kafka.Types.StateInfo
-import Network.AWS.Kafka.Types.StorageInfo
-import Network.AWS.Kafka.Types.Tls
-import Network.AWS.Kafka.Types.Unauthenticated
-import Network.AWS.Kafka.Types.UnprocessedScramSecret
-import Network.AWS.Kafka.Types.ZookeeperNodeInfo
-import Network.AWS.Kafka.UntagResource
-import Network.AWS.Kafka.UpdateBrokerCount
-import Network.AWS.Kafka.UpdateBrokerStorage
-import Network.AWS.Kafka.UpdateBrokerType
-import Network.AWS.Kafka.UpdateClusterConfiguration
-import Network.AWS.Kafka.UpdateClusterKafkaVersion
-import Network.AWS.Kafka.UpdateConfiguration
-import Network.AWS.Kafka.UpdateMonitoring
-import Network.AWS.Kafka.UpdateSecurity
+import Amazonka.Kafka.BatchAssociateScramSecret
+import Amazonka.Kafka.BatchDisassociateScramSecret
+import Amazonka.Kafka.CreateCluster
+import Amazonka.Kafka.CreateConfiguration
+import Amazonka.Kafka.DeleteCluster
+import Amazonka.Kafka.DeleteConfiguration
+import Amazonka.Kafka.DescribeCluster
+import Amazonka.Kafka.DescribeClusterOperation
+import Amazonka.Kafka.DescribeConfiguration
+import Amazonka.Kafka.DescribeConfigurationRevision
+import Amazonka.Kafka.GetBootstrapBrokers
+import Amazonka.Kafka.GetCompatibleKafkaVersions
+import Amazonka.Kafka.ListClusterOperations
+import Amazonka.Kafka.ListClusters
+import Amazonka.Kafka.ListConfigurationRevisions
+import Amazonka.Kafka.ListConfigurations
+import Amazonka.Kafka.ListKafkaVersions
+import Amazonka.Kafka.ListNodes
+import Amazonka.Kafka.ListScramSecrets
+import Amazonka.Kafka.ListTagsForResource
+import Amazonka.Kafka.RebootBroker
+import Amazonka.Kafka.TagResource
+import Amazonka.Kafka.Types.BrokerEBSVolumeInfo
+import Amazonka.Kafka.Types.BrokerLogs
+import Amazonka.Kafka.Types.BrokerNodeGroupInfo
+import Amazonka.Kafka.Types.BrokerNodeInfo
+import Amazonka.Kafka.Types.BrokerSoftwareInfo
+import Amazonka.Kafka.Types.ClientAuthentication
+import Amazonka.Kafka.Types.CloudWatchLogs
+import Amazonka.Kafka.Types.ClusterInfo
+import Amazonka.Kafka.Types.ClusterOperationInfo
+import Amazonka.Kafka.Types.ClusterOperationStep
+import Amazonka.Kafka.Types.ClusterOperationStepInfo
+import Amazonka.Kafka.Types.CompatibleKafkaVersion
+import Amazonka.Kafka.Types.Configuration
+import Amazonka.Kafka.Types.ConfigurationInfo
+import Amazonka.Kafka.Types.ConfigurationRevision
+import Amazonka.Kafka.Types.EBSStorageInfo
+import Amazonka.Kafka.Types.EncryptionAtRest
+import Amazonka.Kafka.Types.EncryptionInTransit
+import Amazonka.Kafka.Types.EncryptionInfo
+import Amazonka.Kafka.Types.ErrorInfo
+import Amazonka.Kafka.Types.Firehose
+import Amazonka.Kafka.Types.Iam
+import Amazonka.Kafka.Types.JmxExporter
+import Amazonka.Kafka.Types.JmxExporterInfo
+import Amazonka.Kafka.Types.KafkaVersion
+import Amazonka.Kafka.Types.LoggingInfo
+import Amazonka.Kafka.Types.MutableClusterInfo
+import Amazonka.Kafka.Types.NodeExporter
+import Amazonka.Kafka.Types.NodeExporterInfo
+import Amazonka.Kafka.Types.NodeInfo
+import Amazonka.Kafka.Types.OpenMonitoring
+import Amazonka.Kafka.Types.OpenMonitoringInfo
+import Amazonka.Kafka.Types.Prometheus
+import Amazonka.Kafka.Types.PrometheusInfo
+import Amazonka.Kafka.Types.S3
+import Amazonka.Kafka.Types.Sasl
+import Amazonka.Kafka.Types.Scram
+import Amazonka.Kafka.Types.StateInfo
+import Amazonka.Kafka.Types.StorageInfo
+import Amazonka.Kafka.Types.Tls
+import Amazonka.Kafka.Types.Unauthenticated
+import Amazonka.Kafka.Types.UnprocessedScramSecret
+import Amazonka.Kafka.Types.ZookeeperNodeInfo
+import Amazonka.Kafka.UntagResource
+import Amazonka.Kafka.UpdateBrokerCount
+import Amazonka.Kafka.UpdateBrokerStorage
+import Amazonka.Kafka.UpdateBrokerType
+import Amazonka.Kafka.UpdateClusterConfiguration
+import Amazonka.Kafka.UpdateClusterKafkaVersion
+import Amazonka.Kafka.UpdateConfiguration
+import Amazonka.Kafka.UpdateMonitoring
+import Amazonka.Kafka.UpdateSecurity

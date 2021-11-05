@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Synthetics.Types.CanaryRunStatus
+-- Module      : Amazonka.Synthetics.Types.CanaryRunStatus
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Synthetics.Types.CanaryRunStatus where
+module Amazonka.Synthetics.Types.CanaryRunStatus where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Synthetics.Types.CanaryRunState
-import Network.AWS.Synthetics.Types.CanaryRunStateReasonCode
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Synthetics.Types.CanaryRunState
+import Amazonka.Synthetics.Types.CanaryRunStateReasonCode
 
 -- | This structure contains the status information about a canary run.
 --

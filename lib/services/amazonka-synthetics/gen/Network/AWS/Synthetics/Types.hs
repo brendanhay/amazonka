@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Synthetics.Types
+-- Module      : Amazonka.Synthetics.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Synthetics.Types
+module Amazonka.Synthetics.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -200,37 +200,37 @@ module Network.AWS.Synthetics.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
-import Network.AWS.Synthetics.Types.ArtifactConfigInput
-import Network.AWS.Synthetics.Types.ArtifactConfigOutput
-import Network.AWS.Synthetics.Types.BaseScreenshot
-import Network.AWS.Synthetics.Types.Canary
-import Network.AWS.Synthetics.Types.CanaryCodeInput
-import Network.AWS.Synthetics.Types.CanaryCodeOutput
-import Network.AWS.Synthetics.Types.CanaryLastRun
-import Network.AWS.Synthetics.Types.CanaryRun
-import Network.AWS.Synthetics.Types.CanaryRunConfigInput
-import Network.AWS.Synthetics.Types.CanaryRunConfigOutput
-import Network.AWS.Synthetics.Types.CanaryRunState
-import Network.AWS.Synthetics.Types.CanaryRunStateReasonCode
-import Network.AWS.Synthetics.Types.CanaryRunStatus
-import Network.AWS.Synthetics.Types.CanaryRunTimeline
-import Network.AWS.Synthetics.Types.CanaryScheduleInput
-import Network.AWS.Synthetics.Types.CanaryScheduleOutput
-import Network.AWS.Synthetics.Types.CanaryState
-import Network.AWS.Synthetics.Types.CanaryStateReasonCode
-import Network.AWS.Synthetics.Types.CanaryStatus
-import Network.AWS.Synthetics.Types.CanaryTimeline
-import Network.AWS.Synthetics.Types.EncryptionMode
-import Network.AWS.Synthetics.Types.RuntimeVersion
-import Network.AWS.Synthetics.Types.S3EncryptionConfig
-import Network.AWS.Synthetics.Types.VisualReferenceInput
-import Network.AWS.Synthetics.Types.VisualReferenceOutput
-import Network.AWS.Synthetics.Types.VpcConfigInput
-import Network.AWS.Synthetics.Types.VpcConfigOutput
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
+import Amazonka.Synthetics.Types.ArtifactConfigInput
+import Amazonka.Synthetics.Types.ArtifactConfigOutput
+import Amazonka.Synthetics.Types.BaseScreenshot
+import Amazonka.Synthetics.Types.Canary
+import Amazonka.Synthetics.Types.CanaryCodeInput
+import Amazonka.Synthetics.Types.CanaryCodeOutput
+import Amazonka.Synthetics.Types.CanaryLastRun
+import Amazonka.Synthetics.Types.CanaryRun
+import Amazonka.Synthetics.Types.CanaryRunConfigInput
+import Amazonka.Synthetics.Types.CanaryRunConfigOutput
+import Amazonka.Synthetics.Types.CanaryRunState
+import Amazonka.Synthetics.Types.CanaryRunStateReasonCode
+import Amazonka.Synthetics.Types.CanaryRunStatus
+import Amazonka.Synthetics.Types.CanaryRunTimeline
+import Amazonka.Synthetics.Types.CanaryScheduleInput
+import Amazonka.Synthetics.Types.CanaryScheduleOutput
+import Amazonka.Synthetics.Types.CanaryState
+import Amazonka.Synthetics.Types.CanaryStateReasonCode
+import Amazonka.Synthetics.Types.CanaryStatus
+import Amazonka.Synthetics.Types.CanaryTimeline
+import Amazonka.Synthetics.Types.EncryptionMode
+import Amazonka.Synthetics.Types.RuntimeVersion
+import Amazonka.Synthetics.Types.S3EncryptionConfig
+import Amazonka.Synthetics.Types.VisualReferenceInput
+import Amazonka.Synthetics.Types.VisualReferenceOutput
+import Amazonka.Synthetics.Types.VpcConfigInput
+import Amazonka.Synthetics.Types.VpcConfigOutput
 
 -- | API version @2017-10-11@ of the Amazon Synthetics SDK configuration.
 defaultService :: Core.Service

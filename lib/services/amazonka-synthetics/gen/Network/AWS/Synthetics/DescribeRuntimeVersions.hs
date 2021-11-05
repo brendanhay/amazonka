@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Synthetics.DescribeRuntimeVersions
+-- Module      : Amazonka.Synthetics.DescribeRuntimeVersions
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Returns a list of Synthetics canary runtime versions. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html Canary Runtime Versions>.
-module Network.AWS.Synthetics.DescribeRuntimeVersions
+module Amazonka.Synthetics.DescribeRuntimeVersions
   ( -- * Creating a Request
     DescribeRuntimeVersions (..),
     newDescribeRuntimeVersions,
@@ -43,12 +43,12 @@ module Network.AWS.Synthetics.DescribeRuntimeVersions
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Synthetics.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Synthetics.Types
 
 -- | /See:/ 'newDescribeRuntimeVersions' smart constructor.
 data DescribeRuntimeVersions = DescribeRuntimeVersions'

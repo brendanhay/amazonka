@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Synthetics.Types.VisualReferenceInput
+-- Module      : Amazonka.Synthetics.Types.VisualReferenceInput
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Synthetics.Types.VisualReferenceInput where
+module Amazonka.Synthetics.Types.VisualReferenceInput where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Synthetics.Types.BaseScreenshot
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Synthetics.Types.BaseScreenshot
 
 -- | An object that specifies what screenshots to use as a baseline for
 -- visual monitoring by this canary, and optionally the parts of the

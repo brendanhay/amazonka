@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Synthetics
+-- Module      : Amazonka.Synthetics
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -28,7 +28,7 @@
 -- Before you create and manage canaries, be aware of the security
 -- considerations. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/servicelens_canaries_security.html Security Considerations for Synthetics Canaries>.
-module Network.AWS.Synthetics
+module Amazonka.Synthetics
   ( -- * Service Configuration
     defaultService,
 
@@ -238,22 +238,22 @@ module Network.AWS.Synthetics
   )
 where
 
-import Network.AWS.Synthetics.CreateCanary
-import Network.AWS.Synthetics.DeleteCanary
-import Network.AWS.Synthetics.DescribeCanaries
-import Network.AWS.Synthetics.DescribeCanariesLastRun
-import Network.AWS.Synthetics.DescribeRuntimeVersions
-import Network.AWS.Synthetics.GetCanary
-import Network.AWS.Synthetics.GetCanaryRuns
-import Network.AWS.Synthetics.Lens
-import Network.AWS.Synthetics.ListTagsForResource
-import Network.AWS.Synthetics.StartCanary
-import Network.AWS.Synthetics.StopCanary
-import Network.AWS.Synthetics.TagResource
-import Network.AWS.Synthetics.Types
-import Network.AWS.Synthetics.UntagResource
-import Network.AWS.Synthetics.UpdateCanary
-import Network.AWS.Synthetics.Waiters
+import Amazonka.Synthetics.CreateCanary
+import Amazonka.Synthetics.DeleteCanary
+import Amazonka.Synthetics.DescribeCanaries
+import Amazonka.Synthetics.DescribeCanariesLastRun
+import Amazonka.Synthetics.DescribeRuntimeVersions
+import Amazonka.Synthetics.GetCanary
+import Amazonka.Synthetics.GetCanaryRuns
+import Amazonka.Synthetics.Lens
+import Amazonka.Synthetics.ListTagsForResource
+import Amazonka.Synthetics.StartCanary
+import Amazonka.Synthetics.StopCanary
+import Amazonka.Synthetics.TagResource
+import Amazonka.Synthetics.Types
+import Amazonka.Synthetics.UntagResource
+import Amazonka.Synthetics.UpdateCanary
+import Amazonka.Synthetics.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Synthetics.StartCanary
+-- Module      : Amazonka.Synthetics.StartCanary
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- frequency of the canary runs is determined by the value of the canary\'s
 -- @Schedule@. To see a canary\'s schedule, use
 -- <https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_GetCanary.html GetCanary>.
-module Network.AWS.Synthetics.StartCanary
+module Amazonka.Synthetics.StartCanary
   ( -- * Creating a Request
     StartCanary (..),
     newStartCanary,
@@ -41,12 +41,12 @@ module Network.AWS.Synthetics.StartCanary
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Synthetics.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Synthetics.Types
 
 -- | /See:/ 'newStartCanary' smart constructor.
 data StartCanary = StartCanary'

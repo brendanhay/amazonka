@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Synthetics.TagResource
+-- Module      : Amazonka.Synthetics.TagResource
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -36,7 +36,7 @@
 -- specify replaces the previous value for that tag.
 --
 -- You can associate as many as 50 tags with a canary.
-module Network.AWS.Synthetics.TagResource
+module Amazonka.Synthetics.TagResource
   ( -- * Creating a Request
     TagResource (..),
     newTagResource,
@@ -54,12 +54,12 @@ module Network.AWS.Synthetics.TagResource
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Synthetics.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Synthetics.Types
 
 -- | /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'

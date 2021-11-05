@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Synthetics.Lens
+-- Module      : Amazonka.Synthetics.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Synthetics.Lens
+module Amazonka.Synthetics.Lens
   ( -- * Operations
 
     -- ** UpdateCanary
@@ -227,38 +227,38 @@ module Network.AWS.Synthetics.Lens
   )
 where
 
-import Network.AWS.Synthetics.CreateCanary
-import Network.AWS.Synthetics.DeleteCanary
-import Network.AWS.Synthetics.DescribeCanaries
-import Network.AWS.Synthetics.DescribeCanariesLastRun
-import Network.AWS.Synthetics.DescribeRuntimeVersions
-import Network.AWS.Synthetics.GetCanary
-import Network.AWS.Synthetics.GetCanaryRuns
-import Network.AWS.Synthetics.ListTagsForResource
-import Network.AWS.Synthetics.StartCanary
-import Network.AWS.Synthetics.StopCanary
-import Network.AWS.Synthetics.TagResource
-import Network.AWS.Synthetics.Types.ArtifactConfigInput
-import Network.AWS.Synthetics.Types.ArtifactConfigOutput
-import Network.AWS.Synthetics.Types.BaseScreenshot
-import Network.AWS.Synthetics.Types.Canary
-import Network.AWS.Synthetics.Types.CanaryCodeInput
-import Network.AWS.Synthetics.Types.CanaryCodeOutput
-import Network.AWS.Synthetics.Types.CanaryLastRun
-import Network.AWS.Synthetics.Types.CanaryRun
-import Network.AWS.Synthetics.Types.CanaryRunConfigInput
-import Network.AWS.Synthetics.Types.CanaryRunConfigOutput
-import Network.AWS.Synthetics.Types.CanaryRunStatus
-import Network.AWS.Synthetics.Types.CanaryRunTimeline
-import Network.AWS.Synthetics.Types.CanaryScheduleInput
-import Network.AWS.Synthetics.Types.CanaryScheduleOutput
-import Network.AWS.Synthetics.Types.CanaryStatus
-import Network.AWS.Synthetics.Types.CanaryTimeline
-import Network.AWS.Synthetics.Types.RuntimeVersion
-import Network.AWS.Synthetics.Types.S3EncryptionConfig
-import Network.AWS.Synthetics.Types.VisualReferenceInput
-import Network.AWS.Synthetics.Types.VisualReferenceOutput
-import Network.AWS.Synthetics.Types.VpcConfigInput
-import Network.AWS.Synthetics.Types.VpcConfigOutput
-import Network.AWS.Synthetics.UntagResource
-import Network.AWS.Synthetics.UpdateCanary
+import Amazonka.Synthetics.CreateCanary
+import Amazonka.Synthetics.DeleteCanary
+import Amazonka.Synthetics.DescribeCanaries
+import Amazonka.Synthetics.DescribeCanariesLastRun
+import Amazonka.Synthetics.DescribeRuntimeVersions
+import Amazonka.Synthetics.GetCanary
+import Amazonka.Synthetics.GetCanaryRuns
+import Amazonka.Synthetics.ListTagsForResource
+import Amazonka.Synthetics.StartCanary
+import Amazonka.Synthetics.StopCanary
+import Amazonka.Synthetics.TagResource
+import Amazonka.Synthetics.Types.ArtifactConfigInput
+import Amazonka.Synthetics.Types.ArtifactConfigOutput
+import Amazonka.Synthetics.Types.BaseScreenshot
+import Amazonka.Synthetics.Types.Canary
+import Amazonka.Synthetics.Types.CanaryCodeInput
+import Amazonka.Synthetics.Types.CanaryCodeOutput
+import Amazonka.Synthetics.Types.CanaryLastRun
+import Amazonka.Synthetics.Types.CanaryRun
+import Amazonka.Synthetics.Types.CanaryRunConfigInput
+import Amazonka.Synthetics.Types.CanaryRunConfigOutput
+import Amazonka.Synthetics.Types.CanaryRunStatus
+import Amazonka.Synthetics.Types.CanaryRunTimeline
+import Amazonka.Synthetics.Types.CanaryScheduleInput
+import Amazonka.Synthetics.Types.CanaryScheduleOutput
+import Amazonka.Synthetics.Types.CanaryStatus
+import Amazonka.Synthetics.Types.CanaryTimeline
+import Amazonka.Synthetics.Types.RuntimeVersion
+import Amazonka.Synthetics.Types.S3EncryptionConfig
+import Amazonka.Synthetics.Types.VisualReferenceInput
+import Amazonka.Synthetics.Types.VisualReferenceOutput
+import Amazonka.Synthetics.Types.VpcConfigInput
+import Amazonka.Synthetics.Types.VpcConfigOutput
+import Amazonka.Synthetics.UntagResource
+import Amazonka.Synthetics.UpdateCanary

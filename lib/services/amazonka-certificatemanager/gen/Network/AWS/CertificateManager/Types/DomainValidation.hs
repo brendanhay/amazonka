@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CertificateManager.Types.DomainValidation
+-- Module      : Amazonka.CertificateManager.Types.DomainValidation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CertificateManager.Types.DomainValidation where
+module Amazonka.CertificateManager.Types.DomainValidation where
 
-import Network.AWS.CertificateManager.Types.DomainStatus
-import Network.AWS.CertificateManager.Types.ResourceRecord
-import Network.AWS.CertificateManager.Types.ValidationMethod
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CertificateManager.Types.DomainStatus
+import Amazonka.CertificateManager.Types.ResourceRecord
+import Amazonka.CertificateManager.Types.ValidationMethod
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the validation of each domain name in the
 -- certificate.

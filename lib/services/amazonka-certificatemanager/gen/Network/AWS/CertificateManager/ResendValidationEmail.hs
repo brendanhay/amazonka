@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CertificateManager.ResendValidationEmail
+-- Module      : Amazonka.CertificateManager.ResendValidationEmail
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -32,7 +32,7 @@
 -- mail, you must request a new certificate. For more information about
 -- setting up your contact email addresses, see
 -- <https://docs.aws.amazon.com/acm/latest/userguide/setup-email.html Configure Email for your Domain>.
-module Network.AWS.CertificateManager.ResendValidationEmail
+module Amazonka.CertificateManager.ResendValidationEmail
   ( -- * Creating a Request
     ResendValidationEmail (..),
     newResendValidationEmail,
@@ -48,12 +48,12 @@ module Network.AWS.CertificateManager.ResendValidationEmail
   )
 where
 
-import Network.AWS.CertificateManager.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CertificateManager.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newResendValidationEmail' smart constructor.
 data ResendValidationEmail = ResendValidationEmail'

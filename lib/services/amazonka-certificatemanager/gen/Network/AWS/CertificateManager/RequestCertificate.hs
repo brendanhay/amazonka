@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CertificateManager.RequestCertificate
+-- Module      : Amazonka.CertificateManager.RequestCertificate
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -39,7 +39,7 @@
 -- <https://tools.ietf.org/html/rfc6125#appendix-B.2>RFC 6125 specification
 -- of the certificate validation process. first checks for a subject
 -- alternative name, and, if it finds one, ignores the common name (CN)
-module Network.AWS.CertificateManager.RequestCertificate
+module Amazonka.CertificateManager.RequestCertificate
   ( -- * Creating a Request
     RequestCertificate (..),
     newRequestCertificate,
@@ -64,12 +64,12 @@ module Network.AWS.CertificateManager.RequestCertificate
   )
 where
 
-import Network.AWS.CertificateManager.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CertificateManager.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRequestCertificate' smart constructor.
 data RequestCertificate = RequestCertificate'

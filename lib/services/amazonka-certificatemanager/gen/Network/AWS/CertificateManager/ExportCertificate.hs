@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CertificateManager.ExportCertificate
+-- Module      : Amazonka.CertificateManager.ExportCertificate
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -29,7 +29,7 @@
 -- For information about exporting and formatting a certificate using the
 -- ACM console or CLI, see
 -- <https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-export-private.html Export a Private Certificate>.
-module Network.AWS.CertificateManager.ExportCertificate
+module Amazonka.CertificateManager.ExportCertificate
   ( -- * Creating a Request
     ExportCertificate (..),
     newExportCertificate,
@@ -50,12 +50,12 @@ module Network.AWS.CertificateManager.ExportCertificate
   )
 where
 
-import Network.AWS.CertificateManager.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CertificateManager.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newExportCertificate' smart constructor.
 data ExportCertificate = ExportCertificate'

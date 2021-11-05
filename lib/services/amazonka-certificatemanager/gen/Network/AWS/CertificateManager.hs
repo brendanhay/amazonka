@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.CertificateManager
+-- Module      : Amazonka.CertificateManager
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -17,7 +17,7 @@
 -- SSL\/TLS certificates for your Amazon Web Services-based websites and
 -- applications. For more information about using ACM, see the
 -- <https://docs.aws.amazon.com/acm/latest/userguide/ Amazon Web Services Certificate Manager User Guide>.
-module Network.AWS.CertificateManager
+module Amazonka.CertificateManager
   ( -- * Service Configuration
     defaultService,
 
@@ -262,24 +262,24 @@ module Network.AWS.CertificateManager
   )
 where
 
-import Network.AWS.CertificateManager.AddTagsToCertificate
-import Network.AWS.CertificateManager.DeleteCertificate
-import Network.AWS.CertificateManager.DescribeCertificate
-import Network.AWS.CertificateManager.ExportCertificate
-import Network.AWS.CertificateManager.GetAccountConfiguration
-import Network.AWS.CertificateManager.GetCertificate
-import Network.AWS.CertificateManager.ImportCertificate
-import Network.AWS.CertificateManager.Lens
-import Network.AWS.CertificateManager.ListCertificates
-import Network.AWS.CertificateManager.ListTagsForCertificate
-import Network.AWS.CertificateManager.PutAccountConfiguration
-import Network.AWS.CertificateManager.RemoveTagsFromCertificate
-import Network.AWS.CertificateManager.RenewCertificate
-import Network.AWS.CertificateManager.RequestCertificate
-import Network.AWS.CertificateManager.ResendValidationEmail
-import Network.AWS.CertificateManager.Types
-import Network.AWS.CertificateManager.UpdateCertificateOptions
-import Network.AWS.CertificateManager.Waiters
+import Amazonka.CertificateManager.AddTagsToCertificate
+import Amazonka.CertificateManager.DeleteCertificate
+import Amazonka.CertificateManager.DescribeCertificate
+import Amazonka.CertificateManager.ExportCertificate
+import Amazonka.CertificateManager.GetAccountConfiguration
+import Amazonka.CertificateManager.GetCertificate
+import Amazonka.CertificateManager.ImportCertificate
+import Amazonka.CertificateManager.Lens
+import Amazonka.CertificateManager.ListCertificates
+import Amazonka.CertificateManager.ListTagsForCertificate
+import Amazonka.CertificateManager.PutAccountConfiguration
+import Amazonka.CertificateManager.RemoveTagsFromCertificate
+import Amazonka.CertificateManager.RenewCertificate
+import Amazonka.CertificateManager.RequestCertificate
+import Amazonka.CertificateManager.ResendValidationEmail
+import Amazonka.CertificateManager.Types
+import Amazonka.CertificateManager.UpdateCertificateOptions
+import Amazonka.CertificateManager.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

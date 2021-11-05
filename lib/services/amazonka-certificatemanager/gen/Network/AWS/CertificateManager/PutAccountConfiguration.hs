@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CertificateManager.PutAccountConfiguration
+-- Module      : Amazonka.CertificateManager.PutAccountConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 -- starts generating @EventBridge@ events. ACM sends one event per day per
 -- certificate until the certificate expires. By default, accounts receive
 -- events starting 45 days before certificate expiration.
-module Network.AWS.CertificateManager.PutAccountConfiguration
+module Amazonka.CertificateManager.PutAccountConfiguration
   ( -- * Creating a Request
     PutAccountConfiguration (..),
     newPutAccountConfiguration,
@@ -42,12 +42,12 @@ module Network.AWS.CertificateManager.PutAccountConfiguration
   )
 where
 
-import Network.AWS.CertificateManager.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CertificateManager.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutAccountConfiguration' smart constructor.
 data PutAccountConfiguration = PutAccountConfiguration'

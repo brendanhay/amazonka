@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CertificateManager.AddTagsToCertificate
+-- Module      : Amazonka.CertificateManager.AddTagsToCertificate
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -39,7 +39,7 @@
 -- To remove one or more tags, use the RemoveTagsFromCertificate action. To
 -- view all of the tags that have been applied to the certificate, use the
 -- ListTagsForCertificate action.
-module Network.AWS.CertificateManager.AddTagsToCertificate
+module Amazonka.CertificateManager.AddTagsToCertificate
   ( -- * Creating a Request
     AddTagsToCertificate (..),
     newAddTagsToCertificate,
@@ -54,12 +54,12 @@ module Network.AWS.CertificateManager.AddTagsToCertificate
   )
 where
 
-import Network.AWS.CertificateManager.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CertificateManager.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAddTagsToCertificate' smart constructor.
 data AddTagsToCertificate = AddTagsToCertificate'

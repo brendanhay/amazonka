@@ -11,28 +11,28 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CertificateManager.Types.CertificateDetail
+-- Module      : Amazonka.CertificateManager.Types.CertificateDetail
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CertificateManager.Types.CertificateDetail where
+module Amazonka.CertificateManager.Types.CertificateDetail where
 
-import Network.AWS.CertificateManager.Types.CertificateOptions
-import Network.AWS.CertificateManager.Types.CertificateStatus
-import Network.AWS.CertificateManager.Types.CertificateType
-import Network.AWS.CertificateManager.Types.DomainValidation
-import Network.AWS.CertificateManager.Types.ExtendedKeyUsage
-import Network.AWS.CertificateManager.Types.FailureReason
-import Network.AWS.CertificateManager.Types.KeyAlgorithm
-import Network.AWS.CertificateManager.Types.KeyUsage
-import Network.AWS.CertificateManager.Types.RenewalEligibility
-import Network.AWS.CertificateManager.Types.RenewalSummary
-import Network.AWS.CertificateManager.Types.RevocationReason
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CertificateManager.Types.CertificateOptions
+import Amazonka.CertificateManager.Types.CertificateStatus
+import Amazonka.CertificateManager.Types.CertificateType
+import Amazonka.CertificateManager.Types.DomainValidation
+import Amazonka.CertificateManager.Types.ExtendedKeyUsage
+import Amazonka.CertificateManager.Types.FailureReason
+import Amazonka.CertificateManager.Types.KeyAlgorithm
+import Amazonka.CertificateManager.Types.KeyUsage
+import Amazonka.CertificateManager.Types.RenewalEligibility
+import Amazonka.CertificateManager.Types.RenewalSummary
+import Amazonka.CertificateManager.Types.RevocationReason
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains metadata about an ACM certificate. This structure is returned
 -- in the response to a DescribeCertificate request.

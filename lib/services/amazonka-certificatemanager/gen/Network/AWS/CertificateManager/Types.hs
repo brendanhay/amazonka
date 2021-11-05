@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CertificateManager.Types
+-- Module      : Amazonka.CertificateManager.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CertificateManager.Types
+module Amazonka.CertificateManager.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -176,35 +176,35 @@ module Network.AWS.CertificateManager.Types
   )
 where
 
-import Network.AWS.CertificateManager.Types.CertificateDetail
-import Network.AWS.CertificateManager.Types.CertificateOptions
-import Network.AWS.CertificateManager.Types.CertificateStatus
-import Network.AWS.CertificateManager.Types.CertificateSummary
-import Network.AWS.CertificateManager.Types.CertificateTransparencyLoggingPreference
-import Network.AWS.CertificateManager.Types.CertificateType
-import Network.AWS.CertificateManager.Types.DomainStatus
-import Network.AWS.CertificateManager.Types.DomainValidation
-import Network.AWS.CertificateManager.Types.DomainValidationOption
-import Network.AWS.CertificateManager.Types.ExpiryEventsConfiguration
-import Network.AWS.CertificateManager.Types.ExtendedKeyUsage
-import Network.AWS.CertificateManager.Types.ExtendedKeyUsageName
-import Network.AWS.CertificateManager.Types.FailureReason
-import Network.AWS.CertificateManager.Types.Filters
-import Network.AWS.CertificateManager.Types.KeyAlgorithm
-import Network.AWS.CertificateManager.Types.KeyUsage
-import Network.AWS.CertificateManager.Types.KeyUsageName
-import Network.AWS.CertificateManager.Types.RecordType
-import Network.AWS.CertificateManager.Types.RenewalEligibility
-import Network.AWS.CertificateManager.Types.RenewalStatus
-import Network.AWS.CertificateManager.Types.RenewalSummary
-import Network.AWS.CertificateManager.Types.ResourceRecord
-import Network.AWS.CertificateManager.Types.RevocationReason
-import Network.AWS.CertificateManager.Types.Tag
-import Network.AWS.CertificateManager.Types.ValidationMethod
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.CertificateManager.Types.CertificateDetail
+import Amazonka.CertificateManager.Types.CertificateOptions
+import Amazonka.CertificateManager.Types.CertificateStatus
+import Amazonka.CertificateManager.Types.CertificateSummary
+import Amazonka.CertificateManager.Types.CertificateTransparencyLoggingPreference
+import Amazonka.CertificateManager.Types.CertificateType
+import Amazonka.CertificateManager.Types.DomainStatus
+import Amazonka.CertificateManager.Types.DomainValidation
+import Amazonka.CertificateManager.Types.DomainValidationOption
+import Amazonka.CertificateManager.Types.ExpiryEventsConfiguration
+import Amazonka.CertificateManager.Types.ExtendedKeyUsage
+import Amazonka.CertificateManager.Types.ExtendedKeyUsageName
+import Amazonka.CertificateManager.Types.FailureReason
+import Amazonka.CertificateManager.Types.Filters
+import Amazonka.CertificateManager.Types.KeyAlgorithm
+import Amazonka.CertificateManager.Types.KeyUsage
+import Amazonka.CertificateManager.Types.KeyUsageName
+import Amazonka.CertificateManager.Types.RecordType
+import Amazonka.CertificateManager.Types.RenewalEligibility
+import Amazonka.CertificateManager.Types.RenewalStatus
+import Amazonka.CertificateManager.Types.RenewalSummary
+import Amazonka.CertificateManager.Types.ResourceRecord
+import Amazonka.CertificateManager.Types.RevocationReason
+import Amazonka.CertificateManager.Types.Tag
+import Amazonka.CertificateManager.Types.ValidationMethod
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2015-12-08@ of the Amazon Certificate Manager SDK configuration.
 defaultService :: Core.Service

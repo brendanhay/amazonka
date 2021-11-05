@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CertificateManager.Types.KeyAlgorithm
+-- Module      : Amazonka.CertificateManager.Types.KeyAlgorithm
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CertificateManager.Types.KeyAlgorithm
+module Amazonka.CertificateManager.Types.KeyAlgorithm
   ( KeyAlgorithm
       ( ..,
         KeyAlgorithm_EC_prime256v1,
@@ -31,8 +31,8 @@ module Network.AWS.CertificateManager.Types.KeyAlgorithm
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 newtype KeyAlgorithm = KeyAlgorithm'
   { fromKeyAlgorithm ::

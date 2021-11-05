@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CertificateManager.Types.RenewalSummary
+-- Module      : Amazonka.CertificateManager.Types.RenewalSummary
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CertificateManager.Types.RenewalSummary where
+module Amazonka.CertificateManager.Types.RenewalSummary where
 
-import Network.AWS.CertificateManager.Types.DomainValidation
-import Network.AWS.CertificateManager.Types.FailureReason
-import Network.AWS.CertificateManager.Types.RenewalStatus
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CertificateManager.Types.DomainValidation
+import Amazonka.CertificateManager.Types.FailureReason
+import Amazonka.CertificateManager.Types.RenewalStatus
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the status of ACM\'s
 -- <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal>

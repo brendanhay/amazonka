@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KinesisAnalyticsV2.AddApplicationInput
+-- Module      : Amazonka.KinesisAnalyticsV2.AddApplicationInput
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -30,7 +30,7 @@
 -- Any configuration update, including adding a streaming source using this
 -- operation, results in a new version of the application. You can use the
 -- DescribeApplication operation to find the current application version.
-module Network.AWS.KinesisAnalyticsV2.AddApplicationInput
+module Amazonka.KinesisAnalyticsV2.AddApplicationInput
   ( -- * Creating a Request
     AddApplicationInput (..),
     newAddApplicationInput,
@@ -52,12 +52,12 @@ module Network.AWS.KinesisAnalyticsV2.AddApplicationInput
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KinesisAnalyticsV2.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.KinesisAnalyticsV2.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAddApplicationInput' smart constructor.
 data AddApplicationInput = AddApplicationInput'

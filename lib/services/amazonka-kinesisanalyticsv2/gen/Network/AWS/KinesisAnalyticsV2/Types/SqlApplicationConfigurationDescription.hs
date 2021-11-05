@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KinesisAnalyticsV2.Types.SqlApplicationConfigurationDescription
+-- Module      : Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfigurationDescription
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisAnalyticsV2.Types.SqlApplicationConfigurationDescription where
+module Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfigurationDescription where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KinesisAnalyticsV2.Types.InputDescription
-import Network.AWS.KinesisAnalyticsV2.Types.OutputDescription
-import Network.AWS.KinesisAnalyticsV2.Types.ReferenceDataSourceDescription
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.KinesisAnalyticsV2.Types.InputDescription
+import Amazonka.KinesisAnalyticsV2.Types.OutputDescription
+import Amazonka.KinesisAnalyticsV2.Types.ReferenceDataSourceDescription
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the inputs, outputs, and reference data sources for a
 -- SQL-based Kinesis Data Analytics application.

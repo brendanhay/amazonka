@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KinesisAnalyticsV2.Types.CustomArtifactConfiguration
+-- Module      : Amazonka.KinesisAnalyticsV2.Types.CustomArtifactConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisAnalyticsV2.Types.CustomArtifactConfiguration where
+module Amazonka.KinesisAnalyticsV2.Types.CustomArtifactConfiguration where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KinesisAnalyticsV2.Types.ArtifactType
-import Network.AWS.KinesisAnalyticsV2.Types.MavenReference
-import Network.AWS.KinesisAnalyticsV2.Types.S3ContentLocation
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.KinesisAnalyticsV2.Types.ArtifactType
+import Amazonka.KinesisAnalyticsV2.Types.MavenReference
+import Amazonka.KinesisAnalyticsV2.Types.S3ContentLocation
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies dependency JARs, as well as JAR files that contain
 -- user-defined functions (UDF).

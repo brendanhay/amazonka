@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource
+-- Module      : Amazonka.KinesisAnalyticsV2.AddApplicationReferenceDataSource
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -29,7 +29,7 @@
 -- name), name of the in-application table to create, and the necessary
 -- mapping information that describes how data in an Amazon S3 object maps
 -- to columns in the resulting in-application table.
-module Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource
+module Amazonka.KinesisAnalyticsV2.AddApplicationReferenceDataSource
   ( -- * Creating a Request
     AddApplicationReferenceDataSource (..),
     newAddApplicationReferenceDataSource,
@@ -51,12 +51,12 @@ module Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KinesisAnalyticsV2.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.KinesisAnalyticsV2.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAddApplicationReferenceDataSource' smart constructor.
 data AddApplicationReferenceDataSource = AddApplicationReferenceDataSource'

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KinesisAnalyticsV2.DiscoverInputSchema
+-- Module      : Amazonka.KinesisAnalyticsV2.DiscoverInputSchema
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -30,7 +30,7 @@
 -- your application. When you create an application using the Kinesis Data
 -- Analytics console, the console uses this operation to infer a schema and
 -- show it in the console user interface.
-module Network.AWS.KinesisAnalyticsV2.DiscoverInputSchema
+module Amazonka.KinesisAnalyticsV2.DiscoverInputSchema
   ( -- * Creating a Request
     DiscoverInputSchema (..),
     newDiscoverInputSchema,
@@ -55,12 +55,12 @@ module Network.AWS.KinesisAnalyticsV2.DiscoverInputSchema
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KinesisAnalyticsV2.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.KinesisAnalyticsV2.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDiscoverInputSchema' smart constructor.
 data DiscoverInputSchema = DiscoverInputSchema'

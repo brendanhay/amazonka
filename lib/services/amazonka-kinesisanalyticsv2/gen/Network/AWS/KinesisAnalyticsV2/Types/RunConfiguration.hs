@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KinesisAnalyticsV2.Types.RunConfiguration
+-- Module      : Amazonka.KinesisAnalyticsV2.Types.RunConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisAnalyticsV2.Types.RunConfiguration where
+module Amazonka.KinesisAnalyticsV2.Types.RunConfiguration where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KinesisAnalyticsV2.Types.ApplicationRestoreConfiguration
-import Network.AWS.KinesisAnalyticsV2.Types.FlinkRunConfiguration
-import Network.AWS.KinesisAnalyticsV2.Types.SqlRunConfiguration
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.KinesisAnalyticsV2.Types.ApplicationRestoreConfiguration
+import Amazonka.KinesisAnalyticsV2.Types.FlinkRunConfiguration
+import Amazonka.KinesisAnalyticsV2.Types.SqlRunConfiguration
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the starting parameters for an Kinesis Data Analytics
 -- application.

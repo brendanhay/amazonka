@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KinesisAnalyticsV2.RollbackApplication
+-- Module      : Amazonka.KinesisAnalyticsV2.RollbackApplication
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -32,7 +32,7 @@
 --
 -- This action is not supported for Kinesis Data Analytics for SQL
 -- applications.
-module Network.AWS.KinesisAnalyticsV2.RollbackApplication
+module Amazonka.KinesisAnalyticsV2.RollbackApplication
   ( -- * Creating a Request
     RollbackApplication (..),
     newRollbackApplication,
@@ -51,12 +51,12 @@ module Network.AWS.KinesisAnalyticsV2.RollbackApplication
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KinesisAnalyticsV2.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.KinesisAnalyticsV2.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRollbackApplication' smart constructor.
 data RollbackApplication = RollbackApplication'

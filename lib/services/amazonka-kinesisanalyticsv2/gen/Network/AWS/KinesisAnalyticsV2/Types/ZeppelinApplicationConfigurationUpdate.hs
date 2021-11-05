@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate
+-- Module      : Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate where
+module Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KinesisAnalyticsV2.Types.CatalogConfigurationUpdate
-import Network.AWS.KinesisAnalyticsV2.Types.CustomArtifactConfiguration
-import Network.AWS.KinesisAnalyticsV2.Types.DeployAsApplicationConfigurationUpdate
-import Network.AWS.KinesisAnalyticsV2.Types.ZeppelinMonitoringConfigurationUpdate
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.KinesisAnalyticsV2.Types.CatalogConfigurationUpdate
+import Amazonka.KinesisAnalyticsV2.Types.CustomArtifactConfiguration
+import Amazonka.KinesisAnalyticsV2.Types.DeployAsApplicationConfigurationUpdate
+import Amazonka.KinesisAnalyticsV2.Types.ZeppelinMonitoringConfigurationUpdate
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Updates to the configuration of Kinesis Data Analytics Studio notebook.
 --

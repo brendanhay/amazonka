@@ -11,17 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KinesisAnalyticsV2.Types.KinesisStreamsOutputUpdate
+-- Module      : Amazonka.KinesisAnalyticsV2.Types.KinesisStreamsOutputUpdate
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisAnalyticsV2.Types.KinesisStreamsOutputUpdate where
+module Amazonka.KinesisAnalyticsV2.Types.KinesisStreamsOutputUpdate where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | When you update a SQL-based Kinesis Data Analytics application\'s output
 -- configuration using the UpdateApplication operation, provides

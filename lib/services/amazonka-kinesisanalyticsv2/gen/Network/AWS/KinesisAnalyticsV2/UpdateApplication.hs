@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KinesisAnalyticsV2.UpdateApplication
+-- Module      : Amazonka.KinesisAnalyticsV2.UpdateApplication
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -30,7 +30,7 @@
 -- You cannot update the @RuntimeEnvironment@ of an existing application.
 -- If you need to update an application\'s @RuntimeEnvironment@, you must
 -- delete the application and create it again.
-module Network.AWS.KinesisAnalyticsV2.UpdateApplication
+module Amazonka.KinesisAnalyticsV2.UpdateApplication
   ( -- * Creating a Request
     UpdateApplication (..),
     newUpdateApplication,
@@ -54,12 +54,12 @@ module Network.AWS.KinesisAnalyticsV2.UpdateApplication
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KinesisAnalyticsV2.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.KinesisAnalyticsV2.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateApplication' smart constructor.
 data UpdateApplication = UpdateApplication'

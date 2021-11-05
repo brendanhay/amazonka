@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KinesisAnalyticsV2.DescribeApplicationSnapshot
+-- Module      : Amazonka.KinesisAnalyticsV2.DescribeApplicationSnapshot
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns information about a snapshot of application state data.
-module Network.AWS.KinesisAnalyticsV2.DescribeApplicationSnapshot
+module Amazonka.KinesisAnalyticsV2.DescribeApplicationSnapshot
   ( -- * Creating a Request
     DescribeApplicationSnapshot (..),
     newDescribeApplicationSnapshot,
@@ -40,12 +40,12 @@ module Network.AWS.KinesisAnalyticsV2.DescribeApplicationSnapshot
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KinesisAnalyticsV2.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.KinesisAnalyticsV2.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeApplicationSnapshot' smart constructor.
 data DescribeApplicationSnapshot = DescribeApplicationSnapshot'

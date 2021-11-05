@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KinesisAnalyticsV2.Types.InputDescription
+-- Module      : Amazonka.KinesisAnalyticsV2.Types.InputDescription
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisAnalyticsV2.Types.InputDescription where
+module Amazonka.KinesisAnalyticsV2.Types.InputDescription where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KinesisAnalyticsV2.Types.InputParallelism
-import Network.AWS.KinesisAnalyticsV2.Types.InputProcessingConfigurationDescription
-import Network.AWS.KinesisAnalyticsV2.Types.InputStartingPositionConfiguration
-import Network.AWS.KinesisAnalyticsV2.Types.KinesisFirehoseInputDescription
-import Network.AWS.KinesisAnalyticsV2.Types.KinesisStreamsInputDescription
-import Network.AWS.KinesisAnalyticsV2.Types.SourceSchema
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.KinesisAnalyticsV2.Types.InputParallelism
+import Amazonka.KinesisAnalyticsV2.Types.InputProcessingConfigurationDescription
+import Amazonka.KinesisAnalyticsV2.Types.InputStartingPositionConfiguration
+import Amazonka.KinesisAnalyticsV2.Types.KinesisFirehoseInputDescription
+import Amazonka.KinesisAnalyticsV2.Types.KinesisStreamsInputDescription
+import Amazonka.KinesisAnalyticsV2.Types.SourceSchema
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the application input configuration for a SQL-based Kinesis
 -- Data Analytics application.

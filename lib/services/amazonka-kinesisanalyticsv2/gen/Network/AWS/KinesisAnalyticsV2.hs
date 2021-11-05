@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.KinesisAnalyticsV2
+-- Module      : Amazonka.KinesisAnalyticsV2
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -16,7 +16,7 @@
 -- service enables you to quickly author and run Java, SQL, or Scala code
 -- against streaming sources to perform time series analytics, feed
 -- real-time dashboards, and create real-time metrics.
-module Network.AWS.KinesisAnalyticsV2
+module Amazonka.KinesisAnalyticsV2
   ( -- * Service Configuration
     defaultService,
 
@@ -773,40 +773,40 @@ module Network.AWS.KinesisAnalyticsV2
   )
 where
 
-import Network.AWS.KinesisAnalyticsV2.AddApplicationCloudWatchLoggingOption
-import Network.AWS.KinesisAnalyticsV2.AddApplicationInput
-import Network.AWS.KinesisAnalyticsV2.AddApplicationInputProcessingConfiguration
-import Network.AWS.KinesisAnalyticsV2.AddApplicationOutput
-import Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource
-import Network.AWS.KinesisAnalyticsV2.AddApplicationVpcConfiguration
-import Network.AWS.KinesisAnalyticsV2.CreateApplication
-import Network.AWS.KinesisAnalyticsV2.CreateApplicationPresignedUrl
-import Network.AWS.KinesisAnalyticsV2.CreateApplicationSnapshot
-import Network.AWS.KinesisAnalyticsV2.DeleteApplication
-import Network.AWS.KinesisAnalyticsV2.DeleteApplicationCloudWatchLoggingOption
-import Network.AWS.KinesisAnalyticsV2.DeleteApplicationInputProcessingConfiguration
-import Network.AWS.KinesisAnalyticsV2.DeleteApplicationOutput
-import Network.AWS.KinesisAnalyticsV2.DeleteApplicationReferenceDataSource
-import Network.AWS.KinesisAnalyticsV2.DeleteApplicationSnapshot
-import Network.AWS.KinesisAnalyticsV2.DeleteApplicationVpcConfiguration
-import Network.AWS.KinesisAnalyticsV2.DescribeApplication
-import Network.AWS.KinesisAnalyticsV2.DescribeApplicationSnapshot
-import Network.AWS.KinesisAnalyticsV2.DescribeApplicationVersion
-import Network.AWS.KinesisAnalyticsV2.DiscoverInputSchema
-import Network.AWS.KinesisAnalyticsV2.Lens
-import Network.AWS.KinesisAnalyticsV2.ListApplicationSnapshots
-import Network.AWS.KinesisAnalyticsV2.ListApplicationVersions
-import Network.AWS.KinesisAnalyticsV2.ListApplications
-import Network.AWS.KinesisAnalyticsV2.ListTagsForResource
-import Network.AWS.KinesisAnalyticsV2.RollbackApplication
-import Network.AWS.KinesisAnalyticsV2.StartApplication
-import Network.AWS.KinesisAnalyticsV2.StopApplication
-import Network.AWS.KinesisAnalyticsV2.TagResource
-import Network.AWS.KinesisAnalyticsV2.Types
-import Network.AWS.KinesisAnalyticsV2.UntagResource
-import Network.AWS.KinesisAnalyticsV2.UpdateApplication
-import Network.AWS.KinesisAnalyticsV2.UpdateApplicationMaintenanceConfiguration
-import Network.AWS.KinesisAnalyticsV2.Waiters
+import Amazonka.KinesisAnalyticsV2.AddApplicationCloudWatchLoggingOption
+import Amazonka.KinesisAnalyticsV2.AddApplicationInput
+import Amazonka.KinesisAnalyticsV2.AddApplicationInputProcessingConfiguration
+import Amazonka.KinesisAnalyticsV2.AddApplicationOutput
+import Amazonka.KinesisAnalyticsV2.AddApplicationReferenceDataSource
+import Amazonka.KinesisAnalyticsV2.AddApplicationVpcConfiguration
+import Amazonka.KinesisAnalyticsV2.CreateApplication
+import Amazonka.KinesisAnalyticsV2.CreateApplicationPresignedUrl
+import Amazonka.KinesisAnalyticsV2.CreateApplicationSnapshot
+import Amazonka.KinesisAnalyticsV2.DeleteApplication
+import Amazonka.KinesisAnalyticsV2.DeleteApplicationCloudWatchLoggingOption
+import Amazonka.KinesisAnalyticsV2.DeleteApplicationInputProcessingConfiguration
+import Amazonka.KinesisAnalyticsV2.DeleteApplicationOutput
+import Amazonka.KinesisAnalyticsV2.DeleteApplicationReferenceDataSource
+import Amazonka.KinesisAnalyticsV2.DeleteApplicationSnapshot
+import Amazonka.KinesisAnalyticsV2.DeleteApplicationVpcConfiguration
+import Amazonka.KinesisAnalyticsV2.DescribeApplication
+import Amazonka.KinesisAnalyticsV2.DescribeApplicationSnapshot
+import Amazonka.KinesisAnalyticsV2.DescribeApplicationVersion
+import Amazonka.KinesisAnalyticsV2.DiscoverInputSchema
+import Amazonka.KinesisAnalyticsV2.Lens
+import Amazonka.KinesisAnalyticsV2.ListApplicationSnapshots
+import Amazonka.KinesisAnalyticsV2.ListApplicationVersions
+import Amazonka.KinesisAnalyticsV2.ListApplications
+import Amazonka.KinesisAnalyticsV2.ListTagsForResource
+import Amazonka.KinesisAnalyticsV2.RollbackApplication
+import Amazonka.KinesisAnalyticsV2.StartApplication
+import Amazonka.KinesisAnalyticsV2.StopApplication
+import Amazonka.KinesisAnalyticsV2.TagResource
+import Amazonka.KinesisAnalyticsV2.Types
+import Amazonka.KinesisAnalyticsV2.UntagResource
+import Amazonka.KinesisAnalyticsV2.UpdateApplication
+import Amazonka.KinesisAnalyticsV2.UpdateApplicationMaintenanceConfiguration
+import Amazonka.KinesisAnalyticsV2.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

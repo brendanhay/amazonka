@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KinesisAnalyticsV2.Types.Input
+-- Module      : Amazonka.KinesisAnalyticsV2.Types.Input
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisAnalyticsV2.Types.Input where
+module Amazonka.KinesisAnalyticsV2.Types.Input where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KinesisAnalyticsV2.Types.InputParallelism
-import Network.AWS.KinesisAnalyticsV2.Types.InputProcessingConfiguration
-import Network.AWS.KinesisAnalyticsV2.Types.KinesisFirehoseInput
-import Network.AWS.KinesisAnalyticsV2.Types.KinesisStreamsInput
-import Network.AWS.KinesisAnalyticsV2.Types.SourceSchema
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.KinesisAnalyticsV2.Types.InputParallelism
+import Amazonka.KinesisAnalyticsV2.Types.InputProcessingConfiguration
+import Amazonka.KinesisAnalyticsV2.Types.KinesisFirehoseInput
+import Amazonka.KinesisAnalyticsV2.Types.KinesisStreamsInput
+import Amazonka.KinesisAnalyticsV2.Types.SourceSchema
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | When you configure the application input for a SQL-based Kinesis Data
 -- Analytics application, you specify the streaming source, the

@@ -11,24 +11,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate
+-- Module      : Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate where
+module Amazonka.KinesisAnalyticsV2.Types.ApplicationConfigurationUpdate where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate
-import Network.AWS.KinesisAnalyticsV2.Types.ApplicationSnapshotConfigurationUpdate
-import Network.AWS.KinesisAnalyticsV2.Types.EnvironmentPropertyUpdates
-import Network.AWS.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate
-import Network.AWS.KinesisAnalyticsV2.Types.SqlApplicationConfigurationUpdate
-import Network.AWS.KinesisAnalyticsV2.Types.VpcConfigurationUpdate
-import Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.KinesisAnalyticsV2.Types.ApplicationCodeConfigurationUpdate
+import Amazonka.KinesisAnalyticsV2.Types.ApplicationSnapshotConfigurationUpdate
+import Amazonka.KinesisAnalyticsV2.Types.EnvironmentPropertyUpdates
+import Amazonka.KinesisAnalyticsV2.Types.FlinkApplicationConfigurationUpdate
+import Amazonka.KinesisAnalyticsV2.Types.SqlApplicationConfigurationUpdate
+import Amazonka.KinesisAnalyticsV2.Types.VpcConfigurationUpdate
+import Amazonka.KinesisAnalyticsV2.Types.ZeppelinApplicationConfigurationUpdate
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes updates to an application\'s configuration.
 --

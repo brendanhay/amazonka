@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudHSMV2.Types
+-- Module      : Amazonka.CloudHSMV2.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudHSMV2.Types
+module Amazonka.CloudHSMV2.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -116,22 +116,22 @@ module Network.AWS.CloudHSMV2.Types
   )
 where
 
-import Network.AWS.CloudHSMV2.Types.Backup
-import Network.AWS.CloudHSMV2.Types.BackupPolicy
-import Network.AWS.CloudHSMV2.Types.BackupRetentionPolicy
-import Network.AWS.CloudHSMV2.Types.BackupRetentionType
-import Network.AWS.CloudHSMV2.Types.BackupState
-import Network.AWS.CloudHSMV2.Types.Certificates
-import Network.AWS.CloudHSMV2.Types.Cluster
-import Network.AWS.CloudHSMV2.Types.ClusterState
-import Network.AWS.CloudHSMV2.Types.DestinationBackup
-import Network.AWS.CloudHSMV2.Types.Hsm
-import Network.AWS.CloudHSMV2.Types.HsmState
-import Network.AWS.CloudHSMV2.Types.Tag
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.CloudHSMV2.Types.Backup
+import Amazonka.CloudHSMV2.Types.BackupPolicy
+import Amazonka.CloudHSMV2.Types.BackupRetentionPolicy
+import Amazonka.CloudHSMV2.Types.BackupRetentionType
+import Amazonka.CloudHSMV2.Types.BackupState
+import Amazonka.CloudHSMV2.Types.Certificates
+import Amazonka.CloudHSMV2.Types.Cluster
+import Amazonka.CloudHSMV2.Types.ClusterState
+import Amazonka.CloudHSMV2.Types.DestinationBackup
+import Amazonka.CloudHSMV2.Types.Hsm
+import Amazonka.CloudHSMV2.Types.HsmState
+import Amazonka.CloudHSMV2.Types.Tag
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2017-04-28@ of the Amazon CloudHSM V2 SDK configuration.
 defaultService :: Core.Service

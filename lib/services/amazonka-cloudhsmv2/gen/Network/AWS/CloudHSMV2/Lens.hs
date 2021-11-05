@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudHSMV2.Lens
+-- Module      : Amazonka.CloudHSMV2.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudHSMV2.Lens
+module Amazonka.CloudHSMV2.Lens
   ( -- * Operations
 
     -- ** DescribeClusters
@@ -180,25 +180,25 @@ module Network.AWS.CloudHSMV2.Lens
   )
 where
 
-import Network.AWS.CloudHSMV2.CopyBackupToRegion
-import Network.AWS.CloudHSMV2.CreateCluster
-import Network.AWS.CloudHSMV2.CreateHsm
-import Network.AWS.CloudHSMV2.DeleteBackup
-import Network.AWS.CloudHSMV2.DeleteCluster
-import Network.AWS.CloudHSMV2.DeleteHsm
-import Network.AWS.CloudHSMV2.DescribeBackups
-import Network.AWS.CloudHSMV2.DescribeClusters
-import Network.AWS.CloudHSMV2.InitializeCluster
-import Network.AWS.CloudHSMV2.ListTags
-import Network.AWS.CloudHSMV2.ModifyBackupAttributes
-import Network.AWS.CloudHSMV2.ModifyCluster
-import Network.AWS.CloudHSMV2.RestoreBackup
-import Network.AWS.CloudHSMV2.TagResource
-import Network.AWS.CloudHSMV2.Types.Backup
-import Network.AWS.CloudHSMV2.Types.BackupRetentionPolicy
-import Network.AWS.CloudHSMV2.Types.Certificates
-import Network.AWS.CloudHSMV2.Types.Cluster
-import Network.AWS.CloudHSMV2.Types.DestinationBackup
-import Network.AWS.CloudHSMV2.Types.Hsm
-import Network.AWS.CloudHSMV2.Types.Tag
-import Network.AWS.CloudHSMV2.UntagResource
+import Amazonka.CloudHSMV2.CopyBackupToRegion
+import Amazonka.CloudHSMV2.CreateCluster
+import Amazonka.CloudHSMV2.CreateHsm
+import Amazonka.CloudHSMV2.DeleteBackup
+import Amazonka.CloudHSMV2.DeleteCluster
+import Amazonka.CloudHSMV2.DeleteHsm
+import Amazonka.CloudHSMV2.DescribeBackups
+import Amazonka.CloudHSMV2.DescribeClusters
+import Amazonka.CloudHSMV2.InitializeCluster
+import Amazonka.CloudHSMV2.ListTags
+import Amazonka.CloudHSMV2.ModifyBackupAttributes
+import Amazonka.CloudHSMV2.ModifyCluster
+import Amazonka.CloudHSMV2.RestoreBackup
+import Amazonka.CloudHSMV2.TagResource
+import Amazonka.CloudHSMV2.Types.Backup
+import Amazonka.CloudHSMV2.Types.BackupRetentionPolicy
+import Amazonka.CloudHSMV2.Types.Certificates
+import Amazonka.CloudHSMV2.Types.Cluster
+import Amazonka.CloudHSMV2.Types.DestinationBackup
+import Amazonka.CloudHSMV2.Types.Hsm
+import Amazonka.CloudHSMV2.Types.Tag
+import Amazonka.CloudHSMV2.UntagResource

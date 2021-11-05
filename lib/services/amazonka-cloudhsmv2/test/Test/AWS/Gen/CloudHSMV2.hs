@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CloudHSMV2 where
 
+import Amazonka.CloudHSMV2
 import qualified Data.Proxy as Proxy
-import Network.AWS.CloudHSMV2
 import Test.AWS.CloudHSMV2.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

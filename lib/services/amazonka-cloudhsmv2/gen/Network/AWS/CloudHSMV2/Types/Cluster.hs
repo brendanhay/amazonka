@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudHSMV2.Types.Cluster
+-- Module      : Amazonka.CloudHSMV2.Types.Cluster
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudHSMV2.Types.Cluster where
+module Amazonka.CloudHSMV2.Types.Cluster where
 
-import Network.AWS.CloudHSMV2.Types.BackupPolicy
-import Network.AWS.CloudHSMV2.Types.BackupRetentionPolicy
-import Network.AWS.CloudHSMV2.Types.Certificates
-import Network.AWS.CloudHSMV2.Types.ClusterState
-import Network.AWS.CloudHSMV2.Types.Hsm
-import Network.AWS.CloudHSMV2.Types.Tag
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudHSMV2.Types.BackupPolicy
+import Amazonka.CloudHSMV2.Types.BackupRetentionPolicy
+import Amazonka.CloudHSMV2.Types.Certificates
+import Amazonka.CloudHSMV2.Types.ClusterState
+import Amazonka.CloudHSMV2.Types.Hsm
+import Amazonka.CloudHSMV2.Types.Tag
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an AWS CloudHSM cluster.
 --

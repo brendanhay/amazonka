@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.CloudHSMV2
+-- Module      : Amazonka.CloudHSMV2
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -14,7 +14,7 @@
 -- For more information about AWS CloudHSM, see
 -- <http://aws.amazon.com/cloudhsm/ AWS CloudHSM> and the
 -- <https://docs.aws.amazon.com/cloudhsm/latest/userguide/ AWS CloudHSM User Guide>.
-module Network.AWS.CloudHSMV2
+module Amazonka.CloudHSMV2
   ( -- * Service Configuration
     defaultService,
 
@@ -182,24 +182,24 @@ module Network.AWS.CloudHSMV2
   )
 where
 
-import Network.AWS.CloudHSMV2.CopyBackupToRegion
-import Network.AWS.CloudHSMV2.CreateCluster
-import Network.AWS.CloudHSMV2.CreateHsm
-import Network.AWS.CloudHSMV2.DeleteBackup
-import Network.AWS.CloudHSMV2.DeleteCluster
-import Network.AWS.CloudHSMV2.DeleteHsm
-import Network.AWS.CloudHSMV2.DescribeBackups
-import Network.AWS.CloudHSMV2.DescribeClusters
-import Network.AWS.CloudHSMV2.InitializeCluster
-import Network.AWS.CloudHSMV2.Lens
-import Network.AWS.CloudHSMV2.ListTags
-import Network.AWS.CloudHSMV2.ModifyBackupAttributes
-import Network.AWS.CloudHSMV2.ModifyCluster
-import Network.AWS.CloudHSMV2.RestoreBackup
-import Network.AWS.CloudHSMV2.TagResource
-import Network.AWS.CloudHSMV2.Types
-import Network.AWS.CloudHSMV2.UntagResource
-import Network.AWS.CloudHSMV2.Waiters
+import Amazonka.CloudHSMV2.CopyBackupToRegion
+import Amazonka.CloudHSMV2.CreateCluster
+import Amazonka.CloudHSMV2.CreateHsm
+import Amazonka.CloudHSMV2.DeleteBackup
+import Amazonka.CloudHSMV2.DeleteCluster
+import Amazonka.CloudHSMV2.DeleteHsm
+import Amazonka.CloudHSMV2.DescribeBackups
+import Amazonka.CloudHSMV2.DescribeClusters
+import Amazonka.CloudHSMV2.InitializeCluster
+import Amazonka.CloudHSMV2.Lens
+import Amazonka.CloudHSMV2.ListTags
+import Amazonka.CloudHSMV2.ModifyBackupAttributes
+import Amazonka.CloudHSMV2.ModifyCluster
+import Amazonka.CloudHSMV2.RestoreBackup
+import Amazonka.CloudHSMV2.TagResource
+import Amazonka.CloudHSMV2.Types
+import Amazonka.CloudHSMV2.UntagResource
+import Amazonka.CloudHSMV2.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

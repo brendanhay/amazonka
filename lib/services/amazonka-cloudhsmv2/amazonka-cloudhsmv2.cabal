@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.CloudHSMV2.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.CloudHSMV2.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.CloudHSMV2" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.CloudHSMV2" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,39 +45,39 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.CloudHSMV2
-    Network.AWS.CloudHSMV2.CopyBackupToRegion
-    Network.AWS.CloudHSMV2.CreateCluster
-    Network.AWS.CloudHSMV2.CreateHsm
-    Network.AWS.CloudHSMV2.DeleteBackup
-    Network.AWS.CloudHSMV2.DeleteCluster
-    Network.AWS.CloudHSMV2.DeleteHsm
-    Network.AWS.CloudHSMV2.DescribeBackups
-    Network.AWS.CloudHSMV2.DescribeClusters
-    Network.AWS.CloudHSMV2.InitializeCluster
-    Network.AWS.CloudHSMV2.Lens
-    Network.AWS.CloudHSMV2.ListTags
-    Network.AWS.CloudHSMV2.ModifyBackupAttributes
-    Network.AWS.CloudHSMV2.ModifyCluster
-    Network.AWS.CloudHSMV2.RestoreBackup
-    Network.AWS.CloudHSMV2.TagResource
-    Network.AWS.CloudHSMV2.Types
-    Network.AWS.CloudHSMV2.Types.Backup
-    Network.AWS.CloudHSMV2.Types.BackupPolicy
-    Network.AWS.CloudHSMV2.Types.BackupRetentionPolicy
-    Network.AWS.CloudHSMV2.Types.BackupRetentionType
-    Network.AWS.CloudHSMV2.Types.BackupState
-    Network.AWS.CloudHSMV2.Types.Certificates
-    Network.AWS.CloudHSMV2.Types.Cluster
-    Network.AWS.CloudHSMV2.Types.ClusterState
-    Network.AWS.CloudHSMV2.Types.DestinationBackup
-    Network.AWS.CloudHSMV2.Types.Hsm
-    Network.AWS.CloudHSMV2.Types.HsmState
-    Network.AWS.CloudHSMV2.Types.Tag
-    Network.AWS.CloudHSMV2.UntagResource
-    Network.AWS.CloudHSMV2.Waiters
+    Amazonka.CloudHSMV2
+    Amazonka.CloudHSMV2.CopyBackupToRegion
+    Amazonka.CloudHSMV2.CreateCluster
+    Amazonka.CloudHSMV2.CreateHsm
+    Amazonka.CloudHSMV2.DeleteBackup
+    Amazonka.CloudHSMV2.DeleteCluster
+    Amazonka.CloudHSMV2.DeleteHsm
+    Amazonka.CloudHSMV2.DescribeBackups
+    Amazonka.CloudHSMV2.DescribeClusters
+    Amazonka.CloudHSMV2.InitializeCluster
+    Amazonka.CloudHSMV2.Lens
+    Amazonka.CloudHSMV2.ListTags
+    Amazonka.CloudHSMV2.ModifyBackupAttributes
+    Amazonka.CloudHSMV2.ModifyCluster
+    Amazonka.CloudHSMV2.RestoreBackup
+    Amazonka.CloudHSMV2.TagResource
+    Amazonka.CloudHSMV2.Types
+    Amazonka.CloudHSMV2.Types.Backup
+    Amazonka.CloudHSMV2.Types.BackupPolicy
+    Amazonka.CloudHSMV2.Types.BackupRetentionPolicy
+    Amazonka.CloudHSMV2.Types.BackupRetentionType
+    Amazonka.CloudHSMV2.Types.BackupState
+    Amazonka.CloudHSMV2.Types.Certificates
+    Amazonka.CloudHSMV2.Types.Cluster
+    Amazonka.CloudHSMV2.Types.ClusterState
+    Amazonka.CloudHSMV2.Types.DestinationBackup
+    Amazonka.CloudHSMV2.Types.Hsm
+    Amazonka.CloudHSMV2.Types.HsmState
+    Amazonka.CloudHSMV2.Types.Tag
+    Amazonka.CloudHSMV2.UntagResource
+    Amazonka.CloudHSMV2.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

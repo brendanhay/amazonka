@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudHSMV2.DeleteBackup
+-- Module      : Amazonka.CloudHSMV2.DeleteBackup
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Deletes a specified AWS CloudHSM backup. A backup can be restored up to
 -- 7 days after the DeleteBackup request is made. For more information on
 -- restoring a backup, see RestoreBackup.
-module Network.AWS.CloudHSMV2.DeleteBackup
+module Amazonka.CloudHSMV2.DeleteBackup
   ( -- * Creating a Request
     DeleteBackup (..),
     newDeleteBackup,
@@ -41,12 +41,12 @@ module Network.AWS.CloudHSMV2.DeleteBackup
   )
 where
 
-import Network.AWS.CloudHSMV2.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudHSMV2.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteBackup' smart constructor.
 data DeleteBackup = DeleteBackup'

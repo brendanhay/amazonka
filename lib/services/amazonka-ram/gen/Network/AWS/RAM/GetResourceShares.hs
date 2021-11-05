@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.RAM.GetResourceShares
+-- Module      : Amazonka.RAM.GetResourceShares
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- shared with you.
 --
 -- This operation returns paginated results.
-module Network.AWS.RAM.GetResourceShares
+module Amazonka.RAM.GetResourceShares
   ( -- * Creating a Request
     GetResourceShares (..),
     newGetResourceShares,
@@ -50,12 +50,12 @@ module Network.AWS.RAM.GetResourceShares
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.RAM.Types
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.RAM.Types
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetResourceShares' smart constructor.
 data GetResourceShares = GetResourceShares'

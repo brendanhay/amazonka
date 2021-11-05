@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.RAM.CreateResourceShare
+-- Module      : Amazonka.RAM.CreateResourceShare
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -29,7 +29,7 @@
 -- the Amazon Web Services account that created the resource. Sharing
 -- doesn\'t change any permissions or quotas that apply to the resource in
 -- the account that created it.
-module Network.AWS.RAM.CreateResourceShare
+module Amazonka.RAM.CreateResourceShare
   ( -- * Creating a Request
     CreateResourceShare (..),
     newCreateResourceShare,
@@ -54,12 +54,12 @@ module Network.AWS.RAM.CreateResourceShare
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.RAM.Types
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.RAM.Types
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateResourceShare' smart constructor.
 data CreateResourceShare = CreateResourceShare'

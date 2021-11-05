@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.RAM.GetResourceShareAssociations
+-- Module      : Amazonka.RAM.GetResourceShareAssociations
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Gets the resources or principals for the resource shares that you own.
 --
 -- This operation returns paginated results.
-module Network.AWS.RAM.GetResourceShareAssociations
+module Amazonka.RAM.GetResourceShareAssociations
   ( -- * Creating a Request
     GetResourceShareAssociations (..),
     newGetResourceShareAssociations,
@@ -48,12 +48,12 @@ module Network.AWS.RAM.GetResourceShareAssociations
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.RAM.Types
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.RAM.Types
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetResourceShareAssociations' smart constructor.
 data GetResourceShareAssociations = GetResourceShareAssociations'

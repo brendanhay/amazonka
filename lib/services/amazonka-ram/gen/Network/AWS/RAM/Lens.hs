@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.RAM.Lens
+-- Module      : Amazonka.RAM.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RAM.Lens
+module Amazonka.RAM.Lens
   ( -- * Operations
 
     -- ** PromoteResourceShareCreatedFromPolicy
@@ -304,37 +304,37 @@ module Network.AWS.RAM.Lens
   )
 where
 
-import Network.AWS.RAM.AcceptResourceShareInvitation
-import Network.AWS.RAM.AssociateResourceShare
-import Network.AWS.RAM.AssociateResourceSharePermission
-import Network.AWS.RAM.CreateResourceShare
-import Network.AWS.RAM.DeleteResourceShare
-import Network.AWS.RAM.DisassociateResourceShare
-import Network.AWS.RAM.DisassociateResourceSharePermission
-import Network.AWS.RAM.EnableSharingWithAwsOrganization
-import Network.AWS.RAM.GetPermission
-import Network.AWS.RAM.GetResourcePolicies
-import Network.AWS.RAM.GetResourceShareAssociations
-import Network.AWS.RAM.GetResourceShareInvitations
-import Network.AWS.RAM.GetResourceShares
-import Network.AWS.RAM.ListPendingInvitationResources
-import Network.AWS.RAM.ListPermissions
-import Network.AWS.RAM.ListPrincipals
-import Network.AWS.RAM.ListResourceSharePermissions
-import Network.AWS.RAM.ListResourceTypes
-import Network.AWS.RAM.ListResources
-import Network.AWS.RAM.PromoteResourceShareCreatedFromPolicy
-import Network.AWS.RAM.RejectResourceShareInvitation
-import Network.AWS.RAM.TagResource
-import Network.AWS.RAM.Types.Principal
-import Network.AWS.RAM.Types.Resource
-import Network.AWS.RAM.Types.ResourceShare
-import Network.AWS.RAM.Types.ResourceShareAssociation
-import Network.AWS.RAM.Types.ResourceShareInvitation
-import Network.AWS.RAM.Types.ResourceSharePermissionDetail
-import Network.AWS.RAM.Types.ResourceSharePermissionSummary
-import Network.AWS.RAM.Types.ServiceNameAndResourceType
-import Network.AWS.RAM.Types.Tag
-import Network.AWS.RAM.Types.TagFilter
-import Network.AWS.RAM.UntagResource
-import Network.AWS.RAM.UpdateResourceShare
+import Amazonka.RAM.AcceptResourceShareInvitation
+import Amazonka.RAM.AssociateResourceShare
+import Amazonka.RAM.AssociateResourceSharePermission
+import Amazonka.RAM.CreateResourceShare
+import Amazonka.RAM.DeleteResourceShare
+import Amazonka.RAM.DisassociateResourceShare
+import Amazonka.RAM.DisassociateResourceSharePermission
+import Amazonka.RAM.EnableSharingWithAwsOrganization
+import Amazonka.RAM.GetPermission
+import Amazonka.RAM.GetResourcePolicies
+import Amazonka.RAM.GetResourceShareAssociations
+import Amazonka.RAM.GetResourceShareInvitations
+import Amazonka.RAM.GetResourceShares
+import Amazonka.RAM.ListPendingInvitationResources
+import Amazonka.RAM.ListPermissions
+import Amazonka.RAM.ListPrincipals
+import Amazonka.RAM.ListResourceSharePermissions
+import Amazonka.RAM.ListResourceTypes
+import Amazonka.RAM.ListResources
+import Amazonka.RAM.PromoteResourceShareCreatedFromPolicy
+import Amazonka.RAM.RejectResourceShareInvitation
+import Amazonka.RAM.TagResource
+import Amazonka.RAM.Types.Principal
+import Amazonka.RAM.Types.Resource
+import Amazonka.RAM.Types.ResourceShare
+import Amazonka.RAM.Types.ResourceShareAssociation
+import Amazonka.RAM.Types.ResourceShareInvitation
+import Amazonka.RAM.Types.ResourceSharePermissionDetail
+import Amazonka.RAM.Types.ResourceSharePermissionSummary
+import Amazonka.RAM.Types.ServiceNameAndResourceType
+import Amazonka.RAM.Types.Tag
+import Amazonka.RAM.Types.TagFilter
+import Amazonka.RAM.UntagResource
+import Amazonka.RAM.UpdateResourceShare

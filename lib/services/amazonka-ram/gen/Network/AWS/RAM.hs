@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.RAM
+-- Module      : Amazonka.RAM
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- -   <http://aws.amazon.com/ram Resource Access Manager product page>
 --
 -- -   <https://docs.aws.amazon.com/ram/latest/userguide/ Resource Access Manager User Guide>
-module Network.AWS.RAM
+module Amazonka.RAM
   ( -- * Service Configuration
     defaultService,
 
@@ -310,33 +310,33 @@ module Network.AWS.RAM
   )
 where
 
-import Network.AWS.RAM.AcceptResourceShareInvitation
-import Network.AWS.RAM.AssociateResourceShare
-import Network.AWS.RAM.AssociateResourceSharePermission
-import Network.AWS.RAM.CreateResourceShare
-import Network.AWS.RAM.DeleteResourceShare
-import Network.AWS.RAM.DisassociateResourceShare
-import Network.AWS.RAM.DisassociateResourceSharePermission
-import Network.AWS.RAM.EnableSharingWithAwsOrganization
-import Network.AWS.RAM.GetPermission
-import Network.AWS.RAM.GetResourcePolicies
-import Network.AWS.RAM.GetResourceShareAssociations
-import Network.AWS.RAM.GetResourceShareInvitations
-import Network.AWS.RAM.GetResourceShares
-import Network.AWS.RAM.Lens
-import Network.AWS.RAM.ListPendingInvitationResources
-import Network.AWS.RAM.ListPermissions
-import Network.AWS.RAM.ListPrincipals
-import Network.AWS.RAM.ListResourceSharePermissions
-import Network.AWS.RAM.ListResourceTypes
-import Network.AWS.RAM.ListResources
-import Network.AWS.RAM.PromoteResourceShareCreatedFromPolicy
-import Network.AWS.RAM.RejectResourceShareInvitation
-import Network.AWS.RAM.TagResource
-import Network.AWS.RAM.Types
-import Network.AWS.RAM.UntagResource
-import Network.AWS.RAM.UpdateResourceShare
-import Network.AWS.RAM.Waiters
+import Amazonka.RAM.AcceptResourceShareInvitation
+import Amazonka.RAM.AssociateResourceShare
+import Amazonka.RAM.AssociateResourceSharePermission
+import Amazonka.RAM.CreateResourceShare
+import Amazonka.RAM.DeleteResourceShare
+import Amazonka.RAM.DisassociateResourceShare
+import Amazonka.RAM.DisassociateResourceSharePermission
+import Amazonka.RAM.EnableSharingWithAwsOrganization
+import Amazonka.RAM.GetPermission
+import Amazonka.RAM.GetResourcePolicies
+import Amazonka.RAM.GetResourceShareAssociations
+import Amazonka.RAM.GetResourceShareInvitations
+import Amazonka.RAM.GetResourceShares
+import Amazonka.RAM.Lens
+import Amazonka.RAM.ListPendingInvitationResources
+import Amazonka.RAM.ListPermissions
+import Amazonka.RAM.ListPrincipals
+import Amazonka.RAM.ListResourceSharePermissions
+import Amazonka.RAM.ListResourceTypes
+import Amazonka.RAM.ListResources
+import Amazonka.RAM.PromoteResourceShareCreatedFromPolicy
+import Amazonka.RAM.RejectResourceShareInvitation
+import Amazonka.RAM.TagResource
+import Amazonka.RAM.Types
+import Amazonka.RAM.UntagResource
+import Amazonka.RAM.UpdateResourceShare
+import Amazonka.RAM.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

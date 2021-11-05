@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.RAM.Types
+-- Module      : Amazonka.RAM.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RAM.Types
+module Amazonka.RAM.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -167,27 +167,27 @@ module Network.AWS.RAM.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.RAM.Types.Principal
-import Network.AWS.RAM.Types.Resource
-import Network.AWS.RAM.Types.ResourceOwner
-import Network.AWS.RAM.Types.ResourceShare
-import Network.AWS.RAM.Types.ResourceShareAssociation
-import Network.AWS.RAM.Types.ResourceShareAssociationStatus
-import Network.AWS.RAM.Types.ResourceShareAssociationType
-import Network.AWS.RAM.Types.ResourceShareFeatureSet
-import Network.AWS.RAM.Types.ResourceShareInvitation
-import Network.AWS.RAM.Types.ResourceShareInvitationStatus
-import Network.AWS.RAM.Types.ResourceSharePermissionDetail
-import Network.AWS.RAM.Types.ResourceSharePermissionSummary
-import Network.AWS.RAM.Types.ResourceShareStatus
-import Network.AWS.RAM.Types.ResourceStatus
-import Network.AWS.RAM.Types.ServiceNameAndResourceType
-import Network.AWS.RAM.Types.Tag
-import Network.AWS.RAM.Types.TagFilter
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.RAM.Types.Principal
+import Amazonka.RAM.Types.Resource
+import Amazonka.RAM.Types.ResourceOwner
+import Amazonka.RAM.Types.ResourceShare
+import Amazonka.RAM.Types.ResourceShareAssociation
+import Amazonka.RAM.Types.ResourceShareAssociationStatus
+import Amazonka.RAM.Types.ResourceShareAssociationType
+import Amazonka.RAM.Types.ResourceShareFeatureSet
+import Amazonka.RAM.Types.ResourceShareInvitation
+import Amazonka.RAM.Types.ResourceShareInvitationStatus
+import Amazonka.RAM.Types.ResourceSharePermissionDetail
+import Amazonka.RAM.Types.ResourceSharePermissionSummary
+import Amazonka.RAM.Types.ResourceShareStatus
+import Amazonka.RAM.Types.ResourceStatus
+import Amazonka.RAM.Types.ServiceNameAndResourceType
+import Amazonka.RAM.Types.Tag
+import Amazonka.RAM.Types.TagFilter
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2018-01-04@ of the Amazon Resource Access Manager SDK configuration.
 defaultService :: Core.Service

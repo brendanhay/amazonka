@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Redshift.Types
+-- Module      : Amazonka.Redshift.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types
+module Amazonka.Redshift.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -144,7 +144,7 @@ module Network.AWS.Redshift.Types
     _EndpointsPerClusterLimitExceededFault,
 
     -- * Re-exported Types
-    module Network.AWS.Redshift.Internal,
+    module Amazonka.Redshift.Internal,
 
     -- * ActionType
     ActionType (..),
@@ -945,114 +945,114 @@ module Network.AWS.Redshift.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Redshift.Internal
-import Network.AWS.Redshift.Types.AccountAttribute
-import Network.AWS.Redshift.Types.AccountWithRestoreAccess
-import Network.AWS.Redshift.Types.ActionType
-import Network.AWS.Redshift.Types.AquaConfiguration
-import Network.AWS.Redshift.Types.AquaConfigurationStatus
-import Network.AWS.Redshift.Types.AquaStatus
-import Network.AWS.Redshift.Types.AttributeValueTarget
-import Network.AWS.Redshift.Types.AuthenticationProfile
-import Network.AWS.Redshift.Types.AuthorizationStatus
-import Network.AWS.Redshift.Types.AvailabilityZone
-import Network.AWS.Redshift.Types.Cluster
-import Network.AWS.Redshift.Types.ClusterAssociatedToSchedule
-import Network.AWS.Redshift.Types.ClusterDbRevision
-import Network.AWS.Redshift.Types.ClusterIamRole
-import Network.AWS.Redshift.Types.ClusterNode
-import Network.AWS.Redshift.Types.ClusterParameterGroup
-import Network.AWS.Redshift.Types.ClusterParameterGroupNameMessage
-import Network.AWS.Redshift.Types.ClusterParameterGroupStatus
-import Network.AWS.Redshift.Types.ClusterParameterStatus
-import Network.AWS.Redshift.Types.ClusterSecurityGroup
-import Network.AWS.Redshift.Types.ClusterSecurityGroupMembership
-import Network.AWS.Redshift.Types.ClusterSnapshotCopyStatus
-import Network.AWS.Redshift.Types.ClusterSubnetGroup
-import Network.AWS.Redshift.Types.ClusterVersion
-import Network.AWS.Redshift.Types.DataShare
-import Network.AWS.Redshift.Types.DataShareAssociation
-import Network.AWS.Redshift.Types.DataShareStatus
-import Network.AWS.Redshift.Types.DataShareStatusForConsumer
-import Network.AWS.Redshift.Types.DataShareStatusForProducer
-import Network.AWS.Redshift.Types.DataTransferProgress
-import Network.AWS.Redshift.Types.DefaultClusterParameters
-import Network.AWS.Redshift.Types.DeferredMaintenanceWindow
-import Network.AWS.Redshift.Types.DeleteClusterSnapshotMessage
-import Network.AWS.Redshift.Types.EC2SecurityGroup
-import Network.AWS.Redshift.Types.ElasticIpStatus
-import Network.AWS.Redshift.Types.Endpoint
-import Network.AWS.Redshift.Types.EndpointAccess
-import Network.AWS.Redshift.Types.EndpointAuthorization
-import Network.AWS.Redshift.Types.Event
-import Network.AWS.Redshift.Types.EventCategoriesMap
-import Network.AWS.Redshift.Types.EventInfoMap
-import Network.AWS.Redshift.Types.EventSubscription
-import Network.AWS.Redshift.Types.HsmClientCertificate
-import Network.AWS.Redshift.Types.HsmConfiguration
-import Network.AWS.Redshift.Types.HsmStatus
-import Network.AWS.Redshift.Types.IPRange
-import Network.AWS.Redshift.Types.LoggingStatus
-import Network.AWS.Redshift.Types.MaintenanceTrack
-import Network.AWS.Redshift.Types.Mode
-import Network.AWS.Redshift.Types.NetworkInterface
-import Network.AWS.Redshift.Types.NodeConfigurationOption
-import Network.AWS.Redshift.Types.NodeConfigurationOptionsFilter
-import Network.AWS.Redshift.Types.NodeConfigurationOptionsFilterName
-import Network.AWS.Redshift.Types.OperatorType
-import Network.AWS.Redshift.Types.OrderableClusterOption
-import Network.AWS.Redshift.Types.Parameter
-import Network.AWS.Redshift.Types.ParameterApplyType
-import Network.AWS.Redshift.Types.PartnerIntegrationInfo
-import Network.AWS.Redshift.Types.PartnerIntegrationInputMessage
-import Network.AWS.Redshift.Types.PartnerIntegrationOutputMessage
-import Network.AWS.Redshift.Types.PartnerIntegrationStatus
-import Network.AWS.Redshift.Types.PauseClusterMessage
-import Network.AWS.Redshift.Types.PendingModifiedValues
-import Network.AWS.Redshift.Types.RecurringCharge
-import Network.AWS.Redshift.Types.ReservedNode
-import Network.AWS.Redshift.Types.ReservedNodeOffering
-import Network.AWS.Redshift.Types.ReservedNodeOfferingType
-import Network.AWS.Redshift.Types.ResizeClusterMessage
-import Network.AWS.Redshift.Types.ResizeInfo
-import Network.AWS.Redshift.Types.ResizeProgressMessage
-import Network.AWS.Redshift.Types.RestoreStatus
-import Network.AWS.Redshift.Types.ResumeClusterMessage
-import Network.AWS.Redshift.Types.RevisionTarget
-import Network.AWS.Redshift.Types.ScheduleState
-import Network.AWS.Redshift.Types.ScheduledAction
-import Network.AWS.Redshift.Types.ScheduledActionFilter
-import Network.AWS.Redshift.Types.ScheduledActionFilterName
-import Network.AWS.Redshift.Types.ScheduledActionState
-import Network.AWS.Redshift.Types.ScheduledActionType
-import Network.AWS.Redshift.Types.ScheduledActionTypeValues
-import Network.AWS.Redshift.Types.Snapshot
-import Network.AWS.Redshift.Types.SnapshotAttributeToSortBy
-import Network.AWS.Redshift.Types.SnapshotCopyGrant
-import Network.AWS.Redshift.Types.SnapshotErrorMessage
-import Network.AWS.Redshift.Types.SnapshotSchedule
-import Network.AWS.Redshift.Types.SnapshotSortingEntity
-import Network.AWS.Redshift.Types.SortByOrder
-import Network.AWS.Redshift.Types.SourceType
-import Network.AWS.Redshift.Types.Subnet
-import Network.AWS.Redshift.Types.SupportedOperation
-import Network.AWS.Redshift.Types.SupportedPlatform
-import Network.AWS.Redshift.Types.TableRestoreStatus
-import Network.AWS.Redshift.Types.TableRestoreStatusType
-import Network.AWS.Redshift.Types.Tag
-import Network.AWS.Redshift.Types.TaggedResource
-import Network.AWS.Redshift.Types.UpdateTarget
-import Network.AWS.Redshift.Types.UsageLimit
-import Network.AWS.Redshift.Types.UsageLimitBreachAction
-import Network.AWS.Redshift.Types.UsageLimitFeatureType
-import Network.AWS.Redshift.Types.UsageLimitLimitType
-import Network.AWS.Redshift.Types.UsageLimitPeriod
-import Network.AWS.Redshift.Types.VpcEndpoint
-import Network.AWS.Redshift.Types.VpcSecurityGroupMembership
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Redshift.Internal
+import Amazonka.Redshift.Types.AccountAttribute
+import Amazonka.Redshift.Types.AccountWithRestoreAccess
+import Amazonka.Redshift.Types.ActionType
+import Amazonka.Redshift.Types.AquaConfiguration
+import Amazonka.Redshift.Types.AquaConfigurationStatus
+import Amazonka.Redshift.Types.AquaStatus
+import Amazonka.Redshift.Types.AttributeValueTarget
+import Amazonka.Redshift.Types.AuthenticationProfile
+import Amazonka.Redshift.Types.AuthorizationStatus
+import Amazonka.Redshift.Types.AvailabilityZone
+import Amazonka.Redshift.Types.Cluster
+import Amazonka.Redshift.Types.ClusterAssociatedToSchedule
+import Amazonka.Redshift.Types.ClusterDbRevision
+import Amazonka.Redshift.Types.ClusterIamRole
+import Amazonka.Redshift.Types.ClusterNode
+import Amazonka.Redshift.Types.ClusterParameterGroup
+import Amazonka.Redshift.Types.ClusterParameterGroupNameMessage
+import Amazonka.Redshift.Types.ClusterParameterGroupStatus
+import Amazonka.Redshift.Types.ClusterParameterStatus
+import Amazonka.Redshift.Types.ClusterSecurityGroup
+import Amazonka.Redshift.Types.ClusterSecurityGroupMembership
+import Amazonka.Redshift.Types.ClusterSnapshotCopyStatus
+import Amazonka.Redshift.Types.ClusterSubnetGroup
+import Amazonka.Redshift.Types.ClusterVersion
+import Amazonka.Redshift.Types.DataShare
+import Amazonka.Redshift.Types.DataShareAssociation
+import Amazonka.Redshift.Types.DataShareStatus
+import Amazonka.Redshift.Types.DataShareStatusForConsumer
+import Amazonka.Redshift.Types.DataShareStatusForProducer
+import Amazonka.Redshift.Types.DataTransferProgress
+import Amazonka.Redshift.Types.DefaultClusterParameters
+import Amazonka.Redshift.Types.DeferredMaintenanceWindow
+import Amazonka.Redshift.Types.DeleteClusterSnapshotMessage
+import Amazonka.Redshift.Types.EC2SecurityGroup
+import Amazonka.Redshift.Types.ElasticIpStatus
+import Amazonka.Redshift.Types.Endpoint
+import Amazonka.Redshift.Types.EndpointAccess
+import Amazonka.Redshift.Types.EndpointAuthorization
+import Amazonka.Redshift.Types.Event
+import Amazonka.Redshift.Types.EventCategoriesMap
+import Amazonka.Redshift.Types.EventInfoMap
+import Amazonka.Redshift.Types.EventSubscription
+import Amazonka.Redshift.Types.HsmClientCertificate
+import Amazonka.Redshift.Types.HsmConfiguration
+import Amazonka.Redshift.Types.HsmStatus
+import Amazonka.Redshift.Types.IPRange
+import Amazonka.Redshift.Types.LoggingStatus
+import Amazonka.Redshift.Types.MaintenanceTrack
+import Amazonka.Redshift.Types.Mode
+import Amazonka.Redshift.Types.NetworkInterface
+import Amazonka.Redshift.Types.NodeConfigurationOption
+import Amazonka.Redshift.Types.NodeConfigurationOptionsFilter
+import Amazonka.Redshift.Types.NodeConfigurationOptionsFilterName
+import Amazonka.Redshift.Types.OperatorType
+import Amazonka.Redshift.Types.OrderableClusterOption
+import Amazonka.Redshift.Types.Parameter
+import Amazonka.Redshift.Types.ParameterApplyType
+import Amazonka.Redshift.Types.PartnerIntegrationInfo
+import Amazonka.Redshift.Types.PartnerIntegrationInputMessage
+import Amazonka.Redshift.Types.PartnerIntegrationOutputMessage
+import Amazonka.Redshift.Types.PartnerIntegrationStatus
+import Amazonka.Redshift.Types.PauseClusterMessage
+import Amazonka.Redshift.Types.PendingModifiedValues
+import Amazonka.Redshift.Types.RecurringCharge
+import Amazonka.Redshift.Types.ReservedNode
+import Amazonka.Redshift.Types.ReservedNodeOffering
+import Amazonka.Redshift.Types.ReservedNodeOfferingType
+import Amazonka.Redshift.Types.ResizeClusterMessage
+import Amazonka.Redshift.Types.ResizeInfo
+import Amazonka.Redshift.Types.ResizeProgressMessage
+import Amazonka.Redshift.Types.RestoreStatus
+import Amazonka.Redshift.Types.ResumeClusterMessage
+import Amazonka.Redshift.Types.RevisionTarget
+import Amazonka.Redshift.Types.ScheduleState
+import Amazonka.Redshift.Types.ScheduledAction
+import Amazonka.Redshift.Types.ScheduledActionFilter
+import Amazonka.Redshift.Types.ScheduledActionFilterName
+import Amazonka.Redshift.Types.ScheduledActionState
+import Amazonka.Redshift.Types.ScheduledActionType
+import Amazonka.Redshift.Types.ScheduledActionTypeValues
+import Amazonka.Redshift.Types.Snapshot
+import Amazonka.Redshift.Types.SnapshotAttributeToSortBy
+import Amazonka.Redshift.Types.SnapshotCopyGrant
+import Amazonka.Redshift.Types.SnapshotErrorMessage
+import Amazonka.Redshift.Types.SnapshotSchedule
+import Amazonka.Redshift.Types.SnapshotSortingEntity
+import Amazonka.Redshift.Types.SortByOrder
+import Amazonka.Redshift.Types.SourceType
+import Amazonka.Redshift.Types.Subnet
+import Amazonka.Redshift.Types.SupportedOperation
+import Amazonka.Redshift.Types.SupportedPlatform
+import Amazonka.Redshift.Types.TableRestoreStatus
+import Amazonka.Redshift.Types.TableRestoreStatusType
+import Amazonka.Redshift.Types.Tag
+import Amazonka.Redshift.Types.TaggedResource
+import Amazonka.Redshift.Types.UpdateTarget
+import Amazonka.Redshift.Types.UsageLimit
+import Amazonka.Redshift.Types.UsageLimitBreachAction
+import Amazonka.Redshift.Types.UsageLimitFeatureType
+import Amazonka.Redshift.Types.UsageLimitLimitType
+import Amazonka.Redshift.Types.UsageLimitPeriod
+import Amazonka.Redshift.Types.VpcEndpoint
+import Amazonka.Redshift.Types.VpcSecurityGroupMembership
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2012-12-01@ of the Amazon Redshift SDK configuration.
 defaultService :: Core.Service

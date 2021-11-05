@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Redshift.AcceptReservedNodeExchange
+-- Module      : Amazonka.Redshift.AcceptReservedNodeExchange
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Exchanges a DC1 Reserved Node for a DC2 Reserved Node with no changes to
 -- the configuration (term, payment type, or number of nodes) and no
 -- additional costs.
-module Network.AWS.Redshift.AcceptReservedNodeExchange
+module Amazonka.Redshift.AcceptReservedNodeExchange
   ( -- * Creating a Request
     AcceptReservedNodeExchange (..),
     newAcceptReservedNodeExchange,
@@ -42,12 +42,12 @@ module Network.AWS.Redshift.AcceptReservedNodeExchange
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Redshift.Types
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Redshift.Types
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAcceptReservedNodeExchange' smart constructor.
 data AcceptReservedNodeExchange = AcceptReservedNodeExchange'

@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Redshift
+-- Module      : Amazonka.Redshift
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -40,7 +40,7 @@
 -- <https://docs.aws.amazon.com/redshift/latest/dg/welcome.html Amazon Redshift Database Developer Guide>
 -- explains how to design, build, query, and maintain the databases that
 -- make up your data warehouse.
-module Network.AWS.Redshift
+module Amazonka.Redshift
   ( -- * Service Configuration
     defaultService,
 
@@ -1139,7 +1139,7 @@ module Network.AWS.Redshift
     -- * Types
 
     -- ** Common
-    module Network.AWS.Redshift.Internal,
+    module Amazonka.Redshift.Internal,
 
     -- ** ActionType
     ActionType (..),
@@ -1530,126 +1530,126 @@ module Network.AWS.Redshift
   )
 where
 
-import Network.AWS.Redshift.AcceptReservedNodeExchange
-import Network.AWS.Redshift.AddPartner
-import Network.AWS.Redshift.AssociateDataShareConsumer
-import Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
-import Network.AWS.Redshift.AuthorizeDataShare
-import Network.AWS.Redshift.AuthorizeEndpointAccess
-import Network.AWS.Redshift.AuthorizeSnapshotAccess
-import Network.AWS.Redshift.BatchDeleteClusterSnapshots
-import Network.AWS.Redshift.BatchModifyClusterSnapshots
-import Network.AWS.Redshift.CancelResize
-import Network.AWS.Redshift.CopyClusterSnapshot
-import Network.AWS.Redshift.CreateAuthenticationProfile
-import Network.AWS.Redshift.CreateCluster
-import Network.AWS.Redshift.CreateClusterParameterGroup
-import Network.AWS.Redshift.CreateClusterSecurityGroup
-import Network.AWS.Redshift.CreateClusterSnapshot
-import Network.AWS.Redshift.CreateClusterSubnetGroup
-import Network.AWS.Redshift.CreateEndpointAccess
-import Network.AWS.Redshift.CreateEventSubscription
-import Network.AWS.Redshift.CreateHsmClientCertificate
-import Network.AWS.Redshift.CreateHsmConfiguration
-import Network.AWS.Redshift.CreateScheduledAction
-import Network.AWS.Redshift.CreateSnapshotCopyGrant
-import Network.AWS.Redshift.CreateSnapshotSchedule
-import Network.AWS.Redshift.CreateTags
-import Network.AWS.Redshift.CreateUsageLimit
-import Network.AWS.Redshift.DeauthorizeDataShare
-import Network.AWS.Redshift.DeleteAuthenticationProfile
-import Network.AWS.Redshift.DeleteCluster
-import Network.AWS.Redshift.DeleteClusterParameterGroup
-import Network.AWS.Redshift.DeleteClusterSecurityGroup
-import Network.AWS.Redshift.DeleteClusterSnapshot
-import Network.AWS.Redshift.DeleteClusterSubnetGroup
-import Network.AWS.Redshift.DeleteEndpointAccess
-import Network.AWS.Redshift.DeleteEventSubscription
-import Network.AWS.Redshift.DeleteHsmClientCertificate
-import Network.AWS.Redshift.DeleteHsmConfiguration
-import Network.AWS.Redshift.DeletePartner
-import Network.AWS.Redshift.DeleteScheduledAction
-import Network.AWS.Redshift.DeleteSnapshotCopyGrant
-import Network.AWS.Redshift.DeleteSnapshotSchedule
-import Network.AWS.Redshift.DeleteTags
-import Network.AWS.Redshift.DeleteUsageLimit
-import Network.AWS.Redshift.DescribeAccountAttributes
-import Network.AWS.Redshift.DescribeAuthenticationProfiles
-import Network.AWS.Redshift.DescribeClusterDbRevisions
-import Network.AWS.Redshift.DescribeClusterParameterGroups
-import Network.AWS.Redshift.DescribeClusterParameters
-import Network.AWS.Redshift.DescribeClusterSecurityGroups
-import Network.AWS.Redshift.DescribeClusterSnapshots
-import Network.AWS.Redshift.DescribeClusterSubnetGroups
-import Network.AWS.Redshift.DescribeClusterTracks
-import Network.AWS.Redshift.DescribeClusterVersions
-import Network.AWS.Redshift.DescribeClusters
-import Network.AWS.Redshift.DescribeDataShares
-import Network.AWS.Redshift.DescribeDataSharesForConsumer
-import Network.AWS.Redshift.DescribeDataSharesForProducer
-import Network.AWS.Redshift.DescribeDefaultClusterParameters
-import Network.AWS.Redshift.DescribeEndpointAccess
-import Network.AWS.Redshift.DescribeEndpointAuthorization
-import Network.AWS.Redshift.DescribeEventCategories
-import Network.AWS.Redshift.DescribeEventSubscriptions
-import Network.AWS.Redshift.DescribeEvents
-import Network.AWS.Redshift.DescribeHsmClientCertificates
-import Network.AWS.Redshift.DescribeHsmConfigurations
-import Network.AWS.Redshift.DescribeLoggingStatus
-import Network.AWS.Redshift.DescribeNodeConfigurationOptions
-import Network.AWS.Redshift.DescribeOrderableClusterOptions
-import Network.AWS.Redshift.DescribePartners
-import Network.AWS.Redshift.DescribeReservedNodeOfferings
-import Network.AWS.Redshift.DescribeReservedNodes
-import Network.AWS.Redshift.DescribeResize
-import Network.AWS.Redshift.DescribeScheduledActions
-import Network.AWS.Redshift.DescribeSnapshotCopyGrants
-import Network.AWS.Redshift.DescribeSnapshotSchedules
-import Network.AWS.Redshift.DescribeStorage
-import Network.AWS.Redshift.DescribeTableRestoreStatus
-import Network.AWS.Redshift.DescribeTags
-import Network.AWS.Redshift.DescribeUsageLimits
-import Network.AWS.Redshift.DisableLogging
-import Network.AWS.Redshift.DisableSnapshotCopy
-import Network.AWS.Redshift.DisassociateDataShareConsumer
-import Network.AWS.Redshift.EnableLogging
-import Network.AWS.Redshift.EnableSnapshotCopy
-import Network.AWS.Redshift.GetClusterCredentials
-import Network.AWS.Redshift.GetReservedNodeExchangeOfferings
-import Network.AWS.Redshift.Internal
-import Network.AWS.Redshift.Lens
-import Network.AWS.Redshift.ModifyAquaConfiguration
-import Network.AWS.Redshift.ModifyAuthenticationProfile
-import Network.AWS.Redshift.ModifyCluster
-import Network.AWS.Redshift.ModifyClusterDbRevision
-import Network.AWS.Redshift.ModifyClusterIamRoles
-import Network.AWS.Redshift.ModifyClusterMaintenance
-import Network.AWS.Redshift.ModifyClusterParameterGroup
-import Network.AWS.Redshift.ModifyClusterSnapshot
-import Network.AWS.Redshift.ModifyClusterSnapshotSchedule
-import Network.AWS.Redshift.ModifyClusterSubnetGroup
-import Network.AWS.Redshift.ModifyEndpointAccess
-import Network.AWS.Redshift.ModifyEventSubscription
-import Network.AWS.Redshift.ModifyScheduledAction
-import Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod
-import Network.AWS.Redshift.ModifySnapshotSchedule
-import Network.AWS.Redshift.ModifyUsageLimit
-import Network.AWS.Redshift.PauseCluster
-import Network.AWS.Redshift.PurchaseReservedNodeOffering
-import Network.AWS.Redshift.RebootCluster
-import Network.AWS.Redshift.RejectDataShare
-import Network.AWS.Redshift.ResetClusterParameterGroup
-import Network.AWS.Redshift.ResizeCluster
-import Network.AWS.Redshift.RestoreFromClusterSnapshot
-import Network.AWS.Redshift.RestoreTableFromClusterSnapshot
-import Network.AWS.Redshift.ResumeCluster
-import Network.AWS.Redshift.RevokeClusterSecurityGroupIngress
-import Network.AWS.Redshift.RevokeEndpointAccess
-import Network.AWS.Redshift.RevokeSnapshotAccess
-import Network.AWS.Redshift.RotateEncryptionKey
-import Network.AWS.Redshift.Types
-import Network.AWS.Redshift.UpdatePartnerStatus
-import Network.AWS.Redshift.Waiters
+import Amazonka.Redshift.AcceptReservedNodeExchange
+import Amazonka.Redshift.AddPartner
+import Amazonka.Redshift.AssociateDataShareConsumer
+import Amazonka.Redshift.AuthorizeClusterSecurityGroupIngress
+import Amazonka.Redshift.AuthorizeDataShare
+import Amazonka.Redshift.AuthorizeEndpointAccess
+import Amazonka.Redshift.AuthorizeSnapshotAccess
+import Amazonka.Redshift.BatchDeleteClusterSnapshots
+import Amazonka.Redshift.BatchModifyClusterSnapshots
+import Amazonka.Redshift.CancelResize
+import Amazonka.Redshift.CopyClusterSnapshot
+import Amazonka.Redshift.CreateAuthenticationProfile
+import Amazonka.Redshift.CreateCluster
+import Amazonka.Redshift.CreateClusterParameterGroup
+import Amazonka.Redshift.CreateClusterSecurityGroup
+import Amazonka.Redshift.CreateClusterSnapshot
+import Amazonka.Redshift.CreateClusterSubnetGroup
+import Amazonka.Redshift.CreateEndpointAccess
+import Amazonka.Redshift.CreateEventSubscription
+import Amazonka.Redshift.CreateHsmClientCertificate
+import Amazonka.Redshift.CreateHsmConfiguration
+import Amazonka.Redshift.CreateScheduledAction
+import Amazonka.Redshift.CreateSnapshotCopyGrant
+import Amazonka.Redshift.CreateSnapshotSchedule
+import Amazonka.Redshift.CreateTags
+import Amazonka.Redshift.CreateUsageLimit
+import Amazonka.Redshift.DeauthorizeDataShare
+import Amazonka.Redshift.DeleteAuthenticationProfile
+import Amazonka.Redshift.DeleteCluster
+import Amazonka.Redshift.DeleteClusterParameterGroup
+import Amazonka.Redshift.DeleteClusterSecurityGroup
+import Amazonka.Redshift.DeleteClusterSnapshot
+import Amazonka.Redshift.DeleteClusterSubnetGroup
+import Amazonka.Redshift.DeleteEndpointAccess
+import Amazonka.Redshift.DeleteEventSubscription
+import Amazonka.Redshift.DeleteHsmClientCertificate
+import Amazonka.Redshift.DeleteHsmConfiguration
+import Amazonka.Redshift.DeletePartner
+import Amazonka.Redshift.DeleteScheduledAction
+import Amazonka.Redshift.DeleteSnapshotCopyGrant
+import Amazonka.Redshift.DeleteSnapshotSchedule
+import Amazonka.Redshift.DeleteTags
+import Amazonka.Redshift.DeleteUsageLimit
+import Amazonka.Redshift.DescribeAccountAttributes
+import Amazonka.Redshift.DescribeAuthenticationProfiles
+import Amazonka.Redshift.DescribeClusterDbRevisions
+import Amazonka.Redshift.DescribeClusterParameterGroups
+import Amazonka.Redshift.DescribeClusterParameters
+import Amazonka.Redshift.DescribeClusterSecurityGroups
+import Amazonka.Redshift.DescribeClusterSnapshots
+import Amazonka.Redshift.DescribeClusterSubnetGroups
+import Amazonka.Redshift.DescribeClusterTracks
+import Amazonka.Redshift.DescribeClusterVersions
+import Amazonka.Redshift.DescribeClusters
+import Amazonka.Redshift.DescribeDataShares
+import Amazonka.Redshift.DescribeDataSharesForConsumer
+import Amazonka.Redshift.DescribeDataSharesForProducer
+import Amazonka.Redshift.DescribeDefaultClusterParameters
+import Amazonka.Redshift.DescribeEndpointAccess
+import Amazonka.Redshift.DescribeEndpointAuthorization
+import Amazonka.Redshift.DescribeEventCategories
+import Amazonka.Redshift.DescribeEventSubscriptions
+import Amazonka.Redshift.DescribeEvents
+import Amazonka.Redshift.DescribeHsmClientCertificates
+import Amazonka.Redshift.DescribeHsmConfigurations
+import Amazonka.Redshift.DescribeLoggingStatus
+import Amazonka.Redshift.DescribeNodeConfigurationOptions
+import Amazonka.Redshift.DescribeOrderableClusterOptions
+import Amazonka.Redshift.DescribePartners
+import Amazonka.Redshift.DescribeReservedNodeOfferings
+import Amazonka.Redshift.DescribeReservedNodes
+import Amazonka.Redshift.DescribeResize
+import Amazonka.Redshift.DescribeScheduledActions
+import Amazonka.Redshift.DescribeSnapshotCopyGrants
+import Amazonka.Redshift.DescribeSnapshotSchedules
+import Amazonka.Redshift.DescribeStorage
+import Amazonka.Redshift.DescribeTableRestoreStatus
+import Amazonka.Redshift.DescribeTags
+import Amazonka.Redshift.DescribeUsageLimits
+import Amazonka.Redshift.DisableLogging
+import Amazonka.Redshift.DisableSnapshotCopy
+import Amazonka.Redshift.DisassociateDataShareConsumer
+import Amazonka.Redshift.EnableLogging
+import Amazonka.Redshift.EnableSnapshotCopy
+import Amazonka.Redshift.GetClusterCredentials
+import Amazonka.Redshift.GetReservedNodeExchangeOfferings
+import Amazonka.Redshift.Internal
+import Amazonka.Redshift.Lens
+import Amazonka.Redshift.ModifyAquaConfiguration
+import Amazonka.Redshift.ModifyAuthenticationProfile
+import Amazonka.Redshift.ModifyCluster
+import Amazonka.Redshift.ModifyClusterDbRevision
+import Amazonka.Redshift.ModifyClusterIamRoles
+import Amazonka.Redshift.ModifyClusterMaintenance
+import Amazonka.Redshift.ModifyClusterParameterGroup
+import Amazonka.Redshift.ModifyClusterSnapshot
+import Amazonka.Redshift.ModifyClusterSnapshotSchedule
+import Amazonka.Redshift.ModifyClusterSubnetGroup
+import Amazonka.Redshift.ModifyEndpointAccess
+import Amazonka.Redshift.ModifyEventSubscription
+import Amazonka.Redshift.ModifyScheduledAction
+import Amazonka.Redshift.ModifySnapshotCopyRetentionPeriod
+import Amazonka.Redshift.ModifySnapshotSchedule
+import Amazonka.Redshift.ModifyUsageLimit
+import Amazonka.Redshift.PauseCluster
+import Amazonka.Redshift.PurchaseReservedNodeOffering
+import Amazonka.Redshift.RebootCluster
+import Amazonka.Redshift.RejectDataShare
+import Amazonka.Redshift.ResetClusterParameterGroup
+import Amazonka.Redshift.ResizeCluster
+import Amazonka.Redshift.RestoreFromClusterSnapshot
+import Amazonka.Redshift.RestoreTableFromClusterSnapshot
+import Amazonka.Redshift.ResumeCluster
+import Amazonka.Redshift.RevokeClusterSecurityGroupIngress
+import Amazonka.Redshift.RevokeEndpointAccess
+import Amazonka.Redshift.RevokeSnapshotAccess
+import Amazonka.Redshift.RotateEncryptionKey
+import Amazonka.Redshift.Types
+import Amazonka.Redshift.UpdatePartnerStatus
+import Amazonka.Redshift.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

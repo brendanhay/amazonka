@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
+-- Module      : Amazonka.Redshift.AuthorizeClusterSecurityGroupIngress
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -42,7 +42,7 @@
 -- groups, go to
 -- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html Working with Security Groups>
 -- in the /Amazon Redshift Cluster Management Guide/.
-module Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
+module Amazonka.Redshift.AuthorizeClusterSecurityGroupIngress
   ( -- * Creating a Request
     AuthorizeClusterSecurityGroupIngress (..),
     newAuthorizeClusterSecurityGroupIngress,
@@ -63,12 +63,12 @@ module Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Redshift.Types
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Redshift.Types
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- |
 --

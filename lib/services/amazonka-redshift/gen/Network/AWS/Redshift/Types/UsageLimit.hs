@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Redshift.Types.UsageLimit
+-- Module      : Amazonka.Redshift.Types.UsageLimit
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.UsageLimit where
+module Amazonka.Redshift.Types.UsageLimit where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Redshift.Internal
-import Network.AWS.Redshift.Types.Tag
-import Network.AWS.Redshift.Types.UsageLimitBreachAction
-import Network.AWS.Redshift.Types.UsageLimitFeatureType
-import Network.AWS.Redshift.Types.UsageLimitLimitType
-import Network.AWS.Redshift.Types.UsageLimitPeriod
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Redshift.Internal
+import Amazonka.Redshift.Types.Tag
+import Amazonka.Redshift.Types.UsageLimitBreachAction
+import Amazonka.Redshift.Types.UsageLimitFeatureType
+import Amazonka.Redshift.Types.UsageLimitLimitType
+import Amazonka.Redshift.Types.UsageLimitPeriod
 
 -- | Describes a usage limit object for a cluster.
 --

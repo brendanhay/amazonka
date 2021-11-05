@@ -4,18 +4,18 @@
 {-# OPTIONS_GHC -Wall -Werror #-}
 
 -- |
--- Module      : Network.AWS.Redshift.Internal
+-- Module      : Amazonka.Redshift.Internal
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
-module Network.AWS.Redshift.Internal
+module Amazonka.Redshift.Internal
     ( getAccountId
     ) where
 
-import Network.AWS.Core
+import Amazonka.Core
 
 -- | This account identifier is used when attaching a policy to your S3 bucket
 -- allowing Redshift to upload and write database audit logs.

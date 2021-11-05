@@ -11,35 +11,35 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Redshift.Types.Cluster
+-- Module      : Amazonka.Redshift.Types.Cluster
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.Cluster where
+module Amazonka.Redshift.Types.Cluster where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Redshift.Internal
-import Network.AWS.Redshift.Types.AquaConfiguration
-import Network.AWS.Redshift.Types.ClusterIamRole
-import Network.AWS.Redshift.Types.ClusterNode
-import Network.AWS.Redshift.Types.ClusterParameterGroupStatus
-import Network.AWS.Redshift.Types.ClusterSecurityGroupMembership
-import Network.AWS.Redshift.Types.ClusterSnapshotCopyStatus
-import Network.AWS.Redshift.Types.DataTransferProgress
-import Network.AWS.Redshift.Types.DeferredMaintenanceWindow
-import Network.AWS.Redshift.Types.ElasticIpStatus
-import Network.AWS.Redshift.Types.Endpoint
-import Network.AWS.Redshift.Types.HsmStatus
-import Network.AWS.Redshift.Types.PendingModifiedValues
-import Network.AWS.Redshift.Types.ResizeInfo
-import Network.AWS.Redshift.Types.RestoreStatus
-import Network.AWS.Redshift.Types.ScheduleState
-import Network.AWS.Redshift.Types.Tag
-import Network.AWS.Redshift.Types.VpcSecurityGroupMembership
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Redshift.Internal
+import Amazonka.Redshift.Types.AquaConfiguration
+import Amazonka.Redshift.Types.ClusterIamRole
+import Amazonka.Redshift.Types.ClusterNode
+import Amazonka.Redshift.Types.ClusterParameterGroupStatus
+import Amazonka.Redshift.Types.ClusterSecurityGroupMembership
+import Amazonka.Redshift.Types.ClusterSnapshotCopyStatus
+import Amazonka.Redshift.Types.DataTransferProgress
+import Amazonka.Redshift.Types.DeferredMaintenanceWindow
+import Amazonka.Redshift.Types.ElasticIpStatus
+import Amazonka.Redshift.Types.Endpoint
+import Amazonka.Redshift.Types.HsmStatus
+import Amazonka.Redshift.Types.PendingModifiedValues
+import Amazonka.Redshift.Types.ResizeInfo
+import Amazonka.Redshift.Types.RestoreStatus
+import Amazonka.Redshift.Types.ScheduleState
+import Amazonka.Redshift.Types.Tag
+import Amazonka.Redshift.Types.VpcSecurityGroupMembership
 
 -- | Describes a cluster.
 --

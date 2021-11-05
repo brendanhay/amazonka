@@ -7,23 +7,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Redshift.Waiters
+-- Module      : Amazonka.Redshift.Waiters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Waiters where
+module Amazonka.Redshift.Waiters where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Redshift.DescribeClusterSnapshots
-import Network.AWS.Redshift.DescribeClusters
-import Network.AWS.Redshift.Lens
-import Network.AWS.Redshift.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Redshift.DescribeClusterSnapshots
+import Amazonka.Redshift.DescribeClusters
+import Amazonka.Redshift.Lens
+import Amazonka.Redshift.Types
 
--- | Polls 'Network.AWS.Redshift.DescribeClusters' every 60 seconds until a successful state is reached. An error is returned after 30 failed checks.
+-- | Polls 'Amazonka.Redshift.DescribeClusters' every 60 seconds until a successful state is reached. An error is returned after 30 failed checks.
 newClusterRestored :: Core.Wait DescribeClusters
 newClusterRestored =
   Core.Wait
@@ -62,7 +62,7 @@ newClusterRestored =
         ]
     }
 
--- | Polls 'Network.AWS.Redshift.DescribeClusters' every 60 seconds until a successful state is reached. An error is returned after 30 failed checks.
+-- | Polls 'Amazonka.Redshift.DescribeClusters' every 60 seconds until a successful state is reached. An error is returned after 30 failed checks.
 newClusterDeleted :: Core.Wait DescribeClusters
 newClusterDeleted =
   Core.Wait
@@ -102,7 +102,7 @@ newClusterDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.Redshift.DescribeClusterSnapshots' every 15 seconds until a successful state is reached. An error is returned after 20 failed checks.
+-- | Polls 'Amazonka.Redshift.DescribeClusterSnapshots' every 15 seconds until a successful state is reached. An error is returned after 20 failed checks.
 newSnapshotAvailable :: Core.Wait DescribeClusterSnapshots
 newSnapshotAvailable =
   Core.Wait
@@ -152,7 +152,7 @@ newSnapshotAvailable =
         ]
     }
 
--- | Polls 'Network.AWS.Redshift.DescribeClusters' every 60 seconds until a successful state is reached. An error is returned after 30 failed checks.
+-- | Polls 'Amazonka.Redshift.DescribeClusters' every 60 seconds until a successful state is reached. An error is returned after 30 failed checks.
 newClusterAvailable :: Core.Wait DescribeClusters
 newClusterAvailable =
   Core.Wait

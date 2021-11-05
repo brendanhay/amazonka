@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeStarNotifications.Subscribe
+-- Module      : Amazonka.CodeStarNotifications.Subscribe
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Creates an association between a notification rule and an SNS topic so
 -- that the associated target can receive notifications when the events
 -- described in the rule are triggered.
-module Network.AWS.CodeStarNotifications.Subscribe
+module Amazonka.CodeStarNotifications.Subscribe
   ( -- * Creating a Request
     Subscribe (..),
     newSubscribe,
@@ -43,12 +43,12 @@ module Network.AWS.CodeStarNotifications.Subscribe
   )
 where
 
-import Network.AWS.CodeStarNotifications.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CodeStarNotifications.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSubscribe' smart constructor.
 data Subscribe = Subscribe'

@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CodeStarNotifications where
 
+import Amazonka.CodeStarNotifications
 import qualified Data.Proxy as Proxy
-import Network.AWS.CodeStarNotifications
 import Test.AWS.CodeStarNotifications.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.CodeStarNotifications
+-- Module      : Amazonka.CodeStarNotifications
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -62,7 +62,7 @@
 --
 -- For information about how to use AWS CodeStar Notifications, see link in
 -- the CodeStarNotifications User Guide.
-module Network.AWS.CodeStarNotifications
+module Amazonka.CodeStarNotifications
   ( -- * Service Configuration
     defaultService,
 
@@ -227,22 +227,22 @@ module Network.AWS.CodeStarNotifications
   )
 where
 
-import Network.AWS.CodeStarNotifications.CreateNotificationRule
-import Network.AWS.CodeStarNotifications.DeleteNotificationRule
-import Network.AWS.CodeStarNotifications.DeleteTarget
-import Network.AWS.CodeStarNotifications.DescribeNotificationRule
-import Network.AWS.CodeStarNotifications.Lens
-import Network.AWS.CodeStarNotifications.ListEventTypes
-import Network.AWS.CodeStarNotifications.ListNotificationRules
-import Network.AWS.CodeStarNotifications.ListTagsForResource
-import Network.AWS.CodeStarNotifications.ListTargets
-import Network.AWS.CodeStarNotifications.Subscribe
-import Network.AWS.CodeStarNotifications.TagResource
-import Network.AWS.CodeStarNotifications.Types
-import Network.AWS.CodeStarNotifications.Unsubscribe
-import Network.AWS.CodeStarNotifications.UntagResource
-import Network.AWS.CodeStarNotifications.UpdateNotificationRule
-import Network.AWS.CodeStarNotifications.Waiters
+import Amazonka.CodeStarNotifications.CreateNotificationRule
+import Amazonka.CodeStarNotifications.DeleteNotificationRule
+import Amazonka.CodeStarNotifications.DeleteTarget
+import Amazonka.CodeStarNotifications.DescribeNotificationRule
+import Amazonka.CodeStarNotifications.Lens
+import Amazonka.CodeStarNotifications.ListEventTypes
+import Amazonka.CodeStarNotifications.ListNotificationRules
+import Amazonka.CodeStarNotifications.ListTagsForResource
+import Amazonka.CodeStarNotifications.ListTargets
+import Amazonka.CodeStarNotifications.Subscribe
+import Amazonka.CodeStarNotifications.TagResource
+import Amazonka.CodeStarNotifications.Types
+import Amazonka.CodeStarNotifications.Unsubscribe
+import Amazonka.CodeStarNotifications.UntagResource
+import Amazonka.CodeStarNotifications.UpdateNotificationRule
+import Amazonka.CodeStarNotifications.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

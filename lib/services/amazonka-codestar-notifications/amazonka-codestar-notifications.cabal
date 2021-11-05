@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.CodeStarNotifications.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.CodeStarNotifications.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.CodeStarNotifications" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.CodeStarNotifications" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,38 +45,38 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.CodeStarNotifications
-    Network.AWS.CodeStarNotifications.CreateNotificationRule
-    Network.AWS.CodeStarNotifications.DeleteNotificationRule
-    Network.AWS.CodeStarNotifications.DeleteTarget
-    Network.AWS.CodeStarNotifications.DescribeNotificationRule
-    Network.AWS.CodeStarNotifications.Lens
-    Network.AWS.CodeStarNotifications.ListEventTypes
-    Network.AWS.CodeStarNotifications.ListNotificationRules
-    Network.AWS.CodeStarNotifications.ListTagsForResource
-    Network.AWS.CodeStarNotifications.ListTargets
-    Network.AWS.CodeStarNotifications.Subscribe
-    Network.AWS.CodeStarNotifications.TagResource
-    Network.AWS.CodeStarNotifications.Types
-    Network.AWS.CodeStarNotifications.Types.DetailType
-    Network.AWS.CodeStarNotifications.Types.EventTypeSummary
-    Network.AWS.CodeStarNotifications.Types.ListEventTypesFilter
-    Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName
-    Network.AWS.CodeStarNotifications.Types.ListNotificationRulesFilter
-    Network.AWS.CodeStarNotifications.Types.ListNotificationRulesFilterName
-    Network.AWS.CodeStarNotifications.Types.ListTargetsFilter
-    Network.AWS.CodeStarNotifications.Types.ListTargetsFilterName
-    Network.AWS.CodeStarNotifications.Types.NotificationRuleStatus
-    Network.AWS.CodeStarNotifications.Types.NotificationRuleSummary
-    Network.AWS.CodeStarNotifications.Types.Target
-    Network.AWS.CodeStarNotifications.Types.TargetStatus
-    Network.AWS.CodeStarNotifications.Types.TargetSummary
-    Network.AWS.CodeStarNotifications.Unsubscribe
-    Network.AWS.CodeStarNotifications.UntagResource
-    Network.AWS.CodeStarNotifications.UpdateNotificationRule
-    Network.AWS.CodeStarNotifications.Waiters
+    Amazonka.CodeStarNotifications
+    Amazonka.CodeStarNotifications.CreateNotificationRule
+    Amazonka.CodeStarNotifications.DeleteNotificationRule
+    Amazonka.CodeStarNotifications.DeleteTarget
+    Amazonka.CodeStarNotifications.DescribeNotificationRule
+    Amazonka.CodeStarNotifications.Lens
+    Amazonka.CodeStarNotifications.ListEventTypes
+    Amazonka.CodeStarNotifications.ListNotificationRules
+    Amazonka.CodeStarNotifications.ListTagsForResource
+    Amazonka.CodeStarNotifications.ListTargets
+    Amazonka.CodeStarNotifications.Subscribe
+    Amazonka.CodeStarNotifications.TagResource
+    Amazonka.CodeStarNotifications.Types
+    Amazonka.CodeStarNotifications.Types.DetailType
+    Amazonka.CodeStarNotifications.Types.EventTypeSummary
+    Amazonka.CodeStarNotifications.Types.ListEventTypesFilter
+    Amazonka.CodeStarNotifications.Types.ListEventTypesFilterName
+    Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter
+    Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilterName
+    Amazonka.CodeStarNotifications.Types.ListTargetsFilter
+    Amazonka.CodeStarNotifications.Types.ListTargetsFilterName
+    Amazonka.CodeStarNotifications.Types.NotificationRuleStatus
+    Amazonka.CodeStarNotifications.Types.NotificationRuleSummary
+    Amazonka.CodeStarNotifications.Types.Target
+    Amazonka.CodeStarNotifications.Types.TargetStatus
+    Amazonka.CodeStarNotifications.Types.TargetSummary
+    Amazonka.CodeStarNotifications.Unsubscribe
+    Amazonka.CodeStarNotifications.UntagResource
+    Amazonka.CodeStarNotifications.UpdateNotificationRule
+    Amazonka.CodeStarNotifications.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

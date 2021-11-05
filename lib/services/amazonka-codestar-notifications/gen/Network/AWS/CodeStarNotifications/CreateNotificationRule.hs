@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeStarNotifications.CreateNotificationRule
+-- Module      : Amazonka.CodeStarNotifications.CreateNotificationRule
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Creates a notification rule for a resource. The rule specifies the
 -- events you want notifications about and the targets (such as SNS topics)
 -- where you want to receive them.
-module Network.AWS.CodeStarNotifications.CreateNotificationRule
+module Amazonka.CodeStarNotifications.CreateNotificationRule
   ( -- * Creating a Request
     CreateNotificationRule (..),
     newCreateNotificationRule,
@@ -48,12 +48,12 @@ module Network.AWS.CodeStarNotifications.CreateNotificationRule
   )
 where
 
-import Network.AWS.CodeStarNotifications.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CodeStarNotifications.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateNotificationRule' smart constructor.
 data CreateNotificationRule = CreateNotificationRule'

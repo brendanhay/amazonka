@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeStarNotifications.Types.ListEventTypesFilter
+-- Module      : Amazonka.CodeStarNotifications.Types.ListEventTypesFilter
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeStarNotifications.Types.ListEventTypesFilter where
+module Amazonka.CodeStarNotifications.Types.ListEventTypesFilter where
 
-import Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CodeStarNotifications.Types.ListEventTypesFilterName
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a filter to apply to the list of returned event types.
 -- You can filter by resource type or service name.

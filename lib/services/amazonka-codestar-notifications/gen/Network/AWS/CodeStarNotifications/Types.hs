@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeStarNotifications.Types
+-- Module      : Amazonka.CodeStarNotifications.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeStarNotifications.Types
+module Amazonka.CodeStarNotifications.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -91,23 +91,23 @@ module Network.AWS.CodeStarNotifications.Types
   )
 where
 
-import Network.AWS.CodeStarNotifications.Types.DetailType
-import Network.AWS.CodeStarNotifications.Types.EventTypeSummary
-import Network.AWS.CodeStarNotifications.Types.ListEventTypesFilter
-import Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName
-import Network.AWS.CodeStarNotifications.Types.ListNotificationRulesFilter
-import Network.AWS.CodeStarNotifications.Types.ListNotificationRulesFilterName
-import Network.AWS.CodeStarNotifications.Types.ListTargetsFilter
-import Network.AWS.CodeStarNotifications.Types.ListTargetsFilterName
-import Network.AWS.CodeStarNotifications.Types.NotificationRuleStatus
-import Network.AWS.CodeStarNotifications.Types.NotificationRuleSummary
-import Network.AWS.CodeStarNotifications.Types.Target
-import Network.AWS.CodeStarNotifications.Types.TargetStatus
-import Network.AWS.CodeStarNotifications.Types.TargetSummary
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.CodeStarNotifications.Types.DetailType
+import Amazonka.CodeStarNotifications.Types.EventTypeSummary
+import Amazonka.CodeStarNotifications.Types.ListEventTypesFilter
+import Amazonka.CodeStarNotifications.Types.ListEventTypesFilterName
+import Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter
+import Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilterName
+import Amazonka.CodeStarNotifications.Types.ListTargetsFilter
+import Amazonka.CodeStarNotifications.Types.ListTargetsFilterName
+import Amazonka.CodeStarNotifications.Types.NotificationRuleStatus
+import Amazonka.CodeStarNotifications.Types.NotificationRuleSummary
+import Amazonka.CodeStarNotifications.Types.Target
+import Amazonka.CodeStarNotifications.Types.TargetStatus
+import Amazonka.CodeStarNotifications.Types.TargetSummary
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2019-10-15@ of the Amazon CodeStar Notifications SDK configuration.
 defaultService :: Core.Service

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeStarNotifications.UpdateNotificationRule
+-- Module      : Amazonka.CodeStarNotifications.UpdateNotificationRule
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 --
 -- To add or remove tags for a notification rule, you must use TagResource
 -- and UntagResource.
-module Network.AWS.CodeStarNotifications.UpdateNotificationRule
+module Amazonka.CodeStarNotifications.UpdateNotificationRule
   ( -- * Creating a Request
     UpdateNotificationRule (..),
     newUpdateNotificationRule,
@@ -48,12 +48,12 @@ module Network.AWS.CodeStarNotifications.UpdateNotificationRule
   )
 where
 
-import Network.AWS.CodeStarNotifications.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CodeStarNotifications.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateNotificationRule' smart constructor.
 data UpdateNotificationRule = UpdateNotificationRule'

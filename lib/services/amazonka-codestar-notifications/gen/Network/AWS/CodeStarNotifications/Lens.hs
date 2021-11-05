@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeStarNotifications.Lens
+-- Module      : Amazonka.CodeStarNotifications.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeStarNotifications.Lens
+module Amazonka.CodeStarNotifications.Lens
   ( -- * Operations
 
     -- ** CreateNotificationRule
@@ -148,23 +148,23 @@ module Network.AWS.CodeStarNotifications.Lens
   )
 where
 
-import Network.AWS.CodeStarNotifications.CreateNotificationRule
-import Network.AWS.CodeStarNotifications.DeleteNotificationRule
-import Network.AWS.CodeStarNotifications.DeleteTarget
-import Network.AWS.CodeStarNotifications.DescribeNotificationRule
-import Network.AWS.CodeStarNotifications.ListEventTypes
-import Network.AWS.CodeStarNotifications.ListNotificationRules
-import Network.AWS.CodeStarNotifications.ListTagsForResource
-import Network.AWS.CodeStarNotifications.ListTargets
-import Network.AWS.CodeStarNotifications.Subscribe
-import Network.AWS.CodeStarNotifications.TagResource
-import Network.AWS.CodeStarNotifications.Types.EventTypeSummary
-import Network.AWS.CodeStarNotifications.Types.ListEventTypesFilter
-import Network.AWS.CodeStarNotifications.Types.ListNotificationRulesFilter
-import Network.AWS.CodeStarNotifications.Types.ListTargetsFilter
-import Network.AWS.CodeStarNotifications.Types.NotificationRuleSummary
-import Network.AWS.CodeStarNotifications.Types.Target
-import Network.AWS.CodeStarNotifications.Types.TargetSummary
-import Network.AWS.CodeStarNotifications.Unsubscribe
-import Network.AWS.CodeStarNotifications.UntagResource
-import Network.AWS.CodeStarNotifications.UpdateNotificationRule
+import Amazonka.CodeStarNotifications.CreateNotificationRule
+import Amazonka.CodeStarNotifications.DeleteNotificationRule
+import Amazonka.CodeStarNotifications.DeleteTarget
+import Amazonka.CodeStarNotifications.DescribeNotificationRule
+import Amazonka.CodeStarNotifications.ListEventTypes
+import Amazonka.CodeStarNotifications.ListNotificationRules
+import Amazonka.CodeStarNotifications.ListTagsForResource
+import Amazonka.CodeStarNotifications.ListTargets
+import Amazonka.CodeStarNotifications.Subscribe
+import Amazonka.CodeStarNotifications.TagResource
+import Amazonka.CodeStarNotifications.Types.EventTypeSummary
+import Amazonka.CodeStarNotifications.Types.ListEventTypesFilter
+import Amazonka.CodeStarNotifications.Types.ListNotificationRulesFilter
+import Amazonka.CodeStarNotifications.Types.ListTargetsFilter
+import Amazonka.CodeStarNotifications.Types.NotificationRuleSummary
+import Amazonka.CodeStarNotifications.Types.Target
+import Amazonka.CodeStarNotifications.Types.TargetSummary
+import Amazonka.CodeStarNotifications.Unsubscribe
+import Amazonka.CodeStarNotifications.UntagResource
+import Amazonka.CodeStarNotifications.UpdateNotificationRule

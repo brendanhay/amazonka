@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Braket.GetQuantumTask
+-- Module      : Amazonka.Braket.GetQuantumTask
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves the specified quantum task.
-module Network.AWS.Braket.GetQuantumTask
+module Amazonka.Braket.GetQuantumTask
   ( -- * Creating a Request
     GetQuantumTask (..),
     newGetQuantumTask,
@@ -49,12 +49,12 @@ module Network.AWS.Braket.GetQuantumTask
   )
 where
 
-import Network.AWS.Braket.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Braket.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetQuantumTask' smart constructor.
 data GetQuantumTask = GetQuantumTask'

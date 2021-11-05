@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.Braket where
 
+import Amazonka.Braket
 import qualified Data.Proxy as Proxy
-import Network.AWS.Braket
 import Test.AWS.Braket.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

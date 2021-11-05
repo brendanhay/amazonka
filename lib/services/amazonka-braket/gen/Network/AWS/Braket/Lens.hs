@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Braket.Lens
+-- Module      : Amazonka.Braket.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Braket.Lens
+module Amazonka.Braket.Lens
   ( -- * Operations
 
     -- ** GetQuantumTask
@@ -120,16 +120,16 @@ module Network.AWS.Braket.Lens
   )
 where
 
-import Network.AWS.Braket.CancelQuantumTask
-import Network.AWS.Braket.CreateQuantumTask
-import Network.AWS.Braket.GetDevice
-import Network.AWS.Braket.GetQuantumTask
-import Network.AWS.Braket.ListTagsForResource
-import Network.AWS.Braket.SearchDevices
-import Network.AWS.Braket.SearchQuantumTasks
-import Network.AWS.Braket.TagResource
-import Network.AWS.Braket.Types.DeviceSummary
-import Network.AWS.Braket.Types.QuantumTaskSummary
-import Network.AWS.Braket.Types.SearchDevicesFilter
-import Network.AWS.Braket.Types.SearchQuantumTasksFilter
-import Network.AWS.Braket.UntagResource
+import Amazonka.Braket.CancelQuantumTask
+import Amazonka.Braket.CreateQuantumTask
+import Amazonka.Braket.GetDevice
+import Amazonka.Braket.GetQuantumTask
+import Amazonka.Braket.ListTagsForResource
+import Amazonka.Braket.SearchDevices
+import Amazonka.Braket.SearchQuantumTasks
+import Amazonka.Braket.TagResource
+import Amazonka.Braket.Types.DeviceSummary
+import Amazonka.Braket.Types.QuantumTaskSummary
+import Amazonka.Braket.Types.SearchDevicesFilter
+import Amazonka.Braket.Types.SearchQuantumTasksFilter
+import Amazonka.Braket.UntagResource

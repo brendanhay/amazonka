@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Braket.Types.DeviceSummary
+-- Module      : Amazonka.Braket.Types.DeviceSummary
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Braket.Types.DeviceSummary where
+module Amazonka.Braket.Types.DeviceSummary where
 
-import Network.AWS.Braket.Types.DeviceStatus
-import Network.AWS.Braket.Types.DeviceType
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Braket.Types.DeviceStatus
+import Amazonka.Braket.Types.DeviceType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Includes information about the device.
 --

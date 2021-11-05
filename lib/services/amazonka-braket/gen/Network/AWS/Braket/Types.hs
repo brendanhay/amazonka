@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Braket.Types
+-- Module      : Amazonka.Braket.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Braket.Types
+module Amazonka.Braket.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -79,19 +79,19 @@ module Network.AWS.Braket.Types
   )
 where
 
-import Network.AWS.Braket.Types.CancellationStatus
-import Network.AWS.Braket.Types.DeviceStatus
-import Network.AWS.Braket.Types.DeviceSummary
-import Network.AWS.Braket.Types.DeviceType
-import Network.AWS.Braket.Types.QuantumTaskStatus
-import Network.AWS.Braket.Types.QuantumTaskSummary
-import Network.AWS.Braket.Types.SearchDevicesFilter
-import Network.AWS.Braket.Types.SearchQuantumTasksFilter
-import Network.AWS.Braket.Types.SearchQuantumTasksFilterOperator
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.Braket.Types.CancellationStatus
+import Amazonka.Braket.Types.DeviceStatus
+import Amazonka.Braket.Types.DeviceSummary
+import Amazonka.Braket.Types.DeviceType
+import Amazonka.Braket.Types.QuantumTaskStatus
+import Amazonka.Braket.Types.QuantumTaskSummary
+import Amazonka.Braket.Types.SearchDevicesFilter
+import Amazonka.Braket.Types.SearchQuantumTasksFilter
+import Amazonka.Braket.Types.SearchQuantumTasksFilterOperator
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2019-09-01@ of the Amazon Braket SDK configuration.
 defaultService :: Core.Service

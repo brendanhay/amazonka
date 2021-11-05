@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Braket
+-- Module      : Amazonka.Braket
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -13,7 +13,7 @@
 --
 -- The Amazon Braket API Reference provides information about the
 -- operations and structures supported in Amazon Braket.
-module Network.AWS.Braket
+module Amazonka.Braket
   ( -- * Service Configuration
     defaultService,
 
@@ -142,18 +142,18 @@ module Network.AWS.Braket
   )
 where
 
-import Network.AWS.Braket.CancelQuantumTask
-import Network.AWS.Braket.CreateQuantumTask
-import Network.AWS.Braket.GetDevice
-import Network.AWS.Braket.GetQuantumTask
-import Network.AWS.Braket.Lens
-import Network.AWS.Braket.ListTagsForResource
-import Network.AWS.Braket.SearchDevices
-import Network.AWS.Braket.SearchQuantumTasks
-import Network.AWS.Braket.TagResource
-import Network.AWS.Braket.Types
-import Network.AWS.Braket.UntagResource
-import Network.AWS.Braket.Waiters
+import Amazonka.Braket.CancelQuantumTask
+import Amazonka.Braket.CreateQuantumTask
+import Amazonka.Braket.GetDevice
+import Amazonka.Braket.GetQuantumTask
+import Amazonka.Braket.Lens
+import Amazonka.Braket.ListTagsForResource
+import Amazonka.Braket.SearchDevices
+import Amazonka.Braket.SearchQuantumTasks
+import Amazonka.Braket.TagResource
+import Amazonka.Braket.Types
+import Amazonka.Braket.UntagResource
+import Amazonka.Braket.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

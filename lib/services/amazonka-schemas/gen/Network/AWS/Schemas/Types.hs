@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Schemas.Types
+-- Module      : Amazonka.Schemas.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Schemas.Types
+module Amazonka.Schemas.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -88,19 +88,19 @@ module Network.AWS.Schemas.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Schemas.Types.CodeGenerationStatus
-import Network.AWS.Schemas.Types.DiscovererState
-import Network.AWS.Schemas.Types.DiscovererSummary
-import Network.AWS.Schemas.Types.RegistrySummary
-import Network.AWS.Schemas.Types.SchemaSummary
-import Network.AWS.Schemas.Types.SchemaVersionSummary
-import Network.AWS.Schemas.Types.SearchSchemaSummary
-import Network.AWS.Schemas.Types.SearchSchemaVersionSummary
-import Network.AWS.Schemas.Types.Type
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Schemas.Types.CodeGenerationStatus
+import Amazonka.Schemas.Types.DiscovererState
+import Amazonka.Schemas.Types.DiscovererSummary
+import Amazonka.Schemas.Types.RegistrySummary
+import Amazonka.Schemas.Types.SchemaSummary
+import Amazonka.Schemas.Types.SchemaVersionSummary
+import Amazonka.Schemas.Types.SearchSchemaSummary
+import Amazonka.Schemas.Types.SearchSchemaVersionSummary
+import Amazonka.Schemas.Types.Type
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2019-12-02@ of the Amazon Schemas SDK configuration.
 defaultService :: Core.Service

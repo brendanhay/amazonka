@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Schemas.ListSchemas
+-- Module      : Amazonka.Schemas.ListSchemas
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- List the schemas.
 --
 -- This operation returns paginated results.
-module Network.AWS.Schemas.ListSchemas
+module Amazonka.Schemas.ListSchemas
   ( -- * Creating a Request
     ListSchemas (..),
     newListSchemas,
@@ -45,12 +45,12 @@ module Network.AWS.Schemas.ListSchemas
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Schemas.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Schemas.Types
 
 -- | /See:/ 'newListSchemas' smart constructor.
 data ListSchemas = ListSchemas'

@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Schemas.Lens
+-- Module      : Amazonka.Schemas.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Schemas.Lens
+module Amazonka.Schemas.Lens
   ( -- * Operations
 
     -- ** UpdateRegistry
@@ -319,40 +319,40 @@ module Network.AWS.Schemas.Lens
   )
 where
 
-import Network.AWS.Schemas.CreateDiscoverer
-import Network.AWS.Schemas.CreateRegistry
-import Network.AWS.Schemas.CreateSchema
-import Network.AWS.Schemas.DeleteDiscoverer
-import Network.AWS.Schemas.DeleteRegistry
-import Network.AWS.Schemas.DeleteResourcePolicy
-import Network.AWS.Schemas.DeleteSchema
-import Network.AWS.Schemas.DeleteSchemaVersion
-import Network.AWS.Schemas.DescribeCodeBinding
-import Network.AWS.Schemas.DescribeDiscoverer
-import Network.AWS.Schemas.DescribeRegistry
-import Network.AWS.Schemas.DescribeSchema
-import Network.AWS.Schemas.ExportSchema
-import Network.AWS.Schemas.GetCodeBindingSource
-import Network.AWS.Schemas.GetDiscoveredSchema
-import Network.AWS.Schemas.GetResourcePolicy
-import Network.AWS.Schemas.ListDiscoverers
-import Network.AWS.Schemas.ListRegistries
-import Network.AWS.Schemas.ListSchemaVersions
-import Network.AWS.Schemas.ListSchemas
-import Network.AWS.Schemas.ListTagsForResource
-import Network.AWS.Schemas.PutCodeBinding
-import Network.AWS.Schemas.PutResourcePolicy
-import Network.AWS.Schemas.SearchSchemas
-import Network.AWS.Schemas.StartDiscoverer
-import Network.AWS.Schemas.StopDiscoverer
-import Network.AWS.Schemas.TagResource
-import Network.AWS.Schemas.Types.DiscovererSummary
-import Network.AWS.Schemas.Types.RegistrySummary
-import Network.AWS.Schemas.Types.SchemaSummary
-import Network.AWS.Schemas.Types.SchemaVersionSummary
-import Network.AWS.Schemas.Types.SearchSchemaSummary
-import Network.AWS.Schemas.Types.SearchSchemaVersionSummary
-import Network.AWS.Schemas.UntagResource
-import Network.AWS.Schemas.UpdateDiscoverer
-import Network.AWS.Schemas.UpdateRegistry
-import Network.AWS.Schemas.UpdateSchema
+import Amazonka.Schemas.CreateDiscoverer
+import Amazonka.Schemas.CreateRegistry
+import Amazonka.Schemas.CreateSchema
+import Amazonka.Schemas.DeleteDiscoverer
+import Amazonka.Schemas.DeleteRegistry
+import Amazonka.Schemas.DeleteResourcePolicy
+import Amazonka.Schemas.DeleteSchema
+import Amazonka.Schemas.DeleteSchemaVersion
+import Amazonka.Schemas.DescribeCodeBinding
+import Amazonka.Schemas.DescribeDiscoverer
+import Amazonka.Schemas.DescribeRegistry
+import Amazonka.Schemas.DescribeSchema
+import Amazonka.Schemas.ExportSchema
+import Amazonka.Schemas.GetCodeBindingSource
+import Amazonka.Schemas.GetDiscoveredSchema
+import Amazonka.Schemas.GetResourcePolicy
+import Amazonka.Schemas.ListDiscoverers
+import Amazonka.Schemas.ListRegistries
+import Amazonka.Schemas.ListSchemaVersions
+import Amazonka.Schemas.ListSchemas
+import Amazonka.Schemas.ListTagsForResource
+import Amazonka.Schemas.PutCodeBinding
+import Amazonka.Schemas.PutResourcePolicy
+import Amazonka.Schemas.SearchSchemas
+import Amazonka.Schemas.StartDiscoverer
+import Amazonka.Schemas.StopDiscoverer
+import Amazonka.Schemas.TagResource
+import Amazonka.Schemas.Types.DiscovererSummary
+import Amazonka.Schemas.Types.RegistrySummary
+import Amazonka.Schemas.Types.SchemaSummary
+import Amazonka.Schemas.Types.SchemaVersionSummary
+import Amazonka.Schemas.Types.SearchSchemaSummary
+import Amazonka.Schemas.Types.SearchSchemaVersionSummary
+import Amazonka.Schemas.UntagResource
+import Amazonka.Schemas.UpdateDiscoverer
+import Amazonka.Schemas.UpdateRegistry
+import Amazonka.Schemas.UpdateSchema

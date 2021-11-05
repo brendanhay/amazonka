@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Schemas
+-- Module      : Amazonka.Schemas
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -12,7 +12,7 @@
 -- Derived from API version @2019-12-02@ of the AWS service descriptions, licensed under Apache 2.0.
 --
 -- Amazon EventBridge Schema Registry
-module Network.AWS.Schemas
+module Amazonka.Schemas
   ( -- * Service Configuration
     defaultService,
 
@@ -281,40 +281,40 @@ module Network.AWS.Schemas
   )
 where
 
-import Network.AWS.Schemas.CreateDiscoverer
-import Network.AWS.Schemas.CreateRegistry
-import Network.AWS.Schemas.CreateSchema
-import Network.AWS.Schemas.DeleteDiscoverer
-import Network.AWS.Schemas.DeleteRegistry
-import Network.AWS.Schemas.DeleteResourcePolicy
-import Network.AWS.Schemas.DeleteSchema
-import Network.AWS.Schemas.DeleteSchemaVersion
-import Network.AWS.Schemas.DescribeCodeBinding
-import Network.AWS.Schemas.DescribeDiscoverer
-import Network.AWS.Schemas.DescribeRegistry
-import Network.AWS.Schemas.DescribeSchema
-import Network.AWS.Schemas.ExportSchema
-import Network.AWS.Schemas.GetCodeBindingSource
-import Network.AWS.Schemas.GetDiscoveredSchema
-import Network.AWS.Schemas.GetResourcePolicy
-import Network.AWS.Schemas.Lens
-import Network.AWS.Schemas.ListDiscoverers
-import Network.AWS.Schemas.ListRegistries
-import Network.AWS.Schemas.ListSchemaVersions
-import Network.AWS.Schemas.ListSchemas
-import Network.AWS.Schemas.ListTagsForResource
-import Network.AWS.Schemas.PutCodeBinding
-import Network.AWS.Schemas.PutResourcePolicy
-import Network.AWS.Schemas.SearchSchemas
-import Network.AWS.Schemas.StartDiscoverer
-import Network.AWS.Schemas.StopDiscoverer
-import Network.AWS.Schemas.TagResource
-import Network.AWS.Schemas.Types
-import Network.AWS.Schemas.UntagResource
-import Network.AWS.Schemas.UpdateDiscoverer
-import Network.AWS.Schemas.UpdateRegistry
-import Network.AWS.Schemas.UpdateSchema
-import Network.AWS.Schemas.Waiters
+import Amazonka.Schemas.CreateDiscoverer
+import Amazonka.Schemas.CreateRegistry
+import Amazonka.Schemas.CreateSchema
+import Amazonka.Schemas.DeleteDiscoverer
+import Amazonka.Schemas.DeleteRegistry
+import Amazonka.Schemas.DeleteResourcePolicy
+import Amazonka.Schemas.DeleteSchema
+import Amazonka.Schemas.DeleteSchemaVersion
+import Amazonka.Schemas.DescribeCodeBinding
+import Amazonka.Schemas.DescribeDiscoverer
+import Amazonka.Schemas.DescribeRegistry
+import Amazonka.Schemas.DescribeSchema
+import Amazonka.Schemas.ExportSchema
+import Amazonka.Schemas.GetCodeBindingSource
+import Amazonka.Schemas.GetDiscoveredSchema
+import Amazonka.Schemas.GetResourcePolicy
+import Amazonka.Schemas.Lens
+import Amazonka.Schemas.ListDiscoverers
+import Amazonka.Schemas.ListRegistries
+import Amazonka.Schemas.ListSchemaVersions
+import Amazonka.Schemas.ListSchemas
+import Amazonka.Schemas.ListTagsForResource
+import Amazonka.Schemas.PutCodeBinding
+import Amazonka.Schemas.PutResourcePolicy
+import Amazonka.Schemas.SearchSchemas
+import Amazonka.Schemas.StartDiscoverer
+import Amazonka.Schemas.StopDiscoverer
+import Amazonka.Schemas.TagResource
+import Amazonka.Schemas.Types
+import Amazonka.Schemas.UntagResource
+import Amazonka.Schemas.UpdateDiscoverer
+import Amazonka.Schemas.UpdateRegistry
+import Amazonka.Schemas.UpdateSchema
+import Amazonka.Schemas.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

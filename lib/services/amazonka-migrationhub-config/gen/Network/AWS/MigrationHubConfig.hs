@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.MigrationHubConfig
+-- Module      : Amazonka.MigrationHubConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -31,7 +31,7 @@
 --
 -- For specific API usage, see the sections that follow in this AWS
 -- Migration Hub Home Region API reference.
-module Network.AWS.MigrationHubConfig
+module Amazonka.MigrationHubConfig
   ( -- * Service Configuration
     defaultService,
 
@@ -95,12 +95,12 @@ module Network.AWS.MigrationHubConfig
   )
 where
 
-import Network.AWS.MigrationHubConfig.CreateHomeRegionControl
-import Network.AWS.MigrationHubConfig.DescribeHomeRegionControls
-import Network.AWS.MigrationHubConfig.GetHomeRegion
-import Network.AWS.MigrationHubConfig.Lens
-import Network.AWS.MigrationHubConfig.Types
-import Network.AWS.MigrationHubConfig.Waiters
+import Amazonka.MigrationHubConfig.CreateHomeRegionControl
+import Amazonka.MigrationHubConfig.DescribeHomeRegionControls
+import Amazonka.MigrationHubConfig.GetHomeRegion
+import Amazonka.MigrationHubConfig.Lens
+import Amazonka.MigrationHubConfig.Types
+import Amazonka.MigrationHubConfig.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

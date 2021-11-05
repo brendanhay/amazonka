@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.MigrationHubConfig where
 
+import Amazonka.MigrationHubConfig
 import qualified Data.Proxy as Proxy
-import Network.AWS.MigrationHubConfig
 import Test.AWS.Fixture
 import Test.AWS.MigrationHubConfig.Internal
 import Test.AWS.Prelude

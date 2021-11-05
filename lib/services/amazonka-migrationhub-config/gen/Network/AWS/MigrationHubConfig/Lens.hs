@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MigrationHubConfig.Lens
+-- Module      : Amazonka.MigrationHubConfig.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MigrationHubConfig.Lens
+module Amazonka.MigrationHubConfig.Lens
   ( -- * Operations
 
     -- ** GetHomeRegion
@@ -49,8 +49,8 @@ module Network.AWS.MigrationHubConfig.Lens
   )
 where
 
-import Network.AWS.MigrationHubConfig.CreateHomeRegionControl
-import Network.AWS.MigrationHubConfig.DescribeHomeRegionControls
-import Network.AWS.MigrationHubConfig.GetHomeRegion
-import Network.AWS.MigrationHubConfig.Types.HomeRegionControl
-import Network.AWS.MigrationHubConfig.Types.Target
+import Amazonka.MigrationHubConfig.CreateHomeRegionControl
+import Amazonka.MigrationHubConfig.DescribeHomeRegionControls
+import Amazonka.MigrationHubConfig.GetHomeRegion
+import Amazonka.MigrationHubConfig.Types.HomeRegionControl
+import Amazonka.MigrationHubConfig.Types.Target

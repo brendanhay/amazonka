@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MigrationHubConfig.GetHomeRegion
+-- Module      : Amazonka.MigrationHubConfig.GetHomeRegion
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- call @GetHomeRegion@ at least once before you call any other AWS
 -- Application Discovery Service and AWS Migration Hub APIs, to obtain the
 -- account\'s Migration Hub home region.
-module Network.AWS.MigrationHubConfig.GetHomeRegion
+module Amazonka.MigrationHubConfig.GetHomeRegion
   ( -- * Creating a Request
     GetHomeRegion (..),
     newGetHomeRegion,
@@ -41,12 +41,12 @@ module Network.AWS.MigrationHubConfig.GetHomeRegion
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MigrationHubConfig.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MigrationHubConfig.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetHomeRegion' smart constructor.
 data GetHomeRegion = GetHomeRegion'

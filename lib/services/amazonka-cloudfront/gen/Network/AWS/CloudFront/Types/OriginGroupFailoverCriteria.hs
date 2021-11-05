@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudFront.Types.OriginGroupFailoverCriteria
+-- Module      : Amazonka.CloudFront.Types.OriginGroupFailoverCriteria
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.OriginGroupFailoverCriteria where
+module Amazonka.CloudFront.Types.OriginGroupFailoverCriteria where
 
-import Network.AWS.CloudFront.Types.StatusCodes
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudFront.Types.StatusCodes
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A complex data type that includes information about the failover
 -- criteria for an origin group, including the status codes for which

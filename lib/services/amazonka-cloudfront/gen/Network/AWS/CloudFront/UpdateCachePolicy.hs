@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudFront.UpdateCachePolicy
+-- Module      : Amazonka.CloudFront.UpdateCachePolicy
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -34,7 +34,7 @@
 -- 3.  Call @UpdateCachePolicy@ by providing the entire cache policy
 --     configuration, including the fields that you modified and those that
 --     you didn’t.
-module Network.AWS.CloudFront.UpdateCachePolicy
+module Amazonka.CloudFront.UpdateCachePolicy
   ( -- * Creating a Request
     UpdateCachePolicy (..),
     newUpdateCachePolicy,
@@ -55,12 +55,12 @@ module Network.AWS.CloudFront.UpdateCachePolicy
   )
 where
 
-import Network.AWS.CloudFront.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudFront.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateCachePolicy' smart constructor.
 data UpdateCachePolicy = UpdateCachePolicy'

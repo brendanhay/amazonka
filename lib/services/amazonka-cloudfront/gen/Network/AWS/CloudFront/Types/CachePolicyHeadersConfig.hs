@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudFront.Types.CachePolicyHeadersConfig
+-- Module      : Amazonka.CloudFront.Types.CachePolicyHeadersConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.CachePolicyHeadersConfig where
+module Amazonka.CloudFront.Types.CachePolicyHeadersConfig where
 
-import Network.AWS.CloudFront.Types.CachePolicyHeaderBehavior
-import Network.AWS.CloudFront.Types.Headers
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudFront.Types.CachePolicyHeaderBehavior
+import Amazonka.CloudFront.Types.Headers
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | An object that determines whether any HTTP headers (and if so, which
 -- headers) are included in the cache key and automatically included in

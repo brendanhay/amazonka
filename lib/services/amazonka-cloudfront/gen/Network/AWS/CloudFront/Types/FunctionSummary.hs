@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudFront.Types.FunctionSummary
+-- Module      : Amazonka.CloudFront.Types.FunctionSummary
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.FunctionSummary where
+module Amazonka.CloudFront.Types.FunctionSummary where
 
-import Network.AWS.CloudFront.Types.FunctionConfig
-import Network.AWS.CloudFront.Types.FunctionMetadata
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudFront.Types.FunctionConfig
+import Amazonka.CloudFront.Types.FunctionMetadata
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains configuration information and metadata about a CloudFront
 -- function.

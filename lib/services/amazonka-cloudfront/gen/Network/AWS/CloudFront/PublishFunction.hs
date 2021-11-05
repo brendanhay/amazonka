@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudFront.PublishFunction
+-- Module      : Amazonka.CloudFront.PublishFunction
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -32,7 +32,7 @@
 -- To publish a function, you must provide the function’s name and version
 -- (@ETag@ value). To get these values, you can use @ListFunctions@ and
 -- @DescribeFunction@.
-module Network.AWS.CloudFront.PublishFunction
+module Amazonka.CloudFront.PublishFunction
   ( -- * Creating a Request
     PublishFunction (..),
     newPublishFunction,
@@ -51,12 +51,12 @@ module Network.AWS.CloudFront.PublishFunction
   )
 where
 
-import Network.AWS.CloudFront.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudFront.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPublishFunction' smart constructor.
 data PublishFunction = PublishFunction'

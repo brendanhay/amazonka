@@ -11,28 +11,28 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudFront.Types.DistributionSummary
+-- Module      : Amazonka.CloudFront.Types.DistributionSummary
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.DistributionSummary where
+module Amazonka.CloudFront.Types.DistributionSummary where
 
-import Network.AWS.CloudFront.Types.AliasICPRecordal
-import Network.AWS.CloudFront.Types.Aliases
-import Network.AWS.CloudFront.Types.CacheBehaviors
-import Network.AWS.CloudFront.Types.CustomErrorResponses
-import Network.AWS.CloudFront.Types.DefaultCacheBehavior
-import Network.AWS.CloudFront.Types.HttpVersion
-import Network.AWS.CloudFront.Types.OriginGroups
-import Network.AWS.CloudFront.Types.Origins
-import Network.AWS.CloudFront.Types.PriceClass
-import Network.AWS.CloudFront.Types.Restrictions
-import Network.AWS.CloudFront.Types.ViewerCertificate
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudFront.Types.AliasICPRecordal
+import Amazonka.CloudFront.Types.Aliases
+import Amazonka.CloudFront.Types.CacheBehaviors
+import Amazonka.CloudFront.Types.CustomErrorResponses
+import Amazonka.CloudFront.Types.DefaultCacheBehavior
+import Amazonka.CloudFront.Types.HttpVersion
+import Amazonka.CloudFront.Types.OriginGroups
+import Amazonka.CloudFront.Types.Origins
+import Amazonka.CloudFront.Types.PriceClass
+import Amazonka.CloudFront.Types.Restrictions
+import Amazonka.CloudFront.Types.ViewerCertificate
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A summary of the information about a CloudFront distribution.
 --

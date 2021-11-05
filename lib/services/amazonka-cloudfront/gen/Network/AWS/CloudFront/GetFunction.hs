@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudFront.GetFunction
+-- Module      : Amazonka.CloudFront.GetFunction
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 --
 -- To get a function’s code, you must provide the function’s name and
 -- stage. To get these values, you can use @ListFunctions@.
-module Network.AWS.CloudFront.GetFunction
+module Amazonka.CloudFront.GetFunction
   ( -- * Creating a Request
     GetFunction (..),
     newGetFunction,
@@ -46,12 +46,12 @@ module Network.AWS.CloudFront.GetFunction
   )
 where
 
-import Network.AWS.CloudFront.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudFront.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetFunction' smart constructor.
 data GetFunction = GetFunction'

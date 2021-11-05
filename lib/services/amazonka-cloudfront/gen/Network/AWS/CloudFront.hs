@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.CloudFront
+-- Module      : Amazonka.CloudFront
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -17,7 +17,7 @@
 -- developers who need detailed information about CloudFront API actions,
 -- data types, and errors. For detailed information about CloudFront
 -- features, see the /Amazon CloudFront Developer Guide/.
-module Network.AWS.CloudFront
+module Amazonka.CloudFront
   ( -- * Service Configuration
     defaultService,
 
@@ -1479,94 +1479,94 @@ module Network.AWS.CloudFront
   )
 where
 
-import Network.AWS.CloudFront.AssociateAlias
-import Network.AWS.CloudFront.CreateCachePolicy
-import Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
-import Network.AWS.CloudFront.CreateDistribution
-import Network.AWS.CloudFront.CreateDistributionWithTags
-import Network.AWS.CloudFront.CreateFieldLevelEncryptionConfig
-import Network.AWS.CloudFront.CreateFieldLevelEncryptionProfile
-import Network.AWS.CloudFront.CreateFunction
-import Network.AWS.CloudFront.CreateInvalidation
-import Network.AWS.CloudFront.CreateKeyGroup
-import Network.AWS.CloudFront.CreateMonitoringSubscription
-import Network.AWS.CloudFront.CreateOriginRequestPolicy
-import Network.AWS.CloudFront.CreatePublicKey
-import Network.AWS.CloudFront.CreateRealtimeLogConfig
-import Network.AWS.CloudFront.CreateStreamingDistribution
-import Network.AWS.CloudFront.CreateStreamingDistributionWithTags
-import Network.AWS.CloudFront.DeleteCachePolicy
-import Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
-import Network.AWS.CloudFront.DeleteDistribution
-import Network.AWS.CloudFront.DeleteFieldLevelEncryptionConfig
-import Network.AWS.CloudFront.DeleteFieldLevelEncryptionProfile
-import Network.AWS.CloudFront.DeleteFunction
-import Network.AWS.CloudFront.DeleteKeyGroup
-import Network.AWS.CloudFront.DeleteMonitoringSubscription
-import Network.AWS.CloudFront.DeleteOriginRequestPolicy
-import Network.AWS.CloudFront.DeletePublicKey
-import Network.AWS.CloudFront.DeleteRealtimeLogConfig
-import Network.AWS.CloudFront.DeleteStreamingDistribution
-import Network.AWS.CloudFront.DescribeFunction
-import Network.AWS.CloudFront.GetCachePolicy
-import Network.AWS.CloudFront.GetCachePolicyConfig
-import Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
-import Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig
-import Network.AWS.CloudFront.GetDistribution
-import Network.AWS.CloudFront.GetDistributionConfig
-import Network.AWS.CloudFront.GetFieldLevelEncryption
-import Network.AWS.CloudFront.GetFieldLevelEncryptionConfig
-import Network.AWS.CloudFront.GetFieldLevelEncryptionProfile
-import Network.AWS.CloudFront.GetFieldLevelEncryptionProfileConfig
-import Network.AWS.CloudFront.GetFunction
-import Network.AWS.CloudFront.GetInvalidation
-import Network.AWS.CloudFront.GetKeyGroup
-import Network.AWS.CloudFront.GetKeyGroupConfig
-import Network.AWS.CloudFront.GetMonitoringSubscription
-import Network.AWS.CloudFront.GetOriginRequestPolicy
-import Network.AWS.CloudFront.GetOriginRequestPolicyConfig
-import Network.AWS.CloudFront.GetPublicKey
-import Network.AWS.CloudFront.GetPublicKeyConfig
-import Network.AWS.CloudFront.GetRealtimeLogConfig
-import Network.AWS.CloudFront.GetStreamingDistribution
-import Network.AWS.CloudFront.GetStreamingDistributionConfig
-import Network.AWS.CloudFront.Lens
-import Network.AWS.CloudFront.ListCachePolicies
-import Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
-import Network.AWS.CloudFront.ListConflictingAliases
-import Network.AWS.CloudFront.ListDistributions
-import Network.AWS.CloudFront.ListDistributionsByCachePolicyId
-import Network.AWS.CloudFront.ListDistributionsByKeyGroup
-import Network.AWS.CloudFront.ListDistributionsByOriginRequestPolicyId
-import Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig
-import Network.AWS.CloudFront.ListDistributionsByWebACLId
-import Network.AWS.CloudFront.ListFieldLevelEncryptionConfigs
-import Network.AWS.CloudFront.ListFieldLevelEncryptionProfiles
-import Network.AWS.CloudFront.ListFunctions
-import Network.AWS.CloudFront.ListInvalidations
-import Network.AWS.CloudFront.ListKeyGroups
-import Network.AWS.CloudFront.ListOriginRequestPolicies
-import Network.AWS.CloudFront.ListPublicKeys
-import Network.AWS.CloudFront.ListRealtimeLogConfigs
-import Network.AWS.CloudFront.ListStreamingDistributions
-import Network.AWS.CloudFront.ListTagsForResource
-import Network.AWS.CloudFront.PublishFunction
-import Network.AWS.CloudFront.TagResource
-import Network.AWS.CloudFront.TestFunction
-import Network.AWS.CloudFront.Types
-import Network.AWS.CloudFront.UntagResource
-import Network.AWS.CloudFront.UpdateCachePolicy
-import Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
-import Network.AWS.CloudFront.UpdateDistribution
-import Network.AWS.CloudFront.UpdateFieldLevelEncryptionConfig
-import Network.AWS.CloudFront.UpdateFieldLevelEncryptionProfile
-import Network.AWS.CloudFront.UpdateFunction
-import Network.AWS.CloudFront.UpdateKeyGroup
-import Network.AWS.CloudFront.UpdateOriginRequestPolicy
-import Network.AWS.CloudFront.UpdatePublicKey
-import Network.AWS.CloudFront.UpdateRealtimeLogConfig
-import Network.AWS.CloudFront.UpdateStreamingDistribution
-import Network.AWS.CloudFront.Waiters
+import Amazonka.CloudFront.AssociateAlias
+import Amazonka.CloudFront.CreateCachePolicy
+import Amazonka.CloudFront.CreateCloudFrontOriginAccessIdentity
+import Amazonka.CloudFront.CreateDistribution
+import Amazonka.CloudFront.CreateDistributionWithTags
+import Amazonka.CloudFront.CreateFieldLevelEncryptionConfig
+import Amazonka.CloudFront.CreateFieldLevelEncryptionProfile
+import Amazonka.CloudFront.CreateFunction
+import Amazonka.CloudFront.CreateInvalidation
+import Amazonka.CloudFront.CreateKeyGroup
+import Amazonka.CloudFront.CreateMonitoringSubscription
+import Amazonka.CloudFront.CreateOriginRequestPolicy
+import Amazonka.CloudFront.CreatePublicKey
+import Amazonka.CloudFront.CreateRealtimeLogConfig
+import Amazonka.CloudFront.CreateStreamingDistribution
+import Amazonka.CloudFront.CreateStreamingDistributionWithTags
+import Amazonka.CloudFront.DeleteCachePolicy
+import Amazonka.CloudFront.DeleteCloudFrontOriginAccessIdentity
+import Amazonka.CloudFront.DeleteDistribution
+import Amazonka.CloudFront.DeleteFieldLevelEncryptionConfig
+import Amazonka.CloudFront.DeleteFieldLevelEncryptionProfile
+import Amazonka.CloudFront.DeleteFunction
+import Amazonka.CloudFront.DeleteKeyGroup
+import Amazonka.CloudFront.DeleteMonitoringSubscription
+import Amazonka.CloudFront.DeleteOriginRequestPolicy
+import Amazonka.CloudFront.DeletePublicKey
+import Amazonka.CloudFront.DeleteRealtimeLogConfig
+import Amazonka.CloudFront.DeleteStreamingDistribution
+import Amazonka.CloudFront.DescribeFunction
+import Amazonka.CloudFront.GetCachePolicy
+import Amazonka.CloudFront.GetCachePolicyConfig
+import Amazonka.CloudFront.GetCloudFrontOriginAccessIdentity
+import Amazonka.CloudFront.GetCloudFrontOriginAccessIdentityConfig
+import Amazonka.CloudFront.GetDistribution
+import Amazonka.CloudFront.GetDistributionConfig
+import Amazonka.CloudFront.GetFieldLevelEncryption
+import Amazonka.CloudFront.GetFieldLevelEncryptionConfig
+import Amazonka.CloudFront.GetFieldLevelEncryptionProfile
+import Amazonka.CloudFront.GetFieldLevelEncryptionProfileConfig
+import Amazonka.CloudFront.GetFunction
+import Amazonka.CloudFront.GetInvalidation
+import Amazonka.CloudFront.GetKeyGroup
+import Amazonka.CloudFront.GetKeyGroupConfig
+import Amazonka.CloudFront.GetMonitoringSubscription
+import Amazonka.CloudFront.GetOriginRequestPolicy
+import Amazonka.CloudFront.GetOriginRequestPolicyConfig
+import Amazonka.CloudFront.GetPublicKey
+import Amazonka.CloudFront.GetPublicKeyConfig
+import Amazonka.CloudFront.GetRealtimeLogConfig
+import Amazonka.CloudFront.GetStreamingDistribution
+import Amazonka.CloudFront.GetStreamingDistributionConfig
+import Amazonka.CloudFront.Lens
+import Amazonka.CloudFront.ListCachePolicies
+import Amazonka.CloudFront.ListCloudFrontOriginAccessIdentities
+import Amazonka.CloudFront.ListConflictingAliases
+import Amazonka.CloudFront.ListDistributions
+import Amazonka.CloudFront.ListDistributionsByCachePolicyId
+import Amazonka.CloudFront.ListDistributionsByKeyGroup
+import Amazonka.CloudFront.ListDistributionsByOriginRequestPolicyId
+import Amazonka.CloudFront.ListDistributionsByRealtimeLogConfig
+import Amazonka.CloudFront.ListDistributionsByWebACLId
+import Amazonka.CloudFront.ListFieldLevelEncryptionConfigs
+import Amazonka.CloudFront.ListFieldLevelEncryptionProfiles
+import Amazonka.CloudFront.ListFunctions
+import Amazonka.CloudFront.ListInvalidations
+import Amazonka.CloudFront.ListKeyGroups
+import Amazonka.CloudFront.ListOriginRequestPolicies
+import Amazonka.CloudFront.ListPublicKeys
+import Amazonka.CloudFront.ListRealtimeLogConfigs
+import Amazonka.CloudFront.ListStreamingDistributions
+import Amazonka.CloudFront.ListTagsForResource
+import Amazonka.CloudFront.PublishFunction
+import Amazonka.CloudFront.TagResource
+import Amazonka.CloudFront.TestFunction
+import Amazonka.CloudFront.Types
+import Amazonka.CloudFront.UntagResource
+import Amazonka.CloudFront.UpdateCachePolicy
+import Amazonka.CloudFront.UpdateCloudFrontOriginAccessIdentity
+import Amazonka.CloudFront.UpdateDistribution
+import Amazonka.CloudFront.UpdateFieldLevelEncryptionConfig
+import Amazonka.CloudFront.UpdateFieldLevelEncryptionProfile
+import Amazonka.CloudFront.UpdateFunction
+import Amazonka.CloudFront.UpdateKeyGroup
+import Amazonka.CloudFront.UpdateOriginRequestPolicy
+import Amazonka.CloudFront.UpdatePublicKey
+import Amazonka.CloudFront.UpdateRealtimeLogConfig
+import Amazonka.CloudFront.UpdateStreamingDistribution
+import Amazonka.CloudFront.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

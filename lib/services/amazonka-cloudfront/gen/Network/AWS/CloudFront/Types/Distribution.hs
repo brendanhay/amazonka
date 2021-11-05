@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudFront.Types.Distribution
+-- Module      : Amazonka.CloudFront.Types.Distribution
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.Distribution where
+module Amazonka.CloudFront.Types.Distribution where
 
-import Network.AWS.CloudFront.Types.ActiveTrustedKeyGroups
-import Network.AWS.CloudFront.Types.ActiveTrustedSigners
-import Network.AWS.CloudFront.Types.AliasICPRecordal
-import Network.AWS.CloudFront.Types.DistributionConfig
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudFront.Types.ActiveTrustedKeyGroups
+import Amazonka.CloudFront.Types.ActiveTrustedSigners
+import Amazonka.CloudFront.Types.AliasICPRecordal
+import Amazonka.CloudFront.Types.DistributionConfig
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A distribution tells CloudFront where you want content to be delivered
 -- from, and the details about how to track and manage content delivery.

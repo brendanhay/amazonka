@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudFront.UpdateOriginRequestPolicy
+-- Module      : Amazonka.CloudFront.UpdateOriginRequestPolicy
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -35,7 +35,7 @@
 -- 3.  Call @UpdateOriginRequestPolicy@ by providing the entire origin
 --     request policy configuration, including the fields that you modified
 --     and those that you didn’t.
-module Network.AWS.CloudFront.UpdateOriginRequestPolicy
+module Amazonka.CloudFront.UpdateOriginRequestPolicy
   ( -- * Creating a Request
     UpdateOriginRequestPolicy (..),
     newUpdateOriginRequestPolicy,
@@ -56,12 +56,12 @@ module Network.AWS.CloudFront.UpdateOriginRequestPolicy
   )
 where
 
-import Network.AWS.CloudFront.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudFront.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateOriginRequestPolicy' smart constructor.
 data UpdateOriginRequestPolicy = UpdateOriginRequestPolicy'

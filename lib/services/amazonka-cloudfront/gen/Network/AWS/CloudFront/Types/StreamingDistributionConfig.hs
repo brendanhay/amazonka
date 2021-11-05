@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudFront.Types.StreamingDistributionConfig
+-- Module      : Amazonka.CloudFront.Types.StreamingDistributionConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.StreamingDistributionConfig where
+module Amazonka.CloudFront.Types.StreamingDistributionConfig where
 
-import Network.AWS.CloudFront.Types.Aliases
-import Network.AWS.CloudFront.Types.PriceClass
-import Network.AWS.CloudFront.Types.S3Origin
-import Network.AWS.CloudFront.Types.StreamingLoggingConfig
-import Network.AWS.CloudFront.Types.TrustedSigners
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudFront.Types.Aliases
+import Amazonka.CloudFront.Types.PriceClass
+import Amazonka.CloudFront.Types.S3Origin
+import Amazonka.CloudFront.Types.StreamingLoggingConfig
+import Amazonka.CloudFront.Types.TrustedSigners
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The RTMP distribution\'s configuration information.
 --

@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.CloudFront where
 
+import Amazonka.CloudFront
 import qualified Data.Proxy as Proxy
-import Network.AWS.CloudFront
 import Test.AWS.CloudFront.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

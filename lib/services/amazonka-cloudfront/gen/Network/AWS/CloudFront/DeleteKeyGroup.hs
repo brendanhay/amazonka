@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudFront.DeleteKeyGroup
+-- Module      : Amazonka.CloudFront.DeleteKeyGroup
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -29,7 +29,7 @@
 -- To delete a key group, you must provide the key group’s identifier and
 -- version. To get these values, use @ListKeyGroups@ followed by
 -- @GetKeyGroup@ or @GetKeyGroupConfig@.
-module Network.AWS.CloudFront.DeleteKeyGroup
+module Amazonka.CloudFront.DeleteKeyGroup
   ( -- * Creating a Request
     DeleteKeyGroup (..),
     newDeleteKeyGroup,
@@ -44,12 +44,12 @@ module Network.AWS.CloudFront.DeleteKeyGroup
   )
 where
 
-import Network.AWS.CloudFront.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudFront.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteKeyGroup' smart constructor.
 data DeleteKeyGroup = DeleteKeyGroup'

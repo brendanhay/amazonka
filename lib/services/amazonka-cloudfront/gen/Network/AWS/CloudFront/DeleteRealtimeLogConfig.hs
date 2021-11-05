@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudFront.DeleteRealtimeLogConfig
+-- Module      : Amazonka.CloudFront.DeleteRealtimeLogConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -31,7 +31,7 @@
 -- configuration’s name or its Amazon Resource Name (ARN). You must provide
 -- at least one. If you provide both, CloudFront uses the name to identify
 -- the real-time log configuration to delete.
-module Network.AWS.CloudFront.DeleteRealtimeLogConfig
+module Amazonka.CloudFront.DeleteRealtimeLogConfig
   ( -- * Creating a Request
     DeleteRealtimeLogConfig (..),
     newDeleteRealtimeLogConfig,
@@ -46,12 +46,12 @@ module Network.AWS.CloudFront.DeleteRealtimeLogConfig
   )
 where
 
-import Network.AWS.CloudFront.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudFront.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteRealtimeLogConfig' smart constructor.
 data DeleteRealtimeLogConfig = DeleteRealtimeLogConfig'

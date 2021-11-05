@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudFront.Types.OriginRequestPolicySummary
+-- Module      : Amazonka.CloudFront.Types.OriginRequestPolicySummary
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.OriginRequestPolicySummary where
+module Amazonka.CloudFront.Types.OriginRequestPolicySummary where
 
-import Network.AWS.CloudFront.Types.OriginRequestPolicy
-import Network.AWS.CloudFront.Types.OriginRequestPolicyType
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudFront.Types.OriginRequestPolicy
+import Amazonka.CloudFront.Types.OriginRequestPolicyType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains an origin request policy.
 --

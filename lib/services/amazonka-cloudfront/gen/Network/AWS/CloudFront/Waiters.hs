@@ -7,24 +7,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudFront.Waiters
+-- Module      : Amazonka.CloudFront.Waiters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Waiters where
+module Amazonka.CloudFront.Waiters where
 
-import Network.AWS.CloudFront.GetDistribution
-import Network.AWS.CloudFront.GetInvalidation
-import Network.AWS.CloudFront.GetStreamingDistribution
-import Network.AWS.CloudFront.Lens
-import Network.AWS.CloudFront.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudFront.GetDistribution
+import Amazonka.CloudFront.GetInvalidation
+import Amazonka.CloudFront.GetStreamingDistribution
+import Amazonka.CloudFront.Lens
+import Amazonka.CloudFront.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
--- | Polls 'Network.AWS.CloudFront.GetStreamingDistribution' every 60 seconds until a successful state is reached. An error is returned after 25 failed checks.
+-- | Polls 'Amazonka.CloudFront.GetStreamingDistribution' every 60 seconds until a successful state is reached. An error is returned after 25 failed checks.
 newStreamingDistributionDeployed :: Core.Wait GetStreamingDistribution
 newStreamingDistributionDeployed =
   Core.Wait
@@ -44,7 +44,7 @@ newStreamingDistributionDeployed =
         ]
     }
 
--- | Polls 'Network.AWS.CloudFront.GetDistribution' every 60 seconds until a successful state is reached. An error is returned after 35 failed checks.
+-- | Polls 'Amazonka.CloudFront.GetDistribution' every 60 seconds until a successful state is reached. An error is returned after 35 failed checks.
 newDistributionDeployed :: Core.Wait GetDistribution
 newDistributionDeployed =
   Core.Wait
@@ -63,7 +63,7 @@ newDistributionDeployed =
         ]
     }
 
--- | Polls 'Network.AWS.CloudFront.GetInvalidation' every 20 seconds until a successful state is reached. An error is returned after 30 failed checks.
+-- | Polls 'Amazonka.CloudFront.GetInvalidation' every 20 seconds until a successful state is reached. An error is returned after 30 failed checks.
 newInvalidationCompleted :: Core.Wait GetInvalidation
 newInvalidationCompleted =
   Core.Wait

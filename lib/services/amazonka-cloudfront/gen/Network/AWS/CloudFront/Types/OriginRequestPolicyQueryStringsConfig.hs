@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudFront.Types.OriginRequestPolicyQueryStringsConfig
+-- Module      : Amazonka.CloudFront.Types.OriginRequestPolicyQueryStringsConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.OriginRequestPolicyQueryStringsConfig where
+module Amazonka.CloudFront.Types.OriginRequestPolicyQueryStringsConfig where
 
-import Network.AWS.CloudFront.Types.OriginRequestPolicyQueryStringBehavior
-import Network.AWS.CloudFront.Types.QueryStringNames
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudFront.Types.OriginRequestPolicyQueryStringBehavior
+import Amazonka.CloudFront.Types.QueryStringNames
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | An object that determines whether any URL query strings in viewer
 -- requests (and if so, which query strings) are included in requests that

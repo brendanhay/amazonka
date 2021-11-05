@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudFront.CreateStreamingDistribution
+-- Module      : Amazonka.CloudFront.CreateStreamingDistribution
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- information,
 -- <http://forums.aws.amazon.com/ann.jspa?annID=7356 read the announcement>
 -- on the Amazon CloudFront discussion forum.
-module Network.AWS.CloudFront.CreateStreamingDistribution
+module Amazonka.CloudFront.CreateStreamingDistribution
   ( -- * Creating a Request
     CreateStreamingDistribution (..),
     newCreateStreamingDistribution,
@@ -45,12 +45,12 @@ module Network.AWS.CloudFront.CreateStreamingDistribution
   )
 where
 
-import Network.AWS.CloudFront.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudFront.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | The request to create a new streaming distribution.
 --

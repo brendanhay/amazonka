@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudFront.UpdateDistribution
+-- Module      : Amazonka.CloudFront.UpdateDistribution
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -91,7 +91,7 @@
 --     <https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetDistribution.html GetDistribution>
 --     request to confirm that your changes have propagated. When
 --     propagation is complete, the value of @Status@ is @Deployed@.
-module Network.AWS.CloudFront.UpdateDistribution
+module Amazonka.CloudFront.UpdateDistribution
   ( -- * Creating a Request
     UpdateDistribution (..),
     newUpdateDistribution,
@@ -112,12 +112,12 @@ module Network.AWS.CloudFront.UpdateDistribution
   )
 where
 
-import Network.AWS.CloudFront.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudFront.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | The request to update a distribution.
 --

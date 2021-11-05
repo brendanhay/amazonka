@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudFront.Types.Method
+-- Module      : Amazonka.CloudFront.Types.Method
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.Method
+module Amazonka.CloudFront.Types.Method
   ( Method
       ( ..,
         Method_DELETE,
@@ -31,8 +31,8 @@ module Network.AWS.CloudFront.Types.Method
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 newtype Method = Method' {fromMethod :: Core.Text}
   deriving stock

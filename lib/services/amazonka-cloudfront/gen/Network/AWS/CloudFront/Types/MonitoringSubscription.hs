@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudFront.Types.MonitoringSubscription
+-- Module      : Amazonka.CloudFront.Types.MonitoringSubscription
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.MonitoringSubscription where
+module Amazonka.CloudFront.Types.MonitoringSubscription where
 
-import Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionConfig
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudFront.Types.RealtimeMetricsSubscriptionConfig
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A monitoring subscription. This structure contains information about
 -- whether additional CloudWatch metrics are enabled for a given CloudFront

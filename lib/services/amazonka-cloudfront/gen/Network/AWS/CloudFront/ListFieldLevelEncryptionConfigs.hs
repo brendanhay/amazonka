@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudFront.ListFieldLevelEncryptionConfigs
+-- Module      : Amazonka.CloudFront.ListFieldLevelEncryptionConfigs
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- List all field-level encryption configurations that have been created in
 -- CloudFront for this account.
-module Network.AWS.CloudFront.ListFieldLevelEncryptionConfigs
+module Amazonka.CloudFront.ListFieldLevelEncryptionConfigs
   ( -- * Creating a Request
     ListFieldLevelEncryptionConfigs (..),
     newListFieldLevelEncryptionConfigs,
@@ -41,12 +41,12 @@ module Network.AWS.CloudFront.ListFieldLevelEncryptionConfigs
   )
 where
 
-import Network.AWS.CloudFront.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudFront.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListFieldLevelEncryptionConfigs' smart constructor.
 data ListFieldLevelEncryptionConfigs = ListFieldLevelEncryptionConfigs'

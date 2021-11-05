@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudFront.TestFunction
+-- Module      : Amazonka.CloudFront.TestFunction
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -35,7 +35,7 @@
 -- To test a function, you provide the function’s name and version (@ETag@
 -- value) along with the event object. To get the function’s name and
 -- version, you can use @ListFunctions@ and @DescribeFunction@.
-module Network.AWS.CloudFront.TestFunction
+module Amazonka.CloudFront.TestFunction
   ( -- * Creating a Request
     TestFunction (..),
     newTestFunction,
@@ -56,12 +56,12 @@ module Network.AWS.CloudFront.TestFunction
   )
 where
 
-import Network.AWS.CloudFront.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CloudFront.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newTestFunction' smart constructor.
 data TestFunction = TestFunction'

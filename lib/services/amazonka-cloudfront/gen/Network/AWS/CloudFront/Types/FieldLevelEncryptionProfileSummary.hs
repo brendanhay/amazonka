@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileSummary
+-- Module      : Amazonka.CloudFront.Types.FieldLevelEncryptionProfileSummary
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileSummary where
+module Amazonka.CloudFront.Types.FieldLevelEncryptionProfileSummary where
 
-import Network.AWS.CloudFront.Types.EncryptionEntities
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.CloudFront.Types.EncryptionEntities
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The field-level encryption profile summary.
 --

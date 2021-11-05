@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53RecoveryCluster.Lens
+-- Module      : Amazonka.Route53RecoveryCluster.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53RecoveryCluster.Lens
+module Amazonka.Route53RecoveryCluster.Lens
   ( -- * Operations
 
     -- ** UpdateRoutingControlState
@@ -37,7 +37,7 @@ module Network.AWS.Route53RecoveryCluster.Lens
   )
 where
 
-import Network.AWS.Route53RecoveryCluster.GetRoutingControlState
-import Network.AWS.Route53RecoveryCluster.Types.UpdateRoutingControlStateEntry
-import Network.AWS.Route53RecoveryCluster.UpdateRoutingControlState
-import Network.AWS.Route53RecoveryCluster.UpdateRoutingControlStates
+import Amazonka.Route53RecoveryCluster.GetRoutingControlState
+import Amazonka.Route53RecoveryCluster.Types.UpdateRoutingControlStateEntry
+import Amazonka.Route53RecoveryCluster.UpdateRoutingControlState
+import Amazonka.Route53RecoveryCluster.UpdateRoutingControlStates

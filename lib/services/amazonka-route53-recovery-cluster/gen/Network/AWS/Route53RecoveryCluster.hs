@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Route53RecoveryCluster
+-- Module      : Amazonka.Route53RecoveryCluster
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -44,7 +44,7 @@
 --     preparing for recovery readiness with Route 53 Application Recovery
 --     Controller, see the
 --     <r53recovery/latest/dg/ Amazon Route 53 Application Recovery Controller Developer Guide>.
-module Network.AWS.Route53RecoveryCluster
+module Amazonka.Route53RecoveryCluster
   ( -- * Service Configuration
     defaultService,
 
@@ -107,12 +107,12 @@ module Network.AWS.Route53RecoveryCluster
   )
 where
 
-import Network.AWS.Route53RecoveryCluster.GetRoutingControlState
-import Network.AWS.Route53RecoveryCluster.Lens
-import Network.AWS.Route53RecoveryCluster.Types
-import Network.AWS.Route53RecoveryCluster.UpdateRoutingControlState
-import Network.AWS.Route53RecoveryCluster.UpdateRoutingControlStates
-import Network.AWS.Route53RecoveryCluster.Waiters
+import Amazonka.Route53RecoveryCluster.GetRoutingControlState
+import Amazonka.Route53RecoveryCluster.Lens
+import Amazonka.Route53RecoveryCluster.Types
+import Amazonka.Route53RecoveryCluster.UpdateRoutingControlState
+import Amazonka.Route53RecoveryCluster.UpdateRoutingControlStates
+import Amazonka.Route53RecoveryCluster.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

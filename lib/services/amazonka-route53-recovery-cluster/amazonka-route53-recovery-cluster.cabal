@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.Route53RecoveryCluster.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.Route53RecoveryCluster.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.Route53RecoveryCluster" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.Route53RecoveryCluster" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,17 +45,17 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.Route53RecoveryCluster
-    Network.AWS.Route53RecoveryCluster.GetRoutingControlState
-    Network.AWS.Route53RecoveryCluster.Lens
-    Network.AWS.Route53RecoveryCluster.Types
-    Network.AWS.Route53RecoveryCluster.Types.RoutingControlState
-    Network.AWS.Route53RecoveryCluster.Types.UpdateRoutingControlStateEntry
-    Network.AWS.Route53RecoveryCluster.UpdateRoutingControlState
-    Network.AWS.Route53RecoveryCluster.UpdateRoutingControlStates
-    Network.AWS.Route53RecoveryCluster.Waiters
+    Amazonka.Route53RecoveryCluster
+    Amazonka.Route53RecoveryCluster.GetRoutingControlState
+    Amazonka.Route53RecoveryCluster.Lens
+    Amazonka.Route53RecoveryCluster.Types
+    Amazonka.Route53RecoveryCluster.Types.RoutingControlState
+    Amazonka.Route53RecoveryCluster.Types.UpdateRoutingControlStateEntry
+    Amazonka.Route53RecoveryCluster.UpdateRoutingControlState
+    Amazonka.Route53RecoveryCluster.UpdateRoutingControlStates
+    Amazonka.Route53RecoveryCluster.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

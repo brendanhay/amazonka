@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53RecoveryCluster.Types
+-- Module      : Amazonka.Route53RecoveryCluster.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53RecoveryCluster.Types
+module Amazonka.Route53RecoveryCluster.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -36,12 +36,12 @@ module Network.AWS.Route53RecoveryCluster.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Route53RecoveryCluster.Types.RoutingControlState
-import Network.AWS.Route53RecoveryCluster.Types.UpdateRoutingControlStateEntry
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Route53RecoveryCluster.Types.RoutingControlState
+import Amazonka.Route53RecoveryCluster.Types.UpdateRoutingControlStateEntry
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2019-12-02@ of the Amazon Route53 Recovery Cluster SDK configuration.
 defaultService :: Core.Service

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMakerFeatureStoreRuntime.GetRecord
+-- Module      : Amazonka.SageMakerFeatureStoreRuntime.GetRecord
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Use for @OnlineStore@ serving from a @FeatureStore@. Only the latest
 -- records stored in the @OnlineStore@ can be retrieved. If no Record with
 -- @RecordIdentifierValue@ is found, then an empty result is returned.
-module Network.AWS.SageMakerFeatureStoreRuntime.GetRecord
+module Amazonka.SageMakerFeatureStoreRuntime.GetRecord
   ( -- * Creating a Request
     GetRecord (..),
     newGetRecord,
@@ -43,12 +43,12 @@ module Network.AWS.SageMakerFeatureStoreRuntime.GetRecord
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SageMakerFeatureStoreRuntime.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SageMakerFeatureStoreRuntime.Types
 
 -- | /See:/ 'newGetRecord' smart constructor.
 data GetRecord = GetRecord'

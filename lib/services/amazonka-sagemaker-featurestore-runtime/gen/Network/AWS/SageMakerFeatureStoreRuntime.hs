@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.SageMakerFeatureStoreRuntime
+-- Module      : Amazonka.SageMakerFeatureStoreRuntime
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- -   <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeFeatureGroup.html DescribeFeatureGroup>
 --
 -- -   <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListFeatureGroups.html ListFeatureGroups>
-module Network.AWS.SageMakerFeatureStoreRuntime
+module Amazonka.SageMakerFeatureStoreRuntime
   ( -- * Service Configuration
     defaultService,
 
@@ -97,13 +97,13 @@ module Network.AWS.SageMakerFeatureStoreRuntime
   )
 where
 
-import Network.AWS.SageMakerFeatureStoreRuntime.BatchGetRecord
-import Network.AWS.SageMakerFeatureStoreRuntime.DeleteRecord
-import Network.AWS.SageMakerFeatureStoreRuntime.GetRecord
-import Network.AWS.SageMakerFeatureStoreRuntime.Lens
-import Network.AWS.SageMakerFeatureStoreRuntime.PutRecord
-import Network.AWS.SageMakerFeatureStoreRuntime.Types
-import Network.AWS.SageMakerFeatureStoreRuntime.Waiters
+import Amazonka.SageMakerFeatureStoreRuntime.BatchGetRecord
+import Amazonka.SageMakerFeatureStoreRuntime.DeleteRecord
+import Amazonka.SageMakerFeatureStoreRuntime.GetRecord
+import Amazonka.SageMakerFeatureStoreRuntime.Lens
+import Amazonka.SageMakerFeatureStoreRuntime.PutRecord
+import Amazonka.SageMakerFeatureStoreRuntime.Types
+import Amazonka.SageMakerFeatureStoreRuntime.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

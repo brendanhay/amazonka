@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMakerFeatureStoreRuntime.Lens
+-- Module      : Amazonka.SageMakerFeatureStoreRuntime.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMakerFeatureStoreRuntime.Lens
+module Amazonka.SageMakerFeatureStoreRuntime.Lens
   ( -- * Operations
 
     -- ** PutRecord
@@ -61,11 +61,11 @@ module Network.AWS.SageMakerFeatureStoreRuntime.Lens
   )
 where
 
-import Network.AWS.SageMakerFeatureStoreRuntime.BatchGetRecord
-import Network.AWS.SageMakerFeatureStoreRuntime.DeleteRecord
-import Network.AWS.SageMakerFeatureStoreRuntime.GetRecord
-import Network.AWS.SageMakerFeatureStoreRuntime.PutRecord
-import Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError
-import Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordIdentifier
-import Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail
-import Network.AWS.SageMakerFeatureStoreRuntime.Types.FeatureValue
+import Amazonka.SageMakerFeatureStoreRuntime.BatchGetRecord
+import Amazonka.SageMakerFeatureStoreRuntime.DeleteRecord
+import Amazonka.SageMakerFeatureStoreRuntime.GetRecord
+import Amazonka.SageMakerFeatureStoreRuntime.PutRecord
+import Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError
+import Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordIdentifier
+import Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail
+import Amazonka.SageMakerFeatureStoreRuntime.Types.FeatureValue

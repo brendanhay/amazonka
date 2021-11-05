@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMakerFeatureStoreRuntime.Types
+-- Module      : Amazonka.SageMakerFeatureStoreRuntime.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMakerFeatureStoreRuntime.Types
+module Amazonka.SageMakerFeatureStoreRuntime.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -53,14 +53,14 @@ module Network.AWS.SageMakerFeatureStoreRuntime.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError
-import Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordIdentifier
-import Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail
-import Network.AWS.SageMakerFeatureStoreRuntime.Types.FeatureValue
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError
+import Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordIdentifier
+import Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail
+import Amazonka.SageMakerFeatureStoreRuntime.Types.FeatureValue
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2020-07-01@ of the Amazon SageMaker Feature Store Runtime SDK configuration.
 defaultService :: Core.Service

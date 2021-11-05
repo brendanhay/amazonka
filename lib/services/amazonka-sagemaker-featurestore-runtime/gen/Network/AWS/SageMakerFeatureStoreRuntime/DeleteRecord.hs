@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMakerFeatureStoreRuntime.DeleteRecord
+-- Module      : Amazonka.SageMakerFeatureStoreRuntime.DeleteRecord
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Deletes a @Record@ from a @FeatureGroup@. A new record will show up in
 -- the @OfflineStore@ when the @DeleteRecord@ API is called. This record
 -- will have a value of @True@ in the @is_deleted@ column.
-module Network.AWS.SageMakerFeatureStoreRuntime.DeleteRecord
+module Amazonka.SageMakerFeatureStoreRuntime.DeleteRecord
   ( -- * Creating a Request
     DeleteRecord (..),
     newDeleteRecord,
@@ -39,12 +39,12 @@ module Network.AWS.SageMakerFeatureStoreRuntime.DeleteRecord
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SageMakerFeatureStoreRuntime.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SageMakerFeatureStoreRuntime.Types
 
 -- | /See:/ 'newDeleteRecord' smart constructor.
 data DeleteRecord = DeleteRecord'

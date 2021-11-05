@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.AppRunner where
 
+import Amazonka.AppRunner
 import qualified Data.Proxy as Proxy
-import Network.AWS.AppRunner
 import Test.AWS.AppRunner.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

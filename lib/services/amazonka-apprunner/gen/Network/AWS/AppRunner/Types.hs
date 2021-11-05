@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppRunner.Types
+-- Module      : Amazonka.AppRunner.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppRunner.Types
+module Amazonka.AppRunner.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -242,44 +242,44 @@ module Network.AWS.AppRunner.Types
   )
 where
 
-import Network.AWS.AppRunner.Types.AuthenticationConfiguration
-import Network.AWS.AppRunner.Types.AutoScalingConfiguration
-import Network.AWS.AppRunner.Types.AutoScalingConfigurationStatus
-import Network.AWS.AppRunner.Types.AutoScalingConfigurationSummary
-import Network.AWS.AppRunner.Types.CertificateValidationRecord
-import Network.AWS.AppRunner.Types.CertificateValidationRecordStatus
-import Network.AWS.AppRunner.Types.CodeConfiguration
-import Network.AWS.AppRunner.Types.CodeConfigurationValues
-import Network.AWS.AppRunner.Types.CodeRepository
-import Network.AWS.AppRunner.Types.ConfigurationSource
-import Network.AWS.AppRunner.Types.Connection
-import Network.AWS.AppRunner.Types.ConnectionStatus
-import Network.AWS.AppRunner.Types.ConnectionSummary
-import Network.AWS.AppRunner.Types.CustomDomain
-import Network.AWS.AppRunner.Types.CustomDomainAssociationStatus
-import Network.AWS.AppRunner.Types.EncryptionConfiguration
-import Network.AWS.AppRunner.Types.HealthCheckConfiguration
-import Network.AWS.AppRunner.Types.HealthCheckProtocol
-import Network.AWS.AppRunner.Types.ImageConfiguration
-import Network.AWS.AppRunner.Types.ImageRepository
-import Network.AWS.AppRunner.Types.ImageRepositoryType
-import Network.AWS.AppRunner.Types.InstanceConfiguration
-import Network.AWS.AppRunner.Types.OperationStatus
-import Network.AWS.AppRunner.Types.OperationSummary
-import Network.AWS.AppRunner.Types.OperationType
-import Network.AWS.AppRunner.Types.ProviderType
-import Network.AWS.AppRunner.Types.Runtime
-import Network.AWS.AppRunner.Types.Service
-import Network.AWS.AppRunner.Types.ServiceStatus
-import Network.AWS.AppRunner.Types.ServiceSummary
-import Network.AWS.AppRunner.Types.SourceCodeVersion
-import Network.AWS.AppRunner.Types.SourceCodeVersionType
-import Network.AWS.AppRunner.Types.SourceConfiguration
-import Network.AWS.AppRunner.Types.Tag
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.AppRunner.Types.AuthenticationConfiguration
+import Amazonka.AppRunner.Types.AutoScalingConfiguration
+import Amazonka.AppRunner.Types.AutoScalingConfigurationStatus
+import Amazonka.AppRunner.Types.AutoScalingConfigurationSummary
+import Amazonka.AppRunner.Types.CertificateValidationRecord
+import Amazonka.AppRunner.Types.CertificateValidationRecordStatus
+import Amazonka.AppRunner.Types.CodeConfiguration
+import Amazonka.AppRunner.Types.CodeConfigurationValues
+import Amazonka.AppRunner.Types.CodeRepository
+import Amazonka.AppRunner.Types.ConfigurationSource
+import Amazonka.AppRunner.Types.Connection
+import Amazonka.AppRunner.Types.ConnectionStatus
+import Amazonka.AppRunner.Types.ConnectionSummary
+import Amazonka.AppRunner.Types.CustomDomain
+import Amazonka.AppRunner.Types.CustomDomainAssociationStatus
+import Amazonka.AppRunner.Types.EncryptionConfiguration
+import Amazonka.AppRunner.Types.HealthCheckConfiguration
+import Amazonka.AppRunner.Types.HealthCheckProtocol
+import Amazonka.AppRunner.Types.ImageConfiguration
+import Amazonka.AppRunner.Types.ImageRepository
+import Amazonka.AppRunner.Types.ImageRepositoryType
+import Amazonka.AppRunner.Types.InstanceConfiguration
+import Amazonka.AppRunner.Types.OperationStatus
+import Amazonka.AppRunner.Types.OperationSummary
+import Amazonka.AppRunner.Types.OperationType
+import Amazonka.AppRunner.Types.ProviderType
+import Amazonka.AppRunner.Types.Runtime
+import Amazonka.AppRunner.Types.Service
+import Amazonka.AppRunner.Types.ServiceStatus
+import Amazonka.AppRunner.Types.ServiceSummary
+import Amazonka.AppRunner.Types.SourceCodeVersion
+import Amazonka.AppRunner.Types.SourceCodeVersionType
+import Amazonka.AppRunner.Types.SourceConfiguration
+import Amazonka.AppRunner.Types.Tag
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2020-05-15@ of the Amazon App Runner SDK configuration.
 defaultService :: Core.Service

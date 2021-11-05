@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppRunner.DeleteConnection
+-- Module      : Amazonka.AppRunner.DeleteConnection
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Delete an App Runner connection. You must first ensure that there are no
 -- running App Runner services that use this connection. If there are any,
 -- the @DeleteConnection@ action fails.
-module Network.AWS.AppRunner.DeleteConnection
+module Amazonka.AppRunner.DeleteConnection
   ( -- * Creating a Request
     DeleteConnection (..),
     newDeleteConnection,
@@ -41,12 +41,12 @@ module Network.AWS.AppRunner.DeleteConnection
   )
 where
 
-import Network.AWS.AppRunner.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AppRunner.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteConnection' smart constructor.
 data DeleteConnection = DeleteConnection'

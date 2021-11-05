@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppRunner.Types.CodeConfigurationValues
+-- Module      : Amazonka.AppRunner.Types.CodeConfigurationValues
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppRunner.Types.CodeConfigurationValues where
+module Amazonka.AppRunner.Types.CodeConfigurationValues where
 
-import Network.AWS.AppRunner.Types.Runtime
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AppRunner.Types.Runtime
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the basic configuration needed for building and running an App
 -- Runner service. This type doesn\'t support the full set of possible

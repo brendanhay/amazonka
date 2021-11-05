@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppRunner.Types.SourceConfiguration
+-- Module      : Amazonka.AppRunner.Types.SourceConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppRunner.Types.SourceConfiguration where
+module Amazonka.AppRunner.Types.SourceConfiguration where
 
-import Network.AWS.AppRunner.Types.AuthenticationConfiguration
-import Network.AWS.AppRunner.Types.CodeRepository
-import Network.AWS.AppRunner.Types.ImageRepository
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AppRunner.Types.AuthenticationConfiguration
+import Amazonka.AppRunner.Types.CodeRepository
+import Amazonka.AppRunner.Types.ImageRepository
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the source deployed to an App Runner service. It can be a code
 -- or an image repository.

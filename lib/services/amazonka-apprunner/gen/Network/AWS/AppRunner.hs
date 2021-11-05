@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.AppRunner
+-- Module      : Amazonka.AppRunner
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -39,7 +39,7 @@
 -- For a list of Region-specific endpoints that App Runner supports, see
 -- <https://docs.aws.amazon.com/general/latest/gr/apprunner.html App Runner endpoints and quotas>
 -- in the /Amazon Web Services General Reference/.
-module Network.AWS.AppRunner
+module Amazonka.AppRunner
   ( -- * Service Configuration
     defaultService,
 
@@ -326,31 +326,31 @@ module Network.AWS.AppRunner
   )
 where
 
-import Network.AWS.AppRunner.AssociateCustomDomain
-import Network.AWS.AppRunner.CreateAutoScalingConfiguration
-import Network.AWS.AppRunner.CreateConnection
-import Network.AWS.AppRunner.CreateService
-import Network.AWS.AppRunner.DeleteAutoScalingConfiguration
-import Network.AWS.AppRunner.DeleteConnection
-import Network.AWS.AppRunner.DeleteService
-import Network.AWS.AppRunner.DescribeAutoScalingConfiguration
-import Network.AWS.AppRunner.DescribeCustomDomains
-import Network.AWS.AppRunner.DescribeService
-import Network.AWS.AppRunner.DisassociateCustomDomain
-import Network.AWS.AppRunner.Lens
-import Network.AWS.AppRunner.ListAutoScalingConfigurations
-import Network.AWS.AppRunner.ListConnections
-import Network.AWS.AppRunner.ListOperations
-import Network.AWS.AppRunner.ListServices
-import Network.AWS.AppRunner.ListTagsForResource
-import Network.AWS.AppRunner.PauseService
-import Network.AWS.AppRunner.ResumeService
-import Network.AWS.AppRunner.StartDeployment
-import Network.AWS.AppRunner.TagResource
-import Network.AWS.AppRunner.Types
-import Network.AWS.AppRunner.UntagResource
-import Network.AWS.AppRunner.UpdateService
-import Network.AWS.AppRunner.Waiters
+import Amazonka.AppRunner.AssociateCustomDomain
+import Amazonka.AppRunner.CreateAutoScalingConfiguration
+import Amazonka.AppRunner.CreateConnection
+import Amazonka.AppRunner.CreateService
+import Amazonka.AppRunner.DeleteAutoScalingConfiguration
+import Amazonka.AppRunner.DeleteConnection
+import Amazonka.AppRunner.DeleteService
+import Amazonka.AppRunner.DescribeAutoScalingConfiguration
+import Amazonka.AppRunner.DescribeCustomDomains
+import Amazonka.AppRunner.DescribeService
+import Amazonka.AppRunner.DisassociateCustomDomain
+import Amazonka.AppRunner.Lens
+import Amazonka.AppRunner.ListAutoScalingConfigurations
+import Amazonka.AppRunner.ListConnections
+import Amazonka.AppRunner.ListOperations
+import Amazonka.AppRunner.ListServices
+import Amazonka.AppRunner.ListTagsForResource
+import Amazonka.AppRunner.PauseService
+import Amazonka.AppRunner.ResumeService
+import Amazonka.AppRunner.StartDeployment
+import Amazonka.AppRunner.TagResource
+import Amazonka.AppRunner.Types
+import Amazonka.AppRunner.UntagResource
+import Amazonka.AppRunner.UpdateService
+import Amazonka.AppRunner.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

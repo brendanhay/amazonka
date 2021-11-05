@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppRunner.ListTagsForResource
+-- Module      : Amazonka.AppRunner.ListTagsForResource
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- List tags that are associated with for an App Runner resource. The
 -- response contains a list of tag key-value pairs.
-module Network.AWS.AppRunner.ListTagsForResource
+module Amazonka.AppRunner.ListTagsForResource
   ( -- * Creating a Request
     ListTagsForResource (..),
     newListTagsForResource,
@@ -40,12 +40,12 @@ module Network.AWS.AppRunner.ListTagsForResource
   )
 where
 
-import Network.AWS.AppRunner.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AppRunner.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'

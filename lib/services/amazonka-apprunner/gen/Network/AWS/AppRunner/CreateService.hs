@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppRunner.CreateService
+-- Module      : Amazonka.AppRunner.CreateService
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -27,7 +27,7 @@
 -- returned @OperationId@ and the
 -- <https://docs.aws.amazon.com/apprunner/latest/api/API_ListOperations.html ListOperations>
 -- call to track the operation\'s progress.
-module Network.AWS.AppRunner.CreateService
+module Amazonka.AppRunner.CreateService
   ( -- * Creating a Request
     CreateService (..),
     newCreateService,
@@ -52,12 +52,12 @@ module Network.AWS.AppRunner.CreateService
   )
 where
 
-import Network.AWS.AppRunner.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AppRunner.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateService' smart constructor.
 data CreateService = CreateService'

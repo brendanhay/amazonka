@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppRunner.Types.Service
+-- Module      : Amazonka.AppRunner.Types.Service
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppRunner.Types.Service where
+module Amazonka.AppRunner.Types.Service where
 
-import Network.AWS.AppRunner.Types.AutoScalingConfigurationSummary
-import Network.AWS.AppRunner.Types.EncryptionConfiguration
-import Network.AWS.AppRunner.Types.HealthCheckConfiguration
-import Network.AWS.AppRunner.Types.InstanceConfiguration
-import Network.AWS.AppRunner.Types.ServiceStatus
-import Network.AWS.AppRunner.Types.SourceConfiguration
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AppRunner.Types.AutoScalingConfigurationSummary
+import Amazonka.AppRunner.Types.EncryptionConfiguration
+import Amazonka.AppRunner.Types.HealthCheckConfiguration
+import Amazonka.AppRunner.Types.InstanceConfiguration
+import Amazonka.AppRunner.Types.ServiceStatus
+import Amazonka.AppRunner.Types.SourceConfiguration
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an App Runner service. It can describe a service in any state,
 -- including deleted services.

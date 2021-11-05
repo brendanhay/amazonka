@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppRunner.Types.Runtime
+-- Module      : Amazonka.AppRunner.Types.Runtime
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppRunner.Types.Runtime
+module Amazonka.AppRunner.Types.Runtime
   ( Runtime
       ( ..,
         Runtime_NODEJS_12,
@@ -26,8 +26,8 @@ module Network.AWS.AppRunner.Types.Runtime
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 newtype Runtime = Runtime' {fromRuntime :: Core.Text}
   deriving stock

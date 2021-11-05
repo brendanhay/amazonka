@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppRunner.CreateConnection
+-- Module      : Amazonka.AppRunner.CreateConnection
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -28,7 +28,7 @@
 -- A connection resource is needed to access GitHub repositories. GitHub
 -- requires a user interface approval process through the App Runner
 -- console before you can use the connection.
-module Network.AWS.AppRunner.CreateConnection
+module Amazonka.AppRunner.CreateConnection
   ( -- * Creating a Request
     CreateConnection (..),
     newCreateConnection,
@@ -48,12 +48,12 @@ module Network.AWS.AppRunner.CreateConnection
   )
 where
 
-import Network.AWS.AppRunner.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.AppRunner.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateConnection' smart constructor.
 data CreateConnection = CreateConnection'

@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppRunner.Types.Connection
+-- Module      : Amazonka.AppRunner.Types.Connection
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppRunner.Types.Connection where
+module Amazonka.AppRunner.Types.Connection where
 
-import Network.AWS.AppRunner.Types.ConnectionStatus
-import Network.AWS.AppRunner.Types.ProviderType
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.AppRunner.Types.ConnectionStatus
+import Amazonka.AppRunner.Types.ProviderType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an App Runner connection resource.
 --

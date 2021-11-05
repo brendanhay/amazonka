@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.AppRunner.Lens
+-- Module      : Amazonka.AppRunner.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppRunner.Lens
+module Amazonka.AppRunner.Lens
   ( -- * Operations
 
     -- ** ListServices
@@ -309,46 +309,46 @@ module Network.AWS.AppRunner.Lens
   )
 where
 
-import Network.AWS.AppRunner.AssociateCustomDomain
-import Network.AWS.AppRunner.CreateAutoScalingConfiguration
-import Network.AWS.AppRunner.CreateConnection
-import Network.AWS.AppRunner.CreateService
-import Network.AWS.AppRunner.DeleteAutoScalingConfiguration
-import Network.AWS.AppRunner.DeleteConnection
-import Network.AWS.AppRunner.DeleteService
-import Network.AWS.AppRunner.DescribeAutoScalingConfiguration
-import Network.AWS.AppRunner.DescribeCustomDomains
-import Network.AWS.AppRunner.DescribeService
-import Network.AWS.AppRunner.DisassociateCustomDomain
-import Network.AWS.AppRunner.ListAutoScalingConfigurations
-import Network.AWS.AppRunner.ListConnections
-import Network.AWS.AppRunner.ListOperations
-import Network.AWS.AppRunner.ListServices
-import Network.AWS.AppRunner.ListTagsForResource
-import Network.AWS.AppRunner.PauseService
-import Network.AWS.AppRunner.ResumeService
-import Network.AWS.AppRunner.StartDeployment
-import Network.AWS.AppRunner.TagResource
-import Network.AWS.AppRunner.Types.AuthenticationConfiguration
-import Network.AWS.AppRunner.Types.AutoScalingConfiguration
-import Network.AWS.AppRunner.Types.AutoScalingConfigurationSummary
-import Network.AWS.AppRunner.Types.CertificateValidationRecord
-import Network.AWS.AppRunner.Types.CodeConfiguration
-import Network.AWS.AppRunner.Types.CodeConfigurationValues
-import Network.AWS.AppRunner.Types.CodeRepository
-import Network.AWS.AppRunner.Types.Connection
-import Network.AWS.AppRunner.Types.ConnectionSummary
-import Network.AWS.AppRunner.Types.CustomDomain
-import Network.AWS.AppRunner.Types.EncryptionConfiguration
-import Network.AWS.AppRunner.Types.HealthCheckConfiguration
-import Network.AWS.AppRunner.Types.ImageConfiguration
-import Network.AWS.AppRunner.Types.ImageRepository
-import Network.AWS.AppRunner.Types.InstanceConfiguration
-import Network.AWS.AppRunner.Types.OperationSummary
-import Network.AWS.AppRunner.Types.Service
-import Network.AWS.AppRunner.Types.ServiceSummary
-import Network.AWS.AppRunner.Types.SourceCodeVersion
-import Network.AWS.AppRunner.Types.SourceConfiguration
-import Network.AWS.AppRunner.Types.Tag
-import Network.AWS.AppRunner.UntagResource
-import Network.AWS.AppRunner.UpdateService
+import Amazonka.AppRunner.AssociateCustomDomain
+import Amazonka.AppRunner.CreateAutoScalingConfiguration
+import Amazonka.AppRunner.CreateConnection
+import Amazonka.AppRunner.CreateService
+import Amazonka.AppRunner.DeleteAutoScalingConfiguration
+import Amazonka.AppRunner.DeleteConnection
+import Amazonka.AppRunner.DeleteService
+import Amazonka.AppRunner.DescribeAutoScalingConfiguration
+import Amazonka.AppRunner.DescribeCustomDomains
+import Amazonka.AppRunner.DescribeService
+import Amazonka.AppRunner.DisassociateCustomDomain
+import Amazonka.AppRunner.ListAutoScalingConfigurations
+import Amazonka.AppRunner.ListConnections
+import Amazonka.AppRunner.ListOperations
+import Amazonka.AppRunner.ListServices
+import Amazonka.AppRunner.ListTagsForResource
+import Amazonka.AppRunner.PauseService
+import Amazonka.AppRunner.ResumeService
+import Amazonka.AppRunner.StartDeployment
+import Amazonka.AppRunner.TagResource
+import Amazonka.AppRunner.Types.AuthenticationConfiguration
+import Amazonka.AppRunner.Types.AutoScalingConfiguration
+import Amazonka.AppRunner.Types.AutoScalingConfigurationSummary
+import Amazonka.AppRunner.Types.CertificateValidationRecord
+import Amazonka.AppRunner.Types.CodeConfiguration
+import Amazonka.AppRunner.Types.CodeConfigurationValues
+import Amazonka.AppRunner.Types.CodeRepository
+import Amazonka.AppRunner.Types.Connection
+import Amazonka.AppRunner.Types.ConnectionSummary
+import Amazonka.AppRunner.Types.CustomDomain
+import Amazonka.AppRunner.Types.EncryptionConfiguration
+import Amazonka.AppRunner.Types.HealthCheckConfiguration
+import Amazonka.AppRunner.Types.ImageConfiguration
+import Amazonka.AppRunner.Types.ImageRepository
+import Amazonka.AppRunner.Types.InstanceConfiguration
+import Amazonka.AppRunner.Types.OperationSummary
+import Amazonka.AppRunner.Types.Service
+import Amazonka.AppRunner.Types.ServiceSummary
+import Amazonka.AppRunner.Types.SourceCodeVersion
+import Amazonka.AppRunner.Types.SourceConfiguration
+import Amazonka.AppRunner.Types.Tag
+import Amazonka.AppRunner.UntagResource
+import Amazonka.AppRunner.UpdateService

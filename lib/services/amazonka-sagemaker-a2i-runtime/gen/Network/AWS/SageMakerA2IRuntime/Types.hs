@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMakerA2IRuntime.Types
+-- Module      : Amazonka.SageMakerA2IRuntime.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMakerA2IRuntime.Types
+module Amazonka.SageMakerA2IRuntime.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -59,17 +59,17 @@ module Network.AWS.SageMakerA2IRuntime.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.SageMakerA2IRuntime.Types.ContentClassifier
-import Network.AWS.SageMakerA2IRuntime.Types.HumanLoopDataAttributes
-import Network.AWS.SageMakerA2IRuntime.Types.HumanLoopInput
-import Network.AWS.SageMakerA2IRuntime.Types.HumanLoopOutput
-import Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus
-import Network.AWS.SageMakerA2IRuntime.Types.HumanLoopSummary
-import Network.AWS.SageMakerA2IRuntime.Types.SortOrder
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMakerA2IRuntime.Types.ContentClassifier
+import Amazonka.SageMakerA2IRuntime.Types.HumanLoopDataAttributes
+import Amazonka.SageMakerA2IRuntime.Types.HumanLoopInput
+import Amazonka.SageMakerA2IRuntime.Types.HumanLoopOutput
+import Amazonka.SageMakerA2IRuntime.Types.HumanLoopStatus
+import Amazonka.SageMakerA2IRuntime.Types.HumanLoopSummary
+import Amazonka.SageMakerA2IRuntime.Types.SortOrder
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2019-11-07@ of the Amazon Augmented AI Runtime SDK configuration.
 defaultService :: Core.Service

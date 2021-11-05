@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.SageMakerA2IRuntime where
 
+import Amazonka.SageMakerA2IRuntime
 import qualified Data.Proxy as Proxy
-import Network.AWS.SageMakerA2IRuntime
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.SageMakerA2IRuntime.Internal

@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMakerA2IRuntime.Lens
+-- Module      : Amazonka.SageMakerA2IRuntime.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMakerA2IRuntime.Lens
+module Amazonka.SageMakerA2IRuntime.Lens
   ( -- * Operations
 
     -- ** ListHumanLoops
@@ -73,12 +73,12 @@ module Network.AWS.SageMakerA2IRuntime.Lens
   )
 where
 
-import Network.AWS.SageMakerA2IRuntime.DeleteHumanLoop
-import Network.AWS.SageMakerA2IRuntime.DescribeHumanLoop
-import Network.AWS.SageMakerA2IRuntime.ListHumanLoops
-import Network.AWS.SageMakerA2IRuntime.StartHumanLoop
-import Network.AWS.SageMakerA2IRuntime.StopHumanLoop
-import Network.AWS.SageMakerA2IRuntime.Types.HumanLoopDataAttributes
-import Network.AWS.SageMakerA2IRuntime.Types.HumanLoopInput
-import Network.AWS.SageMakerA2IRuntime.Types.HumanLoopOutput
-import Network.AWS.SageMakerA2IRuntime.Types.HumanLoopSummary
+import Amazonka.SageMakerA2IRuntime.DeleteHumanLoop
+import Amazonka.SageMakerA2IRuntime.DescribeHumanLoop
+import Amazonka.SageMakerA2IRuntime.ListHumanLoops
+import Amazonka.SageMakerA2IRuntime.StartHumanLoop
+import Amazonka.SageMakerA2IRuntime.StopHumanLoop
+import Amazonka.SageMakerA2IRuntime.Types.HumanLoopDataAttributes
+import Amazonka.SageMakerA2IRuntime.Types.HumanLoopInput
+import Amazonka.SageMakerA2IRuntime.Types.HumanLoopOutput
+import Amazonka.SageMakerA2IRuntime.Types.HumanLoopSummary

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SageMakerA2IRuntime.DeleteHumanLoop
+-- Module      : Amazonka.SageMakerA2IRuntime.DeleteHumanLoop
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 --
 -- If the human loop was deleted, this operation will return a
 -- @ResourceNotFoundException@.
-module Network.AWS.SageMakerA2IRuntime.DeleteHumanLoop
+module Amazonka.SageMakerA2IRuntime.DeleteHumanLoop
   ( -- * Creating a Request
     DeleteHumanLoop (..),
     newDeleteHumanLoop,
@@ -41,12 +41,12 @@ module Network.AWS.SageMakerA2IRuntime.DeleteHumanLoop
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.SageMakerA2IRuntime.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.SageMakerA2IRuntime.Types
 
 -- | /See:/ 'newDeleteHumanLoop' smart constructor.
 data DeleteHumanLoop = DeleteHumanLoop'

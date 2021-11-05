@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.SageMakerA2IRuntime
+-- Module      : Amazonka.SageMakerA2IRuntime
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -46,7 +46,7 @@
 -- these APIs, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-api-references.html Use APIs in Amazon A2I>
 -- in the Amazon SageMaker Developer Guide.
-module Network.AWS.SageMakerA2IRuntime
+module Amazonka.SageMakerA2IRuntime
   ( -- * Service Configuration
     defaultService,
 
@@ -136,14 +136,14 @@ module Network.AWS.SageMakerA2IRuntime
   )
 where
 
-import Network.AWS.SageMakerA2IRuntime.DeleteHumanLoop
-import Network.AWS.SageMakerA2IRuntime.DescribeHumanLoop
-import Network.AWS.SageMakerA2IRuntime.Lens
-import Network.AWS.SageMakerA2IRuntime.ListHumanLoops
-import Network.AWS.SageMakerA2IRuntime.StartHumanLoop
-import Network.AWS.SageMakerA2IRuntime.StopHumanLoop
-import Network.AWS.SageMakerA2IRuntime.Types
-import Network.AWS.SageMakerA2IRuntime.Waiters
+import Amazonka.SageMakerA2IRuntime.DeleteHumanLoop
+import Amazonka.SageMakerA2IRuntime.DescribeHumanLoop
+import Amazonka.SageMakerA2IRuntime.Lens
+import Amazonka.SageMakerA2IRuntime.ListHumanLoops
+import Amazonka.SageMakerA2IRuntime.StartHumanLoop
+import Amazonka.SageMakerA2IRuntime.StopHumanLoop
+import Amazonka.SageMakerA2IRuntime.Types
+import Amazonka.SageMakerA2IRuntime.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

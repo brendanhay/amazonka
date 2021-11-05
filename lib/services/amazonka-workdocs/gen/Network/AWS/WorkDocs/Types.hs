@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.WorkDocs.Types
+-- Module      : Amazonka.WorkDocs.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkDocs.Types
+module Amazonka.WorkDocs.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -325,58 +325,58 @@ module Network.AWS.WorkDocs.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
-import Network.AWS.WorkDocs.Types.Activity
-import Network.AWS.WorkDocs.Types.ActivityType
-import Network.AWS.WorkDocs.Types.BooleanEnumType
-import Network.AWS.WorkDocs.Types.Comment
-import Network.AWS.WorkDocs.Types.CommentMetadata
-import Network.AWS.WorkDocs.Types.CommentStatusType
-import Network.AWS.WorkDocs.Types.CommentVisibilityType
-import Network.AWS.WorkDocs.Types.DocumentMetadata
-import Network.AWS.WorkDocs.Types.DocumentSourceType
-import Network.AWS.WorkDocs.Types.DocumentStatusType
-import Network.AWS.WorkDocs.Types.DocumentThumbnailType
-import Network.AWS.WorkDocs.Types.DocumentVersionMetadata
-import Network.AWS.WorkDocs.Types.DocumentVersionStatus
-import Network.AWS.WorkDocs.Types.FolderContentType
-import Network.AWS.WorkDocs.Types.FolderMetadata
-import Network.AWS.WorkDocs.Types.GroupMetadata
-import Network.AWS.WorkDocs.Types.LocaleType
-import Network.AWS.WorkDocs.Types.NotificationOptions
-import Network.AWS.WorkDocs.Types.OrderType
-import Network.AWS.WorkDocs.Types.Participants
-import Network.AWS.WorkDocs.Types.PermissionInfo
-import Network.AWS.WorkDocs.Types.Principal
-import Network.AWS.WorkDocs.Types.PrincipalType
-import Network.AWS.WorkDocs.Types.ResourceCollectionType
-import Network.AWS.WorkDocs.Types.ResourceMetadata
-import Network.AWS.WorkDocs.Types.ResourcePath
-import Network.AWS.WorkDocs.Types.ResourcePathComponent
-import Network.AWS.WorkDocs.Types.ResourceSortType
-import Network.AWS.WorkDocs.Types.ResourceStateType
-import Network.AWS.WorkDocs.Types.ResourceType
-import Network.AWS.WorkDocs.Types.RolePermissionType
-import Network.AWS.WorkDocs.Types.RoleType
-import Network.AWS.WorkDocs.Types.SharePrincipal
-import Network.AWS.WorkDocs.Types.ShareResult
-import Network.AWS.WorkDocs.Types.ShareStatusType
-import Network.AWS.WorkDocs.Types.StorageRuleType
-import Network.AWS.WorkDocs.Types.StorageType
-import Network.AWS.WorkDocs.Types.Subscription
-import Network.AWS.WorkDocs.Types.SubscriptionProtocolType
-import Network.AWS.WorkDocs.Types.SubscriptionType
-import Network.AWS.WorkDocs.Types.UploadMetadata
-import Network.AWS.WorkDocs.Types.User
-import Network.AWS.WorkDocs.Types.UserFilterType
-import Network.AWS.WorkDocs.Types.UserMetadata
-import Network.AWS.WorkDocs.Types.UserSortType
-import Network.AWS.WorkDocs.Types.UserStatusType
-import Network.AWS.WorkDocs.Types.UserStorageMetadata
-import Network.AWS.WorkDocs.Types.UserType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
+import Amazonka.WorkDocs.Types.Activity
+import Amazonka.WorkDocs.Types.ActivityType
+import Amazonka.WorkDocs.Types.BooleanEnumType
+import Amazonka.WorkDocs.Types.Comment
+import Amazonka.WorkDocs.Types.CommentMetadata
+import Amazonka.WorkDocs.Types.CommentStatusType
+import Amazonka.WorkDocs.Types.CommentVisibilityType
+import Amazonka.WorkDocs.Types.DocumentMetadata
+import Amazonka.WorkDocs.Types.DocumentSourceType
+import Amazonka.WorkDocs.Types.DocumentStatusType
+import Amazonka.WorkDocs.Types.DocumentThumbnailType
+import Amazonka.WorkDocs.Types.DocumentVersionMetadata
+import Amazonka.WorkDocs.Types.DocumentVersionStatus
+import Amazonka.WorkDocs.Types.FolderContentType
+import Amazonka.WorkDocs.Types.FolderMetadata
+import Amazonka.WorkDocs.Types.GroupMetadata
+import Amazonka.WorkDocs.Types.LocaleType
+import Amazonka.WorkDocs.Types.NotificationOptions
+import Amazonka.WorkDocs.Types.OrderType
+import Amazonka.WorkDocs.Types.Participants
+import Amazonka.WorkDocs.Types.PermissionInfo
+import Amazonka.WorkDocs.Types.Principal
+import Amazonka.WorkDocs.Types.PrincipalType
+import Amazonka.WorkDocs.Types.ResourceCollectionType
+import Amazonka.WorkDocs.Types.ResourceMetadata
+import Amazonka.WorkDocs.Types.ResourcePath
+import Amazonka.WorkDocs.Types.ResourcePathComponent
+import Amazonka.WorkDocs.Types.ResourceSortType
+import Amazonka.WorkDocs.Types.ResourceStateType
+import Amazonka.WorkDocs.Types.ResourceType
+import Amazonka.WorkDocs.Types.RolePermissionType
+import Amazonka.WorkDocs.Types.RoleType
+import Amazonka.WorkDocs.Types.SharePrincipal
+import Amazonka.WorkDocs.Types.ShareResult
+import Amazonka.WorkDocs.Types.ShareStatusType
+import Amazonka.WorkDocs.Types.StorageRuleType
+import Amazonka.WorkDocs.Types.StorageType
+import Amazonka.WorkDocs.Types.Subscription
+import Amazonka.WorkDocs.Types.SubscriptionProtocolType
+import Amazonka.WorkDocs.Types.SubscriptionType
+import Amazonka.WorkDocs.Types.UploadMetadata
+import Amazonka.WorkDocs.Types.User
+import Amazonka.WorkDocs.Types.UserFilterType
+import Amazonka.WorkDocs.Types.UserMetadata
+import Amazonka.WorkDocs.Types.UserSortType
+import Amazonka.WorkDocs.Types.UserStatusType
+import Amazonka.WorkDocs.Types.UserStorageMetadata
+import Amazonka.WorkDocs.Types.UserType
 
 -- | API version @2016-05-01@ of the Amazon WorkDocs SDK configuration.
 defaultService :: Core.Service

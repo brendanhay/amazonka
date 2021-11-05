@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.WorkDocs.DeactivateUser
+-- Module      : Amazonka.WorkDocs.DeactivateUser
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Deactivates the specified user, which revokes the user\'s access to
 -- Amazon WorkDocs.
-module Network.AWS.WorkDocs.DeactivateUser
+module Amazonka.WorkDocs.DeactivateUser
   ( -- * Creating a Request
     DeactivateUser (..),
     newDeactivateUser,
@@ -37,12 +37,12 @@ module Network.AWS.WorkDocs.DeactivateUser
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.WorkDocs.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newDeactivateUser' smart constructor.
 data DeactivateUser = DeactivateUser'

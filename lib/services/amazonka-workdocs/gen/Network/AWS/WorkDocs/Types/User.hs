@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.WorkDocs.Types.User
+-- Module      : Amazonka.WorkDocs.Types.User
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkDocs.Types.User where
+module Amazonka.WorkDocs.Types.User where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.WorkDocs.Types.LocaleType
-import Network.AWS.WorkDocs.Types.UserStatusType
-import Network.AWS.WorkDocs.Types.UserStorageMetadata
-import Network.AWS.WorkDocs.Types.UserType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.WorkDocs.Types.LocaleType
+import Amazonka.WorkDocs.Types.UserStatusType
+import Amazonka.WorkDocs.Types.UserStorageMetadata
+import Amazonka.WorkDocs.Types.UserType
 
 -- | Describes a user.
 --

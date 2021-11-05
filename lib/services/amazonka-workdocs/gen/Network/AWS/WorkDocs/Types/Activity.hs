@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.WorkDocs.Types.Activity
+-- Module      : Amazonka.WorkDocs.Types.Activity
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkDocs.Types.Activity where
+module Amazonka.WorkDocs.Types.Activity where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.WorkDocs.Types.ActivityType
-import Network.AWS.WorkDocs.Types.CommentMetadata
-import Network.AWS.WorkDocs.Types.Participants
-import Network.AWS.WorkDocs.Types.ResourceMetadata
-import Network.AWS.WorkDocs.Types.UserMetadata
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.WorkDocs.Types.ActivityType
+import Amazonka.WorkDocs.Types.CommentMetadata
+import Amazonka.WorkDocs.Types.Participants
+import Amazonka.WorkDocs.Types.ResourceMetadata
+import Amazonka.WorkDocs.Types.UserMetadata
 
 -- | Describes the activity information.
 --

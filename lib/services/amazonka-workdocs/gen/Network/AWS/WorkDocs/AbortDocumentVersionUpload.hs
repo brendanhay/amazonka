@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.WorkDocs.AbortDocumentVersionUpload
+-- Module      : Amazonka.WorkDocs.AbortDocumentVersionUpload
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- initiated by InitiateDocumentVersionUpload. The client should make this
 -- call only when it no longer intends to upload the document version, or
 -- fails to do so.
-module Network.AWS.WorkDocs.AbortDocumentVersionUpload
+module Amazonka.WorkDocs.AbortDocumentVersionUpload
   ( -- * Creating a Request
     AbortDocumentVersionUpload (..),
     newAbortDocumentVersionUpload,
@@ -40,12 +40,12 @@ module Network.AWS.WorkDocs.AbortDocumentVersionUpload
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.WorkDocs.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newAbortDocumentVersionUpload' smart constructor.
 data AbortDocumentVersionUpload = AbortDocumentVersionUpload'

@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.WorkDocs where
 
+import Amazonka.WorkDocs
 import qualified Data.Proxy as Proxy
-import Network.AWS.WorkDocs
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.AWS.WorkDocs.Internal

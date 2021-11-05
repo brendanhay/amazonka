@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.WorkDocs
+-- Module      : Amazonka.WorkDocs
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -44,7 +44,7 @@
 -- to any user. This allows developers to perform the three use cases
 -- above, as well as give users the ability to grant access on a selective
 -- basis using the IAM model.
-module Network.AWS.WorkDocs
+module Amazonka.WorkDocs
   ( -- * Service Configuration
     defaultService,
 
@@ -548,50 +548,50 @@ module Network.AWS.WorkDocs
   )
 where
 
-import Network.AWS.WorkDocs.AbortDocumentVersionUpload
-import Network.AWS.WorkDocs.ActivateUser
-import Network.AWS.WorkDocs.AddResourcePermissions
-import Network.AWS.WorkDocs.CreateComment
-import Network.AWS.WorkDocs.CreateCustomMetadata
-import Network.AWS.WorkDocs.CreateFolder
-import Network.AWS.WorkDocs.CreateLabels
-import Network.AWS.WorkDocs.CreateNotificationSubscription
-import Network.AWS.WorkDocs.CreateUser
-import Network.AWS.WorkDocs.DeactivateUser
-import Network.AWS.WorkDocs.DeleteComment
-import Network.AWS.WorkDocs.DeleteCustomMetadata
-import Network.AWS.WorkDocs.DeleteDocument
-import Network.AWS.WorkDocs.DeleteFolder
-import Network.AWS.WorkDocs.DeleteFolderContents
-import Network.AWS.WorkDocs.DeleteLabels
-import Network.AWS.WorkDocs.DeleteNotificationSubscription
-import Network.AWS.WorkDocs.DeleteUser
-import Network.AWS.WorkDocs.DescribeActivities
-import Network.AWS.WorkDocs.DescribeComments
-import Network.AWS.WorkDocs.DescribeDocumentVersions
-import Network.AWS.WorkDocs.DescribeFolderContents
-import Network.AWS.WorkDocs.DescribeGroups
-import Network.AWS.WorkDocs.DescribeNotificationSubscriptions
-import Network.AWS.WorkDocs.DescribeResourcePermissions
-import Network.AWS.WorkDocs.DescribeRootFolders
-import Network.AWS.WorkDocs.DescribeUsers
-import Network.AWS.WorkDocs.GetCurrentUser
-import Network.AWS.WorkDocs.GetDocument
-import Network.AWS.WorkDocs.GetDocumentPath
-import Network.AWS.WorkDocs.GetDocumentVersion
-import Network.AWS.WorkDocs.GetFolder
-import Network.AWS.WorkDocs.GetFolderPath
-import Network.AWS.WorkDocs.GetResources
-import Network.AWS.WorkDocs.InitiateDocumentVersionUpload
-import Network.AWS.WorkDocs.Lens
-import Network.AWS.WorkDocs.RemoveAllResourcePermissions
-import Network.AWS.WorkDocs.RemoveResourcePermission
-import Network.AWS.WorkDocs.Types
-import Network.AWS.WorkDocs.UpdateDocument
-import Network.AWS.WorkDocs.UpdateDocumentVersion
-import Network.AWS.WorkDocs.UpdateFolder
-import Network.AWS.WorkDocs.UpdateUser
-import Network.AWS.WorkDocs.Waiters
+import Amazonka.WorkDocs.AbortDocumentVersionUpload
+import Amazonka.WorkDocs.ActivateUser
+import Amazonka.WorkDocs.AddResourcePermissions
+import Amazonka.WorkDocs.CreateComment
+import Amazonka.WorkDocs.CreateCustomMetadata
+import Amazonka.WorkDocs.CreateFolder
+import Amazonka.WorkDocs.CreateLabels
+import Amazonka.WorkDocs.CreateNotificationSubscription
+import Amazonka.WorkDocs.CreateUser
+import Amazonka.WorkDocs.DeactivateUser
+import Amazonka.WorkDocs.DeleteComment
+import Amazonka.WorkDocs.DeleteCustomMetadata
+import Amazonka.WorkDocs.DeleteDocument
+import Amazonka.WorkDocs.DeleteFolder
+import Amazonka.WorkDocs.DeleteFolderContents
+import Amazonka.WorkDocs.DeleteLabels
+import Amazonka.WorkDocs.DeleteNotificationSubscription
+import Amazonka.WorkDocs.DeleteUser
+import Amazonka.WorkDocs.DescribeActivities
+import Amazonka.WorkDocs.DescribeComments
+import Amazonka.WorkDocs.DescribeDocumentVersions
+import Amazonka.WorkDocs.DescribeFolderContents
+import Amazonka.WorkDocs.DescribeGroups
+import Amazonka.WorkDocs.DescribeNotificationSubscriptions
+import Amazonka.WorkDocs.DescribeResourcePermissions
+import Amazonka.WorkDocs.DescribeRootFolders
+import Amazonka.WorkDocs.DescribeUsers
+import Amazonka.WorkDocs.GetCurrentUser
+import Amazonka.WorkDocs.GetDocument
+import Amazonka.WorkDocs.GetDocumentPath
+import Amazonka.WorkDocs.GetDocumentVersion
+import Amazonka.WorkDocs.GetFolder
+import Amazonka.WorkDocs.GetFolderPath
+import Amazonka.WorkDocs.GetResources
+import Amazonka.WorkDocs.InitiateDocumentVersionUpload
+import Amazonka.WorkDocs.Lens
+import Amazonka.WorkDocs.RemoveAllResourcePermissions
+import Amazonka.WorkDocs.RemoveResourcePermission
+import Amazonka.WorkDocs.Types
+import Amazonka.WorkDocs.UpdateDocument
+import Amazonka.WorkDocs.UpdateDocumentVersion
+import Amazonka.WorkDocs.UpdateFolder
+import Amazonka.WorkDocs.UpdateUser
+import Amazonka.WorkDocs.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MGN.Lens
+-- Module      : Amazonka.MGN.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MGN.Lens
+module Amazonka.MGN.Lens
   ( -- * Operations
 
     -- ** UpdateLaunchConfiguration
@@ -496,62 +496,62 @@ module Network.AWS.MGN.Lens
   )
 where
 
-import Network.AWS.MGN.ChangeServerLifeCycleState
-import Network.AWS.MGN.CreateReplicationConfigurationTemplate
-import Network.AWS.MGN.DeleteJob
-import Network.AWS.MGN.DeleteReplicationConfigurationTemplate
-import Network.AWS.MGN.DeleteSourceServer
-import Network.AWS.MGN.DescribeJobLogItems
-import Network.AWS.MGN.DescribeJobs
-import Network.AWS.MGN.DescribeReplicationConfigurationTemplates
-import Network.AWS.MGN.DescribeSourceServers
-import Network.AWS.MGN.DisconnectFromService
-import Network.AWS.MGN.FinalizeCutover
-import Network.AWS.MGN.GetLaunchConfiguration
-import Network.AWS.MGN.GetReplicationConfiguration
-import Network.AWS.MGN.InitializeService
-import Network.AWS.MGN.ListTagsForResource
-import Network.AWS.MGN.MarkAsArchived
-import Network.AWS.MGN.RetryDataReplication
-import Network.AWS.MGN.StartCutover
-import Network.AWS.MGN.StartTest
-import Network.AWS.MGN.TagResource
-import Network.AWS.MGN.TerminateTargetInstances
-import Network.AWS.MGN.Types.CPU
-import Network.AWS.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycle
-import Network.AWS.MGN.Types.DataReplicationError
-import Network.AWS.MGN.Types.DataReplicationInfo
-import Network.AWS.MGN.Types.DataReplicationInfoReplicatedDisk
-import Network.AWS.MGN.Types.DataReplicationInitiation
-import Network.AWS.MGN.Types.DataReplicationInitiationStep
-import Network.AWS.MGN.Types.DescribeJobsRequestFilters
-import Network.AWS.MGN.Types.DescribeSourceServersRequestFilters
-import Network.AWS.MGN.Types.Disk
-import Network.AWS.MGN.Types.IdentificationHints
-import Network.AWS.MGN.Types.Job
-import Network.AWS.MGN.Types.JobLog
-import Network.AWS.MGN.Types.JobLogEventData
-import Network.AWS.MGN.Types.LaunchConfiguration
-import Network.AWS.MGN.Types.LaunchedInstance
-import Network.AWS.MGN.Types.Licensing
-import Network.AWS.MGN.Types.LifeCycle
-import Network.AWS.MGN.Types.LifeCycleLastCutover
-import Network.AWS.MGN.Types.LifeCycleLastCutoverFinalized
-import Network.AWS.MGN.Types.LifeCycleLastCutoverInitiated
-import Network.AWS.MGN.Types.LifeCycleLastCutoverReverted
-import Network.AWS.MGN.Types.LifeCycleLastTest
-import Network.AWS.MGN.Types.LifeCycleLastTestFinalized
-import Network.AWS.MGN.Types.LifeCycleLastTestInitiated
-import Network.AWS.MGN.Types.LifeCycleLastTestReverted
-import Network.AWS.MGN.Types.NetworkInterface
-import Network.AWS.MGN.Types.OS
-import Network.AWS.MGN.Types.ParticipatingServer
-import Network.AWS.MGN.Types.ReplicationConfiguration
-import Network.AWS.MGN.Types.ReplicationConfigurationReplicatedDisk
-import Network.AWS.MGN.Types.ReplicationConfigurationTemplate
-import Network.AWS.MGN.Types.SourceProperties
-import Network.AWS.MGN.Types.SourceServer
-import Network.AWS.MGN.UntagResource
-import Network.AWS.MGN.UpdateLaunchConfiguration
-import Network.AWS.MGN.UpdateReplicationConfiguration
-import Network.AWS.MGN.UpdateReplicationConfigurationTemplate
+import Amazonka.MGN.ChangeServerLifeCycleState
+import Amazonka.MGN.CreateReplicationConfigurationTemplate
+import Amazonka.MGN.DeleteJob
+import Amazonka.MGN.DeleteReplicationConfigurationTemplate
+import Amazonka.MGN.DeleteSourceServer
+import Amazonka.MGN.DescribeJobLogItems
+import Amazonka.MGN.DescribeJobs
+import Amazonka.MGN.DescribeReplicationConfigurationTemplates
+import Amazonka.MGN.DescribeSourceServers
+import Amazonka.MGN.DisconnectFromService
+import Amazonka.MGN.FinalizeCutover
+import Amazonka.MGN.GetLaunchConfiguration
+import Amazonka.MGN.GetReplicationConfiguration
+import Amazonka.MGN.InitializeService
+import Amazonka.MGN.ListTagsForResource
+import Amazonka.MGN.MarkAsArchived
+import Amazonka.MGN.RetryDataReplication
+import Amazonka.MGN.StartCutover
+import Amazonka.MGN.StartTest
+import Amazonka.MGN.TagResource
+import Amazonka.MGN.TerminateTargetInstances
+import Amazonka.MGN.Types.CPU
+import Amazonka.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycle
+import Amazonka.MGN.Types.DataReplicationError
+import Amazonka.MGN.Types.DataReplicationInfo
+import Amazonka.MGN.Types.DataReplicationInfoReplicatedDisk
+import Amazonka.MGN.Types.DataReplicationInitiation
+import Amazonka.MGN.Types.DataReplicationInitiationStep
+import Amazonka.MGN.Types.DescribeJobsRequestFilters
+import Amazonka.MGN.Types.DescribeSourceServersRequestFilters
+import Amazonka.MGN.Types.Disk
+import Amazonka.MGN.Types.IdentificationHints
+import Amazonka.MGN.Types.Job
+import Amazonka.MGN.Types.JobLog
+import Amazonka.MGN.Types.JobLogEventData
+import Amazonka.MGN.Types.LaunchConfiguration
+import Amazonka.MGN.Types.LaunchedInstance
+import Amazonka.MGN.Types.Licensing
+import Amazonka.MGN.Types.LifeCycle
+import Amazonka.MGN.Types.LifeCycleLastCutover
+import Amazonka.MGN.Types.LifeCycleLastCutoverFinalized
+import Amazonka.MGN.Types.LifeCycleLastCutoverInitiated
+import Amazonka.MGN.Types.LifeCycleLastCutoverReverted
+import Amazonka.MGN.Types.LifeCycleLastTest
+import Amazonka.MGN.Types.LifeCycleLastTestFinalized
+import Amazonka.MGN.Types.LifeCycleLastTestInitiated
+import Amazonka.MGN.Types.LifeCycleLastTestReverted
+import Amazonka.MGN.Types.NetworkInterface
+import Amazonka.MGN.Types.OS
+import Amazonka.MGN.Types.ParticipatingServer
+import Amazonka.MGN.Types.ReplicationConfiguration
+import Amazonka.MGN.Types.ReplicationConfigurationReplicatedDisk
+import Amazonka.MGN.Types.ReplicationConfigurationTemplate
+import Amazonka.MGN.Types.SourceProperties
+import Amazonka.MGN.Types.SourceServer
+import Amazonka.MGN.UntagResource
+import Amazonka.MGN.UpdateLaunchConfiguration
+import Amazonka.MGN.UpdateReplicationConfiguration
+import Amazonka.MGN.UpdateReplicationConfigurationTemplate

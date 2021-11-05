@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MGN.Types.LifeCycleLastCutover
+-- Module      : Amazonka.MGN.Types.LifeCycleLastCutover
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MGN.Types.LifeCycleLastCutover where
+module Amazonka.MGN.Types.LifeCycleLastCutover where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MGN.Types.LifeCycleLastCutoverFinalized
-import Network.AWS.MGN.Types.LifeCycleLastCutoverInitiated
-import Network.AWS.MGN.Types.LifeCycleLastCutoverReverted
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MGN.Types.LifeCycleLastCutoverFinalized
+import Amazonka.MGN.Types.LifeCycleLastCutoverInitiated
+import Amazonka.MGN.Types.LifeCycleLastCutoverReverted
+import qualified Amazonka.Prelude as Prelude
 
 -- | Lifecycle last Cutover .
 --

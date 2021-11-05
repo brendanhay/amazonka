@@ -11,20 +11,20 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MGN.Types.LifeCycleLastTest
+-- Module      : Amazonka.MGN.Types.LifeCycleLastTest
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MGN.Types.LifeCycleLastTest where
+module Amazonka.MGN.Types.LifeCycleLastTest where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MGN.Types.LifeCycleLastTestFinalized
-import Network.AWS.MGN.Types.LifeCycleLastTestInitiated
-import Network.AWS.MGN.Types.LifeCycleLastTestReverted
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MGN.Types.LifeCycleLastTestFinalized
+import Amazonka.MGN.Types.LifeCycleLastTestInitiated
+import Amazonka.MGN.Types.LifeCycleLastTestReverted
+import qualified Amazonka.Prelude as Prelude
 
 -- | Lifecycle last Test.
 --

@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MGN.Types
+-- Module      : Amazonka.MGN.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MGN.Types
+module Amazonka.MGN.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -354,62 +354,62 @@ module Network.AWS.MGN.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MGN.Types.CPU
-import Network.AWS.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycle
-import Network.AWS.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycleState
-import Network.AWS.MGN.Types.DataReplicationError
-import Network.AWS.MGN.Types.DataReplicationErrorString
-import Network.AWS.MGN.Types.DataReplicationInfo
-import Network.AWS.MGN.Types.DataReplicationInfoReplicatedDisk
-import Network.AWS.MGN.Types.DataReplicationInitiation
-import Network.AWS.MGN.Types.DataReplicationInitiationStep
-import Network.AWS.MGN.Types.DataReplicationInitiationStepName
-import Network.AWS.MGN.Types.DataReplicationInitiationStepStatus
-import Network.AWS.MGN.Types.DataReplicationState
-import Network.AWS.MGN.Types.DescribeJobsRequestFilters
-import Network.AWS.MGN.Types.DescribeSourceServersRequestFilters
-import Network.AWS.MGN.Types.Disk
-import Network.AWS.MGN.Types.FirstBoot
-import Network.AWS.MGN.Types.IdentificationHints
-import Network.AWS.MGN.Types.InitiatedBy
-import Network.AWS.MGN.Types.Job
-import Network.AWS.MGN.Types.JobLog
-import Network.AWS.MGN.Types.JobLogEvent
-import Network.AWS.MGN.Types.JobLogEventData
-import Network.AWS.MGN.Types.JobStatus
-import Network.AWS.MGN.Types.JobType
-import Network.AWS.MGN.Types.LaunchConfiguration
-import Network.AWS.MGN.Types.LaunchDisposition
-import Network.AWS.MGN.Types.LaunchStatus
-import Network.AWS.MGN.Types.LaunchedInstance
-import Network.AWS.MGN.Types.Licensing
-import Network.AWS.MGN.Types.LifeCycle
-import Network.AWS.MGN.Types.LifeCycleLastCutover
-import Network.AWS.MGN.Types.LifeCycleLastCutoverFinalized
-import Network.AWS.MGN.Types.LifeCycleLastCutoverInitiated
-import Network.AWS.MGN.Types.LifeCycleLastCutoverReverted
-import Network.AWS.MGN.Types.LifeCycleLastTest
-import Network.AWS.MGN.Types.LifeCycleLastTestFinalized
-import Network.AWS.MGN.Types.LifeCycleLastTestInitiated
-import Network.AWS.MGN.Types.LifeCycleLastTestReverted
-import Network.AWS.MGN.Types.LifeCycleState
-import Network.AWS.MGN.Types.NetworkInterface
-import Network.AWS.MGN.Types.OS
-import Network.AWS.MGN.Types.ParticipatingServer
-import Network.AWS.MGN.Types.ReplicationConfiguration
-import Network.AWS.MGN.Types.ReplicationConfigurationDataPlaneRouting
-import Network.AWS.MGN.Types.ReplicationConfigurationDefaultLargeStagingDiskType
-import Network.AWS.MGN.Types.ReplicationConfigurationEbsEncryption
-import Network.AWS.MGN.Types.ReplicationConfigurationReplicatedDisk
-import Network.AWS.MGN.Types.ReplicationConfigurationReplicatedDiskStagingDiskType
-import Network.AWS.MGN.Types.ReplicationConfigurationTemplate
-import Network.AWS.MGN.Types.SourceProperties
-import Network.AWS.MGN.Types.SourceServer
-import Network.AWS.MGN.Types.TargetInstanceTypeRightSizingMethod
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MGN.Types.CPU
+import Amazonka.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycle
+import Amazonka.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycleState
+import Amazonka.MGN.Types.DataReplicationError
+import Amazonka.MGN.Types.DataReplicationErrorString
+import Amazonka.MGN.Types.DataReplicationInfo
+import Amazonka.MGN.Types.DataReplicationInfoReplicatedDisk
+import Amazonka.MGN.Types.DataReplicationInitiation
+import Amazonka.MGN.Types.DataReplicationInitiationStep
+import Amazonka.MGN.Types.DataReplicationInitiationStepName
+import Amazonka.MGN.Types.DataReplicationInitiationStepStatus
+import Amazonka.MGN.Types.DataReplicationState
+import Amazonka.MGN.Types.DescribeJobsRequestFilters
+import Amazonka.MGN.Types.DescribeSourceServersRequestFilters
+import Amazonka.MGN.Types.Disk
+import Amazonka.MGN.Types.FirstBoot
+import Amazonka.MGN.Types.IdentificationHints
+import Amazonka.MGN.Types.InitiatedBy
+import Amazonka.MGN.Types.Job
+import Amazonka.MGN.Types.JobLog
+import Amazonka.MGN.Types.JobLogEvent
+import Amazonka.MGN.Types.JobLogEventData
+import Amazonka.MGN.Types.JobStatus
+import Amazonka.MGN.Types.JobType
+import Amazonka.MGN.Types.LaunchConfiguration
+import Amazonka.MGN.Types.LaunchDisposition
+import Amazonka.MGN.Types.LaunchStatus
+import Amazonka.MGN.Types.LaunchedInstance
+import Amazonka.MGN.Types.Licensing
+import Amazonka.MGN.Types.LifeCycle
+import Amazonka.MGN.Types.LifeCycleLastCutover
+import Amazonka.MGN.Types.LifeCycleLastCutoverFinalized
+import Amazonka.MGN.Types.LifeCycleLastCutoverInitiated
+import Amazonka.MGN.Types.LifeCycleLastCutoverReverted
+import Amazonka.MGN.Types.LifeCycleLastTest
+import Amazonka.MGN.Types.LifeCycleLastTestFinalized
+import Amazonka.MGN.Types.LifeCycleLastTestInitiated
+import Amazonka.MGN.Types.LifeCycleLastTestReverted
+import Amazonka.MGN.Types.LifeCycleState
+import Amazonka.MGN.Types.NetworkInterface
+import Amazonka.MGN.Types.OS
+import Amazonka.MGN.Types.ParticipatingServer
+import Amazonka.MGN.Types.ReplicationConfiguration
+import Amazonka.MGN.Types.ReplicationConfigurationDataPlaneRouting
+import Amazonka.MGN.Types.ReplicationConfigurationDefaultLargeStagingDiskType
+import Amazonka.MGN.Types.ReplicationConfigurationEbsEncryption
+import Amazonka.MGN.Types.ReplicationConfigurationReplicatedDisk
+import Amazonka.MGN.Types.ReplicationConfigurationReplicatedDiskStagingDiskType
+import Amazonka.MGN.Types.ReplicationConfigurationTemplate
+import Amazonka.MGN.Types.SourceProperties
+import Amazonka.MGN.Types.SourceServer
+import Amazonka.MGN.Types.TargetInstanceTypeRightSizingMethod
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2020-02-26@ of the Amazon Application Migration Service SDK configuration.
 defaultService :: Core.Service

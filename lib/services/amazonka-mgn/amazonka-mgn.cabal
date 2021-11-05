@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.MGN.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.MGN.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.MGN" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.MGN" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,89 +45,89 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.MGN
-    Network.AWS.MGN.ChangeServerLifeCycleState
-    Network.AWS.MGN.CreateReplicationConfigurationTemplate
-    Network.AWS.MGN.DeleteJob
-    Network.AWS.MGN.DeleteReplicationConfigurationTemplate
-    Network.AWS.MGN.DeleteSourceServer
-    Network.AWS.MGN.DescribeJobLogItems
-    Network.AWS.MGN.DescribeJobs
-    Network.AWS.MGN.DescribeReplicationConfigurationTemplates
-    Network.AWS.MGN.DescribeSourceServers
-    Network.AWS.MGN.DisconnectFromService
-    Network.AWS.MGN.FinalizeCutover
-    Network.AWS.MGN.GetLaunchConfiguration
-    Network.AWS.MGN.GetReplicationConfiguration
-    Network.AWS.MGN.InitializeService
-    Network.AWS.MGN.Lens
-    Network.AWS.MGN.ListTagsForResource
-    Network.AWS.MGN.MarkAsArchived
-    Network.AWS.MGN.RetryDataReplication
-    Network.AWS.MGN.StartCutover
-    Network.AWS.MGN.StartTest
-    Network.AWS.MGN.TagResource
-    Network.AWS.MGN.TerminateTargetInstances
-    Network.AWS.MGN.Types
-    Network.AWS.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycle
-    Network.AWS.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycleState
-    Network.AWS.MGN.Types.CPU
-    Network.AWS.MGN.Types.DataReplicationError
-    Network.AWS.MGN.Types.DataReplicationErrorString
-    Network.AWS.MGN.Types.DataReplicationInfo
-    Network.AWS.MGN.Types.DataReplicationInfoReplicatedDisk
-    Network.AWS.MGN.Types.DataReplicationInitiation
-    Network.AWS.MGN.Types.DataReplicationInitiationStep
-    Network.AWS.MGN.Types.DataReplicationInitiationStepName
-    Network.AWS.MGN.Types.DataReplicationInitiationStepStatus
-    Network.AWS.MGN.Types.DataReplicationState
-    Network.AWS.MGN.Types.DescribeJobsRequestFilters
-    Network.AWS.MGN.Types.DescribeSourceServersRequestFilters
-    Network.AWS.MGN.Types.Disk
-    Network.AWS.MGN.Types.FirstBoot
-    Network.AWS.MGN.Types.IdentificationHints
-    Network.AWS.MGN.Types.InitiatedBy
-    Network.AWS.MGN.Types.Job
-    Network.AWS.MGN.Types.JobLog
-    Network.AWS.MGN.Types.JobLogEvent
-    Network.AWS.MGN.Types.JobLogEventData
-    Network.AWS.MGN.Types.JobStatus
-    Network.AWS.MGN.Types.JobType
-    Network.AWS.MGN.Types.LaunchConfiguration
-    Network.AWS.MGN.Types.LaunchDisposition
-    Network.AWS.MGN.Types.LaunchedInstance
-    Network.AWS.MGN.Types.LaunchStatus
-    Network.AWS.MGN.Types.Licensing
-    Network.AWS.MGN.Types.LifeCycle
-    Network.AWS.MGN.Types.LifeCycleLastCutover
-    Network.AWS.MGN.Types.LifeCycleLastCutoverFinalized
-    Network.AWS.MGN.Types.LifeCycleLastCutoverInitiated
-    Network.AWS.MGN.Types.LifeCycleLastCutoverReverted
-    Network.AWS.MGN.Types.LifeCycleLastTest
-    Network.AWS.MGN.Types.LifeCycleLastTestFinalized
-    Network.AWS.MGN.Types.LifeCycleLastTestInitiated
-    Network.AWS.MGN.Types.LifeCycleLastTestReverted
-    Network.AWS.MGN.Types.LifeCycleState
-    Network.AWS.MGN.Types.NetworkInterface
-    Network.AWS.MGN.Types.OS
-    Network.AWS.MGN.Types.ParticipatingServer
-    Network.AWS.MGN.Types.ReplicationConfiguration
-    Network.AWS.MGN.Types.ReplicationConfigurationDataPlaneRouting
-    Network.AWS.MGN.Types.ReplicationConfigurationDefaultLargeStagingDiskType
-    Network.AWS.MGN.Types.ReplicationConfigurationEbsEncryption
-    Network.AWS.MGN.Types.ReplicationConfigurationReplicatedDisk
-    Network.AWS.MGN.Types.ReplicationConfigurationReplicatedDiskStagingDiskType
-    Network.AWS.MGN.Types.ReplicationConfigurationTemplate
-    Network.AWS.MGN.Types.SourceProperties
-    Network.AWS.MGN.Types.SourceServer
-    Network.AWS.MGN.Types.TargetInstanceTypeRightSizingMethod
-    Network.AWS.MGN.UntagResource
-    Network.AWS.MGN.UpdateLaunchConfiguration
-    Network.AWS.MGN.UpdateReplicationConfiguration
-    Network.AWS.MGN.UpdateReplicationConfigurationTemplate
-    Network.AWS.MGN.Waiters
+    Amazonka.MGN
+    Amazonka.MGN.ChangeServerLifeCycleState
+    Amazonka.MGN.CreateReplicationConfigurationTemplate
+    Amazonka.MGN.DeleteJob
+    Amazonka.MGN.DeleteReplicationConfigurationTemplate
+    Amazonka.MGN.DeleteSourceServer
+    Amazonka.MGN.DescribeJobLogItems
+    Amazonka.MGN.DescribeJobs
+    Amazonka.MGN.DescribeReplicationConfigurationTemplates
+    Amazonka.MGN.DescribeSourceServers
+    Amazonka.MGN.DisconnectFromService
+    Amazonka.MGN.FinalizeCutover
+    Amazonka.MGN.GetLaunchConfiguration
+    Amazonka.MGN.GetReplicationConfiguration
+    Amazonka.MGN.InitializeService
+    Amazonka.MGN.Lens
+    Amazonka.MGN.ListTagsForResource
+    Amazonka.MGN.MarkAsArchived
+    Amazonka.MGN.RetryDataReplication
+    Amazonka.MGN.StartCutover
+    Amazonka.MGN.StartTest
+    Amazonka.MGN.TagResource
+    Amazonka.MGN.TerminateTargetInstances
+    Amazonka.MGN.Types
+    Amazonka.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycle
+    Amazonka.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycleState
+    Amazonka.MGN.Types.CPU
+    Amazonka.MGN.Types.DataReplicationError
+    Amazonka.MGN.Types.DataReplicationErrorString
+    Amazonka.MGN.Types.DataReplicationInfo
+    Amazonka.MGN.Types.DataReplicationInfoReplicatedDisk
+    Amazonka.MGN.Types.DataReplicationInitiation
+    Amazonka.MGN.Types.DataReplicationInitiationStep
+    Amazonka.MGN.Types.DataReplicationInitiationStepName
+    Amazonka.MGN.Types.DataReplicationInitiationStepStatus
+    Amazonka.MGN.Types.DataReplicationState
+    Amazonka.MGN.Types.DescribeJobsRequestFilters
+    Amazonka.MGN.Types.DescribeSourceServersRequestFilters
+    Amazonka.MGN.Types.Disk
+    Amazonka.MGN.Types.FirstBoot
+    Amazonka.MGN.Types.IdentificationHints
+    Amazonka.MGN.Types.InitiatedBy
+    Amazonka.MGN.Types.Job
+    Amazonka.MGN.Types.JobLog
+    Amazonka.MGN.Types.JobLogEvent
+    Amazonka.MGN.Types.JobLogEventData
+    Amazonka.MGN.Types.JobStatus
+    Amazonka.MGN.Types.JobType
+    Amazonka.MGN.Types.LaunchConfiguration
+    Amazonka.MGN.Types.LaunchDisposition
+    Amazonka.MGN.Types.LaunchedInstance
+    Amazonka.MGN.Types.LaunchStatus
+    Amazonka.MGN.Types.Licensing
+    Amazonka.MGN.Types.LifeCycle
+    Amazonka.MGN.Types.LifeCycleLastCutover
+    Amazonka.MGN.Types.LifeCycleLastCutoverFinalized
+    Amazonka.MGN.Types.LifeCycleLastCutoverInitiated
+    Amazonka.MGN.Types.LifeCycleLastCutoverReverted
+    Amazonka.MGN.Types.LifeCycleLastTest
+    Amazonka.MGN.Types.LifeCycleLastTestFinalized
+    Amazonka.MGN.Types.LifeCycleLastTestInitiated
+    Amazonka.MGN.Types.LifeCycleLastTestReverted
+    Amazonka.MGN.Types.LifeCycleState
+    Amazonka.MGN.Types.NetworkInterface
+    Amazonka.MGN.Types.OS
+    Amazonka.MGN.Types.ParticipatingServer
+    Amazonka.MGN.Types.ReplicationConfiguration
+    Amazonka.MGN.Types.ReplicationConfigurationDataPlaneRouting
+    Amazonka.MGN.Types.ReplicationConfigurationDefaultLargeStagingDiskType
+    Amazonka.MGN.Types.ReplicationConfigurationEbsEncryption
+    Amazonka.MGN.Types.ReplicationConfigurationReplicatedDisk
+    Amazonka.MGN.Types.ReplicationConfigurationReplicatedDiskStagingDiskType
+    Amazonka.MGN.Types.ReplicationConfigurationTemplate
+    Amazonka.MGN.Types.SourceProperties
+    Amazonka.MGN.Types.SourceServer
+    Amazonka.MGN.Types.TargetInstanceTypeRightSizingMethod
+    Amazonka.MGN.UntagResource
+    Amazonka.MGN.UpdateLaunchConfiguration
+    Amazonka.MGN.UpdateReplicationConfiguration
+    Amazonka.MGN.UpdateReplicationConfigurationTemplate
+    Amazonka.MGN.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

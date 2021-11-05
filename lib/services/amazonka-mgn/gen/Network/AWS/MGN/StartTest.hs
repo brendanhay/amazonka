@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MGN.StartTest
+-- Module      : Amazonka.MGN.StartTest
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Lauches a Test Instance for specific Source Servers. This command starts
 -- a LAUNCH job whose initiatedBy property is StartTest and changes the
 -- SourceServer.lifeCycle.state property to TESTING.
-module Network.AWS.MGN.StartTest
+module Amazonka.MGN.StartTest
   ( -- * Creating a Request
     StartTest (..),
     newStartTest,
@@ -42,12 +42,12 @@ module Network.AWS.MGN.StartTest
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MGN.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MGN.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartTest' smart constructor.
 data StartTest = StartTest'

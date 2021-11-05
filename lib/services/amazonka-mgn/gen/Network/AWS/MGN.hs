@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.MGN
+-- Module      : Amazonka.MGN
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -12,7 +12,7 @@
 -- Derived from API version @2020-02-26@ of the AWS service descriptions, licensed under Apache 2.0.
 --
 -- The Application Migration Service service.
-module Network.AWS.MGN
+module Amazonka.MGN
   ( -- * Service Configuration
     defaultService,
 
@@ -390,34 +390,34 @@ module Network.AWS.MGN
   )
 where
 
-import Network.AWS.MGN.ChangeServerLifeCycleState
-import Network.AWS.MGN.CreateReplicationConfigurationTemplate
-import Network.AWS.MGN.DeleteJob
-import Network.AWS.MGN.DeleteReplicationConfigurationTemplate
-import Network.AWS.MGN.DeleteSourceServer
-import Network.AWS.MGN.DescribeJobLogItems
-import Network.AWS.MGN.DescribeJobs
-import Network.AWS.MGN.DescribeReplicationConfigurationTemplates
-import Network.AWS.MGN.DescribeSourceServers
-import Network.AWS.MGN.DisconnectFromService
-import Network.AWS.MGN.FinalizeCutover
-import Network.AWS.MGN.GetLaunchConfiguration
-import Network.AWS.MGN.GetReplicationConfiguration
-import Network.AWS.MGN.InitializeService
-import Network.AWS.MGN.Lens
-import Network.AWS.MGN.ListTagsForResource
-import Network.AWS.MGN.MarkAsArchived
-import Network.AWS.MGN.RetryDataReplication
-import Network.AWS.MGN.StartCutover
-import Network.AWS.MGN.StartTest
-import Network.AWS.MGN.TagResource
-import Network.AWS.MGN.TerminateTargetInstances
-import Network.AWS.MGN.Types
-import Network.AWS.MGN.UntagResource
-import Network.AWS.MGN.UpdateLaunchConfiguration
-import Network.AWS.MGN.UpdateReplicationConfiguration
-import Network.AWS.MGN.UpdateReplicationConfigurationTemplate
-import Network.AWS.MGN.Waiters
+import Amazonka.MGN.ChangeServerLifeCycleState
+import Amazonka.MGN.CreateReplicationConfigurationTemplate
+import Amazonka.MGN.DeleteJob
+import Amazonka.MGN.DeleteReplicationConfigurationTemplate
+import Amazonka.MGN.DeleteSourceServer
+import Amazonka.MGN.DescribeJobLogItems
+import Amazonka.MGN.DescribeJobs
+import Amazonka.MGN.DescribeReplicationConfigurationTemplates
+import Amazonka.MGN.DescribeSourceServers
+import Amazonka.MGN.DisconnectFromService
+import Amazonka.MGN.FinalizeCutover
+import Amazonka.MGN.GetLaunchConfiguration
+import Amazonka.MGN.GetReplicationConfiguration
+import Amazonka.MGN.InitializeService
+import Amazonka.MGN.Lens
+import Amazonka.MGN.ListTagsForResource
+import Amazonka.MGN.MarkAsArchived
+import Amazonka.MGN.RetryDataReplication
+import Amazonka.MGN.StartCutover
+import Amazonka.MGN.StartTest
+import Amazonka.MGN.TagResource
+import Amazonka.MGN.TerminateTargetInstances
+import Amazonka.MGN.Types
+import Amazonka.MGN.UntagResource
+import Amazonka.MGN.UpdateLaunchConfiguration
+import Amazonka.MGN.UpdateReplicationConfiguration
+import Amazonka.MGN.UpdateReplicationConfigurationTemplate
+import Amazonka.MGN.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

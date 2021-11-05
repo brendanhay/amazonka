@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MGN.Types.SourceServer
+-- Module      : Amazonka.MGN.Types.SourceServer
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MGN.Types.SourceServer where
+module Amazonka.MGN.Types.SourceServer where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MGN.Types.DataReplicationInfo
-import Network.AWS.MGN.Types.LaunchedInstance
-import Network.AWS.MGN.Types.LifeCycle
-import Network.AWS.MGN.Types.SourceProperties
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MGN.Types.DataReplicationInfo
+import Amazonka.MGN.Types.LaunchedInstance
+import Amazonka.MGN.Types.LifeCycle
+import Amazonka.MGN.Types.SourceProperties
+import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newSourceServer' smart constructor.
 data SourceServer = SourceServer'

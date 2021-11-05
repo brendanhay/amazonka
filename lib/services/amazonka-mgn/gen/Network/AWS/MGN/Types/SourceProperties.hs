@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MGN.Types.SourceProperties
+-- Module      : Amazonka.MGN.Types.SourceProperties
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MGN.Types.SourceProperties where
+module Amazonka.MGN.Types.SourceProperties where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MGN.Types.CPU
-import Network.AWS.MGN.Types.Disk
-import Network.AWS.MGN.Types.IdentificationHints
-import Network.AWS.MGN.Types.NetworkInterface
-import Network.AWS.MGN.Types.OS
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MGN.Types.CPU
+import Amazonka.MGN.Types.Disk
+import Amazonka.MGN.Types.IdentificationHints
+import Amazonka.MGN.Types.NetworkInterface
+import Amazonka.MGN.Types.OS
+import qualified Amazonka.Prelude as Prelude
 
 -- | Source server properties.
 --

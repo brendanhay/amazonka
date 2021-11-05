@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MGN.Types.DataReplicationInfo
+-- Module      : Amazonka.MGN.Types.DataReplicationInfo
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MGN.Types.DataReplicationInfo where
+module Amazonka.MGN.Types.DataReplicationInfo where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.MGN.Types.DataReplicationError
-import Network.AWS.MGN.Types.DataReplicationInfoReplicatedDisk
-import Network.AWS.MGN.Types.DataReplicationInitiation
-import Network.AWS.MGN.Types.DataReplicationState
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MGN.Types.DataReplicationError
+import Amazonka.MGN.Types.DataReplicationInfoReplicatedDisk
+import Amazonka.MGN.Types.DataReplicationInitiation
+import Amazonka.MGN.Types.DataReplicationState
+import qualified Amazonka.Prelude as Prelude
 
 -- | Request data replication info.
 --

@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.DevOpsGuru
+-- Module      : Amazonka.DevOpsGuru
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -30,7 +30,7 @@
 -- <https://docs.aws.amazon.com/devops-guru/latest/userguide/welcome.html#how-it-works How DevOps Guru works>.
 -- To learn about DevOps Guru concepts, see
 -- <https://docs.aws.amazon.com/devops-guru/latest/userguide/concepts.html Concepts in DevOps Guru>.
-module Network.AWS.DevOpsGuru
+module Amazonka.DevOpsGuru
   ( -- * Service Configuration
     defaultService,
 
@@ -466,30 +466,30 @@ module Network.AWS.DevOpsGuru
   )
 where
 
-import Network.AWS.DevOpsGuru.AddNotificationChannel
-import Network.AWS.DevOpsGuru.DescribeAccountHealth
-import Network.AWS.DevOpsGuru.DescribeAccountOverview
-import Network.AWS.DevOpsGuru.DescribeAnomaly
-import Network.AWS.DevOpsGuru.DescribeFeedback
-import Network.AWS.DevOpsGuru.DescribeInsight
-import Network.AWS.DevOpsGuru.DescribeResourceCollectionHealth
-import Network.AWS.DevOpsGuru.DescribeServiceIntegration
-import Network.AWS.DevOpsGuru.GetCostEstimation
-import Network.AWS.DevOpsGuru.GetResourceCollection
-import Network.AWS.DevOpsGuru.Lens
-import Network.AWS.DevOpsGuru.ListAnomaliesForInsight
-import Network.AWS.DevOpsGuru.ListEvents
-import Network.AWS.DevOpsGuru.ListInsights
-import Network.AWS.DevOpsGuru.ListNotificationChannels
-import Network.AWS.DevOpsGuru.ListRecommendations
-import Network.AWS.DevOpsGuru.PutFeedback
-import Network.AWS.DevOpsGuru.RemoveNotificationChannel
-import Network.AWS.DevOpsGuru.SearchInsights
-import Network.AWS.DevOpsGuru.StartCostEstimation
-import Network.AWS.DevOpsGuru.Types
-import Network.AWS.DevOpsGuru.UpdateResourceCollection
-import Network.AWS.DevOpsGuru.UpdateServiceIntegration
-import Network.AWS.DevOpsGuru.Waiters
+import Amazonka.DevOpsGuru.AddNotificationChannel
+import Amazonka.DevOpsGuru.DescribeAccountHealth
+import Amazonka.DevOpsGuru.DescribeAccountOverview
+import Amazonka.DevOpsGuru.DescribeAnomaly
+import Amazonka.DevOpsGuru.DescribeFeedback
+import Amazonka.DevOpsGuru.DescribeInsight
+import Amazonka.DevOpsGuru.DescribeResourceCollectionHealth
+import Amazonka.DevOpsGuru.DescribeServiceIntegration
+import Amazonka.DevOpsGuru.GetCostEstimation
+import Amazonka.DevOpsGuru.GetResourceCollection
+import Amazonka.DevOpsGuru.Lens
+import Amazonka.DevOpsGuru.ListAnomaliesForInsight
+import Amazonka.DevOpsGuru.ListEvents
+import Amazonka.DevOpsGuru.ListInsights
+import Amazonka.DevOpsGuru.ListNotificationChannels
+import Amazonka.DevOpsGuru.ListRecommendations
+import Amazonka.DevOpsGuru.PutFeedback
+import Amazonka.DevOpsGuru.RemoveNotificationChannel
+import Amazonka.DevOpsGuru.SearchInsights
+import Amazonka.DevOpsGuru.StartCostEstimation
+import Amazonka.DevOpsGuru.Types
+import Amazonka.DevOpsGuru.UpdateResourceCollection
+import Amazonka.DevOpsGuru.UpdateServiceIntegration
+import Amazonka.DevOpsGuru.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

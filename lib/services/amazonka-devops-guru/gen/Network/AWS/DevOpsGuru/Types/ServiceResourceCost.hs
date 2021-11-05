@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DevOpsGuru.Types.ServiceResourceCost
+-- Module      : Amazonka.DevOpsGuru.Types.ServiceResourceCost
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DevOpsGuru.Types.ServiceResourceCost where
+module Amazonka.DevOpsGuru.Types.ServiceResourceCost where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DevOpsGuru.Types.CostEstimationServiceResourceState
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DevOpsGuru.Types.CostEstimationServiceResourceState
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains information about the estimated monthly cost to
 -- analyze an AWS resource. For more information, see

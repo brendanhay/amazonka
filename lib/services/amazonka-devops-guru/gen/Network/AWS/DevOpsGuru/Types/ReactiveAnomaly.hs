@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DevOpsGuru.Types.ReactiveAnomaly
+-- Module      : Amazonka.DevOpsGuru.Types.ReactiveAnomaly
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DevOpsGuru.Types.ReactiveAnomaly where
+module Amazonka.DevOpsGuru.Types.ReactiveAnomaly where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DevOpsGuru.Types.AnomalyReportedTimeRange
-import Network.AWS.DevOpsGuru.Types.AnomalySeverity
-import Network.AWS.DevOpsGuru.Types.AnomalySourceDetails
-import Network.AWS.DevOpsGuru.Types.AnomalyStatus
-import Network.AWS.DevOpsGuru.Types.AnomalyTimeRange
-import Network.AWS.DevOpsGuru.Types.ResourceCollection
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DevOpsGuru.Types.AnomalyReportedTimeRange
+import Amazonka.DevOpsGuru.Types.AnomalySeverity
+import Amazonka.DevOpsGuru.Types.AnomalySourceDetails
+import Amazonka.DevOpsGuru.Types.AnomalyStatus
+import Amazonka.DevOpsGuru.Types.AnomalyTimeRange
+import Amazonka.DevOpsGuru.Types.ResourceCollection
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Details about a reactive anomaly. This object is returned by
 -- @ListAnomalies@.

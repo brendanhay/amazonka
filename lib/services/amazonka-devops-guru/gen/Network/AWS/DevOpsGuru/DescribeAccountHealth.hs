@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DevOpsGuru.DescribeAccountHealth
+-- Module      : Amazonka.DevOpsGuru.DescribeAccountHealth
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- proactive insights, and the number of metrics analyzed in your AWS
 -- account. Use these numbers to gauge the health of operations in your AWS
 -- account.
-module Network.AWS.DevOpsGuru.DescribeAccountHealth
+module Amazonka.DevOpsGuru.DescribeAccountHealth
   ( -- * Creating a Request
     DescribeAccountHealth (..),
     newDescribeAccountHealth,
@@ -42,12 +42,12 @@ module Network.AWS.DevOpsGuru.DescribeAccountHealth
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DevOpsGuru.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.DevOpsGuru.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeAccountHealth' smart constructor.
 data DescribeAccountHealth = DescribeAccountHealth'

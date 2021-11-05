@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DevOpsGuru.Types.CloudFormationHealth
+-- Module      : Amazonka.DevOpsGuru.Types.CloudFormationHealth
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DevOpsGuru.Types.CloudFormationHealth where
+module Amazonka.DevOpsGuru.Types.CloudFormationHealth where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DevOpsGuru.Types.InsightHealth
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DevOpsGuru.Types.InsightHealth
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the health of AWS resources in your account that are
 -- specified by an AWS CloudFormation stack.

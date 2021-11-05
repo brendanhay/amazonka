@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DevOpsGuru.Types
+-- Module      : Amazonka.DevOpsGuru.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DevOpsGuru.Types
+module Amazonka.DevOpsGuru.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -471,82 +471,82 @@ module Network.AWS.DevOpsGuru.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DevOpsGuru.Types.AnomalyReportedTimeRange
-import Network.AWS.DevOpsGuru.Types.AnomalySeverity
-import Network.AWS.DevOpsGuru.Types.AnomalySourceDetails
-import Network.AWS.DevOpsGuru.Types.AnomalyStatus
-import Network.AWS.DevOpsGuru.Types.AnomalyTimeRange
-import Network.AWS.DevOpsGuru.Types.CloudFormationCollection
-import Network.AWS.DevOpsGuru.Types.CloudFormationCollectionFilter
-import Network.AWS.DevOpsGuru.Types.CloudFormationCostEstimationResourceCollectionFilter
-import Network.AWS.DevOpsGuru.Types.CloudFormationHealth
-import Network.AWS.DevOpsGuru.Types.CloudWatchMetricsDetail
-import Network.AWS.DevOpsGuru.Types.CloudWatchMetricsDimension
-import Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat
-import Network.AWS.DevOpsGuru.Types.CostEstimationResourceCollectionFilter
-import Network.AWS.DevOpsGuru.Types.CostEstimationServiceResourceState
-import Network.AWS.DevOpsGuru.Types.CostEstimationStatus
-import Network.AWS.DevOpsGuru.Types.CostEstimationTimeRange
-import Network.AWS.DevOpsGuru.Types.EndTimeRange
-import Network.AWS.DevOpsGuru.Types.Event
-import Network.AWS.DevOpsGuru.Types.EventClass
-import Network.AWS.DevOpsGuru.Types.EventDataSource
-import Network.AWS.DevOpsGuru.Types.EventResource
-import Network.AWS.DevOpsGuru.Types.EventTimeRange
-import Network.AWS.DevOpsGuru.Types.InsightFeedback
-import Network.AWS.DevOpsGuru.Types.InsightFeedbackOption
-import Network.AWS.DevOpsGuru.Types.InsightHealth
-import Network.AWS.DevOpsGuru.Types.InsightSeverity
-import Network.AWS.DevOpsGuru.Types.InsightStatus
-import Network.AWS.DevOpsGuru.Types.InsightTimeRange
-import Network.AWS.DevOpsGuru.Types.InsightType
-import Network.AWS.DevOpsGuru.Types.ListEventsFilters
-import Network.AWS.DevOpsGuru.Types.ListInsightsAnyStatusFilter
-import Network.AWS.DevOpsGuru.Types.ListInsightsClosedStatusFilter
-import Network.AWS.DevOpsGuru.Types.ListInsightsOngoingStatusFilter
-import Network.AWS.DevOpsGuru.Types.ListInsightsStatusFilter
-import Network.AWS.DevOpsGuru.Types.Locale
-import Network.AWS.DevOpsGuru.Types.NotificationChannel
-import Network.AWS.DevOpsGuru.Types.NotificationChannelConfig
-import Network.AWS.DevOpsGuru.Types.OpsCenterIntegration
-import Network.AWS.DevOpsGuru.Types.OpsCenterIntegrationConfig
-import Network.AWS.DevOpsGuru.Types.OptInStatus
-import Network.AWS.DevOpsGuru.Types.PredictionTimeRange
-import Network.AWS.DevOpsGuru.Types.ProactiveAnomaly
-import Network.AWS.DevOpsGuru.Types.ProactiveAnomalySummary
-import Network.AWS.DevOpsGuru.Types.ProactiveInsight
-import Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary
-import Network.AWS.DevOpsGuru.Types.ReactiveAnomaly
-import Network.AWS.DevOpsGuru.Types.ReactiveAnomalySummary
-import Network.AWS.DevOpsGuru.Types.ReactiveInsight
-import Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary
-import Network.AWS.DevOpsGuru.Types.Recommendation
-import Network.AWS.DevOpsGuru.Types.RecommendationRelatedAnomaly
-import Network.AWS.DevOpsGuru.Types.RecommendationRelatedAnomalyResource
-import Network.AWS.DevOpsGuru.Types.RecommendationRelatedAnomalySourceDetail
-import Network.AWS.DevOpsGuru.Types.RecommendationRelatedCloudWatchMetricsSourceDetail
-import Network.AWS.DevOpsGuru.Types.RecommendationRelatedEvent
-import Network.AWS.DevOpsGuru.Types.RecommendationRelatedEventResource
-import Network.AWS.DevOpsGuru.Types.ResourceCollection
-import Network.AWS.DevOpsGuru.Types.ResourceCollectionFilter
-import Network.AWS.DevOpsGuru.Types.ResourceCollectionType
-import Network.AWS.DevOpsGuru.Types.SearchInsightsFilters
-import Network.AWS.DevOpsGuru.Types.ServiceCollection
-import Network.AWS.DevOpsGuru.Types.ServiceHealth
-import Network.AWS.DevOpsGuru.Types.ServiceInsightHealth
-import Network.AWS.DevOpsGuru.Types.ServiceIntegrationConfig
-import Network.AWS.DevOpsGuru.Types.ServiceName
-import Network.AWS.DevOpsGuru.Types.ServiceResourceCost
-import Network.AWS.DevOpsGuru.Types.SnsChannelConfig
-import Network.AWS.DevOpsGuru.Types.StartTimeRange
-import Network.AWS.DevOpsGuru.Types.UpdateCloudFormationCollectionFilter
-import Network.AWS.DevOpsGuru.Types.UpdateResourceCollectionAction
-import Network.AWS.DevOpsGuru.Types.UpdateResourceCollectionFilter
-import Network.AWS.DevOpsGuru.Types.UpdateServiceIntegrationConfig
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.DevOpsGuru.Types.AnomalyReportedTimeRange
+import Amazonka.DevOpsGuru.Types.AnomalySeverity
+import Amazonka.DevOpsGuru.Types.AnomalySourceDetails
+import Amazonka.DevOpsGuru.Types.AnomalyStatus
+import Amazonka.DevOpsGuru.Types.AnomalyTimeRange
+import Amazonka.DevOpsGuru.Types.CloudFormationCollection
+import Amazonka.DevOpsGuru.Types.CloudFormationCollectionFilter
+import Amazonka.DevOpsGuru.Types.CloudFormationCostEstimationResourceCollectionFilter
+import Amazonka.DevOpsGuru.Types.CloudFormationHealth
+import Amazonka.DevOpsGuru.Types.CloudWatchMetricsDetail
+import Amazonka.DevOpsGuru.Types.CloudWatchMetricsDimension
+import Amazonka.DevOpsGuru.Types.CloudWatchMetricsStat
+import Amazonka.DevOpsGuru.Types.CostEstimationResourceCollectionFilter
+import Amazonka.DevOpsGuru.Types.CostEstimationServiceResourceState
+import Amazonka.DevOpsGuru.Types.CostEstimationStatus
+import Amazonka.DevOpsGuru.Types.CostEstimationTimeRange
+import Amazonka.DevOpsGuru.Types.EndTimeRange
+import Amazonka.DevOpsGuru.Types.Event
+import Amazonka.DevOpsGuru.Types.EventClass
+import Amazonka.DevOpsGuru.Types.EventDataSource
+import Amazonka.DevOpsGuru.Types.EventResource
+import Amazonka.DevOpsGuru.Types.EventTimeRange
+import Amazonka.DevOpsGuru.Types.InsightFeedback
+import Amazonka.DevOpsGuru.Types.InsightFeedbackOption
+import Amazonka.DevOpsGuru.Types.InsightHealth
+import Amazonka.DevOpsGuru.Types.InsightSeverity
+import Amazonka.DevOpsGuru.Types.InsightStatus
+import Amazonka.DevOpsGuru.Types.InsightTimeRange
+import Amazonka.DevOpsGuru.Types.InsightType
+import Amazonka.DevOpsGuru.Types.ListEventsFilters
+import Amazonka.DevOpsGuru.Types.ListInsightsAnyStatusFilter
+import Amazonka.DevOpsGuru.Types.ListInsightsClosedStatusFilter
+import Amazonka.DevOpsGuru.Types.ListInsightsOngoingStatusFilter
+import Amazonka.DevOpsGuru.Types.ListInsightsStatusFilter
+import Amazonka.DevOpsGuru.Types.Locale
+import Amazonka.DevOpsGuru.Types.NotificationChannel
+import Amazonka.DevOpsGuru.Types.NotificationChannelConfig
+import Amazonka.DevOpsGuru.Types.OpsCenterIntegration
+import Amazonka.DevOpsGuru.Types.OpsCenterIntegrationConfig
+import Amazonka.DevOpsGuru.Types.OptInStatus
+import Amazonka.DevOpsGuru.Types.PredictionTimeRange
+import Amazonka.DevOpsGuru.Types.ProactiveAnomaly
+import Amazonka.DevOpsGuru.Types.ProactiveAnomalySummary
+import Amazonka.DevOpsGuru.Types.ProactiveInsight
+import Amazonka.DevOpsGuru.Types.ProactiveInsightSummary
+import Amazonka.DevOpsGuru.Types.ReactiveAnomaly
+import Amazonka.DevOpsGuru.Types.ReactiveAnomalySummary
+import Amazonka.DevOpsGuru.Types.ReactiveInsight
+import Amazonka.DevOpsGuru.Types.ReactiveInsightSummary
+import Amazonka.DevOpsGuru.Types.Recommendation
+import Amazonka.DevOpsGuru.Types.RecommendationRelatedAnomaly
+import Amazonka.DevOpsGuru.Types.RecommendationRelatedAnomalyResource
+import Amazonka.DevOpsGuru.Types.RecommendationRelatedAnomalySourceDetail
+import Amazonka.DevOpsGuru.Types.RecommendationRelatedCloudWatchMetricsSourceDetail
+import Amazonka.DevOpsGuru.Types.RecommendationRelatedEvent
+import Amazonka.DevOpsGuru.Types.RecommendationRelatedEventResource
+import Amazonka.DevOpsGuru.Types.ResourceCollection
+import Amazonka.DevOpsGuru.Types.ResourceCollectionFilter
+import Amazonka.DevOpsGuru.Types.ResourceCollectionType
+import Amazonka.DevOpsGuru.Types.SearchInsightsFilters
+import Amazonka.DevOpsGuru.Types.ServiceCollection
+import Amazonka.DevOpsGuru.Types.ServiceHealth
+import Amazonka.DevOpsGuru.Types.ServiceInsightHealth
+import Amazonka.DevOpsGuru.Types.ServiceIntegrationConfig
+import Amazonka.DevOpsGuru.Types.ServiceName
+import Amazonka.DevOpsGuru.Types.ServiceResourceCost
+import Amazonka.DevOpsGuru.Types.SnsChannelConfig
+import Amazonka.DevOpsGuru.Types.StartTimeRange
+import Amazonka.DevOpsGuru.Types.UpdateCloudFormationCollectionFilter
+import Amazonka.DevOpsGuru.Types.UpdateResourceCollectionAction
+import Amazonka.DevOpsGuru.Types.UpdateResourceCollectionFilter
+import Amazonka.DevOpsGuru.Types.UpdateServiceIntegrationConfig
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2020-12-01@ of the Amazon DevOps Guru SDK configuration.
 defaultService :: Core.Service

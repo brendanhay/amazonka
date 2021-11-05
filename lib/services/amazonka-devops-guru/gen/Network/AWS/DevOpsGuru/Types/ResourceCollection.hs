@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DevOpsGuru.Types.ResourceCollection
+-- Module      : Amazonka.DevOpsGuru.Types.ResourceCollection
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DevOpsGuru.Types.ResourceCollection where
+module Amazonka.DevOpsGuru.Types.ResourceCollection where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DevOpsGuru.Types.CloudFormationCollection
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DevOpsGuru.Types.CloudFormationCollection
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A collection of AWS resources supported by DevOps Guru. The one type of
 -- AWS resource collection supported is AWS CloudFormation stacks. DevOps

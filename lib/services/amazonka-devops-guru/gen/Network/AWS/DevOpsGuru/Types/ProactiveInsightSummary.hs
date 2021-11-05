@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary
+-- Module      : Amazonka.DevOpsGuru.Types.ProactiveInsightSummary
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary where
+module Amazonka.DevOpsGuru.Types.ProactiveInsightSummary where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DevOpsGuru.Types.InsightSeverity
-import Network.AWS.DevOpsGuru.Types.InsightStatus
-import Network.AWS.DevOpsGuru.Types.InsightTimeRange
-import Network.AWS.DevOpsGuru.Types.PredictionTimeRange
-import Network.AWS.DevOpsGuru.Types.ResourceCollection
-import Network.AWS.DevOpsGuru.Types.ServiceCollection
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DevOpsGuru.Types.InsightSeverity
+import Amazonka.DevOpsGuru.Types.InsightStatus
+import Amazonka.DevOpsGuru.Types.InsightTimeRange
+import Amazonka.DevOpsGuru.Types.PredictionTimeRange
+import Amazonka.DevOpsGuru.Types.ResourceCollection
+import Amazonka.DevOpsGuru.Types.ServiceCollection
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Details about a proactive insight. This object is returned by
 -- @DescribeInsight.@

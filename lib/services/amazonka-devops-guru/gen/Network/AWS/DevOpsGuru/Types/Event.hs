@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DevOpsGuru.Types.Event
+-- Module      : Amazonka.DevOpsGuru.Types.Event
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DevOpsGuru.Types.Event where
+module Amazonka.DevOpsGuru.Types.Event where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DevOpsGuru.Types.EventClass
-import Network.AWS.DevOpsGuru.Types.EventDataSource
-import Network.AWS.DevOpsGuru.Types.EventResource
-import Network.AWS.DevOpsGuru.Types.ResourceCollection
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DevOpsGuru.Types.EventClass
+import Amazonka.DevOpsGuru.Types.EventDataSource
+import Amazonka.DevOpsGuru.Types.EventResource
+import Amazonka.DevOpsGuru.Types.ResourceCollection
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | An AWS resource event. AWS resource events and metrics are analyzed by
 -- DevOps Guru to find anomalous behavior and provide recommendations to

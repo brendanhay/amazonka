@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DevOpsGuru.Types.NotificationChannelConfig
+-- Module      : Amazonka.DevOpsGuru.Types.NotificationChannelConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DevOpsGuru.Types.NotificationChannelConfig where
+module Amazonka.DevOpsGuru.Types.NotificationChannelConfig where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DevOpsGuru.Types.SnsChannelConfig
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DevOpsGuru.Types.SnsChannelConfig
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Information about notification channels you have configured with DevOps
 -- Guru. The one supported notification channel is Amazon Simple

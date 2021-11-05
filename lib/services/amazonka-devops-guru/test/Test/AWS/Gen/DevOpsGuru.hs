@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.DevOpsGuru where
 
+import Amazonka.DevOpsGuru
 import qualified Data.Proxy as Proxy
-import Network.AWS.DevOpsGuru
 import Test.AWS.DevOpsGuru.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

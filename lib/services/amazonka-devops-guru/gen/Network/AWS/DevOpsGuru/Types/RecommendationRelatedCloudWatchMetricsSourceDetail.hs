@@ -11,17 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DevOpsGuru.Types.RecommendationRelatedCloudWatchMetricsSourceDetail
+-- Module      : Amazonka.DevOpsGuru.Types.RecommendationRelatedCloudWatchMetricsSourceDetail
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DevOpsGuru.Types.RecommendationRelatedCloudWatchMetricsSourceDetail where
+module Amazonka.DevOpsGuru.Types.RecommendationRelatedCloudWatchMetricsSourceDetail where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an Amazon CloudWatch metric that is analyzed by DevOps
 -- Guru. It is one of many analyzed metrics that are used to generate

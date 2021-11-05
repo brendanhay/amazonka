@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DevOpsGuru.Types.ListEventsFilters
+-- Module      : Amazonka.DevOpsGuru.Types.ListEventsFilters
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DevOpsGuru.Types.ListEventsFilters where
+module Amazonka.DevOpsGuru.Types.ListEventsFilters where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.DevOpsGuru.Types.EventClass
-import Network.AWS.DevOpsGuru.Types.EventDataSource
-import Network.AWS.DevOpsGuru.Types.EventTimeRange
-import Network.AWS.DevOpsGuru.Types.ResourceCollection
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.DevOpsGuru.Types.EventClass
+import Amazonka.DevOpsGuru.Types.EventDataSource
+import Amazonka.DevOpsGuru.Types.EventTimeRange
+import Amazonka.DevOpsGuru.Types.ResourceCollection
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Filters you can use to specify which events are returned when
 -- @ListEvents@ is called.

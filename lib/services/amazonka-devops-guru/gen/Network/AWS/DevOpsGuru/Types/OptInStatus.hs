@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.DevOpsGuru.Types.OptInStatus
+-- Module      : Amazonka.DevOpsGuru.Types.OptInStatus
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DevOpsGuru.Types.OptInStatus
+module Amazonka.DevOpsGuru.Types.OptInStatus
   ( OptInStatus
       ( ..,
         OptInStatus_DISABLED,
@@ -26,8 +26,8 @@ module Network.AWS.DevOpsGuru.Types.OptInStatus
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies if DevOps Guru is enabled to create an AWS Systems Manager
 -- OpsItem for each created insight.

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53.CreateVPCAssociationAuthorization
+-- Module      : Amazonka.Route53.CreateVPCAssociationAuthorization
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -31,7 +31,7 @@
 -- If you want to associate multiple VPCs that you created by using one
 -- account with a hosted zone that you created by using a different
 -- account, you must submit one authorization request for each VPC.
-module Network.AWS.Route53.CreateVPCAssociationAuthorization
+module Amazonka.Route53.CreateVPCAssociationAuthorization
   ( -- * Creating a Request
     CreateVPCAssociationAuthorization (..),
     newCreateVPCAssociationAuthorization,
@@ -51,12 +51,12 @@ module Network.AWS.Route53.CreateVPCAssociationAuthorization
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Route53.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Route53.Types
 
 -- | A complex type that contains information about the request to authorize
 -- associating a VPC with your private hosted zone. Authorization is only

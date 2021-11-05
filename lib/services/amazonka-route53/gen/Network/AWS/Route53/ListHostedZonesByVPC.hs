@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53.ListHostedZonesByVPC
+-- Module      : Amazonka.Route53.ListHostedZonesByVPC
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -34,7 +34,7 @@
 --     service that created and owns the hosted zone. For example, if a
 --     hosted zone was created by Amazon Elastic File System (Amazon EFS),
 --     the value of @Owner@ is @efs.amazonaws.com@.
-module Network.AWS.Route53.ListHostedZonesByVPC
+module Amazonka.Route53.ListHostedZonesByVPC
   ( -- * Creating a Request
     ListHostedZonesByVPC (..),
     newListHostedZonesByVPC,
@@ -57,12 +57,12 @@ module Network.AWS.Route53.ListHostedZonesByVPC
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Route53.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Route53.Types
 
 -- | Lists all the private hosted zones that a specified VPC is associated
 -- with, regardless of which Amazon Web Services account created the hosted

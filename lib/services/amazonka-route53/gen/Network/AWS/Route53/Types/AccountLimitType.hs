@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53.Types.AccountLimitType
+-- Module      : Amazonka.Route53.Types.AccountLimitType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53.Types.AccountLimitType
+module Amazonka.Route53.Types.AccountLimitType
   ( AccountLimitType
       ( ..,
         AccountLimitType_MAX_HEALTH_CHECKS_BY_OWNER,
@@ -29,9 +29,9 @@ module Network.AWS.Route53.Types.AccountLimitType
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Route53.Internal
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Route53.Internal
 
 newtype AccountLimitType = AccountLimitType'
   { fromAccountLimitType ::

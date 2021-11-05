@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53.ListTrafficPolicyInstancesByPolicy
+-- Module      : Amazonka.Route53.ListTrafficPolicyInstancesByPolicy
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -32,7 +32,7 @@
 -- Route 53 returns a maximum of 100 items in each response. If you have a
 -- lot of traffic policy instances, you can use the @MaxItems@ parameter to
 -- list them in groups of up to 100.
-module Network.AWS.Route53.ListTrafficPolicyInstancesByPolicy
+module Amazonka.Route53.ListTrafficPolicyInstancesByPolicy
   ( -- * Creating a Request
     ListTrafficPolicyInstancesByPolicy (..),
     newListTrafficPolicyInstancesByPolicy,
@@ -60,12 +60,12 @@ module Network.AWS.Route53.ListTrafficPolicyInstancesByPolicy
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Route53.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Route53.Types
 
 -- | A complex type that contains the information about the request to list
 -- your traffic policy instances.

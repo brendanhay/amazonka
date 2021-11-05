@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53.Types
+-- Module      : Amazonka.Route53.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53.Types
+module Amazonka.Route53.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -82,7 +82,7 @@ module Network.AWS.Route53.Types
     _TooManyTrafficPolicyVersionsForCurrentPolicy,
 
     -- * Re-exported Types
-    module Network.AWS.Route53.Internal,
+    module Amazonka.Route53.Internal,
 
     -- * AccountLimitType
     AccountLimitType (..),
@@ -413,60 +413,60 @@ module Network.AWS.Route53.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Route53.Internal
-import Network.AWS.Route53.Types.AccountLimit
-import Network.AWS.Route53.Types.AccountLimitType
-import Network.AWS.Route53.Types.AlarmIdentifier
-import Network.AWS.Route53.Types.AliasTarget
-import Network.AWS.Route53.Types.Change
-import Network.AWS.Route53.Types.ChangeAction
-import Network.AWS.Route53.Types.ChangeBatch
-import Network.AWS.Route53.Types.ChangeInfo
-import Network.AWS.Route53.Types.ChangeStatus
-import Network.AWS.Route53.Types.CloudWatchAlarmConfiguration
-import Network.AWS.Route53.Types.CloudWatchRegion
-import Network.AWS.Route53.Types.ComparisonOperator
-import Network.AWS.Route53.Types.DNSSECStatus
-import Network.AWS.Route53.Types.DelegationSet
-import Network.AWS.Route53.Types.Dimension
-import Network.AWS.Route53.Types.GeoLocation
-import Network.AWS.Route53.Types.GeoLocationDetails
-import Network.AWS.Route53.Types.HealthCheck
-import Network.AWS.Route53.Types.HealthCheckConfig
-import Network.AWS.Route53.Types.HealthCheckObservation
-import Network.AWS.Route53.Types.HealthCheckRegion
-import Network.AWS.Route53.Types.HealthCheckType
-import Network.AWS.Route53.Types.HostedZone
-import Network.AWS.Route53.Types.HostedZoneConfig
-import Network.AWS.Route53.Types.HostedZoneLimit
-import Network.AWS.Route53.Types.HostedZoneLimitType
-import Network.AWS.Route53.Types.HostedZoneOwner
-import Network.AWS.Route53.Types.HostedZoneSummary
-import Network.AWS.Route53.Types.InsufficientDataHealthStatus
-import Network.AWS.Route53.Types.KeySigningKey
-import Network.AWS.Route53.Types.LinkedService
-import Network.AWS.Route53.Types.QueryLoggingConfig
-import Network.AWS.Route53.Types.RRType
-import Network.AWS.Route53.Types.ResettableElementName
-import Network.AWS.Route53.Types.ResourceRecord
-import Network.AWS.Route53.Types.ResourceRecordSet
-import Network.AWS.Route53.Types.ResourceRecordSetFailover
-import Network.AWS.Route53.Types.ResourceTagSet
-import Network.AWS.Route53.Types.ReusableDelegationSetLimit
-import Network.AWS.Route53.Types.ReusableDelegationSetLimitType
-import Network.AWS.Route53.Types.Statistic
-import Network.AWS.Route53.Types.StatusReport
-import Network.AWS.Route53.Types.Tag
-import Network.AWS.Route53.Types.TagResourceType
-import Network.AWS.Route53.Types.TrafficPolicy
-import Network.AWS.Route53.Types.TrafficPolicyInstance
-import Network.AWS.Route53.Types.TrafficPolicySummary
-import Network.AWS.Route53.Types.VPC
-import Network.AWS.Route53.Types.VPCRegion
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Route53.Internal
+import Amazonka.Route53.Types.AccountLimit
+import Amazonka.Route53.Types.AccountLimitType
+import Amazonka.Route53.Types.AlarmIdentifier
+import Amazonka.Route53.Types.AliasTarget
+import Amazonka.Route53.Types.Change
+import Amazonka.Route53.Types.ChangeAction
+import Amazonka.Route53.Types.ChangeBatch
+import Amazonka.Route53.Types.ChangeInfo
+import Amazonka.Route53.Types.ChangeStatus
+import Amazonka.Route53.Types.CloudWatchAlarmConfiguration
+import Amazonka.Route53.Types.CloudWatchRegion
+import Amazonka.Route53.Types.ComparisonOperator
+import Amazonka.Route53.Types.DNSSECStatus
+import Amazonka.Route53.Types.DelegationSet
+import Amazonka.Route53.Types.Dimension
+import Amazonka.Route53.Types.GeoLocation
+import Amazonka.Route53.Types.GeoLocationDetails
+import Amazonka.Route53.Types.HealthCheck
+import Amazonka.Route53.Types.HealthCheckConfig
+import Amazonka.Route53.Types.HealthCheckObservation
+import Amazonka.Route53.Types.HealthCheckRegion
+import Amazonka.Route53.Types.HealthCheckType
+import Amazonka.Route53.Types.HostedZone
+import Amazonka.Route53.Types.HostedZoneConfig
+import Amazonka.Route53.Types.HostedZoneLimit
+import Amazonka.Route53.Types.HostedZoneLimitType
+import Amazonka.Route53.Types.HostedZoneOwner
+import Amazonka.Route53.Types.HostedZoneSummary
+import Amazonka.Route53.Types.InsufficientDataHealthStatus
+import Amazonka.Route53.Types.KeySigningKey
+import Amazonka.Route53.Types.LinkedService
+import Amazonka.Route53.Types.QueryLoggingConfig
+import Amazonka.Route53.Types.RRType
+import Amazonka.Route53.Types.ResettableElementName
+import Amazonka.Route53.Types.ResourceRecord
+import Amazonka.Route53.Types.ResourceRecordSet
+import Amazonka.Route53.Types.ResourceRecordSetFailover
+import Amazonka.Route53.Types.ResourceTagSet
+import Amazonka.Route53.Types.ReusableDelegationSetLimit
+import Amazonka.Route53.Types.ReusableDelegationSetLimitType
+import Amazonka.Route53.Types.Statistic
+import Amazonka.Route53.Types.StatusReport
+import Amazonka.Route53.Types.Tag
+import Amazonka.Route53.Types.TagResourceType
+import Amazonka.Route53.Types.TrafficPolicy
+import Amazonka.Route53.Types.TrafficPolicyInstance
+import Amazonka.Route53.Types.TrafficPolicySummary
+import Amazonka.Route53.Types.VPC
+import Amazonka.Route53.Types.VPCRegion
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2013-04-01@ of the Amazon Route 53 SDK configuration.
 defaultService :: Core.Service

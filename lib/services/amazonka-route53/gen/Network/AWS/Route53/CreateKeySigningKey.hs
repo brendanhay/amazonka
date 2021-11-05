@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53.CreateKeySigningKey
+-- Module      : Amazonka.Route53.CreateKeySigningKey
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Creates a new key-signing key (KSK) associated with a hosted zone. You
 -- can only have two KSKs per hosted zone.
-module Network.AWS.Route53.CreateKeySigningKey
+module Amazonka.Route53.CreateKeySigningKey
   ( -- * Creating a Request
     CreateKeySigningKey (..),
     newCreateKeySigningKey,
@@ -46,12 +46,12 @@ module Network.AWS.Route53.CreateKeySigningKey
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Route53.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Route53.Types
 
 -- | /See:/ 'newCreateKeySigningKey' smart constructor.
 data CreateKeySigningKey = CreateKeySigningKey'

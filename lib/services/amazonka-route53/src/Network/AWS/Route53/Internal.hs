@@ -6,14 +6,14 @@
 {-# OPTIONS_GHC -Wall -Werror #-}
 
 -- |
--- Module      : Network.AWS.Route53.Internal
+-- Module      : Amazonka.Route53.Internal
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
-module Network.AWS.Route53.Internal
+module Amazonka.Route53.Internal
     ( Region     (..)
     , ResourceId (..)
 
@@ -21,8 +21,8 @@ module Network.AWS.Route53.Internal
     , getHostedZoneId
     ) where
 
-import Network.AWS.Core
-import Network.AWS.Prelude
+import Amazonka.Core
+import Amazonka.Prelude
 import qualified Data.Text as Text
 
 -- | A Route53 identifier for resources such as hosted zones and delegation sets.

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53.CreateHealthCheck
+-- Module      : Amazonka.Route53.CreateHealthCheck
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -56,7 +56,7 @@
 --     on the state of the alarm. For information about creating CloudWatch
 --     metrics and alarms by using the CloudWatch console, see the
 --     <https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatch.html Amazon CloudWatch User Guide>.
-module Network.AWS.Route53.CreateHealthCheck
+module Amazonka.Route53.CreateHealthCheck
   ( -- * Creating a Request
     CreateHealthCheck (..),
     newCreateHealthCheck,
@@ -76,12 +76,12 @@ module Network.AWS.Route53.CreateHealthCheck
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Route53.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Route53.Types
 
 -- | A complex type that contains the health check request information.
 --

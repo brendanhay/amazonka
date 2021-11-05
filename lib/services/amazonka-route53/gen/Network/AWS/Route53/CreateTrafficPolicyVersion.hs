@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53.CreateTrafficPolicyVersion
+-- Module      : Amazonka.Route53.CreateTrafficPolicyVersion
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -28,7 +28,7 @@
 -- one subdomain name (such as www.example.com). You can create a maximum
 -- of 1000 versions of a traffic policy. If you reach the limit and need to
 -- create another version, you\'ll need to start a new traffic policy.
-module Network.AWS.Route53.CreateTrafficPolicyVersion
+module Amazonka.Route53.CreateTrafficPolicyVersion
   ( -- * Creating a Request
     CreateTrafficPolicyVersion (..),
     newCreateTrafficPolicyVersion,
@@ -49,12 +49,12 @@ module Network.AWS.Route53.CreateTrafficPolicyVersion
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Route53.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Route53.Types
 
 -- | A complex type that contains information about the traffic policy that
 -- you want to create a new version for.

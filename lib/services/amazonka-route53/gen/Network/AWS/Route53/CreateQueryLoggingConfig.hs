@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53.CreateQueryLoggingConfig
+-- Module      : Amazonka.Route53.CreateQueryLoggingConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -133,7 +133,7 @@
 --     If you want Route 53 to stop sending query logs to CloudWatch Logs,
 --     delete the query logging configuration. For more information, see
 --     <https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteQueryLoggingConfig.html DeleteQueryLoggingConfig>.
-module Network.AWS.Route53.CreateQueryLoggingConfig
+module Amazonka.Route53.CreateQueryLoggingConfig
   ( -- * Creating a Request
     CreateQueryLoggingConfig (..),
     newCreateQueryLoggingConfig,
@@ -153,12 +153,12 @@ module Network.AWS.Route53.CreateQueryLoggingConfig
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Route53.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Route53.Types
 
 -- | /See:/ 'newCreateQueryLoggingConfig' smart constructor.
 data CreateQueryLoggingConfig = CreateQueryLoggingConfig'

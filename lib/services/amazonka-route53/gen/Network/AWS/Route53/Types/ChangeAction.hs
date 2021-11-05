@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53.Types.ChangeAction
+-- Module      : Amazonka.Route53.Types.ChangeAction
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53.Types.ChangeAction
+module Amazonka.Route53.Types.ChangeAction
   ( ChangeAction
       ( ..,
         ChangeAction_CREATE,
@@ -27,9 +27,9 @@ module Network.AWS.Route53.Types.ChangeAction
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Route53.Internal
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Route53.Internal
 
 newtype ChangeAction = ChangeAction'
   { fromChangeAction ::

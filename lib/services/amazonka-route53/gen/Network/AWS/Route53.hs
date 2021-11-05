@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.Route53
+-- Module      : Amazonka.Route53
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -17,7 +17,7 @@
 -- (Amazon EC2), Elastic Load Balancing, or Amazon Simple Storage Service
 -- (Amazon S3). You can also use Amazon Route 53 to route users to your
 -- infrastructure outside of AWS.
-module Network.AWS.Route53
+module Amazonka.Route53
   ( -- * Service Configuration
     defaultService,
 
@@ -609,7 +609,7 @@ module Network.AWS.Route53
     -- * Types
 
     -- ** Common
-    module Network.AWS.Route53.Internal,
+    module Amazonka.Route53.Internal,
 
     -- ** AccountLimitType
     AccountLimitType (..),
@@ -793,74 +793,74 @@ module Network.AWS.Route53
   )
 where
 
-import Network.AWS.Route53.ActivateKeySigningKey
-import Network.AWS.Route53.AssociateVPCWithHostedZone
-import Network.AWS.Route53.ChangeResourceRecordSets
-import Network.AWS.Route53.ChangeTagsForResource
-import Network.AWS.Route53.CreateHealthCheck
-import Network.AWS.Route53.CreateHostedZone
-import Network.AWS.Route53.CreateKeySigningKey
-import Network.AWS.Route53.CreateQueryLoggingConfig
-import Network.AWS.Route53.CreateReusableDelegationSet
-import Network.AWS.Route53.CreateTrafficPolicy
-import Network.AWS.Route53.CreateTrafficPolicyInstance
-import Network.AWS.Route53.CreateTrafficPolicyVersion
-import Network.AWS.Route53.CreateVPCAssociationAuthorization
-import Network.AWS.Route53.DeactivateKeySigningKey
-import Network.AWS.Route53.DeleteHealthCheck
-import Network.AWS.Route53.DeleteHostedZone
-import Network.AWS.Route53.DeleteKeySigningKey
-import Network.AWS.Route53.DeleteQueryLoggingConfig
-import Network.AWS.Route53.DeleteReusableDelegationSet
-import Network.AWS.Route53.DeleteTrafficPolicy
-import Network.AWS.Route53.DeleteTrafficPolicyInstance
-import Network.AWS.Route53.DeleteVPCAssociationAuthorization
-import Network.AWS.Route53.DisableHostedZoneDNSSEC
-import Network.AWS.Route53.DisassociateVPCFromHostedZone
-import Network.AWS.Route53.EnableHostedZoneDNSSEC
-import Network.AWS.Route53.GetAccountLimit
-import Network.AWS.Route53.GetChange
-import Network.AWS.Route53.GetCheckerIpRanges
-import Network.AWS.Route53.GetDNSSEC
-import Network.AWS.Route53.GetGeoLocation
-import Network.AWS.Route53.GetHealthCheck
-import Network.AWS.Route53.GetHealthCheckCount
-import Network.AWS.Route53.GetHealthCheckLastFailureReason
-import Network.AWS.Route53.GetHealthCheckStatus
-import Network.AWS.Route53.GetHostedZone
-import Network.AWS.Route53.GetHostedZoneCount
-import Network.AWS.Route53.GetHostedZoneLimit
-import Network.AWS.Route53.GetQueryLoggingConfig
-import Network.AWS.Route53.GetReusableDelegationSet
-import Network.AWS.Route53.GetReusableDelegationSetLimit
-import Network.AWS.Route53.GetTrafficPolicy
-import Network.AWS.Route53.GetTrafficPolicyInstance
-import Network.AWS.Route53.GetTrafficPolicyInstanceCount
-import Network.AWS.Route53.Internal
-import Network.AWS.Route53.Lens
-import Network.AWS.Route53.ListGeoLocations
-import Network.AWS.Route53.ListHealthChecks
-import Network.AWS.Route53.ListHostedZones
-import Network.AWS.Route53.ListHostedZonesByName
-import Network.AWS.Route53.ListHostedZonesByVPC
-import Network.AWS.Route53.ListQueryLoggingConfigs
-import Network.AWS.Route53.ListResourceRecordSets
-import Network.AWS.Route53.ListReusableDelegationSets
-import Network.AWS.Route53.ListTagsForResource
-import Network.AWS.Route53.ListTagsForResources
-import Network.AWS.Route53.ListTrafficPolicies
-import Network.AWS.Route53.ListTrafficPolicyInstances
-import Network.AWS.Route53.ListTrafficPolicyInstancesByHostedZone
-import Network.AWS.Route53.ListTrafficPolicyInstancesByPolicy
-import Network.AWS.Route53.ListTrafficPolicyVersions
-import Network.AWS.Route53.ListVPCAssociationAuthorizations
-import Network.AWS.Route53.TestDNSAnswer
-import Network.AWS.Route53.Types
-import Network.AWS.Route53.UpdateHealthCheck
-import Network.AWS.Route53.UpdateHostedZoneComment
-import Network.AWS.Route53.UpdateTrafficPolicyComment
-import Network.AWS.Route53.UpdateTrafficPolicyInstance
-import Network.AWS.Route53.Waiters
+import Amazonka.Route53.ActivateKeySigningKey
+import Amazonka.Route53.AssociateVPCWithHostedZone
+import Amazonka.Route53.ChangeResourceRecordSets
+import Amazonka.Route53.ChangeTagsForResource
+import Amazonka.Route53.CreateHealthCheck
+import Amazonka.Route53.CreateHostedZone
+import Amazonka.Route53.CreateKeySigningKey
+import Amazonka.Route53.CreateQueryLoggingConfig
+import Amazonka.Route53.CreateReusableDelegationSet
+import Amazonka.Route53.CreateTrafficPolicy
+import Amazonka.Route53.CreateTrafficPolicyInstance
+import Amazonka.Route53.CreateTrafficPolicyVersion
+import Amazonka.Route53.CreateVPCAssociationAuthorization
+import Amazonka.Route53.DeactivateKeySigningKey
+import Amazonka.Route53.DeleteHealthCheck
+import Amazonka.Route53.DeleteHostedZone
+import Amazonka.Route53.DeleteKeySigningKey
+import Amazonka.Route53.DeleteQueryLoggingConfig
+import Amazonka.Route53.DeleteReusableDelegationSet
+import Amazonka.Route53.DeleteTrafficPolicy
+import Amazonka.Route53.DeleteTrafficPolicyInstance
+import Amazonka.Route53.DeleteVPCAssociationAuthorization
+import Amazonka.Route53.DisableHostedZoneDNSSEC
+import Amazonka.Route53.DisassociateVPCFromHostedZone
+import Amazonka.Route53.EnableHostedZoneDNSSEC
+import Amazonka.Route53.GetAccountLimit
+import Amazonka.Route53.GetChange
+import Amazonka.Route53.GetCheckerIpRanges
+import Amazonka.Route53.GetDNSSEC
+import Amazonka.Route53.GetGeoLocation
+import Amazonka.Route53.GetHealthCheck
+import Amazonka.Route53.GetHealthCheckCount
+import Amazonka.Route53.GetHealthCheckLastFailureReason
+import Amazonka.Route53.GetHealthCheckStatus
+import Amazonka.Route53.GetHostedZone
+import Amazonka.Route53.GetHostedZoneCount
+import Amazonka.Route53.GetHostedZoneLimit
+import Amazonka.Route53.GetQueryLoggingConfig
+import Amazonka.Route53.GetReusableDelegationSet
+import Amazonka.Route53.GetReusableDelegationSetLimit
+import Amazonka.Route53.GetTrafficPolicy
+import Amazonka.Route53.GetTrafficPolicyInstance
+import Amazonka.Route53.GetTrafficPolicyInstanceCount
+import Amazonka.Route53.Internal
+import Amazonka.Route53.Lens
+import Amazonka.Route53.ListGeoLocations
+import Amazonka.Route53.ListHealthChecks
+import Amazonka.Route53.ListHostedZones
+import Amazonka.Route53.ListHostedZonesByName
+import Amazonka.Route53.ListHostedZonesByVPC
+import Amazonka.Route53.ListQueryLoggingConfigs
+import Amazonka.Route53.ListResourceRecordSets
+import Amazonka.Route53.ListReusableDelegationSets
+import Amazonka.Route53.ListTagsForResource
+import Amazonka.Route53.ListTagsForResources
+import Amazonka.Route53.ListTrafficPolicies
+import Amazonka.Route53.ListTrafficPolicyInstances
+import Amazonka.Route53.ListTrafficPolicyInstancesByHostedZone
+import Amazonka.Route53.ListTrafficPolicyInstancesByPolicy
+import Amazonka.Route53.ListTrafficPolicyVersions
+import Amazonka.Route53.ListVPCAssociationAuthorizations
+import Amazonka.Route53.TestDNSAnswer
+import Amazonka.Route53.Types
+import Amazonka.Route53.UpdateHealthCheck
+import Amazonka.Route53.UpdateHostedZoneComment
+import Amazonka.Route53.UpdateTrafficPolicyComment
+import Amazonka.Route53.UpdateTrafficPolicyInstance
+import Amazonka.Route53.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53.DeactivateKeySigningKey
+-- Module      : Amazonka.Route53.DeactivateKeySigningKey
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 --
 -- Deactivates a key-signing key (KSK) so that it will not be used for
 -- signing by DNSSEC. This operation changes the KSK status to @INACTIVE@.
-module Network.AWS.Route53.DeactivateKeySigningKey
+module Amazonka.Route53.DeactivateKeySigningKey
   ( -- * Creating a Request
     DeactivateKeySigningKey (..),
     newDeactivateKeySigningKey,
@@ -41,12 +41,12 @@ module Network.AWS.Route53.DeactivateKeySigningKey
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Route53.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Route53.Types
 
 -- | /See:/ 'newDeactivateKeySigningKey' smart constructor.
 data DeactivateKeySigningKey = DeactivateKeySigningKey'

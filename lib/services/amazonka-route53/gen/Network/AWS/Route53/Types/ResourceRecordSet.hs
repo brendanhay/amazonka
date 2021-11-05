@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53.Types.ResourceRecordSet
+-- Module      : Amazonka.Route53.Types.ResourceRecordSet
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53.Types.ResourceRecordSet where
+module Amazonka.Route53.Types.ResourceRecordSet where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import Network.AWS.Route53.Internal
-import Network.AWS.Route53.Types.AliasTarget
-import Network.AWS.Route53.Types.GeoLocation
-import Network.AWS.Route53.Types.RRType
-import Network.AWS.Route53.Types.ResourceRecord
-import Network.AWS.Route53.Types.ResourceRecordSetFailover
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Route53.Internal
+import Amazonka.Route53.Types.AliasTarget
+import Amazonka.Route53.Types.GeoLocation
+import Amazonka.Route53.Types.RRType
+import Amazonka.Route53.Types.ResourceRecord
+import Amazonka.Route53.Types.ResourceRecordSetFailover
 
 -- | Information about the resource record set to create or delete.
 --

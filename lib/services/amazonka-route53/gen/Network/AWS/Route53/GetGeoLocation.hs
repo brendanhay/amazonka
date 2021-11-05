@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Route53.GetGeoLocation
+-- Module      : Amazonka.Route53.GetGeoLocation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -40,7 +40,7 @@
 -- is supported for geolocation:
 --
 -- @GET \/2013-04-01\/geolocation?countrycode=two-character country code&subdivisioncode=subdivision code @
-module Network.AWS.Route53.GetGeoLocation
+module Amazonka.Route53.GetGeoLocation
   ( -- * Creating a Request
     GetGeoLocation (..),
     newGetGeoLocation,
@@ -60,12 +60,12 @@ module Network.AWS.Route53.GetGeoLocation
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
-import Network.AWS.Route53.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Route53.Types
 
 -- | A request for information about whether a specified geographic location
 -- is supported for Amazon Route 53 geolocation resource record sets.

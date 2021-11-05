@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Connect.Types.QuickConnectConfig
+-- Module      : Amazonka.Connect.Types.QuickConnectConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Connect.Types.QuickConnectConfig where
+module Amazonka.Connect.Types.QuickConnectConfig where
 
-import Network.AWS.Connect.Types.PhoneNumberQuickConnectConfig
-import Network.AWS.Connect.Types.QueueQuickConnectConfig
-import Network.AWS.Connect.Types.QuickConnectType
-import Network.AWS.Connect.Types.UserQuickConnectConfig
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Connect.Types.PhoneNumberQuickConnectConfig
+import Amazonka.Connect.Types.QueueQuickConnectConfig
+import Amazonka.Connect.Types.QuickConnectType
+import Amazonka.Connect.Types.UserQuickConnectConfig
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Contains configuration settings for a quick connect.
 --

@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Connect.ResumeContactRecording
+-- Module      : Amazonka.Connect.ResumeContactRecording
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- using SuspendContactRecording, this API resumes recording the call.
 --
 -- Only voice recordings are supported at this time.
-module Network.AWS.Connect.ResumeContactRecording
+module Amazonka.Connect.ResumeContactRecording
   ( -- * Creating a Request
     ResumeContactRecording (..),
     newResumeContactRecording,
@@ -43,12 +43,12 @@ module Network.AWS.Connect.ResumeContactRecording
   )
 where
 
-import Network.AWS.Connect.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Connect.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newResumeContactRecording' smart constructor.
 data ResumeContactRecording = ResumeContactRecording'

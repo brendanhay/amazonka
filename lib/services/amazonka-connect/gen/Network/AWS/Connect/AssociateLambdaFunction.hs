@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Connect.AssociateLambdaFunction
+-- Module      : Amazonka.Connect.AssociateLambdaFunction
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 --
 -- Allows the specified Amazon Connect instance to access the specified
 -- Lambda function.
-module Network.AWS.Connect.AssociateLambdaFunction
+module Amazonka.Connect.AssociateLambdaFunction
   ( -- * Creating a Request
     AssociateLambdaFunction (..),
     newAssociateLambdaFunction,
@@ -40,12 +40,12 @@ module Network.AWS.Connect.AssociateLambdaFunction
   )
 where
 
-import Network.AWS.Connect.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Connect.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAssociateLambdaFunction' smart constructor.
 data AssociateLambdaFunction = AssociateLambdaFunction'

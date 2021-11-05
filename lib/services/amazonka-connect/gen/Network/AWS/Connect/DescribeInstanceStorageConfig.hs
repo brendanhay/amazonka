@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Connect.DescribeInstanceStorageConfig
+-- Module      : Amazonka.Connect.DescribeInstanceStorageConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 --
 -- Retrieves the current storage configurations for the specified resource
 -- type, association ID, and instance ID.
-module Network.AWS.Connect.DescribeInstanceStorageConfig
+module Amazonka.Connect.DescribeInstanceStorageConfig
   ( -- * Creating a Request
     DescribeInstanceStorageConfig (..),
     newDescribeInstanceStorageConfig,
@@ -45,12 +45,12 @@ module Network.AWS.Connect.DescribeInstanceStorageConfig
   )
 where
 
-import Network.AWS.Connect.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Connect.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeInstanceStorageConfig' smart constructor.
 data DescribeInstanceStorageConfig = DescribeInstanceStorageConfig'

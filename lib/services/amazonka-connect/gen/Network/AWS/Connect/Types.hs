@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Connect.Types
+-- Module      : Amazonka.Connect.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Connect.Types
+module Amazonka.Connect.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -648,109 +648,109 @@ module Network.AWS.Connect.Types
   )
 where
 
-import Network.AWS.Connect.Types.AgentStatus
-import Network.AWS.Connect.Types.AgentStatusState
-import Network.AWS.Connect.Types.AgentStatusSummary
-import Network.AWS.Connect.Types.AgentStatusType
-import Network.AWS.Connect.Types.AnswerMachineDetectionConfig
-import Network.AWS.Connect.Types.Attribute
-import Network.AWS.Connect.Types.Channel
-import Network.AWS.Connect.Types.ChatMessage
-import Network.AWS.Connect.Types.Comparison
-import Network.AWS.Connect.Types.ContactFlow
-import Network.AWS.Connect.Types.ContactFlowSummary
-import Network.AWS.Connect.Types.ContactFlowType
-import Network.AWS.Connect.Types.Credentials
-import Network.AWS.Connect.Types.CurrentMetric
-import Network.AWS.Connect.Types.CurrentMetricData
-import Network.AWS.Connect.Types.CurrentMetricName
-import Network.AWS.Connect.Types.CurrentMetricResult
-import Network.AWS.Connect.Types.Dimensions
-import Network.AWS.Connect.Types.DirectoryType
-import Network.AWS.Connect.Types.EncryptionConfig
-import Network.AWS.Connect.Types.EncryptionType
-import Network.AWS.Connect.Types.Filters
-import Network.AWS.Connect.Types.Grouping
-import Network.AWS.Connect.Types.HierarchyGroup
-import Network.AWS.Connect.Types.HierarchyGroupSummary
-import Network.AWS.Connect.Types.HierarchyLevel
-import Network.AWS.Connect.Types.HierarchyLevelUpdate
-import Network.AWS.Connect.Types.HierarchyPath
-import Network.AWS.Connect.Types.HierarchyStructure
-import Network.AWS.Connect.Types.HierarchyStructureUpdate
-import Network.AWS.Connect.Types.HistoricalMetric
-import Network.AWS.Connect.Types.HistoricalMetricData
-import Network.AWS.Connect.Types.HistoricalMetricName
-import Network.AWS.Connect.Types.HistoricalMetricResult
-import Network.AWS.Connect.Types.HoursOfOperation
-import Network.AWS.Connect.Types.HoursOfOperationConfig
-import Network.AWS.Connect.Types.HoursOfOperationDays
-import Network.AWS.Connect.Types.HoursOfOperationSummary
-import Network.AWS.Connect.Types.HoursOfOperationTimeSlice
-import Network.AWS.Connect.Types.Instance
-import Network.AWS.Connect.Types.InstanceAttributeType
-import Network.AWS.Connect.Types.InstanceStatus
-import Network.AWS.Connect.Types.InstanceStatusReason
-import Network.AWS.Connect.Types.InstanceStorageConfig
-import Network.AWS.Connect.Types.InstanceStorageResourceType
-import Network.AWS.Connect.Types.InstanceSummary
-import Network.AWS.Connect.Types.IntegrationAssociationSummary
-import Network.AWS.Connect.Types.IntegrationType
-import Network.AWS.Connect.Types.KinesisFirehoseConfig
-import Network.AWS.Connect.Types.KinesisStreamConfig
-import Network.AWS.Connect.Types.KinesisVideoStreamConfig
-import Network.AWS.Connect.Types.LexBot
-import Network.AWS.Connect.Types.LexBotConfig
-import Network.AWS.Connect.Types.LexV2Bot
-import Network.AWS.Connect.Types.LexVersion
-import Network.AWS.Connect.Types.MediaConcurrency
-import Network.AWS.Connect.Types.OutboundCallerConfig
-import Network.AWS.Connect.Types.ParticipantDetails
-import Network.AWS.Connect.Types.PhoneNumberCountryCode
-import Network.AWS.Connect.Types.PhoneNumberQuickConnectConfig
-import Network.AWS.Connect.Types.PhoneNumberSummary
-import Network.AWS.Connect.Types.PhoneNumberType
-import Network.AWS.Connect.Types.PhoneType
-import Network.AWS.Connect.Types.PromptSummary
-import Network.AWS.Connect.Types.Queue
-import Network.AWS.Connect.Types.QueueQuickConnectConfig
-import Network.AWS.Connect.Types.QueueReference
-import Network.AWS.Connect.Types.QueueStatus
-import Network.AWS.Connect.Types.QueueSummary
-import Network.AWS.Connect.Types.QueueType
-import Network.AWS.Connect.Types.QuickConnect
-import Network.AWS.Connect.Types.QuickConnectConfig
-import Network.AWS.Connect.Types.QuickConnectSummary
-import Network.AWS.Connect.Types.QuickConnectType
-import Network.AWS.Connect.Types.Reference
-import Network.AWS.Connect.Types.ReferenceType
-import Network.AWS.Connect.Types.RoutingProfile
-import Network.AWS.Connect.Types.RoutingProfileQueueConfig
-import Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary
-import Network.AWS.Connect.Types.RoutingProfileQueueReference
-import Network.AWS.Connect.Types.RoutingProfileSummary
-import Network.AWS.Connect.Types.S3Config
-import Network.AWS.Connect.Types.SecurityKey
-import Network.AWS.Connect.Types.SecurityProfileSummary
-import Network.AWS.Connect.Types.SourceType
-import Network.AWS.Connect.Types.Statistic
-import Network.AWS.Connect.Types.StorageType
-import Network.AWS.Connect.Types.Threshold
-import Network.AWS.Connect.Types.TrafficType
-import Network.AWS.Connect.Types.Unit
-import Network.AWS.Connect.Types.UseCase
-import Network.AWS.Connect.Types.UseCaseType
-import Network.AWS.Connect.Types.User
-import Network.AWS.Connect.Types.UserIdentityInfo
-import Network.AWS.Connect.Types.UserPhoneConfig
-import Network.AWS.Connect.Types.UserQuickConnectConfig
-import Network.AWS.Connect.Types.UserSummary
-import Network.AWS.Connect.Types.VoiceRecordingConfiguration
-import Network.AWS.Connect.Types.VoiceRecordingTrack
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.Connect.Types.AgentStatus
+import Amazonka.Connect.Types.AgentStatusState
+import Amazonka.Connect.Types.AgentStatusSummary
+import Amazonka.Connect.Types.AgentStatusType
+import Amazonka.Connect.Types.AnswerMachineDetectionConfig
+import Amazonka.Connect.Types.Attribute
+import Amazonka.Connect.Types.Channel
+import Amazonka.Connect.Types.ChatMessage
+import Amazonka.Connect.Types.Comparison
+import Amazonka.Connect.Types.ContactFlow
+import Amazonka.Connect.Types.ContactFlowSummary
+import Amazonka.Connect.Types.ContactFlowType
+import Amazonka.Connect.Types.Credentials
+import Amazonka.Connect.Types.CurrentMetric
+import Amazonka.Connect.Types.CurrentMetricData
+import Amazonka.Connect.Types.CurrentMetricName
+import Amazonka.Connect.Types.CurrentMetricResult
+import Amazonka.Connect.Types.Dimensions
+import Amazonka.Connect.Types.DirectoryType
+import Amazonka.Connect.Types.EncryptionConfig
+import Amazonka.Connect.Types.EncryptionType
+import Amazonka.Connect.Types.Filters
+import Amazonka.Connect.Types.Grouping
+import Amazonka.Connect.Types.HierarchyGroup
+import Amazonka.Connect.Types.HierarchyGroupSummary
+import Amazonka.Connect.Types.HierarchyLevel
+import Amazonka.Connect.Types.HierarchyLevelUpdate
+import Amazonka.Connect.Types.HierarchyPath
+import Amazonka.Connect.Types.HierarchyStructure
+import Amazonka.Connect.Types.HierarchyStructureUpdate
+import Amazonka.Connect.Types.HistoricalMetric
+import Amazonka.Connect.Types.HistoricalMetricData
+import Amazonka.Connect.Types.HistoricalMetricName
+import Amazonka.Connect.Types.HistoricalMetricResult
+import Amazonka.Connect.Types.HoursOfOperation
+import Amazonka.Connect.Types.HoursOfOperationConfig
+import Amazonka.Connect.Types.HoursOfOperationDays
+import Amazonka.Connect.Types.HoursOfOperationSummary
+import Amazonka.Connect.Types.HoursOfOperationTimeSlice
+import Amazonka.Connect.Types.Instance
+import Amazonka.Connect.Types.InstanceAttributeType
+import Amazonka.Connect.Types.InstanceStatus
+import Amazonka.Connect.Types.InstanceStatusReason
+import Amazonka.Connect.Types.InstanceStorageConfig
+import Amazonka.Connect.Types.InstanceStorageResourceType
+import Amazonka.Connect.Types.InstanceSummary
+import Amazonka.Connect.Types.IntegrationAssociationSummary
+import Amazonka.Connect.Types.IntegrationType
+import Amazonka.Connect.Types.KinesisFirehoseConfig
+import Amazonka.Connect.Types.KinesisStreamConfig
+import Amazonka.Connect.Types.KinesisVideoStreamConfig
+import Amazonka.Connect.Types.LexBot
+import Amazonka.Connect.Types.LexBotConfig
+import Amazonka.Connect.Types.LexV2Bot
+import Amazonka.Connect.Types.LexVersion
+import Amazonka.Connect.Types.MediaConcurrency
+import Amazonka.Connect.Types.OutboundCallerConfig
+import Amazonka.Connect.Types.ParticipantDetails
+import Amazonka.Connect.Types.PhoneNumberCountryCode
+import Amazonka.Connect.Types.PhoneNumberQuickConnectConfig
+import Amazonka.Connect.Types.PhoneNumberSummary
+import Amazonka.Connect.Types.PhoneNumberType
+import Amazonka.Connect.Types.PhoneType
+import Amazonka.Connect.Types.PromptSummary
+import Amazonka.Connect.Types.Queue
+import Amazonka.Connect.Types.QueueQuickConnectConfig
+import Amazonka.Connect.Types.QueueReference
+import Amazonka.Connect.Types.QueueStatus
+import Amazonka.Connect.Types.QueueSummary
+import Amazonka.Connect.Types.QueueType
+import Amazonka.Connect.Types.QuickConnect
+import Amazonka.Connect.Types.QuickConnectConfig
+import Amazonka.Connect.Types.QuickConnectSummary
+import Amazonka.Connect.Types.QuickConnectType
+import Amazonka.Connect.Types.Reference
+import Amazonka.Connect.Types.ReferenceType
+import Amazonka.Connect.Types.RoutingProfile
+import Amazonka.Connect.Types.RoutingProfileQueueConfig
+import Amazonka.Connect.Types.RoutingProfileQueueConfigSummary
+import Amazonka.Connect.Types.RoutingProfileQueueReference
+import Amazonka.Connect.Types.RoutingProfileSummary
+import Amazonka.Connect.Types.S3Config
+import Amazonka.Connect.Types.SecurityKey
+import Amazonka.Connect.Types.SecurityProfileSummary
+import Amazonka.Connect.Types.SourceType
+import Amazonka.Connect.Types.Statistic
+import Amazonka.Connect.Types.StorageType
+import Amazonka.Connect.Types.Threshold
+import Amazonka.Connect.Types.TrafficType
+import Amazonka.Connect.Types.Unit
+import Amazonka.Connect.Types.UseCase
+import Amazonka.Connect.Types.UseCaseType
+import Amazonka.Connect.Types.User
+import Amazonka.Connect.Types.UserIdentityInfo
+import Amazonka.Connect.Types.UserPhoneConfig
+import Amazonka.Connect.Types.UserQuickConnectConfig
+import Amazonka.Connect.Types.UserSummary
+import Amazonka.Connect.Types.VoiceRecordingConfiguration
+import Amazonka.Connect.Types.VoiceRecordingTrack
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2017-08-08@ of the Amazon Connect Service SDK configuration.
 defaultService :: Core.Service

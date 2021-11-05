@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Connect.Types.InstanceStorageConfig
+-- Module      : Amazonka.Connect.Types.InstanceStorageConfig
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Connect.Types.InstanceStorageConfig where
+module Amazonka.Connect.Types.InstanceStorageConfig where
 
-import Network.AWS.Connect.Types.KinesisFirehoseConfig
-import Network.AWS.Connect.Types.KinesisStreamConfig
-import Network.AWS.Connect.Types.KinesisVideoStreamConfig
-import Network.AWS.Connect.Types.S3Config
-import Network.AWS.Connect.Types.StorageType
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import Amazonka.Connect.Types.KinesisFirehoseConfig
+import Amazonka.Connect.Types.KinesisStreamConfig
+import Amazonka.Connect.Types.KinesisVideoStreamConfig
+import Amazonka.Connect.Types.S3Config
+import Amazonka.Connect.Types.StorageType
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The storage configuration for the instance.
 --

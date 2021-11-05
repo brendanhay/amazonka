@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Connect.GetCurrentMetricData
+-- Module      : Amazonka.Connect.GetCurrentMetricData
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- For a description of each metric, see
 -- <https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html Real-time Metrics Definitions>
 -- in the /Amazon Connect Administrator Guide/.
-module Network.AWS.Connect.GetCurrentMetricData
+module Amazonka.Connect.GetCurrentMetricData
   ( -- * Creating a Request
     GetCurrentMetricData (..),
     newGetCurrentMetricData,
@@ -51,12 +51,12 @@ module Network.AWS.Connect.GetCurrentMetricData
   )
 where
 
-import Network.AWS.Connect.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.Connect.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetCurrentMetricData' smart constructor.
 data GetCurrentMetricData = GetCurrentMetricData'

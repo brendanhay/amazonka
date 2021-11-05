@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElasticTranscoder.CancelJob
+-- Module      : Amazonka.ElasticTranscoder.CancelJob
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -25,7 +25,7 @@
 -- You can only cancel a job that has a status of @Submitted@. To prevent a
 -- pipeline from starting to process a job while you\'re getting the job
 -- identifier, use UpdatePipelineStatus to temporarily pause the pipeline.
-module Network.AWS.ElasticTranscoder.CancelJob
+module Amazonka.ElasticTranscoder.CancelJob
   ( -- * Creating a Request
     CancelJob (..),
     newCancelJob,
@@ -42,12 +42,12 @@ module Network.AWS.ElasticTranscoder.CancelJob
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElasticTranscoder.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ElasticTranscoder.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | The @CancelJobRequest@ structure.
 --

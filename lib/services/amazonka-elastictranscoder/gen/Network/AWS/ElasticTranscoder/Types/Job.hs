@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElasticTranscoder.Types.Job
+-- Module      : Amazonka.ElasticTranscoder.Types.Job
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticTranscoder.Types.Job where
+module Amazonka.ElasticTranscoder.Types.Job where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElasticTranscoder.Types.JobInput
-import Network.AWS.ElasticTranscoder.Types.JobOutput
-import Network.AWS.ElasticTranscoder.Types.Playlist
-import Network.AWS.ElasticTranscoder.Types.Timing
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ElasticTranscoder.Types.JobInput
+import Amazonka.ElasticTranscoder.Types.JobOutput
+import Amazonka.ElasticTranscoder.Types.Playlist
+import Amazonka.ElasticTranscoder.Types.Timing
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A section of the response body that provides information about the job
 -- that is created.

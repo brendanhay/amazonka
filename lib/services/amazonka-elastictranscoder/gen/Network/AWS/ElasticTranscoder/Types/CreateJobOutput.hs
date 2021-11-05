@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElasticTranscoder.Types.CreateJobOutput
+-- Module      : Amazonka.ElasticTranscoder.Types.CreateJobOutput
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticTranscoder.Types.CreateJobOutput where
+module Amazonka.ElasticTranscoder.Types.CreateJobOutput where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElasticTranscoder.Types.Captions
-import Network.AWS.ElasticTranscoder.Types.Clip
-import Network.AWS.ElasticTranscoder.Types.Encryption
-import Network.AWS.ElasticTranscoder.Types.JobAlbumArt
-import Network.AWS.ElasticTranscoder.Types.JobWatermark
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ElasticTranscoder.Types.Captions
+import Amazonka.ElasticTranscoder.Types.Clip
+import Amazonka.ElasticTranscoder.Types.Encryption
+import Amazonka.ElasticTranscoder.Types.JobAlbumArt
+import Amazonka.ElasticTranscoder.Types.JobWatermark
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The @CreateJobOutput@ structure.
 --

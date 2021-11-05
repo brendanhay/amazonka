@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElasticTranscoder.Types.InputCaptions
+-- Module      : Amazonka.ElasticTranscoder.Types.InputCaptions
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticTranscoder.Types.InputCaptions where
+module Amazonka.ElasticTranscoder.Types.InputCaptions where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElasticTranscoder.Types.CaptionSource
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ElasticTranscoder.Types.CaptionSource
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The captions to be created, if any.
 --

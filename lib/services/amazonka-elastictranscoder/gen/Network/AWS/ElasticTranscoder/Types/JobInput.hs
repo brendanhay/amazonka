@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElasticTranscoder.Types.JobInput
+-- Module      : Amazonka.ElasticTranscoder.Types.JobInput
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticTranscoder.Types.JobInput where
+module Amazonka.ElasticTranscoder.Types.JobInput where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElasticTranscoder.Types.DetectedProperties
-import Network.AWS.ElasticTranscoder.Types.Encryption
-import Network.AWS.ElasticTranscoder.Types.InputCaptions
-import Network.AWS.ElasticTranscoder.Types.TimeSpan
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ElasticTranscoder.Types.DetectedProperties
+import Amazonka.ElasticTranscoder.Types.Encryption
+import Amazonka.ElasticTranscoder.Types.InputCaptions
+import Amazonka.ElasticTranscoder.Types.TimeSpan
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the file that you\'re transcoding.
 --

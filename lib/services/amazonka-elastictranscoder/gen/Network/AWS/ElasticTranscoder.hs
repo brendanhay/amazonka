@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.ElasticTranscoder
+-- Module      : Amazonka.ElasticTranscoder
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -14,7 +14,7 @@
 -- AWS Elastic Transcoder Service
 --
 -- The AWS Elastic Transcoder Service.
-module Network.AWS.ElasticTranscoder
+module Amazonka.ElasticTranscoder
   ( -- * Service Configuration
     defaultService,
 
@@ -275,25 +275,25 @@ module Network.AWS.ElasticTranscoder
   )
 where
 
-import Network.AWS.ElasticTranscoder.CancelJob
-import Network.AWS.ElasticTranscoder.CreateJob
-import Network.AWS.ElasticTranscoder.CreatePipeline
-import Network.AWS.ElasticTranscoder.CreatePreset
-import Network.AWS.ElasticTranscoder.DeletePipeline
-import Network.AWS.ElasticTranscoder.DeletePreset
-import Network.AWS.ElasticTranscoder.Lens
-import Network.AWS.ElasticTranscoder.ListJobsByPipeline
-import Network.AWS.ElasticTranscoder.ListJobsByStatus
-import Network.AWS.ElasticTranscoder.ListPipelines
-import Network.AWS.ElasticTranscoder.ListPresets
-import Network.AWS.ElasticTranscoder.ReadJob
-import Network.AWS.ElasticTranscoder.ReadPipeline
-import Network.AWS.ElasticTranscoder.ReadPreset
-import Network.AWS.ElasticTranscoder.Types
-import Network.AWS.ElasticTranscoder.UpdatePipeline
-import Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
-import Network.AWS.ElasticTranscoder.UpdatePipelineStatus
-import Network.AWS.ElasticTranscoder.Waiters
+import Amazonka.ElasticTranscoder.CancelJob
+import Amazonka.ElasticTranscoder.CreateJob
+import Amazonka.ElasticTranscoder.CreatePipeline
+import Amazonka.ElasticTranscoder.CreatePreset
+import Amazonka.ElasticTranscoder.DeletePipeline
+import Amazonka.ElasticTranscoder.DeletePreset
+import Amazonka.ElasticTranscoder.Lens
+import Amazonka.ElasticTranscoder.ListJobsByPipeline
+import Amazonka.ElasticTranscoder.ListJobsByStatus
+import Amazonka.ElasticTranscoder.ListPipelines
+import Amazonka.ElasticTranscoder.ListPresets
+import Amazonka.ElasticTranscoder.ReadJob
+import Amazonka.ElasticTranscoder.ReadPipeline
+import Amazonka.ElasticTranscoder.ReadPreset
+import Amazonka.ElasticTranscoder.Types
+import Amazonka.ElasticTranscoder.UpdatePipeline
+import Amazonka.ElasticTranscoder.UpdatePipelineNotifications
+import Amazonka.ElasticTranscoder.UpdatePipelineStatus
+import Amazonka.ElasticTranscoder.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

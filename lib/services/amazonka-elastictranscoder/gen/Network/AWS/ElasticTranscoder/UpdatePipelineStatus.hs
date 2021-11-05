@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElasticTranscoder.UpdatePipelineStatus
+-- Module      : Amazonka.ElasticTranscoder.UpdatePipelineStatus
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -28,7 +28,7 @@
 -- processing them; if you pause the pipeline to which you submitted the
 -- jobs, you have more time to get the job IDs for the jobs that you want
 -- to cancel, and to send a CancelJob request.
-module Network.AWS.ElasticTranscoder.UpdatePipelineStatus
+module Amazonka.ElasticTranscoder.UpdatePipelineStatus
   ( -- * Creating a Request
     UpdatePipelineStatus (..),
     newUpdatePipelineStatus,
@@ -47,12 +47,12 @@ module Network.AWS.ElasticTranscoder.UpdatePipelineStatus
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElasticTranscoder.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ElasticTranscoder.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | The @UpdatePipelineStatusRequest@ structure.
 --

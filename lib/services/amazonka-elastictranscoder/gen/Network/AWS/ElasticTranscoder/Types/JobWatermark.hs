@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElasticTranscoder.Types.JobWatermark
+-- Module      : Amazonka.ElasticTranscoder.Types.JobWatermark
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticTranscoder.Types.JobWatermark where
+module Amazonka.ElasticTranscoder.Types.JobWatermark where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElasticTranscoder.Types.Encryption
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ElasticTranscoder.Types.Encryption
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Watermarks can be in .png or .jpg format. If you want to display a
 -- watermark that is not rectangular, use the .png format, which supports

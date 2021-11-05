@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElasticTranscoder.Lens
+-- Module      : Amazonka.ElasticTranscoder.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticTranscoder.Lens
+module Amazonka.ElasticTranscoder.Lens
   ( -- * Operations
 
     -- ** DeletePreset
@@ -392,50 +392,50 @@ module Network.AWS.ElasticTranscoder.Lens
   )
 where
 
-import Network.AWS.ElasticTranscoder.CancelJob
-import Network.AWS.ElasticTranscoder.CreateJob
-import Network.AWS.ElasticTranscoder.CreatePipeline
-import Network.AWS.ElasticTranscoder.CreatePreset
-import Network.AWS.ElasticTranscoder.DeletePipeline
-import Network.AWS.ElasticTranscoder.DeletePreset
-import Network.AWS.ElasticTranscoder.ListJobsByPipeline
-import Network.AWS.ElasticTranscoder.ListJobsByStatus
-import Network.AWS.ElasticTranscoder.ListPipelines
-import Network.AWS.ElasticTranscoder.ListPresets
-import Network.AWS.ElasticTranscoder.ReadJob
-import Network.AWS.ElasticTranscoder.ReadPipeline
-import Network.AWS.ElasticTranscoder.ReadPreset
-import Network.AWS.ElasticTranscoder.Types.Artwork
-import Network.AWS.ElasticTranscoder.Types.AudioCodecOptions
-import Network.AWS.ElasticTranscoder.Types.AudioParameters
-import Network.AWS.ElasticTranscoder.Types.CaptionFormat
-import Network.AWS.ElasticTranscoder.Types.CaptionSource
-import Network.AWS.ElasticTranscoder.Types.Captions
-import Network.AWS.ElasticTranscoder.Types.Clip
-import Network.AWS.ElasticTranscoder.Types.CreateJobOutput
-import Network.AWS.ElasticTranscoder.Types.CreateJobPlaylist
-import Network.AWS.ElasticTranscoder.Types.DetectedProperties
-import Network.AWS.ElasticTranscoder.Types.Encryption
-import Network.AWS.ElasticTranscoder.Types.HlsContentProtection
-import Network.AWS.ElasticTranscoder.Types.InputCaptions
-import Network.AWS.ElasticTranscoder.Types.Job
-import Network.AWS.ElasticTranscoder.Types.JobAlbumArt
-import Network.AWS.ElasticTranscoder.Types.JobInput
-import Network.AWS.ElasticTranscoder.Types.JobOutput
-import Network.AWS.ElasticTranscoder.Types.JobWatermark
-import Network.AWS.ElasticTranscoder.Types.Notifications
-import Network.AWS.ElasticTranscoder.Types.Permission
-import Network.AWS.ElasticTranscoder.Types.Pipeline
-import Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig
-import Network.AWS.ElasticTranscoder.Types.PlayReadyDrm
-import Network.AWS.ElasticTranscoder.Types.Playlist
-import Network.AWS.ElasticTranscoder.Types.Preset
-import Network.AWS.ElasticTranscoder.Types.PresetWatermark
-import Network.AWS.ElasticTranscoder.Types.Thumbnails
-import Network.AWS.ElasticTranscoder.Types.TimeSpan
-import Network.AWS.ElasticTranscoder.Types.Timing
-import Network.AWS.ElasticTranscoder.Types.VideoParameters
-import Network.AWS.ElasticTranscoder.Types.Warning
-import Network.AWS.ElasticTranscoder.UpdatePipeline
-import Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
-import Network.AWS.ElasticTranscoder.UpdatePipelineStatus
+import Amazonka.ElasticTranscoder.CancelJob
+import Amazonka.ElasticTranscoder.CreateJob
+import Amazonka.ElasticTranscoder.CreatePipeline
+import Amazonka.ElasticTranscoder.CreatePreset
+import Amazonka.ElasticTranscoder.DeletePipeline
+import Amazonka.ElasticTranscoder.DeletePreset
+import Amazonka.ElasticTranscoder.ListJobsByPipeline
+import Amazonka.ElasticTranscoder.ListJobsByStatus
+import Amazonka.ElasticTranscoder.ListPipelines
+import Amazonka.ElasticTranscoder.ListPresets
+import Amazonka.ElasticTranscoder.ReadJob
+import Amazonka.ElasticTranscoder.ReadPipeline
+import Amazonka.ElasticTranscoder.ReadPreset
+import Amazonka.ElasticTranscoder.Types.Artwork
+import Amazonka.ElasticTranscoder.Types.AudioCodecOptions
+import Amazonka.ElasticTranscoder.Types.AudioParameters
+import Amazonka.ElasticTranscoder.Types.CaptionFormat
+import Amazonka.ElasticTranscoder.Types.CaptionSource
+import Amazonka.ElasticTranscoder.Types.Captions
+import Amazonka.ElasticTranscoder.Types.Clip
+import Amazonka.ElasticTranscoder.Types.CreateJobOutput
+import Amazonka.ElasticTranscoder.Types.CreateJobPlaylist
+import Amazonka.ElasticTranscoder.Types.DetectedProperties
+import Amazonka.ElasticTranscoder.Types.Encryption
+import Amazonka.ElasticTranscoder.Types.HlsContentProtection
+import Amazonka.ElasticTranscoder.Types.InputCaptions
+import Amazonka.ElasticTranscoder.Types.Job
+import Amazonka.ElasticTranscoder.Types.JobAlbumArt
+import Amazonka.ElasticTranscoder.Types.JobInput
+import Amazonka.ElasticTranscoder.Types.JobOutput
+import Amazonka.ElasticTranscoder.Types.JobWatermark
+import Amazonka.ElasticTranscoder.Types.Notifications
+import Amazonka.ElasticTranscoder.Types.Permission
+import Amazonka.ElasticTranscoder.Types.Pipeline
+import Amazonka.ElasticTranscoder.Types.PipelineOutputConfig
+import Amazonka.ElasticTranscoder.Types.PlayReadyDrm
+import Amazonka.ElasticTranscoder.Types.Playlist
+import Amazonka.ElasticTranscoder.Types.Preset
+import Amazonka.ElasticTranscoder.Types.PresetWatermark
+import Amazonka.ElasticTranscoder.Types.Thumbnails
+import Amazonka.ElasticTranscoder.Types.TimeSpan
+import Amazonka.ElasticTranscoder.Types.Timing
+import Amazonka.ElasticTranscoder.Types.VideoParameters
+import Amazonka.ElasticTranscoder.Types.Warning
+import Amazonka.ElasticTranscoder.UpdatePipeline
+import Amazonka.ElasticTranscoder.UpdatePipelineNotifications
+import Amazonka.ElasticTranscoder.UpdatePipelineStatus

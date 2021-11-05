@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ElasticTranscoder where
 
+import Amazonka.ElasticTranscoder
 import qualified Data.Proxy as Proxy
-import Network.AWS.ElasticTranscoder
 import Test.AWS.ElasticTranscoder.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude

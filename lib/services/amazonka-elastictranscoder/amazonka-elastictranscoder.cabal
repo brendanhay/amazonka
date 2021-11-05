@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.ElasticTranscoder.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.ElasticTranscoder.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.ElasticTranscoder" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.ElasticTranscoder" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,59 +45,59 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.ElasticTranscoder
-    Network.AWS.ElasticTranscoder.CancelJob
-    Network.AWS.ElasticTranscoder.CreateJob
-    Network.AWS.ElasticTranscoder.CreatePipeline
-    Network.AWS.ElasticTranscoder.CreatePreset
-    Network.AWS.ElasticTranscoder.DeletePipeline
-    Network.AWS.ElasticTranscoder.DeletePreset
-    Network.AWS.ElasticTranscoder.Lens
-    Network.AWS.ElasticTranscoder.ListJobsByPipeline
-    Network.AWS.ElasticTranscoder.ListJobsByStatus
-    Network.AWS.ElasticTranscoder.ListPipelines
-    Network.AWS.ElasticTranscoder.ListPresets
-    Network.AWS.ElasticTranscoder.ReadJob
-    Network.AWS.ElasticTranscoder.ReadPipeline
-    Network.AWS.ElasticTranscoder.ReadPreset
-    Network.AWS.ElasticTranscoder.Types
-    Network.AWS.ElasticTranscoder.Types.Artwork
-    Network.AWS.ElasticTranscoder.Types.AudioCodecOptions
-    Network.AWS.ElasticTranscoder.Types.AudioParameters
-    Network.AWS.ElasticTranscoder.Types.CaptionFormat
-    Network.AWS.ElasticTranscoder.Types.Captions
-    Network.AWS.ElasticTranscoder.Types.CaptionSource
-    Network.AWS.ElasticTranscoder.Types.Clip
-    Network.AWS.ElasticTranscoder.Types.CreateJobOutput
-    Network.AWS.ElasticTranscoder.Types.CreateJobPlaylist
-    Network.AWS.ElasticTranscoder.Types.DetectedProperties
-    Network.AWS.ElasticTranscoder.Types.Encryption
-    Network.AWS.ElasticTranscoder.Types.HlsContentProtection
-    Network.AWS.ElasticTranscoder.Types.InputCaptions
-    Network.AWS.ElasticTranscoder.Types.Job
-    Network.AWS.ElasticTranscoder.Types.JobAlbumArt
-    Network.AWS.ElasticTranscoder.Types.JobInput
-    Network.AWS.ElasticTranscoder.Types.JobOutput
-    Network.AWS.ElasticTranscoder.Types.JobWatermark
-    Network.AWS.ElasticTranscoder.Types.Notifications
-    Network.AWS.ElasticTranscoder.Types.Permission
-    Network.AWS.ElasticTranscoder.Types.Pipeline
-    Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig
-    Network.AWS.ElasticTranscoder.Types.Playlist
-    Network.AWS.ElasticTranscoder.Types.PlayReadyDrm
-    Network.AWS.ElasticTranscoder.Types.Preset
-    Network.AWS.ElasticTranscoder.Types.PresetWatermark
-    Network.AWS.ElasticTranscoder.Types.Thumbnails
-    Network.AWS.ElasticTranscoder.Types.TimeSpan
-    Network.AWS.ElasticTranscoder.Types.Timing
-    Network.AWS.ElasticTranscoder.Types.VideoParameters
-    Network.AWS.ElasticTranscoder.Types.Warning
-    Network.AWS.ElasticTranscoder.UpdatePipeline
-    Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
-    Network.AWS.ElasticTranscoder.UpdatePipelineStatus
-    Network.AWS.ElasticTranscoder.Waiters
+    Amazonka.ElasticTranscoder
+    Amazonka.ElasticTranscoder.CancelJob
+    Amazonka.ElasticTranscoder.CreateJob
+    Amazonka.ElasticTranscoder.CreatePipeline
+    Amazonka.ElasticTranscoder.CreatePreset
+    Amazonka.ElasticTranscoder.DeletePipeline
+    Amazonka.ElasticTranscoder.DeletePreset
+    Amazonka.ElasticTranscoder.Lens
+    Amazonka.ElasticTranscoder.ListJobsByPipeline
+    Amazonka.ElasticTranscoder.ListJobsByStatus
+    Amazonka.ElasticTranscoder.ListPipelines
+    Amazonka.ElasticTranscoder.ListPresets
+    Amazonka.ElasticTranscoder.ReadJob
+    Amazonka.ElasticTranscoder.ReadPipeline
+    Amazonka.ElasticTranscoder.ReadPreset
+    Amazonka.ElasticTranscoder.Types
+    Amazonka.ElasticTranscoder.Types.Artwork
+    Amazonka.ElasticTranscoder.Types.AudioCodecOptions
+    Amazonka.ElasticTranscoder.Types.AudioParameters
+    Amazonka.ElasticTranscoder.Types.CaptionFormat
+    Amazonka.ElasticTranscoder.Types.Captions
+    Amazonka.ElasticTranscoder.Types.CaptionSource
+    Amazonka.ElasticTranscoder.Types.Clip
+    Amazonka.ElasticTranscoder.Types.CreateJobOutput
+    Amazonka.ElasticTranscoder.Types.CreateJobPlaylist
+    Amazonka.ElasticTranscoder.Types.DetectedProperties
+    Amazonka.ElasticTranscoder.Types.Encryption
+    Amazonka.ElasticTranscoder.Types.HlsContentProtection
+    Amazonka.ElasticTranscoder.Types.InputCaptions
+    Amazonka.ElasticTranscoder.Types.Job
+    Amazonka.ElasticTranscoder.Types.JobAlbumArt
+    Amazonka.ElasticTranscoder.Types.JobInput
+    Amazonka.ElasticTranscoder.Types.JobOutput
+    Amazonka.ElasticTranscoder.Types.JobWatermark
+    Amazonka.ElasticTranscoder.Types.Notifications
+    Amazonka.ElasticTranscoder.Types.Permission
+    Amazonka.ElasticTranscoder.Types.Pipeline
+    Amazonka.ElasticTranscoder.Types.PipelineOutputConfig
+    Amazonka.ElasticTranscoder.Types.Playlist
+    Amazonka.ElasticTranscoder.Types.PlayReadyDrm
+    Amazonka.ElasticTranscoder.Types.Preset
+    Amazonka.ElasticTranscoder.Types.PresetWatermark
+    Amazonka.ElasticTranscoder.Types.Thumbnails
+    Amazonka.ElasticTranscoder.Types.TimeSpan
+    Amazonka.ElasticTranscoder.Types.Timing
+    Amazonka.ElasticTranscoder.Types.VideoParameters
+    Amazonka.ElasticTranscoder.Types.Warning
+    Amazonka.ElasticTranscoder.UpdatePipeline
+    Amazonka.ElasticTranscoder.UpdatePipelineNotifications
+    Amazonka.ElasticTranscoder.UpdatePipelineStatus
+    Amazonka.ElasticTranscoder.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

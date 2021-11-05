@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElasticTranscoder.CreateJob
+-- Module      : Amazonka.ElasticTranscoder.CreateJob
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -28,7 +28,7 @@
 -- one output for the Kindle Fire and another output for the Apple iPhone
 -- 4s), you currently must use the Elastic Transcoder API to list the jobs
 -- (as opposed to the AWS Console).
-module Network.AWS.ElasticTranscoder.CreateJob
+module Amazonka.ElasticTranscoder.CreateJob
   ( -- * Creating a Request
     CreateJob (..),
     newCreateJob,
@@ -53,12 +53,12 @@ module Network.AWS.ElasticTranscoder.CreateJob
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElasticTranscoder.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ElasticTranscoder.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | The @CreateJobRequest@ structure.
 --

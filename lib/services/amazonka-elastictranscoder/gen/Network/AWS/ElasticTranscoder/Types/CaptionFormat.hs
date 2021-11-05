@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElasticTranscoder.Types.CaptionFormat
+-- Module      : Amazonka.ElasticTranscoder.Types.CaptionFormat
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticTranscoder.Types.CaptionFormat where
+module Amazonka.ElasticTranscoder.Types.CaptionFormat where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElasticTranscoder.Types.Encryption
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.ElasticTranscoder.Types.Encryption
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The file format of the output captions. If you leave this value blank,
 -- Elastic Transcoder returns an error.

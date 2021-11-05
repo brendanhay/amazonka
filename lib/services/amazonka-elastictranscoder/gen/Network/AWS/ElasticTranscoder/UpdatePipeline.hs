@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ElasticTranscoder.UpdatePipeline
+-- Module      : Amazonka.ElasticTranscoder.UpdatePipeline
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -26,7 +26,7 @@
 -- Jobs that you have already submitted and that Elastic Transcoder has not
 -- started to process are affected in addition to jobs that you submit
 -- after you change settings.
-module Network.AWS.ElasticTranscoder.UpdatePipeline
+module Amazonka.ElasticTranscoder.UpdatePipeline
   ( -- * Creating a Request
     UpdatePipeline (..),
     newUpdatePipeline,
@@ -52,12 +52,12 @@ module Network.AWS.ElasticTranscoder.UpdatePipeline
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.ElasticTranscoder.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.ElasticTranscoder.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | The @UpdatePipelineRequest@ structure.
 --

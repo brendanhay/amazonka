@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EFS.PutLifecycleConfiguration
+-- Module      : Amazonka.EFS.PutLifecycleConfiguration
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -54,7 +54,7 @@
 -- To apply a @LifecycleConfiguration@ object to an encrypted file system,
 -- you need the same Key Management Service permissions as when you created
 -- the encrypted file system.
-module Network.AWS.EFS.PutLifecycleConfiguration
+module Amazonka.EFS.PutLifecycleConfiguration
   ( -- * Creating a Request
     PutLifecycleConfiguration (..),
     newPutLifecycleConfiguration,
@@ -72,12 +72,12 @@ module Network.AWS.EFS.PutLifecycleConfiguration
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EFS.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.EFS.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutLifecycleConfiguration' smart constructor.
 data PutLifecycleConfiguration = PutLifecycleConfiguration'

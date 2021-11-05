@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.EFS
+-- Module      : Amazonka.EFS
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -22,7 +22,7 @@
 -- <https://docs.aws.amazon.com/efs/latest/ug/api-reference.html Amazon Elastic File System API Reference>
 -- and the
 -- <https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html Amazon Elastic File System User Guide>.
-module Network.AWS.EFS
+module Amazonka.EFS
   ( -- * Service Configuration
     defaultService,
 
@@ -347,33 +347,33 @@ module Network.AWS.EFS
   )
 where
 
-import Network.AWS.EFS.CreateAccessPoint
-import Network.AWS.EFS.CreateFileSystem
-import Network.AWS.EFS.CreateMountTarget
-import Network.AWS.EFS.DeleteAccessPoint
-import Network.AWS.EFS.DeleteFileSystem
-import Network.AWS.EFS.DeleteFileSystemPolicy
-import Network.AWS.EFS.DeleteMountTarget
-import Network.AWS.EFS.DescribeAccessPoints
-import Network.AWS.EFS.DescribeAccountPreferences
-import Network.AWS.EFS.DescribeBackupPolicy
-import Network.AWS.EFS.DescribeFileSystemPolicy
-import Network.AWS.EFS.DescribeFileSystems
-import Network.AWS.EFS.DescribeLifecycleConfiguration
-import Network.AWS.EFS.DescribeMountTargetSecurityGroups
-import Network.AWS.EFS.DescribeMountTargets
-import Network.AWS.EFS.Lens
-import Network.AWS.EFS.ListTagsForResource
-import Network.AWS.EFS.ModifyMountTargetSecurityGroups
-import Network.AWS.EFS.PutAccountPreferences
-import Network.AWS.EFS.PutBackupPolicy
-import Network.AWS.EFS.PutFileSystemPolicy
-import Network.AWS.EFS.PutLifecycleConfiguration
-import Network.AWS.EFS.TagResource
-import Network.AWS.EFS.Types
-import Network.AWS.EFS.UntagResource
-import Network.AWS.EFS.UpdateFileSystem
-import Network.AWS.EFS.Waiters
+import Amazonka.EFS.CreateAccessPoint
+import Amazonka.EFS.CreateFileSystem
+import Amazonka.EFS.CreateMountTarget
+import Amazonka.EFS.DeleteAccessPoint
+import Amazonka.EFS.DeleteFileSystem
+import Amazonka.EFS.DeleteFileSystemPolicy
+import Amazonka.EFS.DeleteMountTarget
+import Amazonka.EFS.DescribeAccessPoints
+import Amazonka.EFS.DescribeAccountPreferences
+import Amazonka.EFS.DescribeBackupPolicy
+import Amazonka.EFS.DescribeFileSystemPolicy
+import Amazonka.EFS.DescribeFileSystems
+import Amazonka.EFS.DescribeLifecycleConfiguration
+import Amazonka.EFS.DescribeMountTargetSecurityGroups
+import Amazonka.EFS.DescribeMountTargets
+import Amazonka.EFS.Lens
+import Amazonka.EFS.ListTagsForResource
+import Amazonka.EFS.ModifyMountTargetSecurityGroups
+import Amazonka.EFS.PutAccountPreferences
+import Amazonka.EFS.PutBackupPolicy
+import Amazonka.EFS.PutFileSystemPolicy
+import Amazonka.EFS.PutLifecycleConfiguration
+import Amazonka.EFS.TagResource
+import Amazonka.EFS.Types
+import Amazonka.EFS.UntagResource
+import Amazonka.EFS.UpdateFileSystem
+import Amazonka.EFS.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

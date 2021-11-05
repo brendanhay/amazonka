@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EFS.CreateFileSystem
+-- Module      : Amazonka.EFS.CreateFileSystem
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -78,7 +78,7 @@
 --
 -- This operation requires permissions for the
 -- @elasticfilesystem:CreateFileSystem@ action.
-module Network.AWS.EFS.CreateFileSystem
+module Amazonka.EFS.CreateFileSystem
   ( -- * Creating a Request
     CreateFileSystem (..),
     newCreateFileSystem,
@@ -119,12 +119,12 @@ module Network.AWS.EFS.CreateFileSystem
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EFS.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.EFS.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateFileSystem' smart constructor.
 data CreateFileSystem = CreateFileSystem'

@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EFS.Types.ResourceIdType
+-- Module      : Amazonka.EFS.Types.ResourceIdType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EFS.Types.ResourceIdType
+module Amazonka.EFS.Types.ResourceIdType
   ( ResourceIdType
       ( ..,
         ResourceIdType_LONG_ID,
@@ -26,8 +26,8 @@ module Network.AWS.EFS.Types.ResourceIdType
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | A preference indicating a choice to use 63bit\/32bit IDs for all
 -- applicable resources.

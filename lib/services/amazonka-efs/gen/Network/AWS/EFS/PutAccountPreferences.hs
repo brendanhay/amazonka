@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EFS.PutAccountPreferences
+-- Module      : Amazonka.EFS.PutAccountPreferences
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -32,7 +32,7 @@
 -- the account preference to use the short 8 character format resource ID.
 -- Contact Amazon Web Services support if you receive an error and need to
 -- use short IDs for file system and mount target resources.
-module Network.AWS.EFS.PutAccountPreferences
+module Amazonka.EFS.PutAccountPreferences
   ( -- * Creating a Request
     PutAccountPreferences (..),
     newPutAccountPreferences,
@@ -50,12 +50,12 @@ module Network.AWS.EFS.PutAccountPreferences
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EFS.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.EFS.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutAccountPreferences' smart constructor.
 data PutAccountPreferences = PutAccountPreferences'

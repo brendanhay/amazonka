@@ -11,21 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EFS.Types.AccessPointDescription
+-- Module      : Amazonka.EFS.Types.AccessPointDescription
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EFS.Types.AccessPointDescription where
+module Amazonka.EFS.Types.AccessPointDescription where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EFS.Types.LifeCycleState
-import Network.AWS.EFS.Types.PosixUser
-import Network.AWS.EFS.Types.RootDirectory
-import Network.AWS.EFS.Types.Tag
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.EFS.Types.LifeCycleState
+import Amazonka.EFS.Types.PosixUser
+import Amazonka.EFS.Types.RootDirectory
+import Amazonka.EFS.Types.Tag
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a description of an EFS file system access point.
 --

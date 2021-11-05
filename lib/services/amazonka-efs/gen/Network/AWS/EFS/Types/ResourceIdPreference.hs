@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EFS.Types.ResourceIdPreference
+-- Module      : Amazonka.EFS.Types.ResourceIdPreference
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EFS.Types.ResourceIdPreference where
+module Amazonka.EFS.Types.ResourceIdPreference where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EFS.Types.Resource
-import Network.AWS.EFS.Types.ResourceIdType
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.EFS.Types.Resource
+import Amazonka.EFS.Types.ResourceIdType
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the resource type and its ID preference for the user\'s Amazon
 -- Web Services account, in the current Amazon Web Services Region.

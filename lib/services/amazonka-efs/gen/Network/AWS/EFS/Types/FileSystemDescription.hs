@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EFS.Types.FileSystemDescription
+-- Module      : Amazonka.EFS.Types.FileSystemDescription
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EFS.Types.FileSystemDescription where
+module Amazonka.EFS.Types.FileSystemDescription where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EFS.Types.FileSystemSize
-import Network.AWS.EFS.Types.LifeCycleState
-import Network.AWS.EFS.Types.PerformanceMode
-import Network.AWS.EFS.Types.Tag
-import Network.AWS.EFS.Types.ThroughputMode
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.EFS.Types.FileSystemSize
+import Amazonka.EFS.Types.LifeCycleState
+import Amazonka.EFS.Types.PerformanceMode
+import Amazonka.EFS.Types.Tag
+import Amazonka.EFS.Types.ThroughputMode
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | A description of the file system.
 --

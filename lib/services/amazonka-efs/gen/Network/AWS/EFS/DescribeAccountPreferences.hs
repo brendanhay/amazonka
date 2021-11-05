@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EFS.DescribeAccountPreferences
+-- Module      : Amazonka.EFS.DescribeAccountPreferences
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- account associated with the user making the request, in the current
 -- Amazon Web Services Region. For more information, see
 -- <efs/latest/ug/manage-efs-resource-ids.html Managing Amazon EFS resource IDs>.
-module Network.AWS.EFS.DescribeAccountPreferences
+module Amazonka.EFS.DescribeAccountPreferences
   ( -- * Creating a Request
     DescribeAccountPreferences (..),
     newDescribeAccountPreferences,
@@ -44,12 +44,12 @@ module Network.AWS.EFS.DescribeAccountPreferences
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EFS.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.EFS.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeAccountPreferences' smart constructor.
 data DescribeAccountPreferences = DescribeAccountPreferences'

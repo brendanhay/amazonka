@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EFS.Lens
+-- Module      : Amazonka.EFS.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EFS.Lens
+module Amazonka.EFS.Lens
   ( -- * Operations
 
     -- ** CreateAccessPoint
@@ -298,41 +298,41 @@ module Network.AWS.EFS.Lens
   )
 where
 
-import Network.AWS.EFS.CreateAccessPoint
-import Network.AWS.EFS.CreateFileSystem
-import Network.AWS.EFS.CreateMountTarget
-import Network.AWS.EFS.DeleteAccessPoint
-import Network.AWS.EFS.DeleteFileSystem
-import Network.AWS.EFS.DeleteFileSystemPolicy
-import Network.AWS.EFS.DeleteMountTarget
-import Network.AWS.EFS.DescribeAccessPoints
-import Network.AWS.EFS.DescribeAccountPreferences
-import Network.AWS.EFS.DescribeBackupPolicy
-import Network.AWS.EFS.DescribeFileSystemPolicy
-import Network.AWS.EFS.DescribeFileSystems
-import Network.AWS.EFS.DescribeLifecycleConfiguration
-import Network.AWS.EFS.DescribeMountTargetSecurityGroups
-import Network.AWS.EFS.DescribeMountTargets
-import Network.AWS.EFS.ListTagsForResource
-import Network.AWS.EFS.ModifyMountTargetSecurityGroups
-import Network.AWS.EFS.PutAccountPreferences
-import Network.AWS.EFS.PutBackupPolicy
-import Network.AWS.EFS.PutFileSystemPolicy
-import Network.AWS.EFS.PutLifecycleConfiguration
-import Network.AWS.EFS.TagResource
-import Network.AWS.EFS.Types.AccessPointDescription
-import Network.AWS.EFS.Types.BackupPolicy
-import Network.AWS.EFS.Types.BackupPolicyDescription
-import Network.AWS.EFS.Types.CreationInfo
-import Network.AWS.EFS.Types.FileSystemDescription
-import Network.AWS.EFS.Types.FileSystemPolicyDescription
-import Network.AWS.EFS.Types.FileSystemSize
-import Network.AWS.EFS.Types.LifecycleConfigurationDescription
-import Network.AWS.EFS.Types.LifecyclePolicy
-import Network.AWS.EFS.Types.MountTargetDescription
-import Network.AWS.EFS.Types.PosixUser
-import Network.AWS.EFS.Types.ResourceIdPreference
-import Network.AWS.EFS.Types.RootDirectory
-import Network.AWS.EFS.Types.Tag
-import Network.AWS.EFS.UntagResource
-import Network.AWS.EFS.UpdateFileSystem
+import Amazonka.EFS.CreateAccessPoint
+import Amazonka.EFS.CreateFileSystem
+import Amazonka.EFS.CreateMountTarget
+import Amazonka.EFS.DeleteAccessPoint
+import Amazonka.EFS.DeleteFileSystem
+import Amazonka.EFS.DeleteFileSystemPolicy
+import Amazonka.EFS.DeleteMountTarget
+import Amazonka.EFS.DescribeAccessPoints
+import Amazonka.EFS.DescribeAccountPreferences
+import Amazonka.EFS.DescribeBackupPolicy
+import Amazonka.EFS.DescribeFileSystemPolicy
+import Amazonka.EFS.DescribeFileSystems
+import Amazonka.EFS.DescribeLifecycleConfiguration
+import Amazonka.EFS.DescribeMountTargetSecurityGroups
+import Amazonka.EFS.DescribeMountTargets
+import Amazonka.EFS.ListTagsForResource
+import Amazonka.EFS.ModifyMountTargetSecurityGroups
+import Amazonka.EFS.PutAccountPreferences
+import Amazonka.EFS.PutBackupPolicy
+import Amazonka.EFS.PutFileSystemPolicy
+import Amazonka.EFS.PutLifecycleConfiguration
+import Amazonka.EFS.TagResource
+import Amazonka.EFS.Types.AccessPointDescription
+import Amazonka.EFS.Types.BackupPolicy
+import Amazonka.EFS.Types.BackupPolicyDescription
+import Amazonka.EFS.Types.CreationInfo
+import Amazonka.EFS.Types.FileSystemDescription
+import Amazonka.EFS.Types.FileSystemPolicyDescription
+import Amazonka.EFS.Types.FileSystemSize
+import Amazonka.EFS.Types.LifecycleConfigurationDescription
+import Amazonka.EFS.Types.LifecyclePolicy
+import Amazonka.EFS.Types.MountTargetDescription
+import Amazonka.EFS.Types.PosixUser
+import Amazonka.EFS.Types.ResourceIdPreference
+import Amazonka.EFS.Types.RootDirectory
+import Amazonka.EFS.Types.Tag
+import Amazonka.EFS.UntagResource
+import Amazonka.EFS.UpdateFileSystem

@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EFS.Types
+-- Module      : Amazonka.EFS.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EFS.Types
+module Amazonka.EFS.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -188,32 +188,32 @@ module Network.AWS.EFS.Types
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EFS.Types.AccessPointDescription
-import Network.AWS.EFS.Types.BackupPolicy
-import Network.AWS.EFS.Types.BackupPolicyDescription
-import Network.AWS.EFS.Types.BackupStatus
-import Network.AWS.EFS.Types.CreationInfo
-import Network.AWS.EFS.Types.FileSystemDescription
-import Network.AWS.EFS.Types.FileSystemPolicyDescription
-import Network.AWS.EFS.Types.FileSystemSize
-import Network.AWS.EFS.Types.LifeCycleState
-import Network.AWS.EFS.Types.LifecycleConfigurationDescription
-import Network.AWS.EFS.Types.LifecyclePolicy
-import Network.AWS.EFS.Types.MountTargetDescription
-import Network.AWS.EFS.Types.PerformanceMode
-import Network.AWS.EFS.Types.PosixUser
-import Network.AWS.EFS.Types.Resource
-import Network.AWS.EFS.Types.ResourceIdPreference
-import Network.AWS.EFS.Types.ResourceIdType
-import Network.AWS.EFS.Types.RootDirectory
-import Network.AWS.EFS.Types.Tag
-import Network.AWS.EFS.Types.ThroughputMode
-import Network.AWS.EFS.Types.TransitionToIARules
-import Network.AWS.EFS.Types.TransitionToPrimaryStorageClassRules
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import qualified Amazonka.Core as Core
+import Amazonka.EFS.Types.AccessPointDescription
+import Amazonka.EFS.Types.BackupPolicy
+import Amazonka.EFS.Types.BackupPolicyDescription
+import Amazonka.EFS.Types.BackupStatus
+import Amazonka.EFS.Types.CreationInfo
+import Amazonka.EFS.Types.FileSystemDescription
+import Amazonka.EFS.Types.FileSystemPolicyDescription
+import Amazonka.EFS.Types.FileSystemSize
+import Amazonka.EFS.Types.LifeCycleState
+import Amazonka.EFS.Types.LifecycleConfigurationDescription
+import Amazonka.EFS.Types.LifecyclePolicy
+import Amazonka.EFS.Types.MountTargetDescription
+import Amazonka.EFS.Types.PerformanceMode
+import Amazonka.EFS.Types.PosixUser
+import Amazonka.EFS.Types.Resource
+import Amazonka.EFS.Types.ResourceIdPreference
+import Amazonka.EFS.Types.ResourceIdType
+import Amazonka.EFS.Types.RootDirectory
+import Amazonka.EFS.Types.Tag
+import Amazonka.EFS.Types.ThroughputMode
+import Amazonka.EFS.Types.TransitionToIARules
+import Amazonka.EFS.Types.TransitionToPrimaryStorageClassRules
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2015-02-01@ of the Amazon Elastic File System SDK configuration.
 defaultService :: Core.Service

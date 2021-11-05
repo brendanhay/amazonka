@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EFS.Types.BackupPolicy
+-- Module      : Amazonka.EFS.Types.BackupPolicy
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EFS.Types.BackupPolicy where
+module Amazonka.EFS.Types.BackupPolicy where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.EFS.Types.BackupStatus
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.EFS.Types.BackupStatus
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The backup policy for the file system used to create automatic daily
 -- backups. If status has a value of @ENABLED@, the file system is being

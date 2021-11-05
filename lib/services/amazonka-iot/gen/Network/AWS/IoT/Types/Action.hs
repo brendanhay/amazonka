@@ -11,39 +11,39 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoT.Types.Action
+-- Module      : Amazonka.IoT.Types.Action
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.Action where
+module Amazonka.IoT.Types.Action where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoT.Types.CloudwatchAlarmAction
-import Network.AWS.IoT.Types.CloudwatchLogsAction
-import Network.AWS.IoT.Types.CloudwatchMetricAction
-import Network.AWS.IoT.Types.DynamoDBAction
-import Network.AWS.IoT.Types.DynamoDBv2Action
-import Network.AWS.IoT.Types.ElasticsearchAction
-import Network.AWS.IoT.Types.FirehoseAction
-import Network.AWS.IoT.Types.HttpAction
-import Network.AWS.IoT.Types.IotAnalyticsAction
-import Network.AWS.IoT.Types.IotEventsAction
-import Network.AWS.IoT.Types.IotSiteWiseAction
-import Network.AWS.IoT.Types.KafkaAction
-import Network.AWS.IoT.Types.KinesisAction
-import Network.AWS.IoT.Types.LambdaAction
-import Network.AWS.IoT.Types.OpenSearchAction
-import Network.AWS.IoT.Types.RepublishAction
-import Network.AWS.IoT.Types.S3Action
-import Network.AWS.IoT.Types.SalesforceAction
-import Network.AWS.IoT.Types.SnsAction
-import Network.AWS.IoT.Types.SqsAction
-import Network.AWS.IoT.Types.StepFunctionsAction
-import Network.AWS.IoT.Types.TimestreamAction
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IoT.Types.CloudwatchAlarmAction
+import Amazonka.IoT.Types.CloudwatchLogsAction
+import Amazonka.IoT.Types.CloudwatchMetricAction
+import Amazonka.IoT.Types.DynamoDBAction
+import Amazonka.IoT.Types.DynamoDBv2Action
+import Amazonka.IoT.Types.ElasticsearchAction
+import Amazonka.IoT.Types.FirehoseAction
+import Amazonka.IoT.Types.HttpAction
+import Amazonka.IoT.Types.IotAnalyticsAction
+import Amazonka.IoT.Types.IotEventsAction
+import Amazonka.IoT.Types.IotSiteWiseAction
+import Amazonka.IoT.Types.KafkaAction
+import Amazonka.IoT.Types.KinesisAction
+import Amazonka.IoT.Types.LambdaAction
+import Amazonka.IoT.Types.OpenSearchAction
+import Amazonka.IoT.Types.RepublishAction
+import Amazonka.IoT.Types.S3Action
+import Amazonka.IoT.Types.SalesforceAction
+import Amazonka.IoT.Types.SnsAction
+import Amazonka.IoT.Types.SqsAction
+import Amazonka.IoT.Types.StepFunctionsAction
+import Amazonka.IoT.Types.TimestreamAction
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the actions associated with a rule.
 --

@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoT.Types.TimestreamAction
+-- Module      : Amazonka.IoT.Types.TimestreamAction
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.TimestreamAction where
+module Amazonka.IoT.Types.TimestreamAction where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoT.Types.TimestreamDimension
-import Network.AWS.IoT.Types.TimestreamTimestamp
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IoT.Types.TimestreamDimension
+import Amazonka.IoT.Types.TimestreamTimestamp
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The Timestream rule action writes attributes (measures) from an MQTT
 -- message into an Amazon Timestream table. For more information, see the

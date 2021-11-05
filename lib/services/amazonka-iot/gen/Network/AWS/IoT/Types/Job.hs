@@ -11,24 +11,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoT.Types.Job
+-- Module      : Amazonka.IoT.Types.Job
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.Job where
+module Amazonka.IoT.Types.Job where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoT.Types.AbortConfig
-import Network.AWS.IoT.Types.JobExecutionsRolloutConfig
-import Network.AWS.IoT.Types.JobProcessDetails
-import Network.AWS.IoT.Types.JobStatus
-import Network.AWS.IoT.Types.PresignedUrlConfig
-import Network.AWS.IoT.Types.TargetSelection
-import Network.AWS.IoT.Types.TimeoutConfig
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IoT.Types.AbortConfig
+import Amazonka.IoT.Types.JobExecutionsRolloutConfig
+import Amazonka.IoT.Types.JobProcessDetails
+import Amazonka.IoT.Types.JobStatus
+import Amazonka.IoT.Types.PresignedUrlConfig
+import Amazonka.IoT.Types.TargetSelection
+import Amazonka.IoT.Types.TimeoutConfig
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The @Job@ object contains details about a job.
 --

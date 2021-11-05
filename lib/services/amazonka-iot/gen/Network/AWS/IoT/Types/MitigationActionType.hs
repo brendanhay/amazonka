@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoT.Types.MitigationActionType
+-- Module      : Amazonka.IoT.Types.MitigationActionType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.MitigationActionType
+module Amazonka.IoT.Types.MitigationActionType
   ( MitigationActionType
       ( ..,
         MitigationActionType_ADD_THINGS_TO_THING_GROUP,
@@ -30,8 +30,8 @@ module Network.AWS.IoT.Types.MitigationActionType
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 newtype MitigationActionType = MitigationActionType'
   { fromMitigationActionType ::

@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoT.Types.HttpAction
+-- Module      : Amazonka.IoT.Types.HttpAction
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.HttpAction where
+module Amazonka.IoT.Types.HttpAction where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoT.Types.HttpActionHeader
-import Network.AWS.IoT.Types.HttpAuthorization
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IoT.Types.HttpActionHeader
+import Amazonka.IoT.Types.HttpAuthorization
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Send data to an HTTPS endpoint.
 --

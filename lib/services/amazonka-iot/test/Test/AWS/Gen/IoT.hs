@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.IoT where
 
+import Amazonka.IoT
 import qualified Data.Proxy as Proxy
-import Network.AWS.IoT
 import Test.AWS.Fixture
 import Test.AWS.IoT.Internal
 import Test.AWS.Prelude

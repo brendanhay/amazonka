@@ -11,22 +11,22 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary
+-- Module      : Amazonka.IoT.Types.DetectMitigationActionsTaskSummary
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary where
+module Amazonka.IoT.Types.DetectMitigationActionsTaskSummary where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoT.Types.DetectMitigationActionsTaskStatistics
-import Network.AWS.IoT.Types.DetectMitigationActionsTaskStatus
-import Network.AWS.IoT.Types.DetectMitigationActionsTaskTarget
-import Network.AWS.IoT.Types.MitigationAction
-import Network.AWS.IoT.Types.ViolationEventOccurrenceRange
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IoT.Types.DetectMitigationActionsTaskStatistics
+import Amazonka.IoT.Types.DetectMitigationActionsTaskStatus
+import Amazonka.IoT.Types.DetectMitigationActionsTaskTarget
+import Amazonka.IoT.Types.MitigationAction
+import Amazonka.IoT.Types.ViolationEventOccurrenceRange
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The summary of the mitigation action tasks.
 --

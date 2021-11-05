@@ -11,24 +11,24 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoT.Types.OTAUpdateInfo
+-- Module      : Amazonka.IoT.Types.OTAUpdateInfo
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.OTAUpdateInfo where
+module Amazonka.IoT.Types.OTAUpdateInfo where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoT.Types.AwsJobExecutionsRolloutConfig
-import Network.AWS.IoT.Types.AwsJobPresignedUrlConfig
-import Network.AWS.IoT.Types.ErrorInfo
-import Network.AWS.IoT.Types.OTAUpdateFile
-import Network.AWS.IoT.Types.OTAUpdateStatus
-import Network.AWS.IoT.Types.Protocol
-import Network.AWS.IoT.Types.TargetSelection
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IoT.Types.AwsJobExecutionsRolloutConfig
+import Amazonka.IoT.Types.AwsJobPresignedUrlConfig
+import Amazonka.IoT.Types.ErrorInfo
+import Amazonka.IoT.Types.OTAUpdateFile
+import Amazonka.IoT.Types.OTAUpdateStatus
+import Amazonka.IoT.Types.Protocol
+import Amazonka.IoT.Types.TargetSelection
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an OTA update.
 --

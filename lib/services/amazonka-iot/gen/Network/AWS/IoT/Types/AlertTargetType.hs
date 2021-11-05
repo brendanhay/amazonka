@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoT.Types.AlertTargetType
+-- Module      : Amazonka.IoT.Types.AlertTargetType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.AlertTargetType
+module Amazonka.IoT.Types.AlertTargetType
   ( AlertTargetType
       ( ..,
         AlertTargetType_SNS
@@ -25,8 +25,8 @@ module Network.AWS.IoT.Types.AlertTargetType
   )
 where
 
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
 
 -- | The type of alert target: one of \"SNS\".
 newtype AlertTargetType = AlertTargetType'

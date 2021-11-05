@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoT.SetLoggingOptions
+-- Module      : Amazonka.IoT.SetLoggingOptions
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -28,7 +28,7 @@
 -- Requires permission to access the
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions SetLoggingOptions>
 -- action.
-module Network.AWS.IoT.SetLoggingOptions
+module Amazonka.IoT.SetLoggingOptions
   ( -- * Creating a Request
     SetLoggingOptions (..),
     newSetLoggingOptions,
@@ -42,12 +42,12 @@ module Network.AWS.IoT.SetLoggingOptions
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoT.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IoT.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | The input for the SetLoggingOptions operation.
 --

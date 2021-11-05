@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoT.DeleteCustomMetric
+-- Module      : Amazonka.IoT.DeleteCustomMetric
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -31,7 +31,7 @@
 -- associated with the custom metric can be found using the
 -- <https://docs.aws.amazon.com/iot/latest/apireference/API_ListSecurityProfiles.html ListSecurityProfiles>
 -- API with @metricName@ set to your custom metric name.
-module Network.AWS.IoT.DeleteCustomMetric
+module Amazonka.IoT.DeleteCustomMetric
   ( -- * Creating a Request
     DeleteCustomMetric (..),
     newDeleteCustomMetric,
@@ -48,12 +48,12 @@ module Network.AWS.IoT.DeleteCustomMetric
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoT.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IoT.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteCustomMetric' smart constructor.
 data DeleteCustomMetric = DeleteCustomMetric'

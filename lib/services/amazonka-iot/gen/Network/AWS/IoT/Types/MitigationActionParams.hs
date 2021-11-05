@@ -11,23 +11,23 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoT.Types.MitigationActionParams
+-- Module      : Amazonka.IoT.Types.MitigationActionParams
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.MitigationActionParams where
+module Amazonka.IoT.Types.MitigationActionParams where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoT.Types.AddThingsToThingGroupParams
-import Network.AWS.IoT.Types.EnableIoTLoggingParams
-import Network.AWS.IoT.Types.PublishFindingToSnsParams
-import Network.AWS.IoT.Types.ReplaceDefaultPolicyVersionParams
-import Network.AWS.IoT.Types.UpdateCACertificateParams
-import Network.AWS.IoT.Types.UpdateDeviceCertificateParams
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IoT.Types.AddThingsToThingGroupParams
+import Amazonka.IoT.Types.EnableIoTLoggingParams
+import Amazonka.IoT.Types.PublishFindingToSnsParams
+import Amazonka.IoT.Types.ReplaceDefaultPolicyVersionParams
+import Amazonka.IoT.Types.UpdateCACertificateParams
+import Amazonka.IoT.Types.UpdateDeviceCertificateParams
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | The set of parameters for this mitigation action. You can specify only
 -- one type of parameter (in other words, you can apply only one action for

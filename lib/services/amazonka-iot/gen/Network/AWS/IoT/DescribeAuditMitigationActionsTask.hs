@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoT.DescribeAuditMitigationActionsTask
+-- Module      : Amazonka.IoT.DescribeAuditMitigationActionsTask
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- mitigation actions to a set of audit findings. Properties include the
 -- actions being applied, the audit checks to which they\'re being applied,
 -- the task status, and aggregated task statistics.
-module Network.AWS.IoT.DescribeAuditMitigationActionsTask
+module Amazonka.IoT.DescribeAuditMitigationActionsTask
   ( -- * Creating a Request
     DescribeAuditMitigationActionsTask (..),
     newDescribeAuditMitigationActionsTask,
@@ -48,12 +48,12 @@ module Network.AWS.IoT.DescribeAuditMitigationActionsTask
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoT.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IoT.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeAuditMitigationActionsTask' smart constructor.
 data DescribeAuditMitigationActionsTask = DescribeAuditMitigationActionsTask'

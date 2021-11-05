@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoT.TransferCertificate
+-- Module      : Amazonka.IoT.TransferCertificate
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -37,7 +37,7 @@
 --
 -- The certificate must not have any policies attached to it. You can use
 -- the DetachPolicy action to detach them.
-module Network.AWS.IoT.TransferCertificate
+module Amazonka.IoT.TransferCertificate
   ( -- * Creating a Request
     TransferCertificate (..),
     newTransferCertificate,
@@ -57,12 +57,12 @@ module Network.AWS.IoT.TransferCertificate
   )
 where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoT.Types
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import qualified Amazonka.Core as Core
+import Amazonka.IoT.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | The input for the TransferCertificate operation.
 --

@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IoT.Types.CustomCodeSigning
+-- Module      : Amazonka.IoT.Types.CustomCodeSigning
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.CustomCodeSigning where
+module Amazonka.IoT.Types.CustomCodeSigning where
 
-import qualified Network.AWS.Core as Core
-import Network.AWS.IoT.Types.CodeSigningCertificateChain
-import Network.AWS.IoT.Types.CodeSigningSignature
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
+import qualified Amazonka.Core as Core
+import Amazonka.IoT.Types.CodeSigningCertificateChain
+import Amazonka.IoT.Types.CodeSigningSignature
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a custom method used to code sign a file.
 --

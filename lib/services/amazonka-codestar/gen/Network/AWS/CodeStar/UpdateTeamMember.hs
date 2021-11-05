@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeStar.UpdateTeamMember
+-- Module      : Amazonka.CodeStar.UpdateTeamMember
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Updates a team member\'s attributes in an AWS CodeStar project. For
 -- example, you can change a team member\'s role in the project, or change
 -- whether they have remote access to project resources.
-module Network.AWS.CodeStar.UpdateTeamMember
+module Amazonka.CodeStar.UpdateTeamMember
   ( -- * Creating a Request
     UpdateTeamMember (..),
     newUpdateTeamMember,
@@ -46,12 +46,12 @@ module Network.AWS.CodeStar.UpdateTeamMember
   )
 where
 
-import Network.AWS.CodeStar.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CodeStar.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateTeamMember' smart constructor.
 data UpdateTeamMember = UpdateTeamMember'

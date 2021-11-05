@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeStar.Lens
+-- Module      : Amazonka.CodeStar.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeStar.Lens
+module Amazonka.CodeStar.Lens
   ( -- * Operations
 
     -- ** ListProjects
@@ -230,34 +230,34 @@ module Network.AWS.CodeStar.Lens
   )
 where
 
-import Network.AWS.CodeStar.AssociateTeamMember
-import Network.AWS.CodeStar.CreateProject
-import Network.AWS.CodeStar.CreateUserProfile
-import Network.AWS.CodeStar.DeleteProject
-import Network.AWS.CodeStar.DeleteUserProfile
-import Network.AWS.CodeStar.DescribeProject
-import Network.AWS.CodeStar.DescribeUserProfile
-import Network.AWS.CodeStar.DisassociateTeamMember
-import Network.AWS.CodeStar.ListProjects
-import Network.AWS.CodeStar.ListResources
-import Network.AWS.CodeStar.ListTagsForProject
-import Network.AWS.CodeStar.ListTeamMembers
-import Network.AWS.CodeStar.ListUserProfiles
-import Network.AWS.CodeStar.TagProject
-import Network.AWS.CodeStar.Types.Code
-import Network.AWS.CodeStar.Types.CodeCommitCodeDestination
-import Network.AWS.CodeStar.Types.CodeDestination
-import Network.AWS.CodeStar.Types.CodeSource
-import Network.AWS.CodeStar.Types.GitHubCodeDestination
-import Network.AWS.CodeStar.Types.ProjectStatus
-import Network.AWS.CodeStar.Types.ProjectSummary
-import Network.AWS.CodeStar.Types.Resource
-import Network.AWS.CodeStar.Types.S3Location
-import Network.AWS.CodeStar.Types.TeamMember
-import Network.AWS.CodeStar.Types.Toolchain
-import Network.AWS.CodeStar.Types.ToolchainSource
-import Network.AWS.CodeStar.Types.UserProfileSummary
-import Network.AWS.CodeStar.UntagProject
-import Network.AWS.CodeStar.UpdateProject
-import Network.AWS.CodeStar.UpdateTeamMember
-import Network.AWS.CodeStar.UpdateUserProfile
+import Amazonka.CodeStar.AssociateTeamMember
+import Amazonka.CodeStar.CreateProject
+import Amazonka.CodeStar.CreateUserProfile
+import Amazonka.CodeStar.DeleteProject
+import Amazonka.CodeStar.DeleteUserProfile
+import Amazonka.CodeStar.DescribeProject
+import Amazonka.CodeStar.DescribeUserProfile
+import Amazonka.CodeStar.DisassociateTeamMember
+import Amazonka.CodeStar.ListProjects
+import Amazonka.CodeStar.ListResources
+import Amazonka.CodeStar.ListTagsForProject
+import Amazonka.CodeStar.ListTeamMembers
+import Amazonka.CodeStar.ListUserProfiles
+import Amazonka.CodeStar.TagProject
+import Amazonka.CodeStar.Types.Code
+import Amazonka.CodeStar.Types.CodeCommitCodeDestination
+import Amazonka.CodeStar.Types.CodeDestination
+import Amazonka.CodeStar.Types.CodeSource
+import Amazonka.CodeStar.Types.GitHubCodeDestination
+import Amazonka.CodeStar.Types.ProjectStatus
+import Amazonka.CodeStar.Types.ProjectSummary
+import Amazonka.CodeStar.Types.Resource
+import Amazonka.CodeStar.Types.S3Location
+import Amazonka.CodeStar.Types.TeamMember
+import Amazonka.CodeStar.Types.Toolchain
+import Amazonka.CodeStar.Types.ToolchainSource
+import Amazonka.CodeStar.Types.UserProfileSummary
+import Amazonka.CodeStar.UntagProject
+import Amazonka.CodeStar.UpdateProject
+import Amazonka.CodeStar.UpdateTeamMember
+import Amazonka.CodeStar.UpdateUserProfile

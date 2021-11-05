@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.CodeStar.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.CodeStar.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.CodeStar" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.CodeStar" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,43 +45,43 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.CodeStar
-    Network.AWS.CodeStar.AssociateTeamMember
-    Network.AWS.CodeStar.CreateProject
-    Network.AWS.CodeStar.CreateUserProfile
-    Network.AWS.CodeStar.DeleteProject
-    Network.AWS.CodeStar.DeleteUserProfile
-    Network.AWS.CodeStar.DescribeProject
-    Network.AWS.CodeStar.DescribeUserProfile
-    Network.AWS.CodeStar.DisassociateTeamMember
-    Network.AWS.CodeStar.Lens
-    Network.AWS.CodeStar.ListProjects
-    Network.AWS.CodeStar.ListResources
-    Network.AWS.CodeStar.ListTagsForProject
-    Network.AWS.CodeStar.ListTeamMembers
-    Network.AWS.CodeStar.ListUserProfiles
-    Network.AWS.CodeStar.TagProject
-    Network.AWS.CodeStar.Types
-    Network.AWS.CodeStar.Types.Code
-    Network.AWS.CodeStar.Types.CodeCommitCodeDestination
-    Network.AWS.CodeStar.Types.CodeDestination
-    Network.AWS.CodeStar.Types.CodeSource
-    Network.AWS.CodeStar.Types.GitHubCodeDestination
-    Network.AWS.CodeStar.Types.ProjectStatus
-    Network.AWS.CodeStar.Types.ProjectSummary
-    Network.AWS.CodeStar.Types.Resource
-    Network.AWS.CodeStar.Types.S3Location
-    Network.AWS.CodeStar.Types.TeamMember
-    Network.AWS.CodeStar.Types.Toolchain
-    Network.AWS.CodeStar.Types.ToolchainSource
-    Network.AWS.CodeStar.Types.UserProfileSummary
-    Network.AWS.CodeStar.UntagProject
-    Network.AWS.CodeStar.UpdateProject
-    Network.AWS.CodeStar.UpdateTeamMember
-    Network.AWS.CodeStar.UpdateUserProfile
-    Network.AWS.CodeStar.Waiters
+    Amazonka.CodeStar
+    Amazonka.CodeStar.AssociateTeamMember
+    Amazonka.CodeStar.CreateProject
+    Amazonka.CodeStar.CreateUserProfile
+    Amazonka.CodeStar.DeleteProject
+    Amazonka.CodeStar.DeleteUserProfile
+    Amazonka.CodeStar.DescribeProject
+    Amazonka.CodeStar.DescribeUserProfile
+    Amazonka.CodeStar.DisassociateTeamMember
+    Amazonka.CodeStar.Lens
+    Amazonka.CodeStar.ListProjects
+    Amazonka.CodeStar.ListResources
+    Amazonka.CodeStar.ListTagsForProject
+    Amazonka.CodeStar.ListTeamMembers
+    Amazonka.CodeStar.ListUserProfiles
+    Amazonka.CodeStar.TagProject
+    Amazonka.CodeStar.Types
+    Amazonka.CodeStar.Types.Code
+    Amazonka.CodeStar.Types.CodeCommitCodeDestination
+    Amazonka.CodeStar.Types.CodeDestination
+    Amazonka.CodeStar.Types.CodeSource
+    Amazonka.CodeStar.Types.GitHubCodeDestination
+    Amazonka.CodeStar.Types.ProjectStatus
+    Amazonka.CodeStar.Types.ProjectSummary
+    Amazonka.CodeStar.Types.Resource
+    Amazonka.CodeStar.Types.S3Location
+    Amazonka.CodeStar.Types.TeamMember
+    Amazonka.CodeStar.Types.Toolchain
+    Amazonka.CodeStar.Types.ToolchainSource
+    Amazonka.CodeStar.Types.UserProfileSummary
+    Amazonka.CodeStar.UntagProject
+    Amazonka.CodeStar.UpdateProject
+    Amazonka.CodeStar.UpdateTeamMember
+    Amazonka.CodeStar.UpdateUserProfile
+    Amazonka.CodeStar.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5

@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeStar.Types
+-- Module      : Amazonka.CodeStar.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeStar.Types
+module Amazonka.CodeStar.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -116,23 +116,23 @@ module Network.AWS.CodeStar.Types
   )
 where
 
-import Network.AWS.CodeStar.Types.Code
-import Network.AWS.CodeStar.Types.CodeCommitCodeDestination
-import Network.AWS.CodeStar.Types.CodeDestination
-import Network.AWS.CodeStar.Types.CodeSource
-import Network.AWS.CodeStar.Types.GitHubCodeDestination
-import Network.AWS.CodeStar.Types.ProjectStatus
-import Network.AWS.CodeStar.Types.ProjectSummary
-import Network.AWS.CodeStar.Types.Resource
-import Network.AWS.CodeStar.Types.S3Location
-import Network.AWS.CodeStar.Types.TeamMember
-import Network.AWS.CodeStar.Types.Toolchain
-import Network.AWS.CodeStar.Types.ToolchainSource
-import Network.AWS.CodeStar.Types.UserProfileSummary
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.CodeStar.Types.Code
+import Amazonka.CodeStar.Types.CodeCommitCodeDestination
+import Amazonka.CodeStar.Types.CodeDestination
+import Amazonka.CodeStar.Types.CodeSource
+import Amazonka.CodeStar.Types.GitHubCodeDestination
+import Amazonka.CodeStar.Types.ProjectStatus
+import Amazonka.CodeStar.Types.ProjectSummary
+import Amazonka.CodeStar.Types.Resource
+import Amazonka.CodeStar.Types.S3Location
+import Amazonka.CodeStar.Types.TeamMember
+import Amazonka.CodeStar.Types.Toolchain
+import Amazonka.CodeStar.Types.ToolchainSource
+import Amazonka.CodeStar.Types.UserProfileSummary
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2017-04-19@ of the Amazon CodeStar SDK configuration.
 defaultService :: Core.Service

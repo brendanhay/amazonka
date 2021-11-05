@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeStar.UpdateUserProfile
+-- Module      : Amazonka.CodeStar.UpdateUserProfile
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -23,7 +23,7 @@
 -- Updates a user\'s profile in AWS CodeStar. The user profile is not
 -- project-specific. Information in the user profile is displayed wherever
 -- the user\'s information appears to other users in AWS CodeStar.
-module Network.AWS.CodeStar.UpdateUserProfile
+module Amazonka.CodeStar.UpdateUserProfile
   ( -- * Creating a Request
     UpdateUserProfile (..),
     newUpdateUserProfile,
@@ -49,12 +49,12 @@ module Network.AWS.CodeStar.UpdateUserProfile
   )
 where
 
-import Network.AWS.CodeStar.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CodeStar.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateUserProfile' smart constructor.
 data UpdateUserProfile = UpdateUserProfile'

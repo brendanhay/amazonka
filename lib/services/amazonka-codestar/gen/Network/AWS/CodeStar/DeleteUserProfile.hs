@@ -13,7 +13,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CodeStar.DeleteUserProfile
+-- Module      : Amazonka.CodeStar.DeleteUserProfile
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -24,7 +24,7 @@
 -- preference data associated with that profile, such as display name and
 -- email address. It does not delete the history of that user, for example
 -- the history of commits made by that user.
-module Network.AWS.CodeStar.DeleteUserProfile
+module Amazonka.CodeStar.DeleteUserProfile
   ( -- * Creating a Request
     DeleteUserProfile (..),
     newDeleteUserProfile,
@@ -42,12 +42,12 @@ module Network.AWS.CodeStar.DeleteUserProfile
   )
 where
 
-import Network.AWS.CodeStar.Types
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
+import Amazonka.CodeStar.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteUserProfile' smart constructor.
 data DeleteUserProfile = DeleteUserProfile'

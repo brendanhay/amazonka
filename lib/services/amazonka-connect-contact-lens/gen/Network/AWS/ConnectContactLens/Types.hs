@@ -6,13 +6,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ConnectContactLens.Types
+-- Module      : Amazonka.ConnectContactLens.Types
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ConnectContactLens.Types
+module Amazonka.ConnectContactLens.Types
   ( -- * Service Configuration
     defaultService,
 
@@ -74,18 +74,18 @@ module Network.AWS.ConnectContactLens.Types
   )
 where
 
-import Network.AWS.ConnectContactLens.Types.Categories
-import Network.AWS.ConnectContactLens.Types.CategoryDetails
-import Network.AWS.ConnectContactLens.Types.CharacterOffsets
-import Network.AWS.ConnectContactLens.Types.IssueDetected
-import Network.AWS.ConnectContactLens.Types.PointOfInterest
-import Network.AWS.ConnectContactLens.Types.RealtimeContactAnalysisSegment
-import Network.AWS.ConnectContactLens.Types.SentimentValue
-import Network.AWS.ConnectContactLens.Types.Transcript
-import qualified Network.AWS.Core as Core
-import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Sign.V4 as Sign
+import Amazonka.ConnectContactLens.Types.Categories
+import Amazonka.ConnectContactLens.Types.CategoryDetails
+import Amazonka.ConnectContactLens.Types.CharacterOffsets
+import Amazonka.ConnectContactLens.Types.IssueDetected
+import Amazonka.ConnectContactLens.Types.PointOfInterest
+import Amazonka.ConnectContactLens.Types.RealtimeContactAnalysisSegment
+import Amazonka.ConnectContactLens.Types.SentimentValue
+import Amazonka.ConnectContactLens.Types.Transcript
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2020-08-21@ of the Amazon Connect Contact Lens SDK configuration.
 defaultService :: Core.Service

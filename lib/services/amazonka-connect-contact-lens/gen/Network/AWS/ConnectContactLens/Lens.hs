@@ -5,13 +5,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ConnectContactLens.Lens
+-- Module      : Amazonka.ConnectContactLens.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ConnectContactLens.Lens
+module Amazonka.ConnectContactLens.Lens
   ( -- * Operations
 
     -- ** ListRealtimeContactAnalysisSegments
@@ -59,11 +59,11 @@ module Network.AWS.ConnectContactLens.Lens
   )
 where
 
-import Network.AWS.ConnectContactLens.ListRealtimeContactAnalysisSegments
-import Network.AWS.ConnectContactLens.Types.Categories
-import Network.AWS.ConnectContactLens.Types.CategoryDetails
-import Network.AWS.ConnectContactLens.Types.CharacterOffsets
-import Network.AWS.ConnectContactLens.Types.IssueDetected
-import Network.AWS.ConnectContactLens.Types.PointOfInterest
-import Network.AWS.ConnectContactLens.Types.RealtimeContactAnalysisSegment
-import Network.AWS.ConnectContactLens.Types.Transcript
+import Amazonka.ConnectContactLens.ListRealtimeContactAnalysisSegments
+import Amazonka.ConnectContactLens.Types.Categories
+import Amazonka.ConnectContactLens.Types.CategoryDetails
+import Amazonka.ConnectContactLens.Types.CharacterOffsets
+import Amazonka.ConnectContactLens.Types.IssueDetected
+import Amazonka.ConnectContactLens.Types.PointOfInterest
+import Amazonka.ConnectContactLens.Types.RealtimeContactAnalysisSegment
+import Amazonka.ConnectContactLens.Types.Transcript

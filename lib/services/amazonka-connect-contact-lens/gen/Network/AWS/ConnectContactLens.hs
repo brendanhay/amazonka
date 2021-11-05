@@ -2,7 +2,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
--- Module      : Network.AWS.ConnectContactLens
+-- Module      : Amazonka.ConnectContactLens
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -21,7 +21,7 @@
 -- analytics of customer-agent conversations. For more information, see
 -- <https://docs.aws.amazon.com/connect/latest/adminguide/analyze-conversations.html Analyze conversations using Contact Lens>
 -- in the /Amazon Connect Administrator Guide/.
-module Network.AWS.ConnectContactLens
+module Amazonka.ConnectContactLens
   ( -- * Service Configuration
     defaultService,
 
@@ -90,10 +90,10 @@ module Network.AWS.ConnectContactLens
   )
 where
 
-import Network.AWS.ConnectContactLens.Lens
-import Network.AWS.ConnectContactLens.ListRealtimeContactAnalysisSegments
-import Network.AWS.ConnectContactLens.Types
-import Network.AWS.ConnectContactLens.Waiters
+import Amazonka.ConnectContactLens.Lens
+import Amazonka.ConnectContactLens.ListRealtimeContactAnalysisSegments
+import Amazonka.ConnectContactLens.Types
+import Amazonka.ConnectContactLens.Waiters
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

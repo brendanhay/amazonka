@@ -12,8 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Gen.ConnectContactLens where
 
+import Amazonka.ConnectContactLens
 import qualified Data.Proxy as Proxy
-import Network.AWS.ConnectContactLens
 import Test.AWS.ConnectContactLens.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
